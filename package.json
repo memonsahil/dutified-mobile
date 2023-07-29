@@ -8,6 +8,8 @@
     "build-dev-ios": "eas build --profile development --platform ios",
     "build-dev-android": "eas build --profile development --platform android",
     "build-dev-all": "eas build --profile development --platform all",
+    "run-build-ios": "eas build:run -p ios",
+    "run-build-android": "eas build:run -p android",
     "start-dev-client": "npx expo start --dev-client"
   },
   "dependencies": {
