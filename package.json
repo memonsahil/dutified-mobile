@@ -8,8 +8,8 @@
     "build-dev-ios": "eas build --profile development --platform ios",
     "build-dev-android": "eas build --profile development --platform android",
     "build-dev-all": "eas build --profile development --platform all",
-    "run-build-ios": "eas build:run -p ios",
-    "run-build-android": "eas build:run -p android",
+    "run-build-ios": "eas build:run --platform ios",
+    "run-build-android": "eas build:run --platform android",
     "start-dev-client": "npx expo start --dev-client"
   },
   "dependencies": {
@@ -41,8 +41,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.22.8",
-    "@types/react": "~18.0.27",
-    "@types/react-native": "0.71.8",
     "@types/uuid": "^9.0.2",
     "expo-build-properties": "^0.6.0",
     "expo-dev-client": "~2.2.1",
