@@ -36,7 +36,7 @@ const HomeScreen = () => {
           </View>
         ) : (
           <>
-            <Text style={styles.subHeading}>Active Projects</Text>
+            <Text style={styles.subHeading}>Projects</Text>
             <ScrollView
               horizontal={true}
               showsHorizontalScrollIndicator={false}
@@ -55,14 +55,14 @@ const HomeScreen = () => {
                     jobs.filter(
                       (job) =>
                         job.projectId === project.projectId &&
-                        job.status === jobStatus.AVAILABLE,
+                        job.status === jobStatus.AVAILABLE
                     ).length
                   }
                   takenJobs={
                     jobs.filter(
                       (job) =>
                         job.projectId === project.projectId &&
-                        job.status === jobStatus.TAKEN,
+                        job.status === jobStatus.TAKEN
                     ).length
                   }
                 />
@@ -70,7 +70,7 @@ const HomeScreen = () => {
             </ScrollView>
             {jobs.length !== 0 ? (
               <>
-                <Text style={styles.subHeading}>Active Jobs</Text>
+                <Text style={styles.subHeading}>Jobs</Text>
                 {jobs.map((job) => (
                   <JobCard
                     key={job.jobId}

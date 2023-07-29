@@ -51,7 +51,7 @@ const ProfileScreen = () => {
           </View>
         ) : (
           <>
-            <Text style={styles.subHeading}>Active Projects</Text>
+            <Text style={styles.subHeading}>Projects</Text>
             <ScrollView
               horizontal={true}
               showsHorizontalScrollIndicator={false}
@@ -70,14 +70,14 @@ const ProfileScreen = () => {
                     jobs.filter(
                       (job) =>
                         job.projectId === project.projectId &&
-                        job.status === jobStatus.AVAILABLE,
+                        job.status === jobStatus.AVAILABLE
                     ).length
                   }
                   takenJobs={
                     jobs.filter(
                       (job) =>
                         job.projectId === project.projectId &&
-                        job.status === jobStatus.TAKEN,
+                        job.status === jobStatus.TAKEN
                     ).length
                   }
                 />
@@ -85,7 +85,7 @@ const ProfileScreen = () => {
             </ScrollView>
             {jobs.length !== 0 ? (
               <>
-                <Text style={styles.subHeading}>Active Jobs</Text>
+                <Text style={styles.subHeading}>Jobs</Text>
                 {jobs.map((job) => (
                   <JobCard
                     key={job.jobId}
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     color: white,
   },
   horizontalSection: {
-    paddingRight: 20,
+    paddingRight: 25,
   },
   noDataContainer: {
     alignItems: "center",
