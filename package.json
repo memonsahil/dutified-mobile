@@ -6,10 +6,10 @@
     "check-deps": "npx expo install --check",
     "fix-deps": "npx expo install --fix",
     "doctor": "npx expo-doctor",
-    "build-dev-ios": "eas build --profile development --platform ios",
-    "build-dev-android": "eas build --profile development --platform android",
-    "run-build-ios": "eas build:run --platform ios",
-    "run-build-android": "eas build:run --platform android",
+    "build-dev-ios": "npx eas-cli@latest build --profile development --platform ios",
+    "build-dev-android": "npx eas-cli@latest build --profile development --platform android",
+    "run-build-ios": "npx eas-cli@latest build:run --platform ios",
+    "run-build-android": "npx eas-cli@latest build:run --platform android",
     "start-dev-client": "npx expo start --dev-client"
   },
   "dependencies": {
@@ -22,6 +22,7 @@
     "expo": "48.0.20",
     "expo-crypto": "~12.2.1",
     "expo-font": "~11.1.1",
+    "expo-image-manipulator": "~11.1.1",
     "expo-image-picker": "~14.1.1",
     "expo-mail-composer": "~12.1.1",
     "expo-splash-screen": "~0.18.2",

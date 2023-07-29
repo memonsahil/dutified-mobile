@@ -2,7 +2,7 @@
 
 ## EAS
 
-For eas commands, install eas-cli globally by running `npm i -g eas-cli@3.17.1`.
+For eas commands, replace eas with `npx eas-cli@latest`.
 
 ## Firebase
 
