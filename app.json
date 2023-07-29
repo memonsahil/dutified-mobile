@@ -3,7 +3,7 @@
     "name": "Dutified",
     "slug": "dutified-mobile",
     "version": "1.0.0",
-    "owner": "sahilmemon",
+    "owner": "memonsahil",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "splash": {
@@ -45,7 +45,7 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "8351ffbe-bc76-44a3-8e9a-b0c37721d8b1"
+        "projectId": "e46f5405-f5ce-4bf8-ac40-f758eb163f83"
       }
     }
   }

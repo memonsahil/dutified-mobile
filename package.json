@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "doctor": "npx expo-doctor@latest",
     "check-deps": "npx expo install --check",
     "fix-deps": "npx expo install --fix",
-    "build-dev-ios": "npx eas-cli@latest build --profile development --platform ios",
-    "build-dev-android": "npx eas-cli@latest build --profile development --platform android",
+    "build-dev-ios": "eas build --profile development --platform ios",
+    "build-dev-android": "eas build --profile development --platform android",
+    "build-dev-all": "eas build --platform all",
     "start-dev-client": "npx expo start --dev-client"
   },
   "dependencies": {
