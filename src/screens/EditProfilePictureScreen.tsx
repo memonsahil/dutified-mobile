@@ -3,6 +3,11 @@ import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
 import useAuthStore from "../stores/useAuthUserStore";
 import * as ImagePicker from "expo-image-picker";
+import {
+  manipulateAsync,
+  SaveFormat,
+  ImageResult,
+} from "expo-image-manipulator";
 import * as Progress from "react-native-progress";
 import { Avatar } from "react-native-elements";
 import { AntDesign } from "@expo/vector-icons";
@@ -10,6 +15,7 @@ import { black, blue, green, white } from "../theme/colors";
 import screens from "../types/params/screens";
 
 const EditProfilePictureScreen = () => {
+  let formattedImage: ImageResult;
   const [image, setImage] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -29,7 +35,13 @@ const EditProfilePictureScreen = () => {
     });
 
     if (!result.canceled) {
-      setImage(result.assets[0].uri);
+      formattedImage = await manipulateAsync(
+        result.assets[0].uri,
+        [{ resize: { width: 400, height: 400 } }],
+        { compress: 1, format: SaveFormat.PNG, base64: true }
+      );
+
+      setImage("data:image/png;base64," + formattedImage.base64);
     }
   };
 
@@ -82,7 +94,7 @@ const EditProfilePictureScreen = () => {
                             navigation.goBack();
                           },
                         },
-                      ],
+                      ]
                     );
                   });
               }}
@@ -110,7 +122,7 @@ const EditProfilePictureScreen = () => {
                             navigation.goBack();
                           },
                         },
-                      ],
+                      ]
                     );
                   });
               }}
