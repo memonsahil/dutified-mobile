@@ -50,7 +50,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
 
   const searchCategories = (
     categories: Record<string, string>,
-    searchArg: string,
+    searchArg: string
   ) => {
     let results: string[] = [];
 
@@ -201,7 +201,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                     .then(() => {
                       setLoading(false);
 
-                      navigation.goBack();
+                      navigation.navigate("Profile");
                     })
                     .catch(() => {
                       Alert.alert(
@@ -214,7 +214,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                               navigation.goBack();
                             },
                           },
-                        ],
+                        ]
                       );
                     });
                 } else {
@@ -226,7 +226,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                         text: "Dismiss",
                         onPress: () => {},
                       },
-                    ],
+                    ]
                   );
                 }
               }}

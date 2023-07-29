@@ -42,7 +42,7 @@ const AddProjectScreen = () => {
 
   const searchCategories = (
     categories: Record<string, string>,
-    searchArg: string,
+    searchArg: string
   ) => {
     let results: string[] = [];
 
@@ -148,7 +148,7 @@ const AddProjectScreen = () => {
                     .then(() => {
                       setLoading(false);
 
-                      navigation.goBack();
+                      navigation.navigate("Profile");
                     })
                     .catch(() => {
                       Alert.alert(
@@ -161,7 +161,7 @@ const AddProjectScreen = () => {
                               navigation.goBack();
                             },
                           },
-                        ],
+                        ]
                       );
                     });
                 } else {
@@ -173,7 +173,7 @@ const AddProjectScreen = () => {
                         text: "Dismiss",
                         onPress: () => {},
                       },
-                    ],
+                    ]
                   );
                 }
               }}
