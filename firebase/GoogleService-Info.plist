@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>566338100359-efmf2pk0pjhbqvfe9e393jsh2c08b11l.apps.googleusercontent.com</string>
+	<string>566338100359-6l5u1p4hejm3ut4r4i6hqf671aahc70r.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.566338100359-efmf2pk0pjhbqvfe9e393jsh2c08b11l</string>
+	<string>com.googleusercontent.apps.566338100359-6l5u1p4hejm3ut4r4i6hqf671aahc70r</string>
 	<key>API_KEY</key>
 	<string>AIzaSyD2zDf0OoAJoLYdp-b0OAZESYyis1ddv8I</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.dutified.dutified-mobile-ios</string>
+	<string>com.dutified.mobile</string>
 	<key>PROJECT_ID</key>
 	<string>dutified-3fa2f</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:566338100359:ios:b7a73a3a5f65b8818eec22</string>
+	<string>1:566338100359:ios:ea6f890a11391f478eec22</string>
 </dict>
 </plist>

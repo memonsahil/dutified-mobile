@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:566338100359:android:1bcdb109cd3073958eec22",
+        "mobilesdk_app_id": "1:566338100359:android:db525426e653010a8eec22",
         "android_client_info": {
-          "package_name": "com.dutified.dutified_mobile_android"
+          "package_name": "com.dutified.mobile"
         }
       },
       "oauth_client": [
@@ -31,10 +31,10 @@
               "client_type": 3
             },
             {
-              "client_id": "566338100359-efmf2pk0pjhbqvfe9e393jsh2c08b11l.apps.googleusercontent.com",
+              "client_id": "566338100359-6l5u1p4hejm3ut4r4i6hqf671aahc70r.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.dutified.dutified-mobile-ios"
+                "bundle_id": "com.dutified.mobile"
               }
             }
           ]
