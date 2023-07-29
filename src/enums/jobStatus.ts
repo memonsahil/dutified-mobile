@@ -1,7 +1,7 @@
 enum jobStatus {
-    AVAILABLE = 'Available',
-    TAKEN = 'Taken',
-    COMPLETED = 'Completed',
+  AVAILABLE = "Available",
+  TAKEN = "Taken",
+  COMPLETED = "Completed",
 }
 
-export default jobStatus
+export default jobStatus;

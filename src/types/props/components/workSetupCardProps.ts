@@ -1,6 +1,6 @@
 type workSetupCardProps = {
-    preferredCategories: string[]
-    totalJobs: string
-}
+  preferredCategories: string[];
+  totalJobs: string;
+};
 
-export default workSetupCardProps
+export default workSetupCardProps;

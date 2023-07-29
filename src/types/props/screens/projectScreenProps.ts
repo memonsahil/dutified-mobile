@@ -1,8 +1,8 @@
-import { RouteProp } from '@react-navigation/native'
-import screens from '../../params/screens'
+import { RouteProp } from "@react-navigation/native";
+import screens from "../../params/screens";
 
 type projectScreenProps = {
-    route: RouteProp<screens, 'Project'>
-}
+  route: RouteProp<screens, "Project">;
+};
 
-export default projectScreenProps
+export default projectScreenProps;

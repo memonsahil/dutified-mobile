@@ -58,53 +58,53 @@
  */
 
 type screens = {
-    Main: undefined
-    SignUp: undefined
-    SignIn: undefined
-    Reset: undefined
-    Verification: undefined
-    Password: undefined
+  Main: undefined;
+  SignUp: undefined;
+  SignIn: undefined;
+  Reset: undefined;
+  Verification: undefined;
+  Password: undefined;
 
-    Dashboard: undefined
-    Home: undefined
-    Work: undefined
-    Profile: undefined
-    Settings: undefined
+  Dashboard: undefined;
+  Home: undefined;
+  Work: undefined;
+  Profile: undefined;
+  Settings: undefined;
 
-    Chats: undefined
-    Chat: undefined
-    Support: undefined
-    Contact: undefined
-    About: undefined
-    TOS: undefined
-    PP: undefined
+  Chats: undefined;
+  Chat: undefined;
+  Support: undefined;
+  Contact: undefined;
+  About: undefined;
+  TOS: undefined;
+  PP: undefined;
 
-    Project: {
-        projectId: string
-    }
-    Job: {
-        jobId: string
-    }
-    User: {
-        userId: string
-    }
+  Project: {
+    projectId: string;
+  };
+  Job: {
+    jobId: string;
+  };
+  User: {
+    userId: string;
+  };
 
-    WorkSetup: undefined
-    Search: undefined
+  WorkSetup: undefined;
+  Search: undefined;
 
-    Feedback: undefined
-    AddProject: undefined
-    AddJob: {
-        projectId: string
-        projectName: string
-        jobCreatorId: string
-        jobCreator: string
-    }
+  Feedback: undefined;
+  AddProject: undefined;
+  AddJob: {
+    projectId: string;
+    projectName: string;
+    jobCreatorId: string;
+    jobCreator: string;
+  };
 
-    EditProfilePicture: undefined
-    EditPhoneNumber: undefined
-    EditEmailAddress: undefined
-    EditPassword: undefined
-}
+  EditProfilePicture: undefined;
+  EditPhoneNumber: undefined;
+  EditEmailAddress: undefined;
+  EditPassword: undefined;
+};
 
-export default screens
+export default screens;
