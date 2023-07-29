@@ -1,52 +1,52 @@
 {
-  "expo": {
-    "name": "Dutified",
-    "slug": "dutified-mobile",
-    "version": "1.0.0",
-    "owner": "memonsahil",
-    "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "splash": {
-      "image": "./assets/images/splash.png",
-      "backgroundColor": "#021F67"
-    },
-    "assetBundlePatterns": ["**/*"],
-    "ios": {
-      "bundleIdentifier": "com.dutified.mobile",
-      "googleServicesFile": "./firebase/GoogleService-Info.plist"
-    },
-    "android": {
-      "package": "com.dutified.mobile",
-      "googleServicesFile": "./firebase/google-services.json",
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#021F67"
-      },
-      "softwareKeyboardLayoutMode": "pan",
-      "permissions": []
-    },
-    "plugins": [
-      "@react-native-firebase/app",
-      "@react-native-firebase/auth",
-      [
-        "expo-build-properties",
-        {
-          "ios": {
-            "useFrameworks": "static"
-          }
+    "expo": {
+        "name": "Dutified",
+        "slug": "dutified-mobile",
+        "version": "1.0.0",
+        "owner": "memonsahil",
+        "orientation": "portrait",
+        "icon": "./assets/images/icon.png",
+        "splash": {
+            "image": "./assets/images/splash.png",
+            "backgroundColor": "#021F67"
+        },
+        "assetBundlePatterns": ["**/*"],
+        "ios": {
+            "bundleIdentifier": "com.dutified.mobile",
+            "googleServicesFile": "./firebase/GoogleService-Info.plist"
+        },
+        "android": {
+            "package": "com.dutified.mobile",
+            "googleServicesFile": "./firebase/google-services.json",
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/images/adaptive-icon.png",
+                "backgroundColor": "#021F67"
+            },
+            "softwareKeyboardLayoutMode": "pan",
+            "permissions": []
+        },
+        "plugins": [
+            "@react-native-firebase/app",
+            "@react-native-firebase/auth",
+            [
+                "expo-build-properties",
+                {
+                    "ios": {
+                        "useFrameworks": "static"
+                    }
+                }
+            ],
+            [
+                "expo-image-picker",
+                {
+                    "photosPermission": "Dutified needs access to your photos to let you upload your profile picture."
+                }
+            ]
+        ],
+        "extra": {
+            "eas": {
+                "projectId": "5315d69e-9cf7-416d-912c-8638ce458fee"
+            }
         }
-      ],
-      [
-        "expo-image-picker",
-        {
-          "photosPermission": "Dutified needs access to your photos to let you upload your profile picture."
-        }
-      ]
-    ],
-    "extra": {
-      "eas": {
-        "projectId": "5315d69e-9cf7-416d-912c-8638ce458fee"
-      }
     }
-  }
 }
