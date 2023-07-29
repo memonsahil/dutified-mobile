@@ -39,7 +39,7 @@
       [
         "expo-image-picker",
         {
-          "photosPermission": "Dutified needs access to your photos to let you upload your profile picture."
+          "photosPermission": "Dutified access your photos to let you upload your profile picture."
         }
       ]
     ],
