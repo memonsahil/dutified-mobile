@@ -66,7 +66,6 @@ const EditProfilePictureScreen = () => {
                 ? { uri: image }
                 : require("../../assets/images/user-avatar.png")
             }
-            titleStyle={styles.avatarInitials}
             containerStyle={styles.avatarContainer}
           />
           <View style={styles.buttonContainer}>
@@ -176,10 +175,6 @@ const styles = StyleSheet.create({
   avatarContainer: {
     backgroundColor: green,
     marginTop: 20,
-  },
-  avatarInitials: {
-    color: black,
-    fontFamily: "IBMPlexSans-Bold",
   },
   buttonContainer: {
     marginTop: "15%",

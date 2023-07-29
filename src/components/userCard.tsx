@@ -22,7 +22,6 @@ const UserCard = (props: userCardProps) => {
             ? { uri: image }
             : require("../../assets/images/user-avatar.png")
         }
-        titleStyle={styles.avatarInitials}
         containerStyle={styles.avatarContainer}
       />
       <Text style={styles.userName} numberOfLines={1} ellipsizeMode="tail">
@@ -55,10 +54,6 @@ const styles = StyleSheet.create({
   avatarContainer: {
     backgroundColor: green,
     marginTop: 20,
-  },
-  avatarInitials: {
-    color: black,
-    fontFamily: "IBMPlexSans-Bold",
   },
   userName: {
     fontFamily: "IBMPlexSans-Bold",
