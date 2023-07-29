@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, Alert, TouchableOpacity } from "react-native";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
 import * as MailComposer from "expo-mail-composer";
 import { SimpleLineIcons } from "@expo/vector-icons";
+import { Avatar } from "react-native-elements";
 import { black, green, white } from "../theme/colors";
 import screens from "../types/params/screens";
 
@@ -14,6 +15,12 @@ const ChatCard = () => {
         style={styles.touchableSection}
         onPress={() => navigation.navigate("Chat")}
       >
+        <Avatar
+          size="medium"
+          rounded
+          source={require("../../assets/images/user-avatar.png")}
+          containerStyle={styles.avatarContainer}
+        />
         <View style={styles.chatInfoSection}>
           <Text style={styles.name} numberOfLines={1} ellipsizeMode="tail">
             First Last
@@ -45,7 +52,7 @@ const ChatCard = () => {
                             text: "Dismiss",
                             onPress: () => {},
                           },
-                        ],
+                        ]
                       );
                     }),
                 },
@@ -74,32 +81,34 @@ const styles = StyleSheet.create({
   touchableSection: {
     flexDirection: "row",
     justifyContent: "space-between",
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
+  avatarContainer: {
+    backgroundColor: green,
+    alignSelf: "center",
   },
   chatInfoSection: {
-    alignItems: "flex-start",
     justifyContent: "space-between",
     paddingTop: 10,
     paddingBottom: 10,
     paddingLeft: 10,
-    width: 300,
+    width: 250,
   },
   name: {
     fontFamily: "IBMPlexSans-Bold",
     fontSize: 18,
     color: black,
-    width: 200,
   },
   chatText: {
     fontFamily: "IBMPlexSans-Regular",
     fontSize: 16,
     color: black,
     paddingTop: 10,
-    width: 280,
   },
   optionsSection: {
     justifyContent: "flex-start",
     paddingTop: 10,
-    paddingRight: 10,
   },
   options: {
     backgroundColor: green,
