@@ -1,0 +1,52 @@
+{
+    "expo": {
+        "name": "Dutified",
+        "slug": "dutified-mobile",
+        "version": "1.0.0",
+        "owner": "sahilmemon",
+        "orientation": "portrait",
+        "icon": "./assets/images/icon.png",
+        "splash": {
+            "image": "./assets/images/splash.png",
+            "backgroundColor": "#021F67"
+        },
+        "assetBundlePatterns": ["**/*"],
+        "ios": {
+            "bundleIdentifier": "com.dutified",
+            "googleServicesFile": "./firebase/GoogleService-Info.plist"
+        },
+        "android": {
+            "package": "com.dutified",
+            "googleServicesFile": "./firebase/google-services.json",
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/images/adaptive-icon.png",
+                "backgroundColor": "#021F67"
+            },
+            "softwareKeyboardLayoutMode": "pan",
+            "permissions": []
+        },
+        "plugins": [
+            "@react-native-firebase/app",
+            "@react-native-firebase/auth",
+            [
+                "expo-build-properties",
+                {
+                    "ios": {
+                        "useFrameworks": "static"
+                    }
+                }
+            ],
+            [
+                "expo-image-picker",
+                {
+                    "photosPermission": "Dutified needs access to your photos to let you upload your profile picture."
+                }
+            ]
+        ],
+        "extra": {
+            "eas": {
+                "projectId": "8351ffbe-bc76-44a3-8e9a-b0c37721d8b1"
+            }
+        }
+    }
+}

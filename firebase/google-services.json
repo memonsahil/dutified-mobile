@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "566338100359",
+    "project_id": "dutified-3fa2f",
+    "storage_bucket": "dutified-3fa2f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566338100359:android:1bcdb109cd3073958eec22",
+        "android_client_info": {
+          "package_name": "com.dutified.dutified_mobile_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566338100359-miur4b4gjd2ijfdmsd9upk0hjmc52c43.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD65VNIofQfDgX2Pi19Asv7EGRH4a9O_3A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "566338100359-miur4b4gjd2ijfdmsd9upk0hjmc52c43.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "566338100359-efmf2pk0pjhbqvfe9e393jsh2c08b11l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dutified.dutified-mobile-ios"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
