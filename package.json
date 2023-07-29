@@ -5,9 +5,9 @@
   "scripts": {
     "check-deps": "npx expo install --check",
     "fix-deps": "npx expo install --fix",
+    "doctor": "npx expo-doctor",
     "build-dev-ios": "eas build --profile development --platform ios",
     "build-dev-android": "eas build --profile development --platform android",
-    "build-dev-all": "eas build --profile development --platform all",
     "run-build-ios": "eas build:run --platform ios",
     "run-build-android": "eas build:run --platform android",
     "start-dev-client": "npx expo start --dev-client"
