@@ -39,13 +39,13 @@
       [
         "expo-image-picker",
         {
-          "photosPermission": "Dutified access your photos to let you upload your profile picture."
+          "photosPermission": "Dutified needs access to your photos to let you upload your profile picture."
         }
       ]
     ],
     "extra": {
       "eas": {
-        "projectId": "e46f5405-f5ce-4bf8-ac40-f758eb163f83"
+        "projectId": "23bf6398-8b8f-4584-87c7-940bb3b9c4fb"
       }
     }
   }
