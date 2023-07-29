@@ -12,11 +12,11 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "bundleIdentifier": "com.dutified",
+      "bundleIdentifier": "com.dutified.mobile",
       "googleServicesFile": "./firebase/GoogleService-Info.plist"
     },
     "android": {
-      "package": "com.dutified",
+      "package": "com.dutified.mobile",
       "googleServicesFile": "./firebase/google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
