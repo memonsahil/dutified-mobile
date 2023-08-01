@@ -3,6 +3,7 @@ import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
 import firestore, {
     FirebaseFirestoreTypes,
 } from '@react-native-firebase/firestore'
+import { IMessage } from 'react-native-gifted-chat'
 import authUserState from '../interfaces/state/authUserState'
 import authUserActions from '../interfaces/actions/authUserActions'
 import projectState from '../interfaces/state/projectState'
@@ -556,6 +557,29 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
                     status: requestStatus.ERROR,
                 })
             })
+    },
+    sendMessage: async (details: { chatId: string; messages: IMessage[] }) => {
+        let messagesDocRef: FirebaseFirestoreTypes.DocumentReference<FirebaseFirestoreTypes.DocumentData>
+        let newMessages: Array<IMessage>
+
+        messagesDocRef = firestore().collection('allChats').doc(details.chatId)
+
+        await messagesDocRef.get().then(async (docSnapshot) => {
+            if (docSnapshot.exists) {
+                newMessages = [
+                    ...docSnapshot.data()!.messages,
+                    details.messages[details.messages.length - 1],
+                ]
+
+                await messagesDocRef.update({
+                    messages: newMessages,
+                })
+            } else {
+                await messagesDocRef.set({
+                    messages: details.messages,
+                })
+            }
+        })
     },
 }))
 

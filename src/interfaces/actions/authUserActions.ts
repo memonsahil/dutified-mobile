@@ -1,3 +1,4 @@
+import { IMessage } from 'react-native-gifted-chat'
 import requestStatus from '../../enums/requestStatus'
 import projectState from '../state/projectState'
 import jobState from '../state/jobState'
@@ -45,4 +46,5 @@ export default interface authUserActions {
         preferredCategories: string[]
         totalJobs: string
     }) => Promise<{ status: requestStatus; errorCode?: string }>
+    sendMessage: (details: { chatId: string; messages: IMessage[] }) => void
 }
