@@ -46,5 +46,16 @@ export default interface authUserActions {
         preferredCategories: string[]
         totalJobs: string
     }) => Promise<{ status: requestStatus; errorCode?: string }>
-    sendMessage: (details: { chatId: string; messages: IMessage[] }) => void
+    sendMessage: (details: {
+        chatId: string
+        messages: IMessage[]
+    }) => Promise<{
+        status: requestStatus
+        errorCode?: string
+    }>
+    getMessages: (chatId: string) => Promise<{
+        status: requestStatus
+        errorCode?: string
+        data: IMessage[]
+    }>
 }

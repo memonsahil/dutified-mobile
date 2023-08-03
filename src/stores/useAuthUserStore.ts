@@ -559,27 +559,77 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
             })
     },
     sendMessage: async (details: { chatId: string; messages: IMessage[] }) => {
-        let messagesDocRef: FirebaseFirestoreTypes.DocumentReference<FirebaseFirestoreTypes.DocumentData>
-        let newMessages: Array<IMessage>
+        let messagesDocRef: FirebaseFirestoreTypes.DocumentReference<FirebaseFirestoreTypes.DocumentData> =
+            firestore().collection('allChats').doc(details.chatId)
+        let messagesData: Array<IMessage> = []
 
-        messagesDocRef = firestore().collection('allChats').doc(details.chatId)
+        return await messagesDocRef
+            .get()
+            .then(async (querySnapshot) => {
+                if (querySnapshot.exists) {
+                    messagesData = [
+                        ...querySnapshot.data()?.messages,
+                        details.messages[details.messages.length - 1],
+                    ]
 
-        await messagesDocRef.get().then(async (docSnapshot) => {
-            if (docSnapshot.exists) {
-                newMessages = [
-                    ...docSnapshot.data()!.messages,
-                    details.messages[details.messages.length - 1],
-                ]
+                    await messagesDocRef.update({
+                        messages: messagesData,
+                    })
+                } else {
+                    await messagesDocRef.set({
+                        messages: details.messages,
+                    })
+                }
 
-                await messagesDocRef.update({
-                    messages: newMessages,
+                return Promise.resolve({
+                    status: requestStatus.SUCCESS,
                 })
-            } else {
-                await messagesDocRef.set({
-                    messages: details.messages,
+            })
+            .catch(() => {
+                return Promise.reject({
+                    status: requestStatus.ERROR,
                 })
-            }
-        })
+            })
+    },
+    getMessages: async (chatId: string) => {
+        let messagesDocRef: FirebaseFirestoreTypes.DocumentReference<FirebaseFirestoreTypes.DocumentData> =
+            firestore().collection('allChats').doc(chatId)
+        let messagesData: Array<IMessage> = []
+
+        return messagesDocRef
+            .get()
+            .then((querySnapshot) => {
+                if (querySnapshot.data()?.messages) {
+                    messagesData = querySnapshot
+                        .data()
+                        ?.messages.map(
+                            (message: {
+                                createdAt: FirebaseFirestoreTypes.Timestamp
+                            }) => {
+                                return {
+                                    ...message,
+                                    createdAt: message.createdAt.toDate(),
+                                }
+                            }
+                        )
+                        .reverse() as Array<IMessage>
+
+                    return Promise.resolve({
+                        status: requestStatus.SUCCESS,
+                        data: messagesData,
+                    })
+                } else {
+                    return Promise.resolve({
+                        status: requestStatus.SUCCESS,
+                        data: [],
+                    })
+                }
+            })
+            .catch(() => {
+                return Promise.reject({
+                    status: requestStatus.ERROR,
+                })
+            })
     },
 }))
 
