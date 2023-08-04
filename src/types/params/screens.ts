@@ -72,7 +72,9 @@ type screens = {
     Settings: undefined
 
     Chats: undefined
-    Chat: undefined
+    Chat: {
+        receiverUserId: string
+    }
     Support: undefined
     Contact: undefined
     About: undefined

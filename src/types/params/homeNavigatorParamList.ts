@@ -1,7 +1,9 @@
 type homeNavigatorParamList = {
     Home: undefined
     Chats: undefined
-    Chat: undefined
+    Chat: {
+        receiverUserId: string
+    }
     AddJob: {
         projectId: string
         projectName: string

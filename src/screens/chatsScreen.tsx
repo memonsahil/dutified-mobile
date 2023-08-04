@@ -1,4 +1,4 @@
-import { StyleSheet, Text, ScrollView, View } from 'react-native'
+import { StyleSheet, Text, ScrollView, View, Platform } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons'
 import ChatCard from '../components/chatCard'
@@ -24,18 +24,13 @@ const ChatsScreen = () => {
                     <Text style={styles.heading}>Chats</Text>
                 </View>
                 <View style={styles.chatList}></View>
-                <ChatCard />
-                <ChatCard />
-                <ChatCard />
-                <ChatCard />
-                <ChatCard />
-                <ChatCard />
-                <ChatCard />
-                <ChatCard />
-                <ChatCard />
-                <ChatCard />
-                <ChatCard />
-                <ChatCard />
+                <ChatCard
+                    receiverUserId={
+                        Platform.OS === 'ios'
+                            ? 'J6SPYTpEqmRZ1t7R34b1qwPIPLu1'
+                            : '9ubbIW8PvzOz0UjvZNQr9XHpcpZ2'
+                    }
+                />
             </ScrollView>
         </View>
     )
