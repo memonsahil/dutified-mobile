@@ -596,7 +596,7 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
             firestore().collection('allChats').doc(chatId)
         let messagesData: Array<IMessage> = []
 
-        return messagesDocRef
+        return await messagesDocRef
             .get()
             .then((querySnapshot) => {
                 if (querySnapshot.data()?.messages) {
