@@ -5,15 +5,20 @@ import { SimpleLineIcons } from '@expo/vector-icons'
 import { Avatar } from 'react-native-elements'
 import { black, green, white } from '../theme/colors'
 import screens from '../types/params/screens'
+import chatCardProps from '../types/props/components/chatCardProps'
 
-const ChatCard = () => {
+const ChatCard = (props: chatCardProps) => {
     const navigation: NavigationProp<screens> = useNavigation()
 
     return (
         <View style={styles.container}>
             <TouchableOpacity
                 style={styles.touchableSection}
-                onPress={() => navigation.navigate('Chat')}
+                onPress={() =>
+                    navigation.navigate('Chat', {
+                        receiverUserId: props.receiverUserId,
+                    })
+                }
             >
                 <Avatar
                     size="medium"

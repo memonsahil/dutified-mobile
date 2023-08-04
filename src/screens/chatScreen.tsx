@@ -1,57 +1,75 @@
-import { StyleSheet, Text, View, ScrollView } from "react-native";
-import { useNavigation, NavigationProp } from "@react-navigation/native";
-import { AntDesign } from "@expo/vector-icons";
-import { blue, green, white } from "../theme/colors";
-import screens from "../types/params/screens";
+import { useState, useEffect } from 'react'
+import { StyleSheet, Alert } from 'react-native'
+import { useNavigation, NavigationProp } from '@react-navigation/native'
+import useAuthUserStore from '../stores/useAuthUserStore'
+import { GiftedChat, IMessage } from 'react-native-gifted-chat'
+import screens from '../types/params/screens'
+import chatScreenProps from '../types/props/screens/chatScreenProps'
 
-const ChatScreen = () => {
-  const navigation: NavigationProp<screens> = useNavigation();
+const ChatScreen = ({ route }: chatScreenProps) => {
+    const { receiverUserId } = route.params
 
-  return (
-    <View style={styles.container}>
-      <ScrollView
-        contentContainerStyle={styles.scrollView}
-        showsVerticalScrollIndicator={false}
-      >
-        <View style={styles.headerSection}>
-          <AntDesign
-            name="caretleft"
-            size={30}
-            color={green}
-            onPress={() => navigation.goBack()}
-          />
-          <Text style={styles.heading}>Chat</Text>
-        </View>
-      </ScrollView>
-    </View>
-  );
-};
+    const [messages, setMessages] = useState<IMessage[]>([])
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: blue,
-  },
-  scrollView: {
-    alignItems: "center",
-    paddingBottom: "20%",
-  },
-  headerSection: {
-    flexDirection: "row",
-    paddingTop: "20%",
-    paddingLeft: 30,
-    paddingRight: 30,
-    height: 150,
-    width: 400,
-    alignItems: "center",
-  },
-  heading: {
-    fontFamily: "IBMPlexSans-Bold",
-    fontSize: 30,
-    color: white,
-    paddingLeft: 20,
-    paddingRight: 30,
-  },
-});
+    const { userDetails, sendMessage, getMessages } = useAuthUserStore(
+        (state) => state
+    )
 
-export default ChatScreen;
+    const navigation: NavigationProp<screens> = useNavigation()
+
+    useEffect(() => {
+        getMessages([userDetails.userId, receiverUserId].sort().join('-'))
+            .then((result) => {
+                setMessages(result.data)
+            })
+            .catch(() => {
+                Alert.alert(
+                    'Error Occurred',
+                    'An error occurred, please try again or contact our support team.',
+                    [
+                        {
+                            text: 'Dismiss',
+                            onPress: () => navigation.goBack(),
+                        },
+                    ]
+                )
+            })
+    })
+
+    const onSend = (newMessages: IMessage[]) => {
+        setMessages((previousMessages: IMessage[]) =>
+            GiftedChat.append(previousMessages, newMessages)
+        )
+
+        sendMessage({
+            chatId: [userDetails.userId, receiverUserId].sort().join('-'),
+            messages: newMessages,
+        }).catch(() => {
+            Alert.alert(
+                'Error Occurred',
+                'An error occurred, please try again or contact our support team.',
+                [
+                    {
+                        text: 'Dismiss',
+                        onPress: () => navigation.goBack(),
+                    },
+                ]
+            )
+        })
+    }
+
+    return (
+        <GiftedChat
+            messages={messages}
+            onSend={(newMessages) => onSend(newMessages)}
+            user={{
+                _id: userDetails.userId,
+                name: `${userDetails.firstName} ${userDetails.lastName}`,
+            }}
+        />
+    )
+}
+
+const styles = StyleSheet.create({})
+
+export default ChatScreen
