@@ -35,7 +35,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                         ]
                     )
                 })
-        }, 1000)
+        }, 3000)
 
         return () => clearTimeout(timeOut)
     })
