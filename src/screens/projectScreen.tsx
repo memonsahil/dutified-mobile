@@ -152,8 +152,22 @@ const ProjectScreen = ({ route }: projectScreenProps) => {
                                 })
                             }
                         >
-                            <Text style={styles.addJobButton}>ADD JOB</Text>
+                            <Text style={styles.sectionButton}>ADD JOB</Text>
                         </TouchableOpacity>
+                    ) : null}
+                    {projectCreator !==
+                    `${userDetails.firstName} ${userDetails.lastName}` ? (
+                        <View style={styles.buttonContainer}>
+                            <TouchableOpacity
+                                onPress={() =>
+                                    navigation.navigate('Chat', {
+                                        receiverUserId: userDetails.userId,
+                                    })
+                                }
+                            >
+                                <Text style={styles.sectionButton}>Chat</Text>
+                            </TouchableOpacity>
+                        </View>
                     ) : null}
                     <View style={styles.jobsList}>
                         {jobs.length !== 0
@@ -255,7 +269,7 @@ const styles = StyleSheet.create({
         paddingLeft: 30,
         paddingBottom: 20,
     },
-    addJobButton: {
+    sectionButton: {
         fontFamily: 'IBMPlexSans-Bold',
         fontSize: 25,
         color: green,
