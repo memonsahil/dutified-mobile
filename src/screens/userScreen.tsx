@@ -104,9 +104,6 @@ const UserScreen = ({ route }: userScreenProps) => {
                     <UserCard first={first} last={last} image={imageSrc} />
                     {projects.length === 0 ? (
                         <View style={styles.noDataContainer}>
-                            <Text style={styles.noDataHeading}>
-                                No Active Projects
-                            </Text>
                             <Text style={styles.noDataText}>
                                 `${first} ${last} has not created or joined any
                                 projects yet.`
@@ -114,9 +111,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                         </View>
                     ) : (
                         <>
-                            <Text style={styles.subHeading}>
-                                Active Projects
-                            </Text>
+                            <Text style={styles.subHeading}>Projects</Text>
                             <ScrollView
                                 horizontal={true}
                                 showsHorizontalScrollIndicator={false}
@@ -152,21 +147,9 @@ const UserScreen = ({ route }: userScreenProps) => {
                                     />
                                 ))}
                             </ScrollView>
-                            {jobs.length === 0 ? (
-                                <View style={styles.noDataContainer}>
-                                    <Text style={styles.noDataHeading}>
-                                        No Active Jobs
-                                    </Text>
-                                    <Text style={styles.noDataText}>
-                                        `${first} ${last} has not created or
-                                        taken up any jobs yet.`
-                                    </Text>
-                                </View>
-                            ) : (
+                            {jobs.length !== 0 ? (
                                 <>
-                                    <Text style={styles.subHeading}>
-                                        Active Jobs
-                                    </Text>
+                                    <Text style={styles.subHeading}>Jobs</Text>
                                     {jobs.map((job) => (
                                         <JobCard
                                             key={job.jobId}
@@ -180,7 +163,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                                         />
                                     ))}
                                 </>
-                            )}
+                            ) : null}
                         </>
                     )}
                 </ScrollView>
@@ -248,18 +231,12 @@ const styles = StyleSheet.create({
     noDataContainer: {
         alignItems: 'center',
         width: '80%',
-        paddingTop: 20,
-    },
-    noDataHeading: {
-        fontFamily: 'IBMPlexSans-Bold',
-        fontSize: 30,
-        color: white,
     },
     noDataText: {
         fontFamily: 'IBMPlexSans-Regular',
         fontSize: 18,
         color: white,
-        paddingTop: '5%',
+        paddingTop: '10%',
     },
 })
 
