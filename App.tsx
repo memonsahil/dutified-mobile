@@ -92,10 +92,6 @@ const App = () => {
                 }}
             >
                 <HomeStack.Screen name="Home" component={HomeScreen} />
-                <HomeStack.Screen name="Project" component={ProjectScreen} />
-                <HomeStack.Screen name="Job" component={JobScreen} />
-                <HomeStack.Screen name="User" component={UserScreen} />
-                <HomeStack.Screen name="AddJob" component={AddJobScreen} />
             </HomeStack.Navigator>
         )
     }
@@ -114,10 +110,6 @@ const App = () => {
                     component={WorkSetupScreen}
                 />
                 <WorkStack.Screen name="Search" component={SearchScreen} />
-                <WorkStack.Screen name="Project" component={ProjectScreen} />
-                <WorkStack.Screen name="Job" component={JobScreen} />
-                <WorkStack.Screen name="User" component={UserScreen} />
-                <ProfileStack.Screen name="AddJob" component={AddJobScreen} />
             </WorkStack.Navigator>
         )
     }
@@ -131,18 +123,6 @@ const App = () => {
                 }}
             >
                 <ProfileStack.Screen name="Profile" component={ProfileScreen} />
-                <ProfileStack.Screen name="Project" component={ProjectScreen} />
-                <ProfileStack.Screen name="Job" component={JobScreen} />
-                <ProfileStack.Screen name="User" component={UserScreen} />
-                <ProfileStack.Screen
-                    name="Feedback"
-                    component={FeedbackScreen}
-                />
-                <ProfileStack.Screen
-                    name="AddProject"
-                    component={AddProjectScreen}
-                />
-                <ProfileStack.Screen name="AddJob" component={AddJobScreen} />
             </ProfileStack.Navigator>
         )
     }
@@ -288,6 +268,21 @@ const App = () => {
                         name="Dashboard"
                         component={DashboardTabNavigator}
                     />
+                    <MainStack.Screen
+                        name="Project"
+                        component={ProjectScreen}
+                    />
+                    <MainStack.Screen name="Job" component={JobScreen} />
+                    <MainStack.Screen name="User" component={UserScreen} />
+                    <MainStack.Screen
+                        name="Feedback"
+                        component={FeedbackScreen}
+                    />
+                    <MainStack.Screen
+                        name="AddProject"
+                        component={AddProjectScreen}
+                    />
+                    <MainStack.Screen name="AddJob" component={AddJobScreen} />
                     <MainStack.Screen name="Chats" component={ChatsScreen} />
                     <MainStack.Screen name="Chat" component={ChatScreen} />
                     <MainStack.Screen

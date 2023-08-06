@@ -22,32 +22,24 @@
  *      |-- DashboardTabNavigator
  *      |   |-- HomeStackNavigator
  *      |   |       |-- Home
- *      |   |       |-- Project
- *      |   |       |-- Job
- *      |   |       |-- User
- *      |   |       |-- AddJob
  *      |   |-- WorkStackNavigator
  *      |   |       |-- Work
  *      |   |       |-- WorkSetup
  *      |   |       |-- Search
- *      |   |       |-- Project
- *      |   |       |-- Job
- *      |   |       |-- User
  *      |   |-- ProfileStackNavigator
  *      |   |       |-- Profile
- *      |   |       |-- Project
- *      |   |       |-- Job
- *      |   |       |-- User
- *      |   |       |-- Feedback
- *      |   |       |-- AddProject
- *      |   |       |-- AddJob
  *      |   |-- SettingsStackNavigator
  *      |           |-- Settings
  *      |           |-- EditProfilePicture
  *      |           |-- EditPhoneNumber
  *      |           |-- EditEmailAddress
  *      |           |-- EditPassword
- *      |           |-- ManageAccount
+ *      |-- Project
+ *      |-- Job
+ *      |-- User
+ *      |-- Feedback
+ *      |-- AddProject
+ *      |-- AddJob
  *      |-- Chats
  *      |-- Chat
  *      |-- Support
@@ -68,18 +60,14 @@ type screens = {
     Dashboard: undefined
     Home: undefined
     Work: undefined
+    WorkSetup: undefined
+    Search: undefined
     Profile: undefined
     Settings: undefined
-
-    Chats: undefined
-    Chat: {
-        receiverUserId: string
-    }
-    Support: undefined
-    Contact: undefined
-    About: undefined
-    TOS: undefined
-    PP: undefined
+    EditProfilePicture: undefined
+    EditPhoneNumber: undefined
+    EditEmailAddress: undefined
+    EditPassword: undefined
 
     Project: {
         projectId: string
@@ -90,11 +78,8 @@ type screens = {
     User: {
         userId: string
     }
-
-    WorkSetup: undefined
-    Search: undefined
-
     Feedback: undefined
+
     AddProject: undefined
     AddJob: {
         projectId: string
@@ -103,10 +88,16 @@ type screens = {
         jobCreator: string
     }
 
-    EditProfilePicture: undefined
-    EditPhoneNumber: undefined
-    EditEmailAddress: undefined
-    EditPassword: undefined
+    Chats: undefined
+    Chat: {
+        receiverUserId: string
+    }
+
+    Support: undefined
+    Contact: undefined
+    About: undefined
+    TOS: undefined
+    PP: undefined
 }
 
 export default screens
