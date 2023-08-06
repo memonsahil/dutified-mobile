@@ -71,32 +71,48 @@ const EditPasswordScreen = () => {
                         <TouchableOpacity
                             style={styles.saveButtonContainer}
                             onPress={() => {
-                                setLoading(true)
+                                if (
+                                    currentPassword !== '' &&
+                                    newPassword !== ''
+                                ) {
+                                    setLoading(true)
 
-                                updatePassword({
-                                    emailAddress: userDetails.emailAddress,
-                                    currentPassword: currentPassword,
-                                    newPassword: newPassword,
-                                })
-                                    .then(() => {
-                                        setLoading(false)
-
-                                        navigation.goBack()
+                                    updatePassword({
+                                        emailAddress: userDetails.emailAddress,
+                                        currentPassword: currentPassword,
+                                        newPassword: newPassword,
                                     })
-                                    .catch(() => {
-                                        Alert.alert(
-                                            'Error Occurred',
-                                            'An error occurred, please try again or contact our support team.',
-                                            [
-                                                {
-                                                    text: 'Dismiss',
-                                                    onPress: () => {
-                                                        navigation.goBack()
+                                        .then(() => {
+                                            setLoading(false)
+
+                                            navigation.goBack()
+                                        })
+                                        .catch(() => {
+                                            Alert.alert(
+                                                'Error Occurred',
+                                                'An error occurred, please try again or contact our support team.',
+                                                [
+                                                    {
+                                                        text: 'Dismiss',
+                                                        onPress: () => {
+                                                            navigation.goBack()
+                                                        },
                                                     },
-                                                },
-                                            ]
-                                        )
-                                    })
+                                                ]
+                                            )
+                                        })
+                                } else {
+                                    Alert.alert(
+                                        'Missing Details',
+                                        'Please enter current and new password before updating it.',
+                                        [
+                                            {
+                                                text: 'Dismiss',
+                                                onPress: () => {},
+                                            },
+                                        ]
+                                    )
+                                }
                             }}
                         >
                             <Text style={styles.saveButton}>SAVE</Text>

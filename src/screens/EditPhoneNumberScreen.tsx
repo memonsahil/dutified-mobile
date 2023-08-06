@@ -72,31 +72,44 @@ const EditPhoneNumberScreen = () => {
                         <TouchableOpacity
                             style={styles.saveButtonContainer}
                             onPress={() => {
-                                setLoading(true)
+                                if (code !== '' && phone !== '') {
+                                    setLoading(true)
 
-                                updatePhone({
-                                    phoneNumber: phone,
-                                    countryCode: code,
-                                })
-                                    .then(() => {
-                                        setLoading(false)
-
-                                        navigation.goBack()
+                                    updatePhone({
+                                        phoneNumber: phone,
+                                        countryCode: code,
                                     })
-                                    .catch(() => {
-                                        Alert.alert(
-                                            'Error Occurred',
-                                            'An error occurred, please try again or contact our support team.',
-                                            [
-                                                {
-                                                    text: 'Dismiss',
-                                                    onPress: () => {
-                                                        navigation.goBack()
+                                        .then(() => {
+                                            setLoading(false)
+
+                                            navigation.goBack()
+                                        })
+                                        .catch(() => {
+                                            Alert.alert(
+                                                'Error Occurred',
+                                                'An error occurred, please try again or contact our support team.',
+                                                [
+                                                    {
+                                                        text: 'Dismiss',
+                                                        onPress: () => {
+                                                            navigation.goBack()
+                                                        },
                                                     },
-                                                },
-                                            ]
-                                        )
-                                    })
+                                                ]
+                                            )
+                                        })
+                                } else {
+                                    Alert.alert(
+                                        'Missing Details',
+                                        'Please enter country code and phone number before updating it.',
+                                        [
+                                            {
+                                                text: 'Dismiss',
+                                                onPress: () => {},
+                                            },
+                                        ]
+                                    )
+                                }
                             }}
                         >
                             <Text style={styles.saveButton}>SAVE</Text>

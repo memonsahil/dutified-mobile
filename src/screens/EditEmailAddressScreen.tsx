@@ -62,28 +62,41 @@ const EditEmailAddressScreen = () => {
                         <TouchableOpacity
                             style={styles.saveButtonContainer}
                             onPress={() => {
-                                setLoading(true)
+                                if (email !== '') {
+                                    setLoading(true)
 
-                                updateEmail(email)
-                                    .then(() => {
-                                        setLoading(false)
+                                    updateEmail(email)
+                                        .then(() => {
+                                            setLoading(false)
 
-                                        navigation.goBack()
-                                    })
-                                    .catch(() => {
-                                        Alert.alert(
-                                            'Error Occurred',
-                                            'An error occurred, please try again or contact our support team.',
-                                            [
-                                                {
-                                                    text: 'Dismiss',
-                                                    onPress: () => {
-                                                        navigation.goBack()
+                                            navigation.goBack()
+                                        })
+                                        .catch(() => {
+                                            Alert.alert(
+                                                'Error Occurred',
+                                                'An error occurred, please try again or contact our support team.',
+                                                [
+                                                    {
+                                                        text: 'Dismiss',
+                                                        onPress: () => {
+                                                            navigation.goBack()
+                                                        },
                                                     },
-                                                },
-                                            ]
-                                        )
-                                    })
+                                                ]
+                                            )
+                                        })
+                                } else {
+                                    Alert.alert(
+                                        'Missing Details',
+                                        'Please enter your current email address before updating it.',
+                                        [
+                                            {
+                                                text: 'Dismiss',
+                                                onPress: () => {},
+                                            },
+                                        ]
+                                    )
+                                }
                             }}
                         >
                             <Text style={styles.saveButton}>SAVE</Text>
