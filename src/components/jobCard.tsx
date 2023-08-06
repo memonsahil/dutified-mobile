@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSans-Regular',
         fontSize: 16,
         color: black,
-        height: 45,
+        height: 50,
     },
     jobDeadline: {
         fontFamily: 'IBMPlexSans-Bold',
