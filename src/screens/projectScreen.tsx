@@ -121,24 +121,24 @@ const ProjectScreen = ({ route }: projectScreenProps) => {
                         </View>
                     </View>
                     <Text style={styles.projectDesc}>{projectDesc}</Text>
-                    <TouchableOpacity
-                        onPress={() =>
-                            projectCreator ===
-                            `${userDetails.firstName} ${userDetails.lastName}`
-                                ? navigation.navigate('Profile')
-                                : navigation.navigate('User', {
-                                      userId: projectCreatorId,
-                                  })
-                        }
-                    >
-                        <Text
-                            style={styles.button}
-                            numberOfLines={1}
-                            ellipsizeMode="tail"
+                    {projectCreator ===
+                    `${userDetails.firstName} ${userDetails.lastName}` ? null : (
+                        <TouchableOpacity
+                            onPress={() =>
+                                navigation.navigate('User', {
+                                    userId: projectCreatorId,
+                                })
+                            }
                         >
-                            {projectCreator}
-                        </Text>
-                    </TouchableOpacity>
+                            <Text
+                                style={styles.button}
+                                numberOfLines={1}
+                                ellipsizeMode="tail"
+                            >
+                                {projectCreator}
+                            </Text>
+                        </TouchableOpacity>
+                    )}
                     {projectCreator ===
                     `${userDetails.firstName} ${userDetails.lastName}` ? (
                         <TouchableOpacity

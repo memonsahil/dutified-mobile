@@ -116,24 +116,24 @@ const JobScreen = ({ route }: jobScreenProps) => {
                         </Text>
                     </TouchableOpacity>
                     <Text style={styles.jobDesc}>{jobDesc}</Text>
-                    <TouchableOpacity
-                        onPress={() =>
-                            jobCreator ===
-                            `${userDetails.firstName} ${userDetails.lastName}`
-                                ? navigation.navigate('Profile')
-                                : navigation.navigate('User', {
-                                      userId: jobCreatorId,
-                                  })
-                        }
-                    >
-                        <Text
-                            style={styles.button}
-                            numberOfLines={1}
-                            ellipsizeMode="tail"
+                    {jobCreator ===
+                    `${userDetails.firstName} ${userDetails.lastName}` ? null : (
+                        <TouchableOpacity
+                            onPress={() =>
+                                navigation.navigate('User', {
+                                    userId: jobCreatorId,
+                                })
+                            }
                         >
-                            {jobCreator}
-                        </Text>
-                    </TouchableOpacity>
+                            <Text
+                                style={styles.button}
+                                numberOfLines={1}
+                                ellipsizeMode="tail"
+                            >
+                                {jobCreator}
+                            </Text>
+                        </TouchableOpacity>
+                    )}
                     {jobCreator !==
                     `${userDetails.firstName} ${userDetails.lastName}` ? (
                         <View style={styles.buttonSection}>
