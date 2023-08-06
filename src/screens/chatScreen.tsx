@@ -13,6 +13,8 @@ import useUserStore from '../stores/useUserStore'
 import useAuthUserStore from '../stores/useAuthUserStore'
 import { GiftedChat, IMessage } from 'react-native-gifted-chat'
 import * as Crypto from 'expo-crypto'
+import { Avatar } from 'react-native-elements'
+import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import { FontAwesome5 } from '@expo/vector-icons'
@@ -28,7 +30,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
 
     const [first, setFirst] = useState<string>('')
     const [last, setLast] = useState<string>('')
-    const [imageSrc, setImageSrc] = useState<string>('')
+    const [image, setImage] = useState<string>('')
 
     const [loading, setLoading] = useState<boolean>(true)
 
@@ -44,9 +46,10 @@ const ChatScreen = ({ route }: chatScreenProps) => {
             .then((result) => {
                 setFirst(result.data?.userDetails.firstName!)
                 setLast(result.data?.userDetails.lastName!)
-                setImageSrc(result.data?.userDetails.imageSrc!)
 
-                setLoading(false)
+                result.data?.userDetails.imageSrc! !== image
+                    ? setImage(result.data?.userDetails.imageSrc!)
+                    : null
             })
             .catch(() => {
                 Alert.alert(
@@ -69,6 +72,8 @@ const ChatScreen = ({ route }: chatScreenProps) => {
             getMessages([userDetails.userId, receiverUserId].sort().join('-'))
                 .then((result) => {
                     setMessages(result.data)
+
+                    first !== '' && last !== '' ? setLoading(false) : null
                 })
                 .catch(() => {
                     Alert.alert(
@@ -82,10 +87,12 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                         ]
                     )
                 })
-        }, 2000)
+        }, 5000)
 
         return () => clearTimeout(timeOut)
     })
+
+    useEffect(() => {})
 
     const onSend = (newMessages: IMessage[]) => {
         setMessage('')
@@ -112,74 +119,119 @@ const ChatScreen = ({ route }: chatScreenProps) => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.headerSection}>
-                <AntDesign
-                    name="caretleft"
-                    size={30}
-                    color={green}
-                    onPress={() => navigation.goBack()}
-                />
-                <Text style={styles.heading}>{`${first} ${last}`}</Text>
-            </View>
-            <GiftedChat
-                messages={messages}
-                onSend={(newMessages) => onSend(newMessages)}
-                user={{
-                    _id: userDetails.userId,
-                    name: `${userDetails.firstName} ${userDetails.lastName}`,
-                }}
-                renderAvatar={null}
-                listViewProps={{
-                    style: styles.chatView,
-                    showsVerticalScrollIndicator: false,
-                }}
-                renderInputToolbar={() => {
-                    return (
-                        <View style={styles.toolbar}>
-                            <View style={styles.inputSection}>
-                                <TextInput
-                                    placeholder="Your message"
-                                    value={message}
-                                    onChangeText={setMessage}
-                                    style={styles.input}
-                                    placeholderTextColor={gray}
-                                    multiline={false}
-                                />
-                                <TouchableOpacity
-                                    onPress={() =>
-                                        message !== ''
-                                            ? onSend([
-                                                  {
-                                                      _id: Crypto.randomUUID(),
-                                                      text: message,
-                                                      createdAt: new Date(),
-                                                      user: {
-                                                          _id: userDetails.userId,
-                                                          name: `${userDetails.firstName} ${userDetails.lastName}`,
-                                                      },
-                                                  },
-                                              ])
-                                            : null
-                                    }
-                                >
-                                    <Ionicons
-                                        name="send"
-                                        size={20}
-                                        color={green}
-                                    />
-                                </TouchableOpacity>
-                            </View>
-                            <TouchableOpacity onPress={() => {}}>
-                                <FontAwesome5
-                                    name="file-signature"
-                                    size={20}
-                                    color={green}
-                                />
-                            </TouchableOpacity>
-                        </View>
-                    )
-                }}
-            />
+            {loading === false ? (
+                <>
+                    <View style={styles.headerSection}>
+                        <AntDesign
+                            name="caretleft"
+                            size={30}
+                            color={green}
+                            onPress={() => navigation.goBack()}
+                        />
+                        <TouchableOpacity
+                            onPress={() =>
+                                navigation.navigate('User', {
+                                    userId: receiverUserId,
+                                })
+                            }
+                        >
+                            <Text
+                                numberOfLines={1}
+                                ellipsizeMode="tail"
+                                style={styles.heading}
+                            >{`${first} ${last}`}</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() =>
+                                navigation.navigate('User', {
+                                    userId: receiverUserId,
+                                })
+                            }
+                        >
+                            <Avatar
+                                size="small"
+                                rounded
+                                source={
+                                    image
+                                        ? { uri: image }
+                                        : require('../../assets/images/user-avatar.png')
+                                }
+                                containerStyle={styles.avatarContainer}
+                            />
+                        </TouchableOpacity>
+                    </View>
+                    <GiftedChat
+                        messages={messages}
+                        onSend={(newMessages) => onSend(newMessages)}
+                        user={{
+                            _id: userDetails.userId,
+                            name: `${userDetails.firstName} ${userDetails.lastName}`,
+                        }}
+                        renderAvatar={null}
+                        listViewProps={{
+                            style: styles.chatView,
+                            showsVerticalScrollIndicator: false,
+                        }}
+                        renderInputToolbar={() => {
+                            return (
+                                <View style={styles.toolbar}>
+                                    <View style={styles.inputSection}>
+                                        <TextInput
+                                            placeholder="Your message"
+                                            value={message}
+                                            onChangeText={setMessage}
+                                            style={styles.input}
+                                            placeholderTextColor={gray}
+                                            multiline={false}
+                                        />
+                                        <TouchableOpacity
+                                            onPress={() =>
+                                                message !== ''
+                                                    ? onSend([
+                                                          {
+                                                              _id: Crypto.randomUUID(),
+                                                              text: message,
+                                                              createdAt:
+                                                                  new Date(),
+                                                              user: {
+                                                                  _id: userDetails.userId,
+                                                                  name: `${userDetails.firstName} ${userDetails.lastName}`,
+                                                              },
+                                                          },
+                                                      ])
+                                                    : null
+                                            }
+                                        >
+                                            <Ionicons
+                                                name="send"
+                                                size={20}
+                                                color={green}
+                                            />
+                                        </TouchableOpacity>
+                                    </View>
+                                    <TouchableOpacity onPress={() => {}}>
+                                        <FontAwesome5
+                                            name="file-signature"
+                                            size={20}
+                                            color={green}
+                                        />
+                                    </TouchableOpacity>
+                                </View>
+                            )
+                        }}
+                    />
+                </>
+            ) : (
+                <View style={styles.loadingContainer}>
+                    <Progress.Bar
+                        width={250}
+                        height={25}
+                        borderRadius={20}
+                        indeterminate={true}
+                        color={green}
+                    />
+                </View>
+            )}
         </View>
     )
 }
@@ -190,21 +242,28 @@ const styles = StyleSheet.create({
         backgroundColor: blue,
         paddingBottom: '9%',
     },
+    loadingContainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
     headerSection: {
         flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
         paddingTop: '20%',
         paddingLeft: 30,
         paddingRight: 30,
         height: 150,
         width: 400,
-        alignItems: 'center',
     },
     heading: {
         fontFamily: 'IBMPlexSans-Bold',
-        fontSize: 28,
+        fontSize: 24,
         color: white,
-        paddingLeft: 20,
-        paddingRight: 30,
+    },
+    avatarContainer: {
+        backgroundColor: green,
     },
     chatView: {
         backgroundColor: white,
