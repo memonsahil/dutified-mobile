@@ -30,7 +30,7 @@ const SettingsScreen = () => {
                     <View style={styles.headerSection}>
                         <Text style={styles.heading}>Settings</Text>
                     </View>
-                    <Text style={styles.subHeading}>Account</Text>
+                    <Text style={styles.subHeading}>Profile</Text>
                     <TouchableOpacity
                         onPress={() =>
                             navigation.navigate('EditProfilePicture')
@@ -53,7 +53,7 @@ const SettingsScreen = () => {
                     >
                         <Text style={styles.button}>Edit Password</Text>
                     </TouchableOpacity>
-                    <Text style={styles.subHeading}>Other</Text>
+                    <Text style={styles.subHeading}>Account</Text>
                     <TouchableOpacity
                         onPress={() => navigation.navigate('Support')}
                     >
