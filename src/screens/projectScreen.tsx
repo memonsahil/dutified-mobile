@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'IBMPlexSans-Bold',
-        fontSize: 30,
+        fontSize: 28,
         color: white,
         paddingLeft: 20,
         paddingRight: 30,

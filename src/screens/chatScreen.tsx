@@ -9,6 +9,7 @@ import {
     Platform,
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
+import useUserStore from '../stores/useUserStore'
 import useAuthUserStore from '../stores/useAuthUserStore'
 import { GiftedChat, IMessage } from 'react-native-gifted-chat'
 import * as Crypto from 'expo-crypto'
@@ -25,11 +26,43 @@ const ChatScreen = ({ route }: chatScreenProps) => {
     const [message, setMessage] = useState<string>('')
     const [messages, setMessages] = useState<IMessage[]>([])
 
+    const [first, setFirst] = useState<string>('')
+    const [last, setLast] = useState<string>('')
+    const [imageSrc, setImageSrc] = useState<string>('')
+
+    const [loading, setLoading] = useState<boolean>(true)
+
+    const { getUserData } = useUserStore((state) => state)
     const { userDetails, sendMessage, getMessages } = useAuthUserStore(
         (state) => state
     )
 
     const navigation: NavigationProp<screens> = useNavigation()
+
+    useEffect(() => {
+        getUserData(receiverUserId)
+            .then((result) => {
+                setFirst(result.data?.userDetails.firstName!)
+                setLast(result.data?.userDetails.lastName!)
+                setImageSrc(result.data?.userDetails.imageSrc!)
+
+                setLoading(false)
+            })
+            .catch(() => {
+                Alert.alert(
+                    'Error Occurred',
+                    'An error occurred, please try again or contact our support team.',
+                    [
+                        {
+                            text: 'Dismiss',
+                            onPress: () => {
+                                navigation.goBack()
+                            },
+                        },
+                    ]
+                )
+            })
+    }, [receiverUserId])
 
     useEffect(() => {
         let timeOut = setTimeout(() => {
@@ -86,7 +119,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                     color={green}
                     onPress={() => navigation.goBack()}
                 />
-                <Text style={styles.heading}>Chats</Text>
+                <Text style={styles.heading}>{`${first} ${last}`}</Text>
             </View>
             <GiftedChat
                 messages={messages}
@@ -168,7 +201,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'IBMPlexSans-Bold',
-        fontSize: 30,
+        fontSize: 28,
         color: white,
         paddingLeft: 20,
         paddingRight: 30,
