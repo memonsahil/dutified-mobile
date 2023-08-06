@@ -38,10 +38,6 @@ import EditEmailAddressScreen from './src/screens/EditEmailAddressScreen'
 import EditPasswordScreen from './src/screens/EditPasswordScreen'
 import authNavigatorParamList from './src/types/params/authNavigatorParamList'
 import mainNavigatorParamList from './src/types/params/mainNavigatorParamList'
-import homeNavigatorParamList from './src/types/params/homeNavigatorParamList'
-import workStackParamList from './src/types/params/workNavigatorParamList'
-import profileNavigatorParamList from './src/types/params/profileNavigatorParamList'
-import settingsNavigatorParamList from './src/types/params/settingsNavigatorParamList'
 import dashboardNavigatorParamList from './src/types/params/dashboardNavigatorParamList'
 import { Entypo } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
@@ -54,13 +50,8 @@ const App = () => {
     const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null)
 
     const AuthStack = createStackNavigator<authNavigatorParamList>()
-    const MainStack = createStackNavigator<mainNavigatorParamList>()
-    const HomeStack = createStackNavigator<homeNavigatorParamList>()
-    const WorkStack = createStackNavigator<workStackParamList>()
-    const ProfileStack = createStackNavigator<profileNavigatorParamList>()
-    const SettingsStack = createStackNavigator<settingsNavigatorParamList>()
-
     const DashboardTab = createBottomTabNavigator<dashboardNavigatorParamList>()
+    const MainStack = createStackNavigator<mainNavigatorParamList>()
 
     const [fontsLoaded] = useFonts({
         'IBMPlexSans-Bold': require('./assets/fonts/IBMPlexSans-Bold.ttf'),
@@ -83,79 +74,29 @@ const App = () => {
         })
     }, [])
 
-    const HomeNavigator = () => {
+    const AuthStackNavigator = () => {
         return (
-            <HomeStack.Navigator
+            <AuthStack.Navigator
                 screenOptions={{
                     headerShown: false,
                     gestureEnabled: false,
                 }}
             >
-                <HomeStack.Screen name="Home" component={HomeScreen} />
-            </HomeStack.Navigator>
-        )
-    }
-
-    const WorkNavigator = () => {
-        return (
-            <WorkStack.Navigator
-                screenOptions={{
-                    headerShown: false,
-                    gestureEnabled: false,
-                }}
-            >
-                <WorkStack.Screen name="Work" component={WorkScreen} />
-                <WorkStack.Screen
-                    name="WorkSetup"
-                    component={WorkSetupScreen}
+                <AuthStack.Screen name="Main" component={MainScreen} />
+                <AuthStack.Screen name="SignUp" component={SignUpScreen} />
+                <AuthStack.Screen name="SignIn" component={SignInScreen} />
+                <AuthStack.Screen name="Support" component={SupportScreen} />
+                <AuthStack.Screen name="Reset" component={ResetScreen} />
+                <AuthStack.Screen
+                    name="Verification"
+                    component={VerificationScreen}
                 />
-                <WorkStack.Screen name="Search" component={SearchScreen} />
-            </WorkStack.Navigator>
-        )
-    }
-
-    const ProfileNavigator = () => {
-        return (
-            <ProfileStack.Navigator
-                screenOptions={{
-                    headerShown: false,
-                    gestureEnabled: false,
-                }}
-            >
-                <ProfileStack.Screen name="Profile" component={ProfileScreen} />
-            </ProfileStack.Navigator>
-        )
-    }
-
-    const SettingsNavigator = () => {
-        return (
-            <SettingsStack.Navigator
-                screenOptions={{
-                    headerShown: false,
-                    gestureEnabled: false,
-                }}
-            >
-                <SettingsStack.Screen
-                    name="Settings"
-                    component={SettingsScreen}
-                />
-                <SettingsStack.Screen
-                    name="EditProfilePicture"
-                    component={EditProfilePictureScreen}
-                />
-                <SettingsStack.Screen
-                    name="EditPhoneNumber"
-                    component={EditPhoneNumberScreen}
-                />
-                <SettingsStack.Screen
-                    name="EditEmailAddress"
-                    component={EditEmailAddressScreen}
-                />
-                <SettingsStack.Screen
-                    name="EditPassword"
-                    component={EditPasswordScreen}
-                />
-            </SettingsStack.Navigator>
+                <AuthStack.Screen name="Password" component={PasswordScreen} />
+                <AuthStack.Screen name="Contact" component={ContactScreen} />
+                <AuthStack.Screen name="About" component={AboutScreen} />
+                <AuthStack.Screen name="TOS" component={TosScreen} />
+                <AuthStack.Screen name="PP" component={PpScreen} />
+            </AuthStack.Navigator>
         )
     }
 
@@ -172,7 +113,7 @@ const App = () => {
                         borderTopColor: blue,
                     },
                     tabBarIcon: ({ focused }) => {
-                        if (route.name === 'HomeNav') {
+                        if (route.name === 'Home') {
                             return (
                                 <Entypo
                                     name="home"
@@ -180,7 +121,7 @@ const App = () => {
                                     color={focused ? green : gray}
                                 />
                             )
-                        } else if (route.name === 'WorkNav') {
+                        } else if (route.name === 'Work') {
                             return (
                                 <Ionicons
                                     name="briefcase"
@@ -188,7 +129,7 @@ const App = () => {
                                     color={focused ? green : gray}
                                 />
                             )
-                        } else if (route.name === 'ProfileNav') {
+                        } else if (route.name === 'Profile') {
                             return (
                                 <FontAwesome
                                     name="user"
@@ -196,7 +137,7 @@ const App = () => {
                                     color={focused ? green : gray}
                                 />
                             )
-                        } else if (route.name === 'SettingsNav') {
+                        } else if (route.name === 'Settings') {
                             return (
                                 <Ionicons
                                     name="settings"
@@ -208,96 +149,75 @@ const App = () => {
                     },
                 })}
             >
-                <DashboardTab.Screen name="HomeNav" component={HomeNavigator} />
-                <DashboardTab.Screen name="WorkNav" component={WorkNavigator} />
+                <DashboardTab.Screen name="Home" component={HomeScreen} />
+                <DashboardTab.Screen name="Work" component={WorkScreen} />
+                <DashboardTab.Screen name="Profile" component={ProfileScreen} />
                 <DashboardTab.Screen
-                    name="ProfileNav"
-                    component={ProfileNavigator}
-                />
-                <DashboardTab.Screen
-                    name="SettingsNav"
-                    component={SettingsNavigator}
+                    name="Settings"
+                    component={SettingsScreen}
                 />
             </DashboardTab.Navigator>
         )
     }
 
+    const MainStackNavigator = () => {
+        return (
+            <MainStack.Navigator
+                screenOptions={{
+                    headerShown: false,
+                    gestureEnabled: false,
+                }}
+            >
+                <MainStack.Screen
+                    name="Dashboard"
+                    component={DashboardTabNavigator}
+                />
+                <MainStack.Screen name="Project" component={ProjectScreen} />
+                <MainStack.Screen name="Job" component={JobScreen} />
+                <MainStack.Screen name="User" component={UserScreen} />
+                <MainStack.Screen name="Feedback" component={FeedbackScreen} />
+                <MainStack.Screen
+                    name="WorkSetup"
+                    component={WorkSetupScreen}
+                />
+                <MainStack.Screen name="Search" component={SearchScreen} />
+                <MainStack.Screen
+                    name="AddProject"
+                    component={AddProjectScreen}
+                />
+                <MainStack.Screen name="AddJob" component={AddJobScreen} />
+                <MainStack.Screen name="Chats" component={ChatsScreen} />
+                <MainStack.Screen name="Chat" component={ChatScreen} />
+                <MainStack.Screen
+                    name="EditProfilePicture"
+                    component={EditProfilePictureScreen}
+                />
+                <MainStack.Screen
+                    name="EditPhoneNumber"
+                    component={EditPhoneNumberScreen}
+                />
+                <MainStack.Screen
+                    name="EditEmailAddress"
+                    component={EditEmailAddressScreen}
+                />
+                <MainStack.Screen
+                    name="EditPassword"
+                    component={EditPasswordScreen}
+                />
+                <MainStack.Screen name="Support" component={SupportScreen} />
+                <MainStack.Screen name="Contact" component={ContactScreen} />
+                <MainStack.Screen name="About" component={AboutScreen} />
+                <MainStack.Screen name="TOS" component={TosScreen} />
+                <MainStack.Screen name="PP" component={PpScreen} />
+            </MainStack.Navigator>
+        )
+    }
+
     const AppNavigator = () => {
         if (!user) {
-            return (
-                <AuthStack.Navigator
-                    screenOptions={{
-                        headerShown: false,
-                        gestureEnabled: false,
-                    }}
-                >
-                    <AuthStack.Screen name="Main" component={MainScreen} />
-                    <AuthStack.Screen name="SignUp" component={SignUpScreen} />
-                    <AuthStack.Screen name="SignIn" component={SignInScreen} />
-                    <AuthStack.Screen
-                        name="Support"
-                        component={SupportScreen}
-                    />
-                    <AuthStack.Screen name="Reset" component={ResetScreen} />
-                    <AuthStack.Screen
-                        name="Verification"
-                        component={VerificationScreen}
-                    />
-                    <AuthStack.Screen
-                        name="Password"
-                        component={PasswordScreen}
-                    />
-                    <AuthStack.Screen
-                        name="Contact"
-                        component={ContactScreen}
-                    />
-                    <AuthStack.Screen name="About" component={AboutScreen} />
-                    <AuthStack.Screen name="TOS" component={TosScreen} />
-                    <AuthStack.Screen name="PP" component={PpScreen} />
-                </AuthStack.Navigator>
-            )
+            return <AuthStackNavigator />
         } else {
-            return (
-                <MainStack.Navigator
-                    screenOptions={{
-                        headerShown: false,
-                        gestureEnabled: false,
-                    }}
-                >
-                    <MainStack.Screen
-                        name="Dashboard"
-                        component={DashboardTabNavigator}
-                    />
-                    <MainStack.Screen
-                        name="Project"
-                        component={ProjectScreen}
-                    />
-                    <MainStack.Screen name="Job" component={JobScreen} />
-                    <MainStack.Screen name="User" component={UserScreen} />
-                    <MainStack.Screen
-                        name="Feedback"
-                        component={FeedbackScreen}
-                    />
-                    <MainStack.Screen
-                        name="AddProject"
-                        component={AddProjectScreen}
-                    />
-                    <MainStack.Screen name="AddJob" component={AddJobScreen} />
-                    <MainStack.Screen name="Chats" component={ChatsScreen} />
-                    <MainStack.Screen name="Chat" component={ChatScreen} />
-                    <MainStack.Screen
-                        name="Support"
-                        component={SupportScreen}
-                    />
-                    <MainStack.Screen
-                        name="Contact"
-                        component={ContactScreen}
-                    />
-                    <MainStack.Screen name="About" component={AboutScreen} />
-                    <MainStack.Screen name="TOS" component={TosScreen} />
-                    <MainStack.Screen name="PP" component={PpScreen} />
-                </MainStack.Navigator>
-            )
+            return <MainStackNavigator />
         }
     }
 

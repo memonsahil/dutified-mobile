@@ -1,8 +1,8 @@
 type dashboardNavigatorParamList = {
-    HomeNav: undefined
-    WorkNav: undefined
-    ProfileNav: undefined
-    SettingsNav: undefined
+    Home: undefined
+    Work: undefined
+    Profile: undefined
+    Settings: undefined
 }
 
 export default dashboardNavigatorParamList

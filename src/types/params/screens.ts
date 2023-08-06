@@ -1,9 +1,6 @@
 /**
  * @description
- * When a new screen is created, it must be added to the below screens type
- * and to the paramList type of its relevant navigator.
- *
- * Screens are organised in the following order:
+ * When a new screen is created, it must be added to the below screens type.
  *
  * AppNavigator
  * |-- AuthStackNavigator
@@ -13,35 +10,39 @@
  * |    |-- Reset
  * |    |-- Verification
  * |    |-- Password
+ * |    |
  * |    |-- Support
  * |    |-- Contact
  * |    |-- About
  * |    |-- TOS
  * |    |-- PP
+ * |
  * |-- MainStackNavigator
  *      |-- DashboardTabNavigator
- *      |   |-- HomeStackNavigator
- *      |   |       |-- Home
- *      |   |-- WorkStackNavigator
- *      |   |       |-- Work
- *      |   |       |-- WorkSetup
- *      |   |       |-- Search
- *      |   |-- ProfileStackNavigator
- *      |   |       |-- Profile
- *      |   |-- SettingsStackNavigator
- *      |           |-- Settings
- *      |           |-- EditProfilePicture
- *      |           |-- EditPhoneNumber
- *      |           |-- EditEmailAddress
- *      |           |-- EditPassword
+ *      |   |-- Home
+ *      |   |-- Work
+ *      |   |-- Profile
+ *      |   |-- Settings
+ *      |
  *      |-- Project
  *      |-- Job
  *      |-- User
  *      |-- Feedback
+ *      |
+ *      |-- WorkSetup
+ *      |-- Search
+ *      |
  *      |-- AddProject
  *      |-- AddJob
+ *      |
  *      |-- Chats
  *      |-- Chat
+ *      |
+ *      |-- EditProfilePicture
+ *      |-- EditPhoneNumber
+ *      |-- EditEmailAddress
+ *      |-- EditPassword
+ *      |
  *      |-- Support
  *      |-- Contact
  *      |-- About
@@ -60,14 +61,8 @@ type screens = {
     Dashboard: undefined
     Home: undefined
     Work: undefined
-    WorkSetup: undefined
-    Search: undefined
     Profile: undefined
     Settings: undefined
-    EditProfilePicture: undefined
-    EditPhoneNumber: undefined
-    EditEmailAddress: undefined
-    EditPassword: undefined
 
     Project: {
         projectId: string
@@ -79,6 +74,9 @@ type screens = {
         userId: string
     }
     Feedback: undefined
+
+    WorkSetup: undefined
+    Search: undefined
 
     AddProject: undefined
     AddJob: {
@@ -92,6 +90,11 @@ type screens = {
     Chat: {
         receiverUserId: string
     }
+
+    EditProfilePicture: undefined
+    EditPhoneNumber: undefined
+    EditEmailAddress: undefined
+    EditPassword: undefined
 
     Support: undefined
     Contact: undefined
