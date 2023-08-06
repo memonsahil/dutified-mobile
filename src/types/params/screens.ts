@@ -1,6 +1,7 @@
 /**
  * @description
- * When a new screen is created, it must be added to the below screens type.
+ * When a new screen is built, it must be added to the below screens type
+ * and its relevant NavigatorParamList in src/types/params/.
  *
  * AppNavigator
  * |-- AuthStackNavigator
