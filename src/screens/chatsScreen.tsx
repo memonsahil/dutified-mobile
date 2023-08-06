@@ -23,7 +23,21 @@ const ChatsScreen = () => {
                     />
                     <Text style={styles.heading}>Chats</Text>
                 </View>
-                <View style={styles.chatList}></View>
+                <View style={styles.topSpacer} />
+                <ChatCard
+                    receiverUserId={
+                        Platform.OS === 'ios'
+                            ? 'J6SPYTpEqmRZ1t7R34b1qwPIPLu1'
+                            : '9ubbIW8PvzOz0UjvZNQr9XHpcpZ2'
+                    }
+                />
+                <ChatCard
+                    receiverUserId={
+                        Platform.OS === 'ios'
+                            ? 'J6SPYTpEqmRZ1t7R34b1qwPIPLu1'
+                            : '9ubbIW8PvzOz0UjvZNQr9XHpcpZ2'
+                    }
+                />
                 <ChatCard
                     receiverUserId={
                         Platform.OS === 'ios'
@@ -61,8 +75,8 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         paddingRight: 30,
     },
-    chatList: {
-        marginTop: 20,
+    topSpacer: {
+        paddingTop: 20,
     },
 })
 
