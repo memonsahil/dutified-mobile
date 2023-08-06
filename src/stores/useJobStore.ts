@@ -5,14 +5,14 @@ import jobActions from '../interfaces/actions/jobActions'
 import jobState from '../interfaces/state/jobState'
 import requestStatus from '../enums/requestStatus'
 
-const useJobStore = create<jobActions>()((set) => ({
+const useJobStore = create<jobActions>()(() => ({
     getJobResults: async (searchQuery: string) => {
         let nameResults: jobState[] = []
         let categoryResults: jobState[] = []
         let searchResults: jobState[] = []
         let jobData: jobState
-        let jobName: string
-        let category: string
+        let jobName: string = ''
+        let category: string = ''
 
         return await firestore()
             .collection('allJobs')

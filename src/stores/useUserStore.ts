@@ -4,7 +4,7 @@ import userState from '../interfaces/state/userState'
 import userActions from '../interfaces/actions/userActions'
 import requestStatus from '../enums/requestStatus'
 
-const useUserStore = create<userActions>()((set) => ({
+const useUserStore = create<userActions>()(() => ({
     getUserData: async (userId: string) => {
         let userData: userState
 

@@ -5,14 +5,14 @@ import projectActions from '../interfaces/actions/projectActions'
 import projectState from '../interfaces/state/projectState'
 import requestStatus from '../enums/requestStatus'
 
-const useProjectStore = create<projectActions>()((set) => ({
+const useProjectStore = create<projectActions>()(() => ({
     getProjectResults: async (searchQuery: string) => {
         let nameResults: projectState[] = []
         let categoryResults: projectState[] = []
         let searchResults: projectState[] = []
         let projectData: projectState
-        let projectName: string
-        let category: string
+        let projectName: string = ''
+        let category: string = ''
 
         return await firestore()
             .collection('allProjects')

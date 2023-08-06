@@ -27,6 +27,7 @@ const initialState: authUserState = {
         preferredCategories: [],
         totalJobs: '',
     },
+    chatsIds: [],
 }
 
 const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
@@ -365,7 +366,7 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
     addProject: async (details: projectState) => {
         let userDoc: FirebaseFirestoreTypes.QueryDocumentSnapshot<FirebaseFirestoreTypes.DocumentData>
         let userRef: FirebaseFirestoreTypes.DocumentReference<FirebaseFirestoreTypes.DocumentData>
-        let newProjects: Array<projectState>
+        let newProjects: Array<projectState> = []
 
         return await firestore()
             .collection('allUsers')
@@ -431,7 +432,7 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
     addJob: async (details: jobState) => {
         let userDoc: FirebaseFirestoreTypes.QueryDocumentSnapshot<FirebaseFirestoreTypes.DocumentData>
         let userRef: FirebaseFirestoreTypes.DocumentReference<FirebaseFirestoreTypes.DocumentData>
-        let newJobs: Array<jobState>
+        let newJobs: Array<jobState> = []
 
         return await firestore()
             .collection('allUsers')
@@ -558,6 +559,7 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
                 })
             })
     },
+
     sendMessage: async (details: { chatId: string; messages: IMessage[] }) => {
         let messagesDocRef: FirebaseFirestoreTypes.DocumentReference<FirebaseFirestoreTypes.DocumentData> =
             firestore().collection('allChats').doc(details.chatId)
