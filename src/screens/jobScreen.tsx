@@ -138,7 +138,11 @@ const JobScreen = ({ route }: jobScreenProps) => {
                     `${userDetails.firstName} ${userDetails.lastName}` ? (
                         <View style={styles.buttonSection}>
                             <TouchableOpacity
-                                onPress={() => navigation.navigate('Chat')}
+                                onPress={() =>
+                                    navigation.navigate('Chat', {
+                                        receiverUserId: userDetails.userId,
+                                    })
+                                }
                             >
                                 <Text style={styles.sectionButton}>Chat</Text>
                             </TouchableOpacity>
@@ -186,7 +190,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'IBMPlexSans-Bold',
-        fontSize: 30,
+        fontSize: 28,
         color: white,
         paddingLeft: 20,
         paddingRight: 30,
