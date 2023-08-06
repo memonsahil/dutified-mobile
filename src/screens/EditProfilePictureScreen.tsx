@@ -11,7 +11,7 @@ import {
 import * as Progress from 'react-native-progress'
 import { Avatar } from 'react-native-elements'
 import { AntDesign } from '@expo/vector-icons'
-import { black, blue, green, white } from '../theme/colors'
+import { blue, green, white } from '../theme/colors'
 import screens from '../types/params/screens'
 
 const EditProfilePictureScreen = () => {
