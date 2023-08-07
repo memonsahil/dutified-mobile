@@ -1,7 +1,8 @@
-import { IMessage } from 'react-native-gifted-chat'
 import requestStatus from '../../enums/requestStatus'
 import projectState from '../state/projectState'
 import jobState from '../state/jobState'
+import { IMessage } from 'react-native-gifted-chat'
+import chatState from '../state/chatState'
 
 export default interface authUserActions {
     signUp: (details: {
@@ -48,6 +49,8 @@ export default interface authUserActions {
     }) => Promise<{ status: requestStatus; errorCode?: string }>
     sendMessage: (details: {
         chatId: string
+        senderUserId: string
+        receiverUserId: string
         messages: IMessage[]
     }) => Promise<{
         status: requestStatus
@@ -57,5 +60,10 @@ export default interface authUserActions {
         status: requestStatus
         errorCode?: string
         data: IMessage[]
+    }>
+    getAllChats: (userId: string) => Promise<{
+        status: requestStatus
+        errorCode?: string
+        data: chatState[]
     }>
 }

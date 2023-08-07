@@ -3,12 +3,13 @@ import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
 import firestore, {
     FirebaseFirestoreTypes,
 } from '@react-native-firebase/firestore'
-import { IMessage } from 'react-native-gifted-chat'
 import authUserState from '../interfaces/state/authUserState'
 import authUserActions from '../interfaces/actions/authUserActions'
+import requestStatus from '../enums/requestStatus'
 import projectState from '../interfaces/state/projectState'
 import jobState from '../interfaces/state/jobState'
-import requestStatus from '../enums/requestStatus'
+import { IMessage } from 'react-native-gifted-chat'
+import chatState from '../interfaces/state/chatState'
 
 const initialState: authUserState = {
     userDetails: {
@@ -27,7 +28,6 @@ const initialState: authUserState = {
         preferredCategories: [],
         totalJobs: '',
     },
-    chatIds: [],
 }
 
 const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
@@ -65,7 +65,6 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
                             preferredCategories: [],
                             totalJobs: '',
                         },
-                        chatIds: [],
                     })
                     .then(() => {
                         set((state) => ({
@@ -560,81 +559,17 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
                 })
             })
     },
-    addNewChatId: async (chatId: string) => {
-        let userRef: FirebaseFirestoreTypes.DocumentReference
-        let newChatIds: Array<string> = []
-
-        return await firestore()
-            .collection('allUsers')
-            .where(
-                'userDetails.userId',
-                '==',
-                auth().currentUser?.uid as string
-            )
-            .limit(1)
-            .get()
-            .then(async (querySnapshot) => {
-                userRef = querySnapshot.docs[0].ref
-
-                newChatIds = [...querySnapshot.docs[0].data().chatsIds, chatId]
-
-                await userRef.update({ chatsIds: newChatIds })
-
-                set((state) => ({
-                    ...state,
-                    chatIds: newChatIds,
-                }))
-
-                return Promise.resolve({
-                    status: requestStatus.SUCCESS,
-                })
-            })
-            .catch(() => {
-                return Promise.reject({
-                    status: requestStatus.ERROR,
-                })
-            })
-    },
-    getAllChatIds: async () => {
-        let userDoc: FirebaseFirestoreTypes.QueryDocumentSnapshot
-        let chatIds: Array<string> = []
-
-        return await firestore()
-            .collection('allUsers')
-            .where(
-                'userDetails.userId',
-                '==',
-                auth().currentUser?.uid as string
-            )
-            .limit(1)
-            .get()
-            .then((querySnapshot) => {
-                userDoc = querySnapshot.docs[0]
-
-                chatIds = userDoc.data().chatIds
-
-                set((state) => ({
-                    ...state,
-                    chatIds: chatIds,
-                }))
-
-                return Promise.resolve({
-                    status: requestStatus.SUCCESS,
-                    data: chatIds,
-                })
-            })
-            .catch(() => {
-                return Promise.reject({
-                    status: requestStatus.ERROR,
-                })
-            })
-    },
-    sendMessage: async (details: { chatId: string; messages: IMessage[] }) => {
-        let messagesDocRef: FirebaseFirestoreTypes.DocumentReference =
-            firestore().collection('allChats').doc(details.chatId)
+    sendMessage: async (details: {
+        chatId: string
+        senderUserId: string
+        receiverUserId: string
+        messages: IMessage[]
+    }) => {
         let messagesData: Array<IMessage> = []
 
-        return await messagesDocRef
+        return await firestore()
+            .collection('allChats')
+            .doc(details.chatId)
             .get()
             .then(async (querySnapshot) => {
                 if (querySnapshot.exists) {
@@ -643,11 +578,14 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
                         details.messages[details.messages.length - 1],
                     ]
 
-                    await messagesDocRef.update({
+                    await querySnapshot.ref.update({
                         messages: messagesData,
                     })
                 } else {
-                    await messagesDocRef.set({
+                    await querySnapshot.ref.set({
+                        chatId: details.chatId,
+                        senderUserId: details.senderUserId,
+                        receiverUserId: details.receiverUserId,
                         messages: details.messages,
                     })
                 }
@@ -663,11 +601,11 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
             })
     },
     getMessages: async (chatId: string) => {
-        let messagesDocRef: FirebaseFirestoreTypes.DocumentReference =
-            firestore().collection('allChats').doc(chatId)
         let messagesData: Array<IMessage> = []
 
-        return await messagesDocRef
+        return await firestore()
+            .collection('allChats')
+            .doc(chatId)
             .get()
             .then((querySnapshot) => {
                 if (querySnapshot.data()?.messages) {
@@ -695,6 +633,30 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
                         data: [],
                     })
                 }
+            })
+            .catch(() => {
+                return Promise.reject({
+                    status: requestStatus.ERROR,
+                })
+            })
+    },
+    getAllChats: async (userId: string) => {
+        let chats: chatState[] = []
+
+        return await firestore()
+            .collection('allChats')
+            .get()
+            .then((querySnapshot) => {
+                querySnapshot.docs.filter((doc) => {
+                    doc.id.includes(userId)
+                        ? chats.push(doc.data().messages)
+                        : null
+                })
+
+                return Promise.resolve({
+                    status: requestStatus.SUCCESS,
+                    data: chats,
+                })
             })
             .catch(() => {
                 return Promise.reject({
