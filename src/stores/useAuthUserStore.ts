@@ -27,7 +27,7 @@ const initialState: authUserState = {
         preferredCategories: [],
         totalJobs: '',
     },
-    chatsIds: [],
+    chatIds: [],
 }
 
 const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
@@ -65,6 +65,7 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
                             preferredCategories: [],
                             totalJobs: '',
                         },
+                        chatIds: [],
                     })
                     .then(() => {
                         set((state) => ({
@@ -214,7 +215,7 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
             })
     },
     updateImage: async (imageSrc: string) => {
-        let userRef: FirebaseFirestoreTypes.DocumentReference<FirebaseFirestoreTypes.DocumentData>
+        let userRef: FirebaseFirestoreTypes.DocumentReference
 
         return await firestore()
             .collection('allUsers')
@@ -254,7 +255,7 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
         countryCode: string
         phoneNumber: string
     }) => {
-        let userRef: FirebaseFirestoreTypes.DocumentReference<FirebaseFirestoreTypes.DocumentData>
+        let userRef: FirebaseFirestoreTypes.DocumentReference
 
         return await firestore()
             .collection('allUsers')
@@ -295,7 +296,7 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
     updateEmail: async (emailAddress: string) => {
         let user: FirebaseAuthTypes.User = auth()
             .currentUser as FirebaseAuthTypes.User
-        let userRef: FirebaseFirestoreTypes.DocumentReference<FirebaseFirestoreTypes.DocumentData>
+        let userRef: FirebaseFirestoreTypes.DocumentReference
 
         return await user
             .updateEmail(emailAddress)
@@ -364,8 +365,8 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
             })
     },
     addProject: async (details: projectState) => {
-        let userDoc: FirebaseFirestoreTypes.QueryDocumentSnapshot<FirebaseFirestoreTypes.DocumentData>
-        let userRef: FirebaseFirestoreTypes.DocumentReference<FirebaseFirestoreTypes.DocumentData>
+        let userDoc: FirebaseFirestoreTypes.QueryDocumentSnapshot
+        let userRef: FirebaseFirestoreTypes.DocumentReference
         let newProjects: Array<projectState> = []
 
         return await firestore()
@@ -430,8 +431,8 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
             })
     },
     addJob: async (details: jobState) => {
-        let userDoc: FirebaseFirestoreTypes.QueryDocumentSnapshot<FirebaseFirestoreTypes.DocumentData>
-        let userRef: FirebaseFirestoreTypes.DocumentReference<FirebaseFirestoreTypes.DocumentData>
+        let userDoc: FirebaseFirestoreTypes.QueryDocumentSnapshot
+        let userRef: FirebaseFirestoreTypes.DocumentReference
         let newJobs: Array<jobState> = []
 
         return await firestore()
@@ -520,7 +521,7 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
         preferredCategories: string[]
         totalJobs: string
     }) => {
-        let userRef: FirebaseFirestoreTypes.DocumentReference<FirebaseFirestoreTypes.DocumentData>
+        let userRef: FirebaseFirestoreTypes.DocumentReference
 
         return await firestore()
             .collection('allUsers')
@@ -559,9 +560,77 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
                 })
             })
     },
+    addNewChatId: async (chatId: string) => {
+        let userRef: FirebaseFirestoreTypes.DocumentReference
+        let newChatIds: Array<string> = []
 
+        return await firestore()
+            .collection('allUsers')
+            .where(
+                'userDetails.userId',
+                '==',
+                auth().currentUser?.uid as string
+            )
+            .limit(1)
+            .get()
+            .then(async (querySnapshot) => {
+                userRef = querySnapshot.docs[0].ref
+
+                newChatIds = [...querySnapshot.docs[0].data().chatsIds, chatId]
+
+                await userRef.update({ chatsIds: newChatIds })
+
+                set((state) => ({
+                    ...state,
+                    chatIds: newChatIds,
+                }))
+
+                return Promise.resolve({
+                    status: requestStatus.SUCCESS,
+                })
+            })
+            .catch(() => {
+                return Promise.reject({
+                    status: requestStatus.ERROR,
+                })
+            })
+    },
+    getAllChatIds: async () => {
+        let userDoc: FirebaseFirestoreTypes.QueryDocumentSnapshot
+        let chatIds: Array<string> = []
+
+        return await firestore()
+            .collection('allUsers')
+            .where(
+                'userDetails.userId',
+                '==',
+                auth().currentUser?.uid as string
+            )
+            .limit(1)
+            .get()
+            .then((querySnapshot) => {
+                userDoc = querySnapshot.docs[0]
+
+                chatIds = userDoc.data().chatIds
+
+                set((state) => ({
+                    ...state,
+                    chatIds: chatIds,
+                }))
+
+                return Promise.resolve({
+                    status: requestStatus.SUCCESS,
+                    data: chatIds,
+                })
+            })
+            .catch(() => {
+                return Promise.reject({
+                    status: requestStatus.ERROR,
+                })
+            })
+    },
     sendMessage: async (details: { chatId: string; messages: IMessage[] }) => {
-        let messagesDocRef: FirebaseFirestoreTypes.DocumentReference<FirebaseFirestoreTypes.DocumentData> =
+        let messagesDocRef: FirebaseFirestoreTypes.DocumentReference =
             firestore().collection('allChats').doc(details.chatId)
         let messagesData: Array<IMessage> = []
 
@@ -594,7 +663,7 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
             })
     },
     getMessages: async (chatId: string) => {
-        let messagesDocRef: FirebaseFirestoreTypes.DocumentReference<FirebaseFirestoreTypes.DocumentData> =
+        let messagesDocRef: FirebaseFirestoreTypes.DocumentReference =
             firestore().collection('allChats').doc(chatId)
         let messagesData: Array<IMessage> = []
 
