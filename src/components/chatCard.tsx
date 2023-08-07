@@ -8,6 +8,8 @@ import screens from '../types/params/screens'
 import chatCardProps from '../types/props/components/chatCardProps'
 
 const ChatCard = (props: chatCardProps) => {
+    const { receiverUserId, firstName, lastName, imageSrc, lastMessage } = props
+
     const navigation: NavigationProp<screens> = useNavigation()
 
     return (
@@ -16,14 +18,18 @@ const ChatCard = (props: chatCardProps) => {
                 style={styles.touchableSection}
                 onPress={() =>
                     navigation.navigate('Chat', {
-                        receiverUserId: props.receiverUserId,
+                        receiverUserId: receiverUserId,
                     })
                 }
             >
                 <Avatar
                     size="medium"
                     rounded
-                    source={require('../../assets/images/user-avatar.png')}
+                    source={
+                        imageSrc
+                            ? { uri: imageSrc }
+                            : require('../../assets/images/user-avatar.png')
+                    }
                     containerStyle={styles.avatarContainer}
                 />
                 <View style={styles.chatInfoSection}>
@@ -32,15 +38,14 @@ const ChatCard = (props: chatCardProps) => {
                         numberOfLines={1}
                         ellipsizeMode="tail"
                     >
-                        First Last
+                        {`${firstName} ${lastName}`}
                     </Text>
                     <Text
                         style={styles.chatText}
                         numberOfLines={1}
                         ellipsizeMode="tail"
                     >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        {lastMessage}
                     </Text>
                 </View>
                 <View style={styles.optionsSection}>
@@ -50,32 +55,37 @@ const ChatCard = (props: chatCardProps) => {
                         size={20}
                         color="black"
                         onPress={() =>
-                            Alert.alert('Manage Chat', undefined, [
-                                {
-                                    text: 'Report User',
-                                    onPress: () =>
-                                        MailComposer.composeAsync({
-                                            recipients: [
-                                                'support@dutified.com',
-                                            ],
-                                        }).catch(() => {
-                                            Alert.alert(
-                                                'Setup Email',
-                                                'Please setup your email address on this device first.',
-                                                [
-                                                    {
-                                                        text: 'Dismiss',
-                                                        onPress: () => {},
-                                                    },
-                                                ]
-                                            )
-                                        }),
-                                },
-                                {
-                                    text: 'Dismiss',
-                                    onPress: () => {},
-                                },
-                            ])
+                            Alert.alert(
+                                'Report User',
+                                'Report inappropriate or suspicious activity.',
+                                [
+                                    {
+                                        text: `Report ${firstName} ${lastName}`,
+
+                                        onPress: () =>
+                                            MailComposer.composeAsync({
+                                                recipients: [
+                                                    'support@dutified.com',
+                                                ],
+                                            }).catch(() => {
+                                                Alert.alert(
+                                                    'Setup Email',
+                                                    'Please setup your email address on this device first.',
+                                                    [
+                                                        {
+                                                            text: 'Dismiss',
+                                                            onPress: () => {},
+                                                        },
+                                                    ]
+                                                )
+                                            }),
+                                    },
+                                    {
+                                        text: 'Dismiss',
+                                        onPress: () => {},
+                                    },
+                                ]
+                            )
                         }
                     />
                 </View>
