@@ -649,7 +649,7 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
             .then((querySnapshot) => {
                 querySnapshot.docs.filter((doc) => {
                     doc.id.includes(userId)
-                        ? chats.push(doc.data().messages)
+                        ? chats.push(doc.data() as chatState)
                         : null
                 })
 
