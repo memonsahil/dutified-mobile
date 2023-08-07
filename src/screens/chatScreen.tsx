@@ -96,12 +96,15 @@ const ChatScreen = ({ route }: chatScreenProps) => {
 
     const onSend = (newMessages: IMessage[]) => {
         setMessage('')
+
         setMessages((previousMessages: IMessage[]) =>
             GiftedChat.append(previousMessages, newMessages)
         )
 
         sendMessage({
             chatId: [userDetails.userId, receiverUserId].sort().join('-'),
+            senderUserId: userDetails.userId,
+            receiverUserId: receiverUserId,
             messages: newMessages,
         }).catch(() => {
             Alert.alert(
@@ -162,7 +165,6 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                     </View>
                     <GiftedChat
                         messages={messages}
-                        onSend={(newMessages) => onSend(newMessages)}
                         user={{
                             _id: userDetails.userId,
                             name: `${userDetails.firstName} ${userDetails.lastName}`,
