@@ -68,31 +68,17 @@ const ChatScreen = ({ route }: chatScreenProps) => {
     }, [receiverUserId])
 
     useEffect(() => {
-        let timeOut = setTimeout(() => {
-            getMessages([userDetails.userId, receiverUserId].sort().join('-'))
-                .then((result) => {
-                    setMessages(result.data)
+        let subscriber = getMessages({
+            chatId: [userDetails.userId, receiverUserId].sort().join('-'),
+            setState: setMessages,
+        })
 
-                    first !== '' && last !== '' ? setLoading(false) : null
-                })
-                .catch(() => {
-                    Alert.alert(
-                        'Error Occurred',
-                        'An error occurred, please try again or contact our support team.',
-                        [
-                            {
-                                text: 'Dismiss',
-                                onPress: () => navigation.goBack(),
-                            },
-                        ]
-                    )
-                })
-        }, 4000)
+        if (first !== '' && last !== '') {
+            setLoading(false)
+        }
 
-        return () => clearTimeout(timeOut)
+        return () => subscriber()
     })
-
-    useEffect(() => {})
 
     const onSend = (newMessages: IMessage[]) => {
         setMessage('')
