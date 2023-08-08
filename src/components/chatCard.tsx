@@ -8,7 +8,7 @@ import screens from '../types/params/screens'
 import chatCardProps from '../types/props/components/chatCardProps'
 
 const ChatCard = (props: chatCardProps) => {
-    const { receiverUserId, firstName, lastName, imageSrc, messages } = props
+    const { receiverUserId, firstName, lastName, imageSrc } = props
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -22,7 +22,6 @@ const ChatCard = (props: chatCardProps) => {
                         firstName: firstName,
                         lastName: lastName,
                         imageSrc: imageSrc,
-                        messages: messages,
                     })
                 }
             >

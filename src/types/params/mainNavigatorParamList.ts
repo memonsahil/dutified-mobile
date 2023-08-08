@@ -1,5 +1,3 @@
-import { IMessage } from 'react-native-gifted-chat'
-
 type mainNavigatorParamList = {
     Dashboard: undefined
     Home: undefined
@@ -35,7 +33,6 @@ type mainNavigatorParamList = {
         firstName: string
         lastName: string
         imageSrc: string
-        messages: IMessage[]
     }
 
     EditProfilePicture: undefined

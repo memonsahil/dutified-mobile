@@ -42,7 +42,6 @@ const ChatsScreen = () => {
                                             result.data?.userDetails.lastName!,
                                         imageSrc:
                                             result.data?.userDetails.imageSrc!,
-                                        messages: chat.messages,
                                     },
                                 ])
 
@@ -106,7 +105,6 @@ const ChatsScreen = () => {
                                 firstName={chatCard.firstName}
                                 lastName={chatCard.lastName}
                                 imageSrc={chatCard.imageSrc}
-                                messages={chatCard.messages}
                             />
                         ))
                     ) : (
