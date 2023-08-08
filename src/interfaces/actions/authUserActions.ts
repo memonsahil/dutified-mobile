@@ -57,10 +57,11 @@ export default interface authUserActions {
         status: requestStatus
         errorCode?: string
     }>
-    getMessages: (details: {
-        chatId: string
-        setState: Dispatch<SetStateAction<IMessage[]>>
-    }) => () => void
+    getMessages: (chatId: string) => Promise<{
+        status: requestStatus
+        errorCode?: string
+        data: IMessage[]
+    }>
     getAllChats: (userId: string) => Promise<{
         status: requestStatus
         errorCode?: string

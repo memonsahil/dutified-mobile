@@ -601,31 +601,43 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
                 })
             })
     },
-    getMessages: (details: {
-        chatId: string
-        setState: Dispatch<SetStateAction<IMessage[]>>
-    }) => {
-        let messages: Array<IMessage> = []
+    getMessages: async (chatId: string) => {
+        let messagesData: Array<IMessage> = []
 
-        return firestore()
+        return await firestore()
             .collection('allChats')
-            .doc(details.chatId)
-            .onSnapshot((querySnapshot) => {
-                messages = querySnapshot
-                    .data()
-                    ?.messages.map(
-                        (message: {
-                            createdAt: FirebaseFirestoreTypes.Timestamp
-                        }) => {
-                            return {
-                                ...message,
-                                createdAt: message.createdAt.toDate(),
+            .doc(chatId)
+            .get()
+            .then((querySnapshot) => {
+                if (querySnapshot.data()?.messages) {
+                    messagesData = querySnapshot
+                        .data()
+                        ?.messages.map(
+                            (message: {
+                                createdAt: FirebaseFirestoreTypes.Timestamp
+                            }) => {
+                                return {
+                                    ...message,
+                                    createdAt: message.createdAt.toDate(),
+                                }
                             }
-                        }
-                    )
-                    .reverse() as Array<IMessage>
-
-                details.setState(messages)
+                        )
+                        .reverse() as Array<IMessage>
+                    return Promise.resolve({
+                        status: requestStatus.SUCCESS,
+                        data: messagesData,
+                    })
+                } else {
+                    return Promise.resolve({
+                        status: requestStatus.SUCCESS,
+                        data: [],
+                    })
+                }
+            })
+            .catch(() => {
+                return Promise.reject({
+                    status: requestStatus.ERROR,
+                })
             })
     },
     getAllChats: async (userId: string) => {
