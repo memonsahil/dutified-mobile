@@ -1,3 +1,5 @@
+import { IMessage } from 'react-native-gifted-chat'
+
 /**
  * @description
  * When a new screen is built, it must be added to the below screens type
@@ -90,6 +92,10 @@ type screens = {
     Chats: undefined
     Chat: {
         receiverUserId: string
+        firstName: string
+        lastName: string
+        imageSrc: string
+        messages: IMessage[]
     }
 
     EditProfilePicture: undefined

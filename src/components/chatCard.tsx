@@ -8,7 +8,7 @@ import screens from '../types/params/screens'
 import chatCardProps from '../types/props/components/chatCardProps'
 
 const ChatCard = (props: chatCardProps) => {
-    const { receiverUserId, firstName, lastName, imageSrc, lastMessage } = props
+    const { receiverUserId, firstName, lastName, imageSrc, messages } = props
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -19,6 +19,10 @@ const ChatCard = (props: chatCardProps) => {
                 onPress={() =>
                     navigation.navigate('Chat', {
                         receiverUserId: receiverUserId,
+                        firstName: firstName,
+                        lastName: lastName,
+                        imageSrc: imageSrc,
+                        messages: messages,
                     })
                 }
             >
@@ -39,13 +43,6 @@ const ChatCard = (props: chatCardProps) => {
                         ellipsizeMode="tail"
                     >
                         {`${firstName} ${lastName}`}
-                    </Text>
-                    <Text
-                        style={styles.chatText}
-                        numberOfLines={1}
-                        ellipsizeMode="tail"
-                    >
-                        {lastMessage}
                     </Text>
                 </View>
                 <View style={styles.optionsSection}>
@@ -101,6 +98,8 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         width: '90%',
         overflow: 'hidden',
+        paddingTop: 15,
+        paddingBottom: 15,
         marginBottom: 20,
     },
     touchableSection: {
@@ -124,12 +123,6 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSans-Bold',
         fontSize: 18,
         color: black,
-    },
-    chatText: {
-        fontFamily: 'IBMPlexSans-Regular',
-        fontSize: 16,
-        color: black,
-        paddingTop: 10,
     },
     optionsSection: {
         justifyContent: 'flex-start',
