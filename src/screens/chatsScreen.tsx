@@ -31,7 +31,6 @@ const ChatsScreen = () => {
                                 : chat.senderUserId
                         )
                             .then((result) => {
-                                console.log('User Details: ', result.data)
                                 setChatCardDetails([
                                     ...chatCardDetails,
                                     {
