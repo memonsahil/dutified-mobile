@@ -35,12 +35,26 @@ const ChatScreen = ({ route }: chatScreenProps) => {
     const navigation: NavigationProp<screens> = useNavigation()
 
     useEffect(() => {
-        let subscriber = getMessages({
-            chatId: [userDetails.userId, receiverUserId].sort().join('-'),
-            setState: setAllMessages,
-        })
+        let timeOut = setTimeout(() => {
+            getMessages([userDetails.userId, receiverUserId].sort().join('-'))
+                .then((result) => {
+                    setAllMessages(result.data)
+                })
+                .catch(() => {
+                    Alert.alert(
+                        'Error Occurred',
+                        'An error occurred, please try again or contact our support team.',
+                        [
+                            {
+                                text: 'Dismiss',
+                                onPress: () => navigation.goBack(),
+                            },
+                        ]
+                    )
+                })
+        }, 4000)
 
-        return () => subscriber()
+        return () => clearTimeout(timeOut)
     })
 
     const onSend = (newMessages: IMessage[]) => {
