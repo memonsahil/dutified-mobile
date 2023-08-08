@@ -22,11 +22,11 @@ import screens from '../types/params/screens'
 import chatScreenProps from '../types/props/screens/chatScreenProps'
 
 const ChatScreen = ({ route }: chatScreenProps) => {
-    const { receiverUserId, firstName, lastName, imageSrc, messages } =
-        route.params
+    const { receiverUserId, firstName, lastName, imageSrc } = route.params
 
     const [message, setMessage] = useState<string>('')
-    const [allMessages, setAllMessages] = useState<IMessage[]>(messages)
+    const [allMessages, setAllMessages] = useState<IMessage[]>([])
+    const [loading, setLoading] = useState<boolean>(true)
 
     const { userDetails, sendMessage, getMessages } = useAuthUserStore(
         (state) => state
@@ -39,6 +39,8 @@ const ChatScreen = ({ route }: chatScreenProps) => {
             getMessages([userDetails.userId, receiverUserId].sort().join('-'))
                 .then((result) => {
                     setAllMessages(result.data)
+
+                    setLoading(false)
                 })
                 .catch(() => {
                     Alert.alert(
@@ -85,103 +87,118 @@ const ChatScreen = ({ route }: chatScreenProps) => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.headerSection}>
-                <AntDesign
-                    name="caretleft"
-                    size={30}
-                    color={green}
-                    onPress={() => navigation.goBack()}
-                />
-                <TouchableOpacity
-                    onPress={() =>
-                        navigation.navigate('User', {
-                            userId: receiverUserId,
-                        })
-                    }
-                >
-                    <Text
-                        numberOfLines={1}
-                        ellipsizeMode="tail"
-                        style={styles.heading}
-                    >{`${firstName} ${lastName}`}</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() =>
-                        navigation.navigate('User', {
-                            userId: receiverUserId,
-                        })
-                    }
-                >
-                    <Avatar
-                        size="small"
-                        rounded
-                        source={
-                            imageSrc
-                                ? { uri: imageSrc }
-                                : require('../../assets/images/user-avatar.png')
-                        }
-                        containerStyle={styles.avatarContainer}
+            {loading === false ? (
+                <>
+                    <View style={styles.headerSection}>
+                        <AntDesign
+                            name="caretleft"
+                            size={30}
+                            color={green}
+                            onPress={() => navigation.goBack()}
+                        />
+                        <TouchableOpacity
+                            onPress={() =>
+                                navigation.navigate('User', {
+                                    userId: receiverUserId,
+                                })
+                            }
+                        >
+                            <Text
+                                numberOfLines={1}
+                                ellipsizeMode="tail"
+                                style={styles.heading}
+                            >{`${firstName} ${lastName}`}</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() =>
+                                navigation.navigate('User', {
+                                    userId: receiverUserId,
+                                })
+                            }
+                        >
+                            <Avatar
+                                size="small"
+                                rounded
+                                source={
+                                    imageSrc
+                                        ? { uri: imageSrc }
+                                        : require('../../assets/images/user-avatar.png')
+                                }
+                                containerStyle={styles.avatarContainer}
+                            />
+                        </TouchableOpacity>
+                    </View>
+                    <GiftedChat
+                        messages={allMessages}
+                        user={{
+                            _id: userDetails.userId,
+                            name: `${userDetails.firstName} ${userDetails.lastName}`,
+                        }}
+                        renderAvatar={null}
+                        listViewProps={{
+                            style: styles.chatView,
+                            showsVerticalScrollIndicator: false,
+                        }}
+                        renderInputToolbar={() => {
+                            return (
+                                <View style={styles.toolbar}>
+                                    <View style={styles.inputSection}>
+                                        <TextInput
+                                            placeholder="Your message"
+                                            value={message}
+                                            onChangeText={setMessage}
+                                            style={styles.input}
+                                            placeholderTextColor={gray}
+                                            multiline={false}
+                                        />
+                                        <TouchableOpacity
+                                            onPress={() =>
+                                                message !== ''
+                                                    ? onSend([
+                                                          {
+                                                              _id: Crypto.randomUUID(),
+                                                              text: message,
+                                                              createdAt:
+                                                                  new Date(),
+                                                              user: {
+                                                                  _id: userDetails.userId,
+                                                                  name: `${userDetails.firstName} ${userDetails.lastName}`,
+                                                              },
+                                                          },
+                                                      ])
+                                                    : null
+                                            }
+                                        >
+                                            <Ionicons
+                                                name="send"
+                                                size={20}
+                                                color={green}
+                                            />
+                                        </TouchableOpacity>
+                                    </View>
+                                    <TouchableOpacity onPress={() => {}}>
+                                        <FontAwesome5
+                                            name="file-signature"
+                                            size={20}
+                                            color={green}
+                                        />
+                                    </TouchableOpacity>
+                                </View>
+                            )
+                        }}
                     />
-                </TouchableOpacity>
-            </View>
-            <GiftedChat
-                messages={allMessages}
-                user={{
-                    _id: userDetails.userId,
-                    name: `${userDetails.firstName} ${userDetails.lastName}`,
-                }}
-                renderAvatar={null}
-                listViewProps={{
-                    style: styles.chatView,
-                    showsVerticalScrollIndicator: false,
-                }}
-                renderInputToolbar={() => {
-                    return (
-                        <View style={styles.toolbar}>
-                            <View style={styles.inputSection}>
-                                <TextInput
-                                    placeholder="Your message"
-                                    value={message}
-                                    onChangeText={setMessage}
-                                    style={styles.input}
-                                    placeholderTextColor={gray}
-                                    multiline={false}
-                                />
-                                <TouchableOpacity
-                                    onPress={() =>
-                                        message !== ''
-                                            ? onSend([
-                                                  {
-                                                      _id: Crypto.randomUUID(),
-                                                      text: message,
-                                                      createdAt: new Date(),
-                                                      user: {
-                                                          _id: userDetails.userId,
-                                                          name: `${userDetails.firstName} ${userDetails.lastName}`,
-                                                      },
-                                                  },
-                                              ])
-                                            : null
-                                    }
-                                >
-                                    <Ionicons
-                                        name="send"
-                                        size={20}
-                                        color={green}
-                                    />
-                                </TouchableOpacity>
-                            </View>
-                            <TouchableOpacity onPress={() => {}}>
-                                <FontAwesome5
-                                    name="file-signature"
-                                    size={20}
-                                    color={green}
-                                />
-                            </TouchableOpacity>
-                        </View>
-                    )
-                }}
-            />
+                </>
+            ) : (
+                <View style={styles.loadingContainer}>
+                    <Progress.Bar
+                        width={250}
+                        height={25}
+                        borderRadius={20}
+                        indeterminate={true}
+                        color={green}
+                    />
+                </View>
+            )}
         </View>
     )
 }
