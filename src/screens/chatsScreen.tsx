@@ -1,12 +1,5 @@
 import { useEffect, useState } from 'react'
-import {
-    StyleSheet,
-    Text,
-    ScrollView,
-    View,
-    Platform,
-    Alert,
-} from 'react-native'
+import { StyleSheet, Text, ScrollView, View, Alert } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import useAuthUserStore from '../stores/useAuthUserStore'
 import useUserStore from '../stores/useUserStore'
@@ -30,47 +23,48 @@ const ChatsScreen = () => {
     useEffect(() => {
         getAllChats(userDetails.userId)
             .then((result) => {
-                result.data.forEach((chat) => {
-                    getUserData(
-                        userDetails.userId === chat.senderUserId
-                            ? chat.receiverUserId
-                            : chat.senderUserId
-                    )
-                        .then((result) => {
-                            setChatCardDetails([
-                                ...chatCardDetails,
-                                {
-                                    receiverUserId:
-                                        result.data?.userDetails.userId!,
-                                    firstName:
-                                        result.data?.userDetails.firstName!,
-                                    lastName:
-                                        result.data?.userDetails.lastName!,
-                                    imageSrc:
-                                        result.data?.userDetails.imageSrc!,
-                                    lastMessage:
-                                        chat.messages[chat.messages.length - 1]
-                                            .text,
-                                },
-                            ])
-
-                            setLoading(false)
-                        })
-                        .catch(() => {
-                            Alert.alert(
-                                'Error Occurred',
-                                'An error occurred, please try again or contact our support team.',
-                                [
+                if (result.data.length !== 0) {
+                    result.data.forEach((chat) => {
+                        getUserData(
+                            userDetails.userId === chat.senderUserId
+                                ? chat.receiverUserId
+                                : chat.senderUserId
+                        )
+                            .then((result) => {
+                                console.log('User Details: ', result.data)
+                                setChatCardDetails([
+                                    ...chatCardDetails,
                                     {
-                                        text: 'Dismiss',
-                                        onPress: () => {
-                                            navigation.goBack()
-                                        },
+                                        receiverUserId:
+                                            result.data?.userDetails.userId!,
+                                        firstName:
+                                            result.data?.userDetails.firstName!,
+                                        lastName:
+                                            result.data?.userDetails.lastName!,
+                                        imageSrc:
+                                            result.data?.userDetails.imageSrc!,
+                                        messages: chat.messages,
                                     },
-                                ]
-                            )
-                        })
-                })
+                                ])
+
+                                setLoading(false)
+                            })
+                            .catch(() => {
+                                Alert.alert(
+                                    'Error Occurred',
+                                    'An error occurred, please try again or contact our support team.',
+                                    [
+                                        {
+                                            text: 'Dismiss',
+                                            onPress: () => {
+                                                navigation.goBack()
+                                            },
+                                        },
+                                    ]
+                                )
+                            })
+                    })
+                } else setLoading(false)
             })
             .catch(() => {
                 Alert.alert(
@@ -105,16 +99,25 @@ const ChatsScreen = () => {
                         <Text style={styles.heading}>Chats</Text>
                     </View>
                     <View style={styles.topSpacer} />
-                    {chatCardDetails.map((chatCard) => (
-                        <ChatCard
-                            key={Crypto.randomUUID()}
-                            receiverUserId={chatCard.receiverUserId}
-                            firstName={chatCard.firstName}
-                            lastName={chatCard.lastName}
-                            imageSrc={chatCard.imageSrc}
-                            lastMessage={chatCard.lastMessage}
-                        />
-                    ))}
+                    {chatCardDetails.length !== 0 ? (
+                        chatCardDetails.map((chatCard) => (
+                            <ChatCard
+                                key={Crypto.randomUUID()}
+                                receiverUserId={chatCard.receiverUserId}
+                                firstName={chatCard.firstName}
+                                lastName={chatCard.lastName}
+                                imageSrc={chatCard.imageSrc}
+                                messages={chatCard.messages}
+                            />
+                        ))
+                    ) : (
+                        <View style={styles.noDataContainer}>
+                            <Text style={styles.noDataText}>
+                                Workmates that you interact with will be shown
+                                here.
+                            </Text>
+                        </View>
+                    )}
                 </ScrollView>
             ) : (
                 <View style={styles.loadingContainer}>
@@ -163,6 +166,15 @@ const styles = StyleSheet.create({
     },
     topSpacer: {
         paddingTop: 20,
+    },
+    noDataContainer: {
+        alignItems: 'center',
+        width: '80%',
+    },
+    noDataText: {
+        fontFamily: 'IBMPlexSans-Regular',
+        fontSize: 18,
+        color: white,
     },
 })
 
