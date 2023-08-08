@@ -652,27 +652,6 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
                 })
             })
     },
-    getChat: async (chatId: string) => {
-        let chat: chatState
-
-        return await firestore()
-            .collection('allChats')
-            .doc(chatId)
-            .get()
-            .then((querySnapshot) => {
-                chat = querySnapshot.data() as chatState
-
-                return Promise.resolve({
-                    status: requestStatus.SUCCESS,
-                    data: chat,
-                })
-            })
-            .catch(() => {
-                return Promise.reject({
-                    status: requestStatus.ERROR,
-                })
-            })
-    },
 }))
 
 export default useAuthUserStore

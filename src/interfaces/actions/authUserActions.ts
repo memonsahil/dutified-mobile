@@ -66,9 +66,4 @@ export default interface authUserActions {
         errorCode?: string
         data: chatState[]
     }>
-    getChat: (chatId: string) => Promise<{
-        status: requestStatus
-        errorCode?: string
-        data: chatState
-    }>
 }
