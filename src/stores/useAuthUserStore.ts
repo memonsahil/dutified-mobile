@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react'
 import { create } from 'zustand'
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
 import firestore, {
@@ -600,44 +601,31 @@ const useAuthUserStore = create<authUserState & authUserActions>()((set) => ({
                 })
             })
     },
-    getMessages: async (chatId: string) => {
-        let messagesData: Array<IMessage> = []
+    getMessages: (details: {
+        chatId: string
+        setState: Dispatch<SetStateAction<IMessage[]>>
+    }) => {
+        let messages: Array<IMessage> = []
 
-        return await firestore()
+        return firestore()
             .collection('allChats')
-            .doc(chatId)
-            .get()
-            .then((querySnapshot) => {
-                if (querySnapshot.data()?.messages) {
-                    messagesData = querySnapshot
-                        .data()
-                        ?.messages.map(
-                            (message: {
-                                createdAt: FirebaseFirestoreTypes.Timestamp
-                            }) => {
-                                return {
-                                    ...message,
-                                    createdAt: message.createdAt.toDate(),
-                                }
+            .doc(details.chatId)
+            .onSnapshot((querySnapshot) => {
+                messages = querySnapshot
+                    .data()
+                    ?.messages.map(
+                        (message: {
+                            createdAt: FirebaseFirestoreTypes.Timestamp
+                        }) => {
+                            return {
+                                ...message,
+                                createdAt: message.createdAt.toDate(),
                             }
-                        )
-                        .reverse() as Array<IMessage>
+                        }
+                    )
+                    .reverse() as Array<IMessage>
 
-                    return Promise.resolve({
-                        status: requestStatus.SUCCESS,
-                        data: messagesData,
-                    })
-                } else {
-                    return Promise.resolve({
-                        status: requestStatus.SUCCESS,
-                        data: [],
-                    })
-                }
-            })
-            .catch(() => {
-                return Promise.reject({
-                    status: requestStatus.ERROR,
-                })
+                details.setState(messages)
             })
     },
     getAllChats: async (userId: string) => {

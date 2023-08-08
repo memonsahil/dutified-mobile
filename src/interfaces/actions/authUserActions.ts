@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react'
 import requestStatus from '../../enums/requestStatus'
 import projectState from '../state/projectState'
 import jobState from '../state/jobState'
@@ -56,11 +57,10 @@ export default interface authUserActions {
         status: requestStatus
         errorCode?: string
     }>
-    getMessages: (chatId: string) => Promise<{
-        status: requestStatus
-        errorCode?: string
-        data: IMessage[]
-    }>
+    getMessages: (details: {
+        chatId: string
+        setState: Dispatch<SetStateAction<IMessage[]>>
+    }) => () => void
     getAllChats: (userId: string) => Promise<{
         status: requestStatus
         errorCode?: string
