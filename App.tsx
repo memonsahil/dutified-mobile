@@ -39,6 +39,7 @@ import EditPasswordScreen from './src/screens/EditPasswordScreen'
 import authNavigatorParamList from './src/types/params/authNavigatorParamList'
 import mainNavigatorParamList from './src/types/params/mainNavigatorParamList'
 import dashboardNavigatorParamList from './src/types/params/dashboardNavigatorParamList'
+import useAuthUserStore from './src/stores/useAuthUserStore'
 import { Entypo } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import { FontAwesome } from '@expo/vector-icons'
@@ -52,6 +53,8 @@ const App = () => {
     const AuthStack = createStackNavigator<authNavigatorParamList>()
     const DashboardTab = createBottomTabNavigator<dashboardNavigatorParamList>()
     const MainStack = createStackNavigator<mainNavigatorParamList>()
+
+    const { getAuthUserData } = useAuthUserStore((state) => state)
 
     const [fontsLoaded] = useFonts({
         'IBMPlexSans-Bold': require('./assets/fonts/IBMPlexSans-Bold.ttf'),
@@ -69,10 +72,18 @@ const App = () => {
     }, [fontsLoaded])
 
     useEffect(() => {
-        auth().onAuthStateChanged((userState) => {
-            setUser(userState)
+        const subscriber = auth().onAuthStateChanged((authUser) => {
+            setUser(authUser)
         })
+
+        return () => subscriber()
     }, [])
+
+    useEffect(() => {
+        if (user) {
+            getAuthUserData()
+        }
+    }, [user])
 
     const AuthStackNavigator = () => {
         return (
