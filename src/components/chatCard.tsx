@@ -49,11 +49,11 @@ const ChatCard = (props: chatCardProps) => {
                         color="black"
                         onPress={() =>
                             Alert.alert(
-                                'Report User',
+                                `Report ${firstName} ${lastName}`,
                                 'Report inappropriate or suspicious activity.',
                                 [
                                     {
-                                        text: `Report ${firstName} ${lastName}`,
+                                        text: `Report`,
 
                                         onPress: () =>
                                             MailComposer.composeAsync({
