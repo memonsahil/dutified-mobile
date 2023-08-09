@@ -90,9 +90,6 @@ type screens = {
     Chats: undefined
     Chat: {
         receiverUserId: string
-        firstName: string
-        lastName: string
-        imageSrc: string
     }
 
     EditProfilePicture: undefined

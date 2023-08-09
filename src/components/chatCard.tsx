@@ -19,9 +19,6 @@ const ChatCard = (props: chatCardProps) => {
                 onPress={() =>
                     navigation.navigate('Chat', {
                         receiverUserId: receiverUserId,
-                        firstName: firstName,
-                        lastName: lastName,
-                        imageSrc: imageSrc,
                     })
                 }
             >
