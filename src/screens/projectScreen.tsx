@@ -161,7 +161,7 @@ const ProjectScreen = ({ route }: projectScreenProps) => {
                             <TouchableOpacity
                                 onPress={() =>
                                     navigation.navigate('Chat', {
-                                        receiverUserId: userDetails.userId,
+                                        receiverUserId: projectCreatorId,
                                     })
                                 }
                             >

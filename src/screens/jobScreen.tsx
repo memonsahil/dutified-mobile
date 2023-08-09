@@ -140,7 +140,7 @@ const JobScreen = ({ route }: jobScreenProps) => {
                             <TouchableOpacity
                                 onPress={() =>
                                     navigation.navigate('Chat', {
-                                        receiverUserId: userDetails.userId,
+                                        receiverUserId: jobCreatorId,
                                     })
                                 }
                             >
