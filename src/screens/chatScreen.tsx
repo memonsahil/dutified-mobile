@@ -10,6 +10,7 @@ import {
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import useAuthUserStore from '../stores/useAuthUserStore'
+import useUserStore from '../stores/useUserStore'
 import { GiftedChat, IMessage } from 'react-native-gifted-chat'
 import * as Crypto from 'expo-crypto'
 import { Avatar } from 'react-native-elements'
@@ -22,8 +23,11 @@ import screens from '../types/params/screens'
 import chatScreenProps from '../types/props/screens/chatScreenProps'
 
 const ChatScreen = ({ route }: chatScreenProps) => {
-    const { receiverUserId, firstName, lastName, imageSrc } = route.params
+    const { receiverUserId } = route.params
 
+    const [firstName, setFirstName] = useState<string>('')
+    const [lastName, setLastName] = useState<string>('')
+    const [imageSrc, setImageSrc] = useState<string>('')
     const [message, setMessage] = useState<string>('')
     const [allMessages, setAllMessages] = useState<IMessage[]>([])
     const [loading, setLoading] = useState<boolean>(true)
@@ -31,8 +35,30 @@ const ChatScreen = ({ route }: chatScreenProps) => {
     const { userDetails, sendMessage, getMessages } = useAuthUserStore(
         (state) => state
     )
+    const { getUserData } = useUserStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
+
+    useEffect(() => {
+        getUserData(receiverUserId)
+            .then((result) => {
+                setFirstName(result.data?.userDetails.firstName!)
+                setLastName(result.data?.userDetails.lastName!)
+                setImageSrc(result.data?.userDetails.imageSrc!)
+            })
+            .catch(() => {
+                Alert.alert(
+                    'Error Occurred',
+                    'An error occurred, please try again or contact our support team.',
+                    [
+                        {
+                            text: 'Dismiss',
+                            onPress: () => navigation.goBack(),
+                        },
+                    ]
+                )
+            })
+    }, [])
 
     useEffect(() => {
         let timeOut = setTimeout(() => {
@@ -40,7 +66,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                 .then((result) => {
                     setAllMessages(result.data)
 
-                    setLoading(false)
+                    if (firstName !== '' && lastName !== '') setLoading(false)
                 })
                 .catch(() => {
                     Alert.alert(
