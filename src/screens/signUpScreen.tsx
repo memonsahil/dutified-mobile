@@ -38,12 +38,13 @@ const SignUpScreen = () => {
                     showsVerticalScrollIndicator={false}
                 >
                     <View style={styles.headerSection}>
-                        <AntDesign
-                            name="caretleft"
-                            size={30}
-                            color={green}
-                            onPress={() => navigation.goBack()}
-                        />
+                        <TouchableOpacity onPress={() => navigation.goBack()}>
+                            <AntDesign
+                                name="caretleft"
+                                size={30}
+                                color={green}
+                            />
+                        </TouchableOpacity>
                         <Text style={styles.heading}>Sign Up</Text>
                     </View>
                     <View style={styles.signUpSection}>

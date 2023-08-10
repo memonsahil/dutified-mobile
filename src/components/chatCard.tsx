@@ -42,11 +42,7 @@ const ChatCard = (props: chatCardProps) => {
                     </Text>
                 </View>
                 <View style={styles.optionsSection}>
-                    <SimpleLineIcons
-                        style={styles.options}
-                        name="options"
-                        size={20}
-                        color="black"
+                    <TouchableOpacity
                         onPress={() =>
                             Alert.alert(
                                 `Report ${firstName} ${lastName}`,
@@ -80,7 +76,14 @@ const ChatCard = (props: chatCardProps) => {
                                 ]
                             )
                         }
-                    />
+                    >
+                        <SimpleLineIcons
+                            style={styles.options}
+                            name="options"
+                            size={20}
+                            color="black"
+                        />
+                    </TouchableOpacity>
                 </View>
             </TouchableOpacity>
         </View>

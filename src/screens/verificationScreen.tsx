@@ -25,12 +25,9 @@ const VerificationScreen = () => {
                 showsVerticalScrollIndicator={false}
             >
                 <View style={styles.headerSection}>
-                    <AntDesign
-                        name="caretleft"
-                        size={30}
-                        color={green}
-                        onPress={() => navigation.goBack()}
-                    />
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <AntDesign name="caretleft" size={30} color={green} />
+                    </TouchableOpacity>
                     <Text style={styles.heading}>Verification</Text>
                 </View>
                 <Text style={styles.text}>

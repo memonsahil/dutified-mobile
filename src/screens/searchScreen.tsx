@@ -6,6 +6,7 @@ import {
     View,
     TextInput,
     Alert,
+    TouchableOpacity,
 } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
@@ -71,12 +72,9 @@ const SearchScreen = () => {
                 showsVerticalScrollIndicator={false}
             >
                 <View style={styles.headerSection}>
-                    <AntDesign
-                        name="caretleft"
-                        size={30}
-                        color={green}
-                        onPress={() => navigation.goBack()}
-                    />
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <AntDesign name="caretleft" size={30} color={green} />
+                    </TouchableOpacity>
                     <Text style={styles.heading}>Search</Text>
                 </View>
                 <TextInput

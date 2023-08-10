@@ -40,12 +40,11 @@ const WorkScreen = () => {
             >
                 <View style={styles.headerSection}>
                     <Text style={styles.heading}>Work</Text>
-                    <FontAwesome
-                        name="search"
-                        size={30}
-                        color={green}
+                    <TouchableOpacity
                         onPress={() => navigation.navigate('Search')}
-                    />
+                    >
+                        <FontAwesome name="search" size={30} color={green} />
+                    </TouchableOpacity>
                 </View>
                 <Text style={styles.subHeading}>Work Setup</Text>
                 <WorkSetupCard

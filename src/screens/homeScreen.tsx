@@ -1,4 +1,10 @@
-import { StyleSheet, Text, ScrollView, View } from 'react-native'
+import {
+    StyleSheet,
+    Text,
+    ScrollView,
+    View,
+    TouchableOpacity,
+} from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import useAuthUserStore from '../stores/useAuthUserStore'
 import ProjectCard from '../components/projectCard'
@@ -21,12 +27,15 @@ const HomeScreen = () => {
             >
                 <View style={styles.headerSection}>
                     <Text style={styles.heading}>Home</Text>
-                    <MaterialCommunityIcons
-                        name="android-messages"
-                        size={35}
-                        color={green}
+                    <TouchableOpacity
                         onPress={() => navigation.navigate('Chats')}
-                    />
+                    >
+                        <MaterialCommunityIcons
+                            name="android-messages"
+                            size={35}
+                            color={green}
+                        />
+                    </TouchableOpacity>
                 </View>
                 {projects.length === 0 ? (
                     <View style={styles.noDataContainer}>

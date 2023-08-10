@@ -1,4 +1,10 @@
-import { StyleSheet, Text, ScrollView, View } from 'react-native'
+import {
+    StyleSheet,
+    Text,
+    ScrollView,
+    View,
+    TouchableOpacity,
+} from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons'
 import { blue, green, white } from '../theme/colors'
@@ -14,12 +20,9 @@ const TosScreen = () => {
                 showsVerticalScrollIndicator={false}
             >
                 <View style={styles.headerSection}>
-                    <AntDesign
-                        name="caretleft"
-                        size={30}
-                        color={green}
-                        onPress={() => navigation.goBack()}
-                    />
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <AntDesign name="caretleft" size={30} color={green} />
+                    </TouchableOpacity>
                     <Text style={styles.heading}>Terms of Service</Text>
                 </View>
                 <Text style={styles.text}>

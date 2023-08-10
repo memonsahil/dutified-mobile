@@ -20,13 +20,12 @@ const WorkSetupCard = (props: workSetupCardProps & navProps) => {
         <View style={styles.container}>
             <View style={styles.monthSection}>
                 <Text style={styles.currentMonth}>{formattedDate}</Text>
-                <Feather
+                <TouchableOpacity
                     style={styles.options}
-                    name="edit-3"
-                    size={20}
-                    color="black"
                     onPress={() => props.nav.navigate('WorkSetup')}
-                />
+                >
+                    <Feather name="edit-3" size={20} color="black" />
+                </TouchableOpacity>
             </View>
             {props.preferredCategories.length !== 0 &&
             props.totalJobs !== '' ? (

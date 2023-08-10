@@ -39,12 +39,15 @@ const EditEmailAddressScreen = () => {
                         showsVerticalScrollIndicator={false}
                     >
                         <View style={styles.headerSection}>
-                            <AntDesign
-                                name="caretleft"
-                                size={30}
-                                color={green}
+                            <TouchableOpacity
                                 onPress={() => navigation.goBack()}
-                            />
+                            >
+                                <AntDesign
+                                    name="caretleft"
+                                    size={30}
+                                    color={green}
+                                />
+                            </TouchableOpacity>
                             <Text style={styles.heading}>Email Address</Text>
                         </View>
                         <Text style={styles.field}>Update Email Address</Text>

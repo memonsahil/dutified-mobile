@@ -28,12 +28,15 @@ const ProfileScreen = () => {
             >
                 <View style={styles.headerSection}>
                     <Text style={styles.heading}>Profile</Text>
-                    <FontAwesome5
-                        name="grin-stars"
-                        size={30}
-                        color={green}
+                    <TouchableOpacity
                         onPress={() => navigation.navigate('Feedback')}
-                    />
+                    >
+                        <FontAwesome5
+                            name="grin-stars"
+                            size={30}
+                            color={green}
+                        />
+                    </TouchableOpacity>
                 </View>
                 <UserCard
                     first={userDetails.firstName}

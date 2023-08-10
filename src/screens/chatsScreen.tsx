@@ -1,5 +1,12 @@
 import { useEffect, useState } from 'react'
-import { StyleSheet, Text, ScrollView, View, Alert } from 'react-native'
+import {
+    StyleSheet,
+    Text,
+    ScrollView,
+    View,
+    Alert,
+    TouchableOpacity,
+} from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import useAuthUserStore from '../stores/useAuthUserStore'
 import useUserStore from '../stores/useUserStore'
@@ -88,12 +95,13 @@ const ChatsScreen = () => {
                     showsVerticalScrollIndicator={false}
                 >
                     <View style={styles.headerSection}>
-                        <AntDesign
-                            name="caretleft"
-                            size={30}
-                            color={green}
-                            onPress={() => navigation.goBack()}
-                        />
+                        <TouchableOpacity onPress={() => navigation.goBack()}>
+                            <AntDesign
+                                name="caretleft"
+                                size={30}
+                                color={green}
+                            />
+                        </TouchableOpacity>
                         <Text style={styles.heading}>Chats</Text>
                     </View>
                     <View style={styles.topSpacer} />

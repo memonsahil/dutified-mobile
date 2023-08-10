@@ -1,5 +1,12 @@
 import { useEffect, useState } from 'react'
-import { StyleSheet, Text, ScrollView, View, Alert } from 'react-native'
+import {
+    StyleSheet,
+    Text,
+    ScrollView,
+    View,
+    Alert,
+    TouchableOpacity,
+} from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import useUserStore from '../stores/useUserStore'
 import * as Progress from 'react-native-progress'
@@ -87,12 +94,15 @@ const UserScreen = ({ route }: userScreenProps) => {
                 >
                     <View style={styles.headerSection}>
                         <View style={styles.headingRegion}>
-                            <AntDesign
-                                name="caretleft"
-                                size={30}
-                                color={green}
+                            <TouchableOpacity
                                 onPress={() => navigation.goBack()}
-                            />
+                            >
+                                <AntDesign
+                                    name="caretleft"
+                                    size={30}
+                                    color={green}
+                                />
+                            </TouchableOpacity>
                             <Text style={styles.heading}>Profile</Text>
                         </View>
                         <FontAwesome5

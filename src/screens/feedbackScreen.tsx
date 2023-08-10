@@ -1,4 +1,10 @@
-import { StyleSheet, Text, ScrollView, View } from 'react-native'
+import {
+    StyleSheet,
+    Text,
+    ScrollView,
+    View,
+    TouchableOpacity,
+} from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import useAuthUserStore from '../stores/useAuthUserStore'
 import FeedbackCard from '../components/feedbackCard'
@@ -18,12 +24,9 @@ const FeedbackScreen = () => {
                 showsVerticalScrollIndicator={false}
             >
                 <View style={styles.headerSection}>
-                    <AntDesign
-                        name="caretleft"
-                        size={30}
-                        color={green}
-                        onPress={() => navigation.goBack()}
-                    />
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <AntDesign name="caretleft" size={30} color={green} />
+                    </TouchableOpacity>
                     <Text style={styles.heading}>Feedback</Text>
                 </View>
                 <View style={styles.feedbackList}>
