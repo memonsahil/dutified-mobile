@@ -169,7 +169,7 @@ const AddProjectScreen = () => {
                                         .then(() => {
                                             setLoading(false)
 
-                                            navigation.navigate('Profile')
+                                            navigation.goBack()
                                         })
                                         .catch(() => {
                                             Alert.alert(

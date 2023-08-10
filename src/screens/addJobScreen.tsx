@@ -223,7 +223,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                                         .then(() => {
                                             setLoading(false)
 
-                                            navigation.navigate('Profile')
+                                            navigation.goBack()
                                         })
                                         .catch(() => {
                                             Alert.alert(
