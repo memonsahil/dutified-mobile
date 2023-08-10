@@ -113,9 +113,9 @@ const styles = StyleSheet.create({
     },
     chatInfoSection: {
         justifyContent: 'space-between',
-        alignSelf: 'center',
         paddingLeft: 10,
         width: 250,
+        alignSelf: 'center',
     },
     name: {
         fontFamily: 'Poppins-SemiBold',
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     },
     optionsSection: {
         justifyContent: 'flex-start',
-        paddingTop: 10,
+        alignSelf: 'center',
     },
     options: {
         backgroundColor: green,
