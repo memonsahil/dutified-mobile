@@ -12,7 +12,12 @@ import { useNavigation, NavigationProp } from '@react-navigation/native'
 import useAuthUserStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
-import { blue, gray, green, white } from '../theme/colors'
+import {
+    oxfordBlue,
+    silver,
+    yellowGreen,
+    antiFlashWhite,
+} from '../theme/colors'
 import screens from '../types/params/screens'
 import requestStatus from '../enums/requestStatus'
 
@@ -42,7 +47,7 @@ const SignUpScreen = () => {
                             <AntDesign
                                 name="caretleft"
                                 size={30}
-                                color={green}
+                                color={yellowGreen}
                             />
                         </TouchableOpacity>
                         <Text style={styles.heading}>Sign Up</Text>
@@ -54,7 +59,7 @@ const SignUpScreen = () => {
                             value={first}
                             onChangeText={setFirst}
                             style={styles.input}
-                            placeholderTextColor={gray}
+                            placeholderTextColor={silver}
                             autoCapitalize="words"
                             autoComplete="off"
                             autoCorrect={false}
@@ -64,7 +69,7 @@ const SignUpScreen = () => {
                             value={last}
                             onChangeText={setLast}
                             style={styles.input}
-                            placeholderTextColor={gray}
+                            placeholderTextColor={silver}
                             autoCapitalize="words"
                             autoComplete="off"
                             autoCorrect={false}
@@ -77,7 +82,7 @@ const SignUpScreen = () => {
                                 value={code}
                                 onChangeText={setCode}
                                 style={styles.codeInput}
-                                placeholderTextColor={gray}
+                                placeholderTextColor={silver}
                                 inputMode="tel"
                             />
                             <TextInput
@@ -85,7 +90,7 @@ const SignUpScreen = () => {
                                 value={phone}
                                 onChangeText={setPhone}
                                 style={styles.phoneInput}
-                                placeholderTextColor={gray}
+                                placeholderTextColor={silver}
                                 inputMode="tel"
                             />
                         </View>
@@ -95,7 +100,7 @@ const SignUpScreen = () => {
                             value={email}
                             onChangeText={setEmail}
                             style={styles.input}
-                            placeholderTextColor={gray}
+                            placeholderTextColor={silver}
                             inputMode="email"
                             autoCapitalize="none"
                             autoComplete="off"
@@ -107,7 +112,7 @@ const SignUpScreen = () => {
                             value={password}
                             onChangeText={setPassword}
                             style={styles.input}
-                            placeholderTextColor={gray}
+                            placeholderTextColor={silver}
                             secureTextEntry={true}
                             autoCapitalize="none"
                             autoComplete="off"
@@ -241,7 +246,7 @@ const SignUpScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={green}
+                        color={yellowGreen}
                     />
                 </View>
             )}
@@ -252,7 +257,7 @@ const SignUpScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: blue,
+        backgroundColor: oxfordBlue,
     },
     loadingContainer: {
         flex: 1,
@@ -276,7 +281,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: white,
+        color: antiFlashWhite,
         paddingLeft: 20,
         paddingRight: 30,
     },
@@ -288,15 +293,15 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
         paddingTop: '10%',
-        color: white,
+        color: antiFlashWhite,
     },
     input: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: white,
+        color: antiFlashWhite,
         width: '100%',
         paddingTop: '5%',
-        borderBottomColor: white,
+        borderBottomColor: antiFlashWhite,
         borderBottomWidth: 2,
         alignSelf: 'center',
     },
@@ -307,7 +312,7 @@ const styles = StyleSheet.create({
     codePlus: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: white,
+        color: antiFlashWhite,
         width: '10%',
         paddingTop: '5%',
         textAlignVertical: 'center',
@@ -315,28 +320,28 @@ const styles = StyleSheet.create({
     codeInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: white,
+        color: antiFlashWhite,
         width: '15%',
         marginRight: '5%',
         paddingTop: '5%',
-        borderBottomColor: white,
+        borderBottomColor: antiFlashWhite,
         borderBottomWidth: 2,
         textAlignVertical: 'center',
     },
     phoneInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: white,
+        color: antiFlashWhite,
         width: '70%',
         paddingTop: '5%',
-        borderBottomColor: white,
+        borderBottomColor: antiFlashWhite,
         borderBottomWidth: 2,
         textAlignVertical: 'center',
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: green,
+        color: yellowGreen,
         alignSelf: 'center',
         paddingTop: '10%',
     },
@@ -352,7 +357,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 14,
         paddingTop: '5%',
-        color: white,
+        color: antiFlashWhite,
         textDecorationLine: 'underline',
     },
 })

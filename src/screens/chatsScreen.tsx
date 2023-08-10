@@ -14,7 +14,7 @@ import ChatCard from '../components/chatCard'
 import * as Progress from 'react-native-progress'
 import * as Crypto from 'expo-crypto'
 import { AntDesign } from '@expo/vector-icons'
-import { blue, green, white } from '../theme/colors'
+import { oxfordBlue, yellowGreen, antiFlashWhite } from '../theme/colors'
 import screens from '../types/params/screens'
 import chatCardProps from '../types/props/components/chatCardProps'
 
@@ -99,7 +99,7 @@ const ChatsScreen = () => {
                             <AntDesign
                                 name="caretleft"
                                 size={30}
-                                color={green}
+                                color={yellowGreen}
                             />
                         </TouchableOpacity>
                         <Text style={styles.heading}>Chats</Text>
@@ -131,7 +131,7 @@ const ChatsScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={green}
+                        color={yellowGreen}
                     />
                 </View>
             )}
@@ -142,7 +142,7 @@ const ChatsScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: blue,
+        backgroundColor: oxfordBlue,
     },
     loadingContainer: {
         flex: 1,
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: white,
+        color: antiFlashWhite,
         paddingLeft: 20,
         paddingRight: 30,
     },
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: white,
+        color: antiFlashWhite,
     },
 })
 

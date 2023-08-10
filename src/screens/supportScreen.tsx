@@ -1,7 +1,7 @@
 import { NavigationProp, useNavigation } from '@react-navigation/native'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
-import { blue, green, white } from '../theme/colors'
+import { oxfordBlue, yellowGreen, antiFlashWhite } from '../theme/colors'
 import screens from '../types/params/screens'
 
 const SupportScreen = () => {
@@ -11,7 +11,7 @@ const SupportScreen = () => {
         <View style={styles.container}>
             <View style={styles.headerSection}>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <AntDesign name="caretleft" size={30} color={green} />
+                    <AntDesign name="caretleft" size={30} color={yellowGreen} />
                 </TouchableOpacity>
                 <Text style={styles.heading}>Support</Text>
             </View>
@@ -28,7 +28,7 @@ const SupportScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: blue,
+        backgroundColor: oxfordBlue,
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
     },
@@ -44,14 +44,14 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: white,
+        color: antiFlashWhite,
         paddingLeft: 20,
         paddingRight: 30,
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: green,
+        color: yellowGreen,
         paddingTop: '5%',
         paddingLeft: '10%',
     },

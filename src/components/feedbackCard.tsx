@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
-import { black, green, white, gray } from '../theme/colors'
+import { jet, yellowGreen, antiFlashWhite, silver } from '../theme/colors'
 import navProps from '../types/props/components/navProps'
 import feedbackCardProps from '../types/props/components/feedbackCardProps'
 import ratings from '../enums/ratings'
@@ -11,51 +11,111 @@ const FeedbackCard = (props: feedbackCardProps & navProps) => {
             case ratings.five:
                 return (
                     <>
-                        <FontAwesome name="star" size={26} color={green} />
-                        <FontAwesome name="star" size={26} color={green} />
-                        <FontAwesome name="star" size={26} color={green} />
-                        <FontAwesome name="star" size={26} color={green} />
-                        <FontAwesome name="star" size={26} color={green} />
+                        <FontAwesome
+                            name="star"
+                            size={26}
+                            color={yellowGreen}
+                        />
+                        <FontAwesome
+                            name="star"
+                            size={26}
+                            color={yellowGreen}
+                        />
+                        <FontAwesome
+                            name="star"
+                            size={26}
+                            color={yellowGreen}
+                        />
+                        <FontAwesome
+                            name="star"
+                            size={26}
+                            color={yellowGreen}
+                        />
+                        <FontAwesome
+                            name="star"
+                            size={26}
+                            color={yellowGreen}
+                        />
                     </>
                 )
             case ratings.four:
                 return (
                     <>
-                        <FontAwesome name="star" size={26} color={green} />
-                        <FontAwesome name="star" size={26} color={green} />
-                        <FontAwesome name="star" size={26} color={green} />
-                        <FontAwesome name="star" size={26} color={green} />
-                        <FontAwesome name="star" size={26} color={gray} />
+                        <FontAwesome
+                            name="star"
+                            size={26}
+                            color={yellowGreen}
+                        />
+                        <FontAwesome
+                            name="star"
+                            size={26}
+                            color={yellowGreen}
+                        />
+                        <FontAwesome
+                            name="star"
+                            size={26}
+                            color={yellowGreen}
+                        />
+                        <FontAwesome
+                            name="star"
+                            size={26}
+                            color={yellowGreen}
+                        />
+                        <FontAwesome name="star" size={26} color={silver} />
                     </>
                 )
             case ratings.three:
                 return (
                     <>
-                        <FontAwesome name="star" size={26} color={green} />
-                        <FontAwesome name="star" size={26} color={green} />
-                        <FontAwesome name="star" size={26} color={green} />
-                        <FontAwesome name="star" size={26} color={gray} />
-                        <FontAwesome name="star" size={26} color={gray} />
+                        <FontAwesome
+                            name="star"
+                            size={26}
+                            color={yellowGreen}
+                        />
+                        <FontAwesome
+                            name="star"
+                            size={26}
+                            color={yellowGreen}
+                        />
+                        <FontAwesome
+                            name="star"
+                            size={26}
+                            color={yellowGreen}
+                        />
+                        <FontAwesome name="star" size={26} color={silver} />
+                        <FontAwesome name="star" size={26} color={silver} />
                     </>
                 )
             case ratings.two:
                 return (
                     <>
-                        <FontAwesome name="star" size={26} color={green} />
-                        <FontAwesome name="star" size={26} color={green} />
-                        <FontAwesome name="star" size={26} color={gray} />
-                        <FontAwesome name="star" size={26} color={gray} />
-                        <FontAwesome name="star" size={26} color={gray} />
+                        <FontAwesome
+                            name="star"
+                            size={26}
+                            color={yellowGreen}
+                        />
+                        <FontAwesome
+                            name="star"
+                            size={26}
+                            color={yellowGreen}
+                        />
+                        <FontAwesome name="star" size={26} color={silver} />
+                        <FontAwesome name="star" size={26} color={silver} />
+                        <FontAwesome name="star" size={26} color={silver} />
                     </>
                 )
             case ratings.one:
                 return (
                     <>
-                        <FontAwesome name="star" size={26} color={green} />
-                        <FontAwesome name="star" size={26} color={gray} />
-                        <FontAwesome name="star" size={26} color={gray} />
-                        <FontAwesome name="star" size={26} color={gray} />
-                        <FontAwesome name="star" size={26} color={gray} />
+                        <FontAwesome
+                            name="star"
+                            size={26}
+                            color={yellowGreen}
+                        />
+                        <FontAwesome name="star" size={26} color={silver} />
+                        <FontAwesome name="star" size={26} color={silver} />
+                        <FontAwesome name="star" size={26} color={silver} />
+                        <FontAwesome name="star" size={26} color={silver} />
                     </>
                 )
             default:
@@ -89,7 +149,7 @@ const FeedbackCard = (props: feedbackCardProps & navProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: white,
+        backgroundColor: antiFlashWhite,
         borderRadius: 15,
         width: '90%',
         overflow: 'hidden',
@@ -98,7 +158,7 @@ const styles = StyleSheet.create({
     userNameButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 24,
-        color: green,
+        color: yellowGreen,
         width: '100%',
         paddingTop: 10,
         paddingBottom: 15,
@@ -111,7 +171,7 @@ const styles = StyleSheet.create({
         paddingBottom: 15,
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 16,
-        color: black,
+        color: jet,
     },
     stars: {
         flexDirection: 'row',

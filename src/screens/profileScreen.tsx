@@ -11,7 +11,7 @@ import { FontAwesome5 } from '@expo/vector-icons'
 import UserCard from '../components/userCard'
 import ProjectCard from '../components/projectCard'
 import JobCard from '../components/jobCard'
-import { blue, green, white } from '../theme/colors'
+import { oxfordBlue, yellowGreen, antiFlashWhite } from '../theme/colors'
 import jobStatus from '../enums/jobStatus'
 import screens from '../types/params/screens'
 
@@ -34,7 +34,7 @@ const ProfileScreen = () => {
                         <FontAwesome5
                             name="grin-stars"
                             size={30}
-                            color={green}
+                            color={yellowGreen}
                         />
                     </TouchableOpacity>
                 </View>
@@ -119,7 +119,7 @@ const ProfileScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: blue,
+        backgroundColor: oxfordBlue,
     },
     scrollView: {
         alignItems: 'center',
@@ -139,12 +139,12 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 40,
-        color: white,
+        color: antiFlashWhite,
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: green,
+        color: yellowGreen,
         paddingTop: '10%',
     },
     subHeading: {
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: white,
+        color: antiFlashWhite,
     },
     horizontalSection: {
         paddingRight: 25,
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: white,
+        color: antiFlashWhite,
         paddingTop: '10%',
     },
 })

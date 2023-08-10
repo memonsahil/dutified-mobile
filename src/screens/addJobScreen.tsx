@@ -19,7 +19,7 @@ import DatePicker from 'react-native-date-picker'
 import { AntDesign } from '@expo/vector-icons'
 import {
     jet,
-    berkleyblue,
+    oxfordBlue,
     silver,
     yellowGreen,
     antiFlashWhite,
@@ -285,7 +285,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: berkleyblue,
+        backgroundColor: oxfordBlue,
     },
     loadingContainer: {
         flex: 1,
@@ -394,6 +394,7 @@ const styles = StyleSheet.create({
         height: 250,
         borderRadius: 15,
         marginTop: '5%',
+        padding: 10,
     },
     descTextInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',

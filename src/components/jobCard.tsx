@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { black, green, white } from '../theme/colors'
+import { jet, yellowGreen, antiFlashWhite } from '../theme/colors'
 import navProps from '../types/props/components/navProps'
 import jobCardProps from '../types/props/components/jobCardProps'
 
@@ -40,7 +40,7 @@ const JobCard = (props: jobCardProps & navProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: white,
+        backgroundColor: antiFlashWhite,
         borderRadius: 15,
         width: '90%',
         overflow: 'hidden',
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     jobName: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 18,
-        color: black,
+        color: jet,
     },
     detailSection: {
         flexDirection: 'row',
@@ -67,8 +67,8 @@ const styles = StyleSheet.create({
     jobDetail: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 15,
-        color: black,
-        backgroundColor: green,
+        color: jet,
+        backgroundColor: yellowGreen,
         marginLeft: 10,
         padding: 5,
     },
@@ -77,13 +77,13 @@ const styles = StyleSheet.create({
         paddingRight: 10,
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 16,
-        color: black,
+        color: jet,
         height: 50,
     },
     jobDeadline: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 18,
-        color: black,
+        color: jet,
         paddingLeft: 10,
         paddingTop: 5,
         paddingBottom: 10,

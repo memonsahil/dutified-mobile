@@ -3,7 +3,7 @@ import { useNavigation, NavigationProp } from '@react-navigation/native'
 import * as MailComposer from 'expo-mail-composer'
 import { SimpleLineIcons } from '@expo/vector-icons'
 import { Avatar } from 'react-native-elements'
-import { black, green, white } from '../theme/colors'
+import { jet, yellowGreen, antiFlashWhite } from '../theme/colors'
 import screens from '../types/params/screens'
 import chatCardProps from '../types/props/components/chatCardProps'
 
@@ -81,7 +81,7 @@ const ChatCard = (props: chatCardProps) => {
                             style={styles.options}
                             name="options"
                             size={20}
-                            color="black"
+                            color="jet"
                         />
                     </TouchableOpacity>
                 </View>
@@ -93,7 +93,7 @@ const ChatCard = (props: chatCardProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: white,
+        backgroundColor: antiFlashWhite,
         borderRadius: 15,
         width: '90%',
         overflow: 'hidden',
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
         paddingRight: 10,
     },
     avatarContainer: {
-        backgroundColor: green,
+        backgroundColor: yellowGreen,
         alignSelf: 'center',
     },
     chatInfoSection: {
@@ -120,14 +120,14 @@ const styles = StyleSheet.create({
     name: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 18,
-        color: black,
+        color: jet,
     },
     optionsSection: {
         justifyContent: 'flex-start',
         alignSelf: 'center',
     },
     options: {
-        backgroundColor: green,
+        backgroundColor: yellowGreen,
         padding: 5,
     },
 })

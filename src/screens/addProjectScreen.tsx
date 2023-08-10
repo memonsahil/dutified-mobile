@@ -18,7 +18,7 @@ import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
 import {
     jet,
-    berkleyblue,
+    oxfordBlue,
     silver,
     yellowGreen,
     antiFlashWhite,
@@ -232,7 +232,7 @@ const AddProjectScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: berkleyblue,
+        backgroundColor: oxfordBlue,
     },
     loadingContainer: {
         flex: 1,
@@ -332,6 +332,7 @@ const styles = StyleSheet.create({
         height: 250,
         borderRadius: 15,
         marginTop: '5%',
+        padding: 10,
     },
     descTextInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',

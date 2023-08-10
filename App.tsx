@@ -43,7 +43,7 @@ import useAuthUserStore from './src/stores/useAuthUserStore'
 import { Entypo } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import { FontAwesome } from '@expo/vector-icons'
-import { green, gray, blue } from './src/theme/colors'
+import { yellowGreen, silver, oxfordBlue } from './src/theme/colors'
 
 SplashScreen.preventAutoHideAsync()
 
@@ -120,8 +120,8 @@ const App = () => {
                     tabBarShowLabel: false,
                     tabBarStyle: {
                         height: '10%',
-                        backgroundColor: blue,
-                        borderTopColor: blue,
+                        backgroundColor: oxfordBlue,
+                        borderTopColor: oxfordBlue,
                     },
                     tabBarIcon: ({ focused }) => {
                         if (route.name === 'Home') {
@@ -129,7 +129,7 @@ const App = () => {
                                 <Entypo
                                     name="home"
                                     size={30}
-                                    color={focused ? green : gray}
+                                    color={focused ? yellowGreen : silver}
                                 />
                             )
                         } else if (route.name === 'Work') {
@@ -137,7 +137,7 @@ const App = () => {
                                 <Ionicons
                                     name="briefcase"
                                     size={30}
-                                    color={focused ? green : gray}
+                                    color={focused ? yellowGreen : silver}
                                 />
                             )
                         } else if (route.name === 'Profile') {
@@ -145,7 +145,7 @@ const App = () => {
                                 <FontAwesome
                                     name="user"
                                     size={30}
-                                    color={focused ? green : gray}
+                                    color={focused ? yellowGreen : silver}
                                 />
                             )
                         } else if (route.name === 'Settings') {
@@ -153,7 +153,7 @@ const App = () => {
                                 <Ionicons
                                     name="settings"
                                     size={30}
-                                    color={focused ? green : gray}
+                                    color={focused ? yellowGreen : silver}
                                 />
                             )
                         }

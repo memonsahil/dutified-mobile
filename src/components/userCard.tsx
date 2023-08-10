@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 import { Avatar } from 'react-native-elements'
-import { green, gray, black, white } from '../theme/colors'
+import { yellowGreen, silver, jet, antiFlashWhite } from '../theme/colors'
 import userCardProps from '../types/props/components/userCardProps'
 
 const UserCard = (props: userCardProps) => {
@@ -37,11 +37,11 @@ const UserCard = (props: userCardProps) => {
                 <Text style={styles.info}>16 jobs</Text>
             </View>
             <View style={styles.stars}>
-                <FontAwesome name="star" size={28} color={green} />
-                <FontAwesome name="star" size={28} color={green} />
-                <FontAwesome name="star" size={28} color={green} />
-                <FontAwesome name="star" size={28} color={green} />
-                <FontAwesome name="star" size={28} color={gray} />
+                <FontAwesome name="star" size={28} color={yellowGreen} />
+                <FontAwesome name="star" size={28} color={yellowGreen} />
+                <FontAwesome name="star" size={28} color={yellowGreen} />
+                <FontAwesome name="star" size={28} color={yellowGreen} />
+                <FontAwesome name="star" size={28} color={silver} />
             </View>
         </View>
     )
@@ -49,20 +49,20 @@ const UserCard = (props: userCardProps) => {
 
 const styles = StyleSheet.create({
     profileSection: {
-        backgroundColor: white,
+        backgroundColor: antiFlashWhite,
         width: '90%',
         alignItems: 'center',
         marginTop: 20,
         borderRadius: 15,
     },
     avatarContainer: {
-        backgroundColor: green,
+        backgroundColor: yellowGreen,
         marginTop: 20,
     },
     userName: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 24,
-        color: black,
+        color: jet,
         paddingTop: 15,
         paddingBottom: 20,
         width: 300,
@@ -75,8 +75,8 @@ const styles = StyleSheet.create({
     info: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 15,
-        color: black,
-        backgroundColor: green,
+        color: jet,
+        backgroundColor: yellowGreen,
         marginLeft: 10,
         padding: 5,
     },

@@ -16,7 +16,12 @@ import * as Progress from 'react-native-progress'
 import ProjectCard from '../components/projectCard'
 import JobCard from '../components/jobCard'
 import { AntDesign } from '@expo/vector-icons'
-import { blue, gray, green, white } from '../theme/colors'
+import {
+    oxfordBlue,
+    silver,
+    yellowGreen,
+    antiFlashWhite,
+} from '../theme/colors'
 import projectState from '../interfaces/state/projectState'
 import jobState from '../interfaces/state/jobState'
 import jobStatus from '../enums/jobStatus'
@@ -73,7 +78,11 @@ const SearchScreen = () => {
             >
                 <View style={styles.headerSection}>
                     <TouchableOpacity onPress={() => navigation.goBack()}>
-                        <AntDesign name="caretleft" size={30} color={green} />
+                        <AntDesign
+                            name="caretleft"
+                            size={30}
+                            color={yellowGreen}
+                        />
                     </TouchableOpacity>
                     <Text style={styles.heading}>Search</Text>
                 </View>
@@ -82,7 +91,7 @@ const SearchScreen = () => {
                     value={searchText}
                     onChangeText={setSearchText}
                     style={styles.textInput}
-                    placeholderTextColor={gray}
+                    placeholderTextColor={silver}
                     inputMode="text"
                 />
                 {searchText === '' ? (
@@ -189,7 +198,7 @@ const SearchScreen = () => {
                                     height={25}
                                     borderRadius={20}
                                     indeterminate={true}
-                                    color={green}
+                                    color={yellowGreen}
                                 />
                             </View>
                         )}
@@ -203,7 +212,7 @@ const SearchScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: blue,
+        backgroundColor: oxfordBlue,
     },
     loadingContainer: {
         flex: 1,
@@ -226,17 +235,17 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: white,
+        color: antiFlashWhite,
         paddingLeft: 20,
         paddingRight: 30,
     },
     textInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: white,
+        color: antiFlashWhite,
         width: '80%',
         paddingTop: '5%',
-        borderBottomColor: white,
+        borderBottomColor: antiFlashWhite,
         borderBottomWidth: 2,
         alignSelf: 'center',
     },
@@ -247,7 +256,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: white,
+        color: antiFlashWhite,
     },
     horizontalSection: {
         paddingRight: 25,
@@ -263,12 +272,12 @@ const styles = StyleSheet.create({
     noDataHeading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: white,
+        color: antiFlashWhite,
     },
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: white,
+        color: antiFlashWhite,
         paddingTop: '5%',
     },
 })

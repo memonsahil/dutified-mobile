@@ -14,7 +14,12 @@ import { useNavigation, NavigationProp } from '@react-navigation/native'
 import useAuthStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
-import { blue, gray, green, white } from '../theme/colors'
+import {
+    oxfordBlue,
+    silver,
+    yellowGreen,
+    antiFlashWhite,
+} from '../theme/colors'
 import screens from '../types/params/screens'
 
 const EditEmailAddressScreen = () => {
@@ -45,7 +50,7 @@ const EditEmailAddressScreen = () => {
                                 <AntDesign
                                     name="caretleft"
                                     size={30}
-                                    color={green}
+                                    color={yellowGreen}
                                 />
                             </TouchableOpacity>
                             <Text style={styles.heading}>Email Address</Text>
@@ -56,7 +61,7 @@ const EditEmailAddressScreen = () => {
                             value={email}
                             onChangeText={setEmail}
                             style={styles.textInput}
-                            placeholderTextColor={gray}
+                            placeholderTextColor={silver}
                             inputMode="email"
                             autoCapitalize="none"
                             autoComplete="off"
@@ -113,7 +118,7 @@ const EditEmailAddressScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={green}
+                        color={yellowGreen}
                     />
                 </View>
             )}
@@ -124,7 +129,7 @@ const EditEmailAddressScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: blue,
+        backgroundColor: oxfordBlue,
     },
     loadingContainer: {
         flex: 1,
@@ -147,7 +152,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: white,
+        color: antiFlashWhite,
         paddingLeft: 20,
         paddingRight: 30,
     },
@@ -157,15 +162,15 @@ const styles = StyleSheet.create({
         paddingTop: '7%',
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: white,
+        color: antiFlashWhite,
     },
     textInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: white,
+        color: antiFlashWhite,
         width: '80%',
         paddingTop: '5%',
-        borderBottomColor: white,
+        borderBottomColor: antiFlashWhite,
         borderBottomWidth: 2,
         alignSelf: 'center',
     },
@@ -175,7 +180,7 @@ const styles = StyleSheet.create({
     saveButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: green,
+        color: yellowGreen,
     },
 })
 

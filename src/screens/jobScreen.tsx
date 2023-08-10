@@ -12,7 +12,7 @@ import useJobStore from '../stores/useJobStore'
 import useAuthStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
-import { black, blue, green, white } from '../theme/colors'
+import { jet, oxfordBlue, yellowGreen, antiFlashWhite } from '../theme/colors'
 import screens from '../types/params/screens'
 import jobScreenProps from '../types/props/screens/jobScreenProps'
 
@@ -80,7 +80,7 @@ const JobScreen = ({ route }: jobScreenProps) => {
                             <AntDesign
                                 name="caretleft"
                                 size={30}
-                                color={green}
+                                color={yellowGreen}
                             />
                         </TouchableOpacity>
                         <Text
@@ -157,7 +157,7 @@ const JobScreen = ({ route }: jobScreenProps) => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={green}
+                        color={yellowGreen}
                     />
                 </View>
             )}
@@ -168,7 +168,7 @@ const JobScreen = ({ route }: jobScreenProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: blue,
+        backgroundColor: oxfordBlue,
     },
     loadingContainer: {
         flex: 1,
@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 28,
-        color: white,
+        color: antiFlashWhite,
         paddingLeft: 20,
         paddingRight: 30,
     },
@@ -205,8 +205,8 @@ const styles = StyleSheet.create({
     info: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 15,
-        color: black,
-        backgroundColor: green,
+        color: jet,
+        backgroundColor: yellowGreen,
         marginRight: 10,
         padding: 5,
     },
@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
     jobDesc: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: white,
+        color: antiFlashWhite,
         width: '80%',
         paddingBottom: 20,
         alignSelf: 'center',
@@ -225,7 +225,7 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: green,
+        color: yellowGreen,
         paddingLeft: 30,
         paddingRight: 100,
         paddingBottom: 20,
@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
     deadline: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: white,
+        color: antiFlashWhite,
         paddingLeft: 30,
         paddingRight: 100,
         paddingBottom: 20,
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
     sectionButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: green,
+        color: yellowGreen,
     },
 })
 

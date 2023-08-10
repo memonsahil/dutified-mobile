@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { black, green, white } from '../theme/colors'
+import { jet, yellowGreen, antiFlashWhite } from '../theme/colors'
 import navProps from '../types/props/components/navProps'
 import projectCardProps from '../types/props/components/projectCardProps'
 
@@ -67,7 +67,7 @@ const ProjectCard = (props: projectCardProps & navProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: white,
+        backgroundColor: antiFlashWhite,
         borderRadius: 15,
         marginLeft: 25,
         width: 325,
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     projectName: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 24,
-        color: black,
+        color: jet,
         paddingLeft: 10,
         paddingRight: 10,
         paddingTop: 10,
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     projectCategory: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 18,
-        color: black,
+        color: jet,
         paddingLeft: 10,
         paddingRight: 10,
         paddingTop: 5,
@@ -97,8 +97,8 @@ const styles = StyleSheet.create({
     jobs: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 15,
-        color: black,
-        backgroundColor: green,
+        color: jet,
+        backgroundColor: yellowGreen,
         marginLeft: 10,
         padding: 5,
     },
@@ -107,13 +107,13 @@ const styles = StyleSheet.create({
         paddingRight: 10,
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 16,
-        color: black,
+        color: jet,
         height: 90,
     },
     projectCreator: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 18,
-        color: black,
+        color: jet,
         paddingLeft: 10,
         paddingRight: 10,
         paddingTop: 5,

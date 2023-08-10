@@ -9,7 +9,12 @@ import {
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons'
-import { blue, gray, green, white } from '../theme/colors'
+import {
+    oxfordBlue,
+    silver,
+    yellowGreen,
+    antiFlashWhite,
+} from '../theme/colors'
 import screens from '../types/params/screens'
 
 const PasswordScreen = () => {
@@ -26,7 +31,11 @@ const PasswordScreen = () => {
             >
                 <View style={styles.headerSection}>
                     <TouchableOpacity onPress={() => navigation.goBack()}>
-                        <AntDesign name="caretleft" size={30} color={green} />
+                        <AntDesign
+                            name="caretleft"
+                            size={30}
+                            color={yellowGreen}
+                        />
                     </TouchableOpacity>
                     <Text style={styles.heading}>Password</Text>
                 </View>
@@ -38,7 +47,7 @@ const PasswordScreen = () => {
                         value={password}
                         onChangeText={setPassword}
                         style={styles.input}
-                        placeholderTextColor={gray}
+                        placeholderTextColor={silver}
                         secureTextEntry={true}
                         autoCapitalize="none"
                         autoComplete="off"
@@ -58,7 +67,7 @@ const PasswordScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: blue,
+        backgroundColor: oxfordBlue,
     },
     scrollView: {
         flexGrow: 1,
@@ -77,14 +86,14 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: white,
+        color: antiFlashWhite,
         paddingLeft: 20,
         paddingRight: 30,
     },
     text: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: white,
+        color: antiFlashWhite,
         paddingTop: '5%',
         width: '80%',
     },
@@ -96,22 +105,22 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
         paddingTop: '10%',
-        color: white,
+        color: antiFlashWhite,
     },
     input: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: white,
+        color: antiFlashWhite,
         width: '100%',
         paddingTop: '5%',
-        borderBottomColor: white,
+        borderBottomColor: antiFlashWhite,
         borderBottomWidth: 2,
         alignSelf: 'center',
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: green,
+        color: yellowGreen,
         alignSelf: 'center',
         paddingTop: '10%',
         paddingBottom: '20%',

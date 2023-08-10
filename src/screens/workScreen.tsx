@@ -15,7 +15,7 @@ import JobCard from '../components/jobCard'
 import * as Progress from 'react-native-progress'
 import { FontAwesome } from '@expo/vector-icons'
 import jobState from '../interfaces/state/jobState'
-import { blue, green, white } from '../theme/colors'
+import { oxfordBlue, yellowGreen, antiFlashWhite } from '../theme/colors'
 import screens from '../types/params/screens'
 
 const WorkScreen = () => {
@@ -43,7 +43,11 @@ const WorkScreen = () => {
                     <TouchableOpacity
                         onPress={() => navigation.navigate('Search')}
                     >
-                        <FontAwesome name="search" size={30} color={green} />
+                        <FontAwesome
+                            name="search"
+                            size={30}
+                            color={yellowGreen}
+                        />
                     </TouchableOpacity>
                 </View>
                 <Text style={styles.subHeading}>Work Setup</Text>
@@ -121,7 +125,7 @@ const WorkScreen = () => {
                             height={25}
                             borderRadius={20}
                             indeterminate={true}
-                            color={green}
+                            color={yellowGreen}
                         />
                     </View>
                 )}
@@ -133,7 +137,7 @@ const WorkScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: blue,
+        backgroundColor: oxfordBlue,
     },
     loadingContainer: {
         flex: 1,
@@ -159,7 +163,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 40,
-        color: white,
+        color: antiFlashWhite,
     },
     subHeading: {
         alignSelf: 'flex-start',
@@ -168,7 +172,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: white,
+        color: antiFlashWhite,
     },
     viewButtonContainer: {
         paddingTop: '10%',
@@ -176,12 +180,12 @@ const styles = StyleSheet.create({
     viewButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: green,
+        color: yellowGreen,
     },
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: white,
+        color: antiFlashWhite,
         paddingTop: '5%',
         paddingLeft: 30,
         paddingRight: 30,

@@ -10,7 +10,7 @@ import {
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import useAuthStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
-import { blue, green, white } from '../theme/colors'
+import { oxfordBlue, yellowGreen, antiFlashWhite } from '../theme/colors'
 import screens from '../types/params/screens'
 
 const SettingsScreen = () => {
@@ -93,7 +93,7 @@ const SettingsScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={green}
+                        color={yellowGreen}
                     />
                 </View>
             )}
@@ -104,7 +104,7 @@ const SettingsScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: blue,
+        backgroundColor: oxfordBlue,
     },
     loadingContainer: {
         flex: 1,
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 40,
-        color: white,
+        color: antiFlashWhite,
     },
     subHeading: {
         alignSelf: 'flex-start',
@@ -137,12 +137,12 @@ const styles = StyleSheet.create({
         paddingTop: 20,
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: white,
+        color: antiFlashWhite,
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: green,
+        color: yellowGreen,
         paddingTop: '5%',
         paddingLeft: '10%',
     },

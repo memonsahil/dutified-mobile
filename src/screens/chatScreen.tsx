@@ -18,7 +18,13 @@ import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import { FontAwesome5 } from '@expo/vector-icons'
-import { black, blue, gray, green, white } from '../theme/colors'
+import {
+    jet,
+    oxfordBlue,
+    silver,
+    yellowGreen,
+    antiFlashWhite,
+} from '../theme/colors'
 import screens from '../types/params/screens'
 import chatScreenProps from '../types/props/screens/chatScreenProps'
 
@@ -120,7 +126,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                             <AntDesign
                                 name="caretleft"
                                 size={30}
-                                color={green}
+                                color={yellowGreen}
                             />
                         </TouchableOpacity>
                         <TouchableOpacity
@@ -175,7 +181,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                             value={message}
                                             onChangeText={setMessage}
                                             style={styles.input}
-                                            placeholderTextColor={gray}
+                                            placeholderTextColor={silver}
                                             multiline={false}
                                         />
                                         <TouchableOpacity
@@ -199,7 +205,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                             <Ionicons
                                                 name="send"
                                                 size={20}
-                                                color={green}
+                                                color={yellowGreen}
                                             />
                                         </TouchableOpacity>
                                     </View>
@@ -207,7 +213,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                         <FontAwesome5
                                             name="file-signature"
                                             size={20}
-                                            color={green}
+                                            color={yellowGreen}
                                         />
                                     </TouchableOpacity>
                                 </View>
@@ -222,7 +228,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={green}
+                        color={yellowGreen}
                     />
                 </View>
             )}
@@ -233,7 +239,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: blue,
+        backgroundColor: oxfordBlue,
         paddingBottom: '8%',
     },
     loadingContainer: {
@@ -254,16 +260,16 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 24,
-        color: white,
+        color: antiFlashWhite,
     },
     avatarContainer: {
-        backgroundColor: green,
+        backgroundColor: yellowGreen,
     },
     chatView: {
-        backgroundColor: white,
+        backgroundColor: antiFlashWhite,
     },
     toolbar: {
-        backgroundColor: blue,
+        backgroundColor: oxfordBlue,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -278,12 +284,12 @@ const styles = StyleSheet.create({
         width: '80%',
     },
     input: {
-        backgroundColor: white,
+        backgroundColor: antiFlashWhite,
         width: '100%',
         height: 45,
         paddingVertical: Platform.OS === 'ios' ? 0 : 9,
         paddingLeft: 20,
-        borderColor: blue,
+        borderColor: oxfordBlue,
         borderTopWidth: Platform.OS === 'ios' ? 5 : 3,
         borderBottomWidth: 5,
         borderLeftWidth: 5,
@@ -291,7 +297,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         marginRight: '4%',
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        color: black,
+        color: jet,
         fontSize: 16,
     },
 })

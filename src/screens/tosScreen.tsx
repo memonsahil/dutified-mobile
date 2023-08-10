@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons'
-import { blue, green, white } from '../theme/colors'
+import { oxfordBlue, yellowGreen, antiFlashWhite } from '../theme/colors'
 import screens from '../types/params/screens'
 
 const TosScreen = () => {
@@ -21,7 +21,11 @@ const TosScreen = () => {
             >
                 <View style={styles.headerSection}>
                     <TouchableOpacity onPress={() => navigation.goBack()}>
-                        <AntDesign name="caretleft" size={30} color={green} />
+                        <AntDesign
+                            name="caretleft"
+                            size={30}
+                            color={yellowGreen}
+                        />
                     </TouchableOpacity>
                     <Text style={styles.heading}>Terms of Service</Text>
                 </View>
@@ -65,7 +69,7 @@ const TosScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: blue,
+        backgroundColor: oxfordBlue,
     },
     scrollView: {
         alignItems: 'center',
@@ -83,14 +87,14 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: white,
+        color: antiFlashWhite,
         paddingLeft: 20,
         paddingRight: 30,
     },
     text: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: white,
+        color: antiFlashWhite,
         paddingTop: '5%',
         width: '80%',
         paddingBottom: '20%',

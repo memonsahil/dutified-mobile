@@ -11,7 +11,7 @@ import {
 import * as Progress from 'react-native-progress'
 import { Avatar } from 'react-native-elements'
 import { AntDesign } from '@expo/vector-icons'
-import { blue, green, white } from '../theme/colors'
+import { oxfordBlue, yellowGreen, antiFlashWhite } from '../theme/colors'
 import screens from '../types/params/screens'
 
 const EditProfilePictureScreen = () => {
@@ -54,7 +54,7 @@ const EditProfilePictureScreen = () => {
                             <AntDesign
                                 name="caretleft"
                                 size={30}
-                                color={green}
+                                color={yellowGreen}
                             />
                         </TouchableOpacity>
                         <Text style={styles.heading}>Profile Picture</Text>
@@ -138,7 +138,7 @@ const EditProfilePictureScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={green}
+                        color={yellowGreen}
                     />
                 </View>
             )}
@@ -149,7 +149,7 @@ const EditProfilePictureScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: blue,
+        backgroundColor: oxfordBlue,
         alignItems: 'center',
     },
     loadingContainer: {
@@ -169,12 +169,12 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: white,
+        color: antiFlashWhite,
         paddingLeft: 20,
         paddingRight: 30,
     },
     avatarContainer: {
-        backgroundColor: green,
+        backgroundColor: yellowGreen,
         marginTop: 20,
     },
     buttonContainer: {
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
     saveButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: green,
+        color: yellowGreen,
     },
 })
 
