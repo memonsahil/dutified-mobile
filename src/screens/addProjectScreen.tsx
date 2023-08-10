@@ -16,7 +16,13 @@ import useAuthUserStore from '../stores/useAuthUserStore'
 import * as Crypto from 'expo-crypto'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
-import { black, blue, gray, green, white } from '../theme/colors'
+import {
+    jet,
+    berkleyblue,
+    silver,
+    yellowGreen,
+    antiFlashWhite,
+} from '../theme/colors'
 import categories from '../enums/categories'
 import screens from '../types/params/screens'
 
@@ -75,7 +81,7 @@ const AddProjectScreen = () => {
                                 <AntDesign
                                     name="caretleft"
                                     size={30}
-                                    color={green}
+                                    color={yellowGreen}
                                 />
                             </TouchableOpacity>
                             <Text style={styles.heading}>New Project</Text>
@@ -86,7 +92,7 @@ const AddProjectScreen = () => {
                             value={enteredCategory}
                             onChangeText={setEnteredCategory}
                             style={styles.textInput}
-                            placeholderTextColor={gray}
+                            placeholderTextColor={silver}
                             inputMode="text"
                         />
                         <View style={styles.searchContainer}>
@@ -133,7 +139,7 @@ const AddProjectScreen = () => {
                             value={name}
                             onChangeText={setName}
                             style={styles.textInput}
-                            placeholderTextColor={gray}
+                            placeholderTextColor={silver}
                             inputMode="text"
                         />
                         <Text style={styles.field}>Description</Text>
@@ -143,7 +149,7 @@ const AddProjectScreen = () => {
                                 value={desc}
                                 onChangeText={setDesc}
                                 style={styles.descTextInput}
-                                placeholderTextColor={gray}
+                                placeholderTextColor={silver}
                                 inputMode="text"
                                 multiline
                             />
@@ -215,7 +221,7 @@ const AddProjectScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={green}
+                        color={yellowGreen}
                     />
                 </View>
             )}
@@ -226,7 +232,7 @@ const AddProjectScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: blue,
+        backgroundColor: berkleyblue,
     },
     loadingContainer: {
         flex: 1,
@@ -249,7 +255,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: white,
+        color: antiFlashWhite,
         paddingLeft: 20,
         paddingRight: 30,
     },
@@ -259,8 +265,8 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
     searchContainer: {
-        backgroundColor: white,
-        borderRadius: 5,
+        backgroundColor: antiFlashWhite,
+        borderRadius: 15,
         width: '85%',
         overflow: 'hidden',
         paddingBottom: '5%',
@@ -269,14 +275,14 @@ const styles = StyleSheet.create({
     selectedCategoriesHeading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 18,
-        color: white,
+        color: antiFlashWhite,
         paddingTop: '5%',
         paddingLeft: 10,
     },
     searchCategoriesHeading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 18,
-        color: black,
+        color: jet,
         paddingTop: '5%',
         paddingLeft: 10,
     },
@@ -288,16 +294,16 @@ const styles = StyleSheet.create({
     category: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 15,
-        color: black,
-        backgroundColor: green,
+        color: jet,
+        backgroundColor: yellowGreen,
         padding: 5,
         marginRight: 10,
     },
     selectedCategory: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 15,
-        color: black,
-        backgroundColor: green,
+        color: jet,
+        backgroundColor: yellowGreen,
         padding: 5,
         marginLeft: 10,
         marginTop: '5%',
@@ -308,29 +314,29 @@ const styles = StyleSheet.create({
         paddingTop: '7%',
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: white,
+        color: antiFlashWhite,
     },
     textInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: white,
+        color: antiFlashWhite,
         width: '80%',
         paddingTop: '5%',
-        borderBottomColor: white,
+        borderBottomColor: antiFlashWhite,
         borderBottomWidth: 2,
         alignSelf: 'center',
     },
     descContainer: {
-        backgroundColor: white,
+        backgroundColor: antiFlashWhite,
         width: '80%',
         height: 250,
-        borderRadius: 5,
+        borderRadius: 15,
         marginTop: '5%',
     },
     descTextInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: black,
+        color: jet,
         width: '100%',
         height: '100%',
         overflow: 'visible',
@@ -343,7 +349,7 @@ const styles = StyleSheet.create({
     launchButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: green,
+        color: yellowGreen,
     },
     textSection: {
         width: '70%',
@@ -352,7 +358,7 @@ const styles = StyleSheet.create({
         paddingBottom: '20%',
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 14,
-        color: white,
+        color: antiFlashWhite,
     },
 })
 

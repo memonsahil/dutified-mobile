@@ -13,7 +13,13 @@ import { useNavigation, NavigationProp } from '@react-navigation/native'
 import useAuthUserStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
-import { black, blue, gray, green, white } from '../theme/colors'
+import {
+    jet,
+    berkleyblue,
+    silver,
+    yellowGreen,
+    antiFlashWhite,
+} from '../theme/colors'
 import categories from '../enums/categories'
 import screens from '../types/params/screens'
 
@@ -70,7 +76,7 @@ const WorkSetupScreen = () => {
                             <AntDesign
                                 name="caretleft"
                                 size={30}
-                                color={green}
+                                color={yellowGreen}
                             />
                         </TouchableOpacity>
                         <Text style={styles.heading}>Work Setup</Text>
@@ -85,7 +91,7 @@ const WorkSetupScreen = () => {
                         value={enteredCategory}
                         onChangeText={setEnteredCategory}
                         style={styles.textInput}
-                        placeholderTextColor={gray}
+                        placeholderTextColor={silver}
                         inputMode="text"
                     />
                     <View style={styles.searchContainer}>
@@ -165,7 +171,7 @@ const WorkSetupScreen = () => {
                         value={totalJobs}
                         onChangeText={setTotalJobs}
                         style={styles.numericInput}
-                        placeholderTextColor={gray}
+                        placeholderTextColor={silver}
                         inputMode="numeric"
                     />
                     <TouchableOpacity
@@ -226,7 +232,7 @@ const WorkSetupScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={green}
+                        color={yellowGreen}
                     />
                 </View>
             )}
@@ -237,7 +243,7 @@ const WorkSetupScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: blue,
+        backgroundColor: berkleyblue,
     },
     loadingContainer: {
         flex: 1,
@@ -260,14 +266,14 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: white,
+        color: antiFlashWhite,
         paddingLeft: 20,
         paddingRight: 30,
     },
     info: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: white,
+        color: antiFlashWhite,
         width: '80%',
         alignSelf: 'center',
         paddingTop: '5%',
@@ -278,8 +284,8 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
     searchContainer: {
-        backgroundColor: white,
-        borderRadius: 5,
+        backgroundColor: antiFlashWhite,
+        borderRadius: 15,
         width: '85%',
         overflow: 'hidden',
         paddingBottom: '5%',
@@ -288,14 +294,14 @@ const styles = StyleSheet.create({
     selectedCategoriesHeading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 18,
-        color: white,
+        color: antiFlashWhite,
         paddingTop: '5%',
         paddingLeft: 10,
     },
     searchCategoriesHeading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 18,
-        color: black,
+        color: jet,
         paddingTop: '5%',
         paddingLeft: 10,
     },
@@ -307,8 +313,8 @@ const styles = StyleSheet.create({
     category: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 15,
-        color: black,
-        backgroundColor: green,
+        color: jet,
+        backgroundColor: yellowGreen,
         padding: 5,
         marginRight: 10,
     },
@@ -318,25 +324,25 @@ const styles = StyleSheet.create({
         paddingTop: '7%',
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: white,
+        color: antiFlashWhite,
     },
     numericInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: white,
+        color: antiFlashWhite,
         width: '80%',
         paddingTop: '5%',
-        borderBottomColor: white,
+        borderBottomColor: antiFlashWhite,
         borderBottomWidth: 2,
         alignSelf: 'center',
     },
     textInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: white,
+        color: antiFlashWhite,
         width: '80%',
         paddingTop: '5%',
-        borderBottomColor: white,
+        borderBottomColor: antiFlashWhite,
         borderBottomWidth: 2,
         alignSelf: 'center',
     },
@@ -347,7 +353,7 @@ const styles = StyleSheet.create({
     saveButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: green,
+        color: yellowGreen,
     },
 })
 
