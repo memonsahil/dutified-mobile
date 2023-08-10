@@ -274,7 +274,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     heading: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 30,
         color: white,
         paddingLeft: 20,
@@ -285,13 +285,13 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     field: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 25,
         paddingTop: '10%',
         color: white,
     },
     input: {
-        fontFamily: 'IBMPlexSans-Regular',
+        fontFamily: 'Poppins-Medium',
         fontSize: 20,
         color: white,
         width: '100%',
@@ -305,7 +305,7 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     codePlus: {
-        fontFamily: 'IBMPlexSans-Regular',
+        fontFamily: 'Poppins-Medium',
         fontSize: 20,
         color: white,
         width: '10%',
@@ -313,7 +313,7 @@ const styles = StyleSheet.create({
         textAlignVertical: 'center',
     },
     codeInput: {
-        fontFamily: 'IBMPlexSans-Regular',
+        fontFamily: 'Poppins-Medium',
         fontSize: 20,
         color: white,
         width: '15%',
@@ -324,7 +324,7 @@ const styles = StyleSheet.create({
         textAlignVertical: 'center',
     },
     phoneInput: {
-        fontFamily: 'IBMPlexSans-Regular',
+        fontFamily: 'Poppins-Medium',
         fontSize: 20,
         color: white,
         width: '70%',
@@ -334,7 +334,7 @@ const styles = StyleSheet.create({
         textAlignVertical: 'center',
     },
     button: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 25,
         color: green,
         alignSelf: 'center',
@@ -349,7 +349,7 @@ const styles = StyleSheet.create({
     textButton: {
         textAlign: 'center',
         textAlignVertical: 'center',
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 14,
         paddingTop: '5%',
         color: white,

@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     heading: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 28,
         color: white,
         paddingLeft: 20,
@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
         paddingLeft: 30,
     },
     info: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 15,
         color: black,
         backgroundColor: green,
@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
         paddingTop: 10,
     },
     jobDesc: {
-        fontFamily: 'IBMPlexSans-Regular',
+        fontFamily: 'Poppins-Medium',
         fontSize: 18,
         color: white,
         width: '80%',
@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     button: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 25,
         color: green,
         paddingLeft: 30,
@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
         paddingBottom: 20,
     },
     deadline: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 25,
         color: white,
         paddingLeft: 30,
@@ -243,7 +243,7 @@ const styles = StyleSheet.create({
         paddingBottom: '5%',
     },
     sectionButton: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 25,
         color: green,
     },

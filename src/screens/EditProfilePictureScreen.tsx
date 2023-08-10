@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     heading: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 30,
         color: white,
         paddingLeft: 20,
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     saveButton: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 25,
         color: green,
     },

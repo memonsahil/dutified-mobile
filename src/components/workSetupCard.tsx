@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
         paddingRight: 10,
     },
     currentMonth: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 24,
         color: black,
         paddingTop: 10,
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
         paddingRight: 10,
     },
     heading: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 18,
         color: black,
         width: 200,
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
     detail: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 15,
         color: black,
         backgroundColor: green,
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
         paddingRight: 10,
     },
     info: {
-        fontFamily: 'IBMPlexSans-Regular',
+        fontFamily: 'Poppins-Medium',
         fontSize: 16,
         color: black,
         padding: 20,

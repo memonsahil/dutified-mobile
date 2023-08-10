@@ -42,14 +42,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     heading: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 30,
         color: white,
         paddingLeft: 20,
         paddingRight: 30,
     },
     button: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 25,
         color: green,
         paddingTop: '5%',

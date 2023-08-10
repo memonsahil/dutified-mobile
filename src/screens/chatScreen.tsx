@@ -252,7 +252,7 @@ const styles = StyleSheet.create({
         width: 400,
     },
     heading: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 24,
         color: white,
     },
@@ -287,7 +287,7 @@ const styles = StyleSheet.create({
         borderWidth: 4,
         borderRadius: 20,
         marginRight: '4%',
-        fontFamily: 'IBMPlexSans-Regular',
+        fontFamily: 'Poppins-Medium',
         color: black,
         fontSize: 16,
     },

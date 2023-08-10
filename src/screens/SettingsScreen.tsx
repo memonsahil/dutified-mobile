@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     heading: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 40,
         color: white,
     },
@@ -135,12 +135,12 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         paddingLeft: 30,
         paddingTop: 20,
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 30,
         color: white,
     },
     button: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 25,
         color: green,
         paddingTop: '5%',

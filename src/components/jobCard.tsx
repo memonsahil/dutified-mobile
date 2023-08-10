@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
         paddingRight: 10,
     },
     jobName: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 18,
         color: black,
     },
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     jobDetail: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 15,
         color: black,
         backgroundColor: green,
@@ -75,13 +75,13 @@ const styles = StyleSheet.create({
     jobDesc: {
         paddingLeft: 10,
         paddingRight: 10,
-        fontFamily: 'IBMPlexSans-Regular',
+        fontFamily: 'Poppins-Medium',
         fontSize: 16,
         color: black,
         height: 50,
     },
     jobDeadline: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 18,
         color: black,
         paddingLeft: 10,

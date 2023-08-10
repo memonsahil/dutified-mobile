@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     userName: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 24,
         color: black,
         paddingTop: 15,
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
         paddingBottom: 20,
     },
     info: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 15,
         color: black,
         backgroundColor: green,

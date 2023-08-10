@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     heading: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 30,
         color: white,
         paddingLeft: 20,
@@ -218,13 +218,13 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     field: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 25,
         paddingTop: '10%',
         color: white,
     },
     input: {
-        fontFamily: 'IBMPlexSans-Regular',
+        fontFamily: 'Poppins-Medium',
         fontSize: 20,
         color: white,
         width: '100%',
@@ -234,7 +234,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     button: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 25,
         color: green,
         alignSelf: 'center',
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         paddingTop: '5%',
         paddingBottom: '20%',
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 14,
         color: white,
         textDecorationLine: 'underline',
