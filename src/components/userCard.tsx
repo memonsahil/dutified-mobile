@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
         width: '90%',
         alignItems: 'center',
         marginTop: 20,
-        borderRadius: 5,
+        borderRadius: 20,
     },
     avatarContainer: {
         backgroundColor: green,
