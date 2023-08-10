@@ -77,14 +77,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     heading: {
-        fontFamily: 'Poppins-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
         color: white,
         paddingLeft: 20,
         paddingRight: 30,
     },
     text: {
-        fontFamily: 'Poppins-Medium',
+        fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
         color: white,
         paddingTop: '5%',
@@ -95,13 +95,13 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
     },
     field: {
-        fontFamily: 'Poppins-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
         paddingTop: '10%',
         color: white,
     },
     input: {
-        fontFamily: 'Poppins-Medium',
+        fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
         color: white,
         width: '100%',
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     button: {
-        fontFamily: 'Poppins-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
         color: green,
         alignSelf: 'center',

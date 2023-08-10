@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     userNameButton: {
-        fontFamily: 'Poppins-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 24,
         color: green,
         width: '100%',
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10,
         paddingBottom: 15,
-        fontFamily: 'Poppins-Medium',
+        fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 16,
         color: black,
     },

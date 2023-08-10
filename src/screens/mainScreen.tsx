@@ -40,12 +40,12 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     button: {
-        fontFamily: 'Poppins-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
         color: green,
     },
     text: {
-        fontFamily: 'Poppins-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 14,
         color: white,
     },

@@ -81,14 +81,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     heading: {
-        fontFamily: 'Poppins-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
         color: white,
         paddingLeft: 20,
         paddingRight: 30,
     },
     text: {
-        fontFamily: 'Poppins-Medium',
+        fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
         color: white,
         paddingTop: '5%',

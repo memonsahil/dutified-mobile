@@ -72,14 +72,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     heading: {
-        fontFamily: 'Poppins-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
         color: white,
         paddingLeft: 20,
         paddingRight: 30,
     },
     text: {
-        fontFamily: 'Poppins-Medium',
+        fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
         color: white,
         paddingTop: '5%',
@@ -92,13 +92,13 @@ const styles = StyleSheet.create({
         paddingTop: '5%',
     },
     button: {
-        fontFamily: 'Poppins-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
         paddingTop: '10%',
         color: green,
     },
     version: {
-        fontFamily: 'Poppins-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 14,
         marginTop: '10%',
         color: white,

@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     heading: {
-        fontFamily: 'Poppins-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 40,
         color: white,
     },
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
         paddingLeft: 30,
         paddingTop: 20,
         marginBottom: 20,
-        fontFamily: 'Poppins-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
         color: white,
     },
@@ -174,12 +174,12 @@ const styles = StyleSheet.create({
         paddingTop: '10%',
     },
     viewButton: {
-        fontFamily: 'Poppins-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
         color: green,
     },
     noDataText: {
-        fontFamily: 'Poppins-Medium',
+        fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
         color: white,
         paddingTop: '5%',

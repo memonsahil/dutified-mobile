@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
     },
     projectName: {
-        fontFamily: 'Poppins-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 24,
         color: black,
         paddingLeft: 10,
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
         paddingTop: 10,
     },
     projectCategory: {
-        fontFamily: 'Poppins-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 18,
         color: black,
         paddingLeft: 10,
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
     },
     jobs: {
-        fontFamily: 'Poppins-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 15,
         color: black,
         backgroundColor: green,
@@ -105,13 +105,13 @@ const styles = StyleSheet.create({
     projectDesc: {
         paddingLeft: 10,
         paddingRight: 10,
-        fontFamily: 'Poppins-Medium',
+        fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 16,
         color: black,
         height: 90,
     },
     projectCreator: {
-        fontFamily: 'Poppins-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 18,
         color: black,
         paddingLeft: 10,

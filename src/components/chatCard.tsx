@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     name: {
-        fontFamily: 'Poppins-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 18,
         color: black,
     },

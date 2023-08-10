@@ -57,8 +57,8 @@ const App = () => {
     const { getAuthUserData } = useAuthUserStore((state) => state)
 
     const [fontsLoaded] = useFonts({
-        'Poppins-SemiBold': require('./assets/fonts/Poppins-SemiBold.ttf'),
-        'Poppins-Medium': require('./assets/fonts/Poppins-Medium.ttf'),
+        'IBMPlexSansCondensed-SemiBold': require('./assets/fonts/IBMPlexSansCondensed-SemiBold.ttf'),
+        'IBMPlexSansCondensed-Medium': require('./assets/fonts/IBMPlexSansCondensed-Medium.ttf'),
     })
 
     const hideSplashScreen = async () => {

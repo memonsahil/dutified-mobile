@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     heading: {
-        fontFamily: 'Poppins-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
         color: white,
         paddingLeft: 20,
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         paddingLeft: 40,
         paddingTop: '7%',
-        fontFamily: 'Poppins-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
         color: white,
     },
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
         width: '80%',
     },
     codePlus: {
-        fontFamily: 'Poppins-Medium',
+        fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
         color: white,
         width: '10%',
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
         textAlignVertical: 'center',
     },
     codeInput: {
-        fontFamily: 'Poppins-Medium',
+        fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
         color: white,
         width: '15%',
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
         textAlignVertical: 'center',
     },
     phoneInput: {
-        fontFamily: 'Poppins-Medium',
+        fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
         color: white,
         width: '70%',
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
         paddingTop: '10%',
     },
     saveButton: {
-        fontFamily: 'Poppins-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
         color: green,
     },
