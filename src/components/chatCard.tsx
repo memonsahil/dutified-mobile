@@ -113,13 +113,12 @@ const styles = StyleSheet.create({
     },
     chatInfoSection: {
         justifyContent: 'space-between',
-        paddingTop: 10,
-        paddingBottom: 10,
+        alignSelf: 'center',
         paddingLeft: 10,
         width: 250,
     },
     name: {
-        fontFamily: 'IBMPlexSans-Bold',
+        fontFamily: 'Poppins-SemiBold',
         fontSize: 18,
         color: black,
     },
