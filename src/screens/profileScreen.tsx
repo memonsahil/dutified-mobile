@@ -46,7 +46,7 @@ const ProfileScreen = () => {
                 <TouchableOpacity
                     onPress={() => navigation.navigate('AddProject')}
                 >
-                    <Text style={styles.button}>ADD PROJECT</Text>
+                    <Text style={styles.button}>Add Project</Text>
                 </TouchableOpacity>
                 {projects.length === 0 ? (
                     <View style={styles.noDataContainer}>

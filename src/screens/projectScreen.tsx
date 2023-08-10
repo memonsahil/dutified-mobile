@@ -153,7 +153,7 @@ const ProjectScreen = ({ route }: projectScreenProps) => {
                                 })
                             }
                         >
-                            <Text style={styles.sectionButton}>ADD JOB</Text>
+                            <Text style={styles.sectionButton}>Add Job</Text>
                         </TouchableOpacity>
                     ) : null}
                     {projectCreator !==

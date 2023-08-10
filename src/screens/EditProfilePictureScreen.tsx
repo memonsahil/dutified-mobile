@@ -71,7 +71,7 @@ const EditProfilePictureScreen = () => {
                     />
                     <View style={styles.buttonContainer}>
                         <TouchableOpacity onPress={() => pickImage()}>
-                            <Text style={styles.saveButton}>UPLOAD</Text>
+                            <Text style={styles.saveButton}>Upload</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                             onPress={() => {
@@ -99,7 +99,7 @@ const EditProfilePictureScreen = () => {
                                     })
                             }}
                         >
-                            <Text style={styles.saveButton}>SAVE</Text>
+                            <Text style={styles.saveButton}>Save</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                             onPress={() => {
@@ -127,7 +127,7 @@ const EditProfilePictureScreen = () => {
                                     })
                             }}
                         >
-                            <Text style={styles.saveButton}>RESET</Text>
+                            <Text style={styles.saveButton}>Reset</Text>
                         </TouchableOpacity>
                     </View>
                 </>

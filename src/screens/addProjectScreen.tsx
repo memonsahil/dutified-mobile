@@ -199,7 +199,7 @@ const AddProjectScreen = () => {
                                 }
                             }}
                         >
-                            <Text style={styles.launchButton}>CREATE</Text>
+                            <Text style={styles.launchButton}>Create</Text>
                         </TouchableOpacity>
                         <Text style={styles.textSection}>
                             Once your project is created, it can be viewed by

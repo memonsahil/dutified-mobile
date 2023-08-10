@@ -102,7 +102,7 @@ const EditEmailAddressScreen = () => {
                                 }
                             }}
                         >
-                            <Text style={styles.saveButton}>SAVE</Text>
+                            <Text style={styles.saveButton}>Save</Text>
                         </TouchableOpacity>
                     </KeyboardAwareScrollView>
                 </TouchableWithoutFeedback>

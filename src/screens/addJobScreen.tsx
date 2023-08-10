@@ -253,7 +253,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                                 }
                             }}
                         >
-                            <Text style={styles.button}>CREATE</Text>
+                            <Text style={styles.button}>Create</Text>
                         </TouchableOpacity>
                         <Text style={styles.textSection}>
                             Once your job is created, it can be viewed by other

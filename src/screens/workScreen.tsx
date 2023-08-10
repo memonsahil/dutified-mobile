@@ -86,7 +86,7 @@ const WorkScreen = () => {
                                 })
                         }}
                     >
-                        <Text style={styles.viewButton}>FIND JOBS</Text>
+                        <Text style={styles.viewButton}>Find Jobs</Text>
                     </TouchableOpacity>
                 ) : null}
                 {loading === false ? (
