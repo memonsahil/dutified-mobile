@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: white,
-        borderRadius: 20,
+        borderRadius: 15,
         width: '90%',
         overflow: 'hidden',
         paddingBottom: 10,

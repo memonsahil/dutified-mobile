@@ -285,7 +285,7 @@ const styles = StyleSheet.create({
         paddingLeft: 15,
         borderColor: blue,
         borderWidth: 4,
-        borderRadius: 20,
+        borderRadius: 15,
         marginRight: '4%',
         fontFamily: 'IBMPlexSansCondensed-Medium',
         color: black,
