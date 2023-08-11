@@ -11,7 +11,13 @@ import {
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import useAuthUserStore from '../stores/useAuthUserStore'
 import useUserStore from '../stores/useUserStore'
-import { GiftedChat, IMessage } from 'react-native-gifted-chat'
+import {
+    GiftedChat,
+    IMessage,
+    Bubble,
+    Day,
+    Time,
+} from 'react-native-gifted-chat'
 import * as Crypto from 'expo-crypto'
 import { Avatar } from 'react-native-elements'
 import * as Progress from 'react-native-progress'
@@ -171,6 +177,64 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                         listViewProps={{
                             style: styles.chatView,
                             showsVerticalScrollIndicator: false,
+                        }}
+                        renderDay={(props) => {
+                            return (
+                                <Day
+                                    {...props}
+                                    textStyle={{
+                                        color: jet,
+                                        fontFamily:
+                                            'IBMPlexSansCondensed-Medium',
+                                    }}
+                                />
+                            )
+                        }}
+                        renderBubble={(props) => {
+                            return (
+                                <Bubble
+                                    {...props}
+                                    wrapperStyle={{
+                                        left: {
+                                            backgroundColor: yellowGreen,
+                                        },
+                                        right: {
+                                            backgroundColor: yellowGreen,
+                                        },
+                                    }}
+                                    textStyle={{
+                                        left: {
+                                            color: jet,
+                                            fontFamily:
+                                                'IBMPlexSansCondensed-Medium',
+                                        },
+                                        right: {
+                                            color: jet,
+                                            fontFamily:
+                                                'IBMPlexSansCondensed-Medium',
+                                        },
+                                    }}
+                                    renderTime={(props) => {
+                                        return (
+                                            <Time
+                                                {...props}
+                                                timeTextStyle={{
+                                                    left: {
+                                                        color: jet,
+                                                        fontFamily:
+                                                            'IBMPlexSansCondensed-Medium',
+                                                    },
+                                                    right: {
+                                                        color: jet,
+                                                        fontFamily:
+                                                            'IBMPlexSansCondensed-Medium',
+                                                    },
+                                                }}
+                                            />
+                                        )
+                                    }}
+                                />
+                            )
                         }}
                         renderInputToolbar={() => {
                             return (
