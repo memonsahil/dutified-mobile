@@ -150,6 +150,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: antiFlashWhite,
         paddingTop: '10%',
+        textAlign: 'center',
     },
 })
 

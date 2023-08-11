@@ -115,8 +115,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                     {projects.length === 0 ? (
                         <View style={styles.noDataContainer}>
                             <Text style={styles.noDataText}>
-                                `${first} ${last} has not created or joined any
-                                projects yet.`
+                                {`${first} ${last} has not created or joined any projects yet.`}
                             </Text>
                         </View>
                     ) : (
@@ -247,6 +246,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: antiFlashWhite,
         paddingTop: '10%',
+        textAlign: 'center',
     },
 })
 

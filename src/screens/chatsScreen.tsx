@@ -180,6 +180,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
         color: antiFlashWhite,
+        textAlign: 'center',
     },
 })
 

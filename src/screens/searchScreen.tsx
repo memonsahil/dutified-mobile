@@ -271,6 +271,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: antiFlashWhite,
         paddingTop: '5%',
+        textAlign: 'center',
     },
 })
 

@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: jet,
         padding: 20,
-        alignSelf: 'center',
+        textAlign: 'center',
     },
 })
 

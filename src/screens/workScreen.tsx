@@ -189,6 +189,7 @@ const styles = StyleSheet.create({
         paddingTop: '5%',
         paddingLeft: 30,
         paddingRight: 30,
+        textAlign: 'center',
     },
     topSpacer: {
         paddingBottom: '10%',
