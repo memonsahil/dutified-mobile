@@ -107,9 +107,6 @@ const SearchScreen = () => {
                             <>
                                 {projects.length === 0 && jobs.length === 0 ? (
                                     <View style={styles.noDataContainer}>
-                                        <Text style={styles.noDataHeading}>
-                                            No Results Found
-                                        </Text>
                                         <Text style={styles.noDataText}>
                                             No projects or jobs were found, try
                                             searching for something else.
@@ -268,11 +265,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '80%',
         paddingTop: 20,
-    },
-    noDataHeading: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 30,
-        color: antiFlashWhite,
     },
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
