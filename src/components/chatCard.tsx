@@ -81,7 +81,7 @@ const ChatCard = (props: chatCardProps) => {
                             style={styles.options}
                             name="options"
                             size={20}
-                            color="jet"
+                            color={jet}
                         />
                     </TouchableOpacity>
                 </View>

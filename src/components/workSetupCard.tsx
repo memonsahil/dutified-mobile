@@ -24,7 +24,7 @@ const WorkSetupCard = (props: workSetupCardProps & navProps) => {
                     style={styles.options}
                     onPress={() => props.nav.navigate('WorkSetup')}
                 >
-                    <Feather name="edit-3" size={20} color="jet" />
+                    <Feather name="edit-3" size={20} color={jet} />
                 </TouchableOpacity>
             </View>
             {props.preferredCategories.length !== 0 &&
