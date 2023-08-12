@@ -95,13 +95,6 @@ const ChatsScreen = () => {
                     showsVerticalScrollIndicator={false}
                 >
                     <View style={styles.headerSection}>
-                        <TouchableOpacity onPress={() => navigation.goBack()}>
-                            <AntDesign
-                                name="caretleft"
-                                size={30}
-                                color={yellowGreen}
-                            />
-                        </TouchableOpacity>
                         <Text style={styles.heading}>Chats</Text>
                     </View>
                     <View style={styles.topSpacer} />
@@ -155,6 +148,7 @@ const styles = StyleSheet.create({
     },
     headerSection: {
         flexDirection: 'row',
+        justifyContent: 'space-between',
         paddingTop: '20%',
         paddingLeft: 30,
         paddingRight: 30,
@@ -164,10 +158,8 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 30,
+        fontSize: 40,
         color: platinum,
-        paddingLeft: 20,
-        paddingRight: 30,
     },
     topSpacer: {
         paddingTop: 20,
