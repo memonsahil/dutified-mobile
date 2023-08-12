@@ -5,7 +5,6 @@ type authNavigatorParamList = {
     Reset: undefined
     Verification: undefined
     Password: undefined
-
     Support: undefined
     Contact: undefined
     About: undefined
