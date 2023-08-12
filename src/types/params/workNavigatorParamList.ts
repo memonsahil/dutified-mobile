@@ -21,9 +21,6 @@ type workNavigatorParamList = {
         userId: string
     }
     Feedback: undefined
-    Chat: {
-        receiverUserId: string
-    }
 }
 
 export default workNavigatorParamList

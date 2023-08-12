@@ -16,7 +16,6 @@ type screens = {
     About: undefined
     TOS: undefined
     PP: undefined
-    Dashboard: undefined
     Home: undefined
     Work: undefined
     Profile: undefined

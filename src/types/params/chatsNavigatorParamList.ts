@@ -1,7 +1,8 @@
-type homeNavigatorParamList = {
-    Home: undefined
-    //NewPost: undefined
-    //Post: undefined
+type chatsNavigatorParamList = {
+    Chats: undefined
+    Chat: {
+        receiverUserId: string
+    }
     Project: {
         projectId: string
     }
@@ -14,4 +15,4 @@ type homeNavigatorParamList = {
     Feedback: undefined
 }
 
-export default homeNavigatorParamList
+export default chatsNavigatorParamList

@@ -14,9 +14,6 @@ type profileNavigatorParamList = {
         userId: string
     }
     Feedback: undefined
-    Chat: {
-        receiverUserId: string
-    }
 }
 
 export default profileNavigatorParamList
