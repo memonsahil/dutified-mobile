@@ -2,53 +2,6 @@
  * @description
  * When a new screen is built, it must be added to the below screens type
  * and its relevant NavigatorParamList in src/types/params/.
- *
- * AppNavigator
- * |-- AuthStackNavigator
- * |    |-- Main
- * |    |-- SignUp
- * |    |-- SignIn
- * |    |-- Reset
- * |    |-- Verification
- * |    |-- Password
- * |    |
- * |    |-- Support
- * |    |-- Contact
- * |    |-- About
- * |    |-- TOS
- * |    |-- PP
- * |
- * |-- MainStackNavigator
- *      |-- DashboardTabNavigator
- *      |   |-- Home
- *      |   |-- Work
- *      |   |-- Profile
- *      |   |-- Settings
- *      |
- *      |-- Project
- *      |-- Job
- *      |-- User
- *      |-- Feedback
- *      |
- *      |-- WorkSetup
- *      |-- Search
- *      |
- *      |-- AddProject
- *      |-- AddJob
- *      |
- *      |-- Chats
- *      |-- Chat
- *      |
- *      |-- EditProfilePicture
- *      |-- EditPhoneNumber
- *      |-- EditEmailAddress
- *      |-- EditPassword
- *      |
- *      |-- Support
- *      |-- Contact
- *      |-- About
- *      |-- TOS
- *      |-- PP
  */
 
 type screens = {
@@ -58,13 +11,16 @@ type screens = {
     Reset: undefined
     Verification: undefined
     Password: undefined
-
+    Support: undefined
+    Contact: undefined
+    About: undefined
+    TOS: undefined
+    PP: undefined
     Dashboard: undefined
     Home: undefined
     Work: undefined
     Profile: undefined
     Settings: undefined
-
     Project: {
         projectId: string
     }
@@ -75,10 +31,12 @@ type screens = {
         userId: string
     }
     Feedback: undefined
-
+    Chats: undefined
+    Chat: {
+        receiverUserId: string
+    }
     WorkSetup: undefined
     Search: undefined
-
     AddProject: undefined
     AddJob: {
         projectId: string
@@ -86,22 +44,10 @@ type screens = {
         jobCreatorId: string
         jobCreator: string
     }
-
-    Chats: undefined
-    Chat: {
-        receiverUserId: string
-    }
-
     EditProfilePicture: undefined
     EditPhoneNumber: undefined
     EditEmailAddress: undefined
     EditPassword: undefined
-
-    Support: undefined
-    Contact: undefined
-    About: undefined
-    TOS: undefined
-    PP: undefined
 }
 
 export default screens
