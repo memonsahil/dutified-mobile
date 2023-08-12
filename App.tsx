@@ -1,5 +1,6 @@
 import 'expo-dev-client'
 import { useEffect, useState } from 'react'
+import { Platform } from 'react-native'
 import { useFonts } from 'expo-font'
 import { StatusBar } from 'expo-status-bar'
 import * as SplashScreen from 'expo-splash-screen'
@@ -37,12 +38,13 @@ import EditPhoneNumberScreen from './src/screens/EditPhoneNumberScreen'
 import EditEmailAddressScreen from './src/screens/EditEmailAddressScreen'
 import EditPasswordScreen from './src/screens/EditPasswordScreen'
 import authNavigatorParamList from './src/types/params/authNavigatorParamList'
-import mainNavigatorParamList from './src/types/params/mainNavigatorParamList'
 import dashboardNavigatorParamList from './src/types/params/dashboardNavigatorParamList'
+import mainNavigatorParamList from './src/types/params/mainNavigatorParamList'
 import useAuthUserStore from './src/stores/useAuthUserStore'
-import { Entypo } from '@expo/vector-icons'
+import { Foundation } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import { FontAwesome } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { yellowGreen, silver, raisinBlack } from './src/theme/colors'
 
 SplashScreen.preventAutoHideAsync()
@@ -96,13 +98,13 @@ const App = () => {
                 <AuthStack.Screen name="Main" component={MainScreen} />
                 <AuthStack.Screen name="SignUp" component={SignUpScreen} />
                 <AuthStack.Screen name="SignIn" component={SignInScreen} />
-                <AuthStack.Screen name="Support" component={SupportScreen} />
                 <AuthStack.Screen name="Reset" component={ResetScreen} />
                 <AuthStack.Screen
                     name="Verification"
                     component={VerificationScreen}
                 />
                 <AuthStack.Screen name="Password" component={PasswordScreen} />
+                <AuthStack.Screen name="Support" component={SupportScreen} />
                 <AuthStack.Screen name="Contact" component={ContactScreen} />
                 <AuthStack.Screen name="About" component={AboutScreen} />
                 <AuthStack.Screen name="TOS" component={TosScreen} />
@@ -119,16 +121,25 @@ const App = () => {
                     gestureEnabled: false,
                     tabBarShowLabel: false,
                     tabBarStyle: {
-                        height: '10%',
+                        height: Platform.OS === 'ios' ? '12%' : '10%',
+                        paddingTop: Platform.OS === 'ios' ? '2%' : '0%',
                         backgroundColor: raisinBlack,
                         borderTopColor: raisinBlack,
                     },
                     tabBarIcon: ({ focused }) => {
                         if (route.name === 'Home') {
                             return (
-                                <Entypo
+                                <Foundation
                                     name="home"
-                                    size={30}
+                                    size={32}
+                                    color={focused ? yellowGreen : silver}
+                                />
+                            )
+                        } else if (route.name === 'Chats') {
+                            return (
+                                <MaterialCommunityIcons
+                                    name="android-messages"
+                                    size={32}
                                     color={focused ? yellowGreen : silver}
                                 />
                             )
@@ -136,7 +147,7 @@ const App = () => {
                             return (
                                 <Ionicons
                                     name="briefcase"
-                                    size={30}
+                                    size={32}
                                     color={focused ? yellowGreen : silver}
                                 />
                             )
@@ -144,7 +155,7 @@ const App = () => {
                             return (
                                 <FontAwesome
                                     name="user"
-                                    size={30}
+                                    size={32}
                                     color={focused ? yellowGreen : silver}
                                 />
                             )
@@ -152,7 +163,7 @@ const App = () => {
                             return (
                                 <Ionicons
                                     name="settings"
-                                    size={30}
+                                    size={32}
                                     color={focused ? yellowGreen : silver}
                                 />
                             )
@@ -161,6 +172,7 @@ const App = () => {
                 })}
             >
                 <DashboardTab.Screen name="Home" component={HomeScreen} />
+                <DashboardTab.Screen name="Chats" component={ChatsScreen} />
                 <DashboardTab.Screen name="Work" component={WorkScreen} />
                 <DashboardTab.Screen name="Profile" component={ProfileScreen} />
                 <DashboardTab.Screen
@@ -187,6 +199,7 @@ const App = () => {
                 <MainStack.Screen name="Job" component={JobScreen} />
                 <MainStack.Screen name="User" component={UserScreen} />
                 <MainStack.Screen name="Feedback" component={FeedbackScreen} />
+                <MainStack.Screen name="Chat" component={ChatScreen} />
                 <MainStack.Screen
                     name="WorkSetup"
                     component={WorkSetupScreen}
@@ -197,8 +210,6 @@ const App = () => {
                     component={AddProjectScreen}
                 />
                 <MainStack.Screen name="AddJob" component={AddJobScreen} />
-                <MainStack.Screen name="Chats" component={ChatsScreen} />
-                <MainStack.Screen name="Chat" component={ChatScreen} />
                 <MainStack.Screen
                     name="EditProfilePicture"
                     component={EditProfilePictureScreen}
