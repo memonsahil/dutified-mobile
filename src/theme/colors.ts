@@ -1,7 +1,7 @@
-const oxfordBlue = '#002855'
+const raisinBlack = '#1A1A23'
 const yellowGreen = '#86CD4D'
-const silver = '#A9A9A9'
-const antiFlashWhite = '#E8EBED'
+const platinum = '#E3E3E3'
 const jet = '#333333'
+const silver = '#A9A9A9'
 
-export { oxfordBlue, yellowGreen, silver, antiFlashWhite, jet }
+export { raisinBlack, yellowGreen, platinum, jet, silver }

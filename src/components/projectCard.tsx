@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { jet, yellowGreen, antiFlashWhite } from '../theme/colors'
+import { jet, yellowGreen, platinum } from '../theme/colors'
 import navProps from '../types/props/components/navProps'
 import projectCardProps from '../types/props/components/projectCardProps'
 
@@ -67,7 +67,7 @@ const ProjectCard = (props: projectCardProps & navProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: antiFlashWhite,
+        backgroundColor: platinum,
         borderRadius: 15,
         marginLeft: 25,
         width: 325,

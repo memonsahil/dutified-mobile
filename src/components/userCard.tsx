@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 import { Avatar } from 'react-native-elements'
-import { yellowGreen, silver, jet, antiFlashWhite } from '../theme/colors'
+import { yellowGreen, silver, jet, platinum } from '../theme/colors'
 import userCardProps from '../types/props/components/userCardProps'
 
 const UserCard = (props: userCardProps) => {
@@ -49,7 +49,7 @@ const UserCard = (props: userCardProps) => {
 
 const styles = StyleSheet.create({
     profileSection: {
-        backgroundColor: antiFlashWhite,
+        backgroundColor: platinum,
         width: '90%',
         alignItems: 'center',
         marginTop: 20,

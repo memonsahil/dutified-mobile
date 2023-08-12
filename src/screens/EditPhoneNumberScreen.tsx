@@ -14,12 +14,7 @@ import { useNavigation, NavigationProp } from '@react-navigation/native'
 import useAuthStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
-import {
-    oxfordBlue,
-    silver,
-    yellowGreen,
-    antiFlashWhite,
-} from '../theme/colors'
+import { raisinBlack, silver, yellowGreen, platinum } from '../theme/colors'
 import screens from '../types/params/screens'
 
 const EditPhoneNumberScreen = () => {
@@ -142,7 +137,7 @@ const EditPhoneNumberScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: oxfordBlue,
+        backgroundColor: raisinBlack,
     },
     loadingContainer: {
         flex: 1,
@@ -165,7 +160,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: antiFlashWhite,
+        color: platinum,
         paddingLeft: 20,
         paddingRight: 30,
     },
@@ -175,7 +170,7 @@ const styles = StyleSheet.create({
         paddingTop: '7%',
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: antiFlashWhite,
+        color: platinum,
     },
     phoneInputWrapper: {
         flexDirection: 'row',
@@ -184,7 +179,7 @@ const styles = StyleSheet.create({
     codePlus: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: antiFlashWhite,
+        color: platinum,
         width: '10%',
         paddingTop: '5%',
         textAlignVertical: 'center',
@@ -192,21 +187,21 @@ const styles = StyleSheet.create({
     codeInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: antiFlashWhite,
+        color: platinum,
         width: '15%',
         marginRight: '5%',
         paddingTop: '5%',
-        borderBottomColor: antiFlashWhite,
+        borderBottomColor: platinum,
         borderBottomWidth: 2,
         textAlignVertical: 'center',
     },
     phoneInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: antiFlashWhite,
+        color: platinum,
         width: '70%',
         paddingTop: '5%',
-        borderBottomColor: antiFlashWhite,
+        borderBottomColor: platinum,
         borderBottomWidth: 2,
         textAlignVertical: 'center',
     },

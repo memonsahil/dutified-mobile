@@ -8,7 +8,7 @@
         "icon": "./assets/images/icon.png",
         "splash": {
             "image": "./assets/images/splash.png",
-            "backgroundColor": "#021F67"
+            "backgroundColor": "#1A1A23"
         },
         "assetBundlePatterns": ["**/*"],
         "ios": {
@@ -20,7 +20,7 @@
             "googleServicesFile": "./firebase/google-services.json",
             "adaptiveIcon": {
                 "foregroundImage": "./assets/images/adaptive-icon.png",
-                "backgroundColor": "#021F67"
+                "backgroundColor": "#1A1A23"
             },
             "softwareKeyboardLayoutMode": "pan",
             "permissions": []

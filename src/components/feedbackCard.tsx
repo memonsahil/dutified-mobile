@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
-import { jet, yellowGreen, antiFlashWhite, silver } from '../theme/colors'
+import { jet, yellowGreen, platinum, silver } from '../theme/colors'
 import navProps from '../types/props/components/navProps'
 import feedbackCardProps from '../types/props/components/feedbackCardProps'
 import ratings from '../enums/ratings'
@@ -149,7 +149,7 @@ const FeedbackCard = (props: feedbackCardProps & navProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: antiFlashWhite,
+        backgroundColor: platinum,
         borderRadius: 15,
         width: '90%',
         overflow: 'hidden',

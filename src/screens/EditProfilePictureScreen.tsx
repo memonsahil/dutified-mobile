@@ -11,7 +11,7 @@ import {
 import * as Progress from 'react-native-progress'
 import { Avatar } from 'react-native-elements'
 import { AntDesign } from '@expo/vector-icons'
-import { oxfordBlue, yellowGreen, antiFlashWhite } from '../theme/colors'
+import { raisinBlack, yellowGreen, platinum } from '../theme/colors'
 import screens from '../types/params/screens'
 
 const EditProfilePictureScreen = () => {
@@ -149,7 +149,7 @@ const EditProfilePictureScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: oxfordBlue,
+        backgroundColor: raisinBlack,
         alignItems: 'center',
     },
     loadingContainer: {
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: antiFlashWhite,
+        color: platinum,
         paddingLeft: 20,
         paddingRight: 30,
     },

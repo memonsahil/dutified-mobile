@@ -1,7 +1,7 @@
 import { NavigationProp, useNavigation } from '@react-navigation/native'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
-import { oxfordBlue, yellowGreen, antiFlashWhite } from '../theme/colors'
+import { raisinBlack, yellowGreen, platinum } from '../theme/colors'
 import screens from '../types/params/screens'
 
 const SupportScreen = () => {
@@ -28,7 +28,7 @@ const SupportScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: oxfordBlue,
+        backgroundColor: raisinBlack,
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
     },
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: antiFlashWhite,
+        color: platinum,
         paddingLeft: 20,
         paddingRight: 30,
     },

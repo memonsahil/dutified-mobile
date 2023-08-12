@@ -3,7 +3,7 @@ import { useNavigation, NavigationProp } from '@react-navigation/native'
 import * as MailComposer from 'expo-mail-composer'
 import { SimpleLineIcons } from '@expo/vector-icons'
 import { Avatar } from 'react-native-elements'
-import { jet, yellowGreen, antiFlashWhite } from '../theme/colors'
+import { jet, yellowGreen, platinum } from '../theme/colors'
 import screens from '../types/params/screens'
 import chatCardProps from '../types/props/components/chatCardProps'
 
@@ -93,7 +93,7 @@ const ChatCard = (props: chatCardProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: antiFlashWhite,
+        backgroundColor: platinum,
         borderRadius: 15,
         width: '90%',
         overflow: 'hidden',

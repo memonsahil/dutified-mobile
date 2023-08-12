@@ -1,6 +1,6 @@
 import { NavigationProp, useNavigation } from '@react-navigation/native'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
-import { oxfordBlue, yellowGreen, antiFlashWhite } from '../theme/colors'
+import { raisinBlack, yellowGreen, platinum } from '../theme/colors'
 import screens from '../types/params/screens'
 
 const MainScreen = () => {
@@ -29,7 +29,7 @@ const MainScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: oxfordBlue,
+        backgroundColor: raisinBlack,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     text: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 14,
-        color: antiFlashWhite,
+        color: platinum,
     },
 })
 

@@ -6,7 +6,7 @@ import {
     TouchableOpacity,
 } from 'react-native'
 import { Feather } from '@expo/vector-icons'
-import { jet, yellowGreen, antiFlashWhite } from '../theme/colors'
+import { jet, yellowGreen, platinum } from '../theme/colors'
 import navProps from '../types/props/components/navProps'
 import workSetupCardProps from '../types/props/components/workSetupCardProps'
 
@@ -70,7 +70,7 @@ const WorkSetupCard = (props: workSetupCardProps & navProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: antiFlashWhite,
+        backgroundColor: platinum,
         borderRadius: 15,
         width: '90%',
         overflow: 'hidden',

@@ -26,10 +26,10 @@ import { Ionicons } from '@expo/vector-icons'
 import { FontAwesome5 } from '@expo/vector-icons'
 import {
     jet,
-    oxfordBlue,
+    raisinBlack,
     silver,
     yellowGreen,
-    antiFlashWhite,
+    platinum,
 } from '../theme/colors'
 import screens from '../types/params/screens'
 import chatScreenProps from '../types/props/screens/chatScreenProps'
@@ -303,7 +303,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: oxfordBlue,
+        backgroundColor: raisinBlack,
         paddingBottom: '8%',
     },
     loadingContainer: {
@@ -324,16 +324,16 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 24,
-        color: antiFlashWhite,
+        color: platinum,
     },
     avatarContainer: {
         backgroundColor: yellowGreen,
     },
     chatView: {
-        backgroundColor: antiFlashWhite,
+        backgroundColor: platinum,
     },
     toolbar: {
-        backgroundColor: oxfordBlue,
+        backgroundColor: raisinBlack,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -348,12 +348,12 @@ const styles = StyleSheet.create({
         width: '80%',
     },
     input: {
-        backgroundColor: antiFlashWhite,
+        backgroundColor: platinum,
         width: '100%',
         height: 45,
         paddingVertical: Platform.OS === 'ios' ? 0 : 9,
         paddingLeft: 20,
-        borderColor: oxfordBlue,
+        borderColor: raisinBlack,
         borderTopWidth: Platform.OS === 'ios' ? 5 : 3,
         borderBottomWidth: 5,
         borderLeftWidth: 5,

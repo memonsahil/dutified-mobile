@@ -15,10 +15,10 @@ import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
 import {
     jet,
-    oxfordBlue,
+    raisinBlack,
     silver,
     yellowGreen,
-    antiFlashWhite,
+    platinum,
 } from '../theme/colors'
 import categories from '../enums/categories'
 import screens from '../types/params/screens'
@@ -243,7 +243,7 @@ const WorkSetupScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: oxfordBlue,
+        backgroundColor: raisinBlack,
     },
     loadingContainer: {
         flex: 1,
@@ -266,14 +266,14 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: antiFlashWhite,
+        color: platinum,
         paddingLeft: 20,
         paddingRight: 30,
     },
     info: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: antiFlashWhite,
+        color: platinum,
         width: '80%',
         alignSelf: 'center',
         paddingTop: '5%',
@@ -284,7 +284,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
     searchContainer: {
-        backgroundColor: antiFlashWhite,
+        backgroundColor: platinum,
         borderRadius: 15,
         width: '85%',
         overflow: 'hidden',
@@ -294,7 +294,7 @@ const styles = StyleSheet.create({
     selectedCategoriesHeading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 18,
-        color: antiFlashWhite,
+        color: platinum,
         paddingTop: '5%',
         paddingLeft: 10,
     },
@@ -324,25 +324,25 @@ const styles = StyleSheet.create({
         paddingTop: '7%',
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: antiFlashWhite,
+        color: platinum,
     },
     numericInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: antiFlashWhite,
+        color: platinum,
         width: '80%',
         paddingTop: '5%',
-        borderBottomColor: antiFlashWhite,
+        borderBottomColor: platinum,
         borderBottomWidth: 2,
         alignSelf: 'center',
     },
     textInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: antiFlashWhite,
+        color: platinum,
         width: '80%',
         paddingTop: '5%',
-        borderBottomColor: antiFlashWhite,
+        borderBottomColor: platinum,
         borderBottomWidth: 2,
         alignSelf: 'center',
     },

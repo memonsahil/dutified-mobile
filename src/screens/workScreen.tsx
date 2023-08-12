@@ -15,7 +15,7 @@ import JobCard from '../components/jobCard'
 import * as Progress from 'react-native-progress'
 import { FontAwesome } from '@expo/vector-icons'
 import jobState from '../interfaces/state/jobState'
-import { oxfordBlue, yellowGreen, antiFlashWhite } from '../theme/colors'
+import { raisinBlack, yellowGreen, platinum } from '../theme/colors'
 import screens from '../types/params/screens'
 
 const WorkScreen = () => {
@@ -137,7 +137,7 @@ const WorkScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: oxfordBlue,
+        backgroundColor: raisinBlack,
     },
     loadingContainer: {
         flex: 1,
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 40,
-        color: antiFlashWhite,
+        color: platinum,
     },
     subHeading: {
         alignSelf: 'flex-start',
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: antiFlashWhite,
+        color: platinum,
     },
     viewButtonContainer: {
         paddingTop: '10%',
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: antiFlashWhite,
+        color: platinum,
         paddingTop: '5%',
         paddingLeft: 30,
         paddingRight: 30,

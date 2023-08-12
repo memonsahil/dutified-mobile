@@ -12,12 +12,7 @@ import { useNavigation, NavigationProp } from '@react-navigation/native'
 import useAuthUserStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
-import {
-    oxfordBlue,
-    silver,
-    yellowGreen,
-    antiFlashWhite,
-} from '../theme/colors'
+import { raisinBlack, silver, yellowGreen, platinum } from '../theme/colors'
 import screens from '../types/params/screens'
 import requestStatus from '../enums/requestStatus'
 
@@ -257,7 +252,7 @@ const SignUpScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: oxfordBlue,
+        backgroundColor: raisinBlack,
     },
     loadingContainer: {
         flex: 1,
@@ -281,7 +276,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: antiFlashWhite,
+        color: platinum,
         paddingLeft: 20,
         paddingRight: 30,
     },
@@ -293,15 +288,15 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
         paddingTop: '10%',
-        color: antiFlashWhite,
+        color: platinum,
     },
     input: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: antiFlashWhite,
+        color: platinum,
         width: '100%',
         paddingTop: '5%',
-        borderBottomColor: antiFlashWhite,
+        borderBottomColor: platinum,
         borderBottomWidth: 2,
         alignSelf: 'center',
     },
@@ -312,7 +307,7 @@ const styles = StyleSheet.create({
     codePlus: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: antiFlashWhite,
+        color: platinum,
         width: '10%',
         paddingTop: '5%',
         textAlignVertical: 'center',
@@ -320,21 +315,21 @@ const styles = StyleSheet.create({
     codeInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: antiFlashWhite,
+        color: platinum,
         width: '15%',
         marginRight: '5%',
         paddingTop: '5%',
-        borderBottomColor: antiFlashWhite,
+        borderBottomColor: platinum,
         borderBottomWidth: 2,
         textAlignVertical: 'center',
     },
     phoneInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: antiFlashWhite,
+        color: platinum,
         width: '70%',
         paddingTop: '5%',
-        borderBottomColor: antiFlashWhite,
+        borderBottomColor: platinum,
         borderBottomWidth: 2,
         textAlignVertical: 'center',
     },
@@ -357,7 +352,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 14,
         paddingTop: '5%',
-        color: antiFlashWhite,
+        color: platinum,
         textDecorationLine: 'underline',
     },
 })

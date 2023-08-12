@@ -14,7 +14,7 @@ import useJobStore from '../stores/useJobStore'
 import useAuthStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
-import { jet, oxfordBlue, yellowGreen, antiFlashWhite } from '../theme/colors'
+import { jet, raisinBlack, yellowGreen, platinum } from '../theme/colors'
 import jobState from '../interfaces/state/jobState'
 import jobStatus from '../enums/jobStatus'
 import screens from '../types/params/screens'
@@ -205,7 +205,7 @@ const ProjectScreen = ({ route }: projectScreenProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: oxfordBlue,
+        backgroundColor: raisinBlack,
     },
     loadingContainer: {
         flex: 1,
@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 28,
-        color: antiFlashWhite,
+        color: platinum,
         paddingLeft: 20,
         paddingRight: 30,
     },
@@ -254,7 +254,7 @@ const styles = StyleSheet.create({
     projectDesc: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: antiFlashWhite,
+        color: platinum,
         width: '80%',
         paddingBottom: 20,
         alignSelf: 'center',

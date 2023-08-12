@@ -16,12 +16,7 @@ import * as Progress from 'react-native-progress'
 import ProjectCard from '../components/projectCard'
 import JobCard from '../components/jobCard'
 import { AntDesign } from '@expo/vector-icons'
-import {
-    oxfordBlue,
-    silver,
-    yellowGreen,
-    antiFlashWhite,
-} from '../theme/colors'
+import { raisinBlack, silver, yellowGreen, platinum } from '../theme/colors'
 import projectState from '../interfaces/state/projectState'
 import jobState from '../interfaces/state/jobState'
 import jobStatus from '../enums/jobStatus'
@@ -209,7 +204,7 @@ const SearchScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: oxfordBlue,
+        backgroundColor: raisinBlack,
     },
     loadingContainer: {
         flex: 1,
@@ -232,17 +227,17 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: antiFlashWhite,
+        color: platinum,
         paddingLeft: 20,
         paddingRight: 30,
     },
     textInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: antiFlashWhite,
+        color: platinum,
         width: '80%',
         paddingTop: '5%',
-        borderBottomColor: antiFlashWhite,
+        borderBottomColor: platinum,
         borderBottomWidth: 2,
         alignSelf: 'center',
     },
@@ -253,7 +248,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: antiFlashWhite,
+        color: platinum,
     },
     horizontalSection: {
         paddingRight: 25,
@@ -269,7 +264,7 @@ const styles = StyleSheet.create({
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: antiFlashWhite,
+        color: platinum,
         paddingTop: '5%',
         textAlign: 'center',
     },

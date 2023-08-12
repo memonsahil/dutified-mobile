@@ -43,7 +43,7 @@ import useAuthUserStore from './src/stores/useAuthUserStore'
 import { Entypo } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import { FontAwesome } from '@expo/vector-icons'
-import { yellowGreen, silver, oxfordBlue } from './src/theme/colors'
+import { yellowGreen, silver, raisinBlack } from './src/theme/colors'
 
 SplashScreen.preventAutoHideAsync()
 
@@ -120,8 +120,8 @@ const App = () => {
                     tabBarShowLabel: false,
                     tabBarStyle: {
                         height: '10%',
-                        backgroundColor: oxfordBlue,
-                        borderTopColor: oxfordBlue,
+                        backgroundColor: raisinBlack,
+                        borderTopColor: raisinBlack,
                     },
                     tabBarIcon: ({ focused }) => {
                         if (route.name === 'Home') {
