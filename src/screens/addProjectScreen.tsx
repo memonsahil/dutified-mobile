@@ -35,7 +35,7 @@ const AddProjectScreen = () => {
     const [desc, setDesc] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
-    const { userDetails } = useAuthUserStore((state) => state)
+    const { userDetails, updateProjects } = useAuthUserStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -174,6 +174,16 @@ const AddProjectScreen = () => {
                                         projectDesc: desc,
                                     })
                                         .then(() => {
+                                            updateProjects({
+                                                projectId: Crypto.randomUUID(),
+                                                projectName: name,
+                                                projectCreatorId:
+                                                    userDetails.userId,
+                                                projectCreator: `${userDetails.firstName} ${userDetails.lastName}`,
+                                                category: selectedCategory,
+                                                projectDesc: desc,
+                                            })
+
                                             setLoading(false)
 
                                             navigation.goBack()

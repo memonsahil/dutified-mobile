@@ -13,6 +13,7 @@ import {
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import AuthUser from '../data/authUser'
+import useAuthUserStore from '../stores/useAuthUserStore'
 import * as Crypto from 'expo-crypto'
 import * as Progress from 'react-native-progress'
 import DatePicker from 'react-native-date-picker'
@@ -41,6 +42,8 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
     const [paymentAmount, setPaymentAmount] = useState<string>('')
     const [desc, setDesc] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
+
+    const { updateJobs } = useAuthUserStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -225,6 +228,25 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                                         jobDesc: desc,
                                     })
                                         .then(() => {
+                                            updateJobs({
+                                                jobId: Crypto.randomUUID(),
+                                                jobName: name,
+                                                projectId: projectId,
+                                                projectName: projectName,
+                                                jobCreatorId: jobCreatorId,
+                                                jobCreator: jobCreator,
+                                                jobWorkerId: '',
+                                                jobWorker: '',
+                                                category: selectedCategory,
+                                                payment: paymentAmount.replace(
+                                                    /,/g,
+                                                    ''
+                                                ),
+                                                status: jobStatus.AVAILABLE,
+                                                deadline: jobDeadline,
+                                                jobDesc: desc,
+                                            })
+
                                             setLoading(false)
 
                                             navigation.goBack()
