@@ -1,8 +1,8 @@
 import userState from './userState'
+import feedbackState from './feedbackState'
+import workSetupState from './workSetupState'
 
 export default interface authUserState extends userState {
-    workSetup: {
-        preferredCategories: string[]
-        totalJobs: string
-    }
+    workSetup: workSetupState
+    feedbacks: feedbackState[]
 }
