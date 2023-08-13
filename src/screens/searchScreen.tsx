@@ -248,7 +248,7 @@ const styles = StyleSheet.create({
         color: platinum,
     },
     horizontalSection: {
-        paddingRight: 25,
+        paddingRight: 30,
     },
     bottomSpacer: {
         paddingBottom: '20%',

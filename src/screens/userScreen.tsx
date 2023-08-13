@@ -109,7 +109,13 @@ const UserScreen = ({ route }: userScreenProps) => {
                             color={yellowGreen}
                         />
                     </View>
-                    <UserCard first={first} last={last} image={imageSrc} />
+                    <UserCard
+                        first={first}
+                        last={last}
+                        image={imageSrc}
+                        totalProjects={projects.length.toString()}
+                        totalJobs={jobs.length.toString()}
+                    />
                     {projects.length === 0 ? (
                         <View style={styles.noDataContainer}>
                             <Text style={styles.noDataText}>
@@ -233,7 +239,7 @@ const styles = StyleSheet.create({
         color: platinum,
     },
     horizontalSection: {
-        paddingRight: 25,
+        paddingRight: 30,
     },
     noDataContainer: {
         alignItems: 'center',
