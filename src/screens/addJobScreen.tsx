@@ -43,6 +43,8 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
     const [desc, setDesc] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
+    const randomUUID = Crypto.randomUUID()
+
     const { updateJobs } = useAuthUserStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
@@ -210,7 +212,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                                     setLoading(true)
 
                                     AuthUser.addJob({
-                                        jobId: Crypto.randomUUID(),
+                                        jobId: randomUUID,
                                         jobName: name,
                                         projectId: projectId,
                                         projectName: projectName,
@@ -229,7 +231,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                                     })
                                         .then(() => {
                                             updateJobs({
-                                                jobId: Crypto.randomUUID(),
+                                                jobId: randomUUID,
                                                 jobName: name,
                                                 projectId: projectId,
                                                 projectName: projectName,

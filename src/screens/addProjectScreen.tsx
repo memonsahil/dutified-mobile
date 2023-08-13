@@ -35,6 +35,8 @@ const AddProjectScreen = () => {
     const [desc, setDesc] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
+    const randomUUID = Crypto.randomUUID()
+
     const { userDetails, updateProjects } = useAuthUserStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
@@ -166,7 +168,7 @@ const AddProjectScreen = () => {
                                     setLoading(true)
 
                                     AuthUser.addProject({
-                                        projectId: Crypto.randomUUID(),
+                                        projectId: randomUUID,
                                         projectName: name,
                                         projectCreatorId: userDetails.userId,
                                         projectCreator: `${userDetails.firstName} ${userDetails.lastName}`,
@@ -175,7 +177,7 @@ const AddProjectScreen = () => {
                                     })
                                         .then(() => {
                                             updateProjects({
-                                                projectId: Crypto.randomUUID(),
+                                                projectId: randomUUID,
                                                 projectName: name,
                                                 projectCreatorId:
                                                     userDetails.userId,
