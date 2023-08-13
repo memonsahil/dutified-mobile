@@ -1,12 +1,11 @@
-import { create } from 'zustand'
 import auth from '@react-native-firebase/auth'
 import firestore from '@react-native-firebase/firestore'
-import projectActions from '../interfaces/actions/projectActions'
-import projectState from '../interfaces/state/projectState'
 import requestStatus from '../enums/requestStatus'
+import ProjectInterface from '../interfaces/actions/projectInterface'
+import projectState from '../interfaces/state/projectState'
 
-const useProjectStore = create<projectActions>()(() => ({
-    getProjectResults: async (searchQuery: string) => {
+class Project implements ProjectInterface {
+    async getProjectResults(searchQuery: string) {
         let nameResults: projectState[] = []
         let categoryResults: projectState[] = []
         let searchResults: projectState[] = []
@@ -45,8 +44,9 @@ const useProjectStore = create<projectActions>()(() => ({
                     status: requestStatus.ERROR,
                 })
             })
-    },
-    getProject: async (projectId: string) => {
+    }
+
+    async getProject(projectId: string) {
         let project: projectState
 
         return await firestore()
@@ -67,7 +67,7 @@ const useProjectStore = create<projectActions>()(() => ({
                     status: requestStatus.ERROR,
                 })
             })
-    },
-}))
+    }
+}
 
-export default useProjectStore
+export default new Project()
