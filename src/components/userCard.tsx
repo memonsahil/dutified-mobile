@@ -36,10 +36,12 @@ const UserCard = (props: userCardProps) => {
                 <Text style={styles.info}>
                     {props.totalProjects === '0'
                         ? 'No Projects'
-                        : props.totalProjects}
+                        : `${props.totalProjects} Projects`}
                 </Text>
                 <Text style={styles.info}>
-                    {props.totalJobs === '0' ? 'No Jobs' : props.totalJobs}
+                    {props.totalJobs === '0'
+                        ? 'No Jobs'
+                        : `${props.totalJobs} Jobs`}
                 </Text>
             </View>
             <View style={styles.stars}>
