@@ -8,12 +8,12 @@ import {
     TouchableOpacity,
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
+import Chat from '../data/chat'
+import User from '../data/user'
 import useAuthUserStore from '../stores/useAuthUserStore'
-import useUserStore from '../stores/useUserStore'
 import ChatCard from '../components/chatCard'
 import * as Progress from 'react-native-progress'
 import * as Crypto from 'expo-crypto'
-import { AntDesign } from '@expo/vector-icons'
 import { raisinBlack, yellowGreen, platinum } from '../theme/colors'
 import screens from '../types/params/screens'
 import chatCardProps from '../types/props/components/chatCardProps'
@@ -22,17 +22,16 @@ const ChatsScreen = () => {
     const [chatCardDetails, setChatCardDetails] = useState<chatCardProps[]>([])
     const [loading, setLoading] = useState<boolean>(true)
 
-    const { userDetails, getAllChats } = useAuthUserStore((state) => state)
-    const { getUserData } = useUserStore((state) => state)
+    const { userDetails } = useAuthUserStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
     useEffect(() => {
-        getAllChats(userDetails.userId)
+        Chat.getAllChats(userDetails.userId)
             .then((result) => {
                 if (result.data.length !== 0) {
                     result.data.forEach((chat) => {
-                        getUserData(
+                        User.getUserData(
                             userDetails.userId === chat.senderUserId
                                 ? chat.receiverUserId
                                 : chat.senderUserId

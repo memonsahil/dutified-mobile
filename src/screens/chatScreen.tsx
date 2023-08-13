@@ -9,8 +9,9 @@ import {
     Platform,
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
+import Chat from '../data/chat'
+import User from '../data/user'
 import useAuthUserStore from '../stores/useAuthUserStore'
-import useUserStore from '../stores/useUserStore'
 import {
     GiftedChat,
     IMessage,
@@ -44,15 +45,12 @@ const ChatScreen = ({ route }: chatScreenProps) => {
     const [allMessages, setAllMessages] = useState<IMessage[]>([])
     const [loading, setLoading] = useState<boolean>(true)
 
-    const { userDetails, sendMessage, getMessages } = useAuthUserStore(
-        (state) => state
-    )
-    const { getUserData } = useUserStore((state) => state)
+    const { userDetails } = useAuthUserStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
     useEffect(() => {
-        getUserData(receiverUserId)
+        User.getUserData(receiverUserId)
             .then((result) => {
                 setFirstName(result.data?.userDetails.firstName!)
                 setLastName(result.data?.userDetails.lastName!)
@@ -74,7 +72,9 @@ const ChatScreen = ({ route }: chatScreenProps) => {
 
     useEffect(() => {
         let timeOut = setTimeout(() => {
-            getMessages([userDetails.userId, receiverUserId].sort().join('-'))
+            Chat.getMessages(
+                [userDetails.userId, receiverUserId].sort().join('-')
+            )
                 .then((result) => {
                     setAllMessages(result.data)
 
@@ -104,7 +104,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
             GiftedChat.append(previousMessages, newMessages)
         )
 
-        sendMessage({
+        Chat.sendMessage({
             chatId: [userDetails.userId, receiverUserId].sort().join('-'),
             senderUserId: userDetails.userId,
             receiverUserId: receiverUserId,
