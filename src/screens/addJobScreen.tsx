@@ -12,7 +12,7 @@ import {
 } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import useAuthUserStore from '../stores/useAuthUserStore'
+import AuthUser from '../data/authUser'
 import * as Crypto from 'expo-crypto'
 import * as Progress from 'react-native-progress'
 import DatePicker from 'react-native-date-picker'
@@ -41,8 +41,6 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
     const [paymentAmount, setPaymentAmount] = useState<string>('')
     const [desc, setDesc] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
-
-    const { addJob } = useAuthUserStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -208,7 +206,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                                 ) {
                                     setLoading(true)
 
-                                    addJob({
+                                    AuthUser.addJob({
                                         jobId: Crypto.randomUUID(),
                                         jobName: name,
                                         projectId: projectId,

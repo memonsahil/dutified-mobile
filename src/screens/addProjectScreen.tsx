@@ -12,6 +12,7 @@ import {
 } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
+import AuthUser from '../data/authUser'
 import useAuthUserStore from '../stores/useAuthUserStore'
 import * as Crypto from 'expo-crypto'
 import * as Progress from 'react-native-progress'
@@ -34,7 +35,7 @@ const AddProjectScreen = () => {
     const [desc, setDesc] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
-    const { userDetails, addProject } = useAuthUserStore((state) => state)
+    const { userDetails } = useAuthUserStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -164,7 +165,7 @@ const AddProjectScreen = () => {
                                 ) {
                                     setLoading(true)
 
-                                    addProject({
+                                    AuthUser.addProject({
                                         projectId: Crypto.randomUUID(),
                                         projectName: name,
                                         projectCreatorId: userDetails.userId,
