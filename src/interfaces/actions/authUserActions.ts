@@ -5,6 +5,7 @@ import jobState from '../state/jobState'
 export default interface authUserActions {
     updateAuthUser: (authUser: authUserState) => void
     removeAuthUser: () => void
+    updateImage: (imageSrc: string) => void
     updatePhone: (details: { countryCode: string; phoneNumber: string }) => void
     updateEmail: (emailAddress: string) => void
     updateWorkSetup: (details: {
