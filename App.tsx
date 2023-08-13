@@ -50,12 +50,153 @@ import { yellowGreen, silver, raisinBlack } from './src/theme/colors'
 
 SplashScreen.preventAutoHideAsync()
 
+const AuthStackNavigator = () => {
+    const AuthStack = createStackNavigator<authNavigatorParamList>()
+
+    return (
+        <AuthStack.Navigator
+            screenOptions={{
+                headerShown: false,
+                gestureEnabled: false,
+            }}
+        >
+            <AuthStack.Screen name="Main" component={MainScreen} />
+            <AuthStack.Screen name="SignUp" component={SignUpScreen} />
+            <AuthStack.Screen name="SignIn" component={SignInScreen} />
+            <AuthStack.Screen name="Reset" component={ResetScreen} />
+            <AuthStack.Screen
+                name="Verification"
+                component={VerificationScreen}
+            />
+            <AuthStack.Screen name="Password" component={PasswordScreen} />
+            <AuthStack.Screen name="Support" component={SupportScreen} />
+            <AuthStack.Screen name="Contact" component={ContactScreen} />
+            <AuthStack.Screen name="About" component={AboutScreen} />
+            <AuthStack.Screen name="TOS" component={TosScreen} />
+            <AuthStack.Screen name="PP" component={PpScreen} />
+        </AuthStack.Navigator>
+    )
+}
+
+const DashboardTabNavigator = () => {
+    const DashboardTab = createBottomTabNavigator<dashboardNavigatorParamList>()
+
+    return (
+        <DashboardTab.Navigator
+            screenOptions={({ route }) => ({
+                headerShown: false,
+                gestureEnabled: false,
+                tabBarShowLabel: false,
+                tabBarStyle: {
+                    height: Platform.OS === 'ios' ? '12%' : '10%',
+                    paddingTop: Platform.OS === 'ios' ? '2%' : '0%',
+                    backgroundColor: raisinBlack,
+                    borderTopColor: raisinBlack,
+                },
+                tabBarIcon: ({ focused }) => {
+                    if (route.name === 'Home') {
+                        return (
+                            <Foundation
+                                name="home"
+                                size={32}
+                                color={focused ? yellowGreen : silver}
+                            />
+                        )
+                    } else if (route.name === 'Chats') {
+                        return (
+                            <MaterialCommunityIcons
+                                name="android-messages"
+                                size={32}
+                                color={focused ? yellowGreen : silver}
+                            />
+                        )
+                    } else if (route.name === 'Work') {
+                        return (
+                            <Ionicons
+                                name="briefcase"
+                                size={32}
+                                color={focused ? yellowGreen : silver}
+                            />
+                        )
+                    } else if (route.name === 'Profile') {
+                        return (
+                            <FontAwesome
+                                name="user"
+                                size={32}
+                                color={focused ? yellowGreen : silver}
+                            />
+                        )
+                    } else if (route.name === 'Settings') {
+                        return (
+                            <Ionicons
+                                name="settings"
+                                size={32}
+                                color={focused ? yellowGreen : silver}
+                            />
+                        )
+                    }
+                },
+            })}
+        >
+            <DashboardTab.Screen name="Home" component={HomeScreen} />
+            <DashboardTab.Screen name="Chats" component={ChatsScreen} />
+            <DashboardTab.Screen name="Work" component={WorkScreen} />
+            <DashboardTab.Screen name="Profile" component={ProfileScreen} />
+            <DashboardTab.Screen name="Settings" component={SettingsScreen} />
+        </DashboardTab.Navigator>
+    )
+}
+
+const MainStackNavigator = () => {
+    const MainStack = createStackNavigator<mainNavigatorParamList>()
+
+    return (
+        <MainStack.Navigator
+            screenOptions={{
+                headerShown: false,
+                gestureEnabled: false,
+            }}
+        >
+            <MainStack.Screen
+                name="Dashboard"
+                component={DashboardTabNavigator}
+            />
+            <MainStack.Screen name="Project" component={ProjectScreen} />
+            <MainStack.Screen name="Job" component={JobScreen} />
+            <MainStack.Screen name="User" component={UserScreen} />
+            <MainStack.Screen name="Feedback" component={FeedbackScreen} />
+            <MainStack.Screen name="Chat" component={ChatScreen} />
+            <MainStack.Screen name="WorkSetup" component={WorkSetupScreen} />
+            <MainStack.Screen name="Search" component={SearchScreen} />
+            <MainStack.Screen name="AddProject" component={AddProjectScreen} />
+            <MainStack.Screen name="AddJob" component={AddJobScreen} />
+            <MainStack.Screen
+                name="EditProfilePicture"
+                component={EditProfilePictureScreen}
+            />
+            <MainStack.Screen
+                name="EditPhoneNumber"
+                component={EditPhoneNumberScreen}
+            />
+            <MainStack.Screen
+                name="EditEmailAddress"
+                component={EditEmailAddressScreen}
+            />
+            <MainStack.Screen
+                name="EditPassword"
+                component={EditPasswordScreen}
+            />
+            <MainStack.Screen name="Support" component={SupportScreen} />
+            <MainStack.Screen name="Contact" component={ContactScreen} />
+            <MainStack.Screen name="About" component={AboutScreen} />
+            <MainStack.Screen name="TOS" component={TosScreen} />
+            <MainStack.Screen name="PP" component={PpScreen} />
+        </MainStack.Navigator>
+    )
+}
+
 const App = () => {
     const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null)
-
-    const AuthStack = createStackNavigator<authNavigatorParamList>()
-    const DashboardTab = createBottomTabNavigator<dashboardNavigatorParamList>()
-    const MainStack = createStackNavigator<mainNavigatorParamList>()
 
     const { updateAuthUser } = useAuthUserStore((state) => state)
 
@@ -90,169 +231,13 @@ const App = () => {
         }
     }, [user])
 
-    const AuthStackNavigator = () => {
-        return (
-            <AuthStack.Navigator
-                screenOptions={{
-                    headerShown: false,
-                    gestureEnabled: false,
-                }}
-            >
-                <AuthStack.Screen name="Main" component={MainScreen} />
-                <AuthStack.Screen name="SignUp" component={SignUpScreen} />
-                <AuthStack.Screen name="SignIn" component={SignInScreen} />
-                <AuthStack.Screen name="Reset" component={ResetScreen} />
-                <AuthStack.Screen
-                    name="Verification"
-                    component={VerificationScreen}
-                />
-                <AuthStack.Screen name="Password" component={PasswordScreen} />
-                <AuthStack.Screen name="Support" component={SupportScreen} />
-                <AuthStack.Screen name="Contact" component={ContactScreen} />
-                <AuthStack.Screen name="About" component={AboutScreen} />
-                <AuthStack.Screen name="TOS" component={TosScreen} />
-                <AuthStack.Screen name="PP" component={PpScreen} />
-            </AuthStack.Navigator>
-        )
-    }
-
-    const DashboardTabNavigator = () => {
-        return (
-            <DashboardTab.Navigator
-                screenOptions={({ route }) => ({
-                    headerShown: false,
-                    gestureEnabled: false,
-                    tabBarShowLabel: false,
-                    tabBarStyle: {
-                        height: Platform.OS === 'ios' ? '12%' : '10%',
-                        paddingTop: Platform.OS === 'ios' ? '2%' : '0%',
-                        backgroundColor: raisinBlack,
-                        borderTopColor: raisinBlack,
-                    },
-                    tabBarIcon: ({ focused }) => {
-                        if (route.name === 'Home') {
-                            return (
-                                <Foundation
-                                    name="home"
-                                    size={32}
-                                    color={focused ? yellowGreen : silver}
-                                />
-                            )
-                        } else if (route.name === 'Chats') {
-                            return (
-                                <MaterialCommunityIcons
-                                    name="android-messages"
-                                    size={32}
-                                    color={focused ? yellowGreen : silver}
-                                />
-                            )
-                        } else if (route.name === 'Work') {
-                            return (
-                                <Ionicons
-                                    name="briefcase"
-                                    size={32}
-                                    color={focused ? yellowGreen : silver}
-                                />
-                            )
-                        } else if (route.name === 'Profile') {
-                            return (
-                                <FontAwesome
-                                    name="user"
-                                    size={32}
-                                    color={focused ? yellowGreen : silver}
-                                />
-                            )
-                        } else if (route.name === 'Settings') {
-                            return (
-                                <Ionicons
-                                    name="settings"
-                                    size={32}
-                                    color={focused ? yellowGreen : silver}
-                                />
-                            )
-                        }
-                    },
-                })}
-            >
-                <DashboardTab.Screen name="Home" component={HomeScreen} />
-                <DashboardTab.Screen name="Chats" component={ChatsScreen} />
-                <DashboardTab.Screen name="Work" component={WorkScreen} />
-                <DashboardTab.Screen name="Profile" component={ProfileScreen} />
-                <DashboardTab.Screen
-                    name="Settings"
-                    component={SettingsScreen}
-                />
-            </DashboardTab.Navigator>
-        )
-    }
-
-    const MainStackNavigator = () => {
-        return (
-            <MainStack.Navigator
-                screenOptions={{
-                    headerShown: false,
-                    gestureEnabled: false,
-                }}
-            >
-                <MainStack.Screen
-                    name="Dashboard"
-                    component={DashboardTabNavigator}
-                />
-                <MainStack.Screen name="Project" component={ProjectScreen} />
-                <MainStack.Screen name="Job" component={JobScreen} />
-                <MainStack.Screen name="User" component={UserScreen} />
-                <MainStack.Screen name="Feedback" component={FeedbackScreen} />
-                <MainStack.Screen name="Chat" component={ChatScreen} />
-                <MainStack.Screen
-                    name="WorkSetup"
-                    component={WorkSetupScreen}
-                />
-                <MainStack.Screen name="Search" component={SearchScreen} />
-                <MainStack.Screen
-                    name="AddProject"
-                    component={AddProjectScreen}
-                />
-                <MainStack.Screen name="AddJob" component={AddJobScreen} />
-                <MainStack.Screen
-                    name="EditProfilePicture"
-                    component={EditProfilePictureScreen}
-                />
-                <MainStack.Screen
-                    name="EditPhoneNumber"
-                    component={EditPhoneNumberScreen}
-                />
-                <MainStack.Screen
-                    name="EditEmailAddress"
-                    component={EditEmailAddressScreen}
-                />
-                <MainStack.Screen
-                    name="EditPassword"
-                    component={EditPasswordScreen}
-                />
-                <MainStack.Screen name="Support" component={SupportScreen} />
-                <MainStack.Screen name="Contact" component={ContactScreen} />
-                <MainStack.Screen name="About" component={AboutScreen} />
-                <MainStack.Screen name="TOS" component={TosScreen} />
-                <MainStack.Screen name="PP" component={PpScreen} />
-            </MainStack.Navigator>
-        )
-    }
-
-    const AppNavigator = () => {
-        if (!user) {
-            return <AuthStackNavigator />
-        } else {
-            return <MainStackNavigator />
-        }
-    }
-
     if (!fontsLoaded) {
         return null
     } else {
         return (
             <NavigationContainer>
                 <StatusBar style="inverted" />
-                <AppNavigator />
+                {!user ? <AuthStackNavigator /> : <MainStackNavigator />}
             </NavigationContainer>
         )
     }
