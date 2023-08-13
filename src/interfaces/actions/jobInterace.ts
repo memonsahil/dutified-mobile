@@ -1,20 +1,17 @@
 import requestStatus from '../../enums/requestStatus'
 import jobState from '../state/jobState'
 
-export default interface jobActions {
+export default interface JobInterface {
     getJobResults: (searchQuery: string) => Promise<{
         status: requestStatus
-        errorCode?: string
         data?: jobState[]
     }>
     getProjectJobs: (projectId: string) => Promise<{
         status: requestStatus
-        errorCode?: string
         data?: jobState[]
     }>
     getJob: (jobId: string) => Promise<{
         status: requestStatus
-        errorCode?: string
         data?: jobState
     }>
     findPreferredJobs: (details: {
@@ -22,7 +19,6 @@ export default interface jobActions {
         totalJobs: string
     }) => Promise<{
         status: requestStatus
-        errorCode?: string
         data?: jobState[]
     }>
 }

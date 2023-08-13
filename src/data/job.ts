@@ -1,12 +1,11 @@
-import { create } from 'zustand'
 import auth from '@react-native-firebase/auth'
 import firestore from '@react-native-firebase/firestore'
-import jobActions from '../interfaces/actions/jobActions'
-import jobState from '../interfaces/state/jobState'
 import requestStatus from '../enums/requestStatus'
+import JobInterface from '../interfaces/actions/jobInterace'
+import jobState from '../interfaces/state/jobState'
 
-const useJobStore = create<jobActions>()(() => ({
-    getJobResults: async (searchQuery: string) => {
+class Job implements JobInterface {
+    async getJobResults(searchQuery: string) {
         let nameResults: jobState[] = []
         let categoryResults: jobState[] = []
         let searchResults: jobState[] = []
@@ -45,8 +44,9 @@ const useJobStore = create<jobActions>()(() => ({
                     status: requestStatus.ERROR,
                 })
             })
-    },
-    getProjectJobs: async (projectId: string) => {
+    }
+
+    async getProjectJobs(projectId: string) {
         let jobs: jobState[] = []
 
         return await firestore()
@@ -66,8 +66,9 @@ const useJobStore = create<jobActions>()(() => ({
                     status: requestStatus.ERROR,
                 })
             })
-    },
-    getJob: async (jobId: string) => {
+    }
+
+    async getJob(jobId: string) {
         let job: jobState
 
         return await firestore()
@@ -88,11 +89,12 @@ const useJobStore = create<jobActions>()(() => ({
                     status: requestStatus.ERROR,
                 })
             })
-    },
-    findPreferredJobs: async (details: {
+    }
+
+    async findPreferredJobs(details: {
         preferredCategories: string[]
         totalJobs: string
-    }) => {
+    }) {
         let allJobs: jobState[] = []
         let preferredJobs: jobState[] = []
 
@@ -122,7 +124,5 @@ const useJobStore = create<jobActions>()(() => ({
                     status: requestStatus.ERROR,
                 })
             })
-    },
-}))
-
-export default useJobStore
+    }
+}
