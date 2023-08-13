@@ -21,18 +21,18 @@ export default interface AuthUserInterface {
         data?: authUserState
     }>
     signOut: () => Promise<{ status: requestStatus }>
-    updateImage: (imageSrc: string) => Promise<{ status: requestStatus }>
-    updatePhone: (details: {
+    setImage: (imageSrc: string) => Promise<{ status: requestStatus }>
+    setPhone: (details: {
         countryCode: string
         phoneNumber: string
     }) => Promise<{ status: requestStatus }>
-    updateEmail: (emailAddress: string) => Promise<{ status: requestStatus }>
-    updatePassword: (details: {
+    setEmail: (emailAddress: string) => Promise<{ status: requestStatus }>
+    setPassword: (details: {
         emailAddress: string
         currentPassword: string
         newPassword: string
     }) => Promise<{ status: requestStatus }>
-    updateWorkSetup: (details: {
+    setWorkSetup: (details: {
         preferredCategories: string[]
         totalJobs: string
     }) => Promise<{ status: requestStatus }>

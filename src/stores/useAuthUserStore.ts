@@ -24,7 +24,7 @@ const initialState: authUserState = {
 
 const useAuthUserStore = create<authUserState>()((set) => ({
     ...initialState,
-    setAuthUser: async (authUser: authUserState) => {
+    updateAuthUser: async (authUser: authUserState) => {
         set((state) => ({
             ...state,
             userDetails: {
@@ -50,7 +50,7 @@ const useAuthUserStore = create<authUserState>()((set) => ({
     removeAuthUser: async () => {
         set(initialState)
     },
-    setImage: async (imageSrc: string) => {
+    updateImage: async (imageSrc: string) => {
         set((state) => ({
             ...state,
             userDetails: {
@@ -59,7 +59,10 @@ const useAuthUserStore = create<authUserState>()((set) => ({
             },
         }))
     },
-    setPhone: async (details: { countryCode: string; phoneNumber: string }) => {
+    updatePhone: async (details: {
+        countryCode: string
+        phoneNumber: string
+    }) => {
         set((state) => ({
             ...state,
             userDetails: {
@@ -69,7 +72,7 @@ const useAuthUserStore = create<authUserState>()((set) => ({
             },
         }))
     },
-    setEmail: async (emailAddress: string) => {
+    updateEmail: async (emailAddress: string) => {
         set((state) => ({
             ...state,
             userDetails: {
@@ -78,7 +81,7 @@ const useAuthUserStore = create<authUserState>()((set) => ({
             },
         }))
     },
-    setWorkSetup: async (details: {
+    updateWorkSetup: async (details: {
         preferredCategories: string[]
         totalJobs: string
     }) => {
@@ -91,7 +94,7 @@ const useAuthUserStore = create<authUserState>()((set) => ({
             },
         }))
     },
-    setProject: async (details: projectState) => {
+    updateProjects: async (details: projectState) => {
         set((state) => ({
             ...state,
             projects: [
@@ -107,7 +110,7 @@ const useAuthUserStore = create<authUserState>()((set) => ({
             ],
         }))
     },
-    setJob: async (details: jobState) => {
+    updateJobs: async (details: jobState) => {
         set((state) => ({
             ...state,
             jobs: [

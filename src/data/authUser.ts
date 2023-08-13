@@ -115,7 +115,7 @@ class AuthUser implements AuthUserInterface {
             })
     }
 
-    async updateImage(imageSrc: string) {
+    async setImage(imageSrc: string) {
         let userRef: FirebaseFirestoreTypes.DocumentReference
 
         return await firestore()
@@ -145,7 +145,7 @@ class AuthUser implements AuthUserInterface {
             })
     }
 
-    async updatePhone(details: { countryCode: string; phoneNumber: string }) {
+    async setPhone(details: { countryCode: string; phoneNumber: string }) {
         let userRef: FirebaseFirestoreTypes.DocumentReference
 
         return await firestore()
@@ -176,7 +176,7 @@ class AuthUser implements AuthUserInterface {
             })
     }
 
-    async updateEmail(emailAddress: string) {
+    async setEmail(emailAddress: string) {
         let user: FirebaseAuthTypes.User = auth()
             .currentUser as FirebaseAuthTypes.User
         let userRef: FirebaseFirestoreTypes.DocumentReference
@@ -212,7 +212,7 @@ class AuthUser implements AuthUserInterface {
             })
     }
 
-    async updatePassword(details: {
+    async setPassword(details: {
         emailAddress: string
         currentPassword: string
         newPassword: string
@@ -241,7 +241,7 @@ class AuthUser implements AuthUserInterface {
             })
     }
 
-    async updateWorkSetup(details: {
+    async setWorkSetup(details: {
         preferredCategories: string[]
         totalJobs: string
     }) {
