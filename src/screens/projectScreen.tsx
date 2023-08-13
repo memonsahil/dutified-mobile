@@ -9,8 +9,8 @@ import {
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import JobCard from '../components/jobCard'
-import useProjectStore from '../stores/useProjectStore'
-import useJobStore from '../stores/useJobStore'
+import Project from '../data/project'
+import Job from '../data/job'
 import useAuthStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
@@ -31,14 +31,12 @@ const ProjectScreen = ({ route }: projectScreenProps) => {
     const [jobs, setJobs] = useState<jobState[]>([])
     const [loading, setLoading] = useState<boolean>(true)
 
-    const { getProject } = useProjectStore((state) => state)
-    const { getProjectJobs } = useJobStore((state) => state)
     const { userDetails } = useAuthStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
     useEffect(() => {
-        getProject(projectId)
+        Project.getProject(projectId)
             .then((result) => {
                 setProjectName(result.data?.projectName!)
                 setProjectCategory(result.data?.category!)
@@ -46,7 +44,7 @@ const ProjectScreen = ({ route }: projectScreenProps) => {
                 setProjectCreatorId(result.data?.projectCreatorId!)
                 setProjectCreator(result.data?.projectCreator!)
 
-                getProjectJobs(result.data?.projectId!).then((result) => {
+                Job.getProjectJobs(result.data?.projectId!).then((result) => {
                     setJobs(result.data!)
 
                     setLoading(false)

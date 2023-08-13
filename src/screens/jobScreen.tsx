@@ -8,7 +8,7 @@ import {
     Alert,
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import useJobStore from '../stores/useJobStore'
+import Job from '../data/job'
 import useAuthStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
@@ -31,13 +31,12 @@ const JobScreen = ({ route }: jobScreenProps) => {
     const [jobCreator, setJobCreator] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(true)
 
-    const { getJob } = useJobStore((state) => state)
     const { userDetails } = useAuthStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
     useEffect(() => {
-        getJob(jobId)
+        Job.getJob(jobId)
             .then((result) => {
                 setJobName(result.data?.jobName!)
                 setCategory(result.data?.category!)

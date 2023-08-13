@@ -8,7 +8,7 @@ import {
     TouchableOpacity,
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import useUserStore from '../stores/useUserStore'
+import User from '../data/user'
 import * as Progress from 'react-native-progress'
 import UserCard from '../components/userCard'
 import ProjectCard from '../components/projectCard'
@@ -54,12 +54,10 @@ const UserScreen = ({ route }: userScreenProps) => {
     >([])
     const [loading, setLoading] = useState<boolean>(true)
 
-    const { getUserData } = useUserStore((state) => state)
-
     const navigation: NavigationProp<screens> = useNavigation()
 
     useEffect(() => {
-        getUserData(userId)
+        User.getUserData(userId)
             .then((result) => {
                 setFirst(result.data?.userDetails.firstName!)
                 setLast(result.data?.userDetails.lastName!)
