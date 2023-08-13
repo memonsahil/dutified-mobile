@@ -64,7 +64,7 @@ const ProjectScreen = ({ route }: projectScreenProps) => {
                     ]
                 )
             })
-    }, [projectId])
+    })
 
     const availableJobs = jobs
         ? jobs.filter((job) => job.status === jobStatus.AVAILABLE).length

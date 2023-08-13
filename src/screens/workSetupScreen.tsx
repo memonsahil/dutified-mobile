@@ -11,6 +11,7 @@ import {
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import AuthUser from '../data/authUser'
+import useAuthUserStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
 import {
@@ -33,6 +34,8 @@ const WorkSetupScreen = () => {
     const [loading, setLoading] = useState<boolean>(false)
 
     const navigation: NavigationProp<screens> = useNavigation()
+
+    const { updateWorkSetup } = useAuthUserStore((state) => state)
 
     useEffect(() => {
         if (enteredCategory !== '') {
@@ -188,6 +191,14 @@ const WorkSetupScreen = () => {
                                         .replace(/,/g, ''),
                                 })
                                     .then(() => {
+                                        updateWorkSetup({
+                                            preferredCategories:
+                                                selectedCategories,
+                                            totalJobs: totalJobs
+                                                .split('.')[0]
+                                                .replace(/,/g, ''),
+                                        })
+
                                         setLoading(false)
 
                                         navigation.goBack()
