@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import authUserActions from '../interfaces/actions/authUserActions'
 import authUserState from '../interfaces/state/authUserState'
 import projectState from '../interfaces/state/projectState'
 import jobState from '../interfaces/state/jobState'
@@ -22,7 +23,7 @@ const initialState: authUserState = {
     },
 }
 
-const useAuthUserStore = create<authUserState>()((set) => ({
+const useAuthUserStore = create<authUserActions & authUserState>()((set) => ({
     ...initialState,
     updateAuthUser: async (authUser: authUserState) => {
         set((state) => ({
