@@ -11,6 +11,7 @@ import {
 } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
+import AuthUser from '../data/authUser'
 import useAuthStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
@@ -68,9 +69,11 @@ const EditEmailAddressScreen = () => {
                                 if (email !== '') {
                                     setLoading(true)
 
-                                    updateEmail(email)
+                                    AuthUser.setEmail(email)
                                         .then(() => {
                                             setLoading(false)
+
+                                            updateEmail(email)
 
                                             navigation.goBack()
                                         })

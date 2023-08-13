@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
+import AuthUser from '../data/authUser'
 import useAuthStore from '../stores/useAuthUserStore'
 import * as ImagePicker from 'expo-image-picker'
 import {
@@ -77,8 +78,10 @@ const EditProfilePictureScreen = () => {
                             onPress={() => {
                                 setLoading(true)
 
-                                updateImage(image)
+                                AuthUser.setImage(image)
                                     .then(() => {
+                                        updateImage(image)
+
                                         setLoading(false)
 
                                         navigation.goBack()
@@ -105,8 +108,10 @@ const EditProfilePictureScreen = () => {
                             onPress={() => {
                                 setLoading(true)
 
-                                updateImage('')
+                                AuthUser.setImage('')
                                     .then(() => {
+                                        updateImage('')
+
                                         setLoading(false)
 
                                         navigation.goBack()

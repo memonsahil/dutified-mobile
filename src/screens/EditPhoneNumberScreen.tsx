@@ -11,6 +11,7 @@ import {
 } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
+import AuthUser from '../data/authUser'
 import useAuthStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
@@ -77,12 +78,16 @@ const EditPhoneNumberScreen = () => {
                             onPress={() => {
                                 if (code !== '' && phone !== '') {
                                     setLoading(true)
-
-                                    updatePhone({
+                                    AuthUser.setPhone({
                                         phoneNumber: phone,
                                         countryCode: code,
                                     })
                                         .then(() => {
+                                            updatePhone({
+                                                phoneNumber: phone,
+                                                countryCode: code,
+                                            })
+
                                             setLoading(false)
 
                                             navigation.goBack()

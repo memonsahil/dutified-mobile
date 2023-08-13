@@ -11,6 +11,7 @@ import {
 } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
+import AuthUser from '../data/authUser'
 import useAuthStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
@@ -22,7 +23,7 @@ const EditPasswordScreen = () => {
     const [newPassword, setNewPassword] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
-    const { userDetails, updatePassword } = useAuthStore((state) => state)
+    const { userDetails } = useAuthStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -80,7 +81,7 @@ const EditPasswordScreen = () => {
                                 ) {
                                     setLoading(true)
 
-                                    updatePassword({
+                                    AuthUser.setPassword({
                                         emailAddress: userDetails.emailAddress,
                                         currentPassword: currentPassword,
                                         newPassword: newPassword,
