@@ -40,6 +40,7 @@ import EditPasswordScreen from './src/screens/EditPasswordScreen'
 import authNavigatorParamList from './src/types/params/authNavigatorParamList'
 import dashboardNavigatorParamList from './src/types/params/dashboardNavigatorParamList'
 import mainNavigatorParamList from './src/types/params/mainNavigatorParamList'
+import AuthUser from './src/data/authUser'
 import useAuthUserStore from './src/stores/useAuthUserStore'
 import { Foundation } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
@@ -83,7 +84,9 @@ const App = () => {
 
     useEffect(() => {
         if (user) {
-            getAuthUserData()
+            AuthUser.getAuthUser().then((result) => {
+                updateAuthUser(result.data)
+            })
         }
     }, [user])
 
