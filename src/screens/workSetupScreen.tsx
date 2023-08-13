@@ -10,7 +10,7 @@ import {
 } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import useAuthUserStore from '../stores/useAuthUserStore'
+import AuthUser from '../data/authUser'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
 import {
@@ -31,8 +31,6 @@ const WorkSetupScreen = () => {
     const [searchResults, setSearchResults] = useState<string[]>([])
     const [totalJobs, setTotalJobs] = useState('')
     const [loading, setLoading] = useState<boolean>(false)
-
-    const { saveWorkSetup } = useAuthUserStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -183,7 +181,7 @@ const WorkSetupScreen = () => {
                             ) {
                                 setLoading(true)
 
-                                saveWorkSetup({
+                                AuthUser.setWorkSetup({
                                     preferredCategories: selectedCategories,
                                     totalJobs: totalJobs
                                         .split('.')[0]

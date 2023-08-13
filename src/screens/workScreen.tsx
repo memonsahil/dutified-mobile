@@ -9,7 +9,7 @@ import {
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import useAuthUserStore from '../stores/useAuthUserStore'
-import useJobStore from '../stores/useJobStore'
+import Job from '../data/job'
 import WorkSetupCard from '../components/workSetupCard'
 import JobCard from '../components/jobCard'
 import * as Progress from 'react-native-progress'
@@ -24,7 +24,6 @@ const WorkScreen = () => {
     const [showResults, setShowResults] = useState<boolean>(false)
 
     const { workSetup } = useAuthUserStore((state) => state)
-    const { findPreferredJobs } = useJobStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -63,7 +62,7 @@ const WorkScreen = () => {
                         onPress={() => {
                             setLoading(true)
 
-                            findPreferredJobs({
+                            Job.findPreferredJobs({
                                 preferredCategories:
                                     workSetup.preferredCategories,
                                 totalJobs: workSetup.totalJobs,

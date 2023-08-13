@@ -10,8 +10,8 @@ import {
 } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import useProjectStore from '../stores/useProjectStore'
-import useJobStore from '../stores/useJobStore'
+import Project from '../data/project'
+import Job from '../data/job'
 import * as Progress from 'react-native-progress'
 import ProjectCard from '../components/projectCard'
 import JobCard from '../components/jobCard'
@@ -28,9 +28,6 @@ const SearchScreen = () => {
     const [jobs, setJobs] = useState<jobState[]>([])
     const [loading, setLoading] = useState(false)
 
-    const { getProjectResults } = useProjectStore((state) => state)
-    const { getJobResults } = useJobStore((state) => state)
-
     const navigation: NavigationProp<screens> = useNavigation()
 
     useEffect(() => {
@@ -38,8 +35,8 @@ const SearchScreen = () => {
             setLoading(true)
 
             Promise.all([
-                getProjectResults(searchText),
-                getJobResults(searchText),
+                Project.getProjectResults(searchText),
+                Job.getJobResults(searchText),
             ])
                 .then((results) => {
                     setProjects(results[0].data!)
