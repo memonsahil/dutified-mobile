@@ -126,3 +126,5 @@ class Job implements JobInterface {
             })
     }
 }
+
+export default new Job()

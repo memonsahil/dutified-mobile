@@ -56,7 +56,7 @@ const App = () => {
     const DashboardTab = createBottomTabNavigator<dashboardNavigatorParamList>()
     const MainStack = createStackNavigator<mainNavigatorParamList>()
 
-    const { getAuthUserData } = useAuthUserStore((state) => state)
+    const { updateAuthUser } = useAuthUserStore((state) => state)
 
     const [fontsLoaded] = useFonts({
         'IBMPlexSansCondensed-SemiBold': require('./assets/fonts/IBMPlexSansCondensed-SemiBold.ttf'),
