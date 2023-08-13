@@ -2,11 +2,11 @@ import firestore, {
     FirebaseFirestoreTypes,
 } from '@react-native-firebase/firestore'
 import requestStatus from '../enums/requestStatus'
-import ChatsInterface from '../interfaces/actions/chatsInterface'
+import ChatInterface from '../interfaces/actions/chatInterface'
 import { IMessage } from 'react-native-gifted-chat'
 import chatState from '../interfaces/state/chatState'
 
-class Chats implements ChatsInterface {
+class Chat implements ChatInterface {
     async sendMessage(details: {
         chatId: string
         senderUserId: string
@@ -115,4 +115,4 @@ class Chats implements ChatsInterface {
     }
 }
 
-export default new Chats()
+export default new Chat()

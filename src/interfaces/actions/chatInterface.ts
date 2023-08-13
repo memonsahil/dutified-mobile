@@ -2,7 +2,7 @@ import requestStatus from '../../enums/requestStatus'
 import { IMessage } from 'react-native-gifted-chat'
 import chatState from '../state/chatState'
 
-export default interface ChatsInterface {
+export default interface ChatInterface {
     sendMessage: (details: {
         chatId: string
         senderUserId: string
