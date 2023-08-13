@@ -33,8 +33,14 @@ const UserCard = (props: userCardProps) => {
             </Text>
 
             <View style={styles.infoSection}>
-                <Text style={styles.info}>4 projects</Text>
-                <Text style={styles.info}>16 jobs</Text>
+                <Text style={styles.info}>
+                    {props.totalProjects === '0'
+                        ? 'No Projects'
+                        : props.totalProjects}
+                </Text>
+                <Text style={styles.info}>
+                    {props.totalJobs === '0' ? 'No Jobs' : props.totalJobs}
+                </Text>
             </View>
             <View style={styles.stars}>
                 <FontAwesome name="star" size={28} color={yellowGreen} />

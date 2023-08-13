@@ -42,6 +42,8 @@ const ProfileScreen = () => {
                     first={userDetails.firstName}
                     last={userDetails.lastName}
                     image={userDetails.imageSrc}
+                    totalProjects={projects.length.toString()}
+                    totalJobs={jobs.length.toString()}
                 />
                 <TouchableOpacity
                     onPress={() => navigation.navigate('AddProject')}
