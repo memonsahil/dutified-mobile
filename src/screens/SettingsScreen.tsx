@@ -8,6 +8,7 @@ import {
     Alert,
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
+import AuthUser from '../data/authUser'
 import useAuthStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { raisinBlack, yellowGreen, platinum } from '../theme/colors'
@@ -16,7 +17,7 @@ import screens from '../types/params/screens'
 const SettingsScreen = () => {
     const [loading, setLoading] = useState<boolean>(false)
 
-    const { signOut } = useAuthStore((state) => state)
+    const { removeAuthUser } = useAuthStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -63,8 +64,10 @@ const SettingsScreen = () => {
                         onPress={() => {
                             setLoading(true)
 
-                            signOut()
+                            AuthUser.signOut()
                                 .then(() => {
+                                    removeAuthUser()
+
                                     setLoading(false)
                                 })
                                 .catch(() => {

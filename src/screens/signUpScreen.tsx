@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
+import AuthUser from '../data/authUser'
 import useAuthUserStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
@@ -25,7 +26,7 @@ const SignUpScreen = () => {
     const [password, setPassword] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
-    const { signUp } = useAuthUserStore((state) => state)
+    const { updateAuthUser } = useAuthUserStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -126,7 +127,7 @@ const SignUpScreen = () => {
                             ) {
                                 setLoading(true)
 
-                                signUp({
+                                AuthUser.signUp({
                                     firstName: first,
                                     lastName: last,
                                     countryCode: code,
@@ -135,7 +136,26 @@ const SignUpScreen = () => {
                                     accPassword: password,
                                 })
                                     .then(() => {
-                                        setLoading(false)
+                                        AuthUser.getAuthUser()
+                                            .then((result) => {
+                                                updateAuthUser(result.data)
+
+                                                setLoading(false)
+                                            })
+                                            .catch(() => {
+                                                setLoading(false)
+
+                                                Alert.alert(
+                                                    'Error Occurred',
+                                                    'An error occurred, please try again or contact our support team.',
+                                                    [
+                                                        {
+                                                            text: 'Dismiss',
+                                                            onPress: () => {},
+                                                        },
+                                                    ]
+                                                )
+                                            })
                                     })
                                     .catch((error) => {
                                         setLoading(false)
