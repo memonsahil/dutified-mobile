@@ -76,7 +76,7 @@ class AuthUser implements AuthUserInterface {
     }
 
     async getAuthUser() {
-        let data: FirebaseFirestoreTypes.DocumentData[] = []
+        let data: FirebaseFirestoreTypes.DocumentData
 
         return await firestore()
             .collection('allUsers')
@@ -84,13 +84,11 @@ class AuthUser implements AuthUserInterface {
             .limit(1)
             .get()
             .then((querySnapshot) => {
-                querySnapshot.forEach((doc) => {
-                    data.push(doc.data())
-                })
+                data = querySnapshot.docs[0].data()
 
                 return Promise.resolve({
                     status: requestStatus.SUCCESS,
-                    data: data[0] as authUserState,
+                    data: data as authUserState,
                 })
             })
             .catch(() => {
