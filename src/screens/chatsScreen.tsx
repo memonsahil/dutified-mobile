@@ -1,132 +1,61 @@
 import { useEffect, useState } from 'react'
-import {
-    StyleSheet,
-    Text,
-    ScrollView,
-    View,
-    Alert,
-    TouchableOpacity,
-} from 'react-native'
+import { StyleSheet, Text, ScrollView, View } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import Chat from '../data/chat'
-import User from '../data/user'
 import useAuthUserStore from '../stores/useAuthUserStore'
 import ChatCard from '../components/chatCard'
-import * as Progress from 'react-native-progress'
 import * as Crypto from 'expo-crypto'
-import { raisinBlack, yellowGreen, platinum } from '../theme/colors'
+import { raisinBlack, platinum } from '../theme/colors'
 import screens from '../types/params/screens'
 import chatCardProps from '../types/props/components/chatCardProps'
+import chatState from '../interfaces/state/chatState'
 
 const ChatsScreen = () => {
     const [chatCardDetails, setChatCardDetails] = useState<chatCardProps[]>([])
-    const [loading, setLoading] = useState<boolean>(true)
+
+    const [chats, setChats] = useState<chatState[]>([])
 
     const { userDetails } = useAuthUserStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
     useEffect(() => {
-        Chat.getAllChats(userDetails.userId)
-            .then((result) => {
-                if (result.data.length !== 0) {
-                    result.data.forEach((chat) => {
-                        User.getUserData(
-                            userDetails.userId === chat.senderUserId
-                                ? chat.receiverUserId
-                                : chat.senderUserId
-                        )
-                            .then((result) => {
-                                setChatCardDetails([
-                                    ...chatCardDetails,
-                                    {
-                                        receiverUserId:
-                                            result.data?.userDetails.userId!,
-                                        firstName:
-                                            result.data?.userDetails.firstName!,
-                                        lastName:
-                                            result.data?.userDetails.lastName!,
-                                        imageSrc:
-                                            result.data?.userDetails.imageSrc!,
-                                    },
-                                ])
+        const subscriber = Chat.getAllChats({
+            userId: userDetails.userId,
+            setState: setChats,
+        })
 
-                                setLoading(false)
-                            })
-                            .catch(() => {
-                                Alert.alert(
-                                    'Error Occurred',
-                                    'An error occurred, please try again or contact our support team.',
-                                    [
-                                        {
-                                            text: 'Dismiss',
-                                            onPress: () => {
-                                                navigation.goBack()
-                                            },
-                                        },
-                                    ]
-                                )
-                            })
-                    })
-                } else setLoading(false)
-            })
-            .catch(() => {
-                Alert.alert(
-                    'Error Occurred',
-                    'An error occurred, please try again or contact our support team.',
-                    [
-                        {
-                            text: 'Dismiss',
-                            onPress: () => {
-                                navigation.goBack()
-                            },
-                        },
-                    ]
-                )
-            })
-    }, [])
+        return subscriber
+    })
 
     return (
         <View style={styles.container}>
-            {loading === false ? (
-                <ScrollView
-                    contentContainerStyle={styles.scrollView}
-                    showsVerticalScrollIndicator={false}
-                >
-                    <View style={styles.headerSection}>
-                        <Text style={styles.heading}>Chats</Text>
-                    </View>
-                    <View style={styles.topSpacer} />
-                    {chatCardDetails.length !== 0 ? (
-                        chatCardDetails.map((chatCard) => (
-                            <ChatCard
-                                key={Crypto.randomUUID()}
-                                receiverUserId={chatCard.receiverUserId}
-                                firstName={chatCard.firstName}
-                                lastName={chatCard.lastName}
-                                imageSrc={chatCard.imageSrc}
-                            />
-                        ))
-                    ) : (
-                        <View style={styles.noDataContainer}>
-                            <Text style={styles.noDataText}>
-                                Workmates that you interact with will be shown
-                                here.
-                            </Text>
-                        </View>
-                    )}
-                </ScrollView>
-            ) : (
-                <View style={styles.loadingContainer}>
-                    <Progress.Bar
-                        width={250}
-                        height={25}
-                        borderRadius={20}
-                        indeterminate={true}
-                        color={yellowGreen}
-                    />
+            <ScrollView
+                contentContainerStyle={styles.scrollView}
+                showsVerticalScrollIndicator={false}
+            >
+                <View style={styles.headerSection}>
+                    <Text style={styles.heading}>Chats</Text>
                 </View>
-            )}
+                <View style={styles.topSpacer} />
+                {chatCardDetails.length !== 0 ? (
+                    chatCardDetails.map((chatCard) => (
+                        <ChatCard
+                            key={Crypto.randomUUID()}
+                            receiverUserId={chatCard.receiverUserId}
+                            firstName={chatCard.firstName}
+                            lastName={chatCard.lastName}
+                            imageSrc={chatCard.imageSrc}
+                        />
+                    ))
+                ) : (
+                    <View style={styles.noDataContainer}>
+                        <Text style={styles.noDataText}>
+                            Users that you interact with will be shown here.
+                        </Text>
+                    </View>
+                )}
+            </ScrollView>
         </View>
     )
 }
@@ -135,11 +64,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: raisinBlack,
-    },
-    loadingContainer: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
     },
     scrollView: {
         alignItems: 'center',
