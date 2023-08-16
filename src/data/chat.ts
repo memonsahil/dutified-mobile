@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react'
 import firestore, {
     FirebaseFirestoreTypes,
 } from '@react-native-firebase/firestore'
@@ -89,28 +90,34 @@ class Chat implements ChatInterface {
             })
     }
 
-    async getAllChats(userId: string) {
-        let chats: chatState[] = []
+    getAllChats(details: {
+        userId: string
+        chats: chatState[]
+        setChats: Dispatch<SetStateAction<chatState[]>>
+    }) {
+        let chatsData: chatState[] = []
+        let docData: chatState
 
-        return await firestore()
+        return firestore()
             .collection('allChats')
-            .get()
-            .then((querySnapshot) => {
-                querySnapshot.docs.filter((doc) => {
-                    doc.id.includes(userId)
-                        ? chats.push(doc.data() as chatState)
-                        : null
+            .onSnapshot((querySnapshot) => {
+                querySnapshot.docs.forEach((doc) => {
+                    docData = doc.data() as chatState
+
+                    if (docData.chatId.includes(details.userId)) {
+                        if (
+                            !details.chats.some(
+                                (chat) => chat.chatId === docData.chatId
+                            )
+                        ) {
+                            chatsData.push(docData)
+                        }
+                    }
                 })
 
-                return Promise.resolve({
-                    status: requestStatus.SUCCESS,
-                    data: chats,
-                })
-            })
-            .catch(() => {
-                return Promise.reject({
-                    status: requestStatus.ERROR,
-                })
+                if (chatsData.length > 0) {
+                    details.setChats(chatsData)
+                }
             })
     }
 }

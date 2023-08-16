@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { StyleSheet, Text, ScrollView, View } from 'react-native'
-import { useNavigation, NavigationProp } from '@react-navigation/native'
+import { ScrollView, StyleSheet, View, Text } from 'react-native'
 import Chat from '../data/chat'
+import User from '../data/user'
 import useAuthUserStore from '../stores/useAuthUserStore'
 import ChatCard from '../components/chatCard'
 import * as Crypto from 'expo-crypto'
@@ -11,22 +11,40 @@ import chatCardProps from '../types/props/components/chatCardProps'
 import chatState from '../interfaces/state/chatState'
 
 const ChatsScreen = () => {
+    const [chats, setChats] = useState<chatState[]>([])
     const [chatCardDetails, setChatCardDetails] = useState<chatCardProps[]>([])
 
-    const [chats, setChats] = useState<chatState[]>([])
-
     const { userDetails } = useAuthUserStore((state) => state)
-
-    const navigation: NavigationProp<screens> = useNavigation()
 
     useEffect(() => {
         const subscriber = Chat.getAllChats({
             userId: userDetails.userId,
-            setState: setChats,
+            chats: chats,
+            setChats: setChats,
         })
 
-        return subscriber
+        return () => subscriber()
     })
+
+    useEffect(() => {
+        chats.forEach((chat) => {
+            User.getUserData(
+                userDetails.userId !== chat.senderUserId
+                    ? chat.senderUserId
+                    : chat.receiverUserId
+            ).then((result) => {
+                setChatCardDetails((prev) => [
+                    {
+                        receiverUserId: result.data.userDetails.userId,
+                        firstName: result.data.userDetails.firstName,
+                        lastName: result.data.userDetails.lastName,
+                        imageSrc: result.data.userDetails.imageSrc,
+                    },
+                    ...prev,
+                ])
+            })
+        })
+    }, [chats])
 
     return (
         <View style={styles.container}>

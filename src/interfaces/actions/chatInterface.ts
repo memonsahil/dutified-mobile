@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react'
 import requestStatus from '../../enums/requestStatus'
 import { IMessage } from 'react-native-gifted-chat'
 import chatState from '../state/chatState'
@@ -15,8 +16,9 @@ export default interface ChatInterface {
         status: requestStatus
         data?: IMessage[]
     }>
-    getAllChats: (userId: string) => Promise<{
-        status: requestStatus
-        data?: chatState[]
-    }>
+    getAllChats: (details: {
+        userId: string
+        chats: []
+        setChats: Dispatch<SetStateAction<chatState[]>>
+    }) => () => void
 }
