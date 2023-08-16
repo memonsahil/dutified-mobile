@@ -42,6 +42,7 @@ class AuthUser implements AuthUserInterface {
                             preferredCategories: [],
                             totalJobs: '',
                         },
+                        chats: [],
                     })
 
                 return Promise.resolve({
