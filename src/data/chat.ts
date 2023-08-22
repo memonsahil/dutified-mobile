@@ -14,55 +14,37 @@ class Chat implements ChatInterface {
         receiverUserId: string
         messages: IMessage[]
     }) {
-        let allChats: chatState[] = []
-        let chatIndex: number
-        let updatedChat: chatState
-        let newChat: chatState
+        let messagesDocRef: FirebaseFirestoreTypes.DocumentReference =
+            firestore().collection('allChats').doc(details.chatId)
+        let messagesData: Array<IMessage> = []
 
-        let senderRef = firestore()
-            .collection('allUsers')
-            .where('userDetails.userId', '==', details.senderUserId)
-            .limit(1)
-
-        return await senderRef
+        return await messagesDocRef
             .get()
             .then(async (querySnapshot) => {
-                allChats = querySnapshot.docs[0].data().chats
-                chatIndex = allChats.findIndex(
-                    (chat) => chat.chatId === details.chatId
-                )
-
-                if (chatIndex !== -1) {
-                    updatedChat = { ...allChats[chatIndex] }
-                    updatedChat.messages = [
-                        ...updatedChat.messages,
+                if (querySnapshot.exists) {
+                    messagesData = [
+                        ...querySnapshot.data()?.messages,
                         details.messages[details.messages.length - 1],
                     ]
 
-                    allChats[chatIndex] = updatedChat
-                    await querySnapshot.docs[0].ref.update({ chats: allChats })
-
-                    return Promise.resolve({
-                        status: requestStatus.SUCCESS,
+                    await messagesDocRef.update({
+                        messages: messagesData,
                     })
                 } else {
-                    newChat = {
+                    await messagesDocRef.set({
                         chatId: details.chatId,
-                        messages: details.messages,
                         senderUserId: details.senderUserId,
                         receiverUserId: details.receiverUserId,
-                    }
-
-                    allChats.push(newChat)
-                    await querySnapshot.docs[0].ref.update({ chats: allChats })
-
-                    return Promise.resolve({
-                        status: requestStatus.SUCCESS,
+                        messages: details.messages,
                     })
                 }
+
+                return Promise.resolve({
+                    status: requestStatus.SUCCESS,
+                })
             })
             .catch(() => {
-                return Promise.resolve({
+                return Promise.reject({
                     status: requestStatus.ERROR,
                 })
             })
