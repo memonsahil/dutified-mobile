@@ -6,7 +6,6 @@ import useAuthUserStore from '../stores/useAuthUserStore'
 import ChatCard from '../components/chatCard'
 import * as Crypto from 'expo-crypto'
 import { raisinBlack, platinum } from '../theme/colors'
-import screens from '../types/params/screens'
 import chatCardProps from '../types/props/components/chatCardProps'
 import chatState from '../interfaces/state/chatState'
 

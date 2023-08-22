@@ -49,9 +49,7 @@ const PasswordScreen = () => {
                         autoCorrect={false}
                     />
                 </View>
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('Dashboard')}
-                >
+                <TouchableOpacity onPress={() => navigation.navigate('Home')}>
                     <Text style={styles.button}>Save</Text>
                 </TouchableOpacity>
             </KeyboardAwareScrollView>
