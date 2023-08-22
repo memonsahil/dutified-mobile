@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 18,
         color: jet,
+        width: '60%',
     },
     detailSection: {
         flexDirection: 'row',
