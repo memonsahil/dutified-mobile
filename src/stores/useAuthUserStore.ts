@@ -21,7 +21,6 @@ const initialState: authUserState = {
         preferredCategories: [],
         totalJobs: '',
     },
-    chats: [],
 }
 
 const useAuthUserStore = create<authUserActions & authUserState>()((set) => ({
@@ -47,7 +46,6 @@ const useAuthUserStore = create<authUserActions & authUserState>()((set) => ({
                 preferredCategories: authUser.workSetup.preferredCategories,
                 totalJobs: authUser.workSetup.totalJobs,
             },
-            chats: authUser.chats,
         }))
     },
     removeAuthUser: async () => {
