@@ -21,10 +21,7 @@ const HomeScreen = () => {
 
     return (
         <View style={styles.container}>
-            <ScrollView
-                contentContainerStyle={styles.scrollView}
-                showsVerticalScrollIndicator={false}
-            >
+            <ScrollView contentContainerStyle={styles.scrollView}>
                 <View style={styles.headerSection}>
                     <Text style={styles.heading}>Home</Text>
                     <TouchableOpacity

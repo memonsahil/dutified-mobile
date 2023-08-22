@@ -36,7 +36,6 @@ const SignUpScreen = () => {
                 <KeyboardAwareScrollView
                     enableOnAndroid={true}
                     contentContainerStyle={styles.scrollView}
-                    showsVerticalScrollIndicator={false}
                 >
                     <View style={styles.headerSection}>
                         <TouchableOpacity onPress={() => navigation.goBack()}>

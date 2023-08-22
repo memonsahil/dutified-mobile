@@ -83,7 +83,6 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                     <KeyboardAwareScrollView
                         enableOnAndroid={true}
                         contentContainerStyle={styles.scrollView}
-                        showsVerticalScrollIndicator={false}
                     >
                         <View style={styles.headerSection}>
                             <TouchableOpacity

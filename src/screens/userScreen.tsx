@@ -86,10 +86,7 @@ const UserScreen = ({ route }: userScreenProps) => {
     return (
         <View style={styles.container}>
             {loading === false ? (
-                <ScrollView
-                    contentContainerStyle={styles.scrollView}
-                    showsVerticalScrollIndicator={false}
-                >
+                <ScrollView contentContainerStyle={styles.scrollView}>
                     <View style={styles.headerSection}>
                         <View style={styles.headingRegion}>
                             <TouchableOpacity
