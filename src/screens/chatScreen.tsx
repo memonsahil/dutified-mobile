@@ -323,7 +323,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 24,
+        fontSize: 25,
         color: platinum,
     },
     avatarContainer: {

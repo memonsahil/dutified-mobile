@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 28,
+        fontSize: 25,
         color: platinum,
         paddingLeft: 20,
         paddingRight: 30,
