@@ -26,37 +26,32 @@ const ChatsScreen = () => {
     }, [])
 
     useEffect(() => {
-        const populateChatCardDetails = async () => {
-            const newChatCardDetails: chatCardProps[] = []
-
-            await Promise.all(
-                chats.map(async (chat) => {
-                    const userIdToFetch =
-                        userDetails.userId !== chat.senderUserId
-                            ? chat.senderUserId
-                            : chat.receiverUserId
-
-                    const result = await User.getUserData(userIdToFetch)
-
-                    console.log(
-                        'result in ChatsScreen:',
-                        result.data.userDetails.lastName
-                    )
-
-                    newChatCardDetails.push({
-                        receiverUserId: result.data.userDetails.userId,
-                        firstName: result.data.userDetails.firstName,
-                        lastName: result.data.userDetails.lastName,
-                        imageSrc: result.data.userDetails.imageSrc,
-                    })
-                })
-            )
-
-            setChatCardDetails(newChatCardDetails)
-        }
-
         populateChatCardDetails()
     }, [chats])
+
+    const populateChatCardDetails = async () => {
+        const newChatCardDetails: chatCardProps[] = []
+
+        await Promise.all(
+            chats.map(async (chat) => {
+                const userIdToFetch =
+                    userDetails.userId !== chat.senderUserId
+                        ? chat.senderUserId
+                        : chat.receiverUserId
+
+                const result = await User.getUserData(userIdToFetch)
+
+                newChatCardDetails.push({
+                    receiverUserId: result.data.userDetails.userId,
+                    firstName: result.data.userDetails.firstName,
+                    lastName: result.data.userDetails.lastName,
+                    imageSrc: result.data.userDetails.imageSrc,
+                })
+            })
+        )
+
+        setChatCardDetails(newChatCardDetails)
+    }
 
     return (
         <View style={styles.container}>
