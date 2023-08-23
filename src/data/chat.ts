@@ -92,7 +92,6 @@ class Chat implements ChatInterface {
 
     getAllChats(details: {
         userId: string
-        chats: chatState[]
         setChats: Dispatch<SetStateAction<chatState[]>>
     }) {
         let chatsData: chatState[] = []
@@ -105,19 +104,10 @@ class Chat implements ChatInterface {
                     docData = doc.data() as chatState
 
                     if (docData.chatId.includes(details.userId)) {
-                        if (
-                            !details.chats.some(
-                                (chat) => chat.chatId === docData.chatId
-                            )
-                        ) {
-                            chatsData.push(docData)
-                        }
+                        chatsData.push(docData)
                     }
                 })
-
-                if (chatsData.length > 0) {
-                    details.setChats(chatsData)
-                }
+                details.setChats(chatsData)
             })
     }
 }

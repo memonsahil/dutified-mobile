@@ -18,7 +18,6 @@ export default interface ChatInterface {
     }>
     getAllChats: (details: {
         userId: string
-        chats: []
         setChats: Dispatch<SetStateAction<chatState[]>>
     }) => () => void
 }
