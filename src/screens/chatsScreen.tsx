@@ -9,6 +9,7 @@ import { raisinBlack, platinum } from '../theme/colors'
 import chatCardProps from '../types/props/components/chatCardProps'
 import chatState from '../interfaces/state/chatState'
 
+// Todo: Test on a real device.
 const ChatsScreen = () => {
     const [chats, setChats] = useState<chatState[]>([])
     const [chatCardDetails, setChatCardDetails] = useState<chatCardProps[]>([])
@@ -18,31 +19,43 @@ const ChatsScreen = () => {
     useEffect(() => {
         const subscriber = Chat.getAllChats({
             userId: userDetails.userId,
-            chats: chats,
             setChats: setChats,
         })
 
         return () => subscriber()
-    })
+    }, [])
 
     useEffect(() => {
-        chats.forEach((chat) => {
-            User.getUserData(
-                userDetails.userId !== chat.senderUserId
-                    ? chat.senderUserId
-                    : chat.receiverUserId
-            ).then((result) => {
-                setChatCardDetails((prev) => [
-                    {
+        const populateChatCardDetails = async () => {
+            const newChatCardDetails: chatCardProps[] = []
+
+            await Promise.all(
+                chats.map(async (chat) => {
+                    const userIdToFetch =
+                        userDetails.userId !== chat.senderUserId
+                            ? chat.senderUserId
+                            : chat.receiverUserId
+
+                    const result = await User.getUserData(userIdToFetch)
+
+                    console.log(
+                        'result in ChatsScreen:',
+                        result.data.userDetails.lastName
+                    )
+
+                    newChatCardDetails.push({
                         receiverUserId: result.data.userDetails.userId,
                         firstName: result.data.userDetails.firstName,
                         lastName: result.data.userDetails.lastName,
                         imageSrc: result.data.userDetails.imageSrc,
-                    },
-                    ...prev,
-                ])
-            })
-        })
+                    })
+                })
+            )
+
+            setChatCardDetails(newChatCardDetails)
+        }
+
+        populateChatCardDetails()
     }, [chats])
 
     return (

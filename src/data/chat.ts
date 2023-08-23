@@ -107,6 +107,7 @@ class Chat implements ChatInterface {
                         chatsData.push(docData)
                     }
                 })
+
                 details.setChats(chatsData)
             })
     }
