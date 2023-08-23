@@ -16,6 +16,7 @@ const ChatsScreen = () => {
 
     const { userDetails } = useAuthUserStore((state) => state)
 
+    /*
     useEffect(() => {
         const subscriber = Chat.getAllChats({
             userId: userDetails.userId,
@@ -52,6 +53,7 @@ const ChatsScreen = () => {
 
         setChatCardDetails(newChatCardDetails)
     }
+    */
 
     return (
         <View style={styles.container}>
