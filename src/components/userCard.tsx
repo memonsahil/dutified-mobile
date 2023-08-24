@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 import { Avatar } from 'react-native-elements'
-import { yellowGreen, silver, jet, platinum } from '../theme/colors'
+import colors from '../enums/colors'
 import userCardProps from '../types/props/components/userCardProps'
 
 const UserCard = (props: userCardProps) => {
@@ -45,11 +45,27 @@ const UserCard = (props: userCardProps) => {
                 </Text>
             </View>
             <View style={styles.stars}>
-                <FontAwesome name="star" size={28} color={yellowGreen} />
-                <FontAwesome name="star" size={28} color={yellowGreen} />
-                <FontAwesome name="star" size={28} color={yellowGreen} />
-                <FontAwesome name="star" size={28} color={yellowGreen} />
-                <FontAwesome name="star" size={28} color={silver} />
+                <FontAwesome
+                    name="star"
+                    size={28}
+                    color={colors.YELLOW_GREEN}
+                />
+                <FontAwesome
+                    name="star"
+                    size={28}
+                    color={colors.YELLOW_GREEN}
+                />
+                <FontAwesome
+                    name="star"
+                    size={28}
+                    color={colors.YELLOW_GREEN}
+                />
+                <FontAwesome
+                    name="star"
+                    size={28}
+                    color={colors.YELLOW_GREEN}
+                />
+                <FontAwesome name="star" size={28} color={colors.SILVER} />
             </View>
         </View>
     )
@@ -57,20 +73,20 @@ const UserCard = (props: userCardProps) => {
 
 const styles = StyleSheet.create({
     profileSection: {
-        backgroundColor: platinum,
+        backgroundColor: colors.PLATINUM,
         width: '90%',
         alignItems: 'center',
         marginTop: 20,
         borderRadius: 15,
     },
     avatarContainer: {
-        backgroundColor: yellowGreen,
+        backgroundColor: colors.YELLOW_GREEN,
         marginTop: 20,
     },
     userName: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 24,
-        color: jet,
+        color: colors.JET,
         paddingTop: 15,
         paddingBottom: 20,
         width: 300,
@@ -83,8 +99,8 @@ const styles = StyleSheet.create({
     info: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 15,
-        color: jet,
-        backgroundColor: yellowGreen,
+        color: colors.JET,
+        backgroundColor: colors.YELLOW_GREEN,
         marginLeft: 10,
         padding: 5,
     },

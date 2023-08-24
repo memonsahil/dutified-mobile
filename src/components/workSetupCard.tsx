@@ -6,7 +6,7 @@ import {
     TouchableOpacity,
 } from 'react-native'
 import { Feather } from '@expo/vector-icons'
-import { jet, yellowGreen, platinum } from '../theme/colors'
+import colors from '../enums/colors'
 import navProps from '../types/props/components/navProps'
 import workSetupCardProps from '../types/props/components/workSetupCardProps'
 
@@ -24,7 +24,7 @@ const WorkSetupCard = (props: workSetupCardProps & navProps) => {
                     style={styles.options}
                     onPress={() => props.nav.navigate('WorkSetup')}
                 >
-                    <Feather name="edit-3" size={20} color={jet} />
+                    <Feather name="edit-3" size={20} color={colors.JET} />
                 </TouchableOpacity>
             </View>
             {props.preferredCategories.length !== 0 &&
@@ -70,7 +70,7 @@ const WorkSetupCard = (props: workSetupCardProps & navProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: platinum,
+        backgroundColor: colors.PLATINUM,
         borderRadius: 15,
         width: '90%',
         overflow: 'hidden',
@@ -84,13 +84,13 @@ const styles = StyleSheet.create({
     currentMonth: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 24,
-        color: jet,
+        color: colors.JET,
         paddingTop: 10,
         paddingLeft: 10,
         paddingBottom: 10,
     },
     options: {
-        backgroundColor: yellowGreen,
+        backgroundColor: colors.YELLOW_GREEN,
         padding: 5,
         alignSelf: 'center',
     },
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 18,
-        color: jet,
+        color: colors.JET,
         width: 200,
     },
     detailSection: {
@@ -112,8 +112,8 @@ const styles = StyleSheet.create({
     detail: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 15,
-        color: jet,
-        backgroundColor: yellowGreen,
+        color: colors.JET,
+        backgroundColor: colors.YELLOW_GREEN,
         padding: 5,
         marginRight: 10,
         marginBottom: 10,
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     info: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 16,
-        color: jet,
+        color: colors.JET,
         padding: 20,
         textAlign: 'center',
     },
