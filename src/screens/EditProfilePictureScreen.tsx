@@ -12,7 +12,7 @@ import {
 import * as Progress from 'react-native-progress'
 import { Avatar } from 'react-native-elements'
 import { AntDesign } from '@expo/vector-icons'
-import { raisinBlack, yellowGreen, platinum } from '../theme/colors'
+import colors from '../enums/colors'
 import screens from '../types/params/screens'
 
 const EditProfilePictureScreen = () => {
@@ -55,7 +55,7 @@ const EditProfilePictureScreen = () => {
                             <AntDesign
                                 name="caretleft"
                                 size={30}
-                                color={yellowGreen}
+                                color={colors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>
                         <Text style={styles.heading}>Profile Picture</Text>
@@ -143,7 +143,7 @@ const EditProfilePictureScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={yellowGreen}
+                        color={colors.YELLOW_GREEN}
                     />
                 </View>
             )}
@@ -154,7 +154,7 @@ const EditProfilePictureScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: raisinBlack,
+        backgroundColor: colors.RAISIN_BLACK,
         alignItems: 'center',
     },
     loadingContainer: {
@@ -174,12 +174,12 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: platinum,
+        color: colors.PLATINUM,
         paddingLeft: 20,
         paddingRight: 30,
     },
     avatarContainer: {
-        backgroundColor: yellowGreen,
+        backgroundColor: colors.YELLOW_GREEN,
         marginTop: 20,
     },
     buttonContainer: {
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
     saveButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: yellowGreen,
+        color: colors.YELLOW_GREEN,
     },
 })
 

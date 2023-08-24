@@ -10,7 +10,7 @@ import useAuthUserStore from '../stores/useAuthUserStore'
 import ProjectCard from '../components/projectCard'
 import JobCard from '../components/jobCard'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { raisinBlack, yellowGreen, platinum } from '../theme/colors'
+import colors from '../enums/colors'
 import jobStatus from '../enums/jobStatus'
 import screens from '../types/params/screens'
 
@@ -30,7 +30,7 @@ const HomeScreen = () => {
                         <MaterialCommunityIcons
                             name="android-messages"
                             size={35}
-                            color={yellowGreen}
+                            color={colors.YELLOW_GREEN}
                         />
                     </TouchableOpacity>
                 </View>
@@ -105,7 +105,7 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: raisinBlack,
+        backgroundColor: colors.RAISIN_BLACK,
     },
     scrollView: {
         alignItems: 'center',
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 40,
-        color: platinum,
+        color: colors.PLATINUM,
     },
     subHeading: {
         alignSelf: 'flex-start',
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: platinum,
+        color: colors.PLATINUM,
     },
     horizontalSection: {
         paddingRight: 30,
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: platinum,
+        color: colors.PLATINUM,
         paddingTop: '10%',
         textAlign: 'center',
     },

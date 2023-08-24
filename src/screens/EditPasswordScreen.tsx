@@ -15,7 +15,7 @@ import AuthUser from '../data/authUser'
 import useAuthStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
-import { raisinBlack, silver, yellowGreen, platinum } from '../theme/colors'
+import colors from '../enums/colors'
 import screens from '../types/params/screens'
 
 const EditPasswordScreen = () => {
@@ -42,7 +42,7 @@ const EditPasswordScreen = () => {
                                 <AntDesign
                                     name="caretleft"
                                     size={30}
-                                    color={yellowGreen}
+                                    color={colors.YELLOW_GREEN}
                                 />
                             </TouchableOpacity>
                             <Text style={styles.heading}>Password</Text>
@@ -53,7 +53,7 @@ const EditPasswordScreen = () => {
                             value={currentPassword}
                             onChangeText={setCurrentPassword}
                             style={styles.textInput}
-                            placeholderTextColor={silver}
+                            placeholderTextColor={colors.SILVER}
                             secureTextEntry={true}
                             autoCapitalize="none"
                             autoComplete="off"
@@ -65,7 +65,7 @@ const EditPasswordScreen = () => {
                             value={newPassword}
                             onChangeText={setNewPassword}
                             style={styles.textInput}
-                            placeholderTextColor={silver}
+                            placeholderTextColor={colors.SILVER}
                             secureTextEntry={true}
                             autoCapitalize="none"
                             autoComplete="off"
@@ -129,7 +129,7 @@ const EditPasswordScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={yellowGreen}
+                        color={colors.YELLOW_GREEN}
                     />
                 </View>
             )}
@@ -140,7 +140,7 @@ const EditPasswordScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: raisinBlack,
+        backgroundColor: colors.RAISIN_BLACK,
     },
     loadingContainer: {
         flex: 1,
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: platinum,
+        color: colors.PLATINUM,
         paddingLeft: 20,
         paddingRight: 30,
     },
@@ -173,15 +173,15 @@ const styles = StyleSheet.create({
         paddingTop: '7%',
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: platinum,
+        color: colors.PLATINUM,
     },
     textInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: platinum,
+        color: colors.PLATINUM,
         width: '80%',
         paddingTop: '5%',
-        borderBottomColor: platinum,
+        borderBottomColor: colors.PLATINUM,
         borderBottomWidth: 2,
         alignSelf: 'center',
     },
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
     saveButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: yellowGreen,
+        color: colors.YELLOW_GREEN,
     },
 })
 

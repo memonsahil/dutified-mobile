@@ -25,13 +25,7 @@ import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import { FontAwesome5 } from '@expo/vector-icons'
-import {
-    jet,
-    raisinBlack,
-    silver,
-    yellowGreen,
-    platinum,
-} from '../theme/colors'
+import colors from '../enums/colors'
 import screens from '../types/params/screens'
 import chatScreenProps from '../types/props/screens/chatScreenProps'
 
@@ -132,7 +126,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                             <AntDesign
                                 name="caretleft"
                                 size={30}
-                                color={yellowGreen}
+                                color={colors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>
                         <TouchableOpacity
@@ -183,7 +177,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                 <Day
                                     {...props}
                                     textStyle={{
-                                        color: jet,
+                                        color: colors.JET,
                                         fontFamily:
                                             'IBMPlexSansCondensed-Medium',
                                     }}
@@ -196,20 +190,22 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                     {...props}
                                     wrapperStyle={{
                                         left: {
-                                            backgroundColor: yellowGreen,
+                                            backgroundColor:
+                                                colors.YELLOW_GREEN,
                                         },
                                         right: {
-                                            backgroundColor: yellowGreen,
+                                            backgroundColor:
+                                                colors.YELLOW_GREEN,
                                         },
                                     }}
                                     textStyle={{
                                         left: {
-                                            color: jet,
+                                            color: colors.JET,
                                             fontFamily:
                                                 'IBMPlexSansCondensed-Medium',
                                         },
                                         right: {
-                                            color: jet,
+                                            color: colors.JET,
                                             fontFamily:
                                                 'IBMPlexSansCondensed-Medium',
                                         },
@@ -220,12 +216,12 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                                 {...props}
                                                 timeTextStyle={{
                                                     left: {
-                                                        color: jet,
+                                                        color: colors.JET,
                                                         fontFamily:
                                                             'IBMPlexSansCondensed-Medium',
                                                     },
                                                     right: {
-                                                        color: jet,
+                                                        color: colors.JET,
                                                         fontFamily:
                                                             'IBMPlexSansCondensed-Medium',
                                                     },
@@ -245,7 +241,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                             value={message}
                                             onChangeText={setMessage}
                                             style={styles.input}
-                                            placeholderTextColor={silver}
+                                            placeholderTextColor={colors.SILVER}
                                             multiline={false}
                                         />
                                         <TouchableOpacity
@@ -269,7 +265,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                             <Ionicons
                                                 name="send"
                                                 size={20}
-                                                color={yellowGreen}
+                                                color={colors.YELLOW_GREEN}
                                             />
                                         </TouchableOpacity>
                                     </View>
@@ -277,7 +273,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                         <FontAwesome5
                                             name="file-signature"
                                             size={20}
-                                            color={yellowGreen}
+                                            color={colors.YELLOW_GREEN}
                                         />
                                     </TouchableOpacity>
                                 </View>
@@ -292,7 +288,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={yellowGreen}
+                        color={colors.YELLOW_GREEN}
                     />
                 </View>
             )}
@@ -303,7 +299,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: raisinBlack,
+        backgroundColor: colors.RAISIN_BLACK,
         paddingBottom: '8%',
     },
     loadingContainer: {
@@ -324,16 +320,16 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: platinum,
+        color: colors.PLATINUM,
     },
     avatarContainer: {
-        backgroundColor: yellowGreen,
+        backgroundColor: colors.YELLOW_GREEN,
     },
     chatView: {
-        backgroundColor: platinum,
+        backgroundColor: colors.PLATINUM,
     },
     toolbar: {
-        backgroundColor: raisinBlack,
+        backgroundColor: colors.RAISIN_BLACK,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -348,12 +344,12 @@ const styles = StyleSheet.create({
         width: '80%',
     },
     input: {
-        backgroundColor: platinum,
+        backgroundColor: colors.PLATINUM,
         width: '100%',
         height: 45,
         paddingVertical: Platform.OS === 'ios' ? 0 : 9,
         paddingLeft: 20,
-        borderColor: raisinBlack,
+        borderColor: colors.RAISIN_BLACK,
         borderTopWidth: Platform.OS === 'ios' ? 5 : 3,
         borderBottomWidth: 5,
         borderLeftWidth: 5,
@@ -361,7 +357,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         marginRight: '4%',
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        color: jet,
+        color: colors.JET,
         fontSize: 16,
     },
 })

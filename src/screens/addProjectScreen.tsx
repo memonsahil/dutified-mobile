@@ -17,13 +17,7 @@ import useAuthUserStore from '../stores/useAuthUserStore'
 import * as Crypto from 'expo-crypto'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
-import {
-    jet,
-    raisinBlack,
-    silver,
-    yellowGreen,
-    platinum,
-} from '../theme/colors'
+import colors from '../enums/colors'
 import categories from '../enums/categories'
 import screens from '../types/params/screens'
 
@@ -83,7 +77,7 @@ const AddProjectScreen = () => {
                                 <AntDesign
                                     name="caretleft"
                                     size={30}
-                                    color={yellowGreen}
+                                    color={colors.YELLOW_GREEN}
                                 />
                             </TouchableOpacity>
                             <Text style={styles.heading}>New Project</Text>
@@ -94,7 +88,7 @@ const AddProjectScreen = () => {
                             value={enteredCategory}
                             onChangeText={setEnteredCategory}
                             style={styles.textInput}
-                            placeholderTextColor={silver}
+                            placeholderTextColor={colors.SILVER}
                             inputMode="text"
                         />
                         <View style={styles.searchContainer}>
@@ -141,7 +135,7 @@ const AddProjectScreen = () => {
                             value={name}
                             onChangeText={setName}
                             style={styles.textInput}
-                            placeholderTextColor={silver}
+                            placeholderTextColor={colors.SILVER}
                             inputMode="text"
                         />
                         <Text style={styles.field}>Description</Text>
@@ -151,7 +145,7 @@ const AddProjectScreen = () => {
                                 value={desc}
                                 onChangeText={setDesc}
                                 style={styles.descTextInput}
-                                placeholderTextColor={silver}
+                                placeholderTextColor={colors.SILVER}
                                 inputMode="text"
                                 multiline
                             />
@@ -233,7 +227,7 @@ const AddProjectScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={yellowGreen}
+                        color={colors.YELLOW_GREEN}
                     />
                 </View>
             )}
@@ -244,7 +238,7 @@ const AddProjectScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: raisinBlack,
+        backgroundColor: colors.RAISIN_BLACK,
     },
     loadingContainer: {
         flex: 1,
@@ -267,7 +261,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: platinum,
+        color: colors.PLATINUM,
         paddingLeft: 20,
         paddingRight: 30,
     },
@@ -277,7 +271,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
     searchContainer: {
-        backgroundColor: platinum,
+        backgroundColor: colors.PLATINUM,
         borderRadius: 15,
         width: '85%',
         overflow: 'hidden',
@@ -287,14 +281,14 @@ const styles = StyleSheet.create({
     selectedCategoriesHeading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 18,
-        color: platinum,
+        color: colors.PLATINUM,
         paddingTop: '5%',
         paddingLeft: 10,
     },
     searchCategoriesHeading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 18,
-        color: jet,
+        color: colors.JET,
         paddingTop: '5%',
         paddingLeft: 10,
     },
@@ -306,16 +300,16 @@ const styles = StyleSheet.create({
     category: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 15,
-        color: jet,
-        backgroundColor: yellowGreen,
+        color: colors.JET,
+        backgroundColor: colors.YELLOW_GREEN,
         padding: 5,
         marginRight: 10,
     },
     selectedCategory: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 15,
-        color: jet,
-        backgroundColor: yellowGreen,
+        color: colors.JET,
+        backgroundColor: colors.YELLOW_GREEN,
         padding: 5,
         marginLeft: 10,
         marginTop: '5%',
@@ -326,20 +320,20 @@ const styles = StyleSheet.create({
         paddingTop: '7%',
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: platinum,
+        color: colors.PLATINUM,
     },
     textInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: platinum,
+        color: colors.PLATINUM,
         width: '80%',
         paddingTop: '5%',
-        borderBottomColor: platinum,
+        borderBottomColor: colors.PLATINUM,
         borderBottomWidth: 2,
         alignSelf: 'center',
     },
     descContainer: {
-        backgroundColor: platinum,
+        backgroundColor: colors.PLATINUM,
         width: '80%',
         height: 250,
         borderRadius: 15,
@@ -349,7 +343,7 @@ const styles = StyleSheet.create({
     descTextInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: jet,
+        color: colors.JET,
         width: '100%',
         height: '100%',
         overflow: 'visible',
@@ -362,7 +356,7 @@ const styles = StyleSheet.create({
     launchButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: yellowGreen,
+        color: colors.YELLOW_GREEN,
     },
     textSection: {
         width: '70%',
@@ -371,7 +365,7 @@ const styles = StyleSheet.create({
         paddingBottom: '20%',
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 14,
-        color: platinum,
+        color: colors.PLATINUM,
     },
 })
 

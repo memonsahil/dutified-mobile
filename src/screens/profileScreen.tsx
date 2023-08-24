@@ -11,7 +11,7 @@ import { FontAwesome5 } from '@expo/vector-icons'
 import UserCard from '../components/userCard'
 import ProjectCard from '../components/projectCard'
 import JobCard from '../components/jobCard'
-import { raisinBlack, yellowGreen, platinum } from '../theme/colors'
+import colors from '../enums/colors'
 import jobStatus from '../enums/jobStatus'
 import screens from '../types/params/screens'
 
@@ -31,7 +31,7 @@ const ProfileScreen = () => {
                         <FontAwesome5
                             name="grin-stars"
                             size={30}
-                            color={yellowGreen}
+                            color={colors.YELLOW_GREEN}
                         />
                     </TouchableOpacity>
                 </View>
@@ -118,7 +118,7 @@ const ProfileScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: raisinBlack,
+        backgroundColor: colors.RAISIN_BLACK,
     },
     scrollView: {
         alignItems: 'center',
@@ -138,12 +138,12 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 40,
-        color: platinum,
+        color: colors.PLATINUM,
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: yellowGreen,
+        color: colors.YELLOW_GREEN,
         paddingTop: '10%',
     },
     subHeading: {
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: platinum,
+        color: colors.PLATINUM,
     },
     horizontalSection: {
         paddingRight: 30,
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: platinum,
+        color: colors.PLATINUM,
         paddingTop: '10%',
         textAlign: 'center',
     },

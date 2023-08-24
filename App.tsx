@@ -46,7 +46,7 @@ import { Foundation } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import { FontAwesome } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { yellowGreen, silver, raisinBlack } from './src/theme/colors'
+import colors from './src/enums/colors'
 
 SplashScreen.preventAutoHideAsync()
 
@@ -90,8 +90,8 @@ const DashboardTabNavigator = () => {
                 tabBarStyle: {
                     height: Platform.OS === 'ios' ? '12%' : '10%',
                     paddingTop: Platform.OS === 'ios' ? '2%' : '0%',
-                    backgroundColor: raisinBlack,
-                    borderTopColor: raisinBlack,
+                    backgroundColor: colors.RAISIN_BLACK,
+                    borderTopColor: colors.RAISIN_BLACK,
                 },
                 tabBarIcon: ({ focused }) => {
                     if (route.name === 'Home') {
@@ -99,7 +99,11 @@ const DashboardTabNavigator = () => {
                             <Foundation
                                 name="home"
                                 size={32}
-                                color={focused ? yellowGreen : silver}
+                                color={
+                                    focused
+                                        ? colors.YELLOW_GREEN
+                                        : colors.SILVER
+                                }
                             />
                         )
                     } else if (route.name === 'Chats') {
@@ -107,7 +111,11 @@ const DashboardTabNavigator = () => {
                             <MaterialCommunityIcons
                                 name="android-messages"
                                 size={32}
-                                color={focused ? yellowGreen : silver}
+                                color={
+                                    focused
+                                        ? colors.YELLOW_GREEN
+                                        : colors.SILVER
+                                }
                             />
                         )
                     } else if (route.name === 'Work') {
@@ -115,7 +123,11 @@ const DashboardTabNavigator = () => {
                             <Ionicons
                                 name="briefcase"
                                 size={32}
-                                color={focused ? yellowGreen : silver}
+                                color={
+                                    focused
+                                        ? colors.YELLOW_GREEN
+                                        : colors.SILVER
+                                }
                             />
                         )
                     } else if (route.name === 'Profile') {
@@ -123,7 +135,11 @@ const DashboardTabNavigator = () => {
                             <FontAwesome
                                 name="user"
                                 size={32}
-                                color={focused ? yellowGreen : silver}
+                                color={
+                                    focused
+                                        ? colors.YELLOW_GREEN
+                                        : colors.SILVER
+                                }
                             />
                         )
                     } else if (route.name === 'Settings') {
@@ -131,7 +147,11 @@ const DashboardTabNavigator = () => {
                             <Ionicons
                                 name="settings"
                                 size={32}
-                                color={focused ? yellowGreen : silver}
+                                color={
+                                    focused
+                                        ? colors.YELLOW_GREEN
+                                        : colors.SILVER
+                                }
                             />
                         )
                     }

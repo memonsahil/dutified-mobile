@@ -14,13 +14,7 @@ import AuthUser from '../data/authUser'
 import useAuthUserStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
-import {
-    jet,
-    raisinBlack,
-    silver,
-    yellowGreen,
-    platinum,
-} from '../theme/colors'
+import colors from '../enums/colors'
 import categories from '../enums/categories'
 import screens from '../types/params/screens'
 
@@ -76,7 +70,7 @@ const WorkSetupScreen = () => {
                             <AntDesign
                                 name="caretleft"
                                 size={30}
-                                color={yellowGreen}
+                                color={colors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>
                         <Text style={styles.heading}>Work Setup</Text>
@@ -91,7 +85,7 @@ const WorkSetupScreen = () => {
                         value={enteredCategory}
                         onChangeText={setEnteredCategory}
                         style={styles.textInput}
-                        placeholderTextColor={silver}
+                        placeholderTextColor={colors.SILVER}
                         inputMode="text"
                     />
                     <View style={styles.searchContainer}>
@@ -171,7 +165,7 @@ const WorkSetupScreen = () => {
                         value={totalJobs}
                         onChangeText={setTotalJobs}
                         style={styles.numericInput}
-                        placeholderTextColor={silver}
+                        placeholderTextColor={colors.SILVER}
                         inputMode="numeric"
                     />
                     <TouchableOpacity
@@ -240,7 +234,7 @@ const WorkSetupScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={yellowGreen}
+                        color={colors.YELLOW_GREEN}
                     />
                 </View>
             )}
@@ -251,7 +245,7 @@ const WorkSetupScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: raisinBlack,
+        backgroundColor: colors.RAISIN_BLACK,
     },
     loadingContainer: {
         flex: 1,
@@ -274,14 +268,14 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: platinum,
+        color: colors.PLATINUM,
         paddingLeft: 20,
         paddingRight: 30,
     },
     info: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: platinum,
+        color: colors.PLATINUM,
         width: '80%',
         alignSelf: 'center',
         paddingTop: '5%',
@@ -292,7 +286,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
     searchContainer: {
-        backgroundColor: platinum,
+        backgroundColor: colors.PLATINUM,
         borderRadius: 15,
         width: '85%',
         overflow: 'hidden',
@@ -302,14 +296,14 @@ const styles = StyleSheet.create({
     selectedCategoriesHeading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 18,
-        color: platinum,
+        color: colors.PLATINUM,
         paddingTop: '5%',
         paddingLeft: 10,
     },
     searchCategoriesHeading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 18,
-        color: jet,
+        color: colors.JET,
         paddingTop: '5%',
         paddingLeft: 10,
     },
@@ -321,8 +315,8 @@ const styles = StyleSheet.create({
     category: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 15,
-        color: jet,
-        backgroundColor: yellowGreen,
+        color: colors.JET,
+        backgroundColor: colors.YELLOW_GREEN,
         padding: 5,
         marginRight: 10,
     },
@@ -332,25 +326,25 @@ const styles = StyleSheet.create({
         paddingTop: '7%',
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: platinum,
+        color: colors.PLATINUM,
     },
     numericInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: platinum,
+        color: colors.PLATINUM,
         width: '80%',
         paddingTop: '5%',
-        borderBottomColor: platinum,
+        borderBottomColor: colors.PLATINUM,
         borderBottomWidth: 2,
         alignSelf: 'center',
     },
     textInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: platinum,
+        color: colors.PLATINUM,
         width: '80%',
         paddingTop: '5%',
-        borderBottomColor: platinum,
+        borderBottomColor: colors.PLATINUM,
         borderBottomWidth: 2,
         alignSelf: 'center',
     },
@@ -361,7 +355,7 @@ const styles = StyleSheet.create({
     saveButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: yellowGreen,
+        color: colors.YELLOW_GREEN,
     },
 })
 

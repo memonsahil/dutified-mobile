@@ -15,7 +15,7 @@ import ProjectCard from '../components/projectCard'
 import JobCard from '../components/jobCard'
 import { AntDesign } from '@expo/vector-icons'
 import { FontAwesome5 } from '@expo/vector-icons'
-import { raisinBlack, yellowGreen, platinum } from '../theme/colors'
+import colors from '../enums/colors'
 import jobStatus from '../enums/jobStatus'
 import screens from '../types/params/screens'
 import userScreenProps from '../types/props/screens/userScreenProps'
@@ -95,7 +95,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                                 <AntDesign
                                     name="caretleft"
                                     size={30}
-                                    color={yellowGreen}
+                                    color={colors.YELLOW_GREEN}
                                 />
                             </TouchableOpacity>
                             <Text style={styles.heading}>Profile</Text>
@@ -103,7 +103,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                         <FontAwesome5
                             name="grin-stars"
                             size={30}
-                            color={yellowGreen}
+                            color={colors.YELLOW_GREEN}
                         />
                     </View>
                     <UserCard
@@ -184,7 +184,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={yellowGreen}
+                        color={colors.YELLOW_GREEN}
                     />
                 </View>
             )}
@@ -195,7 +195,7 @@ const UserScreen = ({ route }: userScreenProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: raisinBlack,
+        backgroundColor: colors.RAISIN_BLACK,
     },
     loadingContainer: {
         flex: 1,
@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: platinum,
+        color: colors.PLATINUM,
         paddingLeft: 20,
     },
     subHeading: {
@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: platinum,
+        color: colors.PLATINUM,
     },
     horizontalSection: {
         paddingRight: 30,
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: platinum,
+        color: colors.PLATINUM,
         paddingTop: '10%',
         textAlign: 'center',
     },

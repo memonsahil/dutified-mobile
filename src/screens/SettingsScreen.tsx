@@ -11,7 +11,7 @@ import { useNavigation, NavigationProp } from '@react-navigation/native'
 import AuthUser from '../data/authUser'
 import useAuthStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
-import { raisinBlack, yellowGreen, platinum } from '../theme/colors'
+import colors from '../enums/colors'
 import screens from '../types/params/screens'
 
 const SettingsScreen = () => {
@@ -93,7 +93,7 @@ const SettingsScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={yellowGreen}
+                        color={colors.YELLOW_GREEN}
                     />
                 </View>
             )}
@@ -104,7 +104,7 @@ const SettingsScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: raisinBlack,
+        backgroundColor: colors.RAISIN_BLACK,
     },
     loadingContainer: {
         flex: 1,
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 40,
-        color: platinum,
+        color: colors.PLATINUM,
     },
     subHeading: {
         alignSelf: 'flex-start',
@@ -137,12 +137,12 @@ const styles = StyleSheet.create({
         paddingTop: 20,
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: platinum,
+        color: colors.PLATINUM,
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: yellowGreen,
+        color: colors.YELLOW_GREEN,
         paddingTop: '5%',
         paddingLeft: '10%',
     },

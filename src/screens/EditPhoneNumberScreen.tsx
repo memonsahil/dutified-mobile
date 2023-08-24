@@ -15,7 +15,7 @@ import AuthUser from '../data/authUser'
 import useAuthStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
-import { raisinBlack, silver, yellowGreen, platinum } from '../theme/colors'
+import colors from '../enums/colors'
 import screens from '../types/params/screens'
 
 const EditPhoneNumberScreen = () => {
@@ -47,7 +47,7 @@ const EditPhoneNumberScreen = () => {
                                 <AntDesign
                                     name="caretleft"
                                     size={30}
-                                    color={yellowGreen}
+                                    color={colors.YELLOW_GREEN}
                                 />
                             </TouchableOpacity>
                             <Text style={styles.heading}>Phone Number</Text>
@@ -60,7 +60,7 @@ const EditPhoneNumberScreen = () => {
                                 value={code}
                                 onChangeText={setCode}
                                 style={styles.codeInput}
-                                placeholderTextColor={silver}
+                                placeholderTextColor={colors.SILVER}
                                 inputMode="tel"
                             />
                             <TextInput
@@ -68,7 +68,7 @@ const EditPhoneNumberScreen = () => {
                                 value={phone}
                                 onChangeText={setPhone}
                                 style={styles.phoneInput}
-                                placeholderTextColor={silver}
+                                placeholderTextColor={colors.SILVER}
                                 inputMode="tel"
                             />
                         </View>
@@ -130,7 +130,7 @@ const EditPhoneNumberScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={yellowGreen}
+                        color={colors.YELLOW_GREEN}
                     />
                 </View>
             )}
@@ -141,7 +141,7 @@ const EditPhoneNumberScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: raisinBlack,
+        backgroundColor: colors.RAISIN_BLACK,
     },
     loadingContainer: {
         flex: 1,
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: platinum,
+        color: colors.PLATINUM,
         paddingLeft: 20,
         paddingRight: 30,
     },
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
         paddingTop: '7%',
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: platinum,
+        color: colors.PLATINUM,
     },
     phoneInputWrapper: {
         flexDirection: 'row',
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     codePlus: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: platinum,
+        color: colors.PLATINUM,
         width: '10%',
         paddingTop: '5%',
         textAlignVertical: 'center',
@@ -191,21 +191,21 @@ const styles = StyleSheet.create({
     codeInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: platinum,
+        color: colors.PLATINUM,
         width: '15%',
         marginRight: '5%',
         paddingTop: '5%',
-        borderBottomColor: platinum,
+        borderBottomColor: colors.PLATINUM,
         borderBottomWidth: 2,
         textAlignVertical: 'center',
     },
     phoneInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: platinum,
+        color: colors.PLATINUM,
         width: '70%',
         paddingTop: '5%',
-        borderBottomColor: platinum,
+        borderBottomColor: colors.PLATINUM,
         borderBottomWidth: 2,
         textAlignVertical: 'center',
     },
@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
     saveButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: yellowGreen,
+        color: colors.YELLOW_GREEN,
     },
 })
 

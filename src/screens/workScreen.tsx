@@ -15,7 +15,7 @@ import JobCard from '../components/jobCard'
 import * as Progress from 'react-native-progress'
 import { FontAwesome } from '@expo/vector-icons'
 import jobState from '../interfaces/state/jobState'
-import { raisinBlack, yellowGreen, platinum } from '../theme/colors'
+import colors from '../enums/colors'
 import screens from '../types/params/screens'
 
 const WorkScreen = () => {
@@ -42,7 +42,7 @@ const WorkScreen = () => {
                         <FontAwesome
                             name="search"
                             size={30}
-                            color={yellowGreen}
+                            color={colors.YELLOW_GREEN}
                         />
                     </TouchableOpacity>
                 </View>
@@ -121,7 +121,7 @@ const WorkScreen = () => {
                             height={25}
                             borderRadius={20}
                             indeterminate={true}
-                            color={yellowGreen}
+                            color={colors.YELLOW_GREEN}
                         />
                     </View>
                 )}
@@ -133,7 +133,7 @@ const WorkScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: raisinBlack,
+        backgroundColor: colors.RAISIN_BLACK,
     },
     loadingContainer: {
         flex: 1,
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 40,
-        color: platinum,
+        color: colors.PLATINUM,
     },
     subHeading: {
         alignSelf: 'flex-start',
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: platinum,
+        color: colors.PLATINUM,
     },
     viewButtonContainer: {
         paddingTop: '10%',
@@ -176,12 +176,12 @@ const styles = StyleSheet.create({
     viewButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: yellowGreen,
+        color: colors.YELLOW_GREEN,
     },
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: platinum,
+        color: colors.PLATINUM,
         paddingTop: '5%',
         paddingLeft: 30,
         paddingRight: 30,

@@ -16,7 +16,7 @@ import * as Progress from 'react-native-progress'
 import ProjectCard from '../components/projectCard'
 import JobCard from '../components/jobCard'
 import { AntDesign } from '@expo/vector-icons'
-import { raisinBlack, silver, yellowGreen, platinum } from '../theme/colors'
+import colors from '../enums/colors'
 import projectState from '../interfaces/state/projectState'
 import jobState from '../interfaces/state/jobState'
 import jobStatus from '../enums/jobStatus'
@@ -72,7 +72,7 @@ const SearchScreen = () => {
                         <AntDesign
                             name="caretleft"
                             size={30}
-                            color={yellowGreen}
+                            color={colors.YELLOW_GREEN}
                         />
                     </TouchableOpacity>
                     <Text style={styles.heading}>Search</Text>
@@ -82,7 +82,7 @@ const SearchScreen = () => {
                     value={searchText}
                     onChangeText={setSearchText}
                     style={styles.textInput}
-                    placeholderTextColor={silver}
+                    placeholderTextColor={colors.SILVER}
                     inputMode="text"
                 />
                 {searchText === '' ? (
@@ -186,7 +186,7 @@ const SearchScreen = () => {
                                     height={25}
                                     borderRadius={20}
                                     indeterminate={true}
-                                    color={yellowGreen}
+                                    color={colors.YELLOW_GREEN}
                                 />
                             </View>
                         )}
@@ -200,7 +200,7 @@ const SearchScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: raisinBlack,
+        backgroundColor: colors.RAISIN_BLACK,
     },
     loadingContainer: {
         flex: 1,
@@ -223,17 +223,17 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: platinum,
+        color: colors.PLATINUM,
         paddingLeft: 20,
         paddingRight: 30,
     },
     textInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: platinum,
+        color: colors.PLATINUM,
         width: '80%',
         paddingTop: '5%',
-        borderBottomColor: platinum,
+        borderBottomColor: colors.PLATINUM,
         borderBottomWidth: 2,
         alignSelf: 'center',
     },
@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: platinum,
+        color: colors.PLATINUM,
     },
     horizontalSection: {
         paddingRight: 30,
@@ -260,7 +260,7 @@ const styles = StyleSheet.create({
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: platinum,
+        color: colors.PLATINUM,
         paddingTop: '5%',
         textAlign: 'center',
     },

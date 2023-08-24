@@ -1,7 +1,7 @@
 import { NavigationProp, useNavigation } from '@react-navigation/native'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
-import { raisinBlack, yellowGreen, platinum } from '../theme/colors'
+import colors from '../enums/colors'
 import screens from '../types/params/screens'
 
 const SupportScreen = () => {
@@ -11,7 +11,11 @@ const SupportScreen = () => {
         <View style={styles.container}>
             <View style={styles.headerSection}>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <AntDesign name="caretleft" size={30} color={yellowGreen} />
+                    <AntDesign
+                        name="caretleft"
+                        size={30}
+                        color={colors.YELLOW_GREEN}
+                    />
                 </TouchableOpacity>
                 <Text style={styles.heading}>Support</Text>
             </View>
@@ -28,7 +32,7 @@ const SupportScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: raisinBlack,
+        backgroundColor: colors.RAISIN_BLACK,
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
     },
@@ -44,14 +48,14 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: platinum,
+        color: colors.PLATINUM,
         paddingLeft: 20,
         paddingRight: 30,
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: yellowGreen,
+        color: colors.YELLOW_GREEN,
         paddingTop: '5%',
         paddingLeft: '10%',
     },

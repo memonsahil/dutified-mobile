@@ -5,7 +5,7 @@ import User from '../data/user'
 import useAuthUserStore from '../stores/useAuthUserStore'
 import ChatCard from '../components/chatCard'
 import * as Crypto from 'expo-crypto'
-import { raisinBlack, platinum } from '../theme/colors'
+import colors from '../enums/colors'
 import chatCardProps from '../types/props/components/chatCardProps'
 import chatState from '../interfaces/state/chatState'
 
@@ -87,7 +87,7 @@ const ChatsScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: raisinBlack,
+        backgroundColor: colors.RAISIN_BLACK,
     },
     scrollView: {
         alignItems: 'center',
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 40,
-        color: platinum,
+        color: colors.PLATINUM,
     },
     topSpacer: {
         paddingTop: 20,
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: platinum,
+        color: colors.PLATINUM,
         textAlign: 'center',
     },
 })

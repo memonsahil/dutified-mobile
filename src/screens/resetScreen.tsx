@@ -9,7 +9,7 @@ import {
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons'
-import { raisinBlack, silver, yellowGreen, platinum } from '../theme/colors'
+import colors from '../enums/colors'
 import screens from '../types/params/screens'
 
 const ResetScreen = () => {
@@ -28,7 +28,7 @@ const ResetScreen = () => {
                         <AntDesign
                             name="caretleft"
                             size={30}
-                            color={yellowGreen}
+                            color={colors.YELLOW_GREEN}
                         />
                     </TouchableOpacity>
                     <Text style={styles.heading}>Reset</Text>
@@ -44,7 +44,7 @@ const ResetScreen = () => {
                         value={email}
                         onChangeText={setEmail}
                         style={styles.input}
-                        placeholderTextColor={silver}
+                        placeholderTextColor={colors.SILVER}
                         inputMode="email"
                         autoCapitalize="none"
                         autoComplete="off"
@@ -67,7 +67,7 @@ const ResetScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: raisinBlack,
+        backgroundColor: colors.RAISIN_BLACK,
     },
     scrollView: {
         flexGrow: 1,
@@ -86,14 +86,14 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: platinum,
+        color: colors.PLATINUM,
         paddingLeft: 20,
         paddingRight: 30,
     },
     text: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 18,
-        color: platinum,
+        color: colors.PLATINUM,
         paddingTop: '5%',
         width: '80%',
     },
@@ -105,22 +105,22 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
         paddingTop: '10%',
-        color: platinum,
+        color: colors.PLATINUM,
     },
     input: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: platinum,
+        color: colors.PLATINUM,
         width: '100%',
         paddingTop: '5%',
-        borderBottomColor: platinum,
+        borderBottomColor: colors.PLATINUM,
         borderBottomWidth: 2,
         alignSelf: 'center',
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: yellowGreen,
+        color: colors.YELLOW_GREEN,
         alignSelf: 'center',
         paddingTop: '10%',
         paddingBottom: '20%',

@@ -13,7 +13,7 @@ import AuthUser from '../data/authUser'
 import useAuthUserStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
-import { raisinBlack, silver, yellowGreen, platinum } from '../theme/colors'
+import colors from '../enums/colors'
 import screens from '../types/params/screens'
 import requestStatus from '../enums/requestStatus'
 
@@ -42,7 +42,7 @@ const SignUpScreen = () => {
                             <AntDesign
                                 name="caretleft"
                                 size={30}
-                                color={yellowGreen}
+                                color={colors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>
                         <Text style={styles.heading}>Sign Up</Text>
@@ -54,7 +54,7 @@ const SignUpScreen = () => {
                             value={first}
                             onChangeText={setFirst}
                             style={styles.input}
-                            placeholderTextColor={silver}
+                            placeholderTextColor={colors.SILVER}
                             autoCapitalize="words"
                             autoComplete="off"
                             autoCorrect={false}
@@ -64,7 +64,7 @@ const SignUpScreen = () => {
                             value={last}
                             onChangeText={setLast}
                             style={styles.input}
-                            placeholderTextColor={silver}
+                            placeholderTextColor={colors.SILVER}
                             autoCapitalize="words"
                             autoComplete="off"
                             autoCorrect={false}
@@ -77,7 +77,7 @@ const SignUpScreen = () => {
                                 value={code}
                                 onChangeText={setCode}
                                 style={styles.codeInput}
-                                placeholderTextColor={silver}
+                                placeholderTextColor={colors.SILVER}
                                 inputMode="tel"
                             />
                             <TextInput
@@ -85,7 +85,7 @@ const SignUpScreen = () => {
                                 value={phone}
                                 onChangeText={setPhone}
                                 style={styles.phoneInput}
-                                placeholderTextColor={silver}
+                                placeholderTextColor={colors.SILVER}
                                 inputMode="tel"
                             />
                         </View>
@@ -95,7 +95,7 @@ const SignUpScreen = () => {
                             value={email}
                             onChangeText={setEmail}
                             style={styles.input}
-                            placeholderTextColor={silver}
+                            placeholderTextColor={colors.SILVER}
                             inputMode="email"
                             autoCapitalize="none"
                             autoComplete="off"
@@ -107,7 +107,7 @@ const SignUpScreen = () => {
                             value={password}
                             onChangeText={setPassword}
                             style={styles.input}
-                            placeholderTextColor={silver}
+                            placeholderTextColor={colors.SILVER}
                             secureTextEntry={true}
                             autoCapitalize="none"
                             autoComplete="off"
@@ -260,7 +260,7 @@ const SignUpScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={yellowGreen}
+                        color={colors.YELLOW_GREEN}
                     />
                 </View>
             )}
@@ -271,7 +271,7 @@ const SignUpScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: raisinBlack,
+        backgroundColor: colors.RAISIN_BLACK,
     },
     loadingContainer: {
         flex: 1,
@@ -295,7 +295,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 30,
-        color: platinum,
+        color: colors.PLATINUM,
         paddingLeft: 20,
         paddingRight: 30,
     },
@@ -307,15 +307,15 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
         paddingTop: '10%',
-        color: platinum,
+        color: colors.PLATINUM,
     },
     input: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: platinum,
+        color: colors.PLATINUM,
         width: '100%',
         paddingTop: '5%',
-        borderBottomColor: platinum,
+        borderBottomColor: colors.PLATINUM,
         borderBottomWidth: 2,
         alignSelf: 'center',
     },
@@ -326,7 +326,7 @@ const styles = StyleSheet.create({
     codePlus: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: platinum,
+        color: colors.PLATINUM,
         width: '10%',
         paddingTop: '5%',
         textAlignVertical: 'center',
@@ -334,28 +334,28 @@ const styles = StyleSheet.create({
     codeInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: platinum,
+        color: colors.PLATINUM,
         width: '15%',
         marginRight: '5%',
         paddingTop: '5%',
-        borderBottomColor: platinum,
+        borderBottomColor: colors.PLATINUM,
         borderBottomWidth: 2,
         textAlignVertical: 'center',
     },
     phoneInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: 20,
-        color: platinum,
+        color: colors.PLATINUM,
         width: '70%',
         paddingTop: '5%',
-        borderBottomColor: platinum,
+        borderBottomColor: colors.PLATINUM,
         borderBottomWidth: 2,
         textAlignVertical: 'center',
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 25,
-        color: yellowGreen,
+        color: colors.YELLOW_GREEN,
         alignSelf: 'center',
         paddingTop: '10%',
     },
@@ -371,7 +371,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: 14,
         paddingTop: '5%',
-        color: platinum,
+        color: colors.PLATINUM,
         textDecorationLine: 'underline',
     },
 })
