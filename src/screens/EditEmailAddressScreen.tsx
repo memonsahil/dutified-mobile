@@ -16,6 +16,7 @@ import useAuthStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
 import colors from '../enums/colors'
+import fonts from '../enums/fonts'
 import screens from '../types/params/screens'
 
 const EditEmailAddressScreen = () => {
@@ -148,7 +149,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 30,
+        fontSize: fonts.HEADING_TWO,
         color: colors.PLATINUM,
         paddingLeft: 20,
         paddingRight: 30,
@@ -158,12 +159,12 @@ const styles = StyleSheet.create({
         paddingLeft: 40,
         paddingTop: '7%',
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 25,
+        fontSize: fonts.BUTTON_ONE,
         color: colors.PLATINUM,
     },
     textInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: 20,
+        fontSize: fonts.INPUT_ONE,
         color: colors.PLATINUM,
         width: '80%',
         paddingTop: '5%',
@@ -176,7 +177,7 @@ const styles = StyleSheet.create({
     },
     saveButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 25,
+        fontSize: fonts.BUTTON_ONE,
         color: colors.YELLOW_GREEN,
     },
 })

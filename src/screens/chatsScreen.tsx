@@ -6,6 +6,7 @@ import useAuthUserStore from '../stores/useAuthUserStore'
 import ChatCard from '../components/chatCard'
 import * as Crypto from 'expo-crypto'
 import colors from '../enums/colors'
+import fonts from '../enums/fonts'
 import chatCardProps from '../types/props/components/chatCardProps'
 import chatState from '../interfaces/state/chatState'
 
@@ -105,7 +106,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 40,
+        fontSize: fonts.HEADING_ONE,
         color: colors.PLATINUM,
     },
     topSpacer: {
@@ -117,7 +118,7 @@ const styles = StyleSheet.create({
     },
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: 18,
+        fontSize: fonts.BODY_ONE,
         color: colors.PLATINUM,
         textAlign: 'center',
     },

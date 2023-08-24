@@ -12,6 +12,7 @@ import UserCard from '../components/userCard'
 import ProjectCard from '../components/projectCard'
 import JobCard from '../components/jobCard'
 import colors from '../enums/colors'
+import fonts from '../enums/fonts'
 import jobStatus from '../enums/jobStatus'
 import screens from '../types/params/screens'
 
@@ -137,12 +138,12 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 40,
+        fontSize: fonts.HEADING_ONE,
         color: colors.PLATINUM,
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 25,
+        fontSize: fonts.BUTTON_ONE,
         color: colors.YELLOW_GREEN,
         paddingTop: '10%',
     },
@@ -152,7 +153,7 @@ const styles = StyleSheet.create({
         paddingTop: 20,
         marginBottom: 20,
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 30,
+        fontSize: fonts.HEADING_TWO,
         color: colors.PLATINUM,
     },
     horizontalSection: {
@@ -164,7 +165,7 @@ const styles = StyleSheet.create({
     },
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: 18,
+        fontSize: fonts.BODY_ONE,
         color: colors.PLATINUM,
         paddingTop: '10%',
         textAlign: 'center',

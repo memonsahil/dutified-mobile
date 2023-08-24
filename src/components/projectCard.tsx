@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import colors from '../enums/colors'
+import fonts from '../enums/fonts'
 import navProps from '../types/props/components/navProps'
 import projectCardProps from '../types/props/components/projectCardProps'
 
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
     },
     projectName: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 24,
+        fontSize: fonts.HEADING_THREE,
         color: colors.JET,
         paddingLeft: 10,
         paddingRight: 10,
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
     },
     projectCategory: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 18,
+        fontSize: fonts.BODY_ONE,
         color: colors.JET,
         paddingLeft: 10,
         paddingRight: 10,
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
     },
     jobs: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 15,
+        fontSize: fonts.BODY_TWO,
         color: colors.JET,
         backgroundColor: colors.YELLOW_GREEN,
         marginLeft: 10,
@@ -106,13 +107,13 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10,
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: 16,
+        fontSize: fonts.BODY_TWO,
         color: colors.JET,
         height: 90,
     },
     projectCreator: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 18,
+        fontSize: fonts.BODY_ONE,
         color: colors.JET,
         paddingLeft: 10,
         paddingRight: 10,

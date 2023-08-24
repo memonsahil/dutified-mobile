@@ -2,6 +2,7 @@ import { NavigationProp, useNavigation } from '@react-navigation/native'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 import colors from '../enums/colors'
+import fonts from '../enums/fonts'
 import screens from '../types/params/screens'
 
 const SupportScreen = () => {
@@ -47,14 +48,14 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 30,
+        fontSize: fonts.HEADING_TWO,
         color: colors.PLATINUM,
         paddingLeft: 20,
         paddingRight: 30,
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 25,
+        fontSize: fonts.BUTTON_ONE,
         color: colors.YELLOW_GREEN,
         paddingTop: '5%',
         paddingLeft: '10%',

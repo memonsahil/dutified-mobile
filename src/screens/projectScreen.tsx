@@ -15,6 +15,7 @@ import useAuthStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
 import colors from '../enums/colors'
+import fonts from '../enums/fonts'
 import jobState from '../interfaces/state/jobState'
 import jobStatus from '../enums/jobStatus'
 import screens from '../types/params/screens'
@@ -223,7 +224,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 25,
+        fontSize: fonts.BUTTON_ONE,
         color: colors.PLATINUM,
         paddingLeft: 20,
         paddingRight: 30,
@@ -236,7 +237,7 @@ const styles = StyleSheet.create({
     },
     info: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 15,
+        fontSize: fonts.BODY_TWO,
         color: colors.JET,
         backgroundColor: colors.YELLOW_GREEN,
         marginRight: 10,
@@ -248,7 +249,7 @@ const styles = StyleSheet.create({
     },
     projectDesc: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: 18,
+        fontSize: fonts.BODY_ONE,
         color: colors.PLATINUM,
         width: '80%',
         paddingBottom: 20,
@@ -260,14 +261,14 @@ const styles = StyleSheet.create({
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 25,
+        fontSize: fonts.BUTTON_ONE,
         color: colors.YELLOW_GREEN,
         paddingLeft: 30,
         paddingBottom: 20,
     },
     sectionButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 25,
+        fontSize: fonts.BUTTON_ONE,
         color: colors.YELLOW_GREEN,
         paddingBottom: 20,
     },

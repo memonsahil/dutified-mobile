@@ -8,6 +8,7 @@ import {
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons'
 import colors from '../enums/colors'
+import fonts from '../enums/fonts'
 import screens from '../types/params/screens'
 
 const AboutScreen = () => {
@@ -74,14 +75,14 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 30,
+        fontSize: fonts.HEADING_TWO,
         color: colors.PLATINUM,
         paddingLeft: 20,
         paddingRight: 30,
     },
     text: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: 18,
+        fontSize: fonts.BODY_ONE,
         color: colors.PLATINUM,
         paddingTop: '5%',
         width: '80%',
@@ -94,13 +95,13 @@ const styles = StyleSheet.create({
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 25,
+        fontSize: fonts.BUTTON_ONE,
         paddingTop: '10%',
         color: colors.YELLOW_GREEN,
     },
     version: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 14,
+        fontSize: fonts.BODY_THREE,
         marginTop: '10%',
         color: colors.PLATINUM,
         paddingBottom: '20%',

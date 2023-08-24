@@ -12,6 +12,7 @@ import AuthUser from '../data/authUser'
 import useAuthStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import colors from '../enums/colors'
+import fonts from '../enums/fonts'
 import screens from '../types/params/screens'
 
 const SettingsScreen = () => {
@@ -128,7 +129,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 40,
+        fontSize: fonts.HEADING_ONE,
         color: colors.PLATINUM,
     },
     subHeading: {
@@ -136,12 +137,12 @@ const styles = StyleSheet.create({
         paddingLeft: 30,
         paddingTop: 20,
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 30,
+        fontSize: fonts.HEADING_TWO,
         color: colors.PLATINUM,
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 25,
+        fontSize: fonts.BUTTON_ONE,
         color: colors.YELLOW_GREEN,
         paddingTop: '5%',
         paddingLeft: '10%',

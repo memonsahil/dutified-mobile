@@ -4,6 +4,7 @@ import * as MailComposer from 'expo-mail-composer'
 import { SimpleLineIcons } from '@expo/vector-icons'
 import { Avatar } from 'react-native-elements'
 import colors from '../enums/colors'
+import fonts from '../enums/fonts'
 import screens from '../types/params/screens'
 import chatCardProps from '../types/props/components/chatCardProps'
 
@@ -119,7 +120,7 @@ const styles = StyleSheet.create({
     },
     name: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 18,
+        fontSize: fonts.BODY_ONE,
         color: colors.JET,
     },
     optionsSection: {

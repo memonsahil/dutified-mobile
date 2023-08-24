@@ -14,6 +14,7 @@ import useAuthUserStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
 import colors from '../enums/colors'
+import fonts from '../enums/fonts'
 import screens from '../types/params/screens'
 import requestStatus from '../enums/requestStatus'
 
@@ -294,7 +295,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 30,
+        fontSize: fonts.HEADING_TWO,
         color: colors.PLATINUM,
         paddingLeft: 20,
         paddingRight: 30,
@@ -305,13 +306,13 @@ const styles = StyleSheet.create({
     },
     field: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 25,
+        fontSize: fonts.BUTTON_ONE,
         paddingTop: '10%',
         color: colors.PLATINUM,
     },
     input: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: 20,
+        fontSize: fonts.INPUT_ONE,
         color: colors.PLATINUM,
         width: '100%',
         paddingTop: '5%',
@@ -325,7 +326,7 @@ const styles = StyleSheet.create({
     },
     codePlus: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: 20,
+        fontSize: fonts.INPUT_ONE,
         color: colors.PLATINUM,
         width: '10%',
         paddingTop: '5%',
@@ -333,7 +334,7 @@ const styles = StyleSheet.create({
     },
     codeInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: 20,
+        fontSize: fonts.INPUT_ONE,
         color: colors.PLATINUM,
         width: '15%',
         marginRight: '5%',
@@ -344,7 +345,7 @@ const styles = StyleSheet.create({
     },
     phoneInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: 20,
+        fontSize: fonts.INPUT_ONE,
         color: colors.PLATINUM,
         width: '70%',
         paddingTop: '5%',
@@ -354,7 +355,7 @@ const styles = StyleSheet.create({
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 25,
+        fontSize: fonts.BUTTON_ONE,
         color: colors.YELLOW_GREEN,
         alignSelf: 'center',
         paddingTop: '10%',
@@ -369,7 +370,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         textAlignVertical: 'center',
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 14,
+        fontSize: fonts.BODY_THREE,
         paddingTop: '5%',
         color: colors.PLATINUM,
         textDecorationLine: 'underline',

@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 import colors from '../enums/colors'
+import fonts from '../enums/fonts'
 import navProps from '../types/props/components/navProps'
 import feedbackCardProps from '../types/props/components/feedbackCardProps'
 import ratings from '../enums/ratings'
@@ -197,7 +198,7 @@ const styles = StyleSheet.create({
     },
     userNameButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 24,
+        fontSize: fonts.HEADING_THREE,
         color: colors.YELLOW_GREEN,
         width: '100%',
         paddingTop: 10,
@@ -210,7 +211,7 @@ const styles = StyleSheet.create({
         paddingRight: 10,
         paddingBottom: 15,
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: 16,
+        fontSize: fonts.BODY_TWO,
         color: colors.JET,
     },
     stars: {

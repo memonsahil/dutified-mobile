@@ -26,6 +26,7 @@ import { AntDesign } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import { FontAwesome5 } from '@expo/vector-icons'
 import colors from '../enums/colors'
+import fonts from '../enums/fonts'
 import screens from '../types/params/screens'
 import chatScreenProps from '../types/props/screens/chatScreenProps'
 
@@ -319,7 +320,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 25,
+        fontSize: fonts.BUTTON_ONE,
         color: colors.PLATINUM,
     },
     avatarContainer: {
@@ -358,7 +359,7 @@ const styles = StyleSheet.create({
         marginRight: '4%',
         fontFamily: 'IBMPlexSansCondensed-Medium',
         color: colors.JET,
-        fontSize: 16,
+        fontSize: fonts.BODY_TWO,
     },
 })
 

@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import colors from '../enums/colors'
+import fonts from '../enums/fonts'
 import navProps from '../types/props/components/navProps'
 import jobCardProps from '../types/props/components/jobCardProps'
 
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
     },
     jobName: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 18,
+        fontSize: fonts.BODY_ONE,
         color: colors.JET,
         width: '60%',
     },
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
     },
     jobDetail: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 15,
+        fontSize: fonts.BODY_TWO,
         color: colors.JET,
         backgroundColor: colors.YELLOW_GREEN,
         marginLeft: 10,
@@ -77,13 +78,13 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10,
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: 16,
+        fontSize: fonts.BODY_TWO,
         color: colors.JET,
         height: 50,
     },
     jobDeadline: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 18,
+        fontSize: fonts.BODY_ONE,
         color: colors.JET,
         paddingLeft: 10,
         paddingTop: 5,

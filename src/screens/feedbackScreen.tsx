@@ -10,6 +10,7 @@ import useAuthUserStore from '../stores/useAuthUserStore'
 import FeedbackCard from '../components/feedbackCard'
 import { AntDesign } from '@expo/vector-icons'
 import colors from '../enums/colors'
+import fonts from '../enums/fonts'
 import screens from '../types/params/screens'
 
 const FeedbackScreen = () => {
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 30,
+        fontSize: fonts.HEADING_TWO,
         color: colors.PLATINUM,
         paddingLeft: 20,
         paddingRight: 30,
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
     },
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: 18,
+        fontSize: fonts.BODY_ONE,
         color: colors.PLATINUM,
         textAlign: 'center',
     },

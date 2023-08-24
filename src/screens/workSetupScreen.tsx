@@ -15,6 +15,7 @@ import useAuthUserStore from '../stores/useAuthUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
 import colors from '../enums/colors'
+import fonts from '../enums/fonts'
 import categories from '../enums/categories'
 import screens from '../types/params/screens'
 
@@ -267,14 +268,14 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 30,
+        fontSize: fonts.HEADING_TWO,
         color: colors.PLATINUM,
         paddingLeft: 20,
         paddingRight: 30,
     },
     info: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: 18,
+        fontSize: fonts.BODY_ONE,
         color: colors.PLATINUM,
         width: '80%',
         alignSelf: 'center',
@@ -295,14 +296,14 @@ const styles = StyleSheet.create({
     },
     selectedCategoriesHeading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 18,
+        fontSize: fonts.BODY_ONE,
         color: colors.PLATINUM,
         paddingTop: '5%',
         paddingLeft: 10,
     },
     searchCategoriesHeading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 18,
+        fontSize: fonts.BODY_ONE,
         color: colors.JET,
         paddingTop: '5%',
         paddingLeft: 10,
@@ -314,7 +315,7 @@ const styles = StyleSheet.create({
     },
     category: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 15,
+        fontSize: fonts.BODY_TWO,
         color: colors.JET,
         backgroundColor: colors.YELLOW_GREEN,
         padding: 5,
@@ -325,12 +326,12 @@ const styles = StyleSheet.create({
         paddingLeft: 40,
         paddingTop: '7%',
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 25,
+        fontSize: fonts.BUTTON_ONE,
         color: colors.PLATINUM,
     },
     numericInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: 20,
+        fontSize: fonts.INPUT_ONE,
         color: colors.PLATINUM,
         width: '80%',
         paddingTop: '5%',
@@ -340,7 +341,7 @@ const styles = StyleSheet.create({
     },
     textInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: 20,
+        fontSize: fonts.INPUT_ONE,
         color: colors.PLATINUM,
         width: '80%',
         paddingTop: '5%',
@@ -354,7 +355,7 @@ const styles = StyleSheet.create({
     },
     saveButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 25,
+        fontSize: fonts.BUTTON_ONE,
         color: colors.YELLOW_GREEN,
     },
 })

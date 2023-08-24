@@ -16,6 +16,7 @@ import * as Progress from 'react-native-progress'
 import { FontAwesome } from '@expo/vector-icons'
 import jobState from '../interfaces/state/jobState'
 import colors from '../enums/colors'
+import fonts from '../enums/fonts'
 import screens from '../types/params/screens'
 
 const WorkScreen = () => {
@@ -158,7 +159,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 40,
+        fontSize: fonts.HEADING_ONE,
         color: colors.PLATINUM,
     },
     subHeading: {
@@ -167,7 +168,7 @@ const styles = StyleSheet.create({
         paddingTop: 20,
         marginBottom: 20,
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 30,
+        fontSize: fonts.HEADING_TWO,
         color: colors.PLATINUM,
     },
     viewButtonContainer: {
@@ -175,12 +176,12 @@ const styles = StyleSheet.create({
     },
     viewButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 25,
+        fontSize: fonts.BUTTON_ONE,
         color: colors.YELLOW_GREEN,
     },
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: 18,
+        fontSize: fonts.BODY_ONE,
         color: colors.PLATINUM,
         paddingTop: '5%',
         paddingLeft: 30,

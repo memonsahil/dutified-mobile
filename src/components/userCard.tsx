@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 import { Avatar } from 'react-native-elements'
 import colors from '../enums/colors'
+import fonts from '../enums/fonts'
 import userCardProps from '../types/props/components/userCardProps'
 
 const UserCard = (props: userCardProps) => {
@@ -85,7 +86,7 @@ const styles = StyleSheet.create({
     },
     userName: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 24,
+        fontSize: fonts.HEADING_THREE,
         color: colors.JET,
         paddingTop: 15,
         paddingBottom: 20,
@@ -98,7 +99,7 @@ const styles = StyleSheet.create({
     },
     info: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 15,
+        fontSize: fonts.BODY_TWO,
         color: colors.JET,
         backgroundColor: colors.YELLOW_GREEN,
         marginLeft: 10,

@@ -7,6 +7,7 @@ import {
 } from 'react-native'
 import { Feather } from '@expo/vector-icons'
 import colors from '../enums/colors'
+import fonts from '../enums/fonts'
 import navProps from '../types/props/components/navProps'
 import workSetupCardProps from '../types/props/components/workSetupCardProps'
 
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
     },
     currentMonth: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 24,
+        fontSize: fonts.HEADING_THREE,
         color: colors.JET,
         paddingTop: 10,
         paddingLeft: 10,
@@ -101,7 +102,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 18,
+        fontSize: fonts.BODY_ONE,
         color: colors.JET,
         width: 200,
     },
@@ -111,7 +112,7 @@ const styles = StyleSheet.create({
     },
     detail: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 15,
+        fontSize: fonts.BODY_TWO,
         color: colors.JET,
         backgroundColor: colors.YELLOW_GREEN,
         padding: 5,
@@ -125,7 +126,7 @@ const styles = StyleSheet.create({
     },
     info: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: 16,
+        fontSize: fonts.BODY_TWO,
         color: colors.JET,
         padding: 20,
         textAlign: 'center',

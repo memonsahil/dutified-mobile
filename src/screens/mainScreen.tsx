@@ -1,6 +1,7 @@
 import { NavigationProp, useNavigation } from '@react-navigation/native'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import colors from '../enums/colors'
+import fonts from '../enums/fonts'
 import screens from '../types/params/screens'
 
 const MainScreen = () => {
@@ -41,12 +42,12 @@ const styles = StyleSheet.create({
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 25,
+        fontSize: fonts.BUTTON_ONE,
         color: colors.YELLOW_GREEN,
     },
     text: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: 14,
+        fontSize: fonts.BODY_THREE,
         color: colors.PLATINUM,
     },
 })
