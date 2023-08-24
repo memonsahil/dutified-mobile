@@ -1,6 +1,6 @@
 enum fonts {
-    HEADING_ONE = 36,
-    HEADING_TWO = 28,
+    HEADING_ONE = 34,
+    HEADING_TWO = 26,
     HEADING_THREE = 22,
     BODY_ONE = 18,
     BODY_TWO = 16,
