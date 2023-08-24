@@ -98,7 +98,7 @@ const DashboardTabNavigator = () => {
                         return (
                             <Foundation
                                 name="home"
-                                size={32}
+                                size={30}
                                 color={
                                     focused
                                         ? colors.YELLOW_GREEN
@@ -110,7 +110,7 @@ const DashboardTabNavigator = () => {
                         return (
                             <MaterialCommunityIcons
                                 name="android-messages"
-                                size={32}
+                                size={30}
                                 color={
                                     focused
                                         ? colors.YELLOW_GREEN
@@ -122,7 +122,7 @@ const DashboardTabNavigator = () => {
                         return (
                             <Ionicons
                                 name="briefcase"
-                                size={32}
+                                size={30}
                                 color={
                                     focused
                                         ? colors.YELLOW_GREEN
@@ -134,7 +134,7 @@ const DashboardTabNavigator = () => {
                         return (
                             <FontAwesome
                                 name="user"
-                                size={32}
+                                size={30}
                                 color={
                                     focused
                                         ? colors.YELLOW_GREEN
@@ -146,7 +146,7 @@ const DashboardTabNavigator = () => {
                         return (
                             <Ionicons
                                 name="settings"
-                                size={32}
+                                size={30}
                                 color={
                                     focused
                                         ? colors.YELLOW_GREEN
