@@ -5,7 +5,7 @@ import { SimpleLineIcons } from '@expo/vector-icons'
 import { Avatar } from 'react-native-elements'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
-import screens from '../../types/params/screens'
+import screens from '../../params/screens'
 import chatCardProps from '../types/chatCardProps'
 
 const ChatCard = (props: chatCardProps) => {
