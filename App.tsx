@@ -8,45 +8,40 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
-import MainScreen from './src/screens/mainScreen'
-import SignUpScreen from './src/screens/signUpScreen'
-import SignInScreen from './src/screens/signInScreen'
-import SupportScreen from './src/screens/supportScreen'
-import ResetScreen from './src/screens/resetScreen'
-import VerificationScreen from './src/screens/verificationScreen'
-import PasswordScreen from './src/screens/passwordScreen'
-import ContactScreen from './src/screens/contactScreen'
-import AboutScreen from './src/screens/aboutScreen'
-import TosScreen from './src/screens/tosScreen'
-import PpScreen from './src/screens/ppScreen'
-import HomeScreen from './src/screens/homeScreen'
-import WorkScreen from './src/screens/workScreen'
-import ProfileScreen from './src/screens/profileScreen'
-import SettingsScreen from './src/screens/SettingsScreen'
-import ChatsScreen from './src/screens/chatsScreen'
-import ChatScreen from './src/screens/chatScreen'
-import JobScreen from './src/screens/jobScreen'
-import ProjectScreen from './src/screens/projectScreen'
-import UserScreen from './src/screens/userScreen'
-import WorkSetupScreen from './src/screens/workSetupScreen'
-import SearchScreen from './src/screens/searchScreen'
-import FeedbackScreen from './src/screens/feedbackScreen'
-import AddProjectScreen from './src/screens/addProjectScreen'
-import AddJobScreen from './src/screens/addJobScreen'
-import EditProfilePictureScreen from './src/screens/EditProfilePictureScreen'
-import EditPhoneNumberScreen from './src/screens/EditPhoneNumberScreen'
-import EditEmailAddressScreen from './src/screens/EditEmailAddressScreen'
-import EditPasswordScreen from './src/screens/EditPasswordScreen'
-import authNavigatorParamList from './src/types/params/authNavigatorParamList'
-import dashboardNavigatorParamList from './src/types/params/dashboardNavigatorParamList'
-import mainNavigatorParamList from './src/types/params/mainNavigatorParamList'
-import AuthUser from './src/data/authUser'
-import useAuthUserStore from './src/stores/useAuthUserStore'
+import MainScreen from './src/screens/ui/mainScreen'
+import SignUpScreen from './src/screens/ui/signUpScreen'
+import SignInScreen from './src/screens/ui/signInScreen'
+import SupportScreen from './src/screens/ui/supportScreen'
+import ResetScreen from './src/screens/ui/resetScreen'
+import VerificationScreen from './src/screens/ui/verificationScreen'
+import PasswordScreen from './src/screens/ui/passwordScreen'
+import ContactScreen from './src/screens/ui/contactScreen'
+import AboutScreen from './src/screens/ui/aboutScreen'
+import TosScreen from './src/screens/ui/tosScreen'
+import PpScreen from './src/screens/ui/ppScreen'
+import HomeScreen from './src/screens/ui/homeScreen'
+import ProfileScreen from './src/screens/ui/profileScreen'
+import SettingsScreen from './src/screens/ui/SettingsScreen'
+import ChatsScreen from './src/screens/ui/chatsScreen'
+import ChatScreen from './src/screens/ui/chatScreen'
+import JobScreen from './src/screens/ui/jobScreen'
+import UserScreen from './src/screens/ui/userScreen'
+import SearchScreen from './src/screens/ui/searchScreen'
+import FeedbackScreen from './src/screens/ui/feedbackScreen'
+import AddJobScreen from './src/screens/ui/addJobScreen'
+import EditProfilePictureScreen from './src/screens/ui/EditProfilePictureScreen'
+import EditPhoneNumberScreen from './src/screens/ui/EditPhoneNumberScreen'
+import EditEmailAddressScreen from './src/screens/ui/EditEmailAddressScreen'
+import EditPasswordScreen from './src/screens/ui/EditPasswordScreen'
+import authNavigatorParamList from './src/params/authNavigatorParamList'
+import dashboardNavigatorParamList from './src/params/dashboardNavigatorParamList'
+import mainNavigatorParamList from './src/params/mainNavigatorParamList'
+import authUserStore from './src/state/stores/authUserStore'
 import { Foundation } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import { FontAwesome } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import colors from './src/enums/colors'
+import themeColors from './src/enums/themeColors'
 
 SplashScreen.preventAutoHideAsync()
 
@@ -90,8 +85,8 @@ const DashboardTabNavigator = () => {
                 tabBarStyle: {
                     height: Platform.OS === 'ios' ? '12%' : '10%',
                     paddingTop: Platform.OS === 'ios' ? '2%' : '0%',
-                    backgroundColor: colors.RAISIN_BLACK,
-                    borderTopColor: colors.RAISIN_BLACK,
+                    backgroundColor: themeColors.RAISIN_BLACK,
+                    borderTopColor: themeColors.RAISIN_BLACK,
                 },
                 tabBarIcon: ({ focused }) => {
                     if (route.name === 'Home') {
@@ -101,8 +96,8 @@ const DashboardTabNavigator = () => {
                                 size={30}
                                 color={
                                     focused
-                                        ? colors.YELLOW_GREEN
-                                        : colors.SILVER
+                                        ? themeColors.YELLOW_GREEN
+                                        : themeColors.SILVER
                                 }
                             />
                         )
@@ -113,20 +108,8 @@ const DashboardTabNavigator = () => {
                                 size={30}
                                 color={
                                     focused
-                                        ? colors.YELLOW_GREEN
-                                        : colors.SILVER
-                                }
-                            />
-                        )
-                    } else if (route.name === 'Work') {
-                        return (
-                            <Ionicons
-                                name="briefcase"
-                                size={30}
-                                color={
-                                    focused
-                                        ? colors.YELLOW_GREEN
-                                        : colors.SILVER
+                                        ? themeColors.YELLOW_GREEN
+                                        : themeColors.SILVER
                                 }
                             />
                         )
@@ -137,8 +120,8 @@ const DashboardTabNavigator = () => {
                                 size={30}
                                 color={
                                     focused
-                                        ? colors.YELLOW_GREEN
-                                        : colors.SILVER
+                                        ? themeColors.YELLOW_GREEN
+                                        : themeColors.SILVER
                                 }
                             />
                         )
@@ -149,8 +132,8 @@ const DashboardTabNavigator = () => {
                                 size={30}
                                 color={
                                     focused
-                                        ? colors.YELLOW_GREEN
-                                        : colors.SILVER
+                                        ? themeColors.YELLOW_GREEN
+                                        : themeColors.SILVER
                                 }
                             />
                         )
@@ -160,7 +143,6 @@ const DashboardTabNavigator = () => {
         >
             <DashboardTab.Screen name="Home" component={HomeScreen} />
             <DashboardTab.Screen name="Chats" component={ChatsScreen} />
-            <DashboardTab.Screen name="Work" component={WorkScreen} />
             <DashboardTab.Screen name="Profile" component={ProfileScreen} />
             <DashboardTab.Screen name="Settings" component={SettingsScreen} />
         </DashboardTab.Navigator>
@@ -181,14 +163,11 @@ const MainStackNavigator = () => {
                 name="Dashboard"
                 component={DashboardTabNavigator}
             />
-            <MainStack.Screen name="Project" component={ProjectScreen} />
             <MainStack.Screen name="Job" component={JobScreen} />
             <MainStack.Screen name="User" component={UserScreen} />
             <MainStack.Screen name="Feedback" component={FeedbackScreen} />
             <MainStack.Screen name="Chat" component={ChatScreen} />
-            <MainStack.Screen name="WorkSetup" component={WorkSetupScreen} />
             <MainStack.Screen name="Search" component={SearchScreen} />
-            <MainStack.Screen name="AddProject" component={AddProjectScreen} />
             <MainStack.Screen name="AddJob" component={AddJobScreen} />
             <MainStack.Screen
                 name="EditProfilePicture"
@@ -218,8 +197,6 @@ const MainStackNavigator = () => {
 const App = () => {
     const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null)
 
-    const { updateAuthUser } = useAuthUserStore((state) => state)
-
     const [fontsLoaded] = useFonts({
         'IBMPlexSansCondensed-SemiBold': require('./assets/fonts/IBMPlexSansCondensed-SemiBold.ttf'),
         'IBMPlexSansCondensed-Medium': require('./assets/fonts/IBMPlexSansCondensed-Medium.ttf'),
@@ -245,9 +222,6 @@ const App = () => {
 
     useEffect(() => {
         if (user) {
-            AuthUser.getAuthUser().then((result) => {
-                updateAuthUser(result.data)
-            })
         }
     }, [user])
 

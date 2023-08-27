@@ -35,14 +35,14 @@ const UserCard = (props: userCardProps) => {
 
             <View style={styles.infoSection}>
                 <Text style={styles.info}>
-                    {props.totalProjects === '0'
-                        ? 'No Projects'
-                        : `${props.totalProjects} Projects`}
+                    {props.jobsCreated === '0'
+                        ? 'No Jobs'
+                        : `${props.jobsCreated} Jobs`}
                 </Text>
                 <Text style={styles.info}>
-                    {props.totalJobs === '0'
+                    {props.jobsWorked === '0'
                         ? 'No Jobs'
-                        : `${props.totalJobs} Jobs`}
+                        : `${props.jobsWorked} Jobs`}
                 </Text>
             </View>
             <View style={styles.stars}>

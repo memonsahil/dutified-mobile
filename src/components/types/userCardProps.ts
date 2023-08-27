@@ -2,8 +2,8 @@ type userCardProps = {
     first: string
     last: string
     image: string
-    totalProjects: string
-    totalJobs: string
+    jobsCreated: string
+    jobsWorked: string
 }
 
 export default userCardProps
