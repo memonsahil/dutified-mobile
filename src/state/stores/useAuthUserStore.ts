@@ -1,5 +1,6 @@
 import { create } from 'zustand'
-import authUserType from '../data/types/authUserType'
+import authUserType from '../../data/types/authUserType'
+import authUserStoreType from '../types/authUserStoreType'
 
 const initialState: authUserType = {
     account: {
@@ -24,7 +25,7 @@ const initialState: authUserType = {
     payments: [],
 }
 
-const useAuthUserStore = create()((set) => ({
+const authUserStore = create<authUserStoreType>()((set) => ({
     ...initialState,
     updateAuthUser: async (authUser: authUserType) => {
         set((state: authUserType) => ({
@@ -58,4 +59,4 @@ const useAuthUserStore = create()((set) => ({
     },
 }))
 
-export default useAuthUserStore
+export default authUserStore
