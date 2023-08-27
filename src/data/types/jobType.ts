@@ -1,4 +1,5 @@
 import categories from '../../enums/categories'
+import jobStatus from '../../enums/jobStatus'
 
 type jobType = {
     jobId: string
@@ -11,7 +12,7 @@ type jobType = {
     description: string
     dueDate: string
     payment: string
-    status: string
+    status: jobStatus
 }
 
 export default jobType
