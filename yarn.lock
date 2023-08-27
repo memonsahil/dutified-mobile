@@ -1853,6 +1853,11 @@
   dependencies:
     plist "^3.0.5"
 
+"@react-native-firebase/database@^18.3.1":
+  version "18.3.1"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/database/-/database-18.3.1.tgz#3a64a6032467cee2a1390ce83926475ccabbd376"
+  integrity sha512-VGk8633RVX/QknhDYUXgjPiQppE7Ytn876RINjKN6hga51Nz6IW0PYTifT2cgMPoHRdrxWr06cfV9HCSue1o2A==
+
 "@react-native-firebase/firestore@^18.1.0":
   version "18.3.0"
   resolved "https://registry.yarnpkg.com/@react-native-firebase/firestore/-/firestore-18.3.0.tgz#b13e053d6029c0a079714d06c9565fdf3d6d83c9"
@@ -3409,7 +3414,7 @@ expo-asset@~8.9.1:
   integrity sha512-aHMaZkIG5/UoguINEHm2ln/KviU2m/yuryslnhCKR3KXRxiLnMhxmrONLGbknuNE0O1iCaprrl1w3y71u01Rpw==
   dependencies:
     blueimp-md5 "^2.10.0"
-    expo-constants "~14.2.1"
+    expo-constants "~14.3.0"
     expo-file-system "~15.3.0"
     invariant "^2.2.4"
     md5-file "^3.2.3"
