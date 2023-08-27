@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import colors from '../enums/colors'
-import fonts from '../enums/fonts'
+import themeColors from '../enums/themeColors'
+import fontSizes from '../enums/fontSizes'
 import navProps from '../types/props/components/navProps'
 import jobCardProps from '../types/props/components/jobCardProps'
 
@@ -41,7 +41,7 @@ const JobCard = (props: jobCardProps & navProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.PLATINUM,
+        backgroundColor: themeColors.PLATINUM,
         borderRadius: 15,
         width: '90%',
         overflow: 'hidden',
@@ -58,8 +58,8 @@ const styles = StyleSheet.create({
     },
     jobName: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: fonts.BODY_ONE,
-        color: colors.JET,
+        fontSize: fontSizes.BODY_ONE,
+        color: themeColors.JET,
         width: '60%',
     },
     detailSection: {
@@ -68,9 +68,9 @@ const styles = StyleSheet.create({
     },
     jobDetail: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: fonts.BODY_TWO,
-        color: colors.JET,
-        backgroundColor: colors.YELLOW_GREEN,
+        fontSize: fontSizes.BODY_TWO,
+        color: themeColors.JET,
+        backgroundColor: themeColors.YELLOW_GREEN,
         marginLeft: 10,
         padding: 5,
     },
@@ -78,14 +78,14 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10,
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: fonts.BODY_TWO,
-        color: colors.JET,
+        fontSize: fontSizes.BODY_TWO,
+        color: themeColors.JET,
         height: 50,
     },
     jobDeadline: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: fonts.BODY_ONE,
-        color: colors.JET,
+        fontSize: fontSizes.BODY_ONE,
+        color: themeColors.JET,
         paddingLeft: 10,
         paddingTop: 5,
         paddingBottom: 10,

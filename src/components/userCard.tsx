@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 import { Avatar } from 'react-native-elements'
-import colors from '../enums/colors'
-import fonts from '../enums/fonts'
+import themeColors from '../enums/themeColors'
+import fontSizes from '../enums/fontSizes'
 import userCardProps from '../types/props/components/userCardProps'
 
 const UserCard = (props: userCardProps) => {
@@ -49,24 +49,24 @@ const UserCard = (props: userCardProps) => {
                 <FontAwesome
                     name="star"
                     size={28}
-                    color={colors.YELLOW_GREEN}
+                    color={themeColors.YELLOW_GREEN}
                 />
                 <FontAwesome
                     name="star"
                     size={28}
-                    color={colors.YELLOW_GREEN}
+                    color={themeColors.YELLOW_GREEN}
                 />
                 <FontAwesome
                     name="star"
                     size={28}
-                    color={colors.YELLOW_GREEN}
+                    color={themeColors.YELLOW_GREEN}
                 />
                 <FontAwesome
                     name="star"
                     size={28}
-                    color={colors.YELLOW_GREEN}
+                    color={themeColors.YELLOW_GREEN}
                 />
-                <FontAwesome name="star" size={28} color={colors.SILVER} />
+                <FontAwesome name="star" size={28} color={themeColors.SILVER} />
             </View>
         </View>
     )
@@ -74,20 +74,20 @@ const UserCard = (props: userCardProps) => {
 
 const styles = StyleSheet.create({
     profileSection: {
-        backgroundColor: colors.PLATINUM,
+        backgroundColor: themeColors.PLATINUM,
         width: '90%',
         alignItems: 'center',
         marginTop: 20,
         borderRadius: 15,
     },
     avatarContainer: {
-        backgroundColor: colors.YELLOW_GREEN,
+        backgroundColor: themeColors.YELLOW_GREEN,
         marginTop: 20,
     },
     userName: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: fonts.HEADING_THREE,
-        color: colors.JET,
+        fontSize: fontSizes.HEADING_THREE,
+        color: themeColors.JET,
         paddingTop: 15,
         paddingBottom: 20,
         width: 300,
@@ -99,9 +99,9 @@ const styles = StyleSheet.create({
     },
     info: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: fonts.BODY_TWO,
-        color: colors.JET,
-        backgroundColor: colors.YELLOW_GREEN,
+        fontSize: fontSizes.BODY_TWO,
+        color: themeColors.JET,
+        backgroundColor: themeColors.YELLOW_GREEN,
         marginLeft: 10,
         padding: 5,
     },

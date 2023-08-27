@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
-import colors from '../enums/colors'
-import fonts from '../enums/fonts'
+import themeColors from '../enums/themeColors'
+import fontSizes from '../enums/fontSizes'
 import navProps from '../types/props/components/navProps'
 import feedbackCardProps from '../types/props/components/feedbackCardProps'
 import ratings from '../enums/ratings'
@@ -15,27 +15,27 @@ const FeedbackCard = (props: feedbackCardProps & navProps) => {
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.YELLOW_GREEN}
+                            color={themeColors.YELLOW_GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.YELLOW_GREEN}
+                            color={themeColors.YELLOW_GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.YELLOW_GREEN}
+                            color={themeColors.YELLOW_GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.YELLOW_GREEN}
+                            color={themeColors.YELLOW_GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.YELLOW_GREEN}
+                            color={themeColors.YELLOW_GREEN}
                         />
                     </>
                 )
@@ -45,27 +45,27 @@ const FeedbackCard = (props: feedbackCardProps & navProps) => {
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.YELLOW_GREEN}
+                            color={themeColors.YELLOW_GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.YELLOW_GREEN}
+                            color={themeColors.YELLOW_GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.YELLOW_GREEN}
+                            color={themeColors.YELLOW_GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.YELLOW_GREEN}
+                            color={themeColors.YELLOW_GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.SILVER}
+                            color={themeColors.SILVER}
                         />
                     </>
                 )
@@ -75,27 +75,27 @@ const FeedbackCard = (props: feedbackCardProps & navProps) => {
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.YELLOW_GREEN}
+                            color={themeColors.YELLOW_GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.YELLOW_GREEN}
+                            color={themeColors.YELLOW_GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.YELLOW_GREEN}
+                            color={themeColors.YELLOW_GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.SILVER}
+                            color={themeColors.SILVER}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.SILVER}
+                            color={themeColors.SILVER}
                         />
                     </>
                 )
@@ -105,27 +105,27 @@ const FeedbackCard = (props: feedbackCardProps & navProps) => {
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.YELLOW_GREEN}
+                            color={themeColors.YELLOW_GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.YELLOW_GREEN}
+                            color={themeColors.YELLOW_GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.SILVER}
+                            color={themeColors.SILVER}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.SILVER}
+                            color={themeColors.SILVER}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.SILVER}
+                            color={themeColors.SILVER}
                         />
                     </>
                 )
@@ -135,27 +135,27 @@ const FeedbackCard = (props: feedbackCardProps & navProps) => {
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.YELLOW_GREEN}
+                            color={themeColors.YELLOW_GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.SILVER}
+                            color={themeColors.SILVER}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.SILVER}
+                            color={themeColors.SILVER}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.SILVER}
+                            color={themeColors.SILVER}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={colors.SILVER}
+                            color={themeColors.SILVER}
                         />
                     </>
                 )
@@ -190,7 +190,7 @@ const FeedbackCard = (props: feedbackCardProps & navProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.PLATINUM,
+        backgroundColor: themeColors.PLATINUM,
         borderRadius: 15,
         width: '90%',
         overflow: 'hidden',
@@ -198,8 +198,8 @@ const styles = StyleSheet.create({
     },
     userNameButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: fonts.HEADING_THREE,
-        color: colors.YELLOW_GREEN,
+        fontSize: fontSizes.HEADING_THREE,
+        color: themeColors.YELLOW_GREEN,
         width: '100%',
         paddingTop: 10,
         paddingBottom: 15,
@@ -211,8 +211,8 @@ const styles = StyleSheet.create({
         paddingRight: 10,
         paddingBottom: 15,
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: fonts.BODY_TWO,
-        color: colors.JET,
+        fontSize: fontSizes.BODY_TWO,
+        color: themeColors.JET,
     },
     stars: {
         flexDirection: 'row',
