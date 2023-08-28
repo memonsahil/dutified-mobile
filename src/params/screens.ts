@@ -1,7 +1,7 @@
 /**
  * @description
  * When a new screen component is added to App.tsx, it must be added to the
- * below screens type and its relevant NavigatorParamList in src/types/params/.
+ * below screens type and its relevant NavigatorParamList.
  */
 
 type screens = {
@@ -13,12 +13,8 @@ type screens = {
     Password: undefined
     Home: undefined
     Chats: undefined
-    Work: undefined
     Profile: undefined
     Settings: undefined
-    Project: {
-        projectId: string
-    }
     Job: {
         jobId: string
     }
@@ -29,9 +25,7 @@ type screens = {
     Chat: {
         receiverUserId: string
     }
-    WorkSetup: undefined
     Search: undefined
-    AddProject: undefined
     AddJob: {
         projectId: string
         projectName: string

@@ -1,8 +1,5 @@
 type mainNavigatorParamList = {
     Dashboard: undefined
-    Project: {
-        projectId: string
-    }
     Job: {
         jobId: string
     }
@@ -13,9 +10,7 @@ type mainNavigatorParamList = {
     Chat: {
         receiverUserId: string
     }
-    WorkSetup: undefined
     Search: undefined
-    AddProject: undefined
     AddJob: {
         projectId: string
         projectName: string
