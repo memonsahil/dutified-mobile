@@ -68,7 +68,7 @@ const EditProfilePictureScreen = () => {
                         source={
                             image
                                 ? { uri: image }
-                                : require('../../assets/images/user-avatar.png')
+                                : require('../../../assets/images/user-avatar.png')
                         }
                         containerStyle={styles.avatarContainer}
                     />

@@ -96,7 +96,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                 source={
                                     imageSrc
                                         ? { uri: imageSrc }
-                                        : require('../../assets/images/user-avatar.png')
+                                        : require('../../../assets/images/user-avatar.png')
                                 }
                                 containerStyle={styles.avatarContainer}
                             />
