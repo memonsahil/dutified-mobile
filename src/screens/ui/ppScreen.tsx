@@ -22,7 +22,7 @@ const PpScreen = () => {
                         <AntDesign
                             name="caretleft"
                             size={30}
-                            color={themeColors.AVACADO}
+                            color={themeColors.YELLOW_GREEN}
                         />
                     </TouchableOpacity>
                     <Text style={styles.heading}>Privacy Policy</Text>

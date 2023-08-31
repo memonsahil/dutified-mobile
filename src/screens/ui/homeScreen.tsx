@@ -29,7 +29,7 @@ const HomeScreen = () => {
                         <MaterialCommunityIcons
                             name="android-messages"
                             size={35}
-                            color={themeColors.AVACADO}
+                            color={themeColors.YELLOW_GREEN}
                         />
                     </TouchableOpacity>
                 </View>

@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
         paddingRight: 10,
     },
     avatarContainer: {
-        backgroundColor: themeColors.AVACADO,
+        backgroundColor: themeColors.YELLOW_GREEN,
         alignSelf: 'center',
     },
     chatInfoSection: {
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     options: {
-        backgroundColor: themeColors.AVACADO,
+        backgroundColor: themeColors.YELLOW_GREEN,
         padding: 5,
     },
 })

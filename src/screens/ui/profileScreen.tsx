@@ -32,7 +32,7 @@ const ProfileScreen = () => {
                         <FontAwesome5
                             name="grin-stars"
                             size={30}
-                            color={themeColors.AVACADO}
+                            color={themeColors.YELLOW_GREEN}
                         />
                     </TouchableOpacity>
                 </View>
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.AVACADO,
+        color: themeColors.YELLOW_GREEN,
         paddingTop: '10%',
     },
     subHeading: {

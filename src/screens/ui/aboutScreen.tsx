@@ -22,7 +22,7 @@ const AboutScreen = () => {
                         <AntDesign
                             name="caretleft"
                             size={30}
-                            color={themeColors.AVACADO}
+                            color={themeColors.YELLOW_GREEN}
                         />
                     </TouchableOpacity>
                     <Text style={styles.heading}>About</Text>
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
         paddingTop: '10%',
-        color: themeColors.AVACADO,
+        color: themeColors.YELLOW_GREEN,
     },
     version: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',

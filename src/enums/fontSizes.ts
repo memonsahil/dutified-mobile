@@ -5,7 +5,7 @@ enum fontSizes {
     BODY_ONE = 18,
     BODY_TWO = 16,
     BODY_THREE = 14,
-    BUTTON = 22,
+    BUTTON = 24,
     INPUT = 20,
 }
 

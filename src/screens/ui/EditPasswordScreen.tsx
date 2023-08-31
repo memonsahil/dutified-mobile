@@ -42,7 +42,7 @@ const EditPasswordScreen = () => {
                                 <AntDesign
                                     name="caretleft"
                                     size={30}
-                                    color={themeColors.AVACADO}
+                                    color={themeColors.YELLOW_GREEN}
                                 />
                             </TouchableOpacity>
                             <Text style={styles.heading}>Password</Text>
@@ -104,7 +104,7 @@ const EditPasswordScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.AVACADO}
+                        color={themeColors.YELLOW_GREEN}
                     />
                 </View>
             )}
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     saveButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.AVACADO,
+        color: themeColors.YELLOW_GREEN,
     },
 })
 

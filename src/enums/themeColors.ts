@@ -1,7 +1,7 @@
 enum themeColors {
     BLACK = '#000000',
     WHITE = '#FFFFFF',
-    AVACADO = '#578F28',
+    YELLOW_GREEN = '#89CE50',
     PLATINUM = '#E3E3E3',
     SILVER = '#A9A9A9',
 }

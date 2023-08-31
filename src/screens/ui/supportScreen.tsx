@@ -15,7 +15,7 @@ const SupportScreen = () => {
                     <AntDesign
                         name="caretleft"
                         size={30}
-                        color={themeColors.AVACADO}
+                        color={themeColors.YELLOW_GREEN}
                     />
                 </TouchableOpacity>
                 <Text style={styles.heading}>Support</Text>
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.AVACADO,
+        color: themeColors.YELLOW_GREEN,
         paddingTop: '5%',
         paddingLeft: '10%',
     },

@@ -10,23 +10,16 @@ const MainScreen = () => {
     return (
         <View style={styles.container}>
             <View style={styles.mainSection}>
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => navigation.navigate('SignUp')}
-                >
-                    <Text style={styles.buttonText}>Sign Up</Text>
+                <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+                    <Text style={styles.button}>Sign Up</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+                    <Text style={styles.button}>Sign In</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => navigation.navigate('SignIn')}
-                >
-                    <Text style={styles.buttonText}>Sign In</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={styles.button}
                     onPress={() => navigation.navigate('Support')}
                 >
-                    <Text style={styles.buttonText}>Support</Text>
+                    <Text style={styles.button}>Support</Text>
                 </TouchableOpacity>
                 <Text style={styles.text}>1.0.0</Text>
             </View>
@@ -48,14 +41,9 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     button: {
-        backgroundColor: themeColors.AVACADO,
-        paddingHorizontal: '7%',
-        paddingVertical: '2%',
-    },
-    buttonText: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.WHITE,
+        color: themeColors.YELLOW_GREEN,
     },
     text: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
