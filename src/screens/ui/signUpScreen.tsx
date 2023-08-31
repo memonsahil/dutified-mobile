@@ -267,18 +267,16 @@ const styles = StyleSheet.create({
     headerSection: {
         flexDirection: 'row',
         paddingTop: '20%',
-        paddingLeft: 30,
-        paddingRight: 30,
-        height: 150,
-        width: 400,
+        paddingLeft: '10%',
+        paddingRight: '10%',
+        width: '100%',
         alignItems: 'center',
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.HEADING_TWO,
         color: themeColors.PLATINUM,
-        paddingLeft: 20,
-        paddingRight: 30,
+        paddingLeft: '5%',
     },
     signUpSection: {
         width: '80%',
