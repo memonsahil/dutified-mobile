@@ -69,7 +69,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                                 <AntDesign
                                     name="caretleft"
                                     size={30}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.AVACADO}
                                 />
                             </TouchableOpacity>
                             <Text style={styles.heading}>Profile</Text>
@@ -77,7 +77,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                         <FontAwesome5
                             name="grin-stars"
                             size={30}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.AVACADO}
                         />
                     </View>
                     {/*
@@ -120,7 +120,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.AVACADO}
                     />
                 </View>
             )}
@@ -131,7 +131,7 @@ const UserScreen = ({ route }: userScreenProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: themeColors.RAISIN_BLACK,
+        backgroundColor: themeColors.BLACK,
     },
     loadingContainer: {
         flex: 1,

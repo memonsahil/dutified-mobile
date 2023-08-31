@@ -82,7 +82,7 @@ const ChatCard = (props: chatCardProps) => {
                             style={styles.options}
                             name="options"
                             size={20}
-                            color={themeColors.JET}
+                            color={themeColors.WHITE}
                         />
                     </TouchableOpacity>
                 </View>
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
         paddingRight: 10,
     },
     avatarContainer: {
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.AVACADO,
         alignSelf: 'center',
     },
     chatInfoSection: {
@@ -121,14 +121,14 @@ const styles = StyleSheet.create({
     name: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.JET,
+        color: themeColors.WHITE,
     },
     optionsSection: {
         justifyContent: 'flex-start',
         alignSelf: 'center',
     },
     options: {
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.AVACADO,
         padding: 5,
     },
 })

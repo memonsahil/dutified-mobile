@@ -22,7 +22,7 @@ const TosScreen = () => {
                         <AntDesign
                             name="caretleft"
                             size={30}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.AVACADO}
                         />
                     </TouchableOpacity>
                     <Text style={styles.heading}>Terms of Service</Text>
@@ -67,7 +67,7 @@ const TosScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: themeColors.RAISIN_BLACK,
+        backgroundColor: themeColors.BLACK,
     },
     scrollView: {
         alignItems: 'center',

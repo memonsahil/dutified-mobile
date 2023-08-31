@@ -1,8 +1,8 @@
 enum themeColors {
-    RAISIN_BLACK = '#1A1A23',
-    YELLOW_GREEN = '#86CD4D',
+    BLACK = '#000000',
+    WHITE = '#FFFFFF',
+    AVACADO = '#578F28',
     PLATINUM = '#E3E3E3',
-    JET = '#333333',
     SILVER = '#A9A9A9',
 }
 

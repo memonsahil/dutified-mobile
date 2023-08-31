@@ -10,16 +10,23 @@ const MainScreen = () => {
     return (
         <View style={styles.container}>
             <View style={styles.mainSection}>
-                <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
-                    <Text style={styles.button}>Sign Up</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
-                    <Text style={styles.button}>Sign In</Text>
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => navigation.navigate('SignUp')}
+                >
+                    <Text style={styles.buttonText}>Sign Up</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => navigation.navigate('SignIn')}
+                >
+                    <Text style={styles.buttonText}>Sign In</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.button}
                     onPress={() => navigation.navigate('Support')}
                 >
-                    <Text style={styles.button}>Support</Text>
+                    <Text style={styles.buttonText}>Support</Text>
                 </TouchableOpacity>
                 <Text style={styles.text}>1.0.0</Text>
             </View>
@@ -30,7 +37,7 @@ const MainScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: themeColors.RAISIN_BLACK,
+        backgroundColor: themeColors.BLACK,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -41,14 +48,19 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     button: {
+        backgroundColor: themeColors.AVACADO,
+        paddingHorizontal: '7%',
+        paddingVertical: '2%',
+    },
+    buttonText: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.WHITE,
     },
     text: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BODY_THREE,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
     },
 })
 

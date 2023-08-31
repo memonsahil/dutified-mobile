@@ -81,7 +81,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                                 <AntDesign
                                     name="caretleft"
                                     size={30}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.AVACADO}
                                 />
                             </TouchableOpacity>
                             <Text style={styles.heading}>New Job</Text>
@@ -228,7 +228,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.AVACADO}
                     />
                 </View>
             )}
@@ -239,7 +239,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: themeColors.RAISIN_BLACK,
+        backgroundColor: themeColors.BLACK,
     },
     loadingContainer: {
         flex: 1,
@@ -307,7 +307,7 @@ const styles = StyleSheet.create({
     searchCategoriesHeading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.JET,
+        color: themeColors.WHITE,
         paddingTop: '5%',
         paddingLeft: 10,
     },
@@ -319,16 +319,16 @@ const styles = StyleSheet.create({
     category: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BODY_TWO,
-        color: themeColors.JET,
-        backgroundColor: themeColors.YELLOW_GREEN,
+        color: themeColors.WHITE,
+        backgroundColor: themeColors.AVACADO,
         padding: 5,
         marginRight: 10,
     },
     selectedCategory: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BODY_TWO,
-        color: themeColors.JET,
-        backgroundColor: themeColors.YELLOW_GREEN,
+        color: themeColors.WHITE,
+        backgroundColor: themeColors.AVACADO,
         padding: 5,
         marginLeft: 10,
         marginTop: '5%',
@@ -353,7 +353,7 @@ const styles = StyleSheet.create({
     descTextInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.JET,
+        color: themeColors.WHITE,
         width: '100%',
         height: '100%',
         overflow: 'visible',
@@ -366,7 +366,7 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.AVACADO,
     },
     textSection: {
         width: '70%',

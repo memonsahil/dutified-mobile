@@ -42,7 +42,7 @@ const ChatsScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: themeColors.RAISIN_BLACK,
+        backgroundColor: themeColors.BLACK,
     },
     scrollView: {
         alignItems: 'center',

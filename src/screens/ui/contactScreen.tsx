@@ -24,7 +24,7 @@ const ContactScreen = () => {
                         <AntDesign
                             name="caretleft"
                             size={30}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.AVACADO}
                         />
                     </TouchableOpacity>
                     <Text style={styles.heading}>Contact</Text>
@@ -61,7 +61,7 @@ const ContactScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: themeColors.RAISIN_BLACK,
+        backgroundColor: themeColors.BLACK,
     },
     scrollView: {
         flexGrow: 1,
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
         paddingTop: '10%',
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.AVACADO,
     },
 })
 

@@ -84,8 +84,8 @@ const DashboardTabNavigator = () => {
                 tabBarStyle: {
                     height: Platform.OS === 'ios' ? '12%' : '10%',
                     paddingTop: Platform.OS === 'ios' ? '2%' : '0%',
-                    backgroundColor: themeColors.RAISIN_BLACK,
-                    borderTopColor: themeColors.RAISIN_BLACK,
+                    backgroundColor: themeColors.BLACK,
+                    borderTopColor: themeColors.BLACK,
                 },
                 tabBarIcon: ({ focused }) => {
                     if (route.name === 'Home') {
@@ -95,7 +95,7 @@ const DashboardTabNavigator = () => {
                                 size={30}
                                 color={
                                     focused
-                                        ? themeColors.YELLOW_GREEN
+                                        ? themeColors.AVACADO
                                         : themeColors.SILVER
                                 }
                             />
@@ -107,7 +107,7 @@ const DashboardTabNavigator = () => {
                                 size={30}
                                 color={
                                     focused
-                                        ? themeColors.YELLOW_GREEN
+                                        ? themeColors.AVACADO
                                         : themeColors.SILVER
                                 }
                             />
@@ -119,7 +119,7 @@ const DashboardTabNavigator = () => {
                                 size={30}
                                 color={
                                     focused
-                                        ? themeColors.YELLOW_GREEN
+                                        ? themeColors.AVACADO
                                         : themeColors.SILVER
                                 }
                             />
@@ -131,7 +131,7 @@ const DashboardTabNavigator = () => {
                                 size={30}
                                 color={
                                     focused
-                                        ? themeColors.YELLOW_GREEN
+                                        ? themeColors.AVACADO
                                         : themeColors.SILVER
                                 }
                             />

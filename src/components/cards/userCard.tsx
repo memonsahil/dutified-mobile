@@ -49,22 +49,22 @@ const UserCard = (props: userCardProps) => {
                 <FontAwesome
                     name="star"
                     size={28}
-                    color={themeColors.YELLOW_GREEN}
+                    color={themeColors.AVACADO}
                 />
                 <FontAwesome
                     name="star"
                     size={28}
-                    color={themeColors.YELLOW_GREEN}
+                    color={themeColors.AVACADO}
                 />
                 <FontAwesome
                     name="star"
                     size={28}
-                    color={themeColors.YELLOW_GREEN}
+                    color={themeColors.AVACADO}
                 />
                 <FontAwesome
                     name="star"
                     size={28}
-                    color={themeColors.YELLOW_GREEN}
+                    color={themeColors.AVACADO}
                 />
                 <FontAwesome name="star" size={28} color={themeColors.SILVER} />
             </View>
@@ -81,13 +81,13 @@ const styles = StyleSheet.create({
         borderRadius: 15,
     },
     avatarContainer: {
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.AVACADO,
         marginTop: 20,
     },
     userName: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.HEADING_THREE,
-        color: themeColors.JET,
+        color: themeColors.WHITE,
         paddingTop: 15,
         paddingBottom: 20,
         width: 300,
@@ -100,8 +100,8 @@ const styles = StyleSheet.create({
     info: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BODY_TWO,
-        color: themeColors.JET,
-        backgroundColor: themeColors.YELLOW_GREEN,
+        color: themeColors.WHITE,
+        backgroundColor: themeColors.AVACADO,
         marginLeft: 10,
         padding: 5,
     },

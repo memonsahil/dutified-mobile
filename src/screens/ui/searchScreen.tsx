@@ -42,7 +42,7 @@ const SearchScreen = () => {
                         <AntDesign
                             name="caretleft"
                             size={30}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.AVACADO}
                         />
                     </TouchableOpacity>
                     <Text style={styles.heading}>Search</Text>
@@ -102,7 +102,7 @@ const SearchScreen = () => {
                                     height={25}
                                     borderRadius={20}
                                     indeterminate={true}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.AVACADO}
                                 />
                             </View>
                         )}
@@ -116,7 +116,7 @@ const SearchScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: themeColors.RAISIN_BLACK,
+        backgroundColor: themeColors.BLACK,
     },
     loadingContainer: {
         flex: 1,

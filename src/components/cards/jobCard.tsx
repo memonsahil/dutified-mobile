@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     jobName: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.JET,
+        color: themeColors.WHITE,
         width: '60%',
     },
     detailSection: {
@@ -69,8 +69,8 @@ const styles = StyleSheet.create({
     jobDetail: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BODY_TWO,
-        color: themeColors.JET,
-        backgroundColor: themeColors.YELLOW_GREEN,
+        color: themeColors.WHITE,
+        backgroundColor: themeColors.AVACADO,
         marginLeft: 10,
         padding: 5,
     },
@@ -79,13 +79,13 @@ const styles = StyleSheet.create({
         paddingRight: 10,
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.BODY_TWO,
-        color: themeColors.JET,
+        color: themeColors.WHITE,
         height: 50,
     },
     jobDeadline: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.JET,
+        color: themeColors.WHITE,
         paddingLeft: 10,
         paddingTop: 5,
         paddingBottom: 10,

@@ -46,7 +46,7 @@ const JobScreen = ({ route }: jobScreenProps) => {
                             <AntDesign
                                 name="caretleft"
                                 size={30}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.AVACADO}
                             />
                         </TouchableOpacity>
                         <Text
@@ -123,7 +123,7 @@ const JobScreen = ({ route }: jobScreenProps) => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.AVACADO}
                     />
                 </View>
             )}
@@ -134,7 +134,7 @@ const JobScreen = ({ route }: jobScreenProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: themeColors.RAISIN_BLACK,
+        backgroundColor: themeColors.BLACK,
     },
     loadingContainer: {
         flex: 1,
@@ -171,8 +171,8 @@ const styles = StyleSheet.create({
     info: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BODY_TWO,
-        color: themeColors.JET,
-        backgroundColor: themeColors.YELLOW_GREEN,
+        color: themeColors.WHITE,
+        backgroundColor: themeColors.AVACADO,
         marginRight: 10,
         padding: 5,
     },
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.AVACADO,
         paddingLeft: 30,
         paddingRight: 100,
         paddingBottom: 20,
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
     sectionButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.AVACADO,
     },
 })
 
