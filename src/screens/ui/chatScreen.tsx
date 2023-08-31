@@ -67,7 +67,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                             <AntDesign
                                 name="caretleft"
                                 size={30}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.AVACADO}
                             />
                         </TouchableOpacity>
                         <TouchableOpacity
@@ -132,11 +132,11 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                     wrapperStyle={{
                                         left: {
                                             backgroundColor:
-                                                themeColors.YELLOW_GREEN,
+                                                themeColors.AVACADO,
                                         },
                                         right: {
                                             backgroundColor:
-                                                themeColors.YELLOW_GREEN,
+                                                themeColors.AVACADO,
                                         },
                                     }}
                                     textStyle={{
@@ -208,7 +208,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                             <Ionicons
                                                 name="send"
                                                 size={20}
-                                                color={themeColors.YELLOW_GREEN}
+                                                color={themeColors.AVACADO}
                                             />
                                         </TouchableOpacity>
                                     </View>
@@ -216,7 +216,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                         <FontAwesome5
                                             name="file-signature"
                                             size={20}
-                                            color={themeColors.YELLOW_GREEN}
+                                            color={themeColors.AVACADO}
                                         />
                                     </TouchableOpacity>
                                 </View>
@@ -231,7 +231,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.AVACADO}
                     />
                 </View>
             )}
@@ -266,7 +266,7 @@ const styles = StyleSheet.create({
         color: themeColors.PLATINUM,
     },
     avatarContainer: {
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.AVACADO,
     },
     chatView: {
         backgroundColor: themeColors.PLATINUM,

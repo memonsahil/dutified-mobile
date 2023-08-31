@@ -22,7 +22,7 @@ const TosScreen = () => {
                         <AntDesign
                             name="caretleft"
                             size={30}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.AVACADO}
                         />
                     </TouchableOpacity>
                     <Text style={styles.heading}>Terms of Service</Text>

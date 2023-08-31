@@ -26,7 +26,7 @@ const FeedbackScreen = () => {
                         <AntDesign
                             name="caretleft"
                             size={30}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.AVACADO}
                         />
                     </TouchableOpacity>
                     <Text style={styles.heading}>Feedback</Text>

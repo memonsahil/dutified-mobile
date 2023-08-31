@@ -29,7 +29,7 @@ const PasswordScreen = () => {
                         <AntDesign
                             name="caretleft"
                             size={30}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.AVACADO}
                         />
                     </TouchableOpacity>
                     <Text style={styles.heading}>Password</Text>
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.AVACADO,
         alignSelf: 'center',
         paddingTop: '10%',
         paddingBottom: '20%',

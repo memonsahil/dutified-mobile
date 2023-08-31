@@ -47,7 +47,7 @@ const EditPhoneNumberScreen = () => {
                                 <AntDesign
                                     name="caretleft"
                                     size={30}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.AVACADO}
                                 />
                             </TouchableOpacity>
                             <Text style={styles.heading}>Phone Number</Text>
@@ -102,7 +102,7 @@ const EditPhoneNumberScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.AVACADO}
                     />
                 </View>
             )}
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
     saveButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.AVACADO,
     },
 })
 

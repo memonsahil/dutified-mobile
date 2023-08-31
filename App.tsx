@@ -95,7 +95,7 @@ const DashboardTabNavigator = () => {
                                 size={30}
                                 color={
                                     focused
-                                        ? themeColors.YELLOW_GREEN
+                                        ? themeColors.AVACADO
                                         : themeColors.SILVER
                                 }
                             />
@@ -107,7 +107,7 @@ const DashboardTabNavigator = () => {
                                 size={30}
                                 color={
                                     focused
-                                        ? themeColors.YELLOW_GREEN
+                                        ? themeColors.AVACADO
                                         : themeColors.SILVER
                                 }
                             />
@@ -119,7 +119,7 @@ const DashboardTabNavigator = () => {
                                 size={30}
                                 color={
                                     focused
-                                        ? themeColors.YELLOW_GREEN
+                                        ? themeColors.AVACADO
                                         : themeColors.SILVER
                                 }
                             />
@@ -131,7 +131,7 @@ const DashboardTabNavigator = () => {
                                 size={30}
                                 color={
                                     focused
-                                        ? themeColors.YELLOW_GREEN
+                                        ? themeColors.AVACADO
                                         : themeColors.SILVER
                                 }
                             />

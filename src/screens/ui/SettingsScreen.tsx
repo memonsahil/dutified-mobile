@@ -72,7 +72,7 @@ const SettingsScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.AVACADO}
                     />
                 </View>
             )}
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.AVACADO,
         paddingTop: '5%',
         paddingLeft: '10%',
     },

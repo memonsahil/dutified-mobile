@@ -39,7 +39,7 @@ const SignInScreen = () => {
                             <AntDesign
                                 name="caretleft"
                                 size={30}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.AVACADO}
                             />
                         </TouchableOpacity>
                         <Text style={styles.heading}>Sign In</Text>
@@ -174,7 +174,7 @@ const SignInScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.AVACADO}
                     />
                 </View>
             )}
@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.AVACADO,
         alignSelf: 'center',
         paddingTop: '10%',
     },

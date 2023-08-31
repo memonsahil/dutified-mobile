@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.WHITE,
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.AVACADO,
         marginLeft: 10,
         padding: 5,
     },
