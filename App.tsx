@@ -36,7 +36,6 @@ import EditPasswordScreen from './src/screens/ui/EditPasswordScreen'
 import authNavigatorParamList from './src/params/authNavigatorParamList'
 import dashboardNavigatorParamList from './src/params/dashboardNavigatorParamList'
 import mainNavigatorParamList from './src/params/mainNavigatorParamList'
-import authUserStore from './src/state/stores/authUserStore'
 import { Foundation } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import { FontAwesome } from '@expo/vector-icons'
@@ -219,11 +218,6 @@ const App = () => {
 
         return () => subscriber()
     }, [])
-
-    useEffect(() => {
-        if (user) {
-        }
-    }, [user])
 
     if (!fontsLoaded) {
         return null
