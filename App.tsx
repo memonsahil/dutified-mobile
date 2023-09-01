@@ -95,7 +95,7 @@ const DashboardTabNavigator = () => {
                                 size={30}
                                 color={
                                     focused
-                                        ? themeColors.AVACADO
+                                        ? themeColors.YELLOW_GREEN
                                         : themeColors.SILVER
                                 }
                             />
@@ -107,7 +107,7 @@ const DashboardTabNavigator = () => {
                                 size={30}
                                 color={
                                     focused
-                                        ? themeColors.AVACADO
+                                        ? themeColors.YELLOW_GREEN
                                         : themeColors.SILVER
                                 }
                             />
@@ -119,7 +119,7 @@ const DashboardTabNavigator = () => {
                                 size={30}
                                 color={
                                     focused
-                                        ? themeColors.AVACADO
+                                        ? themeColors.YELLOW_GREEN
                                         : themeColors.SILVER
                                 }
                             />
@@ -131,7 +131,7 @@ const DashboardTabNavigator = () => {
                                 size={30}
                                 color={
                                     focused
-                                        ? themeColors.AVACADO
+                                        ? themeColors.YELLOW_GREEN
                                         : themeColors.SILVER
                                 }
                             />
@@ -225,7 +225,7 @@ const App = () => {
         return (
             <NavigationContainer>
                 <StatusBar style="inverted" />
-                {true ? <AuthStackNavigator /> : <MainStackNavigator />}
+                {false ? <AuthStackNavigator /> : <MainStackNavigator />}
             </NavigationContainer>
         )
     }
