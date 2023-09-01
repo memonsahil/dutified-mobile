@@ -29,7 +29,7 @@ const VerificationScreen = () => {
                         <AntDesign
                             name="caretleft"
                             size={30}
-                            color={themeColors.AVACADO}
+                            color={themeColors.YELLOW_GREEN}
                         />
                     </TouchableOpacity>
                     <Text style={styles.heading}>Verification</Text>
@@ -74,29 +74,26 @@ const styles = StyleSheet.create({
     headerSection: {
         flexDirection: 'row',
         paddingTop: '20%',
-        paddingLeft: 30,
-        paddingRight: 30,
-        height: 150,
-        width: 400,
+        paddingLeft: '10%',
+        paddingRight: '10%',
+        width: '100%',
         alignItems: 'center',
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: fontSizes.HEADING_TWO,
+        fontSize: fontSizes.HEADING_ONE,
         color: themeColors.PLATINUM,
-        paddingLeft: 20,
-        paddingRight: 30,
+        paddingLeft: '5%',
     },
     text: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.PLATINUM,
-        paddingTop: '5%',
+        paddingTop: '10%',
         width: '80%',
     },
     verificationSection: {
         width: '80%',
-        justifyContent: 'space-around',
     },
     field: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
@@ -111,13 +108,13 @@ const styles = StyleSheet.create({
         width: '100%',
         paddingTop: '5%',
         borderBottomColor: themeColors.PLATINUM,
-        borderBottomWidth: 2,
+        borderBottomWidth: 3,
         alignSelf: 'center',
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.AVACADO,
+        color: themeColors.YELLOW_GREEN,
         alignSelf: 'center',
         paddingTop: '10%',
         paddingBottom: '20%',

@@ -24,14 +24,14 @@ const ContactScreen = () => {
                         <AntDesign
                             name="caretleft"
                             size={30}
-                            color={themeColors.AVACADO}
+                            color={themeColors.YELLOW_GREEN}
                         />
                     </TouchableOpacity>
                     <Text style={styles.heading}>Contact</Text>
                 </View>
                 <Text style={styles.text}>
-                    Contact us for any of your queries or just send us some
-                    feedback and will get back to you within a day.
+                    Contact us if you have any queries or just send us some
+                    feedback and we will get back to you ASAP.
                 </Text>
                 <TouchableOpacity
                     onPress={() =>
@@ -71,31 +71,29 @@ const styles = StyleSheet.create({
     headerSection: {
         flexDirection: 'row',
         paddingTop: '20%',
-        paddingLeft: 30,
-        paddingRight: 30,
-        height: 150,
-        width: 400,
+        paddingLeft: '10%',
+        paddingRight: '10%',
+        width: '100%',
         alignItems: 'center',
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: fontSizes.HEADING_TWO,
+        fontSize: fontSizes.HEADING_ONE,
         color: themeColors.PLATINUM,
-        paddingLeft: 20,
-        paddingRight: 30,
+        paddingLeft: '5%',
     },
     text: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.PLATINUM,
-        paddingTop: '5%',
+        paddingTop: '10%',
         width: '80%',
     },
     email: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
         paddingTop: '10%',
-        color: themeColors.AVACADO,
+        color: themeColors.YELLOW_GREEN,
     },
 })
 

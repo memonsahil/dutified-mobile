@@ -9,7 +9,6 @@ import {
 } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import authUserStore from '../../state/stores/authUserStore'
 import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
@@ -27,8 +26,6 @@ const SignUpScreen = () => {
     const [password, setPassword] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
-    const { updateAuthUser } = authUserStore((state) => state)
-
     const navigation: NavigationProp<screens> = useNavigation()
 
     return (
@@ -43,7 +40,7 @@ const SignUpScreen = () => {
                             <AntDesign
                                 name="caretleft"
                                 size={30}
-                                color={themeColors.AVACADO}
+                                color={themeColors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>
                         <Text style={styles.heading}>Sign Up</Text>
@@ -136,7 +133,9 @@ const SignUpScreen = () => {
                                         emailAddress: email,
                                         accPassword: password,
                                     })
-                                    .then(() => {})
+                                    .then(() => {
+                                        setLoading(false)
+                                    })
                                     .catch((error) => {
                                         setLoading(false)
 
@@ -241,7 +240,7 @@ const SignUpScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.AVACADO}
+                        color={themeColors.YELLOW_GREEN}
                     />
                 </View>
             )}
@@ -274,13 +273,12 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: fontSizes.HEADING_TWO,
+        fontSize: fontSizes.HEADING_ONE,
         color: themeColors.PLATINUM,
         paddingLeft: '5%',
     },
     signUpSection: {
         width: '80%',
-        justifyContent: 'space-between',
     },
     field: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
@@ -295,7 +293,7 @@ const styles = StyleSheet.create({
         width: '100%',
         paddingTop: '5%',
         borderBottomColor: themeColors.PLATINUM,
-        borderBottomWidth: 2,
+        borderBottomWidth: 3,
         alignSelf: 'center',
     },
     phoneInputWrapper: {
@@ -318,7 +316,7 @@ const styles = StyleSheet.create({
         marginRight: '5%',
         paddingTop: '5%',
         borderBottomColor: themeColors.PLATINUM,
-        borderBottomWidth: 2,
+        borderBottomWidth: 3,
         textAlignVertical: 'center',
     },
     phoneInput: {
@@ -328,13 +326,13 @@ const styles = StyleSheet.create({
         width: '70%',
         paddingTop: '5%',
         borderBottomColor: themeColors.PLATINUM,
-        borderBottomWidth: 2,
+        borderBottomWidth: 3,
         textAlignVertical: 'center',
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.AVACADO,
+        color: themeColors.YELLOW_GREEN,
         alignSelf: 'center',
         paddingTop: '10%',
     },
@@ -349,7 +347,7 @@ const styles = StyleSheet.create({
         textAlignVertical: 'center',
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BODY_THREE,
-        paddingTop: '5%',
+        paddingTop: '10%',
         color: themeColors.PLATINUM,
         textDecorationLine: 'underline',
     },
