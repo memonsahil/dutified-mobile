@@ -3,7 +3,7 @@ type userCardProps = {
     last: string
     image: string
     jobsCreated: string
-    jobsWorked: string
+    jobsHired: string
 }
 
 export default userCardProps

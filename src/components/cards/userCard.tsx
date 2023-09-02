@@ -32,41 +32,36 @@ const UserCard = (props: userCardProps) => {
             >
                 {`${props.first} ${props.last}`}
             </Text>
-
-            <View style={styles.infoSection}>
-                <Text style={styles.info}>
-                    {props.jobsCreated === '0'
-                        ? 'No Jobs'
-                        : `${props.jobsCreated} Jobs`}
-                </Text>
-                <Text style={styles.info}>
-                    {props.jobsWorked === '0'
-                        ? 'No Jobs'
-                        : `${props.jobsWorked} Jobs`}
-                </Text>
-            </View>
             <View style={styles.stars}>
                 <FontAwesome
                     name="star"
-                    size={28}
+                    size={30}
                     color={themeColors.YELLOW_GREEN}
                 />
                 <FontAwesome
                     name="star"
-                    size={28}
+                    size={30}
                     color={themeColors.YELLOW_GREEN}
                 />
                 <FontAwesome
                     name="star"
-                    size={28}
+                    size={30}
                     color={themeColors.YELLOW_GREEN}
                 />
                 <FontAwesome
                     name="star"
-                    size={28}
+                    size={30}
                     color={themeColors.YELLOW_GREEN}
                 />
                 <FontAwesome name="star" size={28} color={themeColors.SILVER} />
+            </View>
+            <View style={styles.infoSection}>
+                <Text style={styles.infoLeft}>
+                    {`Jobs Hired: ${props.jobsHired}`}
+                </Text>
+                <Text style={styles.infoRight}>
+                    {`Jobs Created: ${props.jobsCreated}`}
+                </Text>
             </View>
         </View>
     )
@@ -77,39 +72,46 @@ const styles = StyleSheet.create({
         backgroundColor: themeColors.WHITE,
         width: '90%',
         alignItems: 'center',
-        marginTop: 20,
-        borderRadius: 15,
+        marginTop: '5%',
+        borderRadius: 20,
+        paddingVertical: '5%',
+        overflow: 'hidden',
     },
     avatarContainer: {
         backgroundColor: themeColors.YELLOW_GREEN,
-        marginTop: 20,
+        marginBottom: '5%',
     },
     userName: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: fontSizes.HEADING_THREE,
-        color: themeColors.WHITE,
-        paddingTop: 15,
-        paddingBottom: 20,
-        width: 300,
+        fontSize: fontSizes.BODY_ONE,
+        color: themeColors.BLACK,
+        marginBottom: '5%',
         textAlign: 'center',
-    },
-    infoSection: {
-        flexDirection: 'row',
-        paddingBottom: 20,
-    },
-    info: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: fontSizes.BODY_TWO,
-        color: themeColors.WHITE,
-        backgroundColor: themeColors.YELLOW_GREEN,
-        marginLeft: 10,
-        padding: 5,
+        paddingHorizontal: '5%',
     },
     stars: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        width: 180,
-        paddingBottom: 20,
+        width: '50%',
+        marginBottom: '5%',
+    },
+    infoSection: {
+        flexDirection: 'row',
+    },
+    infoLeft: {
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontSize: fontSizes.BODY_TWO,
+        color: themeColors.BLACK,
+        backgroundColor: themeColors.YELLOW_GREEN,
+        padding: '1%',
+        marginRight: '5%',
+    },
+    infoRight: {
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontSize: fontSizes.BODY_TWO,
+        color: themeColors.BLACK,
+        backgroundColor: themeColors.YELLOW_GREEN,
+        padding: '1%',
     },
 })
 
