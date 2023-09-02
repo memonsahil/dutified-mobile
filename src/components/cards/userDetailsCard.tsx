@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: themeColors.WHITE,
         width: '90%',
-        marginTop: '5%',
         borderRadius: 20,
         paddingHorizontal: '5%',
         paddingTop: '5%',
