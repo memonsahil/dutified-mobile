@@ -19,7 +19,7 @@ import ContactScreen from './src/screens/ui/contactScreen'
 import AboutScreen from './src/screens/ui/aboutScreen'
 import TosScreen from './src/screens/ui/tosScreen'
 import PpScreen from './src/screens/ui/ppScreen'
-import HomeScreen from './src/screens/ui/homeScreen'
+import WorkScreen from './src/screens/ui/workScreen'
 import ProfileScreen from './src/screens/ui/profileScreen'
 import SettingsScreen from './src/screens/ui/SettingsScreen'
 import ChatsScreen from './src/screens/ui/chatsScreen'
@@ -140,7 +140,7 @@ const DashboardTabNavigator = () => {
                 },
             })}
         >
-            <DashboardTab.Screen name="Home" component={HomeScreen} />
+            <DashboardTab.Screen name="Home" component={WorkScreen} />
             <DashboardTab.Screen name="Chats" component={ChatsScreen} />
             <DashboardTab.Screen name="Profile" component={ProfileScreen} />
             <DashboardTab.Screen name="Settings" component={SettingsScreen} />

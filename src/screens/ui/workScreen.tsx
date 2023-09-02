@@ -14,7 +14,7 @@ import screens from '../params/screens'
 import jobCardProps from '../../components/props/jobCardProps'
 import jobStatus from '../../enums/jobStatus'
 
-const HomeScreen = () => {
+const WorkScreen = () => {
     const [switchColumn, setSwitchColumn] = useState<'Hired' | 'Created'>(
         'Hired'
     )
@@ -52,7 +52,7 @@ const HomeScreen = () => {
         <View style={styles.container}>
             <ScrollView contentContainerStyle={styles.scrollView}>
                 <View style={styles.headerSection}>
-                    <Text style={styles.heading}>Home</Text>
+                    <Text style={styles.heading}>Work</Text>
                 </View>
                 <View style={styles.buttonSection}>
                     <TouchableOpacity onPress={() => setSwitchColumn('Hired')}>
@@ -187,4 +187,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default HomeScreen
+export default WorkScreen
