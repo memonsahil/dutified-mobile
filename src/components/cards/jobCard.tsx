@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
         marginBottom: '5%',
         paddingVertical: '5%',
         paddingHorizontal: '5%',
+        overflow: 'hidden',
     },
     jobName: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
