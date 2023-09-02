@@ -4,7 +4,6 @@ import categories from '../../enums/categories'
 
 type userType = {
     profile: {
-        userName: string
         profilePicture: string
         description: string
         interests: categories[]
