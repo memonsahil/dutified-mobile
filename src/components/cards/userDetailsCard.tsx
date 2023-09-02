@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
         padding: '1%',
     },
     description: {
+        fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.BODY_TWO,
         marginBottom: '5%',
     },
