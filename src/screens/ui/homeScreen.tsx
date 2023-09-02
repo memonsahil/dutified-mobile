@@ -19,7 +19,8 @@ const HomeScreen = () => {
         'Hired'
     )
     const navigation: NavigationProp<screens> = useNavigation()
-    const jobsCreated: Array<jobCardProps> = [
+    const jobsCreated: Array<jobCardProps> = []
+    const jobsHired: Array<jobCardProps> = [
         {
             jobId: '1',
             jobName: 'Created Job 1 - very very very very long name',
@@ -46,7 +47,6 @@ const HomeScreen = () => {
             dueDate: '2021-01-01',
         },
     ]
-    const jobsHired: Array<jobCardProps> = []
 
     return (
         <View style={styles.container}>
