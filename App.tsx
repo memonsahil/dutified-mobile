@@ -36,7 +36,7 @@ import EditPasswordScreen from './src/screens/ui/EditPasswordScreen'
 import authNavigatorParamList from './src/params/authNavigatorParamList'
 import dashboardNavigatorParamList from './src/params/dashboardNavigatorParamList'
 import mainNavigatorParamList from './src/params/mainNavigatorParamList'
-import { Foundation } from '@expo/vector-icons'
+import { Entypo } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import { FontAwesome } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
@@ -90,7 +90,7 @@ const DashboardTabNavigator = () => {
                 tabBarIcon: ({ focused }) => {
                     if (route.name === 'Home') {
                         return (
-                            <Foundation
+                            <Entypo
                                 name="home"
                                 size={30}
                                 color={
