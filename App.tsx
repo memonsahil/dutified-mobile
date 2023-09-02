@@ -36,9 +36,6 @@ import EditPasswordScreen from './src/screens/ui/EditPasswordScreen'
 import authNavigatorParamList from './src/screens/params/authNavigatorParamList'
 import dashboardNavigatorParamList from './src/screens/params/dashboardNavigatorParamList'
 import mainNavigatorParamList from './src/screens/params/mainNavigatorParamList'
-import { Entypo } from '@expo/vector-icons'
-import { Ionicons } from '@expo/vector-icons'
-import { FontAwesome } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from './src/enums/themeColors'
 
@@ -90,8 +87,8 @@ const DashboardTabNavigator = () => {
                 tabBarIcon: ({ focused }) => {
                     if (route.name === 'Work') {
                         return (
-                            <Entypo
-                                name="Work"
+                            <MaterialCommunityIcons
+                                name="briefcase"
                                 size={30}
                                 color={
                                     focused
@@ -103,7 +100,7 @@ const DashboardTabNavigator = () => {
                     } else if (route.name === 'Chats') {
                         return (
                             <MaterialCommunityIcons
-                                name="android-messages"
+                                name="message"
                                 size={30}
                                 color={
                                     focused
@@ -114,8 +111,8 @@ const DashboardTabNavigator = () => {
                         )
                     } else if (route.name === 'Profile') {
                         return (
-                            <FontAwesome
-                                name="user"
+                            <MaterialCommunityIcons
+                                name="account"
                                 size={30}
                                 color={
                                     focused
@@ -126,8 +123,8 @@ const DashboardTabNavigator = () => {
                         )
                     } else if (route.name === 'Settings') {
                         return (
-                            <Ionicons
-                                name="settings"
+                            <MaterialCommunityIcons
+                                name="cog"
                                 size={30}
                                 color={
                                     focused
