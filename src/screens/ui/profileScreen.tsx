@@ -6,7 +6,7 @@ import {
     TouchableOpacity,
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import { FontAwesome5 } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import UserCard from '../../components/cards/userCard'
 import JobCard from '../../components/cards/jobCard'
 import themeColors from '../../enums/themeColors'
@@ -24,8 +24,8 @@ const ProfileScreen = () => {
                     <TouchableOpacity
                         onPress={() => navigation.navigate('Feedback')}
                     >
-                        <FontAwesome5
-                            name="grin-stars"
+                        <MaterialCommunityIcons
+                            name="star-circle"
                             size={30}
                             color={themeColors.YELLOW_GREEN}
                         />
@@ -35,58 +35,12 @@ const ProfileScreen = () => {
                     first={'Sahil'}
                     last={'Memon'}
                     image={''}
-                    jobsCreated={jobsCreated.length.toString()}
-                    jobsWorked={jobsWorked.length.toString()}
+                    //jobsCreated={jobsCreated.length.toString()}
+                    //jobsWorked={jobsWorked.length.toString()}
                 />
-                <TouchableOpacity onPress={() => navigation.navigate('')}>
+                <TouchableOpacity onPress={() => {}}>
                     <Text style={styles.button}>Add Job</Text>
                 </TouchableOpacity>
-                {jobsWorked.length === 0 ? (
-                    <View style={styles.noDataContainer}>
-                        <Text style={styles.noDataText}>
-                            Jobs that you work on will be shown here.
-                        </Text>
-                    </View>
-                ) : (
-                    <>
-                        <Text style={styles.subHeading}>Jobs</Text>
-                        {jobsCreated.map((job) => (
-                            <JobCard
-                                key={job.jobId}
-                                nav={navigation}
-                                jobId={job.jobId}
-                                jobName={job.jobName}
-                                status={job.status}
-                                payment={job.payment}
-                                jobDesc={job.description}
-                                deadline={job.dueDate}
-                            />
-                        ))}
-                    </>
-                )}
-                {jobsCreated.length === 0 ? (
-                    <View style={styles.noDataContainer}>
-                        <Text style={styles.noDataText}>
-                            Jobs that you create will be shown here.
-                        </Text>
-                    </View>
-                ) : (
-                    <>
-                        <Text style={styles.subHeading}>Jobs</Text>
-                        {jobsCreated.map((job) => (
-                            <JobCard
-                                key={job.jobId}
-                                nav={navigation}
-                                jobId={job.jobId}
-                                jobName={job.jobName}
-                                status={job.status}
-                                payment={job.payment}
-                                jobDesc={job.description}
-                                deadline={job.dueDate}
-                            />
-                        ))}
-                    </>
-                )}
             </ScrollView>
         </View>
     )

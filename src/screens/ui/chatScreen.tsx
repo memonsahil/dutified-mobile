@@ -266,7 +266,7 @@ const styles = StyleSheet.create({
         color: themeColors.WHITE,
     },
     avatarContainer: {
-        backgroundColor: themeColors.AVACADO,
+        backgroundColor: themeColors.YELLOW_GREEN,
     },
     chatView: {
         backgroundColor: themeColors.WHITE,
