@@ -222,7 +222,7 @@ const App = () => {
         return (
             <NavigationContainer>
                 <StatusBar style="inverted" />
-                {false ? <AuthStackNavigator /> : <MainStackNavigator />}
+                {true ? <AuthStackNavigator /> : <MainStackNavigator />}
             </NavigationContainer>
         )
     }

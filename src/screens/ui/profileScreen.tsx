@@ -6,7 +6,6 @@ import {
     TouchableOpacity,
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import authUserStore from '../../state/stores/authUserStore'
 import { FontAwesome5 } from '@expo/vector-icons'
 import UserCard from '../../components/cards/userCard'
 import JobCard from '../../components/cards/jobCard'
@@ -15,10 +14,6 @@ import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 
 const ProfileScreen = () => {
-    const { account, profile, jobsCreated, jobsWorked } = authUserStore(
-        (state) => state
-    )
-
     const navigation: NavigationProp<screens> = useNavigation()
 
     return (
@@ -32,20 +27,18 @@ const ProfileScreen = () => {
                         <FontAwesome5
                             name="grin-stars"
                             size={30}
-                            color={themeColors.AVACADO}
+                            color={themeColors.YELLOW_GREEN}
                         />
                     </TouchableOpacity>
                 </View>
                 <UserCard
-                    first={account.firstName}
-                    last={account.lastName}
-                    image={profile.profilePicture}
+                    first={'Sahil'}
+                    last={'Memon'}
+                    image={''}
                     jobsCreated={jobsCreated.length.toString()}
                     jobsWorked={jobsWorked.length.toString()}
                 />
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('AddProject')}
-                >
+                <TouchableOpacity onPress={() => navigation.navigate('')}>
                     <Text style={styles.button}>Add Job</Text>
                 </TouchableOpacity>
                 {jobsWorked.length === 0 ? (
@@ -113,10 +106,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingTop: '20%',
-        paddingLeft: 30,
-        paddingRight: 30,
-        height: 150,
-        width: 400,
+        paddingLeft: '10%',
+        paddingRight: '10%',
+        width: '100%',
         alignItems: 'center',
     },
     heading: {
@@ -127,7 +119,7 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.AVACADO,
+        color: themeColors.YELLOW_GREEN,
         paddingTop: '10%',
     },
     subHeading: {

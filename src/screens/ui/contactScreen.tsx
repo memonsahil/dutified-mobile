@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import * as MailComposer from 'expo-mail-composer'
-import { AntDesign } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
@@ -21,8 +21,8 @@ const ContactScreen = () => {
             <ScrollView contentContainerStyle={styles.scrollView}>
                 <View style={styles.headerSection}>
                     <TouchableOpacity onPress={() => navigation.goBack()}>
-                        <AntDesign
-                            name="caretleft"
+                        <MaterialCommunityIcons
+                            name="chevron-left-circle"
                             size={30}
                             color={themeColors.YELLOW_GREEN}
                         />

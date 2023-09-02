@@ -6,7 +6,7 @@ import {
     TouchableOpacity,
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import { AntDesign } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
@@ -19,8 +19,8 @@ const AboutScreen = () => {
             <ScrollView contentContainerStyle={styles.scrollView}>
                 <View style={styles.headerSection}>
                     <TouchableOpacity onPress={() => navigation.goBack()}>
-                        <AntDesign
-                            name="caretleft"
+                        <MaterialCommunityIcons
+                            name="chevron-left-circle"
                             size={30}
                             color={themeColors.YELLOW_GREEN}
                         />
@@ -89,18 +89,18 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingTop: '5%',
+        paddingTop: '10%',
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        paddingTop: '10%',
+        paddingBottom: '5%',
         color: themeColors.YELLOW_GREEN,
     },
     version: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BODY_THREE,
-        marginTop: '10%',
+        marginTop: '5%',
         color: themeColors.WHITE,
         paddingBottom: '20%',
     },

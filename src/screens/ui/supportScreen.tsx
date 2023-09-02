@@ -1,6 +1,6 @@
 import { NavigationProp, useNavigation } from '@react-navigation/native'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
-import { AntDesign } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
@@ -12,8 +12,8 @@ const SupportScreen = () => {
         <View style={styles.container}>
             <View style={styles.headerSection}>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <AntDesign
-                        name="caretleft"
+                    <MaterialCommunityIcons
+                        name="chevron-left-circle"
                         size={30}
                         color={themeColors.YELLOW_GREEN}
                     />
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
-        paddingBottom: '10%',
+        paddingBottom: '5%',
     },
 })
 
