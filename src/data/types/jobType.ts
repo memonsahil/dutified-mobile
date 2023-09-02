@@ -8,7 +8,7 @@ type jobType = {
     jobCreator: string
     jobWorkerId: string
     jobWorker: string
-    categories: categories[]
+    categories: categories
     description: string
     dueDate: string
     payment: string

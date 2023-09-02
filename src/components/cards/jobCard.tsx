@@ -20,6 +20,9 @@ const JobCard = (props: jobCardProps & navProps) => {
                     {props.jobName}
                 </Text>
                 <View style={styles.detailSection}>
+                    <Text style={styles.jobDetail}>{props.category}</Text>
+                </View>
+                <View style={styles.detailSection}>
                     <Text style={styles.jobDetail}>${props.payment}</Text>
                     <Text style={styles.jobDetail}>{props.status}</Text>
                 </View>
@@ -38,11 +41,9 @@ const JobCard = (props: jobCardProps & navProps) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor: themeColors.WHITE,
         borderRadius: 20,
         width: '90%',
-        height: '20%',
         marginBottom: '5%',
         paddingVertical: '3%',
         paddingHorizontal: '3%',
@@ -58,6 +59,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: '3%',
     },
+    category: {
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontSize: fontSizes.BODY_TWO,
+        color: themeColors.BLACK,
+        backgroundColor: themeColors.YELLOW_GREEN,
+        padding: '1%',
+    },
     jobDetail: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BODY_TWO,
@@ -71,7 +79,6 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
         marginBottom: '3%',
-        overflow: 'visible',
     },
     jobDeadline: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
