@@ -1,6 +1,6 @@
 enum jobStatus {
     AVAILABLE = 'Available',
-    TAKEN = 'Taken',
+    IN_PROGRESS = 'In Progress',
     COMPLETED = 'Completed',
 }
 

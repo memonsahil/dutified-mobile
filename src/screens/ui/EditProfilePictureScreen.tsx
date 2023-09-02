@@ -13,7 +13,7 @@ import { Avatar } from 'react-native-elements'
 import { AntDesign } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
-import screens from '../../params/screens'
+import screens from '../params/screens'
 
 const EditProfilePictureScreen = () => {
     let formattedImage: ImageResult

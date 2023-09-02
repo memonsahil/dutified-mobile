@@ -9,7 +9,7 @@ import { useNavigation, NavigationProp } from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
-import screens from '../../params/screens'
+import screens from '../params/screens'
 
 const TosScreen = () => {
     const navigation: NavigationProp<screens> = useNavigation()

@@ -2,7 +2,7 @@ import { NavigationProp, useNavigation } from '@react-navigation/native'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
-import screens from '../../params/screens'
+import screens from '../params/screens'
 
 const MainScreen = () => {
     const navigation: NavigationProp<screens> = useNavigation()

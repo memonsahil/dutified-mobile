@@ -3,8 +3,8 @@ type jobCardProps = {
     jobName: string
     status: string
     payment: string
-    jobDesc: string
-    deadline: string
+    description: string
+    dueDate: string
 }
 
 export default jobCardProps

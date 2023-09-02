@@ -1,5 +1,5 @@
 import { NavigationProp } from '@react-navigation/native'
-import screens from '../../params/screens'
+import screens from '../../screens/params/screens'
 
 type navProps = {
     nav: NavigationProp<screens>

@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
-import navProps from '../types/navProps'
-import jobCardProps from '../types/jobCardProps'
+import navProps from '../props/navProps'
+import jobCardProps from '../props/jobCardProps'
 
 const JobCard = (props: jobCardProps & navProps) => {
     return (

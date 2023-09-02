@@ -2,8 +2,8 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
-import navProps from '../types/navProps'
-import feedbackCardProps from '../types/feedbackCardProps'
+import navProps from '../props/navProps'
+import feedbackCardProps from '../props/feedbackCardProps'
 import ratings from '../../enums/ratings'
 
 const FeedbackCard = (props: feedbackCardProps & navProps) => {

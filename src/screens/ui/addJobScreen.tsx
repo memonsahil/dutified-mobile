@@ -19,8 +19,8 @@ import { AntDesign } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import categories from '../../enums/categories'
-import screens from '../../params/screens'
-import addJobScreenProps from '../types/addJobScreenProps'
+import screens from '../params/screens'
+import addJobScreenProps from '../props/addJobScreenProps'
 
 const AddJobScreen = ({ route }: addJobScreenProps) => {
     const { projectId, projectName, jobCreatorId, jobCreator } = route.params

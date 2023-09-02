@@ -16,7 +16,7 @@ import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
-import screens from '../../params/screens'
+import screens from '../params/screens'
 
 const EditPhoneNumberScreen = () => {
     const [code, setCode] = useState<string>('')

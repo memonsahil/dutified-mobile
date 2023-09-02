@@ -25,8 +25,8 @@ import { Ionicons } from '@expo/vector-icons'
 import { FontAwesome5 } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
-import screens from '../../params/screens'
-import chatScreenProps from '../types/chatScreenProps'
+import screens from '../params/screens'
+import chatScreenProps from '../props/chatScreenProps'
 
 const ChatScreen = ({ route }: chatScreenProps) => {
     const { receiverUserId } = route.params

@@ -13,8 +13,8 @@ import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
-import screens from '../../params/screens'
-import jobScreenProps from '../types/jobScreenProps'
+import screens from '../params/screens'
+import jobScreenProps from '../props/jobScreenProps'
 
 const JobScreen = ({ route }: jobScreenProps) => {
     const { jobId } = route.params

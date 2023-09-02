@@ -16,8 +16,8 @@ import { AntDesign } from '@expo/vector-icons'
 import { FontAwesome5 } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
-import screens from '../../params/screens'
-import userScreenProps from '../types/userScreenProps'
+import screens from '../params/screens'
+import userScreenProps from '../props/userScreenProps'
 
 const UserScreen = ({ route }: userScreenProps) => {
     const { userId } = route.params

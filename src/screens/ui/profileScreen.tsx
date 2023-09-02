@@ -12,7 +12,7 @@ import UserCard from '../../components/cards/userCard'
 import JobCard from '../../components/cards/jobCard'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
-import screens from '../../params/screens'
+import screens from '../params/screens'
 
 const ProfileScreen = () => {
     const { account, profile, jobsCreated, jobsWorked } = authUserStore(

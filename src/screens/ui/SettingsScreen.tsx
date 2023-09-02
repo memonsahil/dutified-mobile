@@ -12,7 +12,7 @@ import authUserStore from '../../state/stores/authUserStore'
 import * as Progress from 'react-native-progress'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
-import screens from '../../params/screens'
+import screens from '../params/screens'
 
 const SettingsScreen = () => {
     const [loading, setLoading] = useState<boolean>(false)

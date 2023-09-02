@@ -4,7 +4,7 @@ import { FontAwesome } from '@expo/vector-icons'
 import { Avatar } from 'react-native-elements'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
-import userCardProps from '../types/userCardProps'
+import userCardProps from '../props/userCardProps'
 
 const UserCard = (props: userCardProps) => {
     const [image, setImage] = useState<string>('')

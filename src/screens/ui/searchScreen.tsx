@@ -16,7 +16,7 @@ import { AntDesign } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import jobType from '../../data/types/jobType'
-import screens from '../../params/screens'
+import screens from '../params/screens'
 
 const SearchScreen = () => {
     const [searchText, setSearchText] = useState('')

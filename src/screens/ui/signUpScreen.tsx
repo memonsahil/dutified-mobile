@@ -13,7 +13,7 @@ import * as Progress from 'react-native-progress'
 import { AntDesign } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
-import screens from '../../params/screens'
+import screens from '../params/screens'
 import requestStatus from '../../enums/requestStatus'
 import authUser from '../../data/classes/authUser'
 

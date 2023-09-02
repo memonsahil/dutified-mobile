@@ -4,7 +4,7 @@ import ChatCard from '../../components/cards/chatCard'
 import * as Crypto from 'expo-crypto'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
-import chatCardProps from '../../components/types/chatCardProps'
+import chatCardProps from '../../components/props/chatCardProps'
 
 const ChatsScreen = () => {
     const [chats, setChats] = useState<[]>([])
