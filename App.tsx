@@ -112,7 +112,7 @@ const DashboardTabNavigator = () => {
                     } else if (route.name === 'Profile') {
                         return (
                             <MaterialCommunityIcons
-                                name="account"
+                                name="account-circle"
                                 size={30}
                                 color={
                                     focused
@@ -222,7 +222,7 @@ const App = () => {
         return (
             <NavigationContainer>
                 <StatusBar style="inverted" />
-                {true ? <AuthStackNavigator /> : <MainStackNavigator />}
+                {false ? <AuthStackNavigator /> : <MainStackNavigator />}
             </NavigationContainer>
         )
     }
