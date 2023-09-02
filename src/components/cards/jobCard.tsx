@@ -57,7 +57,6 @@ const styles = StyleSheet.create({
     },
     detailSection: {
         flexDirection: 'row',
-        alignItems: 'center',
         marginBottom: '5%',
     },
     category: {
