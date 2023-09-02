@@ -88,10 +88,10 @@ const DashboardTabNavigator = () => {
                     borderTopColor: themeColors.BLACK,
                 },
                 tabBarIcon: ({ focused }) => {
-                    if (route.name === 'Home') {
+                    if (route.name === 'Work') {
                         return (
                             <Entypo
-                                name="home"
+                                name="Work"
                                 size={30}
                                 color={
                                     focused
@@ -140,7 +140,7 @@ const DashboardTabNavigator = () => {
                 },
             })}
         >
-            <DashboardTab.Screen name="Home" component={WorkScreen} />
+            <DashboardTab.Screen name="Work" component={WorkScreen} />
             <DashboardTab.Screen name="Chats" component={ChatsScreen} />
             <DashboardTab.Screen name="Profile" component={ProfileScreen} />
             <DashboardTab.Screen name="Settings" component={SettingsScreen} />
