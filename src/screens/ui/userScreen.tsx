@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.HEADING_TWO,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
         paddingLeft: 20,
     },
     subHeading: {
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.HEADING_TWO,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
     },
     noDataContainer: {
         alignItems: 'center',
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
         paddingTop: '10%',
         textAlign: 'center',
     },

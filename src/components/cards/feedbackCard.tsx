@@ -190,7 +190,7 @@ const FeedbackCard = (props: feedbackCardProps & navProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: themeColors.PLATINUM,
+        backgroundColor: themeColors.WHITE,
         borderRadius: 15,
         width: '90%',
         overflow: 'hidden',

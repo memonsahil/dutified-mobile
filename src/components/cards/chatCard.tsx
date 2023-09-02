@@ -94,7 +94,7 @@ const ChatCard = (props: chatCardProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: themeColors.PLATINUM,
+        backgroundColor: themeColors.WHITE,
         borderRadius: 15,
         width: '90%',
         overflow: 'hidden',

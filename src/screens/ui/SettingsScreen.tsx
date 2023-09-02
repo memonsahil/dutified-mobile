@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.HEADING_ONE,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
     },
     subHeading: {
         alignSelf: 'flex-start',
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
         paddingTop: 20,
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.HEADING_TWO,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',

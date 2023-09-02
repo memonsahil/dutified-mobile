@@ -84,13 +84,13 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.HEADING_ONE,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
         paddingLeft: '5%',
     },
     text: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
         paddingTop: '10%',
         width: '80%',
         paddingBottom: '20%',

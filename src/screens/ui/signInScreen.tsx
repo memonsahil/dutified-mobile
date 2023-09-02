@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.HEADING_ONE,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
         paddingLeft: '5%',
     },
     signInSection: {
@@ -217,15 +217,15 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
         paddingTop: '10%',
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
     },
     input: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.INPUT,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
         width: '100%',
         paddingTop: '5%',
-        borderBottomColor: themeColors.PLATINUM,
+        borderBottomColor: themeColors.WHITE,
         borderBottomWidth: 3,
         alignSelf: 'center',
     },
@@ -242,7 +242,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BODY_THREE,
         paddingTop: '10%',
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
         textDecorationLine: 'underline',
     },
 })

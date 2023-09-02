@@ -263,13 +263,13 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
     },
     avatarContainer: {
         backgroundColor: themeColors.AVACADO,
     },
     chatView: {
-        backgroundColor: themeColors.PLATINUM,
+        backgroundColor: themeColors.WHITE,
     },
     toolbar: {
         backgroundColor: themeColors.BLACK,
@@ -287,7 +287,7 @@ const styles = StyleSheet.create({
         width: '80%',
     },
     input: {
-        backgroundColor: themeColors.PLATINUM,
+        backgroundColor: themeColors.WHITE,
         width: '100%',
         height: 45,
         paddingVertical: Platform.OS === 'ios' ? 0 : 9,

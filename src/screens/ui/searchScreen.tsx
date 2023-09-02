@@ -139,17 +139,17 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.HEADING_TWO,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
         paddingLeft: 20,
         paddingRight: 30,
     },
     textInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.INPUT,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
         width: '80%',
         paddingTop: '5%',
-        borderBottomColor: themeColors.PLATINUM,
+        borderBottomColor: themeColors.WHITE,
         borderBottomWidth: 2,
         alignSelf: 'center',
     },
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.HEADING_TWO,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
     },
     horizontalSection: {
         paddingRight: 30,
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
         paddingTop: '5%',
         textAlign: 'center',
     },

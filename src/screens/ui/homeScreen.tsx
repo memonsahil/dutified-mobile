@@ -8,7 +8,6 @@ import {
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import authUserStore from '../../state/stores/authUserStore'
 import JobCard from '../../components/cards/jobCard'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../../params/screens'
@@ -23,15 +22,6 @@ const HomeScreen = () => {
             <ScrollView contentContainerStyle={styles.scrollView}>
                 <View style={styles.headerSection}>
                     <Text style={styles.heading}>Home</Text>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Chats')}
-                    >
-                        <MaterialCommunityIcons
-                            name="android-messages"
-                            size={35}
-                            color={themeColors.AVACADO}
-                        />
-                    </TouchableOpacity>
                 </View>
                 {jobsWorked.length === 0 ? (
                     <View style={styles.noDataContainer}>
@@ -95,18 +85,17 @@ const styles = StyleSheet.create({
     },
     headerSection: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
         paddingTop: '20%',
-        paddingLeft: 30,
-        paddingRight: 30,
-        height: 150,
-        width: 400,
+        paddingLeft: '10%',
+        paddingRight: '10%',
+        width: '100%',
         alignItems: 'center',
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.HEADING_ONE,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
+        paddingLeft: '5%',
     },
     subHeading: {
         alignSelf: 'flex-start',
@@ -115,7 +104,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.HEADING_TWO,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
     },
     noDataContainer: {
         alignItems: 'center',
@@ -124,7 +113,7 @@ const styles = StyleSheet.create({
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
         paddingTop: '10%',
         textAlign: 'center',
     },

@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.HEADING_ONE,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
     },
     topSpacer: {
         paddingTop: 20,
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
         textAlign: 'center',
     },
 })

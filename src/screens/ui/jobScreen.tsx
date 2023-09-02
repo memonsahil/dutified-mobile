@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
         paddingLeft: 20,
         paddingRight: 30,
     },
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     jobDesc: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
         width: '80%',
         paddingBottom: 20,
         alignSelf: 'center',
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
     deadline: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
         paddingLeft: 30,
         paddingRight: 100,
         paddingBottom: 20,

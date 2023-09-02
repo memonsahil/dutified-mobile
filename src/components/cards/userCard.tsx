@@ -74,7 +74,7 @@ const UserCard = (props: userCardProps) => {
 
 const styles = StyleSheet.create({
     profileSection: {
-        backgroundColor: themeColors.PLATINUM,
+        backgroundColor: themeColors.WHITE,
         width: '90%',
         alignItems: 'center',
         marginTop: 20,

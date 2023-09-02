@@ -262,7 +262,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.HEADING_TWO,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
         paddingLeft: 20,
         paddingRight: 30,
     },
@@ -272,15 +272,15 @@ const styles = StyleSheet.create({
         paddingTop: '7%',
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
     },
     textInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.INPUT,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
         width: '80%',
         paddingTop: '5%',
-        borderBottomColor: themeColors.PLATINUM,
+        borderBottomColor: themeColors.WHITE,
         borderBottomWidth: 2,
         alignSelf: 'center',
     },
@@ -290,7 +290,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
     searchContainer: {
-        backgroundColor: themeColors.PLATINUM,
+        backgroundColor: themeColors.WHITE,
         borderRadius: 15,
         width: '85%',
         overflow: 'hidden',
@@ -300,7 +300,7 @@ const styles = StyleSheet.create({
     selectedCategoriesHeading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
         paddingTop: '5%',
         paddingLeft: 10,
     },
@@ -339,11 +339,11 @@ const styles = StyleSheet.create({
     selectedDeadline: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
         marginTop: '5%',
     },
     descContainer: {
-        backgroundColor: themeColors.PLATINUM,
+        backgroundColor: themeColors.WHITE,
         width: '80%',
         height: 250,
         borderRadius: 15,
@@ -375,7 +375,7 @@ const styles = StyleSheet.create({
         paddingBottom: '20%',
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BODY_THREE,
-        color: themeColors.PLATINUM,
+        color: themeColors.WHITE,
     },
 })
 
