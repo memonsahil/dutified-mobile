@@ -20,7 +20,36 @@ const WorkScreen = () => {
         'Hired'
     )
     const navigation: NavigationProp<screens> = useNavigation()
-    const jobsCreated: Array<jobCardProps> = []
+    const jobsCreated: Array<jobCardProps> = [
+        {
+            jobId: '1',
+            jobName: 'Created Job 1 - very very very very long name',
+            status: jobStatus.AVAILABLE,
+            payment: '100000',
+            description:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
+            dueDate: '2021-01-01',
+            category: categories.ACCOUNTING,
+        },
+        {
+            jobId: '2',
+            jobName: 'Created Job 2',
+            status: jobStatus.IN_PROGRESS,
+            payment: '200',
+            description: 'This is a description for Created job 2',
+            dueDate: '2021-01-01',
+            category: categories.ADVERTISING,
+        },
+        {
+            jobId: '3',
+            jobName: 'Created Job 3',
+            status: jobStatus.COMPLETED,
+            payment: '200',
+            description: 'This is a description for Created job 3',
+            dueDate: '2021-01-01',
+            category: categories.ANIMATION,
+        },
+    ]
     const jobsHired: Array<jobCardProps> = [
         {
             jobId: '1',
@@ -122,9 +151,19 @@ const WorkScreen = () => {
                                 <Text style={styles.noDataText}>
                                     Jobs that you create will be shown here.
                                 </Text>
+                                <TouchableOpacity onPress={() => {}}>
+                                    <Text style={styles.buttonTwo}>
+                                        Create Job
+                                    </Text>
+                                </TouchableOpacity>
                             </View>
                         ) : (
                             <>
+                                <TouchableOpacity onPress={() => {}}>
+                                    <Text style={styles.buttonTwo}>
+                                        Create Job
+                                    </Text>
+                                </TouchableOpacity>
                                 {jobsCreated.map((job) => (
                                     <JobCard
                                         key={job.jobId}
@@ -180,6 +219,12 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
     },
+    buttonTwo: {
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontSize: fontSizes.BUTTON,
+        color: themeColors.YELLOW_GREEN,
+        paddingBottom: '5%',
+    },
     noDataContainer: {
         alignItems: 'center',
         width: '80%',
@@ -189,6 +234,7 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.WHITE,
         paddingTop: '10%',
+        paddingBottom: '10%',
         textAlign: 'center',
     },
 })
