@@ -22,10 +22,11 @@ const HomeScreen = () => {
     const jobsCreated: Array<jobCardProps> = [
         {
             jobId: '1',
-            jobName: 'Created Job 1',
+            jobName: 'Created Job 1 - very very very very long name',
             status: jobStatus.AVAILABLE,
-            payment: '200',
-            description: 'This is a description for Created job 1',
+            payment: '100000',
+            description:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame',
             dueDate: '2021-01-01',
         },
         {
@@ -45,32 +46,7 @@ const HomeScreen = () => {
             dueDate: '2021-01-01',
         },
     ]
-    const jobsHired: Array<jobCardProps> = [
-        {
-            jobId: '1',
-            jobName: 'Hired Job 1',
-            status: jobStatus.AVAILABLE,
-            payment: '200',
-            description: 'This is a description for Hired job 1',
-            dueDate: '2021-01-01',
-        },
-        {
-            jobId: '2',
-            jobName: 'Hired Job 2',
-            status: jobStatus.IN_PROGRESS,
-            payment: '200',
-            description: 'This is a description for Hired job 2',
-            dueDate: '2021-01-01',
-        },
-        {
-            jobId: '3',
-            jobName: 'Hired Job 3',
-            status: jobStatus.COMPLETED,
-            payment: '200',
-            description: 'This is a description for Hired job 3',
-            dueDate: '2021-01-01',
-        },
-    ]
+    const jobsHired: Array<jobCardProps> = []
 
     return (
         <View style={styles.container}>
@@ -78,98 +54,84 @@ const HomeScreen = () => {
                 <View style={styles.headerSection}>
                     <Text style={styles.heading}>Home</Text>
                 </View>
-                {jobsHired.length === 0 && jobsCreated.length === 0 ? (
-                    <View style={styles.noDataContainer}>
-                        <Text style={styles.noDataText}>
-                            Jobs that you are hired for and jobs that you create
-                            will be shown here.
+                <View style={styles.buttonSection}>
+                    <TouchableOpacity onPress={() => setSwitchColumn('Hired')}>
+                        <Text
+                            style={{
+                                ...styles.button,
+                                color:
+                                    switchColumn === 'Hired'
+                                        ? themeColors.YELLOW_GREEN
+                                        : themeColors.SILVER,
+                            }}
+                        >
+                            Hired
                         </Text>
-                    </View>
-                ) : (
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => setSwitchColumn('Created')}
+                    >
+                        <Text
+                            style={{
+                                ...styles.button,
+                                color:
+                                    switchColumn === 'Created'
+                                        ? themeColors.YELLOW_GREEN
+                                        : themeColors.SILVER,
+                            }}
+                        >
+                            Created
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+                {switchColumn === 'Hired' ? (
                     <>
-                        <View style={styles.buttonSection}>
-                            <TouchableOpacity
-                                onPress={() => setSwitchColumn('Hired')}
-                            >
-                                <Text
-                                    style={{
-                                        ...styles.button,
-                                        color:
-                                            switchColumn === 'Hired'
-                                                ? themeColors.YELLOW_GREEN
-                                                : themeColors.SILVER,
-                                    }}
-                                >
-                                    Hired
+                        {jobsHired.length === 0 ? (
+                            <View style={styles.noDataContainer}>
+                                <Text style={styles.noDataText}>
+                                    Jobs that you are hired for will be shown
+                                    here.
                                 </Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity
-                                onPress={() => setSwitchColumn('Created')}
-                            >
-                                <Text
-                                    style={{
-                                        ...styles.button,
-                                        color:
-                                            switchColumn === 'Created'
-                                                ? themeColors.YELLOW_GREEN
-                                                : themeColors.SILVER,
-                                    }}
-                                >
-                                    Created
-                                </Text>
-                            </TouchableOpacity>
-                        </View>
-                        {switchColumn === 'Hired' ? (
-                            <>
-                                {jobsHired.length === 0 ? (
-                                    <View style={styles.noDataContainer}>
-                                        <Text style={styles.noDataText}>
-                                            Jobs that you are hired for will be
-                                            shown here.
-                                        </Text>
-                                    </View>
-                                ) : (
-                                    <>
-                                        {jobsHired.map((job) => (
-                                            <JobCard
-                                                key={job.jobId}
-                                                nav={navigation}
-                                                jobId={job.jobId}
-                                                jobName={job.jobName}
-                                                status={job.status}
-                                                payment={job.payment}
-                                                jobDesc={job.description}
-                                                deadline={job.dueDate}
-                                            />
-                                        ))}
-                                    </>
-                                )}
-                            </>
+                            </View>
                         ) : (
                             <>
-                                {jobsCreated.length === 0 ? (
-                                    <View style={styles.noDataContainer}>
-                                        <Text style={styles.noDataText}>
-                                            Jobs that you create will be shown
-                                            here.
-                                        </Text>
-                                    </View>
-                                ) : (
-                                    <>
-                                        {jobsCreated.map((job) => (
-                                            <JobCard
-                                                key={job.jobId}
-                                                nav={navigation}
-                                                jobId={job.jobId}
-                                                jobName={job.jobName}
-                                                status={job.status}
-                                                payment={job.payment}
-                                                jobDesc={job.description}
-                                                deadline={job.dueDate}
-                                            />
-                                        ))}
-                                    </>
-                                )}
+                                {jobsHired.map((job) => (
+                                    <JobCard
+                                        key={job.jobId}
+                                        nav={navigation}
+                                        jobId={job.jobId}
+                                        jobName={job.jobName}
+                                        status={job.status}
+                                        payment={job.payment}
+                                        description={job.description}
+                                        dueDate={job.dueDate}
+                                    />
+                                ))}
+                            </>
+                        )}
+                    </>
+                ) : (
+                    <>
+                        {jobsCreated.length === 0 ? (
+                            <View style={styles.noDataContainer}>
+                                <Text style={styles.noDataText}>
+                                    Jobs that you create will be shown here.
+                                </Text>
+                            </View>
+                        ) : (
+                            <>
+                                {jobsCreated.map((job) => (
+                                    <JobCard
+                                        key={job.jobId}
+                                        nav={navigation}
+                                        jobId={job.jobId}
+                                        jobName={job.jobName}
+                                        status={job.status}
+                                        payment={job.payment}
+                                        description={job.description}
+                                        dueDate={job.dueDate}
+                                    />
+                                ))}
                             </>
                         )}
                     </>
