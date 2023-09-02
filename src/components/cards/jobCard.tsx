@@ -24,8 +24,6 @@ const JobCard = (props: jobCardProps & navProps) => {
                 </View>
                 <View style={styles.detailSection}>
                     <Text style={styles.jobDetail}>${props.payment}</Text>
-                </View>
-                <View style={styles.detailSection}>
                     <Text style={styles.jobDetail}>{props.status}</Text>
                 </View>
                 <Text
@@ -74,6 +72,7 @@ const styles = StyleSheet.create({
         color: themeColors.BLACK,
         backgroundColor: themeColors.YELLOW_GREEN,
         padding: '1%',
+        marginRight: '5%',
     },
     jobDesc: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
