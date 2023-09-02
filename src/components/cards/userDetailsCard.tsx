@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         paddingHorizontal: '5%',
         paddingTop: '5%',
+        overflow: 'hidden',
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
