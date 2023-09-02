@@ -13,6 +13,7 @@ import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import jobCardProps from '../../components/props/jobCardProps'
 import jobStatus from '../../enums/jobStatus'
+import categories from '../../enums/categories'
 
 const WorkScreen = () => {
     const [switchColumn, setSwitchColumn] = useState<'Hired' | 'Created'>(
@@ -27,8 +28,9 @@ const WorkScreen = () => {
             status: jobStatus.AVAILABLE,
             payment: '100000',
             description:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             dueDate: '2021-01-01',
+            category: categories.ACCOUNTING,
         },
         {
             jobId: '2',
@@ -37,6 +39,7 @@ const WorkScreen = () => {
             payment: '200',
             description: 'This is a description for Created job 2',
             dueDate: '2021-01-01',
+            category: categories.ADVERTISING,
         },
         {
             jobId: '3',
@@ -45,6 +48,7 @@ const WorkScreen = () => {
             payment: '200',
             description: 'This is a description for Created job 3',
             dueDate: '2021-01-01',
+            category: categories.ANIMATION,
         },
     ]
 
@@ -105,6 +109,7 @@ const WorkScreen = () => {
                                         payment={job.payment}
                                         description={job.description}
                                         dueDate={job.dueDate}
+                                        category={job.category}
                                     />
                                 ))}
                             </>
@@ -130,6 +135,7 @@ const WorkScreen = () => {
                                         payment={job.payment}
                                         description={job.description}
                                         dueDate={job.dueDate}
+                                        category={job.category}
                                     />
                                 ))}
                             </>
