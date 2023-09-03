@@ -1,13 +1,12 @@
 type postCardProps = {
-    image: any
     postId: string
-    post: string
+    content: string
     userId: string
     userName: string
     userAvatar: string
-    postDate: string
-    postLikes: number
-    postComments: number
+    date: string
+    likes: string
+    comments: string
 }
 
 export default postCardProps

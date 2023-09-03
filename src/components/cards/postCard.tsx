@@ -9,8 +9,8 @@ const postCard = (props: postCardProps) => {
     const [image, setImage] = useState<string>('')
 
     useEffect(() => {
-        props.image !== image ? setImage(props.image) : null
-    }, [props.image])
+        props.userAvatar !== image ? setImage(props.userAvatar) : null
+    }, [props.userAvatar])
 
     return (
         <View style={styles.container}>
@@ -33,8 +33,8 @@ const postCard = (props: postCardProps) => {
                     {props.userName}
                 </Text>
             </View>
-            <Text style={styles.post}>{props.post}</Text>
-            <Text style={styles.date}>{props.postDate}</Text>
+            <Text style={styles.post}>{props.content}</Text>
+            <Text style={styles.date}>{props.date}</Text>
             <View style={styles.border} />
             <View style={styles.postFooter}>
                 <TouchableOpacity onPress={() => {}}>
@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: '5%',
         paddingVertical: '5%',
         overflow: 'hidden',
+        marginBottom: '5%',
     },
     postHeader: {
         marginBottom: '5%',
