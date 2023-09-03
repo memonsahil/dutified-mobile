@@ -65,7 +65,8 @@ const FeedScreen = () => {
                 {posts.length === 0 ? (
                     <View style={styles.noDataContainer}>
                         <Text style={styles.noDataText}>
-                            Posts that you create will be shown here.
+                            Posts that are shared by your network and created by
+                            you will be shown here.
                         </Text>
                     </View>
                 ) : (

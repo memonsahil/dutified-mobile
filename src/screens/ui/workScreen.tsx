@@ -21,27 +21,6 @@ const WorkScreen = () => {
         'Hired'
     )
     const navigation: NavigationProp<screens> = useNavigation()
-    const jobsCreated: Array<jobCardProps> = [
-        {
-            jobId: '1',
-            jobName: 'Created Job 1',
-            status: jobStatus.AVAILABLE,
-            payment: '100000',
-            description:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            dueDate: '2021-01-01',
-            category: categories.ACCOUNTING,
-        },
-        {
-            jobId: '2',
-            jobName: 'Created Job 2',
-            status: jobStatus.IN_PROGRESS,
-            payment: '200',
-            description: 'This is a description for Created job 2',
-            dueDate: '2021-01-01',
-            category: categories.ADVERTISING,
-        },
-    ]
     const jobsHired: Array<jobCardProps> = [
         {
             jobId: '1',
@@ -70,6 +49,27 @@ const WorkScreen = () => {
             description: 'This is a description for Created job 3',
             dueDate: '2021-01-01',
             category: categories.ANIMATION,
+        },
+    ]
+    const jobsCreated: Array<jobCardProps> = [
+        {
+            jobId: '1',
+            jobName: 'Created Job 1',
+            status: jobStatus.AVAILABLE,
+            payment: '100000',
+            description:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
+            dueDate: '2021-01-01',
+            category: categories.ACCOUNTING,
+        },
+        {
+            jobId: '2',
+            jobName: 'Created Job 2',
+            status: jobStatus.IN_PROGRESS,
+            payment: '200',
+            description: 'This is a description for Created job 2',
+            dueDate: '2021-01-01',
+            category: categories.ADVERTISING,
         },
     ]
 
@@ -148,7 +148,8 @@ const WorkScreen = () => {
                         {jobsCreated.length === 0 ? (
                             <View style={styles.noDataContainer}>
                                 <Text style={styles.noDataText}>
-                                    Jobs that you create will be shown here.
+                                    Jobs that are created by you will be shown
+                                    here.
                                 </Text>
                             </View>
                         ) : (
