@@ -38,15 +38,10 @@ const PostCard = (props: postCardProps) => {
             <View style={styles.border} />
             <View style={styles.postFooter}>
                 <TouchableOpacity onPress={() => {}}>
-                    <Text style={styles.button}>Like</Text>
+                    <Text style={styles.button}>Chat</Text>
                 </TouchableOpacity>
-                <View style={styles.buttonDivider} />
                 <TouchableOpacity onPress={() => {}}>
-                    <Text style={styles.button}>Comment</Text>
-                </TouchableOpacity>
-                <View style={styles.buttonDivider} />
-                <TouchableOpacity onPress={() => {}}>
-                    <Text style={styles.button}>Share</Text>
+                    <Text style={styles.button}>Comment (200)</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -82,11 +77,13 @@ const styles = StyleSheet.create({
     post: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.BODY_TWO,
+        color: themeColors.BLACK,
         marginBottom: '5%',
     },
     date: {
-        fontFamily: 'IBMPlexSansCondensed-Medium',
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BODY_THREE,
+        color: themeColors.BLACK,
         marginBottom: '5%',
     },
     border: {
@@ -98,13 +95,6 @@ const styles = StyleSheet.create({
     postFooter: {
         flexDirection: 'row',
         justifyContent: 'space-around',
-    },
-    buttonDivider: {
-        height: '100%',
-        borderBottomColor: themeColors.BLACK,
-        borderWidth: 1,
-        marginBottom: '5%',
-        flexDirection: 'column',
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',

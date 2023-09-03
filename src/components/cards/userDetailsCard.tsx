@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     description: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.BODY_TWO,
+        color: themeColors.BLACK,
         marginBottom: '5%',
     },
 })
