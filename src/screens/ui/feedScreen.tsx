@@ -7,15 +7,12 @@ import {
     TouchableOpacity,
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import JobCard from '../../components/cards/jobCard'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
-import jobCardProps from '../../components/props/jobCardProps'
-import jobStatus from '../../enums/jobStatus'
-import categories from '../../enums/categories'
 import postCardProps from '../../components/props/postCardProps'
 import PostCard from '../../components/cards/postCard'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 const FeedScreen = () => {
     const navigation: NavigationProp<screens> = useNavigation()
@@ -49,21 +46,31 @@ const FeedScreen = () => {
             <ScrollView contentContainerStyle={styles.scrollView}>
                 <View style={styles.headerSection}>
                     <Text style={styles.heading}>Feed</Text>
+                    <View style={styles.iconWrapper}>
+                        <TouchableOpacity onPress={() => {}}>
+                            <MaterialCommunityIcons
+                                name="text-box-plus"
+                                size={30}
+                                color={themeColors.YELLOW_GREEN}
+                            />
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => {}}>
+                            <MaterialCommunityIcons
+                                name="magnify"
+                                size={30}
+                                color={themeColors.YELLOW_GREEN}
+                            />
+                        </TouchableOpacity>
+                    </View>
                 </View>
                 {posts.length === 0 ? (
                     <View style={styles.noDataContainer}>
                         <Text style={styles.noDataText}>
                             Posts that you create will be shown here.
                         </Text>
-                        <TouchableOpacity onPress={() => {}}>
-                            <Text style={styles.buttonTwo}>Create Post</Text>
-                        </TouchableOpacity>
                     </View>
                 ) : (
                     <>
-                        <TouchableOpacity onPress={() => {}}>
-                            <Text style={styles.buttonTwo}>Create Post</Text>
-                        </TouchableOpacity>
                         {posts.map((post) => (
                             <PostCard
                                 key={post.postId}
@@ -100,17 +107,19 @@ const styles = StyleSheet.create({
         paddingRight: '10%',
         width: '100%',
         alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingBottom: '5%',
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.HEADING_ONE,
         color: themeColors.WHITE,
     },
-    buttonTwo: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
-        paddingBottom: '5%',
+    iconWrapper: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '30%',
+        justifyContent: 'space-between',
     },
     noDataContainer: {
         alignItems: 'center',

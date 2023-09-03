@@ -14,6 +14,7 @@ import screens from '../params/screens'
 import jobCardProps from '../../components/props/jobCardProps'
 import jobStatus from '../../enums/jobStatus'
 import categories from '../../enums/categories'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 const WorkScreen = () => {
     const [switchColumn, setSwitchColumn] = useState<'Hired' | 'Created'>(
@@ -86,6 +87,13 @@ const WorkScreen = () => {
             <ScrollView contentContainerStyle={styles.scrollView}>
                 <View style={styles.headerSection}>
                     <Text style={styles.heading}>Work</Text>
+                    <TouchableOpacity onPress={() => {}}>
+                        <MaterialCommunityIcons
+                            name="briefcase-plus"
+                            size={30}
+                            color={themeColors.YELLOW_GREEN}
+                        />
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.buttonSection}>
                     <TouchableOpacity onPress={() => setSwitchColumn('Hired')}>
@@ -151,19 +159,9 @@ const WorkScreen = () => {
                                 <Text style={styles.noDataText}>
                                     Jobs that you create will be shown here.
                                 </Text>
-                                <TouchableOpacity onPress={() => {}}>
-                                    <Text style={styles.buttonTwo}>
-                                        Create Job
-                                    </Text>
-                                </TouchableOpacity>
                             </View>
                         ) : (
                             <>
-                                <TouchableOpacity onPress={() => {}}>
-                                    <Text style={styles.buttonTwo}>
-                                        Create Job
-                                    </Text>
-                                </TouchableOpacity>
                                 {jobsCreated.map((job) => (
                                     <JobCard
                                         key={job.jobId}
@@ -202,6 +200,7 @@ const styles = StyleSheet.create({
         paddingRight: '10%',
         width: '100%',
         alignItems: 'center',
+        justifyContent: 'space-between',
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
@@ -218,12 +217,6 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-    },
-    buttonTwo: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
-        paddingBottom: '5%',
     },
     noDataContainer: {
         alignItems: 'center',
