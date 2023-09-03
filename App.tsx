@@ -89,7 +89,7 @@ const DashboardTabNavigator = () => {
                     if (route.name === 'Feed') {
                         return (
                             <MaterialCommunityIcons
-                                name="card-text"
+                                name="text-box"
                                 size={30}
                                 color={
                                     focused
