@@ -5,7 +5,7 @@ import { Avatar } from 'react-native-elements'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 
-const postCard = (props: postCardProps) => {
+const PostCard = (props: postCardProps) => {
     const [image, setImage] = useState<string>('')
 
     useEffect(() => {
@@ -113,4 +113,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default postCard
+export default PostCard

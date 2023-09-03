@@ -4,7 +4,7 @@ import fontSizes from '../../enums/fontSizes'
 import themeColors from '../../enums/themeColors'
 import userDetailsCardProps from '../props/userDetailsCardProps'
 
-const userDetailsCard = (props: userDetailsCardProps) => {
+const UserDetailsCard = (props: userDetailsCardProps) => {
     return (
         <View style={styles.container}>
             <Text style={styles.heading}>Bio</Text>
@@ -53,4 +53,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default userDetailsCard
+export default UserDetailsCard
