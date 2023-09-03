@@ -10,7 +10,7 @@ type jobType = {
     jobWorker: string
     categories: categories
     description: string
-    dueDate: string
+    creationDate: string
     payment: string
     status: jobStatus
 }

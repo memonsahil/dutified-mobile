@@ -6,7 +6,7 @@ type jobCardProps = {
     status: string
     payment: string
     description: string
-    dueDate: string
+    creationDate: string
     category: categories
 }
 

@@ -29,7 +29,7 @@ const WorkScreen = () => {
             payment: '100000',
             description:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            dueDate: '2021-01-01',
+            creationDate: '2021-01-01',
             category: categories.ACCOUNTING,
         },
         {
@@ -38,7 +38,7 @@ const WorkScreen = () => {
             status: jobStatus.IN_PROGRESS,
             payment: '200',
             description: 'This is a description for Created job 2',
-            dueDate: '2021-01-01',
+            creationDate: '2021-01-01',
             category: categories.ADVERTISING,
         },
         {
@@ -47,7 +47,7 @@ const WorkScreen = () => {
             status: jobStatus.COMPLETED,
             payment: '200',
             description: 'This is a description for Created job 3',
-            dueDate: '2021-01-01',
+            creationDate: '2021-01-01',
             category: categories.ANIMATION,
         },
     ]
@@ -59,7 +59,7 @@ const WorkScreen = () => {
             payment: '100000',
             description:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            dueDate: '2021-01-01',
+            creationDate: '2021-01-01',
             category: categories.ACCOUNTING,
         },
         {
@@ -68,7 +68,7 @@ const WorkScreen = () => {
             status: jobStatus.IN_PROGRESS,
             payment: '200',
             description: 'This is a description for Created job 2',
-            dueDate: '2021-01-01',
+            creationDate: '2021-01-01',
             category: categories.ADVERTISING,
         },
     ]
@@ -136,7 +136,7 @@ const WorkScreen = () => {
                                         status={job.status}
                                         payment={job.payment}
                                         description={job.description}
-                                        dueDate={job.dueDate}
+                                        creationDate={job.creationDate}
                                         category={job.category}
                                     />
                                 ))}
@@ -163,7 +163,7 @@ const WorkScreen = () => {
                                         status={job.status}
                                         payment={job.payment}
                                         description={job.description}
-                                        dueDate={job.dueDate}
+                                        creationDate={job.creationDate}
                                         category={job.category}
                                     />
                                 ))}

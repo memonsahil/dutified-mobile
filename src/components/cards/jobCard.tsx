@@ -33,7 +33,7 @@ const JobCard = (props: jobCardProps & navProps) => {
                 >
                     {props.description}
                 </Text>
-                <Text style={styles.jobDeadline}>{props.dueDate}</Text>
+                <Text style={styles.date}>{props.creationDate}</Text>
             </TouchableOpacity>
         </View>
     )
@@ -80,9 +80,9 @@ const styles = StyleSheet.create({
         color: themeColors.BLACK,
         marginBottom: '5%',
     },
-    jobDeadline: {
+    date: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: fontSizes.BODY_ONE,
+        fontSize: fontSizes.BODY_THREE,
         color: themeColors.BLACK,
     },
 })
