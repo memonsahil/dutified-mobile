@@ -17,13 +17,38 @@ import categories from '../../enums/categories'
 import { useState } from 'react'
 import jobCardProps from '../../components/props/jobCardProps'
 import jobStatus from '../../enums/jobStatus'
+import PostCard from '../../components/cards/postCard'
+import postCardProps from '../../components/props/postCardProps'
 
 const ProfileScreen = () => {
     const navigation: NavigationProp<screens> = useNavigation()
     const [switchColumn, setSwitchColumn] = useState<
         'Details' | 'Posts' | 'Hired' | 'Created'
     >('Details')
-    const posts: any[] = []
+    const posts: Array<postCardProps> = [
+        {
+            postId: '1',
+            content:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
+            userId: '1',
+            userName: 'Sahil Memon',
+            userAvatar: '',
+            date: '2021-01-01',
+            likes: '1',
+            comments: '1',
+        },
+        {
+            postId: '2',
+            content:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
+            userId: '1',
+            userName: 'Sahil Memon',
+            userAvatar: '',
+            date: '2021-01-01',
+            likes: '1',
+            comments: '1',
+        },
+    ]
     const jobsCreated: Array<jobCardProps> = [
         {
             jobId: '1',
@@ -73,7 +98,7 @@ const ProfileScreen = () => {
                 </View>
                 <UserCard
                     first={'Sahil'}
-                    last={'Memon Very Very Very Very Very Long Surname'}
+                    last={'Memon Long Surname'}
                     image={''}
                     jobsCreated={jobsCreated.length.toString()}
                     jobsHired={jobsHired.length.toString()}
@@ -142,7 +167,7 @@ const ProfileScreen = () => {
                             <Text style={styles.buttonTwo}>Edit Details</Text>
                         </TouchableOpacity>
                         <UserDetailsCard
-                            description="loren ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget quam aliquam tincidunt. Nulla facilisi."
+                            description="lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget quam aliquam tincidunt. Nulla facilisi."
                             interests={[
                                 categories.ACCOUNTING,
                                 categories.ADVERTISING,
@@ -158,7 +183,7 @@ const ProfileScreen = () => {
                         {posts.length === 0 ? (
                             <View style={styles.noDataContainer}>
                                 <Text style={styles.noDataText}>
-                                    posts that you create will be shown here.
+                                    Posts that you create will be shown here.
                                 </Text>
                                 <TouchableOpacity onPress={() => {}}>
                                     <Text style={styles.buttonTwo}>
@@ -173,8 +198,18 @@ const ProfileScreen = () => {
                                         Create Post
                                     </Text>
                                 </TouchableOpacity>
-                                {posts.map((job) => (
-                                    <></>
+                                {posts.map((post) => (
+                                    <PostCard
+                                        key={post.postId}
+                                        postId={post.postId}
+                                        content={post.content}
+                                        userId={post.userId}
+                                        userName={post.userName}
+                                        userAvatar={post.userAvatar}
+                                        date={post.date}
+                                        likes={post.likes}
+                                        comments={post.comments}
+                                    />
                                 ))}
                             </>
                         )}
