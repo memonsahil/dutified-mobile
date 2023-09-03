@@ -106,13 +106,22 @@ const ProfileScreen = () => {
             <ScrollView contentContainerStyle={styles.scrollView}>
                 <View style={styles.headerSection}>
                     <Text style={styles.heading}>Profile</Text>
-                    <TouchableOpacity onPress={() => {}}>
-                        <MaterialCommunityIcons
-                            name="account-edit"
-                            size={30}
-                            color={themeColors.YELLOW_GREEN}
-                        />
-                    </TouchableOpacity>
+                    <View style={styles.iconWrapper}>
+                        <TouchableOpacity onPress={() => {}}>
+                            <MaterialCommunityIcons
+                                name="account-star"
+                                size={30}
+                                color={themeColors.YELLOW_GREEN}
+                            />
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => {}}>
+                            <MaterialCommunityIcons
+                                name="account-edit"
+                                size={30}
+                                color={themeColors.YELLOW_GREEN}
+                            />
+                        </TouchableOpacity>
+                    </View>
                 </View>
                 <UserCard
                     first={'Sahil'}
@@ -301,6 +310,12 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.HEADING_ONE,
         color: themeColors.WHITE,
+    },
+    iconWrapper: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '30%',
+        justifyContent: 'space-between',
     },
     buttonSection: {
         flexDirection: 'row',
