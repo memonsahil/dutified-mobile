@@ -81,7 +81,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                                 <AntDesign
                                     name="caretleft"
                                     size={30}
-                                    color={themeColors.AVACADO}
+                                    color={themeColors.YELLOW_GREEN}
                                 />
                             </TouchableOpacity>
                             <Text style={styles.heading}>New Job</Text>
@@ -228,7 +228,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.AVACADO}
+                        color={themeColors.YELLOW_GREEN}
                     />
                 </View>
             )}
@@ -320,7 +320,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.WHITE,
-        backgroundColor: themeColors.AVACADO,
+        backgroundColor: themeColors.YELLOW_GREEN,
         padding: 5,
         marginRight: 10,
     },
@@ -328,7 +328,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.WHITE,
-        backgroundColor: themeColors.AVACADO,
+        backgroundColor: themeColors.YELLOW_GREEN,
         padding: 5,
         marginLeft: 10,
         marginTop: '5%',
@@ -366,7 +366,7 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.AVACADO,
+        color: themeColors.YELLOW_GREEN,
     },
     textSection: {
         width: '70%',

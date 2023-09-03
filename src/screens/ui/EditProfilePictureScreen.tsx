@@ -57,7 +57,7 @@ const EditProfilePictureScreen = () => {
                             <AntDesign
                                 name="caretleft"
                                 size={30}
-                                color={themeColors.AVACADO}
+                                color={themeColors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>
                         <Text style={styles.heading}>Profile Picture</Text>
@@ -99,7 +99,7 @@ const EditProfilePictureScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.AVACADO}
+                        color={themeColors.YELLOW_GREEN}
                     />
                 </View>
             )}
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
         paddingRight: 30,
     },
     avatarContainer: {
-        backgroundColor: themeColors.AVACADO,
+        backgroundColor: themeColors.YELLOW_GREEN,
         marginTop: 20,
     },
     buttonContainer: {
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     saveButton: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.AVACADO,
+        color: themeColors.YELLOW_GREEN,
     },
 })
 
