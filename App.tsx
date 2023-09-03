@@ -101,7 +101,7 @@ const DashboardTabNavigator = () => {
                     } else if (route.name === 'Chats') {
                         return (
                             <MaterialCommunityIcons
-                                name="message"
+                                name="message-text"
                                 size={30}
                                 color={
                                     focused
