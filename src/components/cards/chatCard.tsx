@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     name: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.WHITE,
     },

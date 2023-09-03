@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     heading: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.HEADING_ONE,
         color: themeColors.WHITE,
     },
@@ -114,12 +114,12 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         paddingLeft: 30,
         paddingTop: 20,
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.HEADING_TWO,
         color: themeColors.WHITE,
     },
     button: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
         paddingTop: '5%',

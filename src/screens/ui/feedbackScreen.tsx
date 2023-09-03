@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     heading: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.HEADING_TWO,
         color: themeColors.WHITE,
         paddingLeft: 20,

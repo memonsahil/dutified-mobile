@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     heading: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.WHITE,
         paddingLeft: 20,
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
         paddingLeft: 30,
     },
     info: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.WHITE,
         backgroundColor: themeColors.YELLOW_GREEN,
@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     button: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
         paddingLeft: 30,
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
         paddingBottom: 20,
     },
     deadline: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.WHITE,
         paddingLeft: 30,
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
         paddingBottom: '5%',
     },
     sectionButton: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
     },

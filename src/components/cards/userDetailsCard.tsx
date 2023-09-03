@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
     },
     heading: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.BLACK,
         marginBottom: '5%',
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         marginBottom: '5%',
     },
     interest: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
         backgroundColor: themeColors.YELLOW_GREEN,

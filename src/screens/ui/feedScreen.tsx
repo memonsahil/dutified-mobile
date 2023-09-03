@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
         paddingBottom: '5%',
     },
     heading: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.HEADING_ONE,
         color: themeColors.WHITE,
     },

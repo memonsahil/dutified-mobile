@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     heading: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.HEADING_ONE,
         color: themeColors.WHITE,
         paddingLeft: '5%',
@@ -92,13 +92,13 @@ const styles = StyleSheet.create({
         paddingTop: '10%',
     },
     button: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         paddingBottom: '5%',
         color: themeColors.YELLOW_GREEN,
     },
     version: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_THREE,
         marginTop: '5%',
         color: themeColors.WHITE,

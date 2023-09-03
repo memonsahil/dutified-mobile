@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     userNameButton: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.HEADING_THREE,
         color: themeColors.YELLOW_GREEN,
         width: '100%',

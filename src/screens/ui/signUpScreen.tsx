@@ -272,7 +272,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     heading: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.HEADING_ONE,
         color: themeColors.WHITE,
         paddingLeft: '5%',
@@ -281,7 +281,7 @@ const styles = StyleSheet.create({
         width: '80%',
     },
     field: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         paddingTop: '10%',
         color: themeColors.WHITE,
@@ -330,7 +330,7 @@ const styles = StyleSheet.create({
         textAlignVertical: 'center',
     },
     button: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
         alignSelf: 'center',
@@ -345,7 +345,7 @@ const styles = StyleSheet.create({
     textButton: {
         textAlign: 'center',
         textAlignVertical: 'center',
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_THREE,
         paddingTop: '10%',
         color: themeColors.WHITE,

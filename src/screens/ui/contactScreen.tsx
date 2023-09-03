@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     heading: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.HEADING_ONE,
         color: themeColors.WHITE,
         paddingLeft: '5%',
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
         width: '80%',
     },
     email: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         paddingTop: '10%',
         color: themeColors.YELLOW_GREEN,

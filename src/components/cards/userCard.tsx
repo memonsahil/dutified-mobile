@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
         marginBottom: '5%',
     },
     userName: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.BLACK,
         marginBottom: '5%',
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     infoLeft: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
         backgroundColor: themeColors.YELLOW_GREEN,
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
         marginRight: '5%',
     },
     infoRight: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
         backgroundColor: themeColors.YELLOW_GREEN,

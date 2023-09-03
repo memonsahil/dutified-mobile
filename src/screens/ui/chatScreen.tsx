@@ -261,7 +261,7 @@ const styles = StyleSheet.create({
         width: 400,
     },
     heading: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.WHITE,
     },

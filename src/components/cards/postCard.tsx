@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
         backgroundColor: themeColors.YELLOW_GREEN,
     },
     userName: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.BLACK,
         textAlign: 'center',
@@ -93,14 +93,14 @@ const styles = StyleSheet.create({
         marginBottom: '5%',
     },
     jobAttachment: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.YELLOW_GREEN,
         marginBottom: '5%',
         textDecorationLine: 'underline',
     },
     date: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_THREE,
         color: themeColors.BLACK,
         marginBottom: '5%',
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
     },
     button: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.YELLOW_GREEN,
     },

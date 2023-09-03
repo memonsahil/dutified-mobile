@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     heading: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.HEADING_ONE,
         color: themeColors.WHITE,
     },
@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
         marginBottom: '5%',
     },
     button: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
     },
     noDataContainer: {

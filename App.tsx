@@ -208,7 +208,7 @@ const App = () => {
     const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null)
 
     const [fontsLoaded] = useFonts({
-        'IBMPlexSansCondensed-SemiBold': require('./assets/fonts/IBMPlexSansCondensed-SemiBold.ttf'),
+        'IBMPlexSansCondensed-Bold': require('./assets/fonts/IBMPlexSansCondensed-Bold.ttf'),
         'IBMPlexSansCondensed-Medium': require('./assets/fonts/IBMPlexSansCondensed-Medium.ttf'),
     })
 
