@@ -19,6 +19,7 @@ import ContactScreen from './src/screens/ui/contactScreen'
 import AboutScreen from './src/screens/ui/aboutScreen'
 import TosScreen from './src/screens/ui/tosScreen'
 import PpScreen from './src/screens/ui/ppScreen'
+import FeedScreen from './src/screens/ui/feedScreen'
 import WorkScreen from './src/screens/ui/workScreen'
 import ProfileScreen from './src/screens/ui/profileScreen'
 import SettingsScreen from './src/screens/ui/SettingsScreen'
@@ -85,10 +86,10 @@ const DashboardTabNavigator = () => {
                     borderTopColor: themeColors.BLACK,
                 },
                 tabBarIcon: ({ focused }) => {
-                    if (route.name === 'Work') {
+                    if (route.name === 'Feed') {
                         return (
                             <MaterialCommunityIcons
-                                name="briefcase"
+                                name="card-text"
                                 size={30}
                                 color={
                                     focused
@@ -101,6 +102,18 @@ const DashboardTabNavigator = () => {
                         return (
                             <MaterialCommunityIcons
                                 name="message"
+                                size={30}
+                                color={
+                                    focused
+                                        ? themeColors.YELLOW_GREEN
+                                        : themeColors.SILVER
+                                }
+                            />
+                        )
+                    } else if (route.name === 'Work') {
+                        return (
+                            <MaterialCommunityIcons
+                                name="briefcase"
                                 size={30}
                                 color={
                                     focused
@@ -137,8 +150,9 @@ const DashboardTabNavigator = () => {
                 },
             })}
         >
-            <DashboardTab.Screen name="Work" component={WorkScreen} />
+            <DashboardTab.Screen name="Feed" component={FeedScreen} />
             <DashboardTab.Screen name="Chats" component={ChatsScreen} />
+            <DashboardTab.Screen name="Work" component={WorkScreen} />
             <DashboardTab.Screen name="Profile" component={ProfileScreen} />
             <DashboardTab.Screen name="Settings" component={SettingsScreen} />
         </DashboardTab.Navigator>

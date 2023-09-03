@@ -11,8 +11,9 @@ type screens = {
     Reset: undefined
     Verification: undefined
     Password: undefined
-    Work: undefined
+    Feed: undefined
     Chats: undefined
+    Work: undefined
     Profile: undefined
     Settings: undefined
     Job: {

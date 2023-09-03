@@ -1,6 +1,7 @@
 type dashboardNavigatorParamList = {
-    Work: undefined
+    Feed: undefined
     Chats: undefined
+    Work: undefined
     Profile: undefined
     Settings: undefined
 }
