@@ -34,6 +34,18 @@ const PostCard = (props: postCardProps) => {
                 </Text>
             </View>
             <Text style={styles.post}>{props.content}</Text>
+            {props.jobAttachments.length !== 0
+                ? props.jobAttachments.map((attachment) => (
+                      <TouchableOpacity
+                          key={attachment.jobId}
+                          onPress={() => {}}
+                      >
+                          <Text style={styles.jobAttachment}>
+                              {attachment.jobName}
+                          </Text>
+                      </TouchableOpacity>
+                  ))
+                : null}
             <Text style={styles.date}>{props.date}</Text>
             <View style={styles.border} />
             <View style={styles.postFooter}>
@@ -79,6 +91,13 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
         marginBottom: '5%',
+    },
+    jobAttachment: {
+        fontFamily: 'IBMPlexSansCondensed-SemiBold',
+        fontSize: fontSizes.BODY_TWO,
+        color: themeColors.YELLOW_GREEN,
+        marginBottom: '5%',
+        textDecorationLine: 'underline',
     },
     date: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',

@@ -5,8 +5,11 @@ type postCardProps = {
     userName: string
     userAvatar: string
     date: string
-    likes: string
     comments: string
+    jobAttachments: {
+        jobId: string
+        jobName: string
+    }[]
 }
 
 export default postCardProps

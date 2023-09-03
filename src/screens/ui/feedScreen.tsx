@@ -24,7 +24,12 @@ const FeedScreen = () => {
             userName: 'Sahil Memon',
             userAvatar: '',
             date: '2021-01-01',
-            likes: '1',
+            jobAttachments: [
+                {
+                    jobId: '1',
+                    jobName: 'Created Job 1',
+                },
+            ],
             comments: '1',
         },
         {
@@ -35,7 +40,27 @@ const FeedScreen = () => {
             userName: 'Sahil Memon',
             userAvatar: '',
             date: '2021-01-01',
-            likes: '1',
+            jobAttachments: [
+                {
+                    jobId: '1',
+                    jobName: 'Created Job 1',
+                },
+                {
+                    jobId: '2',
+                    jobName: 'Created Job 2',
+                },
+            ],
+            comments: '1',
+        },
+        {
+            postId: '3',
+            content:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
+            userId: '1',
+            userName: 'Sahil Memon',
+            userAvatar: '',
+            date: '2021-01-01',
+            jobAttachments: [],
             comments: '1',
         },
     ]
@@ -80,7 +105,7 @@ const FeedScreen = () => {
                                 userName={post.userName}
                                 userAvatar={post.userAvatar}
                                 date={post.date}
-                                likes={post.likes}
+                                jobAttachments={post.jobAttachments}
                                 comments={post.comments}
                             />
                         ))}
