@@ -41,15 +41,6 @@ const WorkScreen = () => {
             dueDate: '2021-01-01',
             category: categories.ADVERTISING,
         },
-        {
-            jobId: '3',
-            jobName: 'Created Job 3',
-            status: jobStatus.COMPLETED,
-            payment: '200',
-            description: 'This is a description for Created job 3',
-            dueDate: '2021-01-01',
-            category: categories.ANIMATION,
-        },
     ]
     const jobsHired: Array<jobCardProps> = [
         {
