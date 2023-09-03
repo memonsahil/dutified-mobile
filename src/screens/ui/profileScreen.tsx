@@ -52,7 +52,7 @@ const ProfileScreen = () => {
     const jobsCreated: Array<jobCardProps> = [
         {
             jobId: '1',
-            jobName: 'Created Job 1 - very very very very long name',
+            jobName: 'Created Job 1',
             status: jobStatus.AVAILABLE,
             payment: '100000',
             description:
@@ -79,18 +79,45 @@ const ProfileScreen = () => {
             category: categories.ANIMATION,
         },
     ]
-    const jobsHired: Array<jobCardProps> = []
+    const jobsHired: Array<jobCardProps> = [
+        {
+            jobId: '1',
+            jobName: 'Created Job 1',
+            status: jobStatus.AVAILABLE,
+            payment: '100000',
+            description:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
+            dueDate: '2021-01-01',
+            category: categories.ACCOUNTING,
+        },
+        {
+            jobId: '2',
+            jobName: 'Created Job 2',
+            status: jobStatus.IN_PROGRESS,
+            payment: '200',
+            description: 'This is a description for Created job 2',
+            dueDate: '2021-01-01',
+            category: categories.ADVERTISING,
+        },
+        {
+            jobId: '3',
+            jobName: 'Created Job 3',
+            status: jobStatus.COMPLETED,
+            payment: '200',
+            description: 'This is a description for Created job 3',
+            dueDate: '2021-01-01',
+            category: categories.ANIMATION,
+        },
+    ]
 
     return (
         <View style={styles.container}>
             <ScrollView contentContainerStyle={styles.scrollView}>
                 <View style={styles.headerSection}>
                     <Text style={styles.heading}>Profile</Text>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Feedback')}
-                    >
+                    <TouchableOpacity onPress={() => {}}>
                         <MaterialCommunityIcons
-                            name="star-circle"
+                            name="account-edit"
                             size={30}
                             color={themeColors.YELLOW_GREEN}
                         />
@@ -98,7 +125,7 @@ const ProfileScreen = () => {
                 </View>
                 <UserCard
                     first={'Sahil'}
-                    last={'Memon Long Surname'}
+                    last={'Memon'}
                     image={''}
                     jobsCreated={jobsCreated.length.toString()}
                     jobsHired={jobsHired.length.toString()}
@@ -162,22 +189,17 @@ const ProfileScreen = () => {
                     </TouchableOpacity>
                 </View>
                 {switchColumn === 'Details' ? (
-                    <>
-                        <TouchableOpacity onPress={() => {}}>
-                            <Text style={styles.buttonTwo}>Edit Details</Text>
-                        </TouchableOpacity>
-                        <UserDetailsCard
-                            description="lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget quam aliquam tincidunt. Nulla facilisi."
-                            interests={[
-                                categories.ACCOUNTING,
-                                categories.ADVERTISING,
-                                categories.ANIMATION,
-                                categories.ARTIFICAL_INTELLIGENCE,
-                                categories.BUSINESS_PROJECT_MANAGEMENT,
-                                categories.TRADING_SOFTWARE_DEVELOPMENT,
-                            ]}
-                        />
-                    </>
+                    <UserDetailsCard
+                        description="lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget quam aliquam tincidunt. Nulla facilisi."
+                        interests={[
+                            categories.ACCOUNTING,
+                            categories.ADVERTISING,
+                            categories.ANIMATION,
+                            categories.ARTIFICAL_INTELLIGENCE,
+                            categories.BUSINESS_PROJECT_MANAGEMENT,
+                            categories.TRADING_SOFTWARE_DEVELOPMENT,
+                        ]}
+                    />
                 ) : switchColumn === 'Posts' ? (
                     <>
                         {posts.length === 0 ? (
@@ -185,19 +207,9 @@ const ProfileScreen = () => {
                                 <Text style={styles.noDataText}>
                                     Posts that you create will be shown here.
                                 </Text>
-                                <TouchableOpacity onPress={() => {}}>
-                                    <Text style={styles.buttonTwo}>
-                                        Create Post
-                                    </Text>
-                                </TouchableOpacity>
                             </View>
                         ) : (
                             <>
-                                <TouchableOpacity onPress={() => {}}>
-                                    <Text style={styles.buttonTwo}>
-                                        Create Post
-                                    </Text>
-                                </TouchableOpacity>
                                 {posts.map((post) => (
                                     <PostCard
                                         key={post.postId}
@@ -248,19 +260,9 @@ const ProfileScreen = () => {
                                 <Text style={styles.noDataText}>
                                     Jobs that you create will be shown here.
                                 </Text>
-                                <TouchableOpacity onPress={() => {}}>
-                                    <Text style={styles.buttonTwo}>
-                                        Create Job
-                                    </Text>
-                                </TouchableOpacity>
                             </View>
                         ) : (
                             <>
-                                <TouchableOpacity onPress={() => {}}>
-                                    <Text style={styles.buttonTwo}>
-                                        Create Job
-                                    </Text>
-                                </TouchableOpacity>
                                 {jobsCreated.map((job) => (
                                     <JobCard
                                         key={job.jobId}
@@ -317,12 +319,6 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-SemiBold',
         fontSize: fontSizes.BUTTON,
-    },
-    buttonTwo: {
-        fontFamily: 'IBMPlexSansCondensed-SemiBold',
-        fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
-        paddingBottom: '5%',
     },
     noDataContainer: {
         alignItems: 'center',

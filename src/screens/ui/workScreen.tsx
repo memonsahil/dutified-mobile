@@ -24,7 +24,7 @@ const WorkScreen = () => {
     const jobsCreated: Array<jobCardProps> = [
         {
             jobId: '1',
-            jobName: 'Created Job 1 - very very very very long name',
+            jobName: 'Created Job 1',
             status: jobStatus.AVAILABLE,
             payment: '100000',
             description:
@@ -54,7 +54,7 @@ const WorkScreen = () => {
     const jobsHired: Array<jobCardProps> = [
         {
             jobId: '1',
-            jobName: 'Created Job 1 - very very very very long name',
+            jobName: 'Created Job 1',
             status: jobStatus.AVAILABLE,
             payment: '100000',
             description:
