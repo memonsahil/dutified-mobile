@@ -231,6 +231,25 @@ const ProfileScreen = () => {
                             categories.BUSINESS_PROJECT_MANAGEMENT,
                             categories.TRADING_SOFTWARE_DEVELOPMENT,
                         ]}
+                        hourlyRate="50"
+                        links={[
+                            {
+                                id: '1',
+                                url: 'https://www.linkedin.com/xyz',
+                            },
+                            {
+                                id: '2',
+                                url: 'https://www.github.com/xyz',
+                            },
+                            {
+                                id: '3',
+                                url: 'https://www.x.com/xyz',
+                            },
+                            {
+                                id: '4',
+                                url: 'https://www.instagram.com/xyz',
+                            },
+                        ]}
                     />
                 ) : switchColumn === 'Posts' ? (
                     <>

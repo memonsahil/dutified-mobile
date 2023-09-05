@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Linking, TouchableOpacity } from 'react-native'
 import fontSizes from '../../enums/fontSizes'
 import themeColors from '../../enums/themeColors'
 import userDetailsCardProps from '../props/userDetailsCardProps'
@@ -9,10 +9,24 @@ const UserDetailsCard = (props: userDetailsCardProps) => {
         <View style={styles.container}>
             <Text style={styles.heading}>Bio</Text>
             <Text style={styles.description}>{props.description}</Text>
+            <Text style={styles.heading}>Hourly Rate</Text>
+            <View style={styles.interestWrapper}>
+                <Text
+                    style={styles.interest}
+                >{`$${props.hourlyRate}/hour`}</Text>
+            </View>
             <Text style={styles.heading}>Interests</Text>
             {props.interests.map((interest) => (
                 <View style={styles.interestWrapper} key={interest}>
                     <Text style={styles.interest}>{interest}</Text>
+                </View>
+            ))}
+            <Text style={styles.heading}>Links</Text>
+            {props.links.map((link) => (
+                <View style={styles.interestWrapper} key={link.id}>
+                    <TouchableOpacity onPress={() => Linking.openURL(link.url)}>
+                        <Text style={styles.link}>{link.url}</Text>
+                    </TouchableOpacity>
                 </View>
             ))}
         </View>
@@ -51,6 +65,12 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
         marginBottom: '5%',
+    },
+    link: {
+        fontFamily: 'IBMPlexSansCondensed-Medium',
+        fontSize: fontSizes.BODY_TWO,
+        color: themeColors.BLACK,
+        textDecorationLine: 'underline',
     },
 })
 
