@@ -57,10 +57,10 @@ const UserCard = (props: userCardProps) => {
             </View>
             <View style={styles.infoSection}>
                 <Text style={styles.infoLeft}>
-                    {`${props.totalProjects} Projects`}
+                    {`Total Projects: ${props.totalProjects}`}
                 </Text>
                 <Text style={styles.infoRight}>
-                    {`${props.totalJobs} Jobs`}
+                    {`Total Jobs: ${props.totalJobs}`}
                 </Text>
             </View>
         </View>
