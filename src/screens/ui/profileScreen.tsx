@@ -159,8 +159,8 @@ const ProfileScreen = () => {
                     first={'Sahil'}
                     last={'Memon'}
                     image={''}
-                    jobsCreated={jobsCreated.length.toString()}
-                    jobsHired={jobsHired.length.toString()}
+                    totalProjects="0"
+                    totalJobs="3"
                 />
                 <View style={styles.buttonSection}>
                     <TouchableOpacity
