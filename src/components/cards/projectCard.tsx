@@ -2,33 +2,25 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import navProps from '../props/navProps'
-import jobCardProps from '../props/jobCardProps'
+import projectCardProps from '../props/projectCardProps'
 
-const JobCard = (props: jobCardProps & navProps) => {
+const ProjectCard = (props: projectCardProps & navProps) => {
     return (
         <View style={styles.container}>
-            <TouchableOpacity
-                onPress={() =>
-                    props.nav.navigate('Job', { jobId: props.jobId })
-                }
-            >
+            <TouchableOpacity onPress={() => {}}>
                 <Text
-                    style={styles.jobName}
+                    style={styles.projectName}
                     numberOfLines={1}
                     ellipsizeMode="tail"
                 >
-                    {props.jobName}
+                    {props.projectName}
                 </Text>
                 <View style={styles.detailSection}>
-                    <Text style={styles.jobDetail}>{props.category}</Text>
-                </View>
-                <View style={styles.detailSection}>
-                    <Text style={styles.jobDetail}>${props.payment}</Text>
-                    <Text style={styles.jobDetail}>{props.status}</Text>
+                    <Text style={styles.projectDetail}>{props.category}</Text>
                 </View>
                 <View style={styles.infoSection}>
                     <Text
-                        style={styles.jobDesc}
+                        style={styles.projectDesc}
                         numberOfLines={3}
                         ellipsizeMode="tail"
                     >
@@ -45,13 +37,14 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: themeColors.WHITE,
         borderRadius: 20,
-        width: '90%',
-        marginBottom: '5%',
+        width: 350,
+        height: 230,
         paddingVertical: 20,
         paddingHorizontal: 20,
         overflow: 'hidden',
+        marginRight: 20,
     },
-    jobName: {
+    projectName: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.BLACK,
@@ -68,7 +61,7 @@ const styles = StyleSheet.create({
         backgroundColor: themeColors.YELLOW_GREEN,
         padding: '1%',
     },
-    jobDetail: {
+    projectDetail: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
@@ -81,11 +74,10 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         height: 100,
     },
-    jobDesc: {
+    projectDesc: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
-        marginBottom: '5%',
     },
     date: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
@@ -94,4 +86,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default JobCard
+export default ProjectCard
