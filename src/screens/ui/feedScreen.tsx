@@ -133,7 +133,6 @@ const styles = StyleSheet.create({
         width: '100%',
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingBottom: '5%',
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-Bold',

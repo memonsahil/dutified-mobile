@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
         backgroundColor: themeColors.WHITE,
         borderRadius: 20,
         width: 350,
-        height: 230,
         paddingVertical: 20,
         paddingHorizontal: 20,
         overflow: 'hidden',

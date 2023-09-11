@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: '5%',
         paddingVertical: '5%',
         overflow: 'hidden',
-        marginBottom: '5%',
+        marginTop: '5%',
     },
     postHeader: {
         marginBottom: '5%',

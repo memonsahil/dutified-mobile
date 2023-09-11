@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: '5%',
         paddingTop: '5%',
         overflow: 'hidden',
+        marginTop: '5%',
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
