@@ -147,6 +147,14 @@ const ProfileScreen = () => {
             creationDate: '2021-01-01',
             category: categories.ACCOUNTING,
         },
+        {
+            projectId: '2',
+            projectName: 'Hired Project 2',
+            description:
+                'This is a description for Hired project 2, This is a description for Hired project 2, This is a description for Hired project 2',
+            creationDate: '2021-01-01',
+            category: categories.ACCOUNTING,
+        },
     ]
     const jobsCreated: Array<jobCardProps> = [
         {
@@ -155,6 +163,16 @@ const ProfileScreen = () => {
             status: jobStatus.IN_PROGRESS,
             payment: '200',
             description: 'This is a description for Created job 1',
+            creationDate: '2021-01-01',
+            category: categories.ADVERTISING,
+        },
+        {
+            jobId: '2',
+            jobName: 'Created Job 2',
+            status: jobStatus.IN_PROGRESS,
+            payment: '200',
+            description:
+                'This is a description for Created job 2, This is a description for Created job 2, This is a description for Created job 2',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
         },
