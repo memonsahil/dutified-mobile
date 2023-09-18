@@ -16,7 +16,6 @@ const ChatsScreen = () => {
                 <View style={styles.headerSection}>
                     <Text style={styles.heading}>Chats</Text>
                 </View>
-                <View style={styles.topSpacer} />
                 {chatCardDetails.length !== 0 ? (
                     chatCardDetails.map((chatCard) => (
                         <ChatCard
@@ -50,21 +49,17 @@ const styles = StyleSheet.create({
     },
     headerSection: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
         paddingTop: '20%',
-        paddingLeft: 30,
-        paddingRight: 30,
-        height: 150,
-        width: 400,
+        paddingLeft: '10%',
+        paddingRight: '10%',
+        width: '100%',
         alignItems: 'center',
+        justifyContent: 'space-between',
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.HEADING_ONE,
         color: themeColors.WHITE,
-    },
-    topSpacer: {
-        paddingTop: 20,
     },
     noDataContainer: {
         alignItems: 'center',
@@ -74,6 +69,8 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.WHITE,
+        paddingTop: '10%',
+        paddingBottom: '10%',
         textAlign: 'center',
     },
 })

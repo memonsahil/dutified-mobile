@@ -92,18 +92,16 @@ const styles = StyleSheet.create({
     },
     scrollView: {
         alignItems: 'flex-start',
-        justifyContent: 'space-between',
         paddingBottom: '20%',
     },
     headerSection: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
         paddingTop: '20%',
-        paddingLeft: 30,
-        paddingRight: 30,
-        height: 150,
-        width: 400,
+        paddingLeft: '10%',
+        paddingRight: '10%',
+        width: '100%',
         alignItems: 'center',
+        justifyContent: 'space-between',
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
@@ -111,12 +109,12 @@ const styles = StyleSheet.create({
         color: themeColors.WHITE,
     },
     subHeading: {
-        alignSelf: 'flex-start',
-        paddingLeft: 30,
-        paddingTop: 20,
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.HEADING_TWO,
         color: themeColors.WHITE,
+        marginTop: '5%',
+        alignSelf: 'flex-start',
+        paddingLeft: '10%',
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',

@@ -13,7 +13,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import authUserStore from '../../state/stores/authUserStore'
 import * as Progress from 'react-native-progress'
-import { AntDesign } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
@@ -39,38 +39,42 @@ const EditPasswordScreen = () => {
                             <TouchableOpacity
                                 onPress={() => navigation.goBack()}
                             >
-                                <AntDesign
-                                    name="caretleft"
+                                <MaterialCommunityIcons
+                                    name="chevron-left-circle"
                                     size={30}
                                     color={themeColors.YELLOW_GREEN}
                                 />
                             </TouchableOpacity>
                             <Text style={styles.heading}>Password</Text>
                         </View>
-                        <Text style={styles.field}>Current Password</Text>
-                        <TextInput
-                            placeholder="••••••••"
-                            value={currentPassword}
-                            onChangeText={setCurrentPassword}
-                            style={styles.textInput}
-                            placeholderTextColor={themeColors.SILVER}
-                            secureTextEntry={true}
-                            autoCapitalize="none"
-                            autoComplete="off"
-                            autoCorrect={false}
-                        />
-                        <Text style={styles.field}>New Password</Text>
-                        <TextInput
-                            placeholder="••••••••"
-                            value={newPassword}
-                            onChangeText={setNewPassword}
-                            style={styles.textInput}
-                            placeholderTextColor={themeColors.SILVER}
-                            secureTextEntry={true}
-                            autoCapitalize="none"
-                            autoComplete="off"
-                            autoCorrect={false}
-                        />
+                        <View style={styles.mainSection}>
+                            <Text style={styles.field}>Current Password</Text>
+                            <TextInput
+                                placeholder="••••••••"
+                                value={currentPassword}
+                                onChangeText={setCurrentPassword}
+                                style={styles.textInput}
+                                placeholderTextColor={themeColors.SILVER}
+                                secureTextEntry={true}
+                                autoCapitalize="none"
+                                autoComplete="off"
+                                autoCorrect={false}
+                            />
+                        </View>
+                        <View style={styles.mainSection}>
+                            <Text style={styles.field}>New Password</Text>
+                            <TextInput
+                                placeholder="••••••••"
+                                value={newPassword}
+                                onChangeText={setNewPassword}
+                                style={styles.textInput}
+                                placeholderTextColor={themeColors.SILVER}
+                                secureTextEntry={true}
+                                autoCapitalize="none"
+                                autoComplete="off"
+                                autoCorrect={false}
+                            />
+                        </View>
                         <TouchableOpacity
                             style={styles.saveButtonContainer}
                             onPress={() => {
@@ -129,35 +133,35 @@ const styles = StyleSheet.create({
     headerSection: {
         flexDirection: 'row',
         paddingTop: '20%',
-        paddingLeft: 30,
-        paddingRight: 30,
-        height: 150,
-        width: 400,
+        paddingLeft: '10%',
+        paddingRight: '10%',
+        width: '100%',
         alignItems: 'center',
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.HEADING_TWO,
+        fontSize: fontSizes.HEADING_ONE,
         color: themeColors.WHITE,
-        paddingLeft: 20,
-        paddingRight: 30,
+        paddingLeft: '5%',
+    },
+    mainSection: {
+        width: '80%',
     },
     field: {
-        alignSelf: 'flex-start',
-        paddingLeft: 40,
-        paddingTop: '7%',
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
+        paddingTop: '10%',
         color: themeColors.WHITE,
+        alignSelf: 'flex-start',
     },
     textInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.INPUT,
         color: themeColors.WHITE,
-        width: '80%',
+        width: '100%',
         paddingTop: '5%',
         borderBottomColor: themeColors.WHITE,
-        borderBottomWidth: 2,
+        borderBottomWidth: 3,
         alignSelf: 'center',
     },
     saveButtonContainer: {

@@ -485,7 +485,6 @@ const styles = StyleSheet.create({
     },
     scrollView: {
         alignItems: 'center',
-        justifyContent: 'space-between',
         paddingBottom: '20%',
     },
     headerSection: {

@@ -10,7 +10,7 @@ import {
 } from 'expo-image-manipulator'
 import * as Progress from 'react-native-progress'
 import { Avatar } from 'react-native-elements'
-import { AntDesign } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
@@ -54,8 +54,8 @@ const EditProfilePictureScreen = () => {
                 <>
                     <View style={styles.headerSection}>
                         <TouchableOpacity onPress={() => navigation.goBack()}>
-                            <AntDesign
-                                name="caretleft"
+                            <MaterialCommunityIcons
+                                name="chevron-left-circle"
                                 size={30}
                                 color={themeColors.YELLOW_GREEN}
                             />
@@ -121,26 +121,24 @@ const styles = StyleSheet.create({
     headerSection: {
         flexDirection: 'row',
         paddingTop: '20%',
-        paddingLeft: 30,
-        paddingRight: 30,
-        height: 150,
-        width: 400,
+        paddingLeft: '10%',
+        paddingRight: '10%',
+        width: '100%',
         alignItems: 'center',
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.HEADING_TWO,
+        fontSize: fontSizes.HEADING_ONE,
         color: themeColors.WHITE,
-        paddingLeft: 20,
-        paddingRight: 30,
+        paddingLeft: '5%',
     },
     avatarContainer: {
         backgroundColor: themeColors.YELLOW_GREEN,
-        marginTop: 20,
+        marginTop: '10%',
     },
     buttonContainer: {
-        marginTop: '15%',
-        height: '25%',
+        marginTop: '10%',
+        height: '20%',
         alignItems: 'center',
         justifyContent: 'space-between',
     },

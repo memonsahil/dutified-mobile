@@ -13,7 +13,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import authUserStore from '../../state/stores/authUserStore'
 import * as Progress from 'react-native-progress'
-import { AntDesign } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
@@ -44,33 +44,35 @@ const EditPhoneNumberScreen = () => {
                             <TouchableOpacity
                                 onPress={() => navigation.goBack()}
                             >
-                                <AntDesign
-                                    name="caretleft"
+                                <MaterialCommunityIcons
+                                    name="chevron-left-circle"
                                     size={30}
                                     color={themeColors.YELLOW_GREEN}
                                 />
                             </TouchableOpacity>
                             <Text style={styles.heading}>Phone Number</Text>
                         </View>
-                        <Text style={styles.field}>Update Phone</Text>
-                        <View style={styles.phoneInputWrapper}>
-                            <Text style={styles.codePlus}>+</Text>
-                            <TextInput
-                                placeholder="000"
-                                value={code}
-                                onChangeText={setCode}
-                                style={styles.codeInput}
-                                placeholderTextColor={themeColors.SILVER}
-                                inputMode="tel"
-                            />
-                            <TextInput
-                                placeholder="123456789"
-                                value={phone}
-                                onChangeText={setPhone}
-                                style={styles.phoneInput}
-                                placeholderTextColor={themeColors.SILVER}
-                                inputMode="tel"
-                            />
+                        <View style={styles.mainSection}>
+                            <Text style={styles.field}>Update Phone</Text>
+                            <View style={styles.phoneInputWrapper}>
+                                <Text style={styles.codePlus}>+</Text>
+                                <TextInput
+                                    placeholder="000"
+                                    value={code}
+                                    onChangeText={setCode}
+                                    style={styles.codeInput}
+                                    placeholderTextColor={themeColors.SILVER}
+                                    inputMode="tel"
+                                />
+                                <TextInput
+                                    placeholder="123456789"
+                                    value={phone}
+                                    onChangeText={setPhone}
+                                    style={styles.phoneInput}
+                                    placeholderTextColor={themeColors.SILVER}
+                                    inputMode="tel"
+                                />
+                            </View>
                         </View>
                         <TouchableOpacity
                             style={styles.saveButtonContainer}
@@ -127,30 +129,30 @@ const styles = StyleSheet.create({
     headerSection: {
         flexDirection: 'row',
         paddingTop: '20%',
-        paddingLeft: 30,
-        paddingRight: 30,
-        height: 150,
-        width: 400,
+        paddingLeft: '10%',
+        paddingRight: '10%',
+        width: '100%',
         alignItems: 'center',
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.HEADING_TWO,
+        fontSize: fontSizes.HEADING_ONE,
         color: themeColors.WHITE,
-        paddingLeft: 20,
-        paddingRight: 30,
+        paddingLeft: '5%',
+    },
+    mainSection: {
+        width: '80%',
     },
     field: {
-        alignSelf: 'flex-start',
-        paddingLeft: 40,
-        paddingTop: '7%',
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
+        paddingTop: '10%',
         color: themeColors.WHITE,
+        alignSelf: 'flex-start',
     },
     phoneInputWrapper: {
         flexDirection: 'row',
-        width: '80%',
+        width: '100%',
     },
     codePlus: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
@@ -168,7 +170,7 @@ const styles = StyleSheet.create({
         marginRight: '5%',
         paddingTop: '5%',
         borderBottomColor: themeColors.WHITE,
-        borderBottomWidth: 2,
+        borderBottomWidth: 3,
         textAlignVertical: 'center',
     },
     phoneInput: {
@@ -178,7 +180,7 @@ const styles = StyleSheet.create({
         width: '70%',
         paddingTop: '5%',
         borderBottomColor: themeColors.WHITE,
-        borderBottomWidth: 2,
+        borderBottomWidth: 3,
         textAlignVertical: 'center',
     },
     saveButtonContainer: {
