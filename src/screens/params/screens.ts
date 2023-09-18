@@ -5,38 +5,50 @@
  */
 
 type screens = {
+    // Auth screens
     Main: undefined
     SignUp: undefined
     SignIn: undefined
     Reset: undefined
     Verification: undefined
     Password: undefined
+
+    // TabBar screens
     Feed: undefined
     Chats: undefined
     Work: undefined
     Profile: undefined
     Settings: undefined
-    Job: {
-        jobId: string
-    }
-    User: {
-        userId: string
-    }
-    Feedback: undefined
-    Chat: {
-        receiverUserId: string
-    }
+
+    // Main screens
     Search: undefined
+    Create: undefined
+
+    EditProfilePicture: undefined
+    EditPhoneNumber: undefined
+    EditEmailAddress: undefined
+    EditPassword: undefined
+
     AddJob: {
         projectId: string
         projectName: string
         jobCreatorId: string
         jobCreator: string
     }
-    EditProfilePicture: undefined
-    EditPhoneNumber: undefined
-    EditEmailAddress: undefined
-    EditPassword: undefined
+    Job: {
+        jobId: string
+    }
+
+    User: {
+        userId: string
+    }
+    Feedback: undefined
+
+    Chat: {
+        receiverUserId: string
+    }
+
+    // Common screens
     Support: undefined
     Contact: undefined
     About: undefined

@@ -29,13 +29,14 @@ import JobScreen from './src/screens/ui/jobScreen'
 import UserScreen from './src/screens/ui/userScreen'
 import SearchScreen from './src/screens/ui/searchScreen'
 import FeedbackScreen from './src/screens/ui/feedbackScreen'
+import CreateScreen from './src/screens/ui/createScreen'
 import AddJobScreen from './src/screens/ui/addJobScreen'
 import EditProfilePictureScreen from './src/screens/ui/EditProfilePictureScreen'
 import EditPhoneNumberScreen from './src/screens/ui/EditPhoneNumberScreen'
 import EditEmailAddressScreen from './src/screens/ui/EditEmailAddressScreen'
 import EditPasswordScreen from './src/screens/ui/EditPasswordScreen'
 import authNavigatorParamList from './src/screens/params/authNavigatorParamList'
-import dashboardNavigatorParamList from './src/screens/params/dashboardNavigatorParamList'
+import tabBarNavigatorParamList from './src/screens/params/tabBarNavigatorParamList'
 import mainNavigatorParamList from './src/screens/params/mainNavigatorParamList'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from './src/enums/themeColors'
@@ -71,7 +72,7 @@ const AuthStackNavigator = () => {
 }
 
 const DashboardTabNavigator = () => {
-    const DashboardTab = createBottomTabNavigator<dashboardNavigatorParamList>()
+    const DashboardTab = createBottomTabNavigator<tabBarNavigatorParamList>()
 
     return (
         <DashboardTab.Navigator
@@ -173,6 +174,7 @@ const MainStackNavigator = () => {
                 name="Dashboard"
                 component={DashboardTabNavigator}
             />
+            <MainStack.Screen name="Create" component={CreateScreen} />
             <MainStack.Screen name="Job" component={JobScreen} />
             <MainStack.Screen name="User" component={UserScreen} />
             <MainStack.Screen name="Feedback" component={FeedbackScreen} />

@@ -112,7 +112,9 @@ const WorkScreen = () => {
             <ScrollView contentContainerStyle={styles.scrollView}>
                 <View style={styles.headerSection}>
                     <Text style={styles.heading}>Work</Text>
-                    <TouchableOpacity onPress={() => {}}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Create')}
+                    >
                         <MaterialCommunityIcons
                             name="briefcase-plus"
                             size={30}

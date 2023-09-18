@@ -1,5 +1,6 @@
 type mainNavigatorParamList = {
     Dashboard: undefined
+    Create: undefined
     Job: {
         jobId: string
     }
