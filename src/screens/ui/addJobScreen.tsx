@@ -183,9 +183,20 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                                 }}
                             />
                             {jobDeadline ? (
-                                <Text style={styles.selectedDeadline}>
-                                    {jobDeadline}
-                                </Text>
+                                <>
+                                    <Text style={styles.selectedDeadline}>
+                                        {jobDeadline}
+                                    </Text>
+                                    <TouchableOpacity
+                                        style={styles.datePickerButtonContainer}
+                                        onPress={() => (
+                                            setShowDatePicker(false),
+                                            setJobDeadline('')
+                                        )}
+                                    >
+                                        <Text style={styles.button}>Reset</Text>
+                                    </TouchableOpacity>
+                                </>
                             ) : null}
                             <Text style={styles.field}>Description</Text>
                             <View style={styles.descContainer}>
