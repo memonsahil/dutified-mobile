@@ -35,8 +35,13 @@ type screens = {
         jobCreatorId: string
         jobCreator: string
     }
+    AddProject: undefined
+
     Job: {
         jobId: string
+    }
+    Project: {
+        projectId: string
     }
 
     User: {

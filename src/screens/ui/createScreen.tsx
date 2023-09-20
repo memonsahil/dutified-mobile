@@ -157,7 +157,9 @@ const CreateScreen = () => {
                             </View>
                             <TouchableOpacity style={styles.mainButtonWrapper}>
                                 <Text
-                                    onPress={() => {}}
+                                    onPress={() =>
+                                        navigation.navigate('AddProject')
+                                    }
                                     style={styles.mainButton}
                                 >
                                     Create Project
