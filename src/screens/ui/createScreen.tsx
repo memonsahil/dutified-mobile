@@ -13,9 +13,7 @@ import screens from '../params/screens'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 const CreateScreen = () => {
-    const [switchColumn, setSwitchColumn] = useState<'Project' | 'Job'>(
-        'Project'
-    )
+    const [switchColumn, setSwitchColumn] = useState<'Project' | 'Job'>('Job')
 
     const navigation: NavigationProp<screens> = useNavigation()
 
