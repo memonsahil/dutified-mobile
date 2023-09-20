@@ -87,7 +87,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                             <Text style={styles.heading}>New Job</Text>
                         </View>
                         <View style={styles.mainSection}>
-                            <Text style={styles.field}>Job Name</Text>
+                            <Text style={styles.field}>Job Title</Text>
                             <TextInput
                                 placeholder="App Developer"
                                 value={name}

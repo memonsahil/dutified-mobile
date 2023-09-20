@@ -14,7 +14,6 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import * as Crypto from 'expo-crypto'
 import * as Progress from 'react-native-progress'
-import DatePicker from 'react-native-date-picker'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
@@ -26,9 +25,6 @@ const AddProjectScreen = () => {
     const [enteredCategory, setEnteredCategory] = useState<string>('')
     const [selectedCategory, setSelectedCategory] = useState<string>('')
     const [searchResults, setSearchResults] = useState<string[]>([])
-    const [jobDeadline, setJobDeadline] = useState<string>('')
-    const [showDatePicker, setShowDatePicker] = useState<boolean>(false)
-    const [paymentAmount, setPaymentAmount] = useState<string>('')
     const [desc, setDesc] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
@@ -84,9 +80,9 @@ const AddProjectScreen = () => {
                             <Text style={styles.heading}>New Project</Text>
                         </View>
                         <View style={styles.mainSection}>
-                            <Text style={styles.field}>Job Name</Text>
+                            <Text style={styles.field}>Project Title</Text>
                             <TextInput
-                                placeholder="App Developer"
+                                placeholder="Update Backend API"
                                 value={name}
                                 onChangeText={setName}
                                 style={styles.textInput}
@@ -94,9 +90,9 @@ const AddProjectScreen = () => {
                                 autoCapitalize="words"
                                 inputMode="text"
                             />
-                            <Text style={styles.field}>Job Category</Text>
+                            <Text style={styles.field}>Project Category</Text>
                             <TextInput
-                                placeholder="App Development"
+                                placeholder="Web Development"
                                 value={enteredCategory}
                                 onChangeText={setEnteredCategory}
                                 style={styles.textInput}
@@ -144,61 +140,10 @@ const AddProjectScreen = () => {
                                     </Text>
                                 </View>
                             ) : null}
-                            <Text style={styles.field}>
-                                Payment Amount ($$$/day)
-                            </Text>
-                            <TextInput
-                                placeholder="$120"
-                                value={paymentAmount}
-                                onChangeText={setPaymentAmount}
-                                style={styles.textInput}
-                                placeholderTextColor={themeColors.SILVER}
-                                inputMode="decimal"
-                            />
-                            <Text style={styles.field}>
-                                Deadline (optional)
-                            </Text>
-                            <TouchableOpacity
-                                style={styles.datePickerButtonContainer}
-                                onPress={() => setShowDatePicker(true)}
-                            >
-                                <Text style={styles.button}>Set Deadline</Text>
-                            </TouchableOpacity>
-                            <DatePicker
-                                modal
-                                mode="date"
-                                date={new Date()}
-                                open={showDatePicker}
-                                onConfirm={(date) => {
-                                    setJobDeadline(
-                                        date.toString().substring(4, 15)
-                                    )
-                                    setShowDatePicker(false)
-                                }}
-                                onCancel={() => {
-                                    setShowDatePicker(false)
-                                }}
-                            />
-                            {jobDeadline ? (
-                                <>
-                                    <Text style={styles.selectedDeadline}>
-                                        {jobDeadline}
-                                    </Text>
-                                    <TouchableOpacity
-                                        style={styles.datePickerButtonContainer}
-                                        onPress={() => (
-                                            setShowDatePicker(false),
-                                            setJobDeadline('')
-                                        )}
-                                    >
-                                        <Text style={styles.button}>Reset</Text>
-                                    </TouchableOpacity>
-                                </>
-                            ) : null}
                             <Text style={styles.field}>Description</Text>
                             <View style={styles.descContainer}>
                                 <TextInput
-                                    placeholder="Describe your job's goal, types of skills required, and any other relevant details."
+                                    placeholder="Describe your project's goal, types of skills required, and any other relevant details."
                                     value={desc}
                                     onChangeText={setDesc}
                                     style={styles.descTextInput}
@@ -213,7 +158,6 @@ const AddProjectScreen = () => {
                                     if (
                                         name !== '' &&
                                         selectedCategory !== '' &&
-                                        paymentAmount !== '' &&
                                         desc !== ''
                                     ) {
                                         setLoading(true)
@@ -234,9 +178,8 @@ const AddProjectScreen = () => {
                                 <Text style={styles.button}>Create</Text>
                             </TouchableOpacity>
                             <Text style={styles.textSection}>
-                                Once this job is created, it can be viewed by
-                                others. These details can be edited later on
-                                until someone is hired for this job.
+                                Once this project is created, it can be viewed
+                                by others. These details can be edited later on.
                             </Text>
                         </View>
                     </KeyboardAwareScrollView>
