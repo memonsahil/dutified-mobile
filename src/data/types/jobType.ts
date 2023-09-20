@@ -4,15 +4,18 @@ import jobStatus from '../../enums/jobStatus'
 type jobType = {
     jobId: string
     jobName: string
+    projectId?: string
+    projectName?: string
     jobCreatorId: string
     jobCreator: string
     jobWorkerId: string
     jobWorker: string
-    categories: categories
+    status: jobStatus
+    category: categories
+    payment: string
     description: string
     creationDate: string
-    payment: string
-    status: jobStatus
+    dueDate?: string
 }
 
 export default jobType

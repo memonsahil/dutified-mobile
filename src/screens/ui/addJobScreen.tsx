@@ -57,7 +57,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
             if (
                 categories[category]
                     .toLowerCase()
-                    .includes(searchArg.toLowerCase())
+                    .includes(searchArg.toLowerCase().replace(/\s/g, ''))
             ) {
                 results.push(categories[category])
             }
@@ -87,27 +87,29 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                             <Text style={styles.heading}>New Job</Text>
                         </View>
                         <View style={styles.mainSection}>
-                            <Text style={styles.field}>Name</Text>
+                            <Text style={styles.field}>Job Name</Text>
                             <TextInput
-                                placeholder="Give your job a name."
+                                placeholder="App Developer"
                                 value={name}
                                 onChangeText={setName}
                                 style={styles.textInput}
                                 placeholderTextColor={themeColors.SILVER}
+                                autoCapitalize="words"
                                 inputMode="text"
                             />
-                            <Text style={styles.field}>Category</Text>
+                            <Text style={styles.field}>Job Category</Text>
                             <TextInput
-                                placeholder="Search for a category."
+                                placeholder="App Development"
                                 value={enteredCategory}
                                 onChangeText={setEnteredCategory}
                                 style={styles.textInput}
                                 placeholderTextColor={themeColors.SILVER}
+                                autoCapitalize="words"
                                 inputMode="text"
                             />
                             <View style={styles.categoryContainer}>
                                 <Text style={styles.categoriesHeading}>
-                                    Options
+                                    Available Categories
                                 </Text>
                                 <ScrollView
                                     horizontal={true}
@@ -138,23 +140,27 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                             {selectedCategory !== '' ? (
                                 <View style={styles.categoryContainer}>
                                     <Text style={styles.categoriesHeading}>
-                                        Selected
+                                        Selected Category
                                     </Text>
                                     <Text style={styles.selectedCategory}>
                                         {selectedCategory}
                                     </Text>
                                 </View>
                             ) : null}
-                            <Text style={styles.field}>Payment (USD)</Text>
+                            <Text style={styles.field}>
+                                Payment Amount ($$$/day)
+                            </Text>
                             <TextInput
-                                placeholder="$200"
+                                placeholder="$120"
                                 value={paymentAmount}
                                 onChangeText={setPaymentAmount}
                                 style={styles.textInput}
                                 placeholderTextColor={themeColors.SILVER}
                                 inputMode="decimal"
                             />
-                            <Text style={styles.field}>Deadline</Text>
+                            <Text style={styles.field}>
+                                Deadline (optional)
+                            </Text>
                             <TouchableOpacity
                                 style={styles.datePickerButtonContainer}
                                 onPress={() => setShowDatePicker(true)}
@@ -184,7 +190,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                             <Text style={styles.field}>Description</Text>
                             <View style={styles.descContainer}>
                                 <TextInput
-                                    placeholder="Describe your job's goal, types of skills required etc."
+                                    placeholder="Describe your job's goal, types of skills required, and any other relevant details."
                                     value={desc}
                                     onChangeText={setDesc}
                                     style={styles.descTextInput}
@@ -200,14 +206,13 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                                         name !== '' &&
                                         selectedCategory !== '' &&
                                         paymentAmount !== '' &&
-                                        jobDeadline !== '' &&
                                         desc !== ''
                                     ) {
                                         setLoading(true)
                                     } else {
                                         Alert.alert(
                                             'Missing Details',
-                                            'Please enter all of your details before creating your job.',
+                                            'Please complete all required fields before proceeding.',
                                             [
                                                 {
                                                     text: 'Dismiss',
@@ -221,9 +226,9 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                                 <Text style={styles.button}>Create</Text>
                             </TouchableOpacity>
                             <Text style={styles.textSection}>
-                                Once your job is created, it can be viewed by
-                                other users and these details cannot be changed
-                                later.
+                                Once this job is created, it can be viewed by
+                                others. These details can be edited later on
+                                until someone is hired for this job.
                             </Text>
                         </View>
                     </KeyboardAwareScrollView>
