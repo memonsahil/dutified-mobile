@@ -96,22 +96,6 @@ const ProfileScreen = () => {
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
         },
-        {
-            projectId: '3',
-            projectName: 'Hired Project 3',
-            description:
-                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-        },
-        {
-            projectId: '4',
-            projectName: 'Hired Project 4',
-            description:
-                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-        },
     ]
     const jobsHired: Array<jobCardProps> = [
         {
