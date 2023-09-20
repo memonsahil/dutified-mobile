@@ -341,7 +341,7 @@ const styles = StyleSheet.create({
     descTextInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.WHITE,
+        color: themeColors.BLACK,
         width: '100%',
         height: '100%',
         overflow: 'visible',
