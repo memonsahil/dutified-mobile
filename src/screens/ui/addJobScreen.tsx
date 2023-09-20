@@ -358,7 +358,6 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     textSection: {
-        width: '70%',
         textAlign: 'center',
         alignSelf: 'center',
         paddingTop: '5%',
