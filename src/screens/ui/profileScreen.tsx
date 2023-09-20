@@ -193,14 +193,7 @@ const ProfileScreen = () => {
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => {}}>
                             <MaterialCommunityIcons
-                                name="account-multiple"
-                                size={30}
-                                color={themeColors.YELLOW_GREEN}
-                            />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {}}>
-                            <MaterialCommunityIcons
-                                name="account-edit"
+                                name="account-group"
                                 size={30}
                                 color={themeColors.YELLOW_GREEN}
                             />
@@ -504,7 +497,7 @@ const styles = StyleSheet.create({
     iconWrapper: {
         flexDirection: 'row',
         alignItems: 'center',
-        width: '50%',
+        width: '30%',
         justifyContent: 'space-between',
     },
     buttonSection: {

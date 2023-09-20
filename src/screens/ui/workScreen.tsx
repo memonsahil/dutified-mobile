@@ -94,15 +94,24 @@ const WorkScreen = () => {
             <ScrollView contentContainerStyle={styles.scrollView}>
                 <View style={styles.headerSection}>
                     <Text style={styles.heading}>Work</Text>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Create')}
-                    >
-                        <MaterialCommunityIcons
-                            name="briefcase-plus"
-                            size={30}
-                            color={themeColors.YELLOW_GREEN}
-                        />
-                    </TouchableOpacity>
+                    <View style={styles.iconWrapper}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Create')}
+                        >
+                            <MaterialCommunityIcons
+                                name="briefcase-plus"
+                                size={30}
+                                color={themeColors.YELLOW_GREEN}
+                            />
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => {}}>
+                            <MaterialCommunityIcons
+                                name="magnify"
+                                size={30}
+                                color={themeColors.YELLOW_GREEN}
+                            />
+                        </TouchableOpacity>
+                    </View>
                 </View>
                 <View style={styles.buttonSection}>
                     <TouchableOpacity onPress={() => setSwitchColumn('Hired')}>
@@ -304,6 +313,12 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.HEADING_ONE,
         color: themeColors.WHITE,
+    },
+    iconWrapper: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '30%',
+        justifyContent: 'space-between',
     },
     buttonSection: {
         flexDirection: 'row',
