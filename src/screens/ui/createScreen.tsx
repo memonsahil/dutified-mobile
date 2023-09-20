@@ -33,6 +33,19 @@ const CreateScreen = () => {
                     <Text style={styles.heading}>Create</Text>
                 </View>
                 <View style={styles.buttonSection}>
+                    <TouchableOpacity onPress={() => setSwitchColumn('Job')}>
+                        <Text
+                            style={{
+                                ...styles.button,
+                                color:
+                                    switchColumn === 'Job'
+                                        ? themeColors.YELLOW_GREEN
+                                        : themeColors.SILVER,
+                            }}
+                        >
+                            Job
+                        </Text>
+                    </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => setSwitchColumn('Project')}
                     >
@@ -48,66 +61,9 @@ const CreateScreen = () => {
                             Project
                         </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => setSwitchColumn('Job')}>
-                        <Text
-                            style={{
-                                ...styles.button,
-                                color:
-                                    switchColumn === 'Job'
-                                        ? themeColors.YELLOW_GREEN
-                                        : themeColors.SILVER,
-                            }}
-                        >
-                            Job
-                        </Text>
-                    </TouchableOpacity>
                 </View>
                 <View style={styles.infoSection}>
-                    {switchColumn === 'Project' ? (
-                        <>
-                            <View style={styles.infoTextWrapper}>
-                                <MaterialCommunityIcons
-                                    name="briefcase-account"
-                                    size={30}
-                                    color={themeColors.YELLOW_GREEN}
-                                />
-                                <Text style={styles.infoText}>
-                                    Create multiple jobs and hire others to
-                                    achieve your project's goal.
-                                </Text>
-                            </View>
-                            <View style={styles.infoTextWrapper}>
-                                <MaterialCommunityIcons
-                                    name="account-group"
-                                    size={30}
-                                    color={themeColors.YELLOW_GREEN}
-                                />
-                                <Text style={styles.infoText}>
-                                    Collaborate with your team and track your
-                                    project's progress.
-                                </Text>
-                            </View>
-                            <View style={styles.infoTextWrapper}>
-                                <MaterialCommunityIcons
-                                    name="account-cash"
-                                    size={30}
-                                    color={themeColors.YELLOW_GREEN}
-                                />
-                                <Text style={styles.infoText}>
-                                    Make job payments and manage your project's
-                                    hiring budget.
-                                </Text>
-                            </View>
-                            <TouchableOpacity style={styles.mainButtonWrapper}>
-                                <Text
-                                    onPress={() => {}}
-                                    style={styles.mainButton}
-                                >
-                                    Create Project
-                                </Text>
-                            </TouchableOpacity>
-                        </>
-                    ) : (
+                    {switchColumn === 'Job' ? (
                         <>
                             <View style={styles.infoTextWrapper}>
                                 <MaterialCommunityIcons
@@ -146,6 +102,60 @@ const CreateScreen = () => {
                                     style={styles.mainButton}
                                 >
                                     Create Job
+                                </Text>
+                            </TouchableOpacity>
+                        </>
+                    ) : (
+                        <>
+                            <View style={styles.infoTextWrapper}>
+                                <MaterialCommunityIcons
+                                    name="briefcase-account"
+                                    size={30}
+                                    color={themeColors.YELLOW_GREEN}
+                                />
+                                <Text style={styles.infoText}>
+                                    Create multiple jobs and hire others to
+                                    achieve your project's goal.
+                                </Text>
+                            </View>
+                            <View style={styles.infoTextWrapper}>
+                                <MaterialCommunityIcons
+                                    name="account-group"
+                                    size={30}
+                                    color={themeColors.YELLOW_GREEN}
+                                />
+                                <Text style={styles.infoText}>
+                                    Collaborate with your team and track your
+                                    project's progress.
+                                </Text>
+                            </View>
+                            <View style={styles.infoTextWrapper}>
+                                <MaterialCommunityIcons
+                                    name="account-cash"
+                                    size={30}
+                                    color={themeColors.YELLOW_GREEN}
+                                />
+                                <Text style={styles.infoText}>
+                                    Make job payments and manage your project's
+                                    hiring budget.
+                                </Text>
+                            </View>
+                            <View style={styles.infoTextWrapper}>
+                                <MaterialCommunityIcons
+                                    name="credit-card-check"
+                                    size={30}
+                                    color={themeColors.YELLOW_GREEN}
+                                />
+                                <Text style={styles.infoText}>
+                                    Each payment costs a $10 transaction fee.
+                                </Text>
+                            </View>
+                            <TouchableOpacity style={styles.mainButtonWrapper}>
+                                <Text
+                                    onPress={() => {}}
+                                    style={styles.mainButton}
+                                >
+                                    Create Project
                                 </Text>
                             </TouchableOpacity>
                         </>
@@ -199,7 +209,7 @@ const styles = StyleSheet.create({
     },
     infoTextWrapper: {
         flexDirection: 'row',
-        paddingTop: '5%',
+        paddingTop: '10%',
         alignItems: 'center',
         width: '80%',
     },
@@ -209,13 +219,15 @@ const styles = StyleSheet.create({
         color: themeColors.WHITE,
         paddingLeft: '10%',
     },
-    mainButtonWrapper: { alignSelf: 'center' },
+    mainButtonWrapper: {
+        alignSelf: 'center',
+        paddingTop: '10%',
+        paddingBottom: '20%',
+    },
     mainButton: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
-        paddingTop: '10%',
-        paddingBottom: '20%',
     },
 })
 

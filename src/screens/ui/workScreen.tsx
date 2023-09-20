@@ -86,26 +86,8 @@ const WorkScreen = () => {
             category: categories.ANIMATION,
         },
     ]
-    const projectsCreated: Array<projectCardProps> = [
-        {
-            projectId: '1',
-            projectName: 'Hired Project 1',
-            description: 'This is a description for Hired project 1',
-            creationDate: '2021-01-01',
-            category: categories.ACCOUNTING,
-        },
-    ]
-    const jobsCreated: Array<jobCardProps> = [
-        {
-            jobId: '1',
-            jobName: 'Created Job 1',
-            status: jobStatus.IN_PROGRESS,
-            payment: '200',
-            description: 'This is a description for Created job 1',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-        },
-    ]
+    const projectsCreated: Array<projectCardProps> = []
+    const jobsCreated: Array<jobCardProps> = []
 
     return (
         <View style={styles.container}>
