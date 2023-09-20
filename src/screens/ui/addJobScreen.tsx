@@ -15,7 +15,7 @@ import { useNavigation, NavigationProp } from '@react-navigation/native'
 import * as Crypto from 'expo-crypto'
 import * as Progress from 'react-native-progress'
 import DatePicker from 'react-native-date-picker'
-import { AntDesign } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import categories from '../../enums/categories'
@@ -78,147 +78,154 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                             <TouchableOpacity
                                 onPress={() => navigation.goBack()}
                             >
-                                <AntDesign
-                                    name="caretleft"
+                                <MaterialCommunityIcons
+                                    name="chevron-left-circle"
                                     size={30}
                                     color={themeColors.YELLOW_GREEN}
                                 />
                             </TouchableOpacity>
                             <Text style={styles.heading}>New Job</Text>
                         </View>
-                        <Text style={styles.field}>Name</Text>
-                        <TextInput
-                            placeholder="Give your job a name."
-                            value={name}
-                            onChangeText={setName}
-                            style={styles.textInput}
-                            placeholderTextColor={themeColors.SILVER}
-                            inputMode="text"
-                        />
-                        <Text style={styles.field}>Category</Text>
-                        <TextInput
-                            placeholder="Search for a category."
-                            value={enteredCategory}
-                            onChangeText={setEnteredCategory}
-                            style={styles.textInput}
-                            placeholderTextColor={themeColors.SILVER}
-                            inputMode="text"
-                        />
-                        <View style={styles.searchContainer}>
-                            <Text style={styles.searchCategoriesHeading}>
-                                Options
-                            </Text>
-                            <ScrollView
-                                horizontal={true}
-                                showsHorizontalScrollIndicator={false}
-                                contentContainerStyle={
-                                    styles.categoriesScrollView
-                                }
-                            >
-                                {Object.values(searchResults).map(
-                                    (category) => (
-                                        <TouchableOpacity
-                                            key={category}
-                                            onPress={() => {
-                                                setSelectedCategory(category)
-                                                setEnteredCategory('')
-                                            }}
-                                        >
-                                            <Text style={styles.category}>
-                                                {category}
-                                            </Text>
-                                        </TouchableOpacity>
-                                    )
-                                )}
-                            </ScrollView>
-                        </View>
-                        {selectedCategory !== '' ? (
-                            <View style={styles.selectedContainer}>
-                                <Text style={styles.selectedCategoriesHeading}>
-                                    Selected
-                                </Text>
-                                <Text style={styles.selectedCategory}>
-                                    {selectedCategory}
-                                </Text>
-                            </View>
-                        ) : null}
-                        <Text style={styles.field}>Payment (USD)</Text>
-                        <TextInput
-                            placeholder="$200"
-                            value={paymentAmount}
-                            onChangeText={setPaymentAmount}
-                            style={styles.textInput}
-                            placeholderTextColor={themeColors.SILVER}
-                            inputMode="decimal"
-                        />
-                        <Text style={styles.field}>Deadline</Text>
-                        <TouchableOpacity
-                            style={styles.datePickerButtonContainer}
-                            onPress={() => setShowDatePicker(true)}
-                        >
-                            <Text style={styles.button}>Set Deadline</Text>
-                        </TouchableOpacity>
-                        <DatePicker
-                            modal
-                            mode="date"
-                            date={new Date()}
-                            open={showDatePicker}
-                            onConfirm={(date) => {
-                                setJobDeadline(date.toString().substring(4, 15))
-                                setShowDatePicker(false)
-                            }}
-                            onCancel={() => {
-                                setShowDatePicker(false)
-                            }}
-                        />
-                        {jobDeadline ? (
-                            <Text style={styles.selectedDeadline}>
-                                {jobDeadline}
-                            </Text>
-                        ) : null}
-                        <Text style={styles.field}>Description</Text>
-                        <View style={styles.descContainer}>
+                        <View style={styles.mainSection}>
+                            <Text style={styles.field}>Name</Text>
                             <TextInput
-                                placeholder="Describe your job's goal, types of skills required etc."
-                                value={desc}
-                                onChangeText={setDesc}
-                                style={styles.descTextInput}
+                                placeholder="Give your job a name."
+                                value={name}
+                                onChangeText={setName}
+                                style={styles.textInput}
                                 placeholderTextColor={themeColors.SILVER}
                                 inputMode="text"
-                                multiline
                             />
-                        </View>
-                        <TouchableOpacity
-                            style={styles.launchButtonContainer}
-                            onPress={() => {
-                                if (
-                                    name !== '' &&
-                                    selectedCategory !== '' &&
-                                    paymentAmount !== '' &&
-                                    jobDeadline !== '' &&
-                                    desc !== ''
-                                ) {
-                                    setLoading(true)
-                                } else {
-                                    Alert.alert(
-                                        'Missing Details',
-                                        'Please enter all of your details before creating your job.',
-                                        [
-                                            {
-                                                text: 'Dismiss',
-                                                onPress: () => {},
-                                            },
-                                        ]
+                            <Text style={styles.field}>Category</Text>
+                            <TextInput
+                                placeholder="Search for a category."
+                                value={enteredCategory}
+                                onChangeText={setEnteredCategory}
+                                style={styles.textInput}
+                                placeholderTextColor={themeColors.SILVER}
+                                inputMode="text"
+                            />
+                            <View style={styles.categoryContainer}>
+                                <Text style={styles.categoriesHeading}>
+                                    Options
+                                </Text>
+                                <ScrollView
+                                    horizontal={true}
+                                    showsHorizontalScrollIndicator={false}
+                                    contentContainerStyle={
+                                        styles.categoriesScrollView
+                                    }
+                                >
+                                    {Object.values(searchResults).map(
+                                        (category) => (
+                                            <TouchableOpacity
+                                                key={category}
+                                                onPress={() => {
+                                                    setSelectedCategory(
+                                                        category
+                                                    )
+                                                    setEnteredCategory('')
+                                                }}
+                                            >
+                                                <Text style={styles.category}>
+                                                    {category}
+                                                </Text>
+                                            </TouchableOpacity>
+                                        )
+                                    )}
+                                </ScrollView>
+                            </View>
+                            {selectedCategory !== '' ? (
+                                <View style={styles.categoryContainer}>
+                                    <Text style={styles.categoriesHeading}>
+                                        Selected
+                                    </Text>
+                                    <Text style={styles.selectedCategory}>
+                                        {selectedCategory}
+                                    </Text>
+                                </View>
+                            ) : null}
+                            <Text style={styles.field}>Payment (USD)</Text>
+                            <TextInput
+                                placeholder="$200"
+                                value={paymentAmount}
+                                onChangeText={setPaymentAmount}
+                                style={styles.textInput}
+                                placeholderTextColor={themeColors.SILVER}
+                                inputMode="decimal"
+                            />
+                            <Text style={styles.field}>Deadline</Text>
+                            <TouchableOpacity
+                                style={styles.datePickerButtonContainer}
+                                onPress={() => setShowDatePicker(true)}
+                            >
+                                <Text style={styles.button}>Set Deadline</Text>
+                            </TouchableOpacity>
+                            <DatePicker
+                                modal
+                                mode="date"
+                                date={new Date()}
+                                open={showDatePicker}
+                                onConfirm={(date) => {
+                                    setJobDeadline(
+                                        date.toString().substring(4, 15)
                                     )
-                                }
-                            }}
-                        >
-                            <Text style={styles.button}>Create</Text>
-                        </TouchableOpacity>
-                        <Text style={styles.textSection}>
-                            Once your job is created, it can be viewed by other
-                            users and these details cannot be changed later.
-                        </Text>
+                                    setShowDatePicker(false)
+                                }}
+                                onCancel={() => {
+                                    setShowDatePicker(false)
+                                }}
+                            />
+                            {jobDeadline ? (
+                                <Text style={styles.selectedDeadline}>
+                                    {jobDeadline}
+                                </Text>
+                            ) : null}
+                            <Text style={styles.field}>Description</Text>
+                            <View style={styles.descContainer}>
+                                <TextInput
+                                    placeholder="Describe your job's goal, types of skills required etc."
+                                    value={desc}
+                                    onChangeText={setDesc}
+                                    style={styles.descTextInput}
+                                    placeholderTextColor={themeColors.SILVER}
+                                    inputMode="text"
+                                    multiline
+                                />
+                            </View>
+                            <TouchableOpacity
+                                style={styles.launchButtonContainer}
+                                onPress={() => {
+                                    if (
+                                        name !== '' &&
+                                        selectedCategory !== '' &&
+                                        paymentAmount !== '' &&
+                                        jobDeadline !== '' &&
+                                        desc !== ''
+                                    ) {
+                                        setLoading(true)
+                                    } else {
+                                        Alert.alert(
+                                            'Missing Details',
+                                            'Please enter all of your details before creating your job.',
+                                            [
+                                                {
+                                                    text: 'Dismiss',
+                                                    onPress: () => {},
+                                                },
+                                            ]
+                                        )
+                                    }
+                                }}
+                            >
+                                <Text style={styles.button}>Create</Text>
+                            </TouchableOpacity>
+                            <Text style={styles.textSection}>
+                                Once your job is created, it can be viewed by
+                                other users and these details cannot be changed
+                                later.
+                            </Text>
+                        </View>
                     </KeyboardAwareScrollView>
                 </TouchableWithoutFeedback>
             ) : (
@@ -253,73 +260,55 @@ const styles = StyleSheet.create({
     headerSection: {
         flexDirection: 'row',
         paddingTop: '20%',
-        paddingLeft: 30,
-        paddingRight: 30,
-        height: 150,
-        width: 400,
+        paddingLeft: '10%',
+        paddingRight: '10%',
+        width: '100%',
         alignItems: 'center',
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.HEADING_TWO,
+        fontSize: fontSizes.HEADING_ONE,
         color: themeColors.WHITE,
-        paddingLeft: 20,
-        paddingRight: 30,
+        paddingLeft: '5%',
+    },
+    mainSection: {
+        width: '80%',
     },
     field: {
-        alignSelf: 'flex-start',
-        paddingLeft: 40,
-        paddingTop: '7%',
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
+        paddingTop: '10%',
         color: themeColors.WHITE,
+        alignSelf: 'flex-start',
     },
     textInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.INPUT,
         color: themeColors.WHITE,
-        width: '80%',
+        width: '100%',
         paddingTop: '5%',
         borderBottomColor: themeColors.WHITE,
-        borderBottomWidth: 2,
+        borderBottomWidth: 3,
         alignSelf: 'center',
     },
-    selectedContainer: {
-        width: '85%',
+    categoryContainer: {
         overflow: 'hidden',
+        paddingTop: '5%',
         alignItems: 'flex-start',
     },
-    searchContainer: {
-        backgroundColor: themeColors.WHITE,
-        borderRadius: 15,
-        width: '85%',
-        overflow: 'hidden',
-        paddingBottom: '5%',
-        marginTop: '5%',
-    },
-    selectedCategoriesHeading: {
+    categoriesHeading: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.WHITE,
         paddingTop: '5%',
-        paddingLeft: 10,
-    },
-    searchCategoriesHeading: {
-        fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.BODY_ONE,
-        color: themeColors.WHITE,
-        paddingTop: '5%',
-        paddingLeft: 10,
     },
     categoriesScrollView: {
-        paddingLeft: 10,
-        paddingRight: 10,
         paddingTop: '5%',
     },
     category: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
-        color: themeColors.WHITE,
+        color: themeColors.BLACK,
         backgroundColor: themeColors.YELLOW_GREEN,
         padding: 5,
         marginRight: 10,
@@ -327,10 +316,9 @@ const styles = StyleSheet.create({
     selectedCategory: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
-        color: themeColors.WHITE,
+        color: themeColors.BLACK,
         backgroundColor: themeColors.YELLOW_GREEN,
         padding: 5,
-        marginLeft: 10,
         marginTop: '5%',
     },
     datePickerButtonContainer: {
@@ -341,12 +329,12 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.WHITE,
         marginTop: '5%',
+        alignSelf: 'center',
     },
     descContainer: {
         backgroundColor: themeColors.WHITE,
-        width: '80%',
         height: 250,
-        borderRadius: 15,
+        borderRadius: 20,
         marginTop: '5%',
         padding: 10,
     },
@@ -367,10 +355,12 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
+        alignSelf: 'center',
     },
     textSection: {
         width: '70%',
         textAlign: 'center',
+        alignSelf: 'center',
         paddingTop: '5%',
         paddingBottom: '20%',
         fontFamily: 'IBMPlexSansCondensed-Bold',

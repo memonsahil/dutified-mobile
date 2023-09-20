@@ -98,7 +98,14 @@ const CreateScreen = () => {
                             </View>
                             <TouchableOpacity style={styles.mainButtonWrapper}>
                                 <Text
-                                    onPress={() => {}}
+                                    onPress={() =>
+                                        navigation.navigate('AddJob', {
+                                            projectId: '1',
+                                            projectName: 'Test Project',
+                                            jobCreatorId: '1',
+                                            jobCreator: 'Test User',
+                                        })
+                                    }
                                     style={styles.mainButton}
                                 >
                                     Create Job
