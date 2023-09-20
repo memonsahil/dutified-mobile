@@ -20,16 +20,12 @@ const SupportScreen = () => {
                 </TouchableOpacity>
                 <Text style={styles.heading}>Support</Text>
             </View>
-            <View style={styles.buttonSection}>
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('Contact')}
-                >
-                    <Text style={styles.button}>Contact</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('About')}>
-                    <Text style={styles.button}>About</Text>
-                </TouchableOpacity>
-            </View>
+            <TouchableOpacity onPress={() => navigation.navigate('Contact')}>
+                <Text style={styles.button}>Contact</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('About')}>
+                <Text style={styles.button}>About</Text>
+            </TouchableOpacity>
         </View>
     )
 }
@@ -63,7 +59,8 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
-        paddingBottom: '5%',
+        paddingTop: '5%',
+        paddingLeft: '10%',
     },
 })
 
