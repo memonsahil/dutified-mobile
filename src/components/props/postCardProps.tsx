@@ -6,9 +6,9 @@ type postCardProps = {
     userAvatar: string
     date: string
     comments: string
-    jobAttachments: {
-        jobId: string
-        jobName: string
+    attachments?: {
+        id: string
+        title: string
     }[]
 }
 

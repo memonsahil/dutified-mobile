@@ -24,10 +24,14 @@ const FeedScreen = () => {
             userName: 'Sahil Memon',
             userAvatar: '',
             date: '2021-01-01',
-            jobAttachments: [
+            attachments: [
                 {
-                    jobId: '1',
-                    jobName: 'Created Job 1',
+                    id: '1',
+                    title: 'Created Job 1',
+                },
+                {
+                    id: '2',
+                    title: 'Created Project 1',
                 },
             ],
             comments: '1',
@@ -40,14 +44,14 @@ const FeedScreen = () => {
             userName: 'Sahil Memon',
             userAvatar: '',
             date: '2021-01-01',
-            jobAttachments: [
+            attachments: [
                 {
-                    jobId: '1',
-                    jobName: 'Created Job 1',
+                    id: '1',
+                    title: 'Created Job 1',
                 },
                 {
-                    jobId: '2',
-                    jobName: 'Created Job 2',
+                    id: '2',
+                    title: 'Created Job 2',
                 },
             ],
             comments: '1',
@@ -60,7 +64,7 @@ const FeedScreen = () => {
             userName: 'Sahil Memon',
             userAvatar: '',
             date: '2021-01-01',
-            jobAttachments: [],
+            attachments: [],
             comments: '1',
         },
     ]
@@ -105,7 +109,7 @@ const FeedScreen = () => {
                                 userName={post.userName}
                                 userAvatar={post.userAvatar}
                                 date={post.date}
-                                jobAttachments={post.jobAttachments}
+                                attachments={post.attachments}
                                 comments={post.comments}
                             />
                         ))}

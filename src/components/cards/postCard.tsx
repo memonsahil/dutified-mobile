@@ -34,14 +34,11 @@ const PostCard = (props: postCardProps) => {
                 </Text>
             </View>
             <Text style={styles.post}>{props.content}</Text>
-            {props.jobAttachments.length !== 0
-                ? props.jobAttachments.map((attachment) => (
-                      <TouchableOpacity
-                          key={attachment.jobId}
-                          onPress={() => {}}
-                      >
+            {props.attachments?.length !== 0
+                ? props.attachments?.map((attachment) => (
+                      <TouchableOpacity key={attachment.id} onPress={() => {}}>
                           <Text style={styles.jobAttachment}>
-                              {attachment.jobName}
+                              {attachment.title}
                           </Text>
                       </TouchableOpacity>
                   ))

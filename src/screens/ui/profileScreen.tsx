@@ -36,10 +36,14 @@ const ProfileScreen = () => {
             userName: 'Sahil Memon',
             userAvatar: '',
             date: '2021-01-01',
-            jobAttachments: [
+            attachments: [
                 {
-                    jobId: '1',
-                    jobName: 'Created Job 1',
+                    id: '1',
+                    title: 'Created Job 1',
+                },
+                {
+                    id: '2',
+                    title: 'Created Project 1',
                 },
             ],
             comments: '1',
@@ -52,14 +56,14 @@ const ProfileScreen = () => {
             userName: 'Sahil Memon',
             userAvatar: '',
             date: '2021-01-01',
-            jobAttachments: [
+            attachments: [
                 {
-                    jobId: '1',
-                    jobName: 'Created Job 1',
+                    id: '1',
+                    title: 'Created Job 1',
                 },
                 {
-                    jobId: '2',
-                    jobName: 'Created Job 2',
+                    id: '2',
+                    title: 'Created Job 2',
                 },
             ],
             comments: '1',
@@ -72,7 +76,7 @@ const ProfileScreen = () => {
             userName: 'Sahil Memon',
             userAvatar: '',
             date: '2021-01-01',
-            jobAttachments: [],
+            attachments: [],
             comments: '1',
         },
     ]
@@ -144,14 +148,6 @@ const ProfileScreen = () => {
             projectId: '1',
             projectName: 'Hired Project 1',
             description: 'This is a description for Hired project 1',
-            creationDate: '2021-01-01',
-            category: categories.ACCOUNTING,
-        },
-        {
-            projectId: '2',
-            projectName: 'Hired Project 2',
-            description:
-                'This is a description for Hired project 2, This is a description for Hired project 2, This is a description for Hired project 2',
             creationDate: '2021-01-01',
             category: categories.ACCOUNTING,
         },
@@ -316,7 +312,7 @@ const ProfileScreen = () => {
                                         userName={post.userName}
                                         userAvatar={post.userAvatar}
                                         date={post.date}
-                                        jobAttachments={post.jobAttachments}
+                                        attachments={post.attachments}
                                         comments={post.comments}
                                     />
                                 ))}
