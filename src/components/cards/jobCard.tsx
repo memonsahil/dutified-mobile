@@ -3,6 +3,7 @@ import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import navProps from '../props/navProps'
 import jobCardProps from '../props/jobCardProps'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 const JobCard = (props: jobCardProps & navProps) => {
     return (
@@ -19,6 +20,13 @@ const JobCard = (props: jobCardProps & navProps) => {
                 >
                     {props.jobName}
                 </Text>
+                <TouchableOpacity onPress={() => {}} style={styles.plusIcon}>
+                    <MaterialCommunityIcons
+                        name="plus-circle"
+                        size={30}
+                        color={themeColors.YELLOW_GREEN}
+                    />
+                </TouchableOpacity>
                 <View style={styles.detailSection}>
                     <Text style={styles.jobDetail}>{props.category}</Text>
                 </View>
@@ -56,6 +64,11 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.BLACK,
         marginBottom: '5%',
+    },
+    plusIcon: {
+        position: 'absolute',
+        right: 0,
+        top: 0,
     },
     detailSection: {
         flexDirection: 'row',

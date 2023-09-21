@@ -1,10 +1,14 @@
+import { useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import navProps from '../props/navProps'
 import projectCardProps from '../props/projectCardProps'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 const ProjectCard = (props: projectCardProps & navProps) => {
+    const [attachmentCount, setAttachmentCount] = useState<number>(0)
+
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => {}}>
@@ -15,6 +19,13 @@ const ProjectCard = (props: projectCardProps & navProps) => {
                 >
                     {props.projectName}
                 </Text>
+                <TouchableOpacity onPress={() => {}} style={styles.plusIcon}>
+                    <MaterialCommunityIcons
+                        name="plus-circle"
+                        size={30}
+                        color={themeColors.YELLOW_GREEN}
+                    />
+                </TouchableOpacity>
                 <View style={styles.detailSection}>
                     <Text style={styles.projectDetail}>{props.category}</Text>
                 </View>
@@ -48,6 +59,11 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.BLACK,
         marginBottom: '5%',
+    },
+    plusIcon: {
+        position: 'absolute',
+        right: 0,
+        top: 0,
     },
     detailSection: {
         flexDirection: 'row',
