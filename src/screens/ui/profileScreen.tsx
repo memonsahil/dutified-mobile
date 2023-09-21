@@ -281,8 +281,7 @@ const ProfileScreen = () => {
                         {posts.length === 0 ? (
                             <View style={styles.noDataContainer}>
                                 <Text style={styles.noDataText}>
-                                    Posts that are created by you will be shown
-                                    here.
+                                    Posts that you create will be shown here.
                                 </Text>
                             </View>
                         ) : (
