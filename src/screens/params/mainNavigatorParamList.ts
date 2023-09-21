@@ -20,6 +20,7 @@ type mainNavigatorParamList = {
     }
     AddProject: undefined
     AddPost: undefined
+    Attach: undefined
     EditProfilePicture: undefined
     EditPhoneNumber: undefined
     EditEmailAddress: undefined

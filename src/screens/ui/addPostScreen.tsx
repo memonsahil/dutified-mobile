@@ -58,7 +58,9 @@ const AddPostScreen = () => {
                                     multiline
                                 />
                             </View>
-                            <TouchableOpacity onPress={() => {}}>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate('Attach')}
+                            >
                                 <Text style={styles.button}>Attach</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
