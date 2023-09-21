@@ -376,7 +376,7 @@ const styles = StyleSheet.create({
     textSection: {
         textAlign: 'center',
         alignSelf: 'center',
-        paddingTop: '5%',
+        paddingTop: '10%',
         paddingBottom: '20%',
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_THREE,

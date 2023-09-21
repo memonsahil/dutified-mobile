@@ -75,7 +75,9 @@ const FeedScreen = () => {
                 <View style={styles.headerSection}>
                     <Text style={styles.heading}>Feed</Text>
                     <View style={styles.iconWrapper}>
-                        <TouchableOpacity onPress={() => {}}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('AddPost')}
+                        >
                             <MaterialCommunityIcons
                                 name="text-box-plus"
                                 size={30}

@@ -32,6 +32,7 @@ import FeedbackScreen from './src/screens/ui/feedbackScreen'
 import CreateScreen from './src/screens/ui/createScreen'
 import AddJobScreen from './src/screens/ui/addJobScreen'
 import AddProjectScreen from './src/screens/ui/addProjectScreen'
+import AddPostScreen from './src/screens/ui/addPostScreen'
 import EditProfilePictureScreen from './src/screens/ui/EditProfilePictureScreen'
 import EditPhoneNumberScreen from './src/screens/ui/EditPhoneNumberScreen'
 import EditEmailAddressScreen from './src/screens/ui/EditEmailAddressScreen'
@@ -183,6 +184,7 @@ const MainStackNavigator = () => {
             <MainStack.Screen name="Search" component={SearchScreen} />
             <MainStack.Screen name="AddJob" component={AddJobScreen} />
             <MainStack.Screen name="AddProject" component={AddProjectScreen} />
+            <MainStack.Screen name="AddPost" component={AddPostScreen} />
             <MainStack.Screen
                 name="EditProfilePicture"
                 component={EditProfilePictureScreen}

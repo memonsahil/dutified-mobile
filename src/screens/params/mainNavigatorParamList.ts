@@ -19,6 +19,7 @@ type mainNavigatorParamList = {
         jobCreator: string
     }
     AddProject: undefined
+    AddPost: undefined
     EditProfilePicture: undefined
     EditPhoneNumber: undefined
     EditEmailAddress: undefined
