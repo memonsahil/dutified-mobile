@@ -19,13 +19,18 @@ const ProjectCard = (props: projectCardProps & navProps) => {
                 >
                     {props.projectName}
                 </Text>
-                <TouchableOpacity onPress={() => {}} style={styles.plusIcon}>
-                    <MaterialCommunityIcons
-                        name="plus-circle"
-                        size={30}
-                        color={themeColors.YELLOW_GREEN}
-                    />
-                </TouchableOpacity>
+                {props.showPlus ? (
+                    <TouchableOpacity
+                        onPress={() => {}}
+                        style={styles.plusIcon}
+                    >
+                        <MaterialCommunityIcons
+                            name="plus-circle"
+                            size={30}
+                            color={themeColors.YELLOW_GREEN}
+                        />
+                    </TouchableOpacity>
+                ) : null}
                 <View style={styles.detailSection}>
                     <Text style={styles.projectDetail}>{props.category}</Text>
                 </View>

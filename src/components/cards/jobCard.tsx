@@ -20,13 +20,18 @@ const JobCard = (props: jobCardProps & navProps) => {
                 >
                     {props.jobName}
                 </Text>
-                <TouchableOpacity onPress={() => {}} style={styles.plusIcon}>
-                    <MaterialCommunityIcons
-                        name="plus-circle"
-                        size={30}
-                        color={themeColors.YELLOW_GREEN}
-                    />
-                </TouchableOpacity>
+                {props.showPlus ? (
+                    <TouchableOpacity
+                        onPress={() => {}}
+                        style={styles.plusIcon}
+                    >
+                        <MaterialCommunityIcons
+                            name="plus-circle"
+                            size={30}
+                            color={themeColors.YELLOW_GREEN}
+                        />
+                    </TouchableOpacity>
+                ) : null}
                 <View style={styles.detailSection}>
                     <Text style={styles.jobDetail}>{props.category}</Text>
                 </View>

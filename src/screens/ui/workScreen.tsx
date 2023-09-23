@@ -30,6 +30,7 @@ const WorkScreen = () => {
             description: 'This is a description for Hired project 1',
             creationDate: '2021-01-01',
             category: categories.ACCOUNTING,
+            showPlus: false,
         },
         {
             projectId: '2',
@@ -38,6 +39,7 @@ const WorkScreen = () => {
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
+            showPlus: false,
         },
         {
             projectId: '3',
@@ -46,6 +48,7 @@ const WorkScreen = () => {
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
+            showPlus: false,
         },
         {
             projectId: '4',
@@ -54,6 +57,7 @@ const WorkScreen = () => {
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
+            showPlus: false,
         },
     ]
     const jobsHired: Array<jobCardProps> = [
@@ -66,6 +70,7 @@ const WorkScreen = () => {
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
             category: categories.ACCOUNTING,
+            showPlus: false,
         },
         {
             jobId: '2',
@@ -75,6 +80,7 @@ const WorkScreen = () => {
             description: 'This is a description for Created job 2',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
+            showPlus: false,
         },
         {
             jobId: '3',
@@ -84,6 +90,7 @@ const WorkScreen = () => {
             description: 'This is a description for Created job 3',
             creationDate: '2021-01-01',
             category: categories.ANIMATION,
+            showPlus: false,
         },
     ]
     const projectsCreated: Array<projectCardProps> = []
@@ -186,6 +193,7 @@ const WorkScreen = () => {
                                                         project.creationDate
                                                     }
                                                     category={project.category}
+                                                    showPlus={project.showPlus}
                                                 />
                                             ))}
                                         </ScrollView>
@@ -207,6 +215,7 @@ const WorkScreen = () => {
                                                 description={job.description}
                                                 creationDate={job.creationDate}
                                                 category={job.category}
+                                                showPlus={job.showPlus}
                                             />
                                         ))}
                                     </>
@@ -257,6 +266,7 @@ const WorkScreen = () => {
                                                         project.creationDate
                                                     }
                                                     category={project.category}
+                                                    showPlus={project.showPlus}
                                                 />
                                             ))}
                                         </ScrollView>
@@ -278,6 +288,7 @@ const WorkScreen = () => {
                                                 description={job.description}
                                                 creationDate={job.creationDate}
                                                 category={job.category}
+                                                showPlus={job.showPlus}
                                             />
                                         ))}
                                     </>

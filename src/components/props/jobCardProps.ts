@@ -8,6 +8,7 @@ type jobCardProps = {
     description: string
     creationDate: string
     category: categories
+    showPlus: boolean
 }
 
 export default jobCardProps

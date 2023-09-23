@@ -87,6 +87,7 @@ const ProfileScreen = () => {
             description: 'This is a description for Hired project 1',
             creationDate: '2021-01-01',
             category: categories.ACCOUNTING,
+            showPlus: false,
         },
         {
             projectId: '2',
@@ -95,6 +96,7 @@ const ProfileScreen = () => {
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
+            showPlus: false,
         },
     ]
     const jobsHired: Array<jobCardProps> = [
@@ -107,6 +109,7 @@ const ProfileScreen = () => {
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
             category: categories.ACCOUNTING,
+            showPlus: false,
         },
         {
             jobId: '2',
@@ -116,6 +119,7 @@ const ProfileScreen = () => {
             description: 'This is a description for Created job 2',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
+            showPlus: false,
         },
         {
             jobId: '3',
@@ -125,6 +129,7 @@ const ProfileScreen = () => {
             description: 'This is a description for Created job 3',
             creationDate: '2021-01-01',
             category: categories.ANIMATION,
+            showPlus: false,
         },
     ]
     const projectsCreated: Array<projectCardProps> = [
@@ -134,6 +139,7 @@ const ProfileScreen = () => {
             description: 'This is a description for Hired project 1',
             creationDate: '2021-01-01',
             category: categories.ACCOUNTING,
+            showPlus: false,
         },
     ]
     const jobsCreated: Array<jobCardProps> = [
@@ -145,6 +151,7 @@ const ProfileScreen = () => {
             description: 'This is a description for Created job 1',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
+            showPlus: false,
         },
         {
             jobId: '2',
@@ -155,6 +162,7 @@ const ProfileScreen = () => {
                 'This is a description for Created job 2, This is a description for Created job 2, This is a description for Created job 2',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
+            showPlus: false,
         },
     ]
 
@@ -345,6 +353,7 @@ const ProfileScreen = () => {
                                                         project.creationDate
                                                     }
                                                     category={project.category}
+                                                    showPlus={project.showPlus}
                                                 />
                                             ))}
                                         </ScrollView>
@@ -366,6 +375,7 @@ const ProfileScreen = () => {
                                                 description={job.description}
                                                 creationDate={job.creationDate}
                                                 category={job.category}
+                                                showPlus={job.showPlus}
                                             />
                                         ))}
                                     </>
@@ -416,6 +426,7 @@ const ProfileScreen = () => {
                                                         project.creationDate
                                                     }
                                                     category={project.category}
+                                                    showPlus={project.showPlus}
                                                 />
                                             ))}
                                         </ScrollView>
@@ -437,6 +448,7 @@ const ProfileScreen = () => {
                                                 description={job.description}
                                                 creationDate={job.creationDate}
                                                 category={job.category}
+                                                showPlus={job.showPlus}
                                             />
                                         ))}
                                     </>

@@ -26,6 +26,7 @@ const AttachScreen = () => {
             description: 'This is a description for Hired project 1',
             creationDate: '2021-01-01',
             category: categories.ACCOUNTING,
+            showPlus: true,
         },
         {
             projectId: '2',
@@ -34,6 +35,7 @@ const AttachScreen = () => {
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
+            showPlus: true,
         },
         {
             projectId: '3',
@@ -42,6 +44,7 @@ const AttachScreen = () => {
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
+            showPlus: true,
         },
         {
             projectId: '4',
@@ -50,6 +53,7 @@ const AttachScreen = () => {
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
+            showPlus: true,
         },
     ]
     const jobsCreated: Array<jobCardProps> = [
@@ -62,6 +66,7 @@ const AttachScreen = () => {
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
             category: categories.ACCOUNTING,
+            showPlus: true,
         },
         {
             jobId: '2',
@@ -71,6 +76,7 @@ const AttachScreen = () => {
             description: 'This is a description for Created job 2',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
+            showPlus: true,
         },
         {
             jobId: '3',
@@ -80,6 +86,7 @@ const AttachScreen = () => {
             description: 'This is a description for Created job 3',
             creationDate: '2021-01-01',
             category: categories.ANIMATION,
+            showPlus: true,
         },
     ]
 
@@ -123,6 +130,7 @@ const AttachScreen = () => {
                                             description={project.description}
                                             creationDate={project.creationDate}
                                             category={project.category}
+                                            showPlus={project.showPlus}
                                         />
                                     ))}
                                 </ScrollView>
@@ -142,6 +150,7 @@ const AttachScreen = () => {
                                         description={job.description}
                                         creationDate={job.creationDate}
                                         category={job.category}
+                                        showPlus={job.showPlus}
                                     />
                                 ))}
                             </>
