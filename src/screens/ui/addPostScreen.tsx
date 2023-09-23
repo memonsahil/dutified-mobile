@@ -142,6 +142,7 @@ const styles = StyleSheet.create({
         height: 250,
         borderRadius: 20,
         marginTop: '5%',
+        marginBottom: '10%',
         padding: 10,
     },
     descTextInput: {
@@ -159,7 +160,7 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
         alignSelf: 'center',
-        paddingTop: '10%',
+        paddingBottom: '5%',
     },
     textSection: {
         textAlign: 'center',
