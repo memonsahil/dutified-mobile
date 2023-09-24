@@ -84,7 +84,9 @@ const FeedScreen = () => {
                                 color={themeColors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {}}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Search')}
+                        >
                             <MaterialCommunityIcons
                                 name="magnify"
                                 size={30}

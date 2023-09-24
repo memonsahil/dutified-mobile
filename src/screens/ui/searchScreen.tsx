@@ -2,21 +2,19 @@ import { useEffect, useState } from 'react'
 import {
     StyleSheet,
     Text,
-    ScrollView,
     View,
     TextInput,
-    Alert,
     TouchableOpacity,
 } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import * as Progress from 'react-native-progress'
 import JobCard from '../../components/cards/jobCard'
-import { AntDesign } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import jobType from '../../data/types/jobType'
 import screens from '../params/screens'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 const SearchScreen = () => {
     const [searchText, setSearchText] = useState('')
@@ -39,8 +37,8 @@ const SearchScreen = () => {
             >
                 <View style={styles.headerSection}>
                     <TouchableOpacity onPress={() => navigation.goBack()}>
-                        <AntDesign
-                            name="caretleft"
+                        <MaterialCommunityIcons
+                            name="chevron-left-circle"
                             size={30}
                             color={themeColors.YELLOW_GREEN}
                         />
@@ -58,8 +56,8 @@ const SearchScreen = () => {
                 {searchText === '' ? (
                     <View style={styles.noDataContainer}>
                         <Text style={styles.noDataText}>
-                            Search for projects and jobs by their name or
-                            category.
+                            Search for projects, jobs and users by their title
+                            or category.
                         </Text>
                     </View>
                 ) : (
@@ -69,12 +67,11 @@ const SearchScreen = () => {
                                 {jobs.length === 0 ? (
                                     <View style={styles.noDataContainer}>
                                         <Text style={styles.noDataText}>
-                                            No jobs were found, try searching
+                                            No results were found, try searching
                                             for something else.
                                         </Text>
                                     </View>
-                                ) : null}
-                                {jobs.length === 0 ? null : (
+                                ) : (
                                     <>
                                         <Text style={styles.subHeading}>
                                             Jobs
@@ -87,8 +84,10 @@ const SearchScreen = () => {
                                                 jobName={job.jobName}
                                                 status={job.status}
                                                 payment={job.payment}
-                                                jobDesc={job.description}
-                                                deadline={job.dueDate}
+                                                description={job.description}
+                                                creationDate={job.creationDate}
+                                                category={job.category}
+                                                showPlus={job.showPlus}
                                             />
                                         ))}
                                     </>
@@ -122,26 +121,24 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        paddingTop: '50%',
     },
     scrollView: {
+        flexGrow: 1,
         alignItems: 'center',
     },
     headerSection: {
         flexDirection: 'row',
         paddingTop: '20%',
-        paddingLeft: 30,
-        paddingRight: 30,
-        height: 150,
-        width: 400,
+        paddingLeft: '10%',
+        paddingRight: '10%',
+        width: '100%',
         alignItems: 'center',
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.HEADING_TWO,
+        fontSize: fontSizes.HEADING_ONE,
         color: themeColors.WHITE,
-        paddingLeft: 20,
-        paddingRight: 30,
+        paddingLeft: '5%',
     },
     textInput: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
@@ -150,17 +147,17 @@ const styles = StyleSheet.create({
         width: '80%',
         paddingTop: '5%',
         borderBottomColor: themeColors.WHITE,
-        borderBottomWidth: 2,
+        borderBottomWidth: 3,
         alignSelf: 'center',
     },
     subHeading: {
-        alignSelf: 'flex-start',
-        paddingLeft: 30,
-        paddingTop: 20,
-        marginBottom: 20,
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.HEADING_TWO,
         color: themeColors.WHITE,
+        marginTop: '5%',
+        marginBottom: '5%',
+        alignSelf: 'flex-start',
+        paddingLeft: '10%',
     },
     horizontalSection: {
         paddingRight: 30,
