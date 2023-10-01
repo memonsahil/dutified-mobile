@@ -87,7 +87,7 @@ const SearchScreen = () => {
                                                 description={job.description}
                                                 creationDate={job.creationDate}
                                                 category={job.category}
-                                                showPlus={job.showPlus}
+                                                showPlus={false}
                                             />
                                         ))}
                                     </>
