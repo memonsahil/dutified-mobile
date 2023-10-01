@@ -1,35 +1,42 @@
-import { IMessage } from 'react-native-gifted-chat'
 import userType from './userType'
+import paymentType from './paymentType'
+import chatType from './chatType'
 
 type authUserType = {
     account: {
-        userId: string
-        firstName: string
-        lastName: string
-        countryCode: string
-        phoneNumber: string
-        emailAddress: string
+        identity: {
+            userId: string
+            firstName: string
+            lastName: string
+            countryCode: string
+            phoneNumber: string
+            emailAddress: string
+        }
+        affiliation?: {
+            orgName: string
+            orgDesc: string
+            website: string
+            userTitle: string
+        }
+        paymentDetails?: {
+            cardHolderName: string
+            cardNumber: string
+            expiryDate: string
+            cvc: string
+        }
+        stats: {
+            creationDate: string
+            lastLoginDate: string
+        }
     }
     profile: userType['profile']
+    projectsCreated: userType['projectsCreated']
+    projectsWorked: userType['projectsWorked']
     jobsCreated: userType['jobsCreated']
     jobsWorked: userType['jobsWorked']
     feedbacks: userType['feedbacks']
-    chats: {
-        chatId: string
-        senderUserId: string
-        receiverUserId: string
-        messages: IMessage[]
-    }[]
-    payments: {
-        paymentId: string
-        jobId: string
-        jobName: string
-        jobCreatorId: string
-        jobCreator: string
-        jobWorkerId: string
-        jobWorker: string
-        amount: string
-    }[]
+    payments: paymentType[]
+    chats: chatType[]
 }
 
 export default authUserType

@@ -1,23 +1,21 @@
 import jobType from './jobType'
-import ratings from '../../enums/ratings'
 import categories from '../../enums/categories'
+import projectType from './projectType'
+import feedBackType from './feedbackType'
 
 type userType = {
     profile: {
+        firstName: string
+        lastName: string
         profilePicture: string
-        description: string
+        bio: string
         interests: categories[]
-        affiliation: {}
     }
+    projectsCreated: projectType[]
+    projectsWorked: projectType[]
     jobsCreated: jobType[]
     jobsWorked: jobType[]
-    feedbacks: {
-        userId: string
-        userName: string
-        feedbackId: string
-        feedback: string
-        rating: ratings
-    }[]
+    feedbacks: feedBackType[]
 }
 
 export default userType
