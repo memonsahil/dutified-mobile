@@ -19,6 +19,7 @@ import ProjectCard from '../../components/cards/projectCard'
 
 const AttachScreen = () => {
     const navigation: NavigationProp<screens> = useNavigation()
+
     const projectsCreated: Array<projectCardProps> = [
         {
             projectId: '1',

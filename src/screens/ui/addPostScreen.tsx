@@ -11,7 +11,6 @@ import {
 } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import * as Crypto from 'expo-crypto'
 import * as Progress from 'react-native-progress'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
@@ -21,8 +20,6 @@ import screens from '../params/screens'
 const AddPostScreen = () => {
     const [desc, setDesc] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
-
-    const randomUUID = Crypto.randomUUID()
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -49,7 +46,7 @@ const AddPostScreen = () => {
                         <View style={styles.mainSection}>
                             <View style={styles.descContainer}>
                                 <TextInput
-                                    placeholder="Describe your post, attach any jobs or projects that you created, and add any other details that you want to share."
+                                    placeholder="Describe your post, attach any projects or jobs that you have created, and add any other details that you want to share with your network."
                                     value={desc}
                                     onChangeText={setDesc}
                                     style={styles.descTextInput}
@@ -160,12 +157,11 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
         alignSelf: 'center',
-        paddingBottom: '5%',
+        paddingBottom: '10%',
     },
     textSection: {
         textAlign: 'center',
         alignSelf: 'center',
-        paddingTop: '10%',
         paddingBottom: '20%',
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_THREE,
