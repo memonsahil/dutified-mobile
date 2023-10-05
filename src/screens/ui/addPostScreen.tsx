@@ -32,16 +32,27 @@ const AddPostScreen = () => {
                         contentContainerStyle={styles.scrollView}
                     >
                         <View style={styles.headerSection}>
+                            <View style={styles.headerLeft}>
+                                <TouchableOpacity
+                                    onPress={() => navigation.goBack()}
+                                >
+                                    <MaterialCommunityIcons
+                                        name="chevron-left-circle"
+                                        size={30}
+                                        color={themeColors.YELLOW_GREEN}
+                                    />
+                                </TouchableOpacity>
+                                <Text style={styles.heading}>New Post</Text>
+                            </View>
                             <TouchableOpacity
-                                onPress={() => navigation.goBack()}
+                                onPress={() => navigation.navigate('Attach')}
                             >
                                 <MaterialCommunityIcons
-                                    name="chevron-left-circle"
+                                    name="file-plus"
                                     size={30}
                                     color={themeColors.YELLOW_GREEN}
                                 />
                             </TouchableOpacity>
-                            <Text style={styles.heading}>New Post</Text>
                         </View>
                         <View style={styles.mainSection}>
                             <View style={styles.descContainer}>
@@ -55,11 +66,6 @@ const AddPostScreen = () => {
                                     multiline
                                 />
                             </View>
-                            <TouchableOpacity
-                                onPress={() => navigation.navigate('Attach')}
-                            >
-                                <Text style={styles.button}>Attach</Text>
-                            </TouchableOpacity>
                             <TouchableOpacity
                                 onPress={() => {
                                     if (desc !== '') {
@@ -124,6 +130,11 @@ const styles = StyleSheet.create({
         paddingRight: '10%',
         width: '100%',
         alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    headerLeft: {
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
@@ -133,13 +144,12 @@ const styles = StyleSheet.create({
     },
     mainSection: {
         width: '80%',
+        marginTop: '5%',
     },
     descContainer: {
         backgroundColor: themeColors.WHITE,
         height: 250,
         borderRadius: 20,
-        marginTop: '5%',
-        marginBottom: '10%',
         padding: 10,
     },
     descTextInput: {
@@ -157,11 +167,12 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
         alignSelf: 'center',
-        paddingBottom: '10%',
+        paddingTop: '10%',
     },
     textSection: {
         textAlign: 'center',
         alignSelf: 'center',
+        paddingTop: '10%',
         paddingBottom: '20%',
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_THREE,
