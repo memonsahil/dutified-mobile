@@ -9,11 +9,9 @@ const UserDetailsCard = (props: userDetailsCardProps) => {
         <View style={styles.container}>
             <Text style={styles.heading}>Bio</Text>
             <Text style={styles.description}>{props.description}</Text>
-            <Text style={styles.heading}>Hourly Rate</Text>
+            <Text style={styles.heading}>Daily Rate</Text>
             <View style={styles.interestWrapper}>
-                <Text
-                    style={styles.interest}
-                >{`$${props.hourlyRate}/hour`}</Text>
+                <Text style={styles.interest}>{`$${props.dailyRate}/day`}</Text>
             </View>
             <Text style={styles.heading}>Interests</Text>
             {props.interests.map((interest) => (

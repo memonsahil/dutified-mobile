@@ -3,7 +3,7 @@ import categories from '../../enums/categories'
 type userDetailsCardProps = {
     interests: categories[]
     description: string
-    hourlyRate: string
+    dailyRate: string
     links: { id: string; url: string }[]
 }
 

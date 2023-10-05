@@ -264,7 +264,7 @@ const ProfileScreen = () => {
                             categories.BUSINESS_PROJECT_MANAGEMENT,
                             categories.TRADING_SOFTWARE_DEVELOPMENT,
                         ]}
-                        hourlyRate="50"
+                        dailyRate="50"
                         links={[
                             {
                                 id: '1',
