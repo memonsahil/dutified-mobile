@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { ScrollView, StyleSheet, View, Text } from 'react-native'
 import ChatCard from '../../components/cards/chatCard'
 import * as Crypto from 'expo-crypto'
@@ -7,7 +7,6 @@ import fontSizes from '../../enums/fontSizes'
 import chatCardProps from '../../components/props/chatCardProps'
 
 const ChatsScreen = () => {
-    const [chats, setChats] = useState<[]>([])
     const [chatCardDetails, setChatCardDetails] = useState<chatCardProps[]>([])
 
     return (
@@ -29,7 +28,7 @@ const ChatsScreen = () => {
                 ) : (
                     <View style={styles.noDataContainer}>
                         <Text style={styles.noDataText}>
-                            Users that you interact with will be shown here.
+                            Users that you chat with will be shown here.
                         </Text>
                     </View>
                 )}
