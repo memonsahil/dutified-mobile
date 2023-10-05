@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
@@ -7,10 +6,8 @@ import projectCardProps from '../props/projectCardProps'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 const ProjectCard = (props: projectCardProps & navProps) => {
-    const [attachmentCount, setAttachmentCount] = useState<number>(0)
-
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, props.additionalStyle]}>
             <TouchableOpacity onPress={() => {}}>
                 <Text
                     style={styles.projectName}

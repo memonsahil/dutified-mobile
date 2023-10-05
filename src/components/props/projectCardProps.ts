@@ -7,6 +7,7 @@ type projectCardProps = {
     creationDate: string
     category: categories
     showPlus: boolean
+    additionalStyle?: object
 }
 
 export default projectCardProps

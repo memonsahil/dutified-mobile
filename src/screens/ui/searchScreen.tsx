@@ -12,20 +12,136 @@ import * as Progress from 'react-native-progress'
 import JobCard from '../../components/cards/jobCard'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
-import jobType from '../../data/types/jobType'
 import screens from '../params/screens'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import jobCardProps from '../../components/props/jobCardProps'
+import projectCardProps from '../../components/props/projectCardProps'
+import ProjectCard from '../../components/cards/projectCard'
+import UserCardSmall from '../../components/cards/userCardSmall'
+import userCardSmallProps from '../../components/props/userCardSmallProps'
+import categories from '../../enums/categories'
+import jobStatus from '../../enums/jobStatus'
 
 const SearchScreen = () => {
     const [searchText, setSearchText] = useState('')
-    const [jobs, setJobs] = useState<jobType[]>([])
     const [loading, setLoading] = useState(false)
+    const [switchCategory, setSwitchCategory] = useState<
+        'Projects' | 'Users' | 'Jobs'
+    >('Projects')
 
     const navigation: NavigationProp<screens> = useNavigation()
+    const projects: Array<projectCardProps> = [
+        {
+            projectId: '1',
+            projectName: 'Hired Project 1',
+            description: 'This is a description for Hired project 1',
+            creationDate: '2021-01-01',
+            category: categories.ACCOUNTING,
+            showPlus: false,
+        },
+        {
+            projectId: '2',
+            projectName: 'Hired Project 2',
+            description:
+                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
+            creationDate: '2021-01-01',
+            category: categories.ADVERTISING,
+            showPlus: false,
+        },
+        {
+            projectId: '3',
+            projectName: 'Hired Project 3',
+            description:
+                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
+            creationDate: '2021-01-01',
+            category: categories.ADVERTISING,
+            showPlus: false,
+        },
+        {
+            projectId: '4',
+            projectName: 'Hired Project 4',
+            description:
+                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
+            creationDate: '2021-01-01',
+            category: categories.ADVERTISING,
+            showPlus: false,
+        },
+    ]
+    const jobs: Array<jobCardProps> = [
+        {
+            jobId: '1',
+            jobName: 'Created Job 1',
+            status: jobStatus.AVAILABLE,
+            payment: '100000',
+            description:
+                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
+            creationDate: '2021-01-01',
+            category: categories.ACCOUNTING,
+            showPlus: false,
+        },
+        {
+            jobId: '2',
+            jobName: 'Created Job 2',
+            status: jobStatus.IN_PROGRESS,
+            payment: '200',
+            description: 'This is a description for Created job 2',
+            creationDate: '2021-01-01',
+            category: categories.ADVERTISING,
+            showPlus: false,
+        },
+        {
+            jobId: '3',
+            jobName: 'Created Job 3',
+            status: jobStatus.COMPLETED,
+            payment: '200',
+            description: 'This is a description for Created job 3',
+            creationDate: '2021-01-01',
+            category: categories.ANIMATION,
+            showPlus: false,
+        },
+    ]
+    const users: Array<userCardSmallProps> = [
+        {
+            userId: '1',
+            first: 'Sahil',
+            last: 'Memon',
+            image: '',
+            affiliation: {
+                orgName: 'University of Toronto',
+                userTitle: 'Student',
+            },
+            avgRatings: '4.5',
+        },
+        {
+            userId: '2',
+            first: 'Sahil',
+            last: 'Memon',
+            image: '',
+            avgRatings: '4.5',
+        },
+        {
+            userId: '3',
+            first: 'Sahil',
+            last: 'Memon',
+            image: '',
+            avgRatings: '4.5',
+        },
+        {
+            userId: '4',
+            first: 'Sahil',
+            last: 'Memon',
+            image: '',
+            affiliation: {
+                orgName: 'University of Toronto',
+                userTitle: 'Student',
+            },
+            avgRatings: '4.5',
+        },
+    ]
 
     useEffect(() => {
         if (searchText !== '') {
-            setLoading(true)
+            setLoading(false)
         }
     }, [searchText])
 
@@ -56,26 +172,106 @@ const SearchScreen = () => {
                 {searchText === '' ? (
                     <View style={styles.noDataContainer}>
                         <Text style={styles.noDataText}>
-                            Search for projects, jobs and users by their title
-                            or category.
+                            Search for projects, jobs and users by their title,
+                            name or category.
                         </Text>
                     </View>
                 ) : (
                     <>
                         {loading !== true ? (
                             <>
-                                {jobs.length === 0 ? (
-                                    <View style={styles.noDataContainer}>
-                                        <Text style={styles.noDataText}>
-                                            No results were found, try searching
-                                            for something else.
+                                <View style={styles.buttonSection}>
+                                    <TouchableOpacity
+                                        onPress={() =>
+                                            setSwitchCategory('Projects')
+                                        }
+                                    >
+                                        <Text
+                                            style={{
+                                                ...styles.button,
+                                                color:
+                                                    switchCategory ===
+                                                    'Projects'
+                                                        ? themeColors.YELLOW_GREEN
+                                                        : themeColors.SILVER,
+                                            }}
+                                        >
+                                            Projects
                                         </Text>
-                                    </View>
-                                ) : (
-                                    <>
-                                        <Text style={styles.subHeading}>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity
+                                        onPress={() =>
+                                            setSwitchCategory('Jobs')
+                                        }
+                                    >
+                                        <Text
+                                            style={{
+                                                ...styles.button,
+                                                color:
+                                                    switchCategory === 'Jobs'
+                                                        ? themeColors.YELLOW_GREEN
+                                                        : themeColors.SILVER,
+                                            }}
+                                        >
                                             Jobs
                                         </Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity
+                                        onPress={() =>
+                                            setSwitchCategory('Users')
+                                        }
+                                    >
+                                        <Text
+                                            style={{
+                                                ...styles.button,
+                                                color:
+                                                    switchCategory === 'Users'
+                                                        ? themeColors.YELLOW_GREEN
+                                                        : themeColors.SILVER,
+                                            }}
+                                        >
+                                            Users
+                                        </Text>
+                                    </TouchableOpacity>
+                                </View>
+                                {switchCategory === 'Projects' &&
+                                projects.length !== 0 ? (
+                                    <>
+                                        {projects.map((project) => (
+                                            <ProjectCard
+                                                key={project.projectId}
+                                                nav={navigation}
+                                                projectId={project.projectId}
+                                                projectName={
+                                                    project.projectName
+                                                }
+                                                description={
+                                                    project.description
+                                                }
+                                                creationDate={
+                                                    project.creationDate
+                                                }
+                                                category={project.category}
+                                                showPlus={project.showPlus}
+                                                additionalStyle={{
+                                                    width: '90%',
+                                                    marginRight: 0,
+                                                    marginBottom: '5%',
+                                                }}
+                                            />
+                                        ))}
+                                    </>
+                                ) : switchCategory === 'Projects' &&
+                                  projects.length === 0 ? (
+                                    <View style={styles.noDataContainer}>
+                                        <Text style={styles.noDataText}>
+                                            No projects were found.
+                                        </Text>
+                                    </View>
+                                ) : null}
+                                {switchCategory === 'Jobs' &&
+                                jobs.length !== 0 ? (
+                                    <>
                                         {jobs.map((job) => (
                                             <JobCard
                                                 key={job.jobId}
@@ -87,12 +283,41 @@ const SearchScreen = () => {
                                                 description={job.description}
                                                 creationDate={job.creationDate}
                                                 category={job.category}
-                                                showPlus={false}
+                                                showPlus={job.showPlus}
                                             />
                                         ))}
                                     </>
-                                )}
-                                <View style={styles.bottomSpacer} />
+                                ) : switchCategory === 'Jobs' &&
+                                  projects.length === 0 ? (
+                                    <View style={styles.noDataContainer}>
+                                        <Text style={styles.noDataText}>
+                                            No jobs were found.
+                                        </Text>
+                                    </View>
+                                ) : null}
+                                {switchCategory === 'Users' &&
+                                users.length !== 0 ? (
+                                    <>
+                                        {users.map((user) => (
+                                            <UserCardSmall
+                                                key={user.userId}
+                                                userId={user.userId}
+                                                first={user.first}
+                                                last={user.last}
+                                                image={user.image}
+                                                affiliation={user.affiliation}
+                                                avgRatings={user.avgRatings}
+                                            />
+                                        ))}
+                                    </>
+                                ) : switchCategory === 'Users' &&
+                                  projects.length === 0 ? (
+                                    <View style={styles.noDataContainer}>
+                                        <Text style={styles.noDataText}>
+                                            No users were found.
+                                        </Text>
+                                    </View>
+                                ) : null}
                             </>
                         ) : (
                             <View style={styles.loadingContainer}>
@@ -125,6 +350,7 @@ const styles = StyleSheet.create({
     scrollView: {
         flexGrow: 1,
         alignItems: 'center',
+        paddingBottom: '20%',
     },
     headerSection: {
         flexDirection: 'row',
@@ -146,29 +372,24 @@ const styles = StyleSheet.create({
         color: themeColors.WHITE,
         width: '80%',
         paddingTop: '5%',
+        marginBottom: '5%',
         borderBottomColor: themeColors.WHITE,
         borderBottomWidth: 3,
         alignSelf: 'center',
     },
-    subHeading: {
-        fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.HEADING_TWO,
-        color: themeColors.WHITE,
-        marginTop: '5%',
+    buttonSection: {
+        flexDirection: 'row',
+        width: '70%',
+        justifyContent: 'space-between',
         marginBottom: '5%',
-        alignSelf: 'flex-start',
-        paddingLeft: '10%',
     },
-    horizontalSection: {
-        paddingRight: 30,
-    },
-    bottomSpacer: {
-        paddingBottom: '20%',
+    button: {
+        fontFamily: 'IBMPlexSansCondensed-Bold',
+        fontSize: fontSizes.BUTTON,
     },
     noDataContainer: {
         alignItems: 'center',
         width: '80%',
-        paddingTop: 20,
     },
     noDataText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
