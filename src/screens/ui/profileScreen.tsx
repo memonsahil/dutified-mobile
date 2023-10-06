@@ -181,7 +181,9 @@ const ProfileScreen = () => {
                                 color={themeColors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {}}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Network')}
+                        >
                             <MaterialCommunityIcons
                                 name="account-group"
                                 size={30}
