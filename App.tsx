@@ -29,6 +29,7 @@ import JobScreen from './src/screens/ui/jobScreen'
 import UserScreen from './src/screens/ui/userScreen'
 import SearchScreen from './src/screens/ui/searchScreen'
 import FeedbackScreen from './src/screens/ui/feedbackScreen'
+import NetworkScreen from './src/screens/ui/networkScreen'
 import CreateScreen from './src/screens/ui/createScreen'
 import AddJobScreen from './src/screens/ui/addJobScreen'
 import AddProjectScreen from './src/screens/ui/addProjectScreen'
@@ -181,6 +182,7 @@ const MainStackNavigator = () => {
             <MainStack.Screen name="Job" component={JobScreen} />
             <MainStack.Screen name="User" component={UserScreen} />
             <MainStack.Screen name="Feedback" component={FeedbackScreen} />
+            <MainStack.Screen name="Network" component={NetworkScreen} />
             <MainStack.Screen name="Chat" component={ChatScreen} />
             <MainStack.Screen name="Search" component={SearchScreen} />
             <MainStack.Screen name="AddJob" component={AddJobScreen} />

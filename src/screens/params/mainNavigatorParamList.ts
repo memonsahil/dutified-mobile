@@ -8,6 +8,7 @@ type mainNavigatorParamList = {
         userId: string
     }
     Feedback: undefined
+    Network: undefined
     Chat: {
         receiverUserId: string
     }

@@ -50,6 +50,7 @@ type screens = {
         userId: string
     }
     Feedback: undefined
+    Network: undefined
 
     Chat: {
         receiverUserId: string
