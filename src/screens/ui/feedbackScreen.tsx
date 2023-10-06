@@ -6,15 +6,62 @@ import {
     TouchableOpacity,
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import authUserStore from '../../state/stores/authUserStore'
 import FeedbackCard from '../../components/cards/feedbackCard'
-import { AntDesign } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
+import feedbackCardProps from '../../components/props/feedbackCardProps'
+import ratings from '../../enums/ratings'
 
 const FeedbackScreen = () => {
-    const { feedbacks } = authUserStore((state) => state)
+    const feedbacks: feedbackCardProps[] = [
+        {
+            feedbackId: '1',
+            userId: '1',
+            userName: 'Sahil Memon',
+            feedbackTitle: 'Title',
+            feedback: 'This is a feedback',
+            rating: ratings.FIVE,
+            feedbackDate: '2021-01-01',
+        },
+        {
+            feedbackId: '2',
+            userId: '2',
+            userName: 'Sahil Memon',
+            feedbackTitle: 'Title',
+            feedback: 'This is a feedback',
+            rating: ratings.FOUR,
+            feedbackDate: '2021-01-01',
+        },
+        {
+            feedbackId: '3',
+            userId: '3',
+            userName: 'Sahil Memon',
+            feedbackTitle: 'Title',
+            feedback: 'This is a feedback',
+            rating: ratings.THREE,
+            feedbackDate: '2021-01-01',
+        },
+        {
+            feedbackId: '4',
+            userId: '4',
+            userName: 'Sahil Memon',
+            feedbackTitle: 'Title',
+            feedback: 'This is a feedback',
+            rating: ratings.TWO,
+            feedbackDate: '2021-01-01',
+        },
+        {
+            feedbackId: '5',
+            userId: '5',
+            userName: 'Sahil Memon',
+            feedbackTitle: 'Title',
+            feedback: 'This is a feedback',
+            rating: ratings.ONE,
+            feedbackDate: '2021-01-01',
+        },
+    ]
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -23,8 +70,8 @@ const FeedbackScreen = () => {
             <ScrollView contentContainerStyle={styles.scrollView}>
                 <View style={styles.headerSection}>
                     <TouchableOpacity onPress={() => navigation.goBack()}>
-                        <AntDesign
-                            name="caretleft"
+                        <MaterialCommunityIcons
+                            name="chevron-left-circle"
                             size={30}
                             color={themeColors.YELLOW_GREEN}
                         />
@@ -41,8 +88,10 @@ const FeedbackScreen = () => {
                                     userId={feedback.userId}
                                     userName={feedback.userName}
                                     feedbackId={feedback.feedbackId}
+                                    feedbackTitle={feedback.feedbackTitle}
                                     feedback={feedback.feedback}
                                     rating={feedback.rating}
+                                    feedbackDate={feedback.feedbackDate}
                                 />
                             ))}
                         </>
@@ -71,21 +120,18 @@ const styles = StyleSheet.create({
     headerSection: {
         flexDirection: 'row',
         paddingTop: '20%',
-        paddingLeft: 30,
-        paddingRight: 30,
-        height: 150,
-        width: 400,
+        paddingLeft: '10%',
+        paddingRight: '10%',
+        width: '100%',
         alignItems: 'center',
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.HEADING_TWO,
+        fontSize: fontSizes.HEADING_ONE,
         color: themeColors.WHITE,
-        paddingLeft: 20,
-        paddingRight: 30,
+        paddingLeft: '5%',
     },
     feedbackList: {
-        marginTop: 20,
         width: '100%',
         alignItems: 'center',
     },
@@ -97,6 +143,8 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.WHITE,
+        paddingTop: '10%',
+        paddingBottom: '10%',
         textAlign: 'center',
     },
 })
