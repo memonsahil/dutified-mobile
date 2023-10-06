@@ -5,10 +5,8 @@ import {
     ScrollView,
     View,
     TouchableOpacity,
-    Alert,
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import authUserStore from '../../state/stores/authUserStore'
 import * as Progress from 'react-native-progress'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
@@ -19,8 +17,6 @@ const SettingsScreen = () => {
         'Profile' | 'Payments' | 'Account'
     >('Profile')
     const [loading, setLoading] = useState<boolean>(false)
-
-    const { removeAuthUser } = authUserStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
