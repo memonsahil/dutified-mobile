@@ -172,7 +172,9 @@ const ProfileScreen = () => {
                 <View style={styles.headerSection}>
                     <Text style={styles.heading}>Profile</Text>
                     <View style={styles.iconWrapper}>
-                        <TouchableOpacity onPress={() => {}}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Feedback')}
+                        >
                             <MaterialCommunityIcons
                                 name="account-star"
                                 size={30}
