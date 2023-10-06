@@ -15,6 +15,9 @@ import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 
 const SettingsScreen = () => {
+    const [switchColumn, setSwitchColumn] = useState<
+        'Profile' | 'Payments' | 'Account'
+    >('Profile')
     const [loading, setLoading] = useState<boolean>(false)
 
     const { removeAuthUser } = authUserStore((state) => state)
@@ -28,42 +31,138 @@ const SettingsScreen = () => {
                     <View style={styles.headerSection}>
                         <Text style={styles.heading}>Settings</Text>
                     </View>
-                    <Text style={styles.subHeading}>Profile</Text>
-                    <TouchableOpacity
-                        onPress={() =>
-                            navigation.navigate('EditProfilePicture')
-                        }
-                    >
-                        <Text style={styles.button}>Edit Profile Picture</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('EditPhoneNumber')}
-                    >
-                        <Text style={styles.button}>Edit Phone Number</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('EditEmailAddress')}
-                    >
-                        <Text style={styles.button}>Edit Email Address</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('EditPassword')}
-                    >
-                        <Text style={styles.button}>Edit Password</Text>
-                    </TouchableOpacity>
-                    <Text style={styles.subHeading}>Account</Text>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Support')}
-                    >
-                        <Text style={styles.button}>Support</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => {
-                            setLoading(true)
-                        }}
-                    >
-                        <Text style={styles.button}>Sign Out</Text>
-                    </TouchableOpacity>
+                    <View style={styles.buttonSection}>
+                        <TouchableOpacity
+                            onPress={() => setSwitchColumn('Profile')}
+                        >
+                            <Text
+                                style={{
+                                    ...styles.switchbutton,
+                                    color:
+                                        switchColumn === 'Profile'
+                                            ? themeColors.YELLOW_GREEN
+                                            : themeColors.SILVER,
+                                }}
+                            >
+                                Profile
+                            </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => setSwitchColumn('Payments')}
+                        >
+                            <Text
+                                style={{
+                                    ...styles.switchbutton,
+                                    color:
+                                        switchColumn === 'Payments'
+                                            ? themeColors.YELLOW_GREEN
+                                            : themeColors.SILVER,
+                                }}
+                            >
+                                Payments
+                            </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => setSwitchColumn('Account')}
+                        >
+                            <Text
+                                style={{
+                                    ...styles.switchbutton,
+                                    color:
+                                        switchColumn === 'Account'
+                                            ? themeColors.YELLOW_GREEN
+                                            : themeColors.SILVER,
+                                }}
+                            >
+                                Account
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                    {switchColumn === 'Profile' ? (
+                        <>
+                            <TouchableOpacity onPress={() => {}}>
+                                <Text style={styles.button}>Edit Name</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() =>
+                                    navigation.navigate('EditProfilePicture')
+                                }
+                            >
+                                <Text style={styles.button}>
+                                    Edit Profile Picture
+                                </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {}}>
+                                <Text style={styles.button}>Edit Bio</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {}}>
+                                <Text style={styles.button}>
+                                    Edit Daily Rate
+                                </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {}}>
+                                <Text style={styles.button}>
+                                    Edit Interests
+                                </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {}}>
+                                <Text style={styles.button}>Edit Links</Text>
+                            </TouchableOpacity>
+                        </>
+                    ) : null}
+                    {switchColumn === 'Payments' ? (
+                        <>
+                            <TouchableOpacity onPress={() => {}}>
+                                <Text style={styles.button}>
+                                    Edit Payment Details
+                                </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {}}>
+                                <Text style={styles.button}>Transactions</Text>
+                            </TouchableOpacity>
+                        </>
+                    ) : null}
+                    {switchColumn === 'Account' ? (
+                        <>
+                            <TouchableOpacity
+                                onPress={() =>
+                                    navigation.navigate('EditPhoneNumber')
+                                }
+                            >
+                                <Text style={styles.button}>
+                                    Edit Phone Number
+                                </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() =>
+                                    navigation.navigate('EditEmailAddress')
+                                }
+                            >
+                                <Text style={styles.button}>
+                                    Edit Email Address
+                                </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() =>
+                                    navigation.navigate('EditPassword')
+                                }
+                            >
+                                <Text style={styles.button}>Edit Password</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate('Support')}
+                            >
+                                <Text style={styles.button}>Support</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() => {
+                                    setLoading(true)
+                                }}
+                            >
+                                <Text style={styles.button}>Sign Out</Text>
+                            </TouchableOpacity>
+                        </>
+                    ) : null}
                 </ScrollView>
             ) : (
                 <View style={styles.loadingContainer}>
@@ -108,13 +207,17 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.HEADING_ONE,
         color: themeColors.WHITE,
     },
-    subHeading: {
+    buttonSection: {
+        flexDirection: 'row',
+        width: '85%',
+        justifyContent: 'space-between',
+        paddingTop: '5%',
+        alignSelf: 'center',
+    },
+    switchbutton: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.HEADING_TWO,
-        color: themeColors.WHITE,
-        marginTop: '5%',
-        alignSelf: 'flex-start',
-        paddingLeft: '10%',
+        fontSize: fontSizes.BUTTON,
+        color: themeColors.YELLOW_GREEN,
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
