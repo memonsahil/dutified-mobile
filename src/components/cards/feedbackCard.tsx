@@ -1,10 +1,12 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import navProps from '../props/navProps'
 import feedbackCardProps from '../props/feedbackCardProps'
 import ratings from '../../enums/ratings'
+import * as MailComposer from 'expo-mail-composer'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 const FeedbackCard = (props: feedbackCardProps & navProps) => {
     const renderStars = () => {
@@ -166,60 +168,128 @@ const FeedbackCard = (props: feedbackCardProps & navProps) => {
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity
-                onPress={() =>
-                    props.nav.navigate('User', {
-                        userId: props.userId,
-                    })
-                }
-            >
-                <Text
-                    style={styles.userNameButton}
-                    numberOfLines={1}
-                    ellipsizeMode="tail"
+            <View style={styles.header}>
+                <TouchableOpacity
+                    style={styles.userNameButtonWrapper}
+                    onPress={() =>
+                        props.nav.navigate('User', {
+                            userId: props.userId,
+                        })
+                    }
                 >
-                    {props.userName}
-                </Text>
-            </TouchableOpacity>
+                    <Text
+                        style={styles.userNameButton}
+                        numberOfLines={1}
+                        ellipsizeMode="tail"
+                    >
+                        {props.userName}
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() =>
+                        Alert.alert(
+                            'Report Feedback',
+                            'Report incorrect or inappropriate feedback.',
+                            [
+                                {
+                                    text: `Report`,
+
+                                    onPress: () =>
+                                        MailComposer.composeAsync({
+                                            recipients: [
+                                                'support@dutified.com',
+                                            ],
+                                        }).catch(() => {
+                                            Alert.alert(
+                                                'Setup Email',
+                                                'Please setup your email address on this device first.',
+                                                [
+                                                    {
+                                                        text: 'Dismiss',
+                                                        onPress: () => {},
+                                                    },
+                                                ]
+                                            )
+                                        }),
+                                },
+                                {
+                                    text: 'Dismiss',
+                                    onPress: () => {},
+                                },
+                            ]
+                        )
+                    }
+                >
+                    <MaterialCommunityIcons
+                        name="dots-vertical"
+                        size={24}
+                        color={themeColors.BLACK}
+                    />
+                </TouchableOpacity>
+            </View>
+            <Text
+                style={styles.feedbackTitle}
+                numberOfLines={1}
+                ellipsizeMode="tail"
+            >
+                {props.feedbackTitle}
+            </Text>
             <Text style={styles.feedback}>{props.feedback}</Text>
             <View style={styles.stars}>{renderStars()}</View>
+            <Text style={styles.date}>{props.feedbackDate}</Text>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        alignItems: 'flex-start',
         backgroundColor: themeColors.WHITE,
-        borderRadius: 15,
         width: '90%',
+        marginTop: '5%',
+        borderRadius: 20,
+        paddingTop: '5%',
+        paddingHorizontal: '5%',
         overflow: 'hidden',
-        marginBottom: 20,
+    },
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '100%',
+        paddingBottom: '5%',
+        alignItems: 'center',
+    },
+    userNameButtonWrapper: {
+        width: '90%',
     },
     userNameButton: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.HEADING_THREE,
         color: themeColors.YELLOW_GREEN,
-        width: '100%',
-        paddingTop: 10,
-        paddingBottom: 15,
-        paddingLeft: 10,
-        paddingRight: 10,
+    },
+    feedbackTitle: {
+        paddingBottom: '5%',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
+        fontSize: fontSizes.BODY_ONE,
+        color: themeColors.BLACK,
     },
     feedback: {
-        paddingLeft: 10,
-        paddingRight: 10,
-        paddingBottom: 15,
+        paddingBottom: '5%',
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: fontSizes.BODY_TWO,
-        color: themeColors.WHITE,
+        fontSize: fontSizes.BODY_ONE,
+        color: themeColors.BLACK,
     },
     stars: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        width: 180,
-        paddingLeft: 10,
-        paddingBottom: 10,
+        width: '50%',
+        paddingBottom: '5%',
+    },
+    date: {
+        fontFamily: 'IBMPlexSansCondensed-Bold',
+        fontSize: fontSizes.BODY_THREE,
+        color: themeColors.BLACK,
+        marginBottom: '5%',
     },
 })
 
