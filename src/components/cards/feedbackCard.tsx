@@ -246,7 +246,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         backgroundColor: themeColors.WHITE,
         width: '90%',
-        marginTop: '5%',
+        marginBottom: '5%',
         borderRadius: 20,
         paddingTop: '5%',
         paddingHorizontal: '5%',

@@ -20,17 +20,17 @@ const FeedbackScreen = () => {
             feedbackId: '1',
             userId: '1',
             userName: 'Sahil Memon',
-            feedbackTitle: 'Title',
-            feedback: 'This is a feedback',
-            rating: ratings.FIVE,
+            feedbackTitle: 'Feedback Title',
+            feedback: 'Feedback',
+            rating: ratings.FOUR,
             feedbackDate: '2021-01-01',
         },
         {
             feedbackId: '2',
             userId: '2',
             userName: 'Sahil Memon',
-            feedbackTitle: 'Title',
-            feedback: 'This is a feedback',
+            feedbackTitle: 'Feedback Title',
+            feedback: 'Feedback',
             rating: ratings.FOUR,
             feedbackDate: '2021-01-01',
         },
@@ -38,27 +38,18 @@ const FeedbackScreen = () => {
             feedbackId: '3',
             userId: '3',
             userName: 'Sahil Memon',
-            feedbackTitle: 'Title',
-            feedback: 'This is a feedback',
-            rating: ratings.THREE,
+            feedbackTitle: 'Feedback Title',
+            feedback: 'Feedback',
+            rating: ratings.FOUR,
             feedbackDate: '2021-01-01',
         },
         {
             feedbackId: '4',
             userId: '4',
             userName: 'Sahil Memon',
-            feedbackTitle: 'Title',
-            feedback: 'This is a feedback',
-            rating: ratings.TWO,
-            feedbackDate: '2021-01-01',
-        },
-        {
-            feedbackId: '5',
-            userId: '5',
-            userName: 'Sahil Memon',
-            feedbackTitle: 'Title',
-            feedback: 'This is a feedback',
-            rating: ratings.ONE,
+            feedbackTitle: 'Feedback Title',
+            feedback: 'Feedback',
+            rating: ratings.FOUR,
             feedbackDate: '2021-01-01',
         },
     ]
@@ -98,7 +89,7 @@ const FeedbackScreen = () => {
                     ) : (
                         <View style={styles.noDataContainer}>
                             <Text style={styles.noDataText}>
-                                No feedbacks yet.
+                                You have not received any feedbacks yet.
                             </Text>
                         </View>
                     )}
@@ -134,6 +125,7 @@ const styles = StyleSheet.create({
     feedbackList: {
         width: '100%',
         alignItems: 'center',
+        marginTop: '5%',
     },
     noDataContainer: {
         alignItems: 'center',
@@ -143,8 +135,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.WHITE,
-        paddingTop: '10%',
-        paddingBottom: '10%',
+        paddingTop: '5%',
         textAlign: 'center',
     },
 })
