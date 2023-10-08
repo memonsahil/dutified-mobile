@@ -326,7 +326,7 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
         backgroundColor: themeColors.YELLOW_GREEN,
-        padding: 5,
+        padding: '1%',
         marginRight: 10,
     },
     selectedCategory: {
@@ -334,7 +334,7 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
         backgroundColor: themeColors.YELLOW_GREEN,
-        padding: 5,
+        padding: '1%',
         marginTop: '5%',
     },
     datePickerButtonContainer: {

@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
         color: themeColors.WHITE,
         backgroundColor: themeColors.YELLOW_GREEN,
         marginRight: 10,
-        padding: 5,
+        padding: '1%',
     },
     jobsSection: {
         flexDirection: 'row',

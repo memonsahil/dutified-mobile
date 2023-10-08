@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     },
     options: {
         backgroundColor: themeColors.YELLOW_GREEN,
-        padding: 5,
+        padding: '1%',
     },
 })
 
