@@ -4,6 +4,7 @@ import postCardProps from '../props/postCardProps'
 import { Avatar } from 'react-native-elements'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 const PostCard = (props: postCardProps) => {
     const [image, setImage] = useState<string>('')
@@ -15,23 +16,32 @@ const PostCard = (props: postCardProps) => {
     return (
         <View style={styles.container}>
             <View style={styles.postHeader}>
-                <Avatar
-                    size="small"
-                    rounded
-                    source={
-                        image
-                            ? { uri: image }
-                            : require('../../../assets/images/user-avatar.png')
-                    }
-                    containerStyle={styles.avatarContainer}
-                />
-                <Text
-                    style={styles.userName}
-                    numberOfLines={1}
-                    ellipsizeMode="tail"
-                >
-                    {props.userName}
-                </Text>
+                <View style={styles.userInfo}>
+                    <Avatar
+                        size="small"
+                        rounded
+                        source={
+                            image
+                                ? { uri: image }
+                                : require('../../../assets/images/user-avatar.png')
+                        }
+                        containerStyle={styles.avatarContainer}
+                    />
+                    <Text
+                        style={styles.userName}
+                        numberOfLines={1}
+                        ellipsizeMode="tail"
+                    >
+                        A very long name that will be cut off at some point
+                    </Text>
+                </View>
+                <TouchableOpacity onPress={() => {}}>
+                    <MaterialCommunityIcons
+                        name="dots-vertical"
+                        size={22}
+                        color={themeColors.BLACK}
+                    />
+                </TouchableOpacity>
             </View>
             <Text style={styles.post}>{props.content}</Text>
             {props.attachments?.length !== 0
@@ -46,10 +56,22 @@ const PostCard = (props: postCardProps) => {
             <Text style={styles.date}>{props.date}</Text>
             <View style={styles.border} />
             <View style={styles.postFooter}>
-                <TouchableOpacity onPress={() => {}}>
+                <TouchableOpacity onPress={() => {}} style={styles.postButton}>
+                    <MaterialCommunityIcons
+                        name="message-arrow-right"
+                        size={22}
+                        color={themeColors.YELLOW_GREEN}
+                        style={styles.buttonIcon}
+                    />
                     <Text style={styles.button}>Chat</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {}}>
+                <TouchableOpacity onPress={() => {}} style={styles.postButton}>
+                    <MaterialCommunityIcons
+                        name="comment-text"
+                        size={22}
+                        color={themeColors.YELLOW_GREEN}
+                        style={styles.buttonIcon}
+                    />
                     <Text style={styles.button}>Comment (200)</Text>
                 </TouchableOpacity>
             </View>
@@ -72,6 +94,12 @@ const styles = StyleSheet.create({
         marginBottom: '5%',
         flexDirection: 'row',
         alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    userInfo: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '80%',
     },
     avatarContainer: {
         backgroundColor: themeColors.YELLOW_GREEN,
@@ -112,10 +140,18 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
     },
+    postButton: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.YELLOW_GREEN,
+    },
+    buttonIcon: {
+        marginRight: '3%',
     },
 })
 
