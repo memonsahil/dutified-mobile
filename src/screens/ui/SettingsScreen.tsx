@@ -77,7 +77,7 @@ const SettingsScreen = () => {
                     {switchColumn === 'Profile' ? (
                         <>
                             <TouchableOpacity onPress={() => {}}>
-                                <Text style={styles.button}>Edit Name</Text>
+                                <Text style={styles.button}>Name</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 onPress={() =>
@@ -85,24 +85,20 @@ const SettingsScreen = () => {
                                 }
                             >
                                 <Text style={styles.button}>
-                                    Edit Profile Picture
+                                    Profile Picture
                                 </Text>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => {}}>
                                 <Text style={styles.button}>Edit Bio</Text>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => {}}>
-                                <Text style={styles.button}>
-                                    Edit Daily Rate
-                                </Text>
+                                <Text style={styles.button}>Rates</Text>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => {}}>
-                                <Text style={styles.button}>
-                                    Edit Interests
-                                </Text>
+                                <Text style={styles.button}>Interests</Text>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => {}}>
-                                <Text style={styles.button}>Edit Links</Text>
+                                <Text style={styles.button}>Links</Text>
                             </TouchableOpacity>
                         </>
                     ) : null}
@@ -110,7 +106,7 @@ const SettingsScreen = () => {
                         <>
                             <TouchableOpacity onPress={() => {}}>
                                 <Text style={styles.button}>
-                                    Edit Payment Details
+                                    Payment Details
                                 </Text>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => {}}>
@@ -125,25 +121,21 @@ const SettingsScreen = () => {
                                     navigation.navigate('EditPhoneNumber')
                                 }
                             >
-                                <Text style={styles.button}>
-                                    Edit Phone Number
-                                </Text>
+                                <Text style={styles.button}>Phone Number</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 onPress={() =>
                                     navigation.navigate('EditEmailAddress')
                                 }
                             >
-                                <Text style={styles.button}>
-                                    Edit Email Address
-                                </Text>
+                                <Text style={styles.button}>Email Address</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 onPress={() =>
                                     navigation.navigate('EditPassword')
                                 }
                             >
-                                <Text style={styles.button}>Edit Password</Text>
+                                <Text style={styles.button}>Password</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 onPress={() => navigation.navigate('Support')}
