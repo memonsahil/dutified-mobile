@@ -358,6 +358,10 @@ const ProfileScreen = () => {
                                                     }
                                                     category={project.category}
                                                     showPlus={project.showPlus}
+                                                    additionalStyle={{
+                                                        width: 350,
+                                                        marginRight: 20,
+                                                    }}
                                                 />
                                             ))}
                                         </ScrollView>
@@ -431,6 +435,10 @@ const ProfileScreen = () => {
                                                     }
                                                     category={project.category}
                                                     showPlus={project.showPlus}
+                                                    additionalStyle={{
+                                                        width: 350,
+                                                        marginRight: 20,
+                                                    }}
                                                 />
                                             ))}
                                         </ScrollView>

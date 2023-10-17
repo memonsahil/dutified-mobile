@@ -50,11 +50,9 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: themeColors.WHITE,
         borderRadius: 20,
-        width: 350,
         paddingVertical: 20,
         paddingHorizontal: 20,
         overflow: 'hidden',
-        marginRight: 20,
     },
     projectName: {
         fontFamily: 'IBMPlexSansCondensed-Bold',

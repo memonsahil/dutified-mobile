@@ -196,6 +196,10 @@ const WorkScreen = () => {
                                                     }
                                                     category={project.category}
                                                     showPlus={project.showPlus}
+                                                    additionalStyle={{
+                                                        width: 350,
+                                                        marginRight: 20,
+                                                    }}
                                                 />
                                             ))}
                                         </ScrollView>
@@ -269,6 +273,10 @@ const WorkScreen = () => {
                                                     }
                                                     category={project.category}
                                                     showPlus={project.showPlus}
+                                                    additionalStyle={{
+                                                        width: 350,
+                                                        marginRight: 20,
+                                                    }}
                                                 />
                                             ))}
                                         </ScrollView>
