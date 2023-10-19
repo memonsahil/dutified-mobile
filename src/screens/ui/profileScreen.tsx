@@ -21,6 +21,7 @@ import PostCard from '../../components/cards/postCard'
 import postCardProps from '../../components/props/postCardProps'
 import projectCardProps from '../../components/props/projectCardProps'
 import ProjectCard from '../../components/cards/projectCard'
+import attachmentType from '../../enums/attachmentType'
 
 const ProfileScreen = () => {
     const navigation: NavigationProp<screens> = useNavigation()
@@ -40,10 +41,12 @@ const ProfileScreen = () => {
                 {
                     id: '1',
                     title: 'Created Job 1',
+                    type: attachmentType.JOB,
                 },
                 {
                     id: '2',
                     title: 'Created Project 1',
+                    type: attachmentType.PROJECT,
                 },
             ],
             comments: '1',
@@ -60,10 +63,12 @@ const ProfileScreen = () => {
                 {
                     id: '1',
                     title: 'Created Job 1',
+                    type: attachmentType.JOB,
                 },
                 {
                     id: '2',
                     title: 'Created Job 2',
+                    type: attachmentType.JOB,
                 },
             ],
             comments: '1',
