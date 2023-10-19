@@ -29,13 +29,13 @@ const JobScreen = ({ route }: jobScreenProps) => {
     const [projectName, setProjectName] = useState<string>('')
     const [jobCreatorId, setJobCreatorId] = useState<string>('')
     const [jobCreator, setJobCreator] = useState<string>('')
-    const [loading, setLoading] = useState<boolean>(true)
+    const [loading, setLoading] = useState<boolean>(false)
 
     const { account } = authUserStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
-    useEffect(() => {}, [jobId])
+    //useEffect(() => {}, [jobId])
 
     return (
         <View style={styles.container}>
