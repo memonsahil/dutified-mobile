@@ -9,6 +9,7 @@ type postCardProps = {
     attachments?: {
         id: string
         title: string
+        type: string
     }[]
 }
 

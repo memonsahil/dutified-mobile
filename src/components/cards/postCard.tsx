@@ -1,13 +1,28 @@
 import { useState, useEffect } from 'react'
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import {
+    StyleSheet,
+    Text,
+    View,
+    TouchableOpacity,
+    Alert,
+    Modal,
+} from 'react-native'
+import { useNavigation, NavigationProp } from '@react-navigation/native'
 import postCardProps from '../props/postCardProps'
 import { Avatar } from 'react-native-elements'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import * as MailComposer from 'expo-mail-composer'
+import screens from '../../screens/params/screens'
+import attachmentType from '../../enums/attachmentType'
+import CommentsModal from '../modals/commentsModal'
 
 const PostCard = (props: postCardProps) => {
     const [image, setImage] = useState<string>('')
+    const [modalVisible, setModalVisible] = useState(false)
+
+    const navigation: NavigationProp<screens> = useNavigation()
 
     useEffect(() => {
         props.userAvatar !== image ? setImage(props.userAvatar) : null
@@ -32,10 +47,44 @@ const PostCard = (props: postCardProps) => {
                         numberOfLines={1}
                         ellipsizeMode="tail"
                     >
-                        A very long name that will be cut off at some point
+                        {props.userName}
                     </Text>
                 </View>
-                <TouchableOpacity onPress={() => {}}>
+                <TouchableOpacity
+                    onPress={() => {
+                        Alert.alert(
+                            `Report post by ${props.userName}`,
+                            'Report inappropriate or suspicious activity.',
+                            [
+                                {
+                                    text: `Report`,
+
+                                    onPress: () =>
+                                        MailComposer.composeAsync({
+                                            recipients: [
+                                                'support@dutified.com',
+                                            ],
+                                        }).catch(() => {
+                                            Alert.alert(
+                                                'Setup Email',
+                                                'Please setup your email address on this device first.',
+                                                [
+                                                    {
+                                                        text: 'Dismiss',
+                                                        onPress: () => {},
+                                                    },
+                                                ]
+                                            )
+                                        }),
+                                },
+                                {
+                                    text: 'Dismiss',
+                                    onPress: () => {},
+                                },
+                            ]
+                        )
+                    }}
+                >
                     <MaterialCommunityIcons
                         name="dots-vertical"
                         size={22}
@@ -46,7 +95,18 @@ const PostCard = (props: postCardProps) => {
             <Text style={styles.post}>{props.content}</Text>
             {props.attachments?.length !== 0
                 ? props.attachments?.map((attachment) => (
-                      <TouchableOpacity key={attachment.id} onPress={() => {}}>
+                      <TouchableOpacity
+                          key={attachment.id}
+                          onPress={() => {
+                              attachment.type === attachmentType.JOB
+                                  ? navigation.navigate('Job', {
+                                        jobId: attachment.id,
+                                    })
+                                  : navigation.navigate('Project', {
+                                        projectId: attachment.id,
+                                    })
+                          }}
+                      >
                           <Text style={styles.jobAttachment}>
                               {attachment.title}
                           </Text>
@@ -65,7 +125,10 @@ const PostCard = (props: postCardProps) => {
                     />
                     <Text style={styles.button}>Chat</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {}} style={styles.postButton}>
+                <TouchableOpacity
+                    onPress={() => setModalVisible(true)}
+                    style={styles.postButton}
+                >
                     <MaterialCommunityIcons
                         name="comment-text"
                         size={22}
@@ -75,6 +138,10 @@ const PostCard = (props: postCardProps) => {
                     <Text style={styles.button}>Comment (200)</Text>
                 </TouchableOpacity>
             </View>
+            <CommentsModal
+                visible={modalVisible}
+                onClose={() => setModalVisible(false)}
+            />
         </View>
     )
 }
