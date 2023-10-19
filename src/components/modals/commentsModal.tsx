@@ -1,6 +1,7 @@
 import { Modal, View, Text, TouchableOpacity } from 'react-native'
+import commentsModalProps from '../props/commentsModalProps'
 
-const CommentsModal = (props: { visible: boolean; onClose: any }) => {
+const CommentsModal = (props: commentsModalProps) => {
     return (
         <Modal transparent visible={props.visible} animationType="slide">
             <View
