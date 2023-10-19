@@ -1,12 +1,5 @@
 import { useState, useEffect } from 'react'
-import {
-    StyleSheet,
-    Text,
-    View,
-    TouchableOpacity,
-    Alert,
-    Modal,
-} from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import postCardProps from '../props/postCardProps'
 import { Avatar } from 'react-native-elements'
@@ -210,7 +203,7 @@ const styles = StyleSheet.create({
     postButton: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center',
+        alignItems: 'flex-end',
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
