@@ -234,90 +234,100 @@ const SearchScreen = () => {
                                         </Text>
                                     </TouchableOpacity>
                                 </View>
-                                {switchCategory === 'Projects' &&
-                                projects.length !== 0 ? (
-                                    <>
-                                        {projects.map((project) => (
-                                            <ProjectCard
-                                                key={project.projectId}
-                                                nav={navigation}
-                                                projectId={project.projectId}
-                                                projectName={
-                                                    project.projectName
-                                                }
-                                                description={
-                                                    project.description
-                                                }
-                                                creationDate={
-                                                    project.creationDate
-                                                }
-                                                category={project.category}
-                                                showPlus={project.showPlus}
-                                                additionalStyle={{
-                                                    width: '90%',
-                                                    marginRight: 0,
-                                                    marginBottom: '5%',
-                                                }}
-                                            />
-                                        ))}
-                                    </>
-                                ) : switchCategory === 'Projects' &&
-                                  projects.length === 0 ? (
-                                    <View style={styles.noDataContainer}>
-                                        <Text style={styles.noDataText}>
-                                            No projects were found.
-                                        </Text>
-                                    </View>
-                                ) : null}
-                                {switchCategory === 'Jobs' &&
-                                jobs.length !== 0 ? (
-                                    <>
-                                        {jobs.map((job) => (
-                                            <JobCard
-                                                key={job.jobId}
-                                                nav={navigation}
-                                                jobId={job.jobId}
-                                                jobName={job.jobName}
-                                                status={job.status}
-                                                payment={job.payment}
-                                                description={job.description}
-                                                creationDate={job.creationDate}
-                                                category={job.category}
-                                                showPlus={job.showPlus}
-                                            />
-                                        ))}
-                                    </>
-                                ) : switchCategory === 'Jobs' &&
-                                  projects.length === 0 ? (
-                                    <View style={styles.noDataContainer}>
-                                        <Text style={styles.noDataText}>
-                                            No jobs were found.
-                                        </Text>
-                                    </View>
-                                ) : null}
-                                {switchCategory === 'Users' &&
-                                users.length !== 0 ? (
-                                    <>
-                                        {users.map((user) => (
-                                            <UserCardSmall
-                                                key={user.userId}
-                                                userId={user.userId}
-                                                first={user.first}
-                                                last={user.last}
-                                                image={user.image}
-                                                affiliation={user.affiliation}
-                                                avgRatings={user.avgRatings}
-                                            />
-                                        ))}
-                                    </>
-                                ) : switchCategory === 'Users' &&
-                                  projects.length === 0 ? (
-                                    <View style={styles.noDataContainer}>
-                                        <Text style={styles.noDataText}>
-                                            No users were found.
-                                        </Text>
-                                    </View>
-                                ) : null}
+                                <View style={styles.resultSection}>
+                                    {switchCategory === 'Projects' &&
+                                    projects.length !== 0 ? (
+                                        <>
+                                            {projects.map((project) => (
+                                                <ProjectCard
+                                                    key={project.projectId}
+                                                    nav={navigation}
+                                                    projectId={
+                                                        project.projectId
+                                                    }
+                                                    projectName={
+                                                        project.projectName
+                                                    }
+                                                    description={
+                                                        project.description
+                                                    }
+                                                    creationDate={
+                                                        project.creationDate
+                                                    }
+                                                    category={project.category}
+                                                    showPlus={project.showPlus}
+                                                    additionalStyle={{
+                                                        width: '90%',
+                                                        marginRight: 0,
+                                                        marginBottom: '5%',
+                                                    }}
+                                                />
+                                            ))}
+                                        </>
+                                    ) : switchCategory === 'Projects' &&
+                                      projects.length === 0 ? (
+                                        <View style={styles.noDataContainer}>
+                                            <Text style={styles.noDataText}>
+                                                No projects were found.
+                                            </Text>
+                                        </View>
+                                    ) : null}
+                                    {switchCategory === 'Jobs' &&
+                                    jobs.length !== 0 ? (
+                                        <>
+                                            {jobs.map((job) => (
+                                                <JobCard
+                                                    key={job.jobId}
+                                                    nav={navigation}
+                                                    jobId={job.jobId}
+                                                    jobName={job.jobName}
+                                                    status={job.status}
+                                                    payment={job.payment}
+                                                    description={
+                                                        job.description
+                                                    }
+                                                    creationDate={
+                                                        job.creationDate
+                                                    }
+                                                    category={job.category}
+                                                    showPlus={job.showPlus}
+                                                />
+                                            ))}
+                                        </>
+                                    ) : switchCategory === 'Jobs' &&
+                                      projects.length === 0 ? (
+                                        <View style={styles.noDataContainer}>
+                                            <Text style={styles.noDataText}>
+                                                No jobs were found.
+                                            </Text>
+                                        </View>
+                                    ) : null}
+                                    {switchCategory === 'Users' &&
+                                    users.length !== 0 ? (
+                                        <>
+                                            {users.map((user) => (
+                                                <UserCardSmall
+                                                    key={user.userId}
+                                                    userId={user.userId}
+                                                    first={user.first}
+                                                    last={user.last}
+                                                    image={user.image}
+                                                    affiliation={
+                                                        user.affiliation
+                                                    }
+                                                    avgRatings={user.avgRatings}
+                                                />
+                                            ))}
+                                        </>
+                                    ) : switchCategory === 'Users' &&
+                                      projects.length === 0 ? (
+                                        <View style={styles.noDataContainer}>
+                                            <Text style={styles.noDataText}>
+                                                No users were found.
+                                            </Text>
+                                        </View>
+                                    ) : null}
+                                </View>
                             </>
                         ) : (
                             <View style={styles.loadingContainer}>
@@ -350,7 +360,6 @@ const styles = StyleSheet.create({
     scrollView: {
         flexGrow: 1,
         alignItems: 'center',
-        paddingBottom: '20%',
     },
     headerSection: {
         flexDirection: 'row',
@@ -386,6 +395,11 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
+    },
+    resultSection: {
+        width: '100%',
+        paddingBottom: '20%',
+        alignItems: 'center',
     },
     noDataContainer: {
         alignItems: 'center',
