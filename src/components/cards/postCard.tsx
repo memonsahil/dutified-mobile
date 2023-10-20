@@ -109,7 +109,14 @@ const PostCard = (props: postCardProps) => {
             <Text style={styles.date}>{props.date}</Text>
             <View style={styles.border} />
             <View style={styles.postFooter}>
-                <TouchableOpacity onPress={() => {}} style={styles.postButton}>
+                <TouchableOpacity
+                    onPress={() => {
+                        navigation.navigate('Chat', {
+                            receiverUserId: props.userId,
+                        })
+                    }}
+                    style={styles.postButton}
+                >
                     <MaterialCommunityIcons
                         name="message-arrow-right"
                         size={22}

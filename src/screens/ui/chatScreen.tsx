@@ -36,7 +36,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
     const [imageSrc, setImageSrc] = useState<string>('')
     const [message, setMessage] = useState<string>('')
     const [allMessages, setAllMessages] = useState<IMessage[]>([])
-    const [loading, setLoading] = useState<boolean>(true)
+    const [loading, setLoading] = useState<boolean>(false)
 
     const { account } = authUserStore((state) => state)
 
