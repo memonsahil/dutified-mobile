@@ -12,7 +12,7 @@ import screens from '../params/screens'
 import postCardProps from '../../components/props/postCardProps'
 import PostCard from '../../components/cards/postCard'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import attachmentType from '../../enums/attachmentType'
+import attachment from '../../enums/attachment'
 
 const FeedScreen = () => {
     const navigation: NavigationProp<screens> = useNavigation()
@@ -29,12 +29,12 @@ const FeedScreen = () => {
                 {
                     id: '1',
                     title: 'Created Job 1',
-                    type: attachmentType.JOB,
+                    type: attachment.JOB,
                 },
                 {
                     id: '2',
                     title: 'Created Project 1',
-                    type: attachmentType.PROJECT,
+                    type: attachment.PROJECT,
                 },
             ],
             comments: '1',
@@ -51,12 +51,12 @@ const FeedScreen = () => {
                 {
                     id: '1',
                     title: 'Created Job 1',
-                    type: attachmentType.JOB,
+                    type: attachment.JOB,
                 },
                 {
                     id: '2',
                     title: 'Created Job 2',
-                    type: attachmentType.JOB,
+                    type: attachment.JOB,
                 },
             ],
             comments: '1',

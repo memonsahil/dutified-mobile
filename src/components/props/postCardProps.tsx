@@ -1,3 +1,5 @@
+import attachmentType from '../../data/types/attachmentType'
+
 type postCardProps = {
     postId: string
     content: string
@@ -6,11 +8,7 @@ type postCardProps = {
     userAvatar: string
     date: string
     comments: string
-    attachments?: {
-        id: string
-        title: string
-        type: string
-    }[]
+    attachments?: attachmentType[]
 }
 
 export default postCardProps

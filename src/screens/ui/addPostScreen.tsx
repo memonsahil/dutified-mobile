@@ -21,6 +21,8 @@ const AddPostScreen = () => {
     const [desc, setDesc] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
+    const attachment = []
+
     const navigation: NavigationProp<screens> = useNavigation()
 
     return (

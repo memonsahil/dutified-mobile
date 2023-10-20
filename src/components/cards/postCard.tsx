@@ -8,7 +8,7 @@ import fontSizes from '../../enums/fontSizes'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import * as MailComposer from 'expo-mail-composer'
 import screens from '../../screens/params/screens'
-import attachmentType from '../../enums/attachmentType'
+import attachment from '../../enums/attachment'
 import CommentsModal from '../modals/commentsModal'
 
 const PostCard = (props: postCardProps) => {
@@ -87,21 +87,21 @@ const PostCard = (props: postCardProps) => {
             </View>
             <Text style={styles.post}>{props.content}</Text>
             {props.attachments?.length !== 0
-                ? props.attachments?.map((attachment) => (
+                ? props.attachments?.map((_attachment) => (
                       <TouchableOpacity
-                          key={attachment.id}
+                          key={_attachment.id}
                           onPress={() => {
-                              attachment.type === attachmentType.JOB
+                              _attachment.type === attachment.JOB
                                   ? navigation.navigate('Job', {
-                                        jobId: attachment.id,
+                                        jobId: _attachment.id,
                                     })
                                   : navigation.navigate('Project', {
-                                        projectId: attachment.id,
+                                        projectId: _attachment.id,
                                     })
                           }}
                       >
                           <Text style={styles.jobAttachment}>
-                              {attachment.title}
+                              {_attachment.title}
                           </Text>
                       </TouchableOpacity>
                   ))
