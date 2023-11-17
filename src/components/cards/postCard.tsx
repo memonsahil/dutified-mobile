@@ -81,7 +81,7 @@ const PostCard = (props: postCardProps) => {
                     <MaterialCommunityIcons
                         name="dots-vertical"
                         size={22}
-                        color={themeColors.BLACK}
+                        color={themeColors.YELLOW_GREEN}
                     />
                 </TouchableOpacity>
             </View>
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
     },
     border: {
         width: '100%',
-        borderBottomColor: themeColors.BLACK,
+        borderColor: themeColors.BLACK,
         borderWidth: 1,
         marginBottom: '5%',
     },

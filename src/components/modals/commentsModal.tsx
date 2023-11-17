@@ -11,13 +11,13 @@ import commentsModalProps from '../props/commentsModalProps'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import commentType from '../../data/types/commentType'
+import * as Crypto from 'expo-crypto'
 
 const CommentsModal = (props: commentsModalProps) => {
     const [comment, setComment] = useState<string>('')
-
-    const comments: commentType[] = [
+    const [comments, setComments] = useState<Array<commentType>>([
         {
             commentId: '1',
             comment:
@@ -48,7 +48,7 @@ const CommentsModal = (props: commentsModalProps) => {
             commentId: '7',
             comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
         },
-    ]
+    ])
 
     return (
         <Modal transparent visible={props.visible} animationType="slide">
@@ -60,7 +60,7 @@ const CommentsModal = (props: commentsModalProps) => {
                             <MaterialCommunityIcons
                                 name="close-circle"
                                 size={30}
-                                color={themeColors.BLACK}
+                                color={themeColors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>
                     </View>
@@ -73,12 +73,13 @@ const CommentsModal = (props: commentsModalProps) => {
                                 style={styles.commentTextInput}
                                 placeholderTextColor={themeColors.SILVER}
                                 inputMode="text"
-                                multiline
+                                returnKeyType='done'
+                                onSubmitEditing={() => {
+                                    setComments([{commentId: Crypto.randomUUID(), comment: comment}, ...comments])
+                                    setComment('')
+                                }}
                             />
                         </View>
-                        <TouchableOpacity onPress={() => {}}>
-                            <Text style={styles.submitButton}>Submit</Text>
-                        </TouchableOpacity>
                         {comments.length === 0 ? (
                             <View style={styles.noDataContainer}>
                                 <Text style={styles.noDataText}>
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     modalContainer: {
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.WHITE,
         width: '100%',
         height: '80%',
         borderTopLeftRadius: 20,
@@ -137,8 +138,8 @@ const styles = StyleSheet.create({
         paddingBottom: '20%',
     },
     commentInputContainer: {
-        backgroundColor: themeColors.WHITE,
-        height: 120,
+        backgroundColor: themeColors.SILVER,
+        height: 80,
         width: '90%',
         borderRadius: 20,
         padding: 10,
@@ -153,14 +154,8 @@ const styles = StyleSheet.create({
         padding: 5,
         textAlignVertical: 'top',
     },
-    submitButton: {
-        fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.BUTTON,
-        color: themeColors.BLACK,
-        paddingTop: '5%',
-    },
     commentContainer: {
-        backgroundColor: themeColors.WHITE,
+        backgroundColor: themeColors.SILVER,
         width: '90%',
         borderRadius: 20,
         marginTop: '5%',
