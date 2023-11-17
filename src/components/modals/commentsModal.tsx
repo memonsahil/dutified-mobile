@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
     Modal,
     View,
@@ -11,7 +12,6 @@ import commentsModalProps from '../props/commentsModalProps'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { useEffect, useState } from 'react'
 import commentType from '../../data/types/commentType'
 import * as Crypto from 'expo-crypto'
 
