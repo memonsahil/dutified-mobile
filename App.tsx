@@ -7,7 +7,6 @@ import * as SplashScreen from 'expo-splash-screen'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
 import MainScreen from './src/screens/ui/mainScreen'
 import SignUpScreen from './src/screens/ui/signUpScreen'
 import SignInScreen from './src/screens/ui/signInScreen'
@@ -40,7 +39,7 @@ import EditPhoneNumberScreen from './src/screens/ui/EditPhoneNumberScreen'
 import EditEmailAddressScreen from './src/screens/ui/EditEmailAddressScreen'
 import EditPasswordScreen from './src/screens/ui/EditPasswordScreen'
 import authNavigatorParamList from './src/screens/params/authNavigatorParamList'
-import tabBarNavigatorParamList from './src/screens/params/tabBarNavigatorParamList'
+import dashboardNavigatorParamList from './src/screens/params/dashboardNavigatorParamList'
 import mainNavigatorParamList from './src/screens/params/mainNavigatorParamList'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from './src/enums/themeColors'
@@ -76,7 +75,7 @@ const AuthStackNavigator = () => {
 }
 
 const DashboardTabNavigator = () => {
-    const DashboardTab = createBottomTabNavigator<tabBarNavigatorParamList>()
+    const DashboardTab = createBottomTabNavigator<dashboardNavigatorParamList>()
 
     return (
         <DashboardTab.Navigator
@@ -215,8 +214,6 @@ const MainStackNavigator = () => {
 }
 
 const App = () => {
-    const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null)
-
     const [fontsLoaded] = useFonts({
         'IBMPlexSansCondensed-Bold': require('./assets/fonts/IBMPlexSansCondensed-Bold.ttf'),
         'IBMPlexSansCondensed-Medium': require('./assets/fonts/IBMPlexSansCondensed-Medium.ttf'),
@@ -231,14 +228,6 @@ const App = () => {
     useEffect(() => {
         hideSplashScreen()
     }, [fontsLoaded])
-
-    useEffect(() => {
-        const subscriber = auth().onAuthStateChanged((authUser) => {
-            setUser(authUser)
-        })
-
-        return () => subscriber()
-    }, [])
 
     if (!fontsLoaded) {
         return null
