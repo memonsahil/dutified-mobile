@@ -1,4 +1,4 @@
-type tabBarNavigatorParamList = {
+type dashboardNavigatorParamList = {
     Feed: undefined
     Chats: undefined
     Work: undefined
@@ -6,4 +6,4 @@ type tabBarNavigatorParamList = {
     Settings: undefined
 }
 
-export default tabBarNavigatorParamList
+export default dashboardNavigatorParamList

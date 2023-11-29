@@ -13,7 +13,7 @@ type screens = {
     Verification: undefined
     Password: undefined
 
-    // TabBar screens
+    // Dashboard screens
     Feed: undefined
     Chats: undefined
     Work: undefined
@@ -21,14 +21,20 @@ type screens = {
     Settings: undefined
 
     // Main screens
-    Search: undefined
+    Dashboard: undefined
     Create: undefined
-
-    EditProfilePicture: undefined
-    EditPhoneNumber: undefined
-    EditEmailAddress: undefined
-    EditPassword: undefined
-
+    Job: {
+        jobId: string
+    }
+    User: {
+        userId: string
+    }
+    Feedback: undefined
+    Network: undefined
+    Chat: {
+        receiverUserId: string
+    }
+    Search: undefined
     AddJob: {
         projectId: string
         projectName: string
@@ -38,25 +44,12 @@ type screens = {
     AddProject: undefined
     AddPost: undefined
     Attach: undefined
+    EditProfilePicture: undefined
+    EditPhoneNumber: undefined
+    EditEmailAddress: undefined
+    EditPassword: undefined
 
-    Job: {
-        jobId: string
-    }
-    Project: {
-        projectId: string
-    }
-
-    User: {
-        userId: string
-    }
-    Feedback: undefined
-    Network: undefined
-
-    Chat: {
-        receiverUserId: string
-    }
-
-    // Common screens
+    // Auth & Main screens
     Support: undefined
     Contact: undefined
     About: undefined
