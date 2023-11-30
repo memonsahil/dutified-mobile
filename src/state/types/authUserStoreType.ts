@@ -1,38 +1,46 @@
 import authUserType from '../../data/types/authUserType'
+import chatType from '../../data/types/chatType'
+import paymentType from '../../data/types/paymentType'
 import userType from '../../data/types/userType'
-import { IMessage } from 'react-native-gifted-chat'
 
-type authUserStore = {
+type authUserStoreType = {
     account: {
-        userId: string
-        firstName: string
-        lastName: string
-        countryCode: string
-        phoneNumber: string
-        emailAddress: string
+        identity: {
+            userId: string
+            firstName: string
+            lastName: string
+            countryCode: string
+            phoneNumber: string
+            emailAddress: string
+        }
+        affiliation?: {
+            orgName: string
+            orgDesc: string
+            website: string
+            userTitle: string
+        }
+        paymentDetails?: {
+            cardHolderName: string
+            cardNumber: string
+            expiryDate: string
+            cvc: string
+        }
+        metaData: {
+            creationDate: string
+            lastLoginDate: string
+            lastTransactionDate: string
+        }
     }
     profile: userType['profile']
+    projectsCreated: userType['projectsCreated']
+    projectsWorked: userType['projectsWorked']
     jobsCreated: userType['jobsCreated']
     jobsWorked: userType['jobsWorked']
     feedbacks: userType['feedbacks']
-    chats: {
-        chatId: string
-        senderUserId: string
-        receiverUserId: string
-        messages: IMessage[]
-    }[]
-    payments: {
-        paymentId: string
-        jobId: string
-        jobName: string
-        jobCreatorId: string
-        jobCreator: string
-        jobWorkerId: string
-        jobWorker: string
-        amount: string
-    }[]
+    payments: paymentType[]
+    chats: chatType[]
     updateAuthUser: (authUser: authUserType) => void
     removeAuthUser: () => void
 }
 
-export default authUserStore
+export default authUserStoreType

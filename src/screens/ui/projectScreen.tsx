@@ -15,7 +15,7 @@ import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import jobScreenProps from '../props/jobScreenProps'
 
-const JobScreen = ({ route }: jobScreenProps) => {
+const ProjectScreen = ({ route }: jobScreenProps) => {
     const { jobId } = route.params
 
     const [jobName, setJobName] = useState<string>('')
@@ -214,4 +214,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default JobScreen
+export default ProjectScreen

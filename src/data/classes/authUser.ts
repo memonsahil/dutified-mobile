@@ -1,107 +1,94 @@
-import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
 import AuthUserInterface from '../interfaces/authUserInterface'
 import jobType from '../types/jobType'
 import requestStatus from '../../enums/requestStatus'
+import authUserType from '../types/authUserType'
+import projectType from '../types/projectType'
 
 class AuthUser implements AuthUserInterface {
-    async signUp(details: {
+    signUp = async (details: {
         firstName: string
         lastName: string
         countryCode: string
         phoneNumber: string
         emailAddress: string
-        accPassword: string
-    }) {
-        return await auth()
-            .createUserWithEmailAndPassword(
-                details.emailAddress,
-                details.accPassword
-            )
-            .then(() => {
-                return Promise.resolve({
-                    status: requestStatus.SUCCESS,
-                })
-            })
-            .catch((error) => {
-                return Promise.reject({
-                    status: requestStatus.ERROR,
-                    errorCode: error.code,
-                })
-            })
+        password: string
+    }): Promise<{ status: requestStatus; errorCode?: string }> => {
+        // Implement sign up logic here
+        return { status: requestStatus.SUCCESS }
     }
 
-    async signIn(details: { emailAddress: string; accPassword: string }) {
-        return await auth()
-            .signInWithEmailAndPassword(
-                details.emailAddress,
-                details.accPassword
-            )
-            .then(() => {
-                return Promise.resolve({
-                    status: requestStatus.SUCCESS,
-                })
-            })
-            .catch((error) => {
-                return Promise.reject({
-                    status: requestStatus.ERROR,
-                    errorCode: error.code,
-                })
-            })
+    signIn = async (details: {
+        emailAddress: string
+        password: string
+    }): Promise<{ status: requestStatus; errorCode?: string }> => {
+        // Implement sign in logic here
+        return { status: requestStatus.SUCCESS }
     }
 
-    getAuthUser() {}
-
-    async signOut() {
-        return await auth()
-            .signOut()
-            .then(() => {
-                return Promise.resolve({
-                    status: requestStatus.SUCCESS,
-                })
-            })
-            .catch(() => {
-                return Promise.reject({
-                    status: requestStatus.ERROR,
-                })
-            })
+    getAuthUser = async (): Promise<{
+        status: requestStatus
+        data?: authUserType
+    }> => {
+        // Implement get auth user logic here
+        return { status: requestStatus.SUCCESS }
     }
 
-    setProfilePicture(profilePicture: string) {}
+    signOut = async (): Promise<{ status: requestStatus }> => {
+        // Implement sign out logic here
+        return { status: requestStatus.SUCCESS }
+    }
 
-    setPhone(details: { countryCode: string; phoneNumber: string }) {}
+    setProfilePicture = async (
+        profilePicture: string
+    ): Promise<{ status: requestStatus }> => {
+        // Implement set profile picture logic here
+        return { status: requestStatus.SUCCESS }
+    }
 
-    setEmail(emailAddress: string) {}
+    setPhone = async (details: {
+        countryCode: string
+        phoneNumber: string
+    }): Promise<{ status: requestStatus }> => {
+        // Implement set phone logic here
+        return { status: requestStatus.SUCCESS }
+    }
 
-    async setPassword(details: {
+    setEmail = async (
+        emailAddress: string
+    ): Promise<{ status: requestStatus }> => {
+        // Implement set email logic here
+        return { status: requestStatus.SUCCESS }
+    }
+
+    setPassword = async (details: {
         emailAddress: string
         currentPassword: string
         newPassword: string
-    }) {
-        let user: FirebaseAuthTypes.User = auth()
-            .currentUser as FirebaseAuthTypes.User
-        let credential: FirebaseAuthTypes.AuthCredential =
-            auth.EmailAuthProvider.credential(
-                details.emailAddress,
-                details.currentPassword
-            )
-
-        return await user
-            .reauthenticateWithCredential(credential)
-            .then(() => {
-                return Promise.resolve({
-                    status: requestStatus.SUCCESS,
-                })
-            })
-            .catch(() => {
-                return Promise.reject({
-                    status: requestStatus.ERROR,
-                })
-            })
+    }): Promise<{ status: requestStatus }> => {
+        // Implement set password logic here
+        return { status: requestStatus.SUCCESS }
     }
 
-    createJob(details: jobType) {}
+    createProject = async (
+        details: projectType
+    ): Promise<{ status: requestStatus }> => {
+        // Implement create project logic here
+        return { status: requestStatus.SUCCESS }
+    }
 
-    acceptJob(details: jobType) {}
+    createJob = async (
+        details: jobType
+    ): Promise<{ status: requestStatus }> => {
+        // Implement create job logic here
+        return { status: requestStatus.SUCCESS }
+    }
+
+    acceptJob = async (
+        details: jobType
+    ): Promise<{ status: requestStatus }> => {
+        // Implement accept job logic here
+        return { status: requestStatus.SUCCESS }
+    }
 }
 
 export default new AuthUser()

@@ -1,6 +1,7 @@
 import requestStatus from '../../enums/requestStatus'
 import authUserType from '../types/authUserType'
 import jobType from '../types/jobType'
+import projectType from '../types/projectType'
 
 export default interface AuthUserInterface {
     signUp: (details: {
@@ -33,6 +34,7 @@ export default interface AuthUserInterface {
         currentPassword: string
         newPassword: string
     }) => Promise<{ status: requestStatus }>
+    createProject: (details: projectType) => Promise<{ status: requestStatus }>
     createJob: (details: jobType) => Promise<{ status: requestStatus }>
     acceptJob: (details: jobType) => Promise<{ status: requestStatus }>
 }

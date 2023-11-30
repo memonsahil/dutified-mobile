@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import {
     StyleSheet,
-    Alert,
     View,
     Text,
     TextInput,

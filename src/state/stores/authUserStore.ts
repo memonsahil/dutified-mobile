@@ -4,59 +4,52 @@ import authUserStoreType from '../types/authUserStoreType'
 
 const initialState: authUserType = {
     account: {
-        userId: '',
-        firstName: '',
-        lastName: '',
-        countryCode: '',
-        phoneNumber: '',
-        emailAddress: '',
+        identity: {
+            userId: '',
+            firstName: '',
+            lastName: '',
+            countryCode: '',
+            phoneNumber: '',
+            emailAddress: '',
+        },
+        affiliation: {
+            orgName: '',
+            orgDesc: '',
+            website: '',
+            userTitle: '',
+        },
+        paymentDetails: {
+            cardHolderName: '',
+            cardNumber: '',
+            expiryDate: '',
+            cvc: '',
+        },
+        metaData: {
+            creationDate: '',
+            lastLoginDate: '',
+            lastTransactionDate: '',
+        },
     },
     profile: {
-        userName: '',
+        firstName: '',
+        lastName: '',
         profilePicture: '',
-        description: '',
+        bio: '',
         interests: [],
-        affiliation: {},
     },
+    projectsCreated: [],
+    projectsWorked: [],
     jobsCreated: [],
     jobsWorked: [],
     feedbacks: [],
-    chats: [],
     payments: [],
+    chats: [],
 }
 
 const authUserStore = create<authUserStoreType>()((set) => ({
     ...initialState,
-    updateAuthUser: async (authUser: authUserType) => {
-        set((state: authUserType) => ({
-            ...state,
-            account: {
-                ...state.account,
-                userId: authUser.account.userId,
-                firstName: authUser.account.firstName,
-                lastName: authUser.account.lastName,
-                countryCode: authUser.account.countryCode,
-                phoneNumber: authUser.account.phoneNumber,
-                emailAddress: authUser.account.emailAddress,
-            },
-            profile: {
-                ...state.profile,
-                userName: authUser.profile.userName,
-                profilePicture: authUser.profile.profilePicture,
-                description: authUser.profile.description,
-                interests: authUser.profile.interests,
-                affiliation: authUser.profile.affiliation,
-            },
-            jobsCreated: authUser.jobsCreated,
-            jobsWorked: authUser.jobsWorked,
-            feedbacks: authUser.feedbacks,
-            chats: authUser.chats,
-            payments: authUser.payments,
-        }))
-    },
-    removeAuthUser: async () => {
-        set(initialState)
-    },
+    updateAuthUser: (authUser: authUserType) => set(() => authUser),
+    removeAuthUser: () => set(() => initialState),
 }))
 
 export default authUserStore

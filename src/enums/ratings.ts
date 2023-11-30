@@ -1,9 +1,9 @@
 enum ratings {
-    FIVE = '5_STARS',
-    FOUR = '4_STARS',
-    THREE = '3_STARS',
-    TWO = '2_STARS',
-    ONE = '1_STAR',
+    FIVE = '5 Stars',
+    FOUR = '4 Stars',
+    THREE = '3 Stars',
+    TWO = '2 Stars',
+    ONE = '1 Star',
 }
 
 export default ratings

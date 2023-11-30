@@ -4,13 +4,11 @@ import {
     Text,
     ScrollView,
     View,
-    Alert,
     TouchableOpacity,
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 
 import * as Progress from 'react-native-progress'
-import UserCard from '../../components/cards/userCard'
 import JobCard from '../../components/cards/jobCard'
 import { AntDesign } from '@expo/vector-icons'
 import { FontAwesome5 } from '@expo/vector-icons'
@@ -18,6 +16,7 @@ import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import userScreenProps from '../props/userScreenProps'
+import categories from '../../enums/categories'
 
 const UserScreen = ({ route }: userScreenProps) => {
     const { userId } = route.params
@@ -47,8 +46,9 @@ const UserScreen = ({ route }: userScreenProps) => {
             jobWorker: string
             payment: string
             status: string
-            deadline: string
-            jobDesc: string
+            creationDate: string
+            description: string
+            category: categories
         }[]
     >([])
     const [loading, setLoading] = useState<boolean>(true)
@@ -106,8 +106,10 @@ const UserScreen = ({ route }: userScreenProps) => {
                                     jobName={job.jobName}
                                     status={job.status}
                                     payment={job.payment}
-                                    jobDesc={job.jobDesc}
-                                    deadline={job.deadline}
+                                    description={job.description}
+                                    creationDate={job.creationDate}
+                                    category={job.category}
+                                    showPlus={false}
                                 />
                             ))}
                         </>

@@ -4,6 +4,9 @@ type mainNavigatorParamList = {
     Job: {
         jobId: string
     }
+    Project: {
+        projectId: string
+    }
     User: {
         userId: string
     }

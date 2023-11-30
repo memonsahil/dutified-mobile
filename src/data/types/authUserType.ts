@@ -24,9 +24,10 @@ type authUserType = {
             expiryDate: string
             cvc: string
         }
-        stats: {
+        metaData: {
             creationDate: string
             lastLoginDate: string
+            lastTransactionDate: string
         }
     }
     profile: userType['profile']
