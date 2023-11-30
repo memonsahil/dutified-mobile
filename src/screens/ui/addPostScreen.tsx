@@ -16,12 +16,24 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
+import attachment from '../../enums/attachment'
 
 const AddPostScreen = () => {
     const [desc, setDesc] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
-    const attachment = []
+    const attachments = [
+        {
+            id: '1',
+            title: 'A very long title for a job that is very very very very long',
+            type: attachment.JOB,
+        },
+        {
+            id: '2',
+            title: 'A very long title for a project',
+            type: attachment.PROJECT,
+        },
+    ]
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -68,6 +80,32 @@ const AddPostScreen = () => {
                                     multiline
                                 />
                             </View>
+                            {attachments?.length !== 0
+                                ? attachments?.map((_attachment) => (
+                                      <TouchableOpacity
+                                          key={_attachment.id}
+                                          style={styles.attachmentContainer}
+                                          onPress={() => {
+                                              _attachment.type ===
+                                              attachment.JOB
+                                                  ? navigation.navigate('Job', {
+                                                        jobId: _attachment.id,
+                                                    })
+                                                  : navigation.navigate(
+                                                        'Project',
+                                                        {
+                                                            projectId:
+                                                                _attachment.id,
+                                                        }
+                                                    )
+                                          }}
+                                      >
+                                          <Text style={styles.attachment}>
+                                              {_attachment.title}
+                                          </Text>
+                                      </TouchableOpacity>
+                                  ))
+                                : null}
                             <TouchableOpacity
                                 onPress={() => {
                                     if (desc !== '') {
@@ -163,6 +201,16 @@ const styles = StyleSheet.create({
         overflow: 'visible',
         padding: 5,
         textAlignVertical: 'top',
+    },
+    attachmentContainer: {
+        marginTop: '7%',
+        marginHorizontal: '5%',
+    },
+    attachment: {
+        fontFamily: 'IBMPlexSansCondensed-Bold',
+        fontSize: fontSizes.BODY_TWO,
+        color: themeColors.YELLOW_GREEN,
+        textDecorationLine: 'underline',
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',

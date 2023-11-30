@@ -13,7 +13,6 @@ import { Avatar } from 'react-native-elements'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-
 import screens from '../../screens/params/screens'
 import attachment from '../../enums/attachment'
 import CommentsModal from '../modals/commentsModal'
@@ -105,7 +104,7 @@ const PostCard = (props: postCardProps) => {
                                     })
                           }}
                       >
-                          <Text style={styles.jobAttachment}>
+                          <Text style={styles.attachment}>
                               {_attachment.title}
                           </Text>
                       </TouchableOpacity>
@@ -189,7 +188,7 @@ const styles = StyleSheet.create({
         color: themeColors.BLACK,
         marginBottom: '5%',
     },
-    jobAttachment: {
+    attachment: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.YELLOW_GREEN,
