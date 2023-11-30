@@ -7,30 +7,37 @@ import {
     TouchableOpacity,
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import authUserStore from '../../state/stores/authUserStore'
 import * as Progress from 'react-native-progress'
-import { AntDesign } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import jobScreenProps from '../props/jobScreenProps'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
+import jobStatus from '../../enums/jobStatus'
 
 const JobScreen = ({ route }: jobScreenProps) => {
     const { jobId } = route.params
 
-    const [jobName, setJobName] = useState<string>('')
-    const [category, setCategory] = useState<string>('')
-    const [payment, setPayment] = useState<string>('')
-    const [status, setStatus] = useState<string>('')
-    const [deadline, setDeadline] = useState<string>('')
-    const [jobDesc, setJobDesc] = useState<string>('')
-    const [projectId, setProjectId] = useState<string>('')
-    const [projectName, setProjectName] = useState<string>('')
-    const [jobCreatorId, setJobCreatorId] = useState<string>('')
-    const [jobCreator, setJobCreator] = useState<string>('')
+    const [jobName, setJobName] = useState<string>(
+        'A very very very very very very very long job name'
+    )
+    const [category, setCategory] = useState<string>('Category Name')
+    const [payment, setPayment] = useState<string>('200')
+    const [status, setStatus] = useState<jobStatus>(jobStatus.AVAILABLE)
+    const [deadline, setDeadline] = useState<string>('2021-01-01')
+    const [jobDesc, setJobDesc] = useState<string>(
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.'
+    )
+    const [projectId, setProjectId] = useState<string>('123')
+    const [projectName, setProjectName] = useState<string>(
+        'A very very very very very very  long project name'
+    )
+    const [jobCreatorId, setJobCreatorId] = useState<string>('456')
+    const [jobCreator, setJobCreator] = useState<string>(
+        'A very very very very very very very long project creator name'
+    )
     const [loading, setLoading] = useState<boolean>(false)
-
-    const { account } = authUserStore((state) => state)
+    const currentUser = 'First Last'
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -42,30 +49,23 @@ const JobScreen = ({ route }: jobScreenProps) => {
                 <ScrollView contentContainerStyle={styles.scrollView}>
                     <View style={styles.headerSection}>
                         <TouchableOpacity onPress={() => navigation.goBack()}>
-                            <AntDesign
-                                name="caretleft"
+                            <MaterialCommunityIcons
+                                name="chevron-left-circle"
                                 size={30}
                                 color={themeColors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>
-                        <Text
-                            style={styles.heading}
-                            numberOfLines={1}
-                            ellipsizeMode="tail"
-                        >
-                            {jobName}
-                        </Text>
+                        <Text style={styles.heading}>Job</Text>
                     </View>
-                    <View style={styles.infoSection}>
-                        <View>
-                            <Text style={styles.info}>{category}</Text>
-                        </View>
-                        <View style={styles.jobsSection}>
-                            <Text style={styles.info}>${payment}</Text>
-                            <Text style={styles.info}>{status}</Text>
-                        </View>
+                    <Text style={styles.detail}>{jobName}</Text>
+                    <Text style={styles.detail}>{deadline}</Text>
+                    <View style={styles.detailSection}>
+                        <Text style={styles.jobDetail}>{category}</Text>
                     </View>
-                    <Text style={styles.deadline}>{deadline}</Text>
+                    <View style={styles.detailSection}>
+                        <Text style={styles.jobDetail}>${payment}</Text>
+                        <Text style={styles.jobDetail}>{status}</Text>
+                    </View>
                     <TouchableOpacity
                         onPress={() =>
                             navigation.navigate('Project', {
@@ -73,47 +73,34 @@ const JobScreen = ({ route }: jobScreenProps) => {
                             })
                         }
                     >
-                        <Text
-                            style={styles.button}
-                            numberOfLines={1}
-                            ellipsizeMode="tail"
-                        >
-                            {projectName}
-                        </Text>
+                        <Text style={styles.infoButton}>{projectName}</Text>
                     </TouchableOpacity>
                     <Text style={styles.jobDesc}>{jobDesc}</Text>
-                    {jobCreator ===
-                    `${account.firstName} ${account.lastName}` ? null : (
-                        <TouchableOpacity
-                            onPress={() =>
-                                navigation.navigate('User', {
-                                    userId: jobCreatorId,
-                                })
-                            }
-                        >
-                            <Text
-                                style={styles.button}
-                                numberOfLines={1}
-                                ellipsizeMode="tail"
+                    {jobCreator === `${currentUser}` ? null : (
+                        <>
+                            <TouchableOpacity
+                                onPress={() =>
+                                    navigation.navigate('User', {
+                                        userId: jobCreatorId,
+                                    })
+                                }
                             >
-                                {jobCreator}
-                            </Text>
-                        </TouchableOpacity>
-                    )}
-                    {jobCreator !==
-                    `${account.firstName} ${account.lastName}` ? (
-                        <View style={styles.buttonSection}>
+                                <Text style={styles.infoButton}>
+                                    {jobCreator}
+                                </Text>
+                            </TouchableOpacity>
                             <TouchableOpacity
                                 onPress={() =>
                                     navigation.navigate('Chat', {
                                         receiverUserId: jobCreatorId,
                                     })
                                 }
+                                style={styles.buttonSection}
                             >
-                                <Text style={styles.sectionButton}>Chat</Text>
+                                <Text style={styles.chatButton}>Chat</Text>
                             </TouchableOpacity>
-                        </View>
-                    ) : null}
+                        </>
+                    )}
                 </ScrollView>
             ) : (
                 <View style={styles.loadingContainer}>
@@ -143,71 +130,61 @@ const styles = StyleSheet.create({
     scrollView: {
         flexGrow: 1,
         alignItems: 'flex-start',
-        paddingBottom: '20%',
     },
     headerSection: {
         flexDirection: 'row',
         paddingTop: '20%',
-        paddingLeft: 30,
-        paddingRight: 30,
-        height: 150,
-        width: 400,
+        paddingLeft: '10%',
+        paddingRight: '10%',
+        width: '100%',
         alignItems: 'center',
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.BUTTON,
+        fontSize: fontSizes.HEADING_ONE,
         color: themeColors.WHITE,
-        paddingLeft: 20,
-        paddingRight: 30,
+        paddingLeft: '5%',
     },
-    infoSection: {
-        alignItems: 'flex-start',
-        paddingTop: 20,
-        paddingBottom: 20,
-        paddingLeft: 30,
+    detail: {
+        fontFamily: 'IBMPlexSansCondensed-Bold',
+        fontSize: fontSizes.BODY_ONE,
+        color: themeColors.WHITE,
+        paddingHorizontal: '10%',
+        paddingTop: '5%',
     },
-    info: {
+    detailSection: {
+        flexDirection: 'row',
+        marginLeft: '10%',
+        marginTop: '5%',
+    },
+    jobDetail: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
-        color: themeColors.WHITE,
+        color: themeColors.BLACK,
         backgroundColor: themeColors.YELLOW_GREEN,
-        marginRight: 10,
         padding: '1%',
+        marginRight: '5%',
     },
-    jobsSection: {
-        flexDirection: 'row',
-        paddingTop: 10,
+    infoButton: {
+        fontFamily: 'IBMPlexSansCondensed-Bold',
+        fontSize: fontSizes.BODY_ONE,
+        color: themeColors.YELLOW_GREEN,
+        marginHorizontal: '10%',
+        marginTop: '5%',
     },
     jobDesc: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.WHITE,
         width: '80%',
-        paddingBottom: 20,
         alignSelf: 'center',
-    },
-    button: {
-        fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
-        paddingLeft: 30,
-        paddingRight: 100,
-        paddingBottom: 20,
-    },
-    deadline: {
-        fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.BUTTON,
-        color: themeColors.WHITE,
-        paddingLeft: 30,
-        paddingRight: 100,
-        paddingBottom: 20,
+        paddingTop: '5%',
     },
     buttonSection: {
         alignSelf: 'center',
-        paddingBottom: '5%',
+        paddingTop: '10%',
     },
-    sectionButton: {
+    chatButton: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
