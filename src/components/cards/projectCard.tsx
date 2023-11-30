@@ -25,22 +25,47 @@ const ProjectCard = (props: projectCardProps & navProps) => {
                 {props.showPlus ? (
                     <TouchableOpacity
                         onPress={() => {
-                            setSelectedAttachments([
-                                ...selectedAttachments,
-                                {
-                                    id: props.projectId,
-                                    title: props.projectName,
-                                    type: attachment.PROJECT,
-                                },
-                            ])
+                            selectedAttachments.some(
+                                (_attachment) =>
+                                    _attachment.id === props.projectId &&
+                                    _attachment.title === props.projectName &&
+                                    _attachment.type === attachment.PROJECT
+                            )
+                                ? setSelectedAttachments(
+                                      selectedAttachments.filter(
+                                          (_attachment) =>
+                                              _attachment.id !== props.projectId
+                                      )
+                                  )
+                                : setSelectedAttachments([
+                                      ...selectedAttachments,
+                                      {
+                                          id: props.projectId,
+                                          title: props.projectName,
+                                          type: attachment.PROJECT,
+                                      },
+                                  ])
                         }}
                         style={styles.plusIcon}
                     >
-                        <MaterialCommunityIcons
-                            name="plus-circle"
-                            size={30}
-                            color={themeColors.YELLOW_GREEN}
-                        />
+                        {selectedAttachments.some(
+                            (_attachment) =>
+                                _attachment.id === props.projectId &&
+                                _attachment.title === props.projectName &&
+                                _attachment.type === attachment.PROJECT
+                        ) ? (
+                            <MaterialCommunityIcons
+                                name="close-circle"
+                                size={30}
+                                color={themeColors.YELLOW_GREEN}
+                            />
+                        ) : (
+                            <MaterialCommunityIcons
+                                name="plus-circle"
+                                size={30}
+                                color={themeColors.YELLOW_GREEN}
+                            />
+                        )}
                     </TouchableOpacity>
                 ) : null}
                 <View style={styles.detailSection}>

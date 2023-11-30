@@ -59,7 +59,7 @@ const AttachScreen = () => {
     ]
     const jobsCreated: Array<jobCardProps> = [
         {
-            jobId: '1',
+            jobId: '5',
             jobName: 'Created Job 1',
             status: jobStatus.AVAILABLE,
             payment: '100000',
@@ -70,7 +70,7 @@ const AttachScreen = () => {
             showPlus: true,
         },
         {
-            jobId: '2',
+            jobId: '6',
             jobName: 'Created Job 2',
             status: jobStatus.IN_PROGRESS,
             payment: '200',
@@ -80,7 +80,7 @@ const AttachScreen = () => {
             showPlus: true,
         },
         {
-            jobId: '3',
+            jobId: '7',
             jobName: 'Created Job 3',
             status: jobStatus.COMPLETED,
             payment: '200',
