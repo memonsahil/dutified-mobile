@@ -24,7 +24,8 @@ const JobScreen = ({ route }: jobScreenProps) => {
     const [category, setCategory] = useState<string>('Category Name')
     const [payment, setPayment] = useState<string>('200')
     const [status, setStatus] = useState<jobStatus>(jobStatus.AVAILABLE)
-    const [deadline, setDeadline] = useState<string>('2021-01-01')
+    const [creationDate, setCreationDate] = useState<string>('2021-01-01')
+    const [dueDate, setDueDate] = useState<string>('2021-01-01')
     const [jobDesc, setJobDesc] = useState<string>(
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.'
     )
@@ -58,7 +59,7 @@ const JobScreen = ({ route }: jobScreenProps) => {
                         <Text style={styles.heading}>Job</Text>
                     </View>
                     <Text style={styles.detail}>{jobName}</Text>
-                    <Text style={styles.detail}>{deadline}</Text>
+                    <Text style={styles.detail}>{creationDate}</Text>
                     <View style={styles.detailSection}>
                         <Text style={styles.jobDetail}>{category}</Text>
                     </View>
