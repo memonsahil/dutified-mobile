@@ -1,11 +1,18 @@
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native'
+import {
+    View,
+    Text,
+    StyleSheet,
+    TouchableOpacity,
+    Alert,
+    Linking,
+} from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import navProps from '../props/navProps'
 import feedbackCardProps from '../props/feedbackCardProps'
 import ratings from '../../enums/ratings'
-import * as MailComposer from 'expo-mail-composer'
+
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 const FeedbackCard = (props: feedbackCardProps & navProps) => {
@@ -186,20 +193,18 @@ const FeedbackCard = (props: feedbackCardProps & navProps) => {
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    onPress={() =>
+                    onPress={() => {
                         Alert.alert(
-                            'Report Feedback',
-                            'Report incorrect or inappropriate feedback.',
+                            `Report this feedback from ${props.userName}`,
+                            'Report inappropriate or suspicious activity.',
                             [
                                 {
                                     text: `Report`,
 
                                     onPress: () =>
-                                        MailComposer.composeAsync({
-                                            recipients: [
-                                                'support@dutified.com',
-                                            ],
-                                        }).catch(() => {
+                                        Linking.openURL(
+                                            'mailto:support@dutified.com'
+                                        ).catch(() => {
                                             Alert.alert(
                                                 'Setup Email',
                                                 'Please setup your email address on this device first.',
@@ -218,7 +223,7 @@ const FeedbackCard = (props: feedbackCardProps & navProps) => {
                                 },
                             ]
                         )
-                    }
+                    }}
                 >
                     <MaterialCommunityIcons
                         name="dots-vertical"

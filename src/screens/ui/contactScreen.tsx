@@ -5,9 +5,9 @@ import {
     ScrollView,
     TouchableOpacity,
     Alert,
+    Linking,
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import * as MailComposer from 'expo-mail-composer'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
@@ -34,22 +34,22 @@ const ContactScreen = () => {
                     feedback and we will get back to you ASAP.
                 </Text>
                 <TouchableOpacity
-                    onPress={() =>
-                        MailComposer.composeAsync({
-                            recipients: ['support@dutified.com'],
-                        }).catch(() => {
-                            Alert.alert(
-                                'Setup Email',
-                                'Please setup your email address on this device first.',
-                                [
-                                    {
-                                        text: 'Dismiss',
-                                        onPress: () => {},
-                                    },
-                                ]
-                            )
-                        })
-                    }
+                    onPress={() => {
+                        Linking.openURL('mailto:support@dutified.com').catch(
+                            () => {
+                                Alert.alert(
+                                    'Setup Email',
+                                    'Please setup your email address on this device first.',
+                                    [
+                                        {
+                                            text: 'Dismiss',
+                                            onPress: () => {},
+                                        },
+                                    ]
+                                )
+                            }
+                        )
+                    }}
                 >
                     <Text style={styles.email}>support@dutified.com</Text>
                 </TouchableOpacity>

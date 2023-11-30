@@ -1,6 +1,12 @@
-import { View, Text, StyleSheet, Alert, TouchableOpacity } from 'react-native'
+import {
+    View,
+    Text,
+    StyleSheet,
+    Alert,
+    TouchableOpacity,
+    Linking,
+} from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import * as MailComposer from 'expo-mail-composer'
 import { SimpleLineIcons } from '@expo/vector-icons'
 import { Avatar } from 'react-native-elements'
 import themeColors from '../../enums/themeColors'
@@ -44,7 +50,7 @@ const ChatCard = (props: chatCardProps) => {
                 </View>
                 <View style={styles.optionsSection}>
                     <TouchableOpacity
-                        onPress={() =>
+                        onPress={() => {
                             Alert.alert(
                                 `Report ${firstName} ${lastName}`,
                                 'Report inappropriate or suspicious activity.',
@@ -53,11 +59,9 @@ const ChatCard = (props: chatCardProps) => {
                                         text: `Report`,
 
                                         onPress: () =>
-                                            MailComposer.composeAsync({
-                                                recipients: [
-                                                    'support@dutified.com',
-                                                ],
-                                            }).catch(() => {
+                                            Linking.openURL(
+                                                'mailto:support@dutified.com'
+                                            ).catch(() => {
                                                 Alert.alert(
                                                     'Setup Email',
                                                     'Please setup your email address on this device first.',
@@ -76,7 +80,7 @@ const ChatCard = (props: chatCardProps) => {
                                     },
                                 ]
                             )
-                        }
+                        }}
                     >
                         <SimpleLineIcons
                             style={styles.options}
