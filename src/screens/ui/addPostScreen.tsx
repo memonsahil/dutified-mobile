@@ -76,30 +76,61 @@ const AddPostScreen = () => {
                                 />
                             </View>
                             {selectedAttachments?.length !== 0
-                                ? selectedAttachments?.map((_attachment) => (
-                                      <TouchableOpacity
-                                          key={_attachment.id}
-                                          style={styles.attachmentContainer}
-                                          onPress={() => {
-                                              _attachment.type ===
-                                              attachment.JOB
-                                                  ? navigation.navigate('Job', {
-                                                        jobId: _attachment.id,
-                                                    })
-                                                  : navigation.navigate(
-                                                        'Project',
-                                                        {
-                                                            projectId:
-                                                                _attachment.id,
-                                                        }
-                                                    )
-                                          }}
-                                      >
-                                          <Text style={styles.attachment}>
-                                              {_attachment.title}
-                                          </Text>
-                                      </TouchableOpacity>
-                                  ))
+                                ? selectedAttachments?.map(
+                                      (selectedAttachment) => (
+                                          <View
+                                              key={selectedAttachment.id}
+                                              style={styles.attachmentContainer}
+                                          >
+                                              <TouchableOpacity
+                                                  onPress={() => {
+                                                      selectedAttachment.type ===
+                                                      attachment.JOB
+                                                          ? navigation.navigate(
+                                                                'Job',
+                                                                {
+                                                                    jobId: selectedAttachment.id,
+                                                                }
+                                                            )
+                                                          : navigation.navigate(
+                                                                'Project',
+                                                                {
+                                                                    projectId:
+                                                                        selectedAttachment.id,
+                                                                }
+                                                            )
+                                                  }}
+                                              >
+                                                  <Text
+                                                      style={styles.attachment}
+                                                      numberOfLines={1}
+                                                      ellipsizeMode="tail"
+                                                  >
+                                                      {selectedAttachment.title}
+                                                  </Text>
+                                              </TouchableOpacity>
+                                              <TouchableOpacity
+                                                  onPress={() => {
+                                                      setSelectedAttachments(
+                                                          selectedAttachments.filter(
+                                                              (_attachment) =>
+                                                                  _attachment.id !==
+                                                                  selectedAttachment.id
+                                                          )
+                                                      )
+                                                  }}
+                                              >
+                                                  <MaterialCommunityIcons
+                                                      name="close-circle"
+                                                      size={26}
+                                                      color={
+                                                          themeColors.YELLOW_GREEN
+                                                      }
+                                                  />
+                                              </TouchableOpacity>
+                                          </View>
+                                      )
+                                  )
                                 : null}
                             <TouchableOpacity
                                 onPress={() => {
@@ -199,13 +230,18 @@ const styles = StyleSheet.create({
     },
     attachmentContainer: {
         marginTop: '7%',
-        marginHorizontal: '5%',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        overflow: 'hidden',
     },
     attachment: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.YELLOW_GREEN,
         textDecorationLine: 'underline',
+        width: 275,
+        overflow: 'hidden',
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',

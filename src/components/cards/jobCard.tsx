@@ -109,6 +109,7 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.BLACK,
         marginBottom: '5%',
+        width: '85%',
     },
     plusIcon: {
         position: 'absolute',

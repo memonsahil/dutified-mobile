@@ -23,7 +23,7 @@ const AttachScreen = () => {
     const projectsCreated: Array<projectCardProps> = [
         {
             projectId: '1',
-            projectName: 'Hired Project 1',
+            projectName: 'A very very long project name that will be cut off',
             description: 'This is a description for Hired project 1',
             creationDate: '2021-01-01',
             category: categories.ACCOUNTING,
@@ -60,7 +60,7 @@ const AttachScreen = () => {
     const jobsCreated: Array<jobCardProps> = [
         {
             jobId: '5',
-            jobName: 'Created Job 1',
+            jobName: 'A very very long job name that will be cut off',
             status: jobStatus.AVAILABLE,
             payment: '100000',
             description:
