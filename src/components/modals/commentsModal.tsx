@@ -67,15 +67,21 @@ const CommentsModal = (props: commentsModalProps) => {
                     <ScrollView contentContainerStyle={styles.commentsSection}>
                         <View style={styles.commentInputContainer}>
                             <TextInput
-                                placeholder="Any thoughts?"
+                                placeholder="Enter your comment here."
                                 value={comment}
                                 onChangeText={setComment}
                                 style={styles.commentTextInput}
-                                placeholderTextColor={themeColors.SILVER}
+                                placeholderTextColor={themeColors.BLACK}
                                 inputMode="text"
-                                returnKeyType='done'
+                                returnKeyType="done"
                                 onSubmitEditing={() => {
-                                    setComments([{commentId: Crypto.randomUUID(), comment: comment}, ...comments])
+                                    setComments([
+                                        {
+                                            commentId: Crypto.randomUUID(),
+                                            comment: comment,
+                                        },
+                                        ...comments,
+                                    ])
                                     setComment('')
                                 }}
                             />
@@ -139,7 +145,7 @@ const styles = StyleSheet.create({
     },
     commentInputContainer: {
         backgroundColor: themeColors.SILVER,
-        height: 80,
+        height: 60,
         width: '90%',
         borderRadius: 20,
         padding: 10,
@@ -151,8 +157,6 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         overflow: 'visible',
-        padding: 5,
-        textAlignVertical: 'top',
     },
     commentContainer: {
         backgroundColor: themeColors.SILVER,

@@ -1,12 +1,19 @@
 import { useState, useEffect } from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native'
+import {
+    StyleSheet,
+    Text,
+    View,
+    TouchableOpacity,
+    Alert,
+    Linking,
+} from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import postCardProps from '../props/postCardProps'
 import { Avatar } from 'react-native-elements'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import * as MailComposer from 'expo-mail-composer'
+
 import screens from '../../screens/params/screens'
 import attachment from '../../enums/attachment'
 import CommentsModal from '../modals/commentsModal'
@@ -46,18 +53,16 @@ const PostCard = (props: postCardProps) => {
                 <TouchableOpacity
                     onPress={() => {
                         Alert.alert(
-                            `Report post by ${props.userName}`,
+                            `Report this post from ${props.userName}`,
                             'Report inappropriate or suspicious activity.',
                             [
                                 {
                                     text: `Report`,
 
                                     onPress: () =>
-                                        MailComposer.composeAsync({
-                                            recipients: [
-                                                'support@dutified.com',
-                                            ],
-                                        }).catch(() => {
+                                        Linking.openURL(
+                                            'mailto:support@dutified.com'
+                                        ).catch(() => {
                                             Alert.alert(
                                                 'Setup Email',
                                                 'Please setup your email address on this device first.',
@@ -135,7 +140,7 @@ const PostCard = (props: postCardProps) => {
                         color={themeColors.YELLOW_GREEN}
                         style={styles.buttonIcon}
                     />
-                    <Text style={styles.button}>Comment (200)</Text>
+                    <Text style={styles.button}>Comment (7)</Text>
                 </TouchableOpacity>
             </View>
             <CommentsModal
