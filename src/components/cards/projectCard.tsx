@@ -14,7 +14,13 @@ const ProjectCard = (props: projectCardProps & navProps) => {
 
     return (
         <View style={[styles.container, props.additionalStyle]}>
-            <TouchableOpacity onPress={() => {}}>
+            <TouchableOpacity
+                onPress={() => {
+                    props.nav.navigate('Project', {
+                        projectId: props.projectId,
+                    })
+                }}
+            >
                 <Text
                     style={styles.projectName}
                     numberOfLines={1}
