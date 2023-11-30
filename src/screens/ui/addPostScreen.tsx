@@ -17,23 +17,15 @@ import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import attachment from '../../enums/attachment'
+import globalStore from '../../state/stores/globalStore'
 
 const AddPostScreen = () => {
     const [desc, setDesc] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
-    const attachments = [
-        {
-            id: '1',
-            title: 'A very long title for a job that is very very very very long',
-            type: attachment.JOB,
-        },
-        {
-            id: '2',
-            title: 'A very long title for a project',
-            type: attachment.PROJECT,
-        },
-    ]
+    const { selectedAttachments, setSelectedAttachments } = globalStore(
+        (state) => state
+    )
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -48,7 +40,10 @@ const AddPostScreen = () => {
                         <View style={styles.headerSection}>
                             <View style={styles.headerLeft}>
                                 <TouchableOpacity
-                                    onPress={() => navigation.goBack()}
+                                    onPress={() => {
+                                        setSelectedAttachments([])
+                                        navigation.goBack()
+                                    }}
                                 >
                                     <MaterialCommunityIcons
                                         name="chevron-left-circle"
@@ -80,8 +75,8 @@ const AddPostScreen = () => {
                                     multiline
                                 />
                             </View>
-                            {attachments?.length !== 0
-                                ? attachments?.map((_attachment) => (
+                            {selectedAttachments?.length !== 0
+                                ? selectedAttachments?.map((_attachment) => (
                                       <TouchableOpacity
                                           key={_attachment.id}
                                           style={styles.attachmentContainer}

@@ -4,8 +4,14 @@ import fontSizes from '../../enums/fontSizes'
 import navProps from '../props/navProps'
 import jobCardProps from '../props/jobCardProps'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import globalStore from '../../state/stores/globalStore'
+import attachment from '../../enums/attachment'
 
 const JobCard = (props: jobCardProps & navProps) => {
+    const { setSelectedAttachments, selectedAttachments } = globalStore(
+        (state) => state
+    )
+
     return (
         <View style={styles.container}>
             <TouchableOpacity
@@ -22,7 +28,16 @@ const JobCard = (props: jobCardProps & navProps) => {
                 </Text>
                 {props.showPlus ? (
                     <TouchableOpacity
-                        onPress={() => {}}
+                        onPress={() => {
+                            setSelectedAttachments([
+                                ...selectedAttachments,
+                                {
+                                    id: props.jobId,
+                                    title: props.jobName,
+                                    type: attachment.JOB,
+                                },
+                            ])
+                        }}
                         style={styles.plusIcon}
                     >
                         <MaterialCommunityIcons

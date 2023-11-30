@@ -4,8 +4,14 @@ import fontSizes from '../../enums/fontSizes'
 import navProps from '../props/navProps'
 import projectCardProps from '../props/projectCardProps'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import globalStore from '../../state/stores/globalStore'
+import attachment from '../../enums/attachment'
 
 const ProjectCard = (props: projectCardProps & navProps) => {
+    const { setSelectedAttachments, selectedAttachments } = globalStore(
+        (state) => state
+    )
+
     return (
         <View style={[styles.container, props.additionalStyle]}>
             <TouchableOpacity onPress={() => {}}>
@@ -18,7 +24,16 @@ const ProjectCard = (props: projectCardProps & navProps) => {
                 </Text>
                 {props.showPlus ? (
                     <TouchableOpacity
-                        onPress={() => {}}
+                        onPress={() => {
+                            setSelectedAttachments([
+                                ...selectedAttachments,
+                                {
+                                    id: props.projectId,
+                                    title: props.projectName,
+                                    type: attachment.PROJECT,
+                                },
+                            ])
+                        }}
                         style={styles.plusIcon}
                     >
                         <MaterialCommunityIcons
