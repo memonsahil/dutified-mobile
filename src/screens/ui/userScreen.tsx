@@ -210,8 +210,10 @@ const UserScreen = () => {
                     first={'Sahil'}
                     last={'Memon'}
                     image={''}
-                    totalProjects="0"
-                    totalJobs="3"
+                    projectsCreated="1"
+                    jobsCreated="2"
+                    projectsWorked="3"
+                    jobsWorked="4"
                 />
                 <View style={styles.buttonSection}>
                     <TouchableOpacity
