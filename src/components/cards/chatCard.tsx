@@ -2,94 +2,92 @@ import {
     View,
     Text,
     StyleSheet,
-    Alert,
     TouchableOpacity,
+    Alert,
     Linking,
 } from 'react-native'
-import { useNavigation, NavigationProp } from '@react-navigation/native'
-import { SimpleLineIcons } from '@expo/vector-icons'
 import { Avatar } from 'react-native-elements'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { NavigationProp, useNavigation } from '@react-navigation/native'
 import screens from '../../screens/params/screens'
 import chatCardProps from '../props/chatCardProps'
 
 const ChatCard = (props: chatCardProps) => {
-    const { receiverUserId, firstName, lastName, imageSrc } = props
-
     const navigation: NavigationProp<screens> = useNavigation()
 
     return (
         <View style={styles.container}>
             <TouchableOpacity
-                style={styles.touchableSection}
                 onPress={() =>
-                    navigation.navigate('Chat', {
-                        receiverUserId: receiverUserId,
-                    })
+                    navigation.navigate('Chat', { userId: props.userId })
                 }
+                style={styles.touchableSection}
             >
                 <Avatar
                     size="medium"
                     rounded
                     source={
-                        imageSrc
-                            ? { uri: imageSrc }
+                        props.imageSrc
+                            ? { uri: props.imageSrc }
                             : require('../../../assets/images/user-avatar.png')
                     }
                     containerStyle={styles.avatarContainer}
                 />
-                <View style={styles.chatInfoSection}>
+                <View style={styles.userInfo}>
                     <Text
-                        style={styles.name}
+                        style={styles.userName}
                         numberOfLines={1}
                         ellipsizeMode="tail"
                     >
-                        {`${firstName} ${lastName}`}
+                        {`${props.firstName} ${props.lastName}`}
                     </Text>
+                    <Text
+                        style={styles.messageText}
+                        numberOfLines={1}
+                        ellipsizeMode="tail"
+                    >{`${props.lastMessage}`}</Text>
                 </View>
-                <View style={styles.optionsSection}>
-                    <TouchableOpacity
-                        onPress={() => {
-                            Alert.alert(
-                                `Report ${firstName} ${lastName}`,
-                                'Report inappropriate or suspicious activity.',
-                                [
-                                    {
-                                        text: `Report`,
+                <TouchableOpacity
+                    onPress={() => {
+                        Alert.alert(
+                            `Report ${props.firstName} ${props.lastName}`,
+                            'Report inappropriate or suspicious activity.',
+                            [
+                                {
+                                    text: `Report`,
 
-                                        onPress: () =>
-                                            Linking.openURL(
-                                                'mailto:support@dutified.com'
-                                            ).catch(() => {
-                                                Alert.alert(
-                                                    'Setup Email',
-                                                    'Please setup your email address on this device first.',
-                                                    [
-                                                        {
-                                                            text: 'Dismiss',
-                                                            onPress: () => {},
-                                                        },
-                                                    ]
-                                                )
-                                            }),
-                                    },
-                                    {
-                                        text: 'Dismiss',
-                                        onPress: () => {},
-                                    },
-                                ]
-                            )
-                        }}
-                    >
-                        <SimpleLineIcons
-                            style={styles.options}
-                            name="options"
-                            size={20}
-                            color={themeColors.WHITE}
-                        />
-                    </TouchableOpacity>
-                </View>
+                                    onPress: () =>
+                                        Linking.openURL(
+                                            'mailto:support@dutified.com'
+                                        ).catch(() => {
+                                            Alert.alert(
+                                                'Setup Email',
+                                                'Please setup your email address on this device first.',
+                                                [
+                                                    {
+                                                        text: 'Dismiss',
+                                                        onPress: () => {},
+                                                    },
+                                                ]
+                                            )
+                                        }),
+                                },
+                                {
+                                    text: 'Dismiss',
+                                    onPress: () => {},
+                                },
+                            ]
+                        )
+                    }}
+                >
+                    <MaterialCommunityIcons
+                        name="dots-vertical"
+                        size={25}
+                        color={themeColors.YELLOW_GREEN}
+                    />
+                </TouchableOpacity>
             </TouchableOpacity>
         </View>
     )
@@ -99,41 +97,40 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: themeColors.WHITE,
-        borderRadius: 15,
+        borderRadius: 20,
         width: '90%',
         overflow: 'hidden',
-        paddingTop: 15,
-        paddingBottom: 15,
-        marginBottom: 20,
+        paddingTop: '5%',
+        paddingBottom: '5%',
+        marginTop: '5%',
     },
     touchableSection: {
         flexDirection: 'row',
+        alignItems: 'center',
         justifyContent: 'space-between',
-        paddingLeft: 10,
-        paddingRight: 10,
+        paddingLeft: '5%',
+        paddingRight: '5%',
     },
     avatarContainer: {
         backgroundColor: themeColors.YELLOW_GREEN,
         alignSelf: 'center',
     },
-    chatInfoSection: {
-        justifyContent: 'space-between',
-        paddingLeft: 10,
-        width: 250,
-        alignSelf: 'center',
+    userInfo: {
+        flex: 1,
+        marginLeft: '5%',
     },
-    name: {
+    userName: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.WHITE,
+        color: themeColors.BLACK,
+        width: '90%',
     },
-    optionsSection: {
-        justifyContent: 'flex-start',
-        alignSelf: 'center',
-    },
-    options: {
-        backgroundColor: themeColors.YELLOW_GREEN,
-        padding: '1%',
+    messageText: {
+        fontFamily: 'IBMPlexSansCondensed-Medium',
+        fontSize: fontSizes.BODY_TWO,
+        color: themeColors.BLACK,
+        paddingTop: '5%',
+        width: '90%',
     },
 })
 
