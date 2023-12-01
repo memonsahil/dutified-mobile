@@ -24,7 +24,7 @@ const FeedbackScreen = () => {
             feedbackTitle:
                 'A very very very very very very very long feedback title that will be truncated',
             feedback:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             rating: ratings.FOUR,
             feedbackDate: '2021-01-01',
         },
@@ -35,7 +35,7 @@ const FeedbackScreen = () => {
             userAvatar: '',
             feedbackTitle: 'Feedback Title',
             feedback:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             rating: ratings.FOUR,
             feedbackDate: '2021-01-01',
         },
