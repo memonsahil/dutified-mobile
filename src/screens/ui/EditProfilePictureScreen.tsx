@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import authUserStore from '../../state/stores/authUserStore'
 import * as ImagePicker from 'expo-image-picker'

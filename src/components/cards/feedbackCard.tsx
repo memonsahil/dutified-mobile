@@ -218,7 +218,7 @@ const FeedbackCard = (props: feedbackCardProps) => {
                 <TouchableOpacity
                     onPress={() => {
                         Alert.alert(
-                            `Report this post from ${props.userName}`,
+                            `Report this feedback from ${props.userName}`,
                             'Report inappropriate or suspicious activity.',
                             [
                                 {
