@@ -20,7 +20,6 @@ import { useState, useEffect } from 'react'
 
 const FeedbackCard = (props: feedbackCardProps & navProps) => {
     const [image, setImage] = useState<string>('')
-    const [modalVisible, setModalVisible] = useState(false)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
