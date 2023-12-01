@@ -22,7 +22,7 @@ const FeedScreen = () => {
             content:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             userId: '1',
-            userName: 'A very long name that will be truncated',
+            userName: 'A very very very very long name that will be truncated',
             userAvatar: '',
             date: '2021-01-01',
             attachments: [
