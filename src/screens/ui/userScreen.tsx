@@ -359,7 +359,6 @@ const UserScreen = () => {
                                             {projectsHired.map((project) => (
                                                 <ProjectCard
                                                     key={project.projectId}
-                                                    nav={navigation}
                                                     projectId={
                                                         project.projectId
                                                     }
@@ -391,7 +390,6 @@ const UserScreen = () => {
                                         {jobsHired.map((job) => (
                                             <JobCard
                                                 key={job.jobId}
-                                                nav={navigation}
                                                 jobId={job.jobId}
                                                 jobName={job.jobName}
                                                 status={job.status}
@@ -436,7 +434,6 @@ const UserScreen = () => {
                                             {projectsCreated.map((project) => (
                                                 <ProjectCard
                                                     key={project.projectId}
-                                                    nav={navigation}
                                                     projectId={
                                                         project.projectId
                                                     }
@@ -468,7 +465,6 @@ const UserScreen = () => {
                                         {jobsCreated.map((job) => (
                                             <JobCard
                                                 key={job.jobId}
-                                                nav={navigation}
                                                 jobId={job.jobId}
                                                 jobName={job.jobName}
                                                 status={job.status}

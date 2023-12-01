@@ -8,7 +8,6 @@ import {
     Platform,
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import authUserStore from '../../state/stores/authUserStore'
 import {
     GiftedChat,
     IMessage,
@@ -28,7 +27,7 @@ import screens from '../params/screens'
 import chatScreenProps from '../props/chatScreenProps'
 
 const ChatScreen = ({ route }: chatScreenProps) => {
-    const { receiverUserId } = route.params
+    const { userId } = route.params
 
     const [firstName, setFirstName] = useState<string>('')
     const [lastName, setLastName] = useState<string>('')
@@ -37,9 +36,10 @@ const ChatScreen = ({ route }: chatScreenProps) => {
     const [allMessages, setAllMessages] = useState<IMessage[]>([])
     const [loading, setLoading] = useState<boolean>(false)
 
-    const { account } = authUserStore((state) => state)
-
     const navigation: NavigationProp<screens> = useNavigation()
+
+    const first = 'John'
+    const last = 'Doe'
 
     useEffect(() => {}, [])
 
@@ -72,7 +72,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                         <TouchableOpacity
                             onPress={() =>
                                 navigation.navigate('User', {
-                                    userId: receiverUserId,
+                                    userId: userId,
                                 })
                             }
                         >
@@ -85,7 +85,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                         <TouchableOpacity
                             onPress={() =>
                                 navigation.navigate('User', {
-                                    userId: receiverUserId,
+                                    userId: userId,
                                 })
                             }
                         >
@@ -104,8 +104,8 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                     <GiftedChat
                         messages={allMessages}
                         user={{
-                            _id: account.userId,
-                            name: `${account.firstName} ${account.lastName}`,
+                            _id: userId,
+                            name: `${first} ${last}`,
                         }}
                         renderAvatar={null}
                         listViewProps={{
@@ -196,8 +196,8 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                                               createdAt:
                                                                   new Date(),
                                                               user: {
-                                                                  _id: account.userId,
-                                                                  name: `${account.firstName} ${account.lastName}`,
+                                                                  _id: userId,
+                                                                  name: `${first} ${last}`,
                                                               },
                                                           },
                                                       ])

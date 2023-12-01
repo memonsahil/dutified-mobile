@@ -116,7 +116,6 @@ const ProjectScreen = ({ route }: projectScreenProps) => {
                                 {jobs.map((job) => (
                                     <JobCard
                                         key={job.jobId}
-                                        nav={navigation}
                                         jobId={job.jobId}
                                         jobName={job.jobName}
                                         status={job.status}

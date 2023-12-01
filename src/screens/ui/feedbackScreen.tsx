@@ -84,7 +84,6 @@ const FeedbackScreen = () => {
                             {feedbacks.map((feedback) => (
                                 <FeedbackCard
                                     key={feedback.feedbackId}
-                                    nav={navigation}
                                     userId={feedback.userId}
                                     userName={feedback.userName}
                                     userAvatar={feedback.userAvatar}

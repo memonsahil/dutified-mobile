@@ -125,7 +125,6 @@ const AttachScreen = () => {
                                     {projectsCreated.map((project) => (
                                         <ProjectCard
                                             key={project.projectId}
-                                            nav={navigation}
                                             projectId={project.projectId}
                                             projectName={project.projectName}
                                             description={project.description}
@@ -147,7 +146,6 @@ const AttachScreen = () => {
                                 {jobsCreated.map((job) => (
                                     <JobCard
                                         key={job.jobId}
-                                        nav={navigation}
                                         jobId={job.jobId}
                                         jobName={job.jobName}
                                         status={job.status}

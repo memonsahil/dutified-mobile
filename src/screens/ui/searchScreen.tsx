@@ -242,7 +242,6 @@ const SearchScreen = () => {
                                             {projects.map((project) => (
                                                 <ProjectCard
                                                     key={project.projectId}
-                                                    nav={navigation}
                                                     projectId={
                                                         project.projectId
                                                     }
@@ -279,7 +278,6 @@ const SearchScreen = () => {
                                             {jobs.map((job) => (
                                                 <JobCard
                                                     key={job.jobId}
-                                                    nav={navigation}
                                                     jobId={job.jobId}
                                                     jobName={job.jobName}
                                                     status={job.status}
