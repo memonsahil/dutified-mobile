@@ -251,7 +251,7 @@ const FeedbackCard = (props: feedbackCardProps & navProps) => {
                 >
                     <MaterialCommunityIcons
                         name="dots-vertical"
-                        size={22}
+                        size={25}
                         color={themeColors.YELLOW_GREEN}
                     />
                 </TouchableOpacity>

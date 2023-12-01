@@ -1,31 +1,43 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { Avatar } from 'react-native-elements'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import userCardSmallProps from '../props/userCardSmallProps'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { NavigationProp, useNavigation } from '@react-navigation/native'
+import screens from '../../screens/params/screens'
 
 const UserCardSmall = (props: userCardSmallProps) => {
+    const navigation: NavigationProp<screens> = useNavigation()
+
     return (
         <View style={styles.container}>
-            <Avatar
-                size="medium"
-                rounded
-                source={
-                    props.image
-                        ? { uri: props.image }
-                        : require('../../../assets/images/user-avatar.png')
+            <TouchableOpacity
+                onPress={() =>
+                    navigation.navigate('User', { userId: props.userId })
                 }
-                containerStyle={styles.avatarContainer}
-            />
+            >
+                <Avatar
+                    size="medium"
+                    rounded
+                    source={
+                        props.image
+                            ? { uri: props.image }
+                            : require('../../../assets/images/user-avatar.png')
+                    }
+                    containerStyle={styles.avatarContainer}
+                />
+            </TouchableOpacity>
             <View style={styles.userInfo}>
-                <Text
-                    style={styles.userName}
-                    numberOfLines={1}
-                    ellipsizeMode="tail"
+                <TouchableOpacity
+                    onPress={() =>
+                        navigation.navigate('User', { userId: props.userId })
+                    }
                 >
-                    {`${props.first} ${props.last}`}
-                </Text>
+                    <Text style={styles.userName}>
+                        {`${props.first} ${props.last}`}
+                    </Text>
+                </TouchableOpacity>
                 <View style={styles.ratingContainer}>
                     <MaterialCommunityIcons
                         name="star"
@@ -37,12 +49,13 @@ const UserCardSmall = (props: userCardSmallProps) => {
                     >{`${props.avgRatings}`}</Text>
                 </View>
             </View>
-            <MaterialCommunityIcons
-                name="dots-vertical"
-                size={30}
-                color={themeColors.BLACK}
-                style={styles.icon}
-            />
+            <TouchableOpacity onPress={() => {}}>
+                <MaterialCommunityIcons
+                    name="dots-vertical"
+                    size={25}
+                    color={themeColors.YELLOW_GREEN}
+                />
+            </TouchableOpacity>
         </View>
     )
 }
@@ -58,6 +71,7 @@ const styles = StyleSheet.create({
         paddingVertical: '5%',
         overflow: 'hidden',
         paddingLeft: '5%',
+        paddingRight: '5%',
     },
     icon: {
         marginRight: '5%',

@@ -17,8 +17,8 @@ const NetworkScreen = () => {
     const users: Array<userCardSmallProps> = [
         {
             userId: '1',
-            first: 'Sahil',
-            last: 'Memon',
+            first: 'A very very long first name',
+            last: 'A very very long last name',
             image: '',
             affiliation: {
                 orgName: 'University of Toronto',

@@ -94,7 +94,7 @@ const PostCard = (props: postCardProps) => {
                 >
                     <MaterialCommunityIcons
                         name="dots-vertical"
-                        size={22}
+                        size={25}
                         color={themeColors.YELLOW_GREEN}
                     />
                 </TouchableOpacity>
