@@ -97,8 +97,8 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         width: '90%',
         marginBottom: '5%',
-        paddingVertical: 20,
-        paddingHorizontal: 20,
+        paddingVertical: '5%',
+        paddingHorizontal: '5%',
         overflow: 'hidden',
     },
     jobName: {

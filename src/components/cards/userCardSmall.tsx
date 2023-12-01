@@ -23,6 +23,7 @@ const UserCardSmall = (props: userCardSmallProps) => {
                 onPress={() =>
                     navigation.navigate('User', { userId: props.userId })
                 }
+                style={styles.touchableSection}
             >
                 <Avatar
                     size="medium"
@@ -34,66 +35,60 @@ const UserCardSmall = (props: userCardSmallProps) => {
                     }
                     containerStyle={styles.avatarContainer}
                 />
-            </TouchableOpacity>
-            <View style={styles.userInfo}>
-                <TouchableOpacity
-                    onPress={() =>
-                        navigation.navigate('User', { userId: props.userId })
-                    }
-                >
+                <View style={styles.userInfo}>
                     <Text style={styles.userName}>
                         {`${props.first} ${props.last}`}
                     </Text>
-                </TouchableOpacity>
-                <View style={styles.ratingContainer}>
+                    <View style={styles.ratingContainer}>
+                        <MaterialCommunityIcons
+                            name="star"
+                            size={20}
+                            color={themeColors.YELLOW_GREEN}
+                        />
+                        <Text
+                            style={styles.ratingText}
+                        >{`${props.avgRatings}`}</Text>
+                    </View>
+                </View>
+                <TouchableOpacity
+                    onPress={() => {
+                        Alert.alert(
+                            `Report ${props.first} ${props.last}`,
+                            'Report inappropriate or suspicious activity.',
+                            [
+                                {
+                                    text: `Report`,
+
+                                    onPress: () =>
+                                        Linking.openURL(
+                                            'mailto:support@dutified.com'
+                                        ).catch(() => {
+                                            Alert.alert(
+                                                'Setup Email',
+                                                'Please setup your email address on this device first.',
+                                                [
+                                                    {
+                                                        text: 'Dismiss',
+                                                        onPress: () => {},
+                                                    },
+                                                ]
+                                            )
+                                        }),
+                                },
+                                {
+                                    text: 'Dismiss',
+                                    onPress: () => {},
+                                },
+                            ]
+                        )
+                    }}
+                >
                     <MaterialCommunityIcons
-                        name="star"
-                        size={20}
+                        name="dots-vertical"
+                        size={25}
                         color={themeColors.YELLOW_GREEN}
                     />
-                    <Text
-                        style={styles.ratingText}
-                    >{`${props.avgRatings}`}</Text>
-                </View>
-            </View>
-            <TouchableOpacity
-                onPress={() => {
-                    Alert.alert(
-                        `Report ${props.first} ${props.last}`,
-                        'Report inappropriate or suspicious activity.',
-                        [
-                            {
-                                text: `Report`,
-
-                                onPress: () =>
-                                    Linking.openURL(
-                                        'mailto:support@dutified.com'
-                                    ).catch(() => {
-                                        Alert.alert(
-                                            'Setup Email',
-                                            'Please setup your email address on this device first.',
-                                            [
-                                                {
-                                                    text: 'Dismiss',
-                                                    onPress: () => {},
-                                                },
-                                            ]
-                                        )
-                                    }),
-                            },
-                            {
-                                text: 'Dismiss',
-                                onPress: () => {},
-                            },
-                        ]
-                    )
-                }}
-            >
-                <MaterialCommunityIcons
-                    name="dots-vertical"
-                    size={25}
-                    color={themeColors.YELLOW_GREEN}
-                />
+                </TouchableOpacity>
             </TouchableOpacity>
         </View>
     )
@@ -101,14 +96,19 @@ const UserCardSmall = (props: userCardSmallProps) => {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
+        backgroundColor: themeColors.WHITE,
+        borderRadius: 20,
+        width: '90%',
+        overflow: 'hidden',
+        paddingTop: '5%',
+        paddingBottom: '5%',
+        marginTop: '5%',
+    },
+    touchableSection: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: themeColors.WHITE,
-        width: '90%',
-        marginBottom: '5%',
-        borderRadius: 20,
-        paddingVertical: '5%',
-        overflow: 'hidden',
+        justifyContent: 'space-between',
         paddingLeft: '5%',
         paddingRight: '5%',
     },

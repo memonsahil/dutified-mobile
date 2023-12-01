@@ -126,7 +126,7 @@ const PostCard = (props: postCardProps) => {
                 <TouchableOpacity
                     onPress={() => {
                         navigation.navigate('Chat', {
-                            receiverUserId: props.userId,
+                            userId: props.userId,
                         })
                     }}
                     style={styles.postButton}
