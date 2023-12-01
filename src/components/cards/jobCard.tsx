@@ -19,13 +19,7 @@ const JobCard = (props: jobCardProps & navProps) => {
                     props.nav.navigate('Job', { jobId: props.jobId })
                 }
             >
-                <Text
-                    style={styles.jobName}
-                    numberOfLines={1}
-                    ellipsizeMode="tail"
-                >
-                    {props.jobName}
-                </Text>
+                <Text style={styles.jobName}>{props.jobName}</Text>
                 {props.showPlus ? (
                     <TouchableOpacity
                         onPress={() => {
@@ -109,7 +103,6 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.BLACK,
         marginBottom: '5%',
-        width: '85%',
     },
     plusIcon: {
         position: 'absolute',

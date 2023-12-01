@@ -33,7 +33,8 @@ const SearchScreen = () => {
     const projects: Array<projectCardProps> = [
         {
             projectId: '1',
-            projectName: 'Hired Project 1',
+            projectName:
+                'A very very very long project name that will be cut off',
             description: 'This is a description for Hired project 1',
             creationDate: '2021-01-01',
             category: categories.ACCOUNTING,
@@ -70,7 +71,7 @@ const SearchScreen = () => {
     const jobs: Array<jobCardProps> = [
         {
             jobId: '1',
-            jobName: 'Created Job 1',
+            jobName: 'A very very very long job name that will be cut off',
             status: jobStatus.AVAILABLE,
             payment: '100000',
             description:
@@ -104,7 +105,7 @@ const SearchScreen = () => {
         {
             userId: '1',
             first: 'Sahil',
-            last: 'Memon',
+            last: 'A very long last name that will be cut off',
             image: '',
             affiliation: {
                 orgName: 'University of Toronto',

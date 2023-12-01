@@ -21,13 +21,7 @@ const ProjectCard = (props: projectCardProps & navProps) => {
                     })
                 }}
             >
-                <Text
-                    style={styles.projectName}
-                    numberOfLines={1}
-                    ellipsizeMode="tail"
-                >
-                    {props.projectName}
-                </Text>
+                <Text style={styles.projectName}>{props.projectName}</Text>
                 {props.showPlus ? (
                     <TouchableOpacity
                         onPress={() => {
@@ -105,7 +99,6 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.BLACK,
         marginBottom: '5%',
-        width: '85%',
     },
     plusIcon: {
         position: 'absolute',
