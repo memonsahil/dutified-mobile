@@ -35,7 +35,7 @@ type screens = {
     Feedback: undefined
     Network: undefined
     Chat: {
-        receiverUserId: string
+        userId: string
     }
     Search: undefined
     AddJob: {
