@@ -19,9 +19,12 @@ const FeedbackScreen = () => {
         {
             feedbackId: '1',
             userId: '1',
-            userName: 'Sahil Memon',
-            feedbackTitle: 'Feedback Title',
-            feedback: 'Feedback',
+            userName: 'A very very very very long name that will be truncated',
+            userAvatar: '',
+            feedbackTitle:
+                'A very very very very very very very long feedback title that will be truncated',
+            feedback:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             rating: ratings.FOUR,
             feedbackDate: '2021-01-01',
         },
@@ -29,8 +32,10 @@ const FeedbackScreen = () => {
             feedbackId: '2',
             userId: '2',
             userName: 'Sahil Memon',
+            userAvatar: '',
             feedbackTitle: 'Feedback Title',
-            feedback: 'Feedback',
+            feedback:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             rating: ratings.FOUR,
             feedbackDate: '2021-01-01',
         },
@@ -38,8 +43,10 @@ const FeedbackScreen = () => {
             feedbackId: '3',
             userId: '3',
             userName: 'Sahil Memon',
+            userAvatar: '',
             feedbackTitle: 'Feedback Title',
-            feedback: 'Feedback',
+            feedback:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             rating: ratings.FOUR,
             feedbackDate: '2021-01-01',
         },
@@ -47,8 +54,10 @@ const FeedbackScreen = () => {
             feedbackId: '4',
             userId: '4',
             userName: 'Sahil Memon',
+            userAvatar: '',
             feedbackTitle: 'Feedback Title',
-            feedback: 'Feedback',
+            feedback:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             rating: ratings.FOUR,
             feedbackDate: '2021-01-01',
         },
@@ -78,6 +87,7 @@ const FeedbackScreen = () => {
                                     nav={navigation}
                                     userId={feedback.userId}
                                     userName={feedback.userName}
+                                    userAvatar={feedback.userAvatar}
                                     feedbackId={feedback.feedbackId}
                                     feedbackTitle={feedback.feedbackTitle}
                                     feedback={feedback.feedback}

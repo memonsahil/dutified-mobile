@@ -12,10 +12,22 @@ import fontSizes from '../../enums/fontSizes'
 import navProps from '../props/navProps'
 import feedbackCardProps from '../props/feedbackCardProps'
 import ratings from '../../enums/ratings'
-
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { NavigationProp, useNavigation } from '@react-navigation/native'
+import { Avatar } from 'react-native-elements'
+import screens from '../../screens/params/screens'
+import { useState, useEffect } from 'react'
 
 const FeedbackCard = (props: feedbackCardProps & navProps) => {
+    const [image, setImage] = useState<string>('')
+    const [modalVisible, setModalVisible] = useState(false)
+
+    const navigation: NavigationProp<screens> = useNavigation()
+
+    useEffect(() => {
+        props.userAvatar !== image ? setImage(props.userAvatar) : null
+    }, [props.userAvatar])
+
     const renderStars = () => {
         switch (props.rating) {
             case ratings.FIVE:
@@ -176,26 +188,39 @@ const FeedbackCard = (props: feedbackCardProps & navProps) => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <TouchableOpacity
-                    style={styles.userNameButtonWrapper}
-                    onPress={() =>
-                        props.nav.navigate('User', {
-                            userId: props.userId,
-                        })
-                    }
-                >
-                    <Text
-                        style={styles.userNameButton}
-                        numberOfLines={1}
-                        ellipsizeMode="tail"
+                <View style={styles.userInfo}>
+                    <TouchableOpacity
+                        onPress={() =>
+                            navigation.navigate('User', {
+                                userId: props.userId,
+                            })
+                        }
                     >
-                        {props.userName}
-                    </Text>
-                </TouchableOpacity>
+                        <Avatar
+                            size="small"
+                            rounded
+                            source={
+                                image
+                                    ? { uri: image }
+                                    : require('../../../assets/images/user-avatar.png')
+                            }
+                            containerStyle={styles.avatarContainer}
+                        />
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() =>
+                            navigation.navigate('User', {
+                                userId: props.userId,
+                            })
+                        }
+                    >
+                        <Text style={styles.userName}>{props.userName}</Text>
+                    </TouchableOpacity>
+                </View>
                 <TouchableOpacity
                     onPress={() => {
                         Alert.alert(
-                            `Report this feedback from ${props.userName}`,
+                            `Report this post from ${props.userName}`,
                             'Report inappropriate or suspicious activity.',
                             [
                                 {
@@ -227,18 +252,12 @@ const FeedbackCard = (props: feedbackCardProps & navProps) => {
                 >
                     <MaterialCommunityIcons
                         name="dots-vertical"
-                        size={24}
-                        color={themeColors.BLACK}
+                        size={22}
+                        color={themeColors.YELLOW_GREEN}
                     />
                 </TouchableOpacity>
             </View>
-            <Text
-                style={styles.feedbackTitle}
-                numberOfLines={1}
-                ellipsizeMode="tail"
-            >
-                {props.feedbackTitle}
-            </Text>
+            <Text style={styles.feedbackTitle}>{props.feedbackTitle}</Text>
             <Text style={styles.feedback}>{props.feedback}</Text>
             <View style={styles.stars}>{renderStars()}</View>
             <Text style={styles.date}>{props.feedbackDate}</Text>
@@ -248,40 +267,46 @@ const FeedbackCard = (props: feedbackCardProps & navProps) => {
 
 const styles = StyleSheet.create({
     container: {
-        alignItems: 'flex-start',
+        flex: 1,
         backgroundColor: themeColors.WHITE,
         width: '90%',
-        marginBottom: '5%',
         borderRadius: 20,
-        paddingTop: '5%',
         paddingHorizontal: '5%',
+        paddingVertical: '5%',
         overflow: 'hidden',
+        marginTop: '5%',
     },
     header: {
+        marginBottom: '5%',
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        width: '100%',
-        paddingBottom: '5%',
         alignItems: 'center',
+        justifyContent: 'space-between',
     },
-    userNameButtonWrapper: {
+    userInfo: {
+        flexDirection: 'row',
+        alignItems: 'center',
         width: '90%',
     },
-    userNameButton: {
+    avatarContainer: {
+        backgroundColor: themeColors.YELLOW_GREEN,
+    },
+    userName: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.HEADING_THREE,
-        color: themeColors.YELLOW_GREEN,
+        fontSize: fontSizes.BODY_ONE,
+        color: themeColors.BLACK,
+        justifyContent: 'flex-start',
+        paddingLeft: '5%',
     },
     feedbackTitle: {
         paddingBottom: '5%',
         fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.BODY_ONE,
+        fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
     },
     feedback: {
         paddingBottom: '5%',
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: fontSizes.BODY_ONE,
+        fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
     },
     stars: {
