@@ -31,23 +31,33 @@ const PostCard = (props: postCardProps) => {
         <View style={styles.container}>
             <View style={styles.postHeader}>
                 <View style={styles.userInfo}>
-                    <Avatar
-                        size="small"
-                        rounded
-                        source={
-                            image
-                                ? { uri: image }
-                                : require('../../../assets/images/user-avatar.png')
+                    <TouchableOpacity
+                        onPress={() =>
+                            navigation.navigate('User', {
+                                userId: props.userId,
+                            })
                         }
-                        containerStyle={styles.avatarContainer}
-                    />
-                    <Text
-                        style={styles.userName}
-                        numberOfLines={1}
-                        ellipsizeMode="tail"
                     >
-                        {props.userName}
-                    </Text>
+                        <Avatar
+                            size="small"
+                            rounded
+                            source={
+                                image
+                                    ? { uri: image }
+                                    : require('../../../assets/images/user-avatar.png')
+                            }
+                            containerStyle={styles.avatarContainer}
+                        />
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() =>
+                            navigation.navigate('User', {
+                                userId: props.userId,
+                            })
+                        }
+                    >
+                        <Text style={styles.userName}>{props.userName}</Text>
+                    </TouchableOpacity>
                 </View>
                 <TouchableOpacity
                     onPress={() => {
@@ -179,7 +189,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.BLACK,
-        textAlign: 'center',
+        justifyContent: 'flex-start',
         paddingLeft: '5%',
     },
     post: {
