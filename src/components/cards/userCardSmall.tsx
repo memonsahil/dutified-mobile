@@ -1,4 +1,11 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import {
+    View,
+    Text,
+    StyleSheet,
+    TouchableOpacity,
+    Alert,
+    Linking,
+} from 'react-native'
 import { Avatar } from 'react-native-elements'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
@@ -49,7 +56,39 @@ const UserCardSmall = (props: userCardSmallProps) => {
                     >{`${props.avgRatings}`}</Text>
                 </View>
             </View>
-            <TouchableOpacity onPress={() => {}}>
+            <TouchableOpacity
+                onPress={() => {
+                    Alert.alert(
+                        `Report ${props.first} ${props.last}`,
+                        'Report inappropriate or suspicious activity.',
+                        [
+                            {
+                                text: `Report`,
+
+                                onPress: () =>
+                                    Linking.openURL(
+                                        'mailto:support@dutified.com'
+                                    ).catch(() => {
+                                        Alert.alert(
+                                            'Setup Email',
+                                            'Please setup your email address on this device first.',
+                                            [
+                                                {
+                                                    text: 'Dismiss',
+                                                    onPress: () => {},
+                                                },
+                                            ]
+                                        )
+                                    }),
+                            },
+                            {
+                                text: 'Dismiss',
+                                onPress: () => {},
+                            },
+                        ]
+                    )
+                }}
+            >
                 <MaterialCommunityIcons
                     name="dots-vertical"
                     size={25}
