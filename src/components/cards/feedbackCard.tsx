@@ -9,7 +9,6 @@ import {
 import { FontAwesome } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
-import navProps from '../props/navProps'
 import feedbackCardProps from '../props/feedbackCardProps'
 import ratings from '../../enums/ratings'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
@@ -18,7 +17,7 @@ import { Avatar } from 'react-native-elements'
 import screens from '../../screens/params/screens'
 import { useState, useEffect } from 'react'
 
-const FeedbackCard = (props: feedbackCardProps & navProps) => {
+const FeedbackCard = (props: feedbackCardProps) => {
     const [image, setImage] = useState<string>('')
 
     const navigation: NavigationProp<screens> = useNavigation()

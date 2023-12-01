@@ -1,22 +1,25 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
-import navProps from '../props/navProps'
 import projectCardProps from '../props/projectCardProps'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import globalStore from '../../state/stores/globalStore'
 import attachment from '../../enums/attachment'
+import { NavigationProp, useNavigation } from '@react-navigation/native'
+import screens from '../../screens/params/screens'
 
-const ProjectCard = (props: projectCardProps & navProps) => {
+const ProjectCard = (props: projectCardProps) => {
     const { setSelectedAttachments, selectedAttachments } = globalStore(
         (state) => state
     )
+
+    const navigation: NavigationProp<screens> = useNavigation()
 
     return (
         <View style={[styles.container, props.additionalStyle]}>
             <TouchableOpacity
                 onPress={() => {
-                    props.nav.navigate('Project', {
+                    navigation.navigate('Project', {
                         projectId: props.projectId,
                     })
                 }}
