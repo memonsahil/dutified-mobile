@@ -198,11 +198,13 @@ const ProfileScreen = () => {
                     </View>
                 </View>
                 <UserCard
-                    first={'Sahil'}
-                    last={'Memon'}
+                    first={'A Very Very Very Very Long First Name'}
+                    last={'And A Very Very Very Very Long Last Name'}
                     image={''}
-                    totalProjects="0"
-                    totalJobs="3"
+                    projectsCreated="4"
+                    jobsCreated="12"
+                    projectsWorked="6"
+                    jobsWorked="18"
                 />
                 <View style={styles.buttonSection}>
                     <TouchableOpacity

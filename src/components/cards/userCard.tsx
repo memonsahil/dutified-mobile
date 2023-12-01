@@ -25,11 +25,7 @@ const UserCard = (props: userCardProps) => {
                 }
                 containerStyle={styles.avatarContainer}
             />
-            <Text
-                style={styles.userName}
-                numberOfLines={1}
-                ellipsizeMode="tail"
-            >
+            <Text style={styles.userName}>
                 {`${props.first} ${props.last}`}
             </Text>
             <View style={styles.stars}>
@@ -57,10 +53,18 @@ const UserCard = (props: userCardProps) => {
             </View>
             <View style={styles.infoSection}>
                 <Text style={styles.infoLeft}>
-                    {`Total Projects: ${props.totalProjects}`}
+                    {`Projects Created: ${props.projectsCreated}`}
                 </Text>
                 <Text style={styles.infoRight}>
-                    {`Total Jobs: ${props.totalJobs}`}
+                    {`Jobs Created: ${props.jobsCreated}`}
+                </Text>
+            </View>
+            <View style={styles.infoSection}>
+                <Text style={styles.infoLeft}>
+                    {`Projects Worked: ${props.projectsWorked}`}
+                </Text>
+                <Text style={styles.infoRight}>
+                    {`Jobs Worked: ${props.jobsWorked}`}
                 </Text>
             </View>
         </View>
@@ -93,7 +97,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         width: '50%',
-        marginBottom: '5%',
     },
     infoSection: {
         flexDirection: 'row',
@@ -105,6 +108,7 @@ const styles = StyleSheet.create({
         backgroundColor: themeColors.YELLOW_GREEN,
         padding: '1%',
         marginRight: '5%',
+        marginTop: '5%',
     },
     infoRight: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
@@ -112,6 +116,7 @@ const styles = StyleSheet.create({
         color: themeColors.BLACK,
         backgroundColor: themeColors.YELLOW_GREEN,
         padding: '1%',
+        marginTop: '5%',
     },
 })
 
