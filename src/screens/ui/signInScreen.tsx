@@ -75,7 +75,7 @@ const SignInScreen = () => {
                                 authUser
                                     .signIn({
                                         emailAddress: email,
-                                        accPassword: password,
+                                        password: password,
                                     })
                                     .then(() => {
                                         setLoading(false)

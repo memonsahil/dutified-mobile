@@ -131,7 +131,7 @@ const SignUpScreen = () => {
                                         countryCode: code,
                                         phoneNumber: phone,
                                         emailAddress: email,
-                                        accPassword: password,
+                                        password: password,
                                     })
                                     .then(() => {
                                         setLoading(false)
