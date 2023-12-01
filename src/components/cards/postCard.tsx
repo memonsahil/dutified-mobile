@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     userInfo: {
         flexDirection: 'row',
         alignItems: 'center',
-        width: '80%',
+        width: '90%',
     },
     avatarContainer: {
         backgroundColor: themeColors.YELLOW_GREEN,
