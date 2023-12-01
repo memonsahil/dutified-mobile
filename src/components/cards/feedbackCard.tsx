@@ -319,7 +319,6 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_THREE,
         color: themeColors.BLACK,
-        marginBottom: '5%',
     },
 })
 
