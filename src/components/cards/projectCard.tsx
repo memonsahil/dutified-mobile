@@ -25,7 +25,10 @@ const ProjectCard = (props: projectCardProps) => {
                 }}
             >
                 <Text
-                    style={styles.projectName}
+                    style={[
+                        styles.projectName,
+                        { width: props.showPlus ? '85%' : '100%' },
+                    ]}
                     numberOfLines={1}
                     ellipsizeMode="tail"
                 >
@@ -108,7 +111,6 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.BLACK,
         marginBottom: '5%',
-        width: '90%',
     },
     plusIcon: {
         position: 'absolute',

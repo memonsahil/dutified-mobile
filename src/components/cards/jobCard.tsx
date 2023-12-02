@@ -23,7 +23,10 @@ const JobCard = (props: jobCardProps) => {
                 }
             >
                 <Text
-                    style={styles.jobName}
+                    style={[
+                        styles.jobName,
+                        { width: props.showPlus ? '85%' : '100%' },
+                    ]}
                     numberOfLines={1}
                     ellipsizeMode="tail"
                 >
