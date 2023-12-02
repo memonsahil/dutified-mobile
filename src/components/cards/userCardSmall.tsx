@@ -36,7 +36,11 @@ const UserCardSmall = (props: userCardSmallProps) => {
                     containerStyle={styles.avatarContainer}
                 />
                 <View style={styles.userInfo}>
-                    <Text style={styles.userName}>
+                    <Text
+                        style={styles.userName}
+                        numberOfLines={1}
+                        ellipsizeMode="tail"
+                    >
                         {`${props.first} ${props.last}`}
                     </Text>
                     <View style={styles.ratingContainer}>

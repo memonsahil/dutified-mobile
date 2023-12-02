@@ -56,7 +56,13 @@ const PostCard = (props: postCardProps) => {
                             })
                         }
                     >
-                        <Text style={styles.userName}>{props.userName}</Text>
+                        <Text
+                            style={styles.userName}
+                            numberOfLines={1}
+                            ellipsizeMode="tail"
+                        >
+                            {props.userName}
+                        </Text>
                     </TouchableOpacity>
                 </View>
                 <TouchableOpacity
@@ -191,6 +197,7 @@ const styles = StyleSheet.create({
         color: themeColors.BLACK,
         justifyContent: 'flex-start',
         paddingLeft: '5%',
+        paddingRight: '7%',
     },
     post: {
         fontFamily: 'IBMPlexSansCondensed-Medium',

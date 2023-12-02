@@ -24,7 +24,13 @@ const ProjectCard = (props: projectCardProps) => {
                     })
                 }}
             >
-                <Text style={styles.projectName}>{props.projectName}</Text>
+                <Text
+                    style={styles.projectName}
+                    numberOfLines={1}
+                    ellipsizeMode="tail"
+                >
+                    {props.projectName}
+                </Text>
                 {props.showPlus ? (
                     <TouchableOpacity
                         onPress={() => {
@@ -60,7 +66,7 @@ const ProjectCard = (props: projectCardProps) => {
                             <MaterialCommunityIcons
                                 name="close-circle"
                                 size={30}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.SILVER}
                             />
                         ) : (
                             <MaterialCommunityIcons
@@ -102,6 +108,7 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.BLACK,
         marginBottom: '5%',
+        width: '90%',
     },
     plusIcon: {
         position: 'absolute',
