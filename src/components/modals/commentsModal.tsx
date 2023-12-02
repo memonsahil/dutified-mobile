@@ -67,7 +67,7 @@ const CommentsModal = (props: commentsModalProps) => {
                     <ScrollView contentContainerStyle={styles.commentsSection}>
                         <View style={styles.commentInputContainer}>
                             <TextInput
-                                placeholder="Enter your comment here."
+                                placeholder="Enter your comment."
                                 value={comment}
                                 onChangeText={setComment}
                                 style={styles.commentTextInput}
