@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         paddingTop: '5%',
         paddingBottom: '5%',
-        marginTop: '5%',
+        marginBottom: '5%',
     },
     touchableSection: {
         flexDirection: 'row',
