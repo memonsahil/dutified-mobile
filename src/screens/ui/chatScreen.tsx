@@ -18,8 +18,6 @@ import {
 import * as Crypto from 'expo-crypto'
 import { Avatar } from 'react-native-elements'
 import * as Progress from 'react-native-progress'
-import { Ionicons } from '@expo/vector-icons'
-import { FontAwesome5 } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
@@ -176,46 +174,43 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                         renderInputToolbar={() => {
                             return (
                                 <View style={styles.toolbar}>
-                                    <View style={styles.inputSection}>
-                                        <TextInput
-                                            placeholder="Your message"
-                                            value={message}
-                                            onChangeText={setMessage}
-                                            style={styles.input}
-                                            placeholderTextColor={
-                                                themeColors.SILVER
-                                            }
-                                            multiline={false}
-                                        />
-                                        <TouchableOpacity
-                                            onPress={() =>
-                                                message !== ''
-                                                    ? onSend([
-                                                          {
-                                                              _id: Crypto.randomUUID(),
-                                                              text: message,
-                                                              createdAt:
-                                                                  new Date(),
-                                                              user: {
-                                                                  _id: userId,
-                                                                  name: `${first} ${last}`,
-                                                              },
+                                    <TextInput
+                                        placeholder="Enter your message."
+                                        value={message}
+                                        onChangeText={setMessage}
+                                        style={styles.input}
+                                        placeholderTextColor={
+                                            themeColors.SILVER
+                                        }
+                                        multiline={false}
+                                    />
+                                    <TouchableOpacity
+                                        onPress={() =>
+                                            message !== ''
+                                                ? onSend([
+                                                      {
+                                                          _id: Crypto.randomUUID(),
+                                                          text: message,
+                                                          createdAt: new Date(),
+                                                          user: {
+                                                              _id: userId,
+                                                              name: `${first} ${last}`,
                                                           },
-                                                      ])
-                                                    : null
-                                            }
-                                        >
-                                            <Ionicons
-                                                name="send"
-                                                size={20}
-                                                color={themeColors.YELLOW_GREEN}
-                                            />
-                                        </TouchableOpacity>
-                                    </View>
+                                                      },
+                                                  ])
+                                                : null
+                                        }
+                                    >
+                                        <MaterialCommunityIcons
+                                            name="send-circle"
+                                            size={30}
+                                            color={themeColors.YELLOW_GREEN}
+                                        />
+                                    </TouchableOpacity>
                                     <TouchableOpacity onPress={() => {}}>
-                                        <FontAwesome5
-                                            name="file-signature"
-                                            size={20}
+                                        <MaterialCommunityIcons
+                                            name="file-plus"
+                                            size={30}
                                             color={themeColors.YELLOW_GREEN}
                                         />
                                     </TouchableOpacity>
@@ -280,28 +275,19 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         width: '100%',
         marginTop: Platform.OS === 'ios' ? '3%' : 0,
+        paddingRight: '5%',
         paddingLeft: '2%',
-        paddingRight: '4%',
-    },
-    inputSection: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        width: '80%',
     },
     input: {
         backgroundColor: themeColors.WHITE,
-        width: '100%',
+        width: '75%',
         height: Platform.OS === 'ios' ? 50 : 45,
         paddingVertical: Platform.OS === 'ios' ? 0 : 10,
         paddingLeft: Platform.OS === 'ios' ? '3%' : '5%',
         paddingRight: Platform.OS === 'ios' ? '3%' : '5%',
         borderColor: themeColors.BLACK,
-        borderTopWidth: Platform.OS === 'ios' ? 1 : 3,
-        borderBottomWidth: 4,
-        borderLeftWidth: 5,
-        borderRightWidth: 5,
-        borderRadius: 25,
-        marginRight: '4%',
+        borderWidth: 4,
+        borderRadius: 15,
         fontFamily: 'IBMPlexSansCondensed-Medium',
         color: themeColors.BLACK,
         fontSize: fontSizes.BODY_TWO,
