@@ -18,13 +18,13 @@ import {
 import * as Crypto from 'expo-crypto'
 import { Avatar } from 'react-native-elements'
 import * as Progress from 'react-native-progress'
-import { AntDesign } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import { FontAwesome5 } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import chatScreenProps from '../props/chatScreenProps'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 const ChatScreen = ({ route }: chatScreenProps) => {
     const { userId } = route.params
@@ -38,8 +38,8 @@ const ChatScreen = ({ route }: chatScreenProps) => {
 
     const navigation: NavigationProp<screens> = useNavigation()
 
-    const first = 'John'
-    const last = 'Doe'
+    const first = 'A Very Long First Name'
+    const last = 'A Very Long Last Name'
 
     useEffect(() => {}, [])
 
@@ -63,8 +63,8 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                 <>
                     <View style={styles.headerSection}>
                         <TouchableOpacity onPress={() => navigation.goBack()}>
-                            <AntDesign
-                                name="caretleft"
+                            <MaterialCommunityIcons
+                                name="chevron-left-circle"
                                 size={30}
                                 color={themeColors.YELLOW_GREEN}
                             />
@@ -75,12 +75,13 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                     userId: userId,
                                 })
                             }
+                            style={styles.nameContainer}
                         >
                             <Text
                                 numberOfLines={1}
                                 ellipsizeMode="tail"
-                                style={styles.heading}
-                            >{`${firstName} ${lastName}`}</Text>
+                                style={styles.name}
+                            >{`${first} ${last}`}</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                             onPress={() =>
@@ -242,7 +243,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: themeColors.BLACK,
-        paddingBottom: '8%',
+        paddingBottom: '10%',
     },
     loadingContainer: {
         flex: 1,
@@ -251,17 +252,19 @@ const styles = StyleSheet.create({
     },
     headerSection: {
         flexDirection: 'row',
-        alignItems: 'center',
         justifyContent: 'space-between',
         paddingTop: '20%',
-        paddingLeft: 30,
-        paddingRight: 30,
-        height: 150,
-        width: 400,
+        paddingLeft: '8%',
+        paddingRight: '8%',
+        paddingBottom: '5%',
+        alignItems: 'center',
     },
-    heading: {
+    nameContainer: {
+        width: '70%',
+    },
+    name: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.BUTTON,
+        fontSize: fontSizes.BODY_ONE,
         color: themeColors.WHITE,
     },
     avatarContainer: {
@@ -288,18 +291,19 @@ const styles = StyleSheet.create({
     input: {
         backgroundColor: themeColors.WHITE,
         width: '100%',
-        height: 45,
-        paddingVertical: Platform.OS === 'ios' ? 0 : 9,
-        paddingLeft: 20,
+        height: Platform.OS === 'ios' ? 50 : 45,
+        paddingVertical: Platform.OS === 'ios' ? 0 : 10,
+        paddingLeft: Platform.OS === 'ios' ? '3%' : '5%',
+        paddingRight: Platform.OS === 'ios' ? '3%' : '5%',
         borderColor: themeColors.BLACK,
-        borderTopWidth: Platform.OS === 'ios' ? 5 : 3,
-        borderBottomWidth: 5,
+        borderTopWidth: Platform.OS === 'ios' ? 1 : 3,
+        borderBottomWidth: 4,
         borderLeftWidth: 5,
         borderRightWidth: 5,
-        borderRadius: 15,
+        borderRadius: 25,
         marginRight: '4%',
         fontFamily: 'IBMPlexSansCondensed-Medium',
-        color: themeColors.WHITE,
+        color: themeColors.BLACK,
         fontSize: fontSizes.BODY_TWO,
     },
 })
