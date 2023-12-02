@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.BLACK,
-        width: '90%',
+        marginRight: '3%',
     },
     messageText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
