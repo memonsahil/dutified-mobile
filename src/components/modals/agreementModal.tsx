@@ -6,6 +6,7 @@ import {
     TouchableOpacity,
     StyleSheet,
     ScrollView,
+    TextInput,
 } from 'react-native'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
@@ -15,23 +16,24 @@ import categories from '../../enums/categories'
 import jobStatus from '../../enums/jobStatus'
 import JobCard from '../cards/jobCard'
 import jobCardProps from '../props/jobCardProps'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import jobType from '../../data/types/jobType'
 
 const AgreementModal = (props: agreementModalProps) => {
-    const [job, setJob] = useState<jobType | null>(() => ({
-        jobId: '5',
-        jobName: 'A very very long job name that will be cut off',
+    const [selectedJob, setSelectedJob] = useState<jobType>({
+        jobId: '',
+        jobName: '',
+        jobCreatorId: '',
+        jobCreator: '',
+        jobWorkerId: '',
+        jobWorker: '',
         status: jobStatus.AVAILABLE,
-        payment: '100000',
-        description:
-            'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-        creationDate: '2021-01-01',
-        category: categories.ACCOUNTING,
-        jobCreatorId: 'creatorId',
-        jobCreator: 'creator',
-        jobWorkerId: 'workerId',
-        jobWorker: 'worker',
-    }))
+        category: categories.OTHER,
+        payment: '',
+        description: '',
+        creationDate: '',
+    })
+    const [updatedAmount, setUpdatedAmount] = useState<string>('120')
 
     const jobs: Array<jobCardProps> = [
         {
@@ -81,39 +83,68 @@ const AgreementModal = (props: agreementModalProps) => {
                             />
                         </TouchableOpacity>
                     </View>
-                    <ScrollView contentContainerStyle={styles.mainSection}>
+                    <KeyboardAwareScrollView
+                        contentContainerStyle={styles.mainSection}
+                    >
                         <Text style={styles.info}>
                             Pick a job and create an agreement between you and{' '}
                             {props.userName}.
                         </Text>
-                        {job !== null ? (
+                        {selectedJob.jobId !== '' ? (
                             <>
                                 <Text style={styles.subHeading}>
                                     Selected Job
                                 </Text>
                                 <JobCard
-                                    key={job.jobId}
-                                    jobId={job.jobId}
-                                    jobName={job.jobName}
-                                    status={job.status}
-                                    payment={job.payment}
-                                    description={job.description}
-                                    creationDate={job.creationDate}
-                                    category={job.category}
+                                    key={selectedJob.jobId}
+                                    jobId={selectedJob.jobId}
+                                    jobName={selectedJob.jobName}
+                                    status={selectedJob.status}
+                                    payment={selectedJob.payment}
+                                    description={selectedJob.description}
+                                    creationDate={selectedJob.creationDate}
+                                    category={selectedJob.category}
                                     showPlus={false}
+                                    additionalStyle={{
+                                        marginBottom: '5%',
+                                    }}
                                 />
-                                <TouchableOpacity onPress={() => setJob(null)}>
+                                <TouchableOpacity onPress={() => {}}>
                                     <Text style={styles.modalButton}>
                                         Change
                                     </Text>
                                 </TouchableOpacity>
-                                <Text style={styles.subHeading}>Payment</Text>
+                                <Text style={styles.subHeading}>
+                                    Payment Amount
+                                </Text>
                                 <Text style={styles.info}>
                                     You can negotiate the payment amount for
                                     this job. The updated payment amount has to
                                     be accepted by {props.userName}.
                                 </Text>
-                                <Text style={styles.info}></Text>
+                                <View style={styles.amountWrapper}>
+                                    <Text style={styles.currency}>USD</Text>
+                                    <TextInput
+                                        placeholder="$120"
+                                        value={updatedAmount}
+                                        onChangeText={setUpdatedAmount}
+                                        style={styles.amountInput}
+                                        placeholderTextColor={
+                                            themeColors.SILVER
+                                        }
+                                        inputMode="decimal"
+                                    />
+                                </View>
+                                <TouchableOpacity onPress={() => {}}>
+                                    <Text style={styles.modalButton}>
+                                        Negotiate
+                                    </Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => {}}>
+                                    <Text style={styles.modalButton}>
+                                        Reset
+                                    </Text>
+                                </TouchableOpacity>
                             </>
                         ) : (
                             <>
@@ -206,7 +237,7 @@ const AgreementModal = (props: agreementModalProps) => {
                                 )}
                             </>
                         )}
-                    </ScrollView>
+                    </KeyboardAwareScrollView>
                 </View>
             </View>
         </Modal>
@@ -277,8 +308,28 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
         alignSelf: 'center',
-        paddingTop: '5%',
-        paddingBottom: '5%',
+        marginBottom: '5%',
+    },
+    amountWrapper: {
+        flexDirection: 'row',
+        width: '80%',
+        marginBottom: '5%',
+    },
+    currency: {
+        fontFamily: 'IBMPlexSansCondensed-Medium',
+        fontSize: fontSizes.INPUT,
+        color: themeColors.WHITE,
+        width: '20%',
+        textAlignVertical: 'center',
+    },
+    amountInput: {
+        fontFamily: 'IBMPlexSansCondensed-Medium',
+        fontSize: fontSizes.INPUT,
+        color: themeColors.WHITE,
+        width: '80%',
+        borderBottomColor: themeColors.WHITE,
+        borderBottomWidth: 3,
+        textAlignVertical: 'center',
     },
 })
 
