@@ -398,6 +398,9 @@ const UserScreen = () => {
                                                 creationDate={job.creationDate}
                                                 category={job.category}
                                                 showPlus={job.showPlus}
+                                                additionalStyle={{
+                                                    marginBottom: '5%',
+                                                }}
                                             />
                                         ))}
                                     </>
@@ -473,6 +476,9 @@ const UserScreen = () => {
                                                 creationDate={job.creationDate}
                                                 category={job.category}
                                                 showPlus={job.showPlus}
+                                                additionalStyle={{
+                                                    marginBottom: '5%',
+                                                }}
                                             />
                                         ))}
                                     </>

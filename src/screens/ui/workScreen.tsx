@@ -220,6 +220,9 @@ const WorkScreen = () => {
                                                 creationDate={job.creationDate}
                                                 category={job.category}
                                                 showPlus={job.showPlus}
+                                                additionalStyle={{
+                                                    marginBottom: '5%',
+                                                }}
                                             />
                                         ))}
                                     </>
@@ -295,6 +298,9 @@ const WorkScreen = () => {
                                                 creationDate={job.creationDate}
                                                 category={job.category}
                                                 showPlus={job.showPlus}
+                                                additionalStyle={{
+                                                    marginBottom: '5%',
+                                                }}
                                             />
                                         ))}
                                     </>

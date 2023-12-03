@@ -290,6 +290,9 @@ const SearchScreen = () => {
                                                     }
                                                     category={job.category}
                                                     showPlus={job.showPlus}
+                                                    additionalStyle={{
+                                                        marginBottom: '5%',
+                                                    }}
                                                 />
                                             ))}
                                         </>

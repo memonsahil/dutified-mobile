@@ -389,6 +389,9 @@ const ProfileScreen = () => {
                                                 creationDate={job.creationDate}
                                                 category={job.category}
                                                 showPlus={job.showPlus}
+                                                additionalStyle={{
+                                                    marginBottom: '5%',
+                                                }}
                                             />
                                         ))}
                                     </>
@@ -464,6 +467,9 @@ const ProfileScreen = () => {
                                                 creationDate={job.creationDate}
                                                 category={job.category}
                                                 showPlus={job.showPlus}
+                                                additionalStyle={{
+                                                    marginBottom: '5%',
+                                                }}
                                             />
                                         ))}
                                     </>

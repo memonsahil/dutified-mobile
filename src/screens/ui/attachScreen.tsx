@@ -154,6 +154,9 @@ const AttachScreen = () => {
                                         creationDate={job.creationDate}
                                         category={job.category}
                                         showPlus={job.showPlus}
+                                        additionalStyle={{
+                                            marginBottom: '5%',
+                                        }}
                                     />
                                 ))}
                             </>

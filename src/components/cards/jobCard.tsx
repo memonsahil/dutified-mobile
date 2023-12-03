@@ -16,7 +16,7 @@ const JobCard = (props: jobCardProps) => {
     const navigation: NavigationProp<screens> = useNavigation()
 
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, props.additionalStyle]}>
             <TouchableOpacity
                 onPress={() =>
                     navigation.navigate('Job', { jobId: props.jobId })
@@ -105,9 +105,8 @@ const styles = StyleSheet.create({
         backgroundColor: themeColors.WHITE,
         borderRadius: 20,
         width: '90%',
-        marginBottom: '5%',
-        paddingVertical: '5%',
-        paddingHorizontal: '5%',
+        paddingVertical: 20,
+        paddingHorizontal: 20,
         overflow: 'hidden',
     },
     jobName: {

@@ -124,6 +124,9 @@ const ProjectScreen = ({ route }: projectScreenProps) => {
                                         creationDate={job.creationDate}
                                         category={job.category}
                                         showPlus={job.showPlus}
+                                        additionalStyle={{
+                                            marginBottom: '5%',
+                                        }}
                                     />
                                 ))}
                             </>
