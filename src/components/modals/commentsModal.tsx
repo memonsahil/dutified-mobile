@@ -123,8 +123,8 @@ const styles = StyleSheet.create({
         backgroundColor: themeColors.WHITE,
         width: '100%',
         height: '80%',
-        borderTopLeftRadius: 20,
-        borderTopRightRadius: 20,
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
     },
     headingContainer: {
         flexDirection: 'row',
