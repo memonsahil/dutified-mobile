@@ -67,7 +67,7 @@ const JobCard = (props: jobCardProps) => {
                             <MaterialCommunityIcons
                                 name="close-circle"
                                 size={30}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.SILVER}
                             />
                         ) : (
                             <MaterialCommunityIcons
