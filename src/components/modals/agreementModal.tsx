@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
     Modal,
     View,
@@ -14,8 +15,24 @@ import categories from '../../enums/categories'
 import jobStatus from '../../enums/jobStatus'
 import JobCard from '../cards/jobCard'
 import jobCardProps from '../props/jobCardProps'
+import jobType from '../../data/types/jobType'
 
 const AgreementModal = (props: agreementModalProps) => {
+    const [job, setJob] = useState<jobType | null>(() => ({
+        jobId: '5',
+        jobName: 'A very very long job name that will be cut off',
+        status: jobStatus.AVAILABLE,
+        payment: '100000',
+        description:
+            'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
+        creationDate: '2021-01-01',
+        category: categories.ACCOUNTING,
+        jobCreatorId: 'creatorId',
+        jobCreator: 'creator',
+        jobWorkerId: 'workerId',
+        jobWorker: 'worker',
+    }))
+
     const jobs: Array<jobCardProps> = [
         {
             jobId: '5',
@@ -66,82 +83,127 @@ const AgreementModal = (props: agreementModalProps) => {
                     </View>
                     <ScrollView contentContainerStyle={styles.mainSection}>
                         <Text style={styles.info}>
-                            Select a job and create an agreement between you and{' '}
+                            Pick a job and create an agreement between you and{' '}
                             {props.userName}.
                         </Text>
-                        <Text style={styles.subHeading}>Your Jobs</Text>
-                        {jobs.length === 0 ? (
-                            <Text style={styles.noDataText}>
-                                You do not have any available jobs.
-                            </Text>
-                        ) : (
+                        {job !== null ? (
                             <>
-                                {jobs.length !== 0 ? (
-                                    <ScrollView
-                                        contentContainerStyle={
-                                            styles.jobsContainer
-                                        }
-                                        horizontal={true}
-                                        showsHorizontalScrollIndicator={false}
-                                    >
-                                        {jobs.map((job) => (
-                                            <JobCard
-                                                key={job.jobId}
-                                                jobId={job.jobId}
-                                                jobName={job.jobName}
-                                                status={job.status}
-                                                payment={job.payment}
-                                                description={job.description}
-                                                creationDate={job.creationDate}
-                                                category={job.category}
-                                                showPlus={job.showPlus}
-                                                additionalStyle={{
-                                                    width: 350,
-                                                    marginRight: 20,
-                                                }}
-                                            />
-                                        ))}
-                                    </ScrollView>
-                                ) : null}
+                                <Text style={styles.subHeading}>
+                                    Selected Job
+                                </Text>
+                                <JobCard
+                                    key={job.jobId}
+                                    jobId={job.jobId}
+                                    jobName={job.jobName}
+                                    status={job.status}
+                                    payment={job.payment}
+                                    description={job.description}
+                                    creationDate={job.creationDate}
+                                    category={job.category}
+                                    showPlus={false}
+                                />
+                                <TouchableOpacity onPress={() => setJob(null)}>
+                                    <Text style={styles.modalButton}>
+                                        Change
+                                    </Text>
+                                </TouchableOpacity>
+                                <Text style={styles.subHeading}>Payment</Text>
+                                <Text style={styles.info}>
+                                    You can negotiate the payment amount for
+                                    this job. The updated payment amount has to
+                                    be accepted by {props.userName}.
+                                </Text>
+                                <Text style={styles.info}></Text>
                             </>
-                        )}
-                        <Text style={styles.subHeading}>
-                            {props.userName}'s Jobs
-                        </Text>
-                        {jobs.length === 0 ? (
-                            <Text style={styles.noDataText}>
-                                {props.userName} does not have any available
-                                jobs.
-                            </Text>
                         ) : (
                             <>
-                                {jobs.length !== 0 ? (
-                                    <ScrollView
-                                        contentContainerStyle={
-                                            styles.jobsContainer
-                                        }
-                                        horizontal={true}
-                                        showsHorizontalScrollIndicator={false}
-                                    >
-                                        {jobs.map((job) => (
-                                            <JobCard
-                                                key={job.jobId}
-                                                jobId={job.jobId}
-                                                jobName={job.jobName}
-                                                status={job.status}
-                                                payment={job.payment}
-                                                description={job.description}
-                                                creationDate={job.creationDate}
-                                                category={job.category}
-                                                showPlus={job.showPlus}
-                                                additionalStyle={{
-                                                    width: 350,
-                                                    marginRight: 20,
-                                                }}
-                                            />
-                                        ))}
-                                    </ScrollView>
-                                ) : null}
+                                <Text style={styles.subHeading}>Your Jobs</Text>
+                                {jobs.length === 0 ? (
+                                    <Text style={styles.noDataText}>
+                                        You do not have any available jobs.
+                                    </Text>
+                                ) : (
+                                    <>
+                                        {jobs.length !== 0 ? (
+                                            <ScrollView
+                                                contentContainerStyle={
+                                                    styles.jobsContainer
+                                                }
+                                                horizontal={true}
+                                                showsHorizontalScrollIndicator={
+                                                    false
+                                                }
+                                            >
+                                                {jobs.map((job) => (
+                                                    <JobCard
+                                                        key={job.jobId}
+                                                        jobId={job.jobId}
+                                                        jobName={job.jobName}
+                                                        status={job.status}
+                                                        payment={job.payment}
+                                                        description={
+                                                            job.description
+                                                        }
+                                                        creationDate={
+                                                            job.creationDate
+                                                        }
+                                                        category={job.category}
+                                                        showPlus={job.showPlus}
+                                                        additionalStyle={{
+                                                            width: 350,
+                                                            marginRight: 20,
+                                                        }}
+                                                    />
+                                                ))}
+                                            </ScrollView>
+                                        ) : null}
+                                    </>
+                                )}
+                                <Text style={styles.subHeading}>
+                                    {props.userName}'s Jobs
+                                </Text>
+                                {jobs.length === 0 ? (
+                                    <Text style={styles.noDataText}>
+                                        {props.userName} does not have any
+                                        available jobs.
+                                    </Text>
+                                ) : (
+                                    <>
+                                        {jobs.length !== 0 ? (
+                                            <ScrollView
+                                                contentContainerStyle={
+                                                    styles.jobsContainer
+                                                }
+                                                horizontal={true}
+                                                showsHorizontalScrollIndicator={
+                                                    false
+                                                }
+                                            >
+                                                {jobs.map((job) => (
+                                                    <JobCard
+                                                        key={job.jobId}
+                                                        jobId={job.jobId}
+                                                        jobName={job.jobName}
+                                                        status={job.status}
+                                                        payment={job.payment}
+                                                        description={
+                                                            job.description
+                                                        }
+                                                        creationDate={
+                                                            job.creationDate
+                                                        }
+                                                        category={job.category}
+                                                        showPlus={job.showPlus}
+                                                        additionalStyle={{
+                                                            width: 350,
+                                                            marginRight: 20,
+                                                        }}
+                                                    />
+                                                ))}
+                                            </ScrollView>
+                                        ) : null}
+                                    </>
+                                )}
                             </>
                         )}
                     </ScrollView>
@@ -209,6 +271,14 @@ const styles = StyleSheet.create({
         marginBottom: '5%',
         paddingHorizontal: '5%',
         alignSelf: 'flex-start',
+    },
+    modalButton: {
+        fontFamily: 'IBMPlexSansCondensed-Bold',
+        fontSize: fontSizes.BUTTON,
+        color: themeColors.YELLOW_GREEN,
+        alignSelf: 'center',
+        paddingTop: '5%',
+        paddingBottom: '5%',
     },
 })
 
