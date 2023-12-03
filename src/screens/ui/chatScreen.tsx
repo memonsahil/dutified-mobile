@@ -23,6 +23,7 @@ import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import chatScreenProps from '../props/chatScreenProps'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import AgreementModal from '../../components/modals/agreementModal'
 
 const ChatScreen = ({ route }: chatScreenProps) => {
     const { userId } = route.params
@@ -32,12 +33,13 @@ const ChatScreen = ({ route }: chatScreenProps) => {
     const [imageSrc, setImageSrc] = useState<string>('')
     const [message, setMessage] = useState<string>('')
     const [allMessages, setAllMessages] = useState<IMessage[]>([])
+    const [modalVisible, setModalVisible] = useState(false)
     const [loading, setLoading] = useState<boolean>(false)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
-    const first = 'A Very Long First Name'
-    const last = 'A Very Long Last Name'
+    const first = 'Long First Name'
+    const last = 'Long Last Name'
 
     useEffect(() => {}, [])
 
@@ -207,7 +209,9 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                             color={themeColors.YELLOW_GREEN}
                                         />
                                     </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => {}}>
+                                    <TouchableOpacity
+                                        onPress={() => setModalVisible(true)}
+                                    >
                                         <MaterialCommunityIcons
                                             name="handshake"
                                             size={30}
@@ -217,6 +221,11 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                 </View>
                             )
                         }}
+                    />
+                    <AgreementModal
+                        visible={modalVisible}
+                        onClose={() => setModalVisible(false)}
+                        userName={`${first} ${last}`}
                     />
                 </>
             ) : (
