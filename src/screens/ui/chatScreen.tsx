@@ -209,7 +209,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                     </TouchableOpacity>
                                     <TouchableOpacity onPress={() => {}}>
                                         <MaterialCommunityIcons
-                                            name="file-plus"
+                                            name="handshake"
                                             size={30}
                                             color={themeColors.YELLOW_GREEN}
                                         />
@@ -275,8 +275,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         width: '100%',
         marginTop: Platform.OS === 'ios' ? '3%' : 0,
-        paddingRight: '5%',
-        paddingLeft: '2%',
+        paddingHorizontal: '5%',
     },
     input: {
         backgroundColor: themeColors.WHITE,
@@ -287,7 +286,7 @@ const styles = StyleSheet.create({
         paddingRight: Platform.OS === 'ios' ? '3%' : '5%',
         borderColor: themeColors.BLACK,
         borderWidth: 4,
-        borderRadius: 15,
+        borderRadius: 20,
         fontFamily: 'IBMPlexSansCondensed-Medium',
         color: themeColors.BLACK,
         fontSize: fontSizes.BODY_TWO,
