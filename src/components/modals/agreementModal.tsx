@@ -168,10 +168,13 @@ const AgreementModal = (props: agreementModalProps) => {
                             </>
                         ) : (
                             <>
-                                <Text style={styles.subHeading}>Your Jobs</Text>
+                                <Text style={styles.subHeading}>
+                                    {props.userName}'s Jobs
+                                </Text>
                                 {jobs.length === 0 ? (
                                     <Text style={styles.noDataText}>
-                                        You do not have any available jobs.
+                                        {props.userName} does not have any
+                                        available jobs.
                                     </Text>
                                 ) : (
                                     <>
@@ -210,13 +213,10 @@ const AgreementModal = (props: agreementModalProps) => {
                                         ) : null}
                                     </>
                                 )}
-                                <Text style={styles.subHeading}>
-                                    {props.userName}'s Jobs
-                                </Text>
+                                <Text style={styles.subHeading}>Your Jobs</Text>
                                 {jobs.length === 0 ? (
                                     <Text style={styles.noDataText}>
-                                        {props.userName} does not have any
-                                        available jobs.
+                                        You do not have any available jobs.
                                     </Text>
                                 ) : (
                                     <>
