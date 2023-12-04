@@ -24,6 +24,8 @@ import screens from '../params/screens'
 import chatScreenProps from '../props/chatScreenProps'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import AgreementModal from '../../components/modals/agreementModal'
+import JobModal from '../../components/modals/jobModal'
+import globalStore from '../../state/stores/globalStore'
 
 const ChatScreen = ({ route }: chatScreenProps) => {
     const { userId } = route.params
@@ -33,8 +35,14 @@ const ChatScreen = ({ route }: chatScreenProps) => {
     const [imageSrc, setImageSrc] = useState<string>('')
     const [message, setMessage] = useState<string>('')
     const [allMessages, setAllMessages] = useState<IMessage[]>([])
-    const [modalVisible, setModalVisible] = useState(false)
     const [loading, setLoading] = useState<boolean>(false)
+
+    const {
+        showAgreementModal,
+        setShowAgreementModal,
+        showJobModal,
+        setShowJobModal,
+    } = globalStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -210,7 +218,9 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                         />
                                     </TouchableOpacity>
                                     <TouchableOpacity
-                                        onPress={() => setModalVisible(true)}
+                                        onPress={() =>
+                                            setShowAgreementModal(true)
+                                        }
                                     >
                                         <MaterialCommunityIcons
                                             name="handshake"
@@ -223,9 +233,13 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                         }}
                     />
                     <AgreementModal
-                        visible={modalVisible}
-                        onClose={() => setModalVisible(false)}
+                        visible={showAgreementModal}
+                        onClose={() => setShowAgreementModal(false)}
                         userName={`${first} ${last}`}
+                    />
+                    <JobModal
+                        visible={showJobModal}
+                        onClose={() => setShowJobModal(false)}
                     />
                 </>
             ) : (

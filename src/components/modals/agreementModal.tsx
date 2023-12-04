@@ -102,7 +102,7 @@ const AgreementModal = (props: agreementModalProps) => {
                                     description={selectedJob.description}
                                     creationDate={selectedJob.creationDate}
                                     category={selectedJob.category}
-                                    showPlus={selection.NONE}
+                                    showPlus={selection.SELECTED}
                                     additionalStyle={{
                                         marginBottom: '5%',
                                     }}
