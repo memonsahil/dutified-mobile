@@ -25,7 +25,12 @@ const JobCard = (props: jobCardProps) => {
                 <Text
                     style={[
                         styles.jobName,
-                        { width: props.showPlus ? '85%' : '100%' },
+                        {
+                            width:
+                                props.showPlus !== selection.NONE
+                                    ? '85%'
+                                    : '100%',
+                        },
                     ]}
                     numberOfLines={1}
                     ellipsizeMode="tail"
@@ -136,7 +141,6 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.BLACK,
         marginBottom: '5%',
-        width: '90%',
     },
     plusIcon: {
         position: 'absolute',
