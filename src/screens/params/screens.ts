@@ -47,6 +47,8 @@ type screens = {
     AddProject: undefined
     AddPost: undefined
     Attach: undefined
+    EditName: undefined
+    EditBio: undefined
     EditProfilePicture: undefined
     EditPhoneNumber: undefined
     EditEmailAddress: undefined

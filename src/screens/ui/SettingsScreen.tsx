@@ -76,7 +76,9 @@ const SettingsScreen = () => {
                     </View>
                     {switchColumn === 'Profile' ? (
                         <>
-                            <TouchableOpacity onPress={() => {}}>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate('EditName')}
+                            >
                                 <Text style={styles.button}>Name</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
@@ -88,7 +90,9 @@ const SettingsScreen = () => {
                                     Profile Picture
                                 </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {}}>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate('EditBio')}
+                            >
                                 <Text style={styles.button}>Edit Bio</Text>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => {}}>
