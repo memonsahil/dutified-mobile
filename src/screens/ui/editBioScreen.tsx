@@ -7,7 +7,6 @@ import {
     Keyboard,
     TouchableWithoutFeedback,
     TouchableOpacity,
-    Alert,
 } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
@@ -61,20 +60,7 @@ const EditBioScreen = () => {
                         <TouchableOpacity
                             style={styles.saveButtonContainer}
                             onPress={() => {
-                                if (desc !== '') {
-                                    setLoading(true)
-                                } else {
-                                    Alert.alert(
-                                        'Missing Details',
-                                        'Please enter your updated first and last name.',
-                                        [
-                                            {
-                                                text: 'Dismiss',
-                                                onPress: () => {},
-                                            },
-                                        ]
-                                    )
-                                }
+                                setLoading(true)
                             }}
                         >
                             <Text style={styles.saveButton}>Save</Text>
