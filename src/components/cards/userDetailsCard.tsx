@@ -8,25 +8,46 @@ const UserDetailsCard = (props: userDetailsCardProps) => {
     return (
         <View style={styles.container}>
             <Text style={styles.heading}>Bio</Text>
-            <Text style={styles.description}>{props.description}</Text>
-            <Text style={styles.heading}>Daily Rate</Text>
-            <View style={styles.interestWrapper}>
-                <Text style={styles.interest}>{`$${props.dailyRate}/day`}</Text>
-            </View>
+            {props.description !== '' ? (
+                <Text style={styles.description}>{props.description}</Text>
+            ) : (
+                <Text style={styles.description}>No bio.</Text>
+            )}
+            <Text style={styles.heading}>Rate/Day</Text>
+            {props.dailyRate !== '' ? (
+                <View style={styles.interestWrapper}>
+                    <Text
+                        style={styles.interest}
+                    >{`$${props.dailyRate}/Day`}</Text>
+                </View>
+            ) : (
+                <Text style={styles.description}>No rate.</Text>
+            )}
             <Text style={styles.heading}>Interests</Text>
-            {props.interests.map((interest) => (
-                <View style={styles.interestWrapper} key={interest}>
-                    <Text style={styles.interest}>{interest}</Text>
-                </View>
-            ))}
+            {props.interests.length !== 0 ? (
+                props.interests.map((interest) => (
+                    <View style={styles.interestWrapper} key={interest}>
+                        <Text style={styles.interest}>{interest}</Text>
+                    </View>
+                ))
+            ) : (
+                <Text style={styles.description}>No interests.</Text>
+            )}
+
             <Text style={styles.heading}>Links</Text>
-            {props.links.map((link) => (
-                <View style={styles.interestWrapper} key={link.id}>
-                    <TouchableOpacity onPress={() => Linking.openURL(link.url)}>
-                        <Text style={styles.link}>{link.url}</Text>
-                    </TouchableOpacity>
-                </View>
-            ))}
+            {props.links.length !== 0 ? (
+                props.links.map((link) => (
+                    <View style={styles.interestWrapper} key={link.id}>
+                        <TouchableOpacity
+                            onPress={() => Linking.openURL(link.url)}
+                        >
+                            <Text style={styles.link}>{link.url}</Text>
+                        </TouchableOpacity>
+                    </View>
+                ))
+            ) : (
+                <Text style={styles.description}>No links.</Text>
+            )}
         </View>
     )
 }
