@@ -10,24 +10,33 @@ import screens from '../../screens/params/screens'
 import selection from '../../enums/selection'
 
 const JobCard = (props: jobCardProps) => {
-    const { selectedAttachments, setSelectedAttachments, setSelectedJob } =
-        globalStore((state) => state)
+    const {
+        selectedAttachments,
+        setSelectedAttachments,
+        setShowAgreementModal,
+        setShowJobModal,
+        setSelectedJob,
+    } = globalStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
     return (
         <View style={[styles.container, props.additionalStyle]}>
             <TouchableOpacity
-                onPress={() =>
-                    navigation.navigate('Job', { jobId: props.jobId })
-                }
+                onPress={() => {
+                    props.showPlus === selection.AGREEMENT ||
+                    props.showPlus === selection.SELECTED
+                        ? (setShowAgreementModal(false), setShowJobModal(true))
+                        : navigation.navigate('Job', { jobId: props.jobId })
+                }}
             >
                 <Text
                     style={[
                         styles.jobName,
                         {
                             width:
-                                props.showPlus !== selection.NONE
+                                props.showPlus !== selection.NONE &&
+                                props.showPlus !== selection.SELECTED
                                     ? '85%'
                                     : '100%',
                         },
