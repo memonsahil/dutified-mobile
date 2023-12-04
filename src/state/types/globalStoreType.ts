@@ -3,8 +3,12 @@ import attachmentType from '../../data/types/attachmentType'
 
 type globalStoreType = {
     selectedAttachments: attachmentType[]
+    showAgreementModal: boolean
+    showJobModal: boolean
     selectedJob: jobCardProps | null
     setSelectedAttachments: (attachments: attachmentType[]) => void
+    setShowAgreementModal: (show: boolean) => void
+    setShowJobModal: (show: boolean) => void
     setSelectedJob: (job: jobCardProps | null) => void
 }
 
