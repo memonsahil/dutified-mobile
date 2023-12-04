@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
     Modal,
     View,
@@ -17,23 +17,16 @@ import jobStatus from '../../enums/jobStatus'
 import JobCard from '../cards/jobCard'
 import jobCardProps from '../props/jobCardProps'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import jobType from '../../data/types/jobType'
+import selection from '../../enums/selection'
+import globalStore from '../../state/stores/globalStore'
 
 const AgreementModal = (props: agreementModalProps) => {
-    const [selectedJob, setSelectedJob] = useState<jobType>({
-        jobId: '',
-        jobName: '',
-        jobCreatorId: '',
-        jobCreator: '',
-        jobWorkerId: '',
-        jobWorker: '',
-        status: jobStatus.AVAILABLE,
-        category: categories.OTHER,
-        payment: '',
-        description: '',
-        creationDate: '',
-    })
-    const [updatedAmount, setUpdatedAmount] = useState<string>('120')
+    const [updatedAmount, setUpdatedAmount] = useState<string>('')
+    const { selectedJob, setSelectedJob } = globalStore((state) => state)
+
+    useEffect(() => {
+        setUpdatedAmount(selectedJob?.payment!)
+    }, [selectedJob])
 
     const jobs: Array<jobCardProps> = [
         {
@@ -45,7 +38,7 @@ const AgreementModal = (props: agreementModalProps) => {
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
             category: categories.ACCOUNTING,
-            showPlus: true,
+            showPlus: selection.AGREEMENT,
         },
         {
             jobId: '6',
@@ -55,7 +48,7 @@ const AgreementModal = (props: agreementModalProps) => {
             description: 'This is a description for Created job 2',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
-            showPlus: true,
+            showPlus: selection.AGREEMENT,
         },
         {
             jobId: '7',
@@ -65,7 +58,7 @@ const AgreementModal = (props: agreementModalProps) => {
             description: 'This is a description for Created job 3',
             creationDate: '2021-01-01',
             category: categories.ANIMATION,
-            showPlus: true,
+            showPlus: selection.AGREEMENT,
         },
     ]
 
@@ -75,7 +68,12 @@ const AgreementModal = (props: agreementModalProps) => {
                 <View style={styles.modalContainer}>
                     <View style={styles.headingContainer}>
                         <Text style={styles.heading}>Job Agreement</Text>
-                        <TouchableOpacity onPress={() => props.onClose()}>
+                        <TouchableOpacity
+                            onPress={() => {
+                                //setSelectedJob(null)
+                                props.onClose()
+                            }}
+                        >
                             <MaterialCommunityIcons
                                 name="close-circle"
                                 size={30}
@@ -90,7 +88,7 @@ const AgreementModal = (props: agreementModalProps) => {
                             Pick a job and create an agreement between you and{' '}
                             {props.userName}.
                         </Text>
-                        {selectedJob.jobId !== '' ? (
+                        {selectedJob !== null ? (
                             <>
                                 <Text style={styles.subHeading}>
                                     Selected Job
@@ -104,12 +102,16 @@ const AgreementModal = (props: agreementModalProps) => {
                                     description={selectedJob.description}
                                     creationDate={selectedJob.creationDate}
                                     category={selectedJob.category}
-                                    showPlus={false}
+                                    showPlus={selection.NONE}
                                     additionalStyle={{
                                         marginBottom: '5%',
                                     }}
                                 />
-                                <TouchableOpacity onPress={() => {}}>
+                                <TouchableOpacity
+                                    onPress={() => {
+                                        setSelectedJob(null)
+                                    }}
+                                >
                                     <Text style={styles.modalButton}>
                                         Change
                                     </Text>
