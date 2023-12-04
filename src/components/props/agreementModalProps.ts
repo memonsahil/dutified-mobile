@@ -1,3 +1,7 @@
-type agreementModalProps = { visible: boolean; onClose: any; userName: string }
+type agreementModalProps = {
+    visible: boolean
+    onClose: () => void
+    userName: string
+}
 
 export default agreementModalProps

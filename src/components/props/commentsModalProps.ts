@@ -1,3 +1,3 @@
-type commentsModalProps = { visible: boolean; onClose: any }
+type commentsModalProps = { visible: boolean; onClose: () => void }
 
 export default commentsModalProps
