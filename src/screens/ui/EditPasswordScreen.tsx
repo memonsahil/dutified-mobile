@@ -11,7 +11,6 @@ import {
 } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import authUserStore from '../../state/stores/authUserStore'
 import * as Progress from 'react-native-progress'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
@@ -22,8 +21,6 @@ const EditPasswordScreen = () => {
     const [currentPassword, setCurrentPassword] = useState<string>('')
     const [newPassword, setNewPassword] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
-
-    const { account } = authUserStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
