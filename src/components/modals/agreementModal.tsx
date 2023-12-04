@@ -70,7 +70,7 @@ const AgreementModal = (props: agreementModalProps) => {
                         <Text style={styles.heading}>Job Agreement</Text>
                         <TouchableOpacity
                             onPress={() => {
-                                //setSelectedJob(null)
+                                setSelectedJob(null)
                                 props.onClose()
                             }}
                         >
@@ -121,8 +121,7 @@ const AgreementModal = (props: agreementModalProps) => {
                                 </Text>
                                 <Text style={styles.info}>
                                     You can negotiate the payment amount for
-                                    this job. The updated payment amount has to
-                                    be accepted by {props.userName}.
+                                    this job.
                                 </Text>
                                 <View style={styles.amountWrapper}>
                                     <Text style={styles.currency}>USD</Text>
@@ -137,16 +136,35 @@ const AgreementModal = (props: agreementModalProps) => {
                                         inputMode="decimal"
                                     />
                                 </View>
-                                <TouchableOpacity onPress={() => {}}>
+                                {updatedAmount !== selectedJob.payment ? (
+                                    <TouchableOpacity
+                                        onPress={() => {
+                                            setUpdatedAmount(
+                                                selectedJob.payment
+                                            )
+                                        }}
+                                    >
+                                        <Text style={styles.modalButton}>
+                                            Reset
+                                        </Text>
+                                    </TouchableOpacity>
+                                ) : null}
+                                <TouchableOpacity
+                                    onPress={() => {
+                                        setSelectedJob(null)
+                                        props.onClose()
+                                    }}
+                                >
                                     <Text style={styles.modalButton}>
-                                        Negotiate
+                                        {updatedAmount !== selectedJob.payment
+                                            ? 'Negotiate'
+                                            : 'Send Agreement'}
                                     </Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() => {}}>
-                                    <Text style={styles.modalButton}>
-                                        Reset
-                                    </Text>
-                                </TouchableOpacity>
+                                <Text style={styles.textSection}>
+                                    The updated payment amount has to be
+                                    accepted by {props.userName}.
+                                </Text>
                             </>
                         ) : (
                             <>
@@ -315,7 +333,7 @@ const styles = StyleSheet.create({
     amountWrapper: {
         flexDirection: 'row',
         width: '80%',
-        marginBottom: '5%',
+        marginBottom: '10%',
     },
     currency: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
@@ -332,6 +350,15 @@ const styles = StyleSheet.create({
         borderBottomColor: themeColors.WHITE,
         borderBottomWidth: 3,
         textAlignVertical: 'center',
+    },
+    textSection: {
+        textAlign: 'center',
+        alignSelf: 'center',
+        marginTop: '5%',
+        width: '80%',
+        fontFamily: 'IBMPlexSansCondensed-Bold',
+        fontSize: fontSizes.BODY_THREE,
+        color: themeColors.WHITE,
     },
 })
 
