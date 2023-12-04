@@ -95,8 +95,10 @@ const SettingsScreen = () => {
                             >
                                 <Text style={styles.button}>Edit Bio</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {}}>
-                                <Text style={styles.button}>Rates</Text>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate('EditRate')}
+                            >
+                                <Text style={styles.button}>Rate/Day</Text>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => {}}>
                                 <Text style={styles.button}>Interests</Text>
