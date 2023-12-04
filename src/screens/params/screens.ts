@@ -48,8 +48,9 @@ type screens = {
     AddPost: undefined
     Attach: undefined
     EditName: undefined
-    EditBio: undefined
     EditProfilePicture: undefined
+    EditBio: undefined
+    EditRate: undefined
     EditPhoneNumber: undefined
     EditEmailAddress: undefined
     EditPassword: undefined

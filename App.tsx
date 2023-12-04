@@ -36,8 +36,9 @@ import AddProjectScreen from './src/screens/ui/addProjectScreen'
 import AddPostScreen from './src/screens/ui/addPostScreen'
 import AttachScreen from './src/screens/ui/attachScreen'
 import EditNameScreen from './src/screens/ui/editNameScreen'
-import EditBioScreen from './src/screens/ui/editBioScreen'
 import EditProfilePictureScreen from './src/screens/ui/editProfilePictureScreen'
+import EditBioScreen from './src/screens/ui/editBioScreen'
+import EditRateScreen from './src/screens/ui/editRateScreen'
 import EditPhoneNumberScreen from './src/screens/ui/editPhoneNumberScreen'
 import EditEmailAddressScreen from './src/screens/ui/editEmailAddressScreen'
 import EditPasswordScreen from './src/screens/ui/editPasswordScreen'
@@ -193,11 +194,12 @@ const MainStackNavigator = () => {
             <MainStack.Screen name="AddPost" component={AddPostScreen} />
             <MainStack.Screen name="Attach" component={AttachScreen} />
             <MainStack.Screen name="EditName" component={EditNameScreen} />
-            <MainStack.Screen name="EditBio" component={EditBioScreen} />
             <MainStack.Screen
                 name="EditProfilePicture"
                 component={EditProfilePictureScreen}
             />
+            <MainStack.Screen name="EditBio" component={EditBioScreen} />
+            <MainStack.Screen name="EditRate" component={EditRateScreen} />
             <MainStack.Screen
                 name="EditPhoneNumber"
                 component={EditPhoneNumberScreen}
