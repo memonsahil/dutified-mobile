@@ -16,6 +16,7 @@ import categories from '../../enums/categories'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import projectCardProps from '../../components/props/projectCardProps'
 import ProjectCard from '../../components/cards/projectCard'
+import selection from '../../enums/selection'
 
 const AttachScreen = () => {
     const navigation: NavigationProp<screens> = useNavigation()
@@ -67,7 +68,7 @@ const AttachScreen = () => {
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
             category: categories.ACCOUNTING,
-            showPlus: true,
+            showPlus: selection.ATTACHMENT,
         },
         {
             jobId: '6',
@@ -77,7 +78,7 @@ const AttachScreen = () => {
             description: 'This is a description for Created job 2',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
-            showPlus: true,
+            showPlus: selection.ATTACHMENT,
         },
         {
             jobId: '7',
@@ -87,7 +88,7 @@ const AttachScreen = () => {
             description: 'This is a description for Created job 3',
             creationDate: '2021-01-01',
             category: categories.ANIMATION,
-            showPlus: true,
+            showPlus: selection.ATTACHMENT,
         },
     ]
 

@@ -17,6 +17,7 @@ import categories from '../../enums/categories'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import projectCardProps from '../../components/props/projectCardProps'
 import ProjectCard from '../../components/cards/projectCard'
+import selection from '../../enums/selection'
 
 const WorkScreen = () => {
     const [switchColumn, setSwitchColumn] = useState<'Hired' | 'Created'>(
@@ -70,7 +71,7 @@ const WorkScreen = () => {
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
             category: categories.ACCOUNTING,
-            showPlus: false,
+            showPlus: selection.NONE,
         },
         {
             jobId: '2',
@@ -80,7 +81,7 @@ const WorkScreen = () => {
             description: 'This is a description for Created job 2',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
-            showPlus: false,
+            showPlus: selection.NONE,
         },
         {
             jobId: '3',
@@ -90,7 +91,7 @@ const WorkScreen = () => {
             description: 'This is a description for Created job 3',
             creationDate: '2021-01-01',
             category: categories.ANIMATION,
-            showPlus: false,
+            showPlus: selection.NONE,
         },
     ]
     const projectsCreated: Array<projectCardProps> = []

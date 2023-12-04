@@ -17,6 +17,7 @@ import jobCardProps from '../../components/props/jobCardProps'
 import categories from '../../enums/categories'
 import jobStatus from '../../enums/jobStatus'
 import JobCard from '../../components/cards/jobCard'
+import selection from '../../enums/selection'
 
 const ProjectScreen = ({ route }: projectScreenProps) => {
     const { projectId } = route.params
@@ -49,7 +50,7 @@ const ProjectScreen = ({ route }: projectScreenProps) => {
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
             category: categories.ACCOUNTING,
-            showPlus: false,
+            showPlus: selection.NONE,
         },
         {
             jobId: '2',
@@ -59,7 +60,7 @@ const ProjectScreen = ({ route }: projectScreenProps) => {
             description: 'This is a description for Created job 2',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
-            showPlus: false,
+            showPlus: selection.NONE,
         },
         {
             jobId: '3',
@@ -69,7 +70,7 @@ const ProjectScreen = ({ route }: projectScreenProps) => {
             description: 'This is a description for Created job 3',
             creationDate: '2021-01-01',
             category: categories.ANIMATION,
-            showPlus: false,
+            showPlus: selection.NONE,
         },
     ]
 

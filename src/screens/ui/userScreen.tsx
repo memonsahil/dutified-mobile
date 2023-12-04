@@ -22,6 +22,7 @@ import postCardProps from '../../components/props/postCardProps'
 import projectCardProps from '../../components/props/projectCardProps'
 import ProjectCard from '../../components/cards/projectCard'
 import attachment from '../../enums/attachment'
+import selection from '../../enums/selection'
 
 const UserScreen = () => {
     const navigation: NavigationProp<screens> = useNavigation()
@@ -114,7 +115,7 @@ const UserScreen = () => {
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
             category: categories.ACCOUNTING,
-            showPlus: false,
+            showPlus: selection.NONE,
         },
         {
             jobId: '2',
@@ -124,7 +125,7 @@ const UserScreen = () => {
             description: 'This is a description for Created job 2',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
-            showPlus: false,
+            showPlus: selection.NONE,
         },
         {
             jobId: '3',
@@ -134,7 +135,7 @@ const UserScreen = () => {
             description: 'This is a description for Created job 3',
             creationDate: '2021-01-01',
             category: categories.ANIMATION,
-            showPlus: false,
+            showPlus: selection.NONE,
         },
     ]
     const projectsCreated: Array<projectCardProps> = [
@@ -156,7 +157,7 @@ const UserScreen = () => {
             description: 'This is a description for Created job 1',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
-            showPlus: false,
+            showPlus: selection.NONE,
         },
         {
             jobId: '2',
@@ -167,7 +168,7 @@ const UserScreen = () => {
                 'This is a description for Created job 2, This is a description for Created job 2, This is a description for Created job 2',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
-            showPlus: false,
+            showPlus: selection.NONE,
         },
     ]
 
