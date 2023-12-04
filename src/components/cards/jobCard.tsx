@@ -7,11 +7,11 @@ import globalStore from '../../state/stores/globalStore'
 import attachment from '../../enums/attachment'
 import { NavigationProp, useNavigation } from '@react-navigation/native'
 import screens from '../../screens/params/screens'
+import selection from '../../enums/selection'
 
 const JobCard = (props: jobCardProps) => {
-    const { setSelectedAttachments, selectedAttachments } = globalStore(
-        (state) => state
-    )
+    const { selectedAttachments, setSelectedAttachments, setSelectedJob } =
+        globalStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -32,7 +32,7 @@ const JobCard = (props: jobCardProps) => {
                 >
                     {props.jobName}
                 </Text>
-                {props.showPlus ? (
+                {props.showPlus === selection.ATTACHMENT ? (
                     <TouchableOpacity
                         onPress={() => {
                             selectedAttachments.some(
@@ -76,6 +76,28 @@ const JobCard = (props: jobCardProps) => {
                                 color={themeColors.YELLOW_GREEN}
                             />
                         )}
+                    </TouchableOpacity>
+                ) : props.showPlus === selection.AGREEMENT ? (
+                    <TouchableOpacity
+                        onPress={() => {
+                            setSelectedJob({
+                                jobId: props.jobId,
+                                jobName: props.jobName,
+                                status: props.status,
+                                payment: props.payment,
+                                description: props.description,
+                                creationDate: props.creationDate,
+                                category: props.category,
+                                showPlus: props.showPlus,
+                            })
+                        }}
+                        style={styles.plusIcon}
+                    >
+                        <MaterialCommunityIcons
+                            name="plus-circle"
+                            size={30}
+                            color={themeColors.YELLOW_GREEN}
+                        />
                     </TouchableOpacity>
                 ) : null}
                 <View style={styles.detailSection}>
