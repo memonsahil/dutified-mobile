@@ -39,6 +39,8 @@ import EditNameScreen from './src/screens/ui/editNameScreen'
 import EditProfilePictureScreen from './src/screens/ui/editProfilePictureScreen'
 import EditBioScreen from './src/screens/ui/editBioScreen'
 import EditRateScreen from './src/screens/ui/editRateScreen'
+import EditInterestsScreen from './src/screens/ui/editInterestsScreen'
+import EditLinksScreen from './src/screens/ui/editLinksScreen'
 import EditPhoneNumberScreen from './src/screens/ui/editPhoneNumberScreen'
 import EditEmailAddressScreen from './src/screens/ui/editEmailAddressScreen'
 import EditPasswordScreen from './src/screens/ui/editPasswordScreen'
@@ -200,6 +202,11 @@ const MainStackNavigator = () => {
             />
             <MainStack.Screen name="EditBio" component={EditBioScreen} />
             <MainStack.Screen name="EditRate" component={EditRateScreen} />
+            <MainStack.Screen
+                name="EditInterests"
+                component={EditInterestsScreen}
+            />
+            <MainStack.Screen name="EditLinks" component={EditLinksScreen} />
             <MainStack.Screen
                 name="EditPhoneNumber"
                 component={EditPhoneNumberScreen}

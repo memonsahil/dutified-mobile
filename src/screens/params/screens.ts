@@ -51,6 +51,8 @@ type screens = {
     EditProfilePicture: undefined
     EditBio: undefined
     EditRate: undefined
+    EditInterests: undefined
+    EditLinks: undefined
     EditPhoneNumber: undefined
     EditEmailAddress: undefined
     EditPassword: undefined
