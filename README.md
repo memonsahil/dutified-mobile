@@ -1,9 +1,20 @@
 # dutified-mobile
 
-## EAS
+A mobile app for AI automated freelancing where users can create/join
+freelancing projects and each user gets access to GPT tools for their jobs,
+essentially improving freelancers’ earning potential by providing built-in AI
+tools that are relevant to their jobs.
 
-For eas commands, replace eas with `npx eas-cli@latest`.
+Currently a WIP, the front-end is built upon React Native and Zustand (light-
+weight state management), job payment transactions are processed using
+Stripe.
 
-## Firebase
+The backend is essentially a collection of Firebase tools + a Google Cloud
+Platform database that stores user and project data.
+
+Tech stack: TypeScript/JavaScript, React Native, Firebase, GCP, Stripe,
+OpenAI API
+
+## Firebase Note
 
 Not all React Native Firebase packages have Expo config plugins provided yet. You may see if a module is supported by checking if it contains the app.plugin.js file in its package directory.
