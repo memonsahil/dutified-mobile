@@ -5,6 +5,8 @@ freelancing projects and each user gets access to GPT tools for their jobs,
 essentially improving freelancers’ earning potential by providing built-in AI
 tools that are relevant to their jobs.
 
+![Dutified Demo](assets/images/dutified-demo.gif)
+
 Currently a WIP, the front-end is built upon React Native and Zustand (light-
 weight state management), job payment transactions are processed using
 Stripe.
