@@ -7,6 +7,8 @@ tools that are relevant to their jobs.
 
 ![Dutified Demo](assets/images/dutified-demo.gif)
 
+## Tech
+
 Currently a WIP, the front-end is built upon React Native and Zustand (light-
 weight state management), job payment transactions are processed using
 Stripe.
