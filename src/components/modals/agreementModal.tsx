@@ -126,7 +126,7 @@ const AgreementModal = (props: agreementModalProps) => {
                                 <View style={styles.amountWrapper}>
                                     <Text style={styles.currency}>USD</Text>
                                     <TextInput
-                                        placeholder="$120"
+                                        placeholder="120"
                                         value={updatedAmount}
                                         onChangeText={setUpdatedAmount}
                                         style={styles.amountInput}
