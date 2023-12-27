@@ -280,7 +280,7 @@ const ProfileScreen = () => {
                         links={[
                             {
                                 id: '1',
-                                url: 'https://www.linkedin.com/xyz',
+                                url: 'https://www.linkedin.com/xyz/123456789112233445566',
                             },
                             {
                                 id: '2',

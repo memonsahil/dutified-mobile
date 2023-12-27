@@ -41,7 +41,13 @@ const UserDetailsCard = (props: userDetailsCardProps) => {
                         <TouchableOpacity
                             onPress={() => Linking.openURL(link.url)}
                         >
-                            <Text style={styles.link}>{link.url}</Text>
+                            <Text
+                                style={styles.link}
+                                numberOfLines={1}
+                                ellipsizeMode="tail"
+                            >
+                                {link.url}
+                            </Text>
                         </TouchableOpacity>
                     </View>
                 ))
