@@ -4,6 +4,7 @@ import {
     ScrollView,
     View,
     TouchableOpacity,
+    Alert,
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
@@ -172,6 +173,9 @@ const UserScreen = () => {
         },
     ]
 
+    const firstName = 'John'
+    const lastName = 'Doe'
+
     return (
         <View style={styles.container}>
             <ScrollView contentContainerStyle={styles.scrollView}>
@@ -187,6 +191,31 @@ const UserScreen = () => {
                         <Text style={styles.heading}>Profile</Text>
                     </View>
                     <View style={styles.rightHeaderSection}>
+                        <TouchableOpacity
+                            onPress={() => {
+                                Alert.alert(
+                                    `Invite ${firstName} ${lastName}`,
+                                    `Invite ${firstName} ${lastName} to join your network. Once accepted, you and ${firstName} ${lastName} can collaborate on projects and jobs.`,
+                                    [
+                                        {
+                                            text: `Send Invite`,
+
+                                            onPress: () => {},
+                                        },
+                                        {
+                                            text: 'Dismiss',
+                                            onPress: () => {},
+                                        },
+                                    ]
+                                )
+                            }}
+                        >
+                            <MaterialCommunityIcons
+                                name="account-plus"
+                                size={30}
+                                color={themeColors.YELLOW_GREEN}
+                            />
+                        </TouchableOpacity>
                         <TouchableOpacity
                             onPress={() => navigation.navigate('Feedback')}
                         >
@@ -208,8 +237,8 @@ const UserScreen = () => {
                     </View>
                 </View>
                 <UserCard
-                    first={'Sahil'}
-                    last={'Memon'}
+                    first={firstName}
+                    last={lastName}
                     image={''}
                     projectsCreated="1"
                     jobsCreated="2"
@@ -514,7 +543,7 @@ const styles = StyleSheet.create({
     leftHeaderSection: {
         flexDirection: 'row',
         alignItems: 'center',
-        width: '70%',
+        width: '50%',
         justifyContent: 'flex-start',
     },
     heading: {
@@ -526,7 +555,7 @@ const styles = StyleSheet.create({
     rightHeaderSection: {
         flexDirection: 'row',
         alignItems: 'center',
-        width: '30%',
+        width: '45%',
         justifyContent: 'space-between',
     },
     buttonSection: {
