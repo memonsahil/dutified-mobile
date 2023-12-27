@@ -21,6 +21,8 @@ const PostCard = (props: postCardProps) => {
     const [image, setImage] = useState<string>('')
     const [modalVisible, setModalVisible] = useState(false)
 
+    const currentUserId = '1'
+
     const navigation: NavigationProp<screens> = useNavigation()
 
     useEffect(() => {
@@ -33,9 +35,11 @@ const PostCard = (props: postCardProps) => {
                 <View style={styles.userInfo}>
                     <TouchableOpacity
                         onPress={() =>
-                            navigation.navigate('User', {
-                                userId: props.userId,
-                            })
+                            props.userId === currentUserId
+                                ? navigation.navigate('Profile')
+                                : navigation.navigate('User', {
+                                      userId: props.userId,
+                                  })
                         }
                     >
                         <Avatar
