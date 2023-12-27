@@ -10,49 +10,52 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
-import userCardSmallProps from '../../components/props/userCardSmallProps'
-import UserCardSmall from '../../components/cards/userCardSmall'
+import TransactionCard from '../../components/cards/transactionCard'
+import * as Crypto from 'expo-crypto'
+import transactionCardProps from '../../components/props/transactionCardProps'
 
 const TransactionsScreen = () => {
-    const users: Array<userCardSmallProps> = [
+    const transactions: transactionCardProps[] = [
         {
-            userId: '1',
-            first: 'A very very long first name',
-            last: 'A very very long last name',
-            image: '',
-            affiliation: {
-                orgName: 'University of Toronto',
-                userTitle: 'Student',
-            },
-            avgRatings: '4.5',
+            paymentId: Crypto.randomUUID(),
+            paymentAmount: '100',
+            payerId: Crypto.randomUUID(),
+            payerName: 'John Doe',
+            payeeId: Crypto.randomUUID(),
+            payeeName: 'Jane Doe',
+            jobId: Crypto.randomUUID(),
+            jobName: 'Job 1',
+            projectId: Crypto.randomUUID(),
+            projectName: 'Project 1',
+            paymentDate: '2021-01-01',
         },
         {
-            userId: '2',
-            first: 'Sahil',
-            last: 'Memon',
-            image: '',
-            avgRatings: '4.5',
+            paymentId: Crypto.randomUUID(),
+            paymentAmount: '100',
+            payerId: Crypto.randomUUID(),
+            payerName: 'John Doe',
+            payeeId: Crypto.randomUUID(),
+            payeeName: 'Jane Doe',
+            jobId: Crypto.randomUUID(),
+            jobName: 'Job 1',
+            projectId: Crypto.randomUUID(),
+            projectName: 'Project 1',
+            paymentDate: '2021-01-01',
         },
         {
-            userId: '3',
-            first: 'Sahil',
-            last: 'Memon',
-            image: '',
-            avgRatings: '4.5',
-        },
-        {
-            userId: '4',
-            first: 'Sahil',
-            last: 'Memon',
-            image: '',
-            affiliation: {
-                orgName: 'University of Toronto',
-                userTitle: 'Student',
-            },
-            avgRatings: '4.5',
+            paymentId: Crypto.randomUUID(),
+            paymentAmount: '100',
+            payerId: Crypto.randomUUID(),
+            payerName: 'John Doe',
+            payeeId: Crypto.randomUUID(),
+            payeeName: 'Jane Doe',
+            jobId: Crypto.randomUUID(),
+            jobName: 'Job 1',
+            projectId: Crypto.randomUUID(),
+            projectName: 'Project 1',
+            paymentDate: '2021-01-01',
         },
     ]
-
     const navigation: NavigationProp<screens> = useNavigation()
 
     return (
@@ -69,17 +72,21 @@ const TransactionsScreen = () => {
                     <Text style={styles.heading}>Transactions</Text>
                 </View>
                 <View style={styles.usersList}>
-                    {users.length !== 0 ? (
+                    {transactions.length !== 0 ? (
                         <>
-                            {users.map((user) => (
-                                <UserCardSmall
-                                    key={user.userId}
-                                    userId={user.userId}
-                                    first={user.first}
-                                    last={user.last}
-                                    image={user.image}
-                                    affiliation={user.affiliation}
-                                    avgRatings={user.avgRatings}
+                            {transactions.map((transaction) => (
+                                <TransactionCard
+                                    paymentId={transaction.paymentId}
+                                    paymentAmount={transaction.paymentAmount}
+                                    payerId={transaction.payerId}
+                                    payerName={transaction.payerName}
+                                    payeeId={transaction.payeeId}
+                                    payeeName={transaction.payeeName}
+                                    jobId={transaction.jobId}
+                                    jobName={transaction.jobName}
+                                    projectId={transaction.projectId}
+                                    projectName={transaction.projectName}
+                                    paymentDate={transaction.paymentDate}
                                 />
                             ))}
                         </>

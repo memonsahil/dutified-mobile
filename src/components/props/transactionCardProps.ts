@@ -1,4 +1,4 @@
-type paymentType = {
+type transactionCardProps = {
     paymentId: string
     paymentAmount: string
     payerId: string
@@ -12,4 +12,4 @@ type paymentType = {
     paymentDate: string
 }
 
-export default paymentType
+export default transactionCardProps
