@@ -76,6 +76,7 @@ const TransactionsScreen = () => {
                         <>
                             {transactions.map((transaction) => (
                                 <TransactionCard
+                                    key={transaction.paymentId}
                                     paymentId={transaction.paymentId}
                                     paymentAmount={transaction.paymentAmount}
                                     payerId={transaction.payerId}
