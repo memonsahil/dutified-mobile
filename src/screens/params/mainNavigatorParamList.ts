@@ -25,7 +25,6 @@ type mainNavigatorParamList = {
     AddProject: undefined
     AddPost: undefined
     Attach: undefined
-    EditName: undefined
     EditProfilePicture: undefined
     EditBio: undefined
     EditRate: undefined
