@@ -93,7 +93,7 @@ const TransactionsScreen = () => {
                     ) : (
                         <View style={styles.noDataContainer}>
                             <Text style={styles.noDataText}>
-                                Users that you add to your network will be shown
+                                Payments that you make or recieve will be shown
                                 here.
                             </Text>
                         </View>
