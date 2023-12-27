@@ -80,7 +80,7 @@ const AddProjectScreen = () => {
                             <Text style={styles.heading}>New Project</Text>
                         </View>
                         <View style={styles.mainSection}>
-                            <Text style={styles.field}>Project Title</Text>
+                            <Text style={styles.field}>Title</Text>
                             <TextInput
                                 placeholder="Update Backend API"
                                 value={name}
@@ -90,7 +90,7 @@ const AddProjectScreen = () => {
                                 autoCapitalize="words"
                                 inputMode="text"
                             />
-                            <Text style={styles.field}>Project Category</Text>
+                            <Text style={styles.field}>Category</Text>
                             <TextInput
                                 placeholder="Web Development"
                                 value={enteredCategory}
@@ -100,45 +100,38 @@ const AddProjectScreen = () => {
                                 autoCapitalize="words"
                                 inputMode="text"
                             />
-                            <View style={styles.categoryContainer}>
-                                <Text style={styles.categoriesHeading}>
-                                    Available Categories
-                                </Text>
-                                <ScrollView
-                                    horizontal={true}
-                                    showsHorizontalScrollIndicator={false}
-                                    contentContainerStyle={
-                                        styles.categoriesScrollView
-                                    }
-                                >
-                                    {Object.values(searchResults).map(
-                                        (category) => (
-                                            <TouchableOpacity
-                                                key={category}
-                                                onPress={() => {
-                                                    setSelectedCategory(
-                                                        category
-                                                    )
-                                                    setEnteredCategory('')
-                                                }}
-                                            >
-                                                <Text style={styles.category}>
-                                                    {category}
-                                                </Text>
-                                            </TouchableOpacity>
-                                        )
-                                    )}
-                                </ScrollView>
-                            </View>
+                            <ScrollView
+                                horizontal={true}
+                                showsHorizontalScrollIndicator={false}
+                                contentContainerStyle={
+                                    styles.categoriesScrollView
+                                }
+                            >
+                                {Object.values(searchResults).map(
+                                    (category) => (
+                                        <TouchableOpacity
+                                            key={category}
+                                            onPress={() => {
+                                                setSelectedCategory(category)
+                                                setEnteredCategory('')
+                                            }}
+                                        >
+                                            <Text style={styles.category}>
+                                                {category}
+                                            </Text>
+                                        </TouchableOpacity>
+                                    )
+                                )}
+                            </ScrollView>
                             {selectedCategory !== '' ? (
-                                <View style={styles.categoryContainer}>
+                                <>
                                     <Text style={styles.categoriesHeading}>
-                                        Selected Category
+                                        Selected
                                     </Text>
                                     <Text style={styles.selectedCategory}>
                                         {selectedCategory}
                                     </Text>
-                                </View>
+                                </>
                             ) : null}
                             <Text style={styles.field}>Description</Text>
                             <View style={styles.descContainer}>
@@ -179,7 +172,8 @@ const AddProjectScreen = () => {
                             </TouchableOpacity>
                             <Text style={styles.textSection}>
                                 Once this project is created, it can be viewed
-                                by others. These details can be edited later on.
+                                by others. These details can not be edited later
+                                on.
                             </Text>
                         </View>
                     </KeyboardAwareScrollView>
@@ -247,11 +241,6 @@ const styles = StyleSheet.create({
         borderBottomWidth: 3,
         alignSelf: 'center',
     },
-    categoryContainer: {
-        overflow: 'hidden',
-        paddingTop: '5%',
-        alignItems: 'flex-start',
-    },
     categoriesHeading: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_ONE,
@@ -266,8 +255,8 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
         backgroundColor: themeColors.YELLOW_GREEN,
-        padding: '1%',
         marginRight: 10,
+        padding: 4,
     },
     selectedCategory: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
@@ -276,6 +265,7 @@ const styles = StyleSheet.create({
         backgroundColor: themeColors.YELLOW_GREEN,
         padding: '1%',
         marginTop: '5%',
+        alignSelf: 'flex-start',
     },
     datePickerButtonContainer: {
         paddingTop: '5%',
