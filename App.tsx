@@ -41,6 +41,7 @@ import EditRateScreen from './src/screens/ui/editRateScreen'
 import EditInterestsScreen from './src/screens/ui/editInterestsScreen'
 import EditLinksScreen from './src/screens/ui/editLinksScreen'
 import EditPaymentScreen from './src/screens/ui/paymentDetailsScreen'
+import TransactionsScreen from './src/screens/ui/transactionsScreen'
 import EditPhoneNumberScreen from './src/screens/ui/editPhoneNumberScreen'
 import EditEmailAddressScreen from './src/screens/ui/editEmailAddressScreen'
 import EditPasswordScreen from './src/screens/ui/editPasswordScreen'
@@ -206,6 +207,10 @@ const MainStackNavigator = () => {
                 component={EditInterestsScreen}
             />
             <MainStack.Screen name="EditLinks" component={EditLinksScreen} />
+            <MainStack.Screen
+                name="Transactions"
+                component={TransactionsScreen}
+            />
             <MainStack.Screen
                 name="EditPayment"
                 component={EditPaymentScreen}

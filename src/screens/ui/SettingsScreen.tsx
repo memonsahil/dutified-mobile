@@ -120,7 +120,11 @@ const SettingsScreen = () => {
                                     Payment Details
                                 </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {}}>
+                            <TouchableOpacity
+                                onPress={() =>
+                                    navigation.navigate('Transactions')
+                                }
+                            >
                                 <Text style={styles.button}>Transactions</Text>
                             </TouchableOpacity>
                         </>

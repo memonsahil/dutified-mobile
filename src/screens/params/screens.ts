@@ -53,6 +53,7 @@ type screens = {
     EditInterests: undefined
     EditLinks: undefined
     EditPayment: undefined
+    Transactions: undefined
     EditPhoneNumber: undefined
     EditEmailAddress: undefined
     EditPassword: undefined
