@@ -14,7 +14,6 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import * as Crypto from 'expo-crypto'
 import * as Progress from 'react-native-progress'
-import DatePicker from 'react-native-date-picker'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
@@ -87,7 +86,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                             <Text style={styles.heading}>New Job</Text>
                         </View>
                         <View style={styles.mainSection}>
-                            <Text style={styles.field}>Job Title</Text>
+                            <Text style={styles.field}>Title</Text>
                             <TextInput
                                 placeholder="App Developer"
                                 value={name}
@@ -97,7 +96,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                                 autoCapitalize="words"
                                 inputMode="text"
                             />
-                            <Text style={styles.field}>Job Category</Text>
+                            <Text style={styles.field}>Category</Text>
                             <TextInput
                                 placeholder="App Development"
                                 value={enteredCategory}
@@ -107,97 +106,51 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                                 autoCapitalize="words"
                                 inputMode="text"
                             />
-                            <View style={styles.categoryContainer}>
-                                <Text style={styles.categoriesHeading}>
-                                    Available Categories
-                                </Text>
-                                <ScrollView
-                                    horizontal={true}
-                                    showsHorizontalScrollIndicator={false}
-                                    contentContainerStyle={
-                                        styles.categoriesScrollView
-                                    }
-                                >
-                                    {Object.values(searchResults).map(
-                                        (category) => (
-                                            <TouchableOpacity
-                                                key={category}
-                                                onPress={() => {
-                                                    setSelectedCategory(
-                                                        category
-                                                    )
-                                                    setEnteredCategory('')
-                                                }}
-                                            >
-                                                <Text style={styles.category}>
-                                                    {category}
-                                                </Text>
-                                            </TouchableOpacity>
-                                        )
-                                    )}
-                                </ScrollView>
-                            </View>
+                            <ScrollView
+                                horizontal={true}
+                                showsHorizontalScrollIndicator={false}
+                                contentContainerStyle={
+                                    styles.categoriesScrollView
+                                }
+                            >
+                                {Object.values(searchResults).map(
+                                    (category) => (
+                                        <TouchableOpacity
+                                            key={category}
+                                            onPress={() => {
+                                                setSelectedCategory(category)
+                                                setEnteredCategory('')
+                                            }}
+                                        >
+                                            <Text style={styles.category}>
+                                                {category}
+                                            </Text>
+                                        </TouchableOpacity>
+                                    )
+                                )}
+                            </ScrollView>
                             {selectedCategory !== '' ? (
-                                <View style={styles.categoryContainer}>
+                                <>
                                     <Text style={styles.categoriesHeading}>
-                                        Selected Category
+                                        Selected
                                     </Text>
                                     <Text style={styles.selectedCategory}>
                                         {selectedCategory}
                                     </Text>
-                                </View>
-                            ) : null}
-                            <Text style={styles.field}>
-                                Payment Amount ($$$/day)
-                            </Text>
-                            <TextInput
-                                placeholder="$120"
-                                value={paymentAmount}
-                                onChangeText={setPaymentAmount}
-                                style={styles.textInput}
-                                placeholderTextColor={themeColors.SILVER}
-                                inputMode="decimal"
-                            />
-                            <Text style={styles.field}>
-                                Deadline (optional)
-                            </Text>
-                            <TouchableOpacity
-                                style={styles.datePickerButtonContainer}
-                                onPress={() => setShowDatePicker(true)}
-                            >
-                                <Text style={styles.button}>Set Deadline</Text>
-                            </TouchableOpacity>
-                            <DatePicker
-                                modal
-                                mode="date"
-                                date={new Date()}
-                                open={showDatePicker}
-                                onConfirm={(date) => {
-                                    setJobDeadline(
-                                        date.toString().substring(4, 15)
-                                    )
-                                    setShowDatePicker(false)
-                                }}
-                                onCancel={() => {
-                                    setShowDatePicker(false)
-                                }}
-                            />
-                            {jobDeadline ? (
-                                <>
-                                    <Text style={styles.selectedDeadline}>
-                                        {jobDeadline}
-                                    </Text>
-                                    <TouchableOpacity
-                                        style={styles.datePickerButtonContainer}
-                                        onPress={() => (
-                                            setShowDatePicker(false),
-                                            setJobDeadline('')
-                                        )}
-                                    >
-                                        <Text style={styles.button}>Reset</Text>
-                                    </TouchableOpacity>
                                 </>
                             ) : null}
+                            <Text style={styles.field}>Payment</Text>
+                            <View style={styles.amountWrapper}>
+                                <Text style={styles.currency}>USD</Text>
+                                <TextInput
+                                    placeholder="80"
+                                    value={paymentAmount}
+                                    onChangeText={setPaymentAmount}
+                                    style={styles.amountInput}
+                                    placeholderTextColor={themeColors.SILVER}
+                                    inputMode="decimal"
+                                />
+                            </View>
                             <Text style={styles.field}>Description</Text>
                             <View style={styles.descContainer}>
                                 <TextInput
@@ -307,11 +260,6 @@ const styles = StyleSheet.create({
         borderBottomWidth: 3,
         alignSelf: 'center',
     },
-    categoryContainer: {
-        overflow: 'hidden',
-        paddingTop: '5%',
-        alignItems: 'flex-start',
-    },
     categoriesHeading: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_ONE,
@@ -326,8 +274,8 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
         backgroundColor: themeColors.YELLOW_GREEN,
-        padding: '1%',
         marginRight: 10,
+        padding: 4,
     },
     selectedCategory: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
@@ -336,16 +284,27 @@ const styles = StyleSheet.create({
         backgroundColor: themeColors.YELLOW_GREEN,
         padding: '1%',
         marginTop: '5%',
+        alignSelf: 'flex-start',
     },
-    datePickerButtonContainer: {
+    amountWrapper: {
+        flexDirection: 'row',
         paddingTop: '5%',
     },
-    selectedDeadline: {
-        fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.BODY_ONE,
+    currency: {
+        fontFamily: 'IBMPlexSansCondensed-Medium',
+        fontSize: fontSizes.INPUT,
         color: themeColors.WHITE,
-        marginTop: '5%',
-        alignSelf: 'center',
+        width: '20%',
+        textAlignVertical: 'center',
+    },
+    amountInput: {
+        fontFamily: 'IBMPlexSansCondensed-Medium',
+        fontSize: fontSizes.INPUT,
+        color: themeColors.WHITE,
+        width: '80%',
+        borderBottomColor: themeColors.WHITE,
+        borderBottomWidth: 3,
+        textAlignVertical: 'center',
     },
     descContainer: {
         backgroundColor: themeColors.WHITE,
