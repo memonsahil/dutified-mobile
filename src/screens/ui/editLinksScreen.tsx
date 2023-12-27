@@ -7,6 +7,7 @@ import {
     Keyboard,
     TouchableWithoutFeedback,
     TouchableOpacity,
+    Linking,
 } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
@@ -16,9 +17,11 @@ import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import React from 'react'
+import * as Crypto from 'expo-crypto'
 
 const EditLinksScreen = () => {
     const [link, setLink] = useState<string>('')
+    const [links, setLinks] = useState<string[]>([])
     const [loading, setLoading] = useState<boolean>(false)
 
     const navigation: NavigationProp<screens> = useNavigation()
@@ -51,7 +54,7 @@ const EditLinksScreen = () => {
                                 onChangeText={setLink}
                                 style={styles.textInput}
                                 placeholderTextColor={themeColors.SILVER}
-                                autoCapitalize="words"
+                                autoCapitalize="none"
                                 autoComplete="off"
                                 autoCorrect={false}
                             />
@@ -59,13 +62,59 @@ const EditLinksScreen = () => {
                         <TouchableOpacity
                             style={styles.buttonContainer}
                             onPress={() => {
-                                setLoading(true)
+                                setLinks([
+                                    ...links,
+                                    link.includes('http')
+                                        ? link
+                                        : `https://www.${link}`,
+                                ]),
+                                    setLink('')
                             }}
                         >
                             <Text style={styles.button}>Add</Text>
                         </TouchableOpacity>
+                        {links.length !== 0 ? (
+                            <>
+                                {Object.values(links).map((link) => (
+                                    <View
+                                        key={Crypto.randomUUID()}
+                                        style={styles.linkContainer}
+                                    >
+                                        <TouchableOpacity
+                                            onPress={() =>
+                                                Linking.openURL(link)
+                                            }
+                                        >
+                                            <Text
+                                                style={styles.link}
+                                                numberOfLines={1}
+                                                ellipsizeMode="tail"
+                                            >
+                                                {link}
+                                            </Text>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity
+                                            onPress={() => {
+                                                setLinks(
+                                                    links.filter(
+                                                        (_link) =>
+                                                            _link !== link
+                                                    )
+                                                )
+                                            }}
+                                        >
+                                            <MaterialCommunityIcons
+                                                name="close-circle"
+                                                size={26}
+                                                color={themeColors.YELLOW_GREEN}
+                                            />
+                                        </TouchableOpacity>
+                                    </View>
+                                ))}
+                            </>
+                        ) : null}
                         <TouchableOpacity
-                            style={styles.saveButtonContainer}
+                            style={styles.buttonContainer}
                             onPress={() => {
                                 setLoading(true)
                             }}
@@ -137,11 +186,24 @@ const styles = StyleSheet.create({
         borderBottomWidth: 3,
         alignSelf: 'center',
     },
+    linkContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        overflow: 'hidden',
+        width: '100%',
+        paddingHorizontal: '10%',
+        paddingTop: '5%',
+    },
+    link: {
+        fontFamily: 'IBMPlexSansCondensed-Medium',
+        fontSize: fontSizes.BODY_ONE,
+        color: themeColors.WHITE,
+        textDecorationLine: 'underline',
+        width: 275,
+    },
     buttonContainer: {
         paddingTop: '10%',
-    },
-    saveButtonContainer: {
-        paddingTop: '5%',
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
