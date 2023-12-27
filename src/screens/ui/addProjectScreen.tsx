@@ -267,9 +267,6 @@ const styles = StyleSheet.create({
         marginTop: '5%',
         alignSelf: 'flex-start',
     },
-    datePickerButtonContainer: {
-        paddingTop: '5%',
-    },
     selectedDeadline: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_ONE,

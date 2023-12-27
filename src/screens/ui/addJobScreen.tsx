@@ -28,8 +28,6 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
     const [enteredCategory, setEnteredCategory] = useState<string>('')
     const [selectedCategory, setSelectedCategory] = useState<string>('')
     const [searchResults, setSearchResults] = useState<string[]>([])
-    const [jobDeadline, setJobDeadline] = useState<string>('')
-    const [showDatePicker, setShowDatePicker] = useState<boolean>(false)
     const [paymentAmount, setPaymentAmount] = useState<string>('')
     const [desc, setDesc] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
