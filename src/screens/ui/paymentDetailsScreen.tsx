@@ -18,7 +18,10 @@ import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 
 const EditPaymentScreen = () => {
-    const [email, setEmail] = useState<string>('')
+    const [cardNumber, setCardNumber] = useState<string>('')
+    const [securityCode, setSecurityCode] = useState<string>('')
+    const [expiryMonth, setExpiryMonth] = useState<string>('')
+    const [expiryYear, setExpiryYear] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
     const navigation: NavigationProp<screens> = useNavigation()
@@ -47,8 +50,8 @@ const EditPaymentScreen = () => {
                             <Text style={styles.field}>Card Number</Text>
                             <TextInput
                                 placeholder="0000 0000 0000 0000"
-                                value={email}
-                                onChangeText={setEmail}
+                                value={cardNumber}
+                                onChangeText={setCardNumber}
                                 style={styles.textInput}
                                 placeholderTextColor={themeColors.SILVER}
                                 inputMode="numeric"
@@ -56,17 +59,26 @@ const EditPaymentScreen = () => {
                             <Text style={styles.field}>Security Code</Text>
                             <TextInput
                                 placeholder="000"
-                                value={email}
-                                onChangeText={setEmail}
+                                value={securityCode}
+                                onChangeText={setSecurityCode}
                                 style={styles.textInput}
                                 placeholderTextColor={themeColors.SILVER}
                                 inputMode="numeric"
                             />
-                            <Text style={styles.field}>Expiry Date</Text>
+                            <Text style={styles.field}>Expiry Month</Text>
                             <TextInput
-                                placeholder="0000 0000 0000 0000"
-                                value={email}
-                                onChangeText={setEmail}
+                                placeholder="12"
+                                value={expiryMonth}
+                                onChangeText={setExpiryMonth}
+                                style={styles.textInput}
+                                placeholderTextColor={themeColors.SILVER}
+                                inputMode="numeric"
+                            />
+                            <Text style={styles.field}>Expiry Year</Text>
+                            <TextInput
+                                placeholder="2090"
+                                value={expiryYear}
+                                onChangeText={setExpiryYear}
                                 style={styles.textInput}
                                 placeholderTextColor={themeColors.SILVER}
                                 inputMode="numeric"
@@ -75,12 +87,32 @@ const EditPaymentScreen = () => {
                         <TouchableOpacity
                             style={styles.saveButtonContainer}
                             onPress={() => {
-                                if (email !== '') {
+                                if (
+                                    parseInt(expiryMonth) > 12 ||
+                                    expiryYear <
+                                        new Date().getFullYear().toString()
+                                ) {
+                                    Alert.alert(
+                                        'Invalid Expiry Date',
+                                        'Please update your expiry date.',
+                                        [
+                                            {
+                                                text: 'Dismiss',
+                                                onPress: () => {},
+                                            },
+                                        ]
+                                    )
+                                } else if (
+                                    cardNumber !== '' &&
+                                    securityCode !== '' &&
+                                    expiryMonth !== '' &&
+                                    expiryYear !== ''
+                                ) {
                                     setLoading(true)
                                 } else {
                                     Alert.alert(
                                         'Missing Details',
-                                        'Please enter your current email address before updating it.',
+                                        'Please enter your payment details before updating it.',
                                         [
                                             {
                                                 text: 'Dismiss',
