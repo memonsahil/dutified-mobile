@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
     StyleSheet,
     Text,
@@ -7,6 +7,7 @@ import {
     Keyboard,
     TouchableWithoutFeedback,
     TouchableOpacity,
+    ScrollView,
 } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
@@ -19,13 +20,39 @@ import React from 'react'
 import categories from '../../enums/categories'
 
 const EditInterestsScreen = () => {
-    const [interest, setInterest] = useState<categories | ''>('')
-    const [interests, setInterests] = useState<categories[] | string[]>([])
+    const [enteredCategory, setEnteredCategory] = useState<string>('')
+    const [selectedCategories, setSelectedCategories] = useState<string[]>([])
+    const [searchResults, setSearchResults] = useState<string[]>([])
     const [loading, setLoading] = useState<boolean>(false)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
-    console.log(interests)
+    useEffect(() => {
+        if (enteredCategory !== '') {
+            setSearchResults(searchCategories(categories, enteredCategory))
+        } else {
+            setSearchResults(Object.values(categories))
+        }
+    }, [enteredCategory])
+
+    const searchCategories = (
+        categories: Record<string, string>,
+        searchArg: string
+    ) => {
+        let results: string[] = []
+
+        for (const category in categories) {
+            if (
+                categories[category]
+                    .toLowerCase()
+                    .includes(searchArg.toLowerCase().replace(/\s/g, ''))
+            ) {
+                results.push(categories[category])
+            }
+        }
+
+        return results
+    }
 
     return (
         <View style={styles.container}>
@@ -50,22 +77,103 @@ const EditInterestsScreen = () => {
                         <View style={styles.mainSection}>
                             <Text style={styles.field}>Update Interests</Text>
                             <TextInput
-                                placeholder="Interest"
-                                value={interest}
-                                onChangeText={() => setInterest}
+                                placeholder="Web Development"
+                                value={enteredCategory}
+                                onChangeText={setEnteredCategory}
                                 style={styles.textInput}
                                 placeholderTextColor={themeColors.SILVER}
                                 autoCapitalize="words"
+                                inputMode="text"
                             />
+                            <ScrollView
+                                horizontal={true}
+                                showsHorizontalScrollIndicator={false}
+                                contentContainerStyle={
+                                    styles.categoriesScrollView
+                                }
+                            >
+                                {Object.values(searchResults).map(
+                                    (category) => (
+                                        <TouchableOpacity
+                                            key={category}
+                                            onPress={() => {
+                                                selectedCategories.includes(
+                                                    category
+                                                ) !== true
+                                                    ? (setSelectedCategories([
+                                                          ...selectedCategories,
+                                                          category,
+                                                      ]),
+                                                      setEnteredCategory(''))
+                                                    : null
+                                            }}
+                                        >
+                                            <Text style={styles.category}>
+                                                {category}
+                                            </Text>
+                                        </TouchableOpacity>
+                                    )
+                                )}
+                            </ScrollView>
+                            {selectedCategories.length !== 0 ? (
+                                <>
+                                    <Text style={styles.categoriesHeading}>
+                                        Selected
+                                    </Text>
+                                    {Object.values(selectedCategories).map(
+                                        (selectedCategory) => (
+                                            <View
+                                                key={selectedCategory}
+                                                style={
+                                                    styles.selectedCategoryContainer
+                                                }
+                                            >
+                                                <TouchableOpacity
+                                                    onPress={() => {
+                                                        setSelectedCategories(
+                                                            selectedCategories.filter(
+                                                                (category) =>
+                                                                    category !==
+                                                                    selectedCategory
+                                                            )
+                                                        )
+                                                    }}
+                                                >
+                                                    <Text
+                                                        style={
+                                                            styles.selectedCategory
+                                                        }
+                                                    >
+                                                        {selectedCategory}
+                                                    </Text>
+                                                </TouchableOpacity>
+                                                <TouchableOpacity
+                                                    onPress={() => {
+                                                        setSelectedCategories(
+                                                            selectedCategories.filter(
+                                                                (
+                                                                    _selectedCategory
+                                                                ) =>
+                                                                    _selectedCategory !==
+                                                                    selectedCategory
+                                                            )
+                                                        )
+                                                    }}
+                                                >
+                                                    <MaterialCommunityIcons
+                                                        name="close-circle"
+                                                        size={26}
+                                                        color={
+                                                            themeColors.YELLOW_GREEN
+                                                        }
+                                                    />
+                                                </TouchableOpacity>
+                                            </View>
+                                        )
+                                    )}
+                                </>
+                            ) : null}
                         </View>
-                        <TouchableOpacity
-                            style={styles.buttonContainer}
-                            onPress={() => {
-                                setInterests([...interests, interest])
-                            }}
-                        >
-                            <Text style={styles.button}>Add</Text>
-                        </TouchableOpacity>
                         <TouchableOpacity
                             style={styles.saveButtonContainer}
                             onPress={() => {
@@ -139,11 +247,41 @@ const styles = StyleSheet.create({
         borderBottomWidth: 3,
         alignSelf: 'center',
     },
-    buttonContainer: {
-        paddingTop: '10%',
+    categoriesHeading: {
+        fontFamily: 'IBMPlexSansCondensed-Bold',
+        fontSize: fontSizes.BODY_ONE,
+        color: themeColors.WHITE,
+        paddingTop: '5%',
+    },
+    categoriesScrollView: {
+        paddingTop: '5%',
+    },
+    category: {
+        fontFamily: 'IBMPlexSansCondensed-Bold',
+        fontSize: fontSizes.BODY_TWO,
+        color: themeColors.BLACK,
+        backgroundColor: themeColors.YELLOW_GREEN,
+        marginRight: 10,
+        padding: 4,
+    },
+    selectedCategoryContainer: {
+        marginTop: '7%',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        overflow: 'hidden',
+    },
+    selectedCategory: {
+        fontFamily: 'IBMPlexSansCondensed-Bold',
+        fontSize: fontSizes.BODY_TWO,
+        color: themeColors.BLACK,
+        backgroundColor: themeColors.YELLOW_GREEN,
+        padding: '1%',
+        marginTop: '5%',
+        alignSelf: 'flex-start',
     },
     saveButtonContainer: {
-        paddingTop: '5%',
+        paddingTop: '10%',
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
