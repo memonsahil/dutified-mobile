@@ -160,13 +160,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginBottom: '5%',
     },
-    category: {
-        fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.BODY_TWO,
-        color: themeColors.BLACK,
-        backgroundColor: themeColors.YELLOW_GREEN,
-        padding: '1%',
-    },
     jobDetail: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
