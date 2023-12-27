@@ -134,7 +134,6 @@ const styles = StyleSheet.create({
     feedbackList: {
         width: '100%',
         alignItems: 'center',
-        marginTop: '5%',
     },
     noDataContainer: {
         alignItems: 'center',
@@ -144,7 +143,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.WHITE,
-        paddingTop: '5%',
+        paddingTop: '10%',
         textAlign: 'center',
     },
 })
