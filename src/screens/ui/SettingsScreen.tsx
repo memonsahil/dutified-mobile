@@ -111,7 +111,11 @@ const SettingsScreen = () => {
                     ) : null}
                     {switchColumn === 'Payments' ? (
                         <>
-                            <TouchableOpacity onPress={() => {}}>
+                            <TouchableOpacity
+                                onPress={() =>
+                                    navigation.navigate('EditPayment')
+                                }
+                            >
                                 <Text style={styles.button}>
                                     Payment Details
                                 </Text>

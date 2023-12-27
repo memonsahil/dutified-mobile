@@ -30,6 +30,7 @@ type mainNavigatorParamList = {
     EditRate: undefined
     EditInterests: undefined
     EditLinks: undefined
+    EditPayment: undefined
     EditPhoneNumber: undefined
     EditEmailAddress: undefined
     EditPassword: undefined
