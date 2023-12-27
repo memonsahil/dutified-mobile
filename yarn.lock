@@ -3365,7 +3365,7 @@ expo-asset@~8.9.1:
   integrity sha512-aHMaZkIG5/UoguINEHm2ln/KviU2m/yuryslnhCKR3KXRxiLnMhxmrONLGbknuNE0O1iCaprrl1w3y71u01Rpw==
   dependencies:
     blueimp-md5 "^2.10.0"
-    expo-constants "~14.2.1"
+    expo-constants "~14.3.0"
     expo-file-system "~15.3.0"
     invariant "^2.2.4"
     md5-file "^3.2.3"
