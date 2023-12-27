@@ -25,7 +25,6 @@ const JobModal = (props: jobModalProps) => {
     const [payment, setPayment] = useState<string>('200')
     const [status, setStatus] = useState<jobStatus>(jobStatus.AVAILABLE)
     const [creationDate, setCreationDate] = useState<string>('2021-01-01')
-    const [dueDate, setDueDate] = useState<string>('2021-01-01')
     const [jobDesc, setJobDesc] = useState<string>(
         'Lorem ipsum dolor sit amet, nisl eget ali quam, sit ame sit ame. lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.'
     )

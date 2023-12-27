@@ -15,7 +15,6 @@ type jobType = {
     payment: string
     description: string
     creationDate: string
-    dueDate?: string
 }
 
 export default jobType
