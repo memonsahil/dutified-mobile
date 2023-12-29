@@ -195,7 +195,7 @@ const UserScreen = () => {
                             onPress={() => {
                                 Alert.alert(
                                     `Invite ${firstName} ${lastName}`,
-                                    `Invite ${firstName} ${lastName} to join your network. Once accepted, you and ${firstName} ${lastName} can collaborate on projects and jobs.`,
+                                    `Invite ${firstName} ${lastName} to join your network. Once accepted, you can collaborate with ${firstName} ${lastName} on projects and jobs.`,
                                     [
                                         {
                                             text: `Send Invite`,
