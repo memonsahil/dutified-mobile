@@ -154,8 +154,8 @@ const AddPostScreen = () => {
                             </TouchableOpacity>
                             <Text style={styles.textSection}>
                                 Once this post is created, it can be viewed by
-                                others in your network. You can edit or delete
-                                it later on.
+                                others in your network. You can not edit or
+                                delete it later.
                             </Text>
                         </View>
                     </KeyboardAwareScrollView>

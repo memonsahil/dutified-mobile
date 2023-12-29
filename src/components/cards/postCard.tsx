@@ -55,9 +55,11 @@ const PostCard = (props: postCardProps) => {
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() =>
-                            navigation.navigate('User', {
-                                userId: props.userId,
-                            })
+                            props.userId === currentUserId
+                                ? navigation.navigate('Profile')
+                                : navigation.navigate('User', {
+                                      userId: props.userId,
+                                  })
                         }
                     >
                         <Text

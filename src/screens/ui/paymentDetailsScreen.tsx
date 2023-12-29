@@ -88,27 +88,32 @@ const EditPaymentScreen = () => {
                             style={styles.saveButtonContainer}
                             onPress={() => {
                                 if (
-                                    parseInt(expiryMonth) > 12 ||
-                                    expiryYear <
-                                        new Date().getFullYear().toString()
-                                ) {
-                                    Alert.alert(
-                                        'Invalid Expiry Date',
-                                        'Please update your expiry date.',
-                                        [
-                                            {
-                                                text: 'Dismiss',
-                                                onPress: () => {},
-                                            },
-                                        ]
-                                    )
-                                } else if (
                                     cardNumber !== '' &&
                                     securityCode !== '' &&
                                     expiryMonth !== '' &&
                                     expiryYear !== ''
                                 ) {
-                                    setLoading(true)
+                                    if (
+                                        cardNumber.length !== 16 ||
+                                        securityCode.length !== 3 ||
+                                        parseInt(expiryMonth) <= 0 ||
+                                        parseInt(expiryMonth) > 12 ||
+                                        expiryYear <
+                                            new Date().getFullYear().toString()
+                                    ) {
+                                        Alert.alert(
+                                            'Invalid Details',
+                                            'Please update your payment details.',
+                                            [
+                                                {
+                                                    text: 'Dismiss',
+                                                    onPress: () => {},
+                                                },
+                                            ]
+                                        )
+                                    } else {
+                                        setLoading(true)
+                                    }
                                 } else {
                                     Alert.alert(
                                         'Missing Details',

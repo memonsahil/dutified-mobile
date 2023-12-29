@@ -80,18 +80,19 @@ const CreateScreen = () => {
                                     color={themeColors.YELLOW_GREEN}
                                 />
                                 <Text style={styles.infoText}>
-                                    Make the job payment and any further
-                                    payments.
+                                    Make the job payment and let them get to
+                                    work.
                                 </Text>
                             </View>
                             <View style={styles.infoTextWrapper}>
                                 <MaterialCommunityIcons
-                                    name="credit-card-check"
+                                    name="account-multiple"
                                     size={30}
                                     color={themeColors.YELLOW_GREEN}
                                 />
                                 <Text style={styles.infoText}>
-                                    Each payment costs a $10 transaction fee.
+                                    Collaborate with them and track your job's
+                                    progress.
                                 </Text>
                             </View>
                             <TouchableOpacity style={styles.mainButtonWrapper}>
@@ -125,17 +126,6 @@ const CreateScreen = () => {
                             </View>
                             <View style={styles.infoTextWrapper}>
                                 <MaterialCommunityIcons
-                                    name="account-group"
-                                    size={30}
-                                    color={themeColors.YELLOW_GREEN}
-                                />
-                                <Text style={styles.infoText}>
-                                    Collaborate with your team and track your
-                                    project's progress.
-                                </Text>
-                            </View>
-                            <View style={styles.infoTextWrapper}>
-                                <MaterialCommunityIcons
                                     name="account-cash"
                                     size={30}
                                     color={themeColors.YELLOW_GREEN}
@@ -147,12 +137,13 @@ const CreateScreen = () => {
                             </View>
                             <View style={styles.infoTextWrapper}>
                                 <MaterialCommunityIcons
-                                    name="credit-card-check"
+                                    name="account-group"
                                     size={30}
                                     color={themeColors.YELLOW_GREEN}
                                 />
                                 <Text style={styles.infoText}>
-                                    Each payment costs a $10 transaction fee.
+                                    Collaborate with your team and track your
+                                    project's progress.
                                 </Text>
                             </View>
                             <TouchableOpacity style={styles.mainButtonWrapper}>

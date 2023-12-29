@@ -45,7 +45,9 @@ const EditPhoneNumberScreen = () => {
                             <Text style={styles.heading}>Phone Number</Text>
                         </View>
                         <View style={styles.mainSection}>
-                            <Text style={styles.field}>Update Phone</Text>
+                            <Text style={styles.field}>
+                                Update Phone Number
+                            </Text>
                             <View style={styles.phoneInputWrapper}>
                                 <Text style={styles.codePlus}>+</Text>
                                 <TextInput

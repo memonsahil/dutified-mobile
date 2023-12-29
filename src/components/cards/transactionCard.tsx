@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.HEADING_THREE,
+        fontSize: fontSizes.BODY_ONE,
         color: themeColors.BLACK,
         marginBottom: '5%',
     },

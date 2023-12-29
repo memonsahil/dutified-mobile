@@ -172,8 +172,8 @@ const AddProjectScreen = () => {
                             </TouchableOpacity>
                             <Text style={styles.textSection}>
                                 Once this project is created, it can be viewed
-                                by others. These details can not be edited later
-                                on.
+                                by others. These details can not be edited
+                                later.
                             </Text>
                         </View>
                     </KeyboardAwareScrollView>

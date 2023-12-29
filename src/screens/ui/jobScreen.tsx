@@ -18,6 +18,8 @@ import jobStatus from '../../enums/jobStatus'
 const JobScreen = ({ route }: jobScreenProps) => {
     const { jobId } = route.params
 
+    const currentUserId = '1'
+
     const [jobName, setJobName] = useState<string>(
         'A very very very very very very very long job name'
     )
@@ -89,16 +91,18 @@ const JobScreen = ({ route }: jobScreenProps) => {
                                     {jobCreator}
                                 </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity
-                                onPress={() =>
-                                    navigation.navigate('Chat', {
-                                        userId: jobCreatorId,
-                                    })
-                                }
-                                style={styles.buttonSection}
-                            >
-                                <Text style={styles.chatButton}>Chat</Text>
-                            </TouchableOpacity>
+                            {jobCreatorId !== currentUserId ? (
+                                <TouchableOpacity
+                                    onPress={() =>
+                                        navigation.navigate('Chat', {
+                                            userId: jobCreatorId,
+                                        })
+                                    }
+                                    style={styles.buttonSection}
+                                >
+                                    <Text style={styles.chatButton}>Chat</Text>
+                                </TouchableOpacity>
+                            ) : null}
                         </>
                     )}
                 </ScrollView>
