@@ -111,7 +111,14 @@ const AgreementModal = (props: agreementModalProps) => {
                                     onPress={() => {
                                         setSelectedJob(null)
                                     }}
+                                    style={styles.modalButtonWrapper}
                                 >
+                                    <MaterialCommunityIcons
+                                        name="briefcase-edit"
+                                        size={30}
+                                        color={themeColors.YELLOW_GREEN}
+                                        style={styles.iconButton}
+                                    />
                                     <Text style={styles.modalButton}>
                                         Change
                                     </Text>
@@ -143,7 +150,14 @@ const AgreementModal = (props: agreementModalProps) => {
                                                 selectedJob.payment
                                             )
                                         }}
+                                        style={styles.modalButtonWrapper}
                                     >
+                                        <MaterialCommunityIcons
+                                            name="square-edit-outline"
+                                            size={30}
+                                            color={themeColors.YELLOW_GREEN}
+                                            style={styles.iconButton}
+                                        />
                                         <Text style={styles.modalButton}>
                                             Reset
                                         </Text>
@@ -154,7 +168,14 @@ const AgreementModal = (props: agreementModalProps) => {
                                         setSelectedJob(null)
                                         props.onClose()
                                     }}
+                                    style={styles.modalButtonWrapper}
                                 >
+                                    <MaterialCommunityIcons
+                                        name="handshake"
+                                        size={30}
+                                        color={themeColors.YELLOW_GREEN}
+                                        style={styles.iconButton}
+                                    />
                                     <Text style={styles.modalButton}>
                                         {updatedAmount !== selectedJob.payment
                                             ? 'Negotiate'
@@ -322,6 +343,12 @@ const styles = StyleSheet.create({
         marginBottom: '5%',
         paddingHorizontal: '5%',
         alignSelf: 'flex-start',
+    },
+    modalButtonWrapper: {
+        flexDirection: 'row',
+    },
+    iconButton: {
+        marginRight: '3%',
     },
     modalButton: {
         fontFamily: 'IBMPlexSansCondensed-Bold',

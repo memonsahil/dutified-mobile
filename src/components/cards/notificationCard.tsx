@@ -7,6 +7,7 @@ import { NavigationProp, useNavigation } from '@react-navigation/native'
 import screens from '../../screens/params/screens'
 import notificationCardProps from '../props/notificationCardProps'
 import notification from '../../enums/notification'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 const NotificationCard = (props: notificationCardProps) => {
     const [loading, setLoading] = useState<boolean>(false)
@@ -87,6 +88,12 @@ const NotificationCard = (props: notificationCardProps) => {
                     }}
                     style={styles.actionButtonWrapper}
                 >
+                    <MaterialCommunityIcons
+                        name="hand-back-left"
+                        size={22}
+                        color={themeColors.YELLOW_GREEN}
+                        style={styles.buttonIcon}
+                    />
                     <Text style={styles.actionButton}>Action</Text>
                 </TouchableOpacity>
             ) : null}
@@ -130,11 +137,16 @@ const styles = StyleSheet.create({
     actionButtonWrapper: {
         marginTop: '5%',
         alignSelf: 'center',
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     actionButton: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
+    },
+    buttonIcon: {
+        marginRight: '3%',
     },
 })
 
