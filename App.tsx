@@ -35,6 +35,7 @@ import AddJobScreen from './src/screens/ui/addJobScreen'
 import AddProjectScreen from './src/screens/ui/addProjectScreen'
 import AddPostScreen from './src/screens/ui/addPostScreen'
 import AttachScreen from './src/screens/ui/attachScreen'
+import NotificationsScreen from './src/screens/ui/notificationsScreen'
 import EditProfilePictureScreen from './src/screens/ui/editProfilePictureScreen'
 import EditBioScreen from './src/screens/ui/editBioScreen'
 import EditRateScreen from './src/screens/ui/editRateScreen'
@@ -196,6 +197,10 @@ const MainStackNavigator = () => {
             <MainStack.Screen name="AddProject" component={AddProjectScreen} />
             <MainStack.Screen name="AddPost" component={AddPostScreen} />
             <MainStack.Screen name="Attach" component={AttachScreen} />
+            <MainStack.Screen
+                name="Notifications"
+                component={NotificationsScreen}
+            />
             <MainStack.Screen
                 name="EditProfilePicture"
                 component={EditProfilePictureScreen}
