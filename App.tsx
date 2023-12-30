@@ -18,6 +18,7 @@ import ContactScreen from './src/screens/ui/contactScreen'
 import AboutScreen from './src/screens/ui/aboutScreen'
 import TosScreen from './src/screens/ui/tosScreen'
 import PpScreen from './src/screens/ui/ppScreen'
+import OnboardingScreen from './src/screens/ui/onboardingScreen'
 import FeedScreen from './src/screens/ui/feedScreen'
 import WorkScreen from './src/screens/ui/workScreen'
 import ProfileScreen from './src/screens/ui/profileScreen'
@@ -67,6 +68,7 @@ const AuthStackNavigator = () => {
             <AuthStack.Screen name="Main" component={MainScreen} />
             <AuthStack.Screen name="SignUp" component={SignUpScreen} />
             <AuthStack.Screen name="SignIn" component={SignInScreen} />
+            <AuthStack.Screen name="Onboarding" component={OnboardingScreen} />
             <AuthStack.Screen name="Reset" component={ResetScreen} />
             <AuthStack.Screen
                 name="Verification"

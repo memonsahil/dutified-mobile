@@ -2,6 +2,7 @@ type authNavigatorParamList = {
     Main: undefined
     SignUp: undefined
     SignIn: undefined
+    Onboarding: undefined
     Reset: undefined
     Verification: undefined
     Password: undefined
