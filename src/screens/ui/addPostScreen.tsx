@@ -149,7 +149,14 @@ const AddPostScreen = () => {
                                         )
                                     }
                                 }}
+                                style={styles.postButton}
                             >
+                                <MaterialCommunityIcons
+                                    name="text-box"
+                                    size={22}
+                                    color={themeColors.YELLOW_GREEN}
+                                    style={styles.buttonIcon}
+                                />
                                 <Text style={styles.button}>Post</Text>
                             </TouchableOpacity>
                             <Text style={styles.textSection}>
@@ -243,12 +250,19 @@ const styles = StyleSheet.create({
         width: 275,
         overflow: 'hidden',
     },
+    postButton: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: '10%',
+    },
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
-        alignSelf: 'center',
-        paddingTop: '10%',
+    },
+    buttonIcon: {
+        marginRight: '3%',
     },
     textSection: {
         textAlign: 'center',

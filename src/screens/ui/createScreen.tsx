@@ -95,18 +95,14 @@ const CreateScreen = () => {
                                     progress.
                                 </Text>
                             </View>
-                            <TouchableOpacity style={styles.mainButtonWrapper}>
-                                <Text
-                                    onPress={() =>
-                                        navigation.navigate('AddJob', {
-                                            projectId: '1',
-                                            projectName: 'Test Project',
-                                            jobCreatorId: '1',
-                                            jobCreator: 'Test User',
-                                        })
-                                    }
-                                    style={styles.mainButton}
-                                >
+                            <TouchableOpacity style={styles.postButton}>
+                                <MaterialCommunityIcons
+                                    name="briefcase"
+                                    size={22}
+                                    color={themeColors.YELLOW_GREEN}
+                                    style={styles.buttonIcon}
+                                />
+                                <Text style={styles.mainButton}>
                                     Create Job
                                 </Text>
                             </TouchableOpacity>
@@ -146,13 +142,14 @@ const CreateScreen = () => {
                                     project's progress.
                                 </Text>
                             </View>
-                            <TouchableOpacity style={styles.mainButtonWrapper}>
-                                <Text
-                                    onPress={() =>
-                                        navigation.navigate('AddProject')
-                                    }
-                                    style={styles.mainButton}
-                                >
+                            <TouchableOpacity style={styles.postButton}>
+                                <MaterialCommunityIcons
+                                    name="briefcase"
+                                    size={22}
+                                    color={themeColors.YELLOW_GREEN}
+                                    style={styles.buttonIcon}
+                                />
+                                <Text style={styles.mainButton}>
                                     Create Project
                                 </Text>
                             </TouchableOpacity>
@@ -217,15 +214,20 @@ const styles = StyleSheet.create({
         color: themeColors.WHITE,
         paddingLeft: '10%',
     },
-    mainButtonWrapper: {
+    postButton: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: '10%',
         alignSelf: 'center',
-        paddingTop: '10%',
-        paddingBottom: '20%',
     },
     mainButton: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
+    },
+    buttonIcon: {
+        marginRight: '3%',
     },
 })
 

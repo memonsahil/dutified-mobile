@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 const MainScreen = () => {
     const navigation: NavigationProp<screens> = useNavigation()
@@ -10,15 +11,40 @@ const MainScreen = () => {
     return (
         <View style={styles.container}>
             <View style={styles.mainSection}>
-                <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+                <TouchableOpacity
+                    style={styles.buttonWrapper}
+                    onPress={() => navigation.navigate('SignUp')}
+                >
+                    <MaterialCommunityIcons
+                        name="account"
+                        size={30}
+                        color={themeColors.YELLOW_GREEN}
+                        style={styles.iconButton}
+                    />
                     <Text style={styles.button}>Sign Up</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+                <TouchableOpacity
+                    style={styles.buttonWrapper}
+                    onPress={() => navigation.navigate('SignIn')}
+                >
+                    <MaterialCommunityIcons
+                        name="login"
+                        size={30}
+                        color={themeColors.YELLOW_GREEN}
+                        style={styles.iconButton}
+                    />
                     <Text style={styles.button}>Sign In</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
+                    style={styles.buttonWrapper}
                     onPress={() => navigation.navigate('Support')}
                 >
+                    <MaterialCommunityIcons
+                        name="help-circle"
+                        size={30}
+                        color={themeColors.YELLOW_GREEN}
+                        style={styles.iconButton}
+                    />
                     <Text style={styles.button}>Support</Text>
                 </TouchableOpacity>
                 <Text style={styles.text}>1.0.0</Text>
@@ -39,6 +65,12 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
+    },
+    buttonWrapper: {
+        flexDirection: 'row',
+    },
+    iconButton: {
+        marginRight: '3%',
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',

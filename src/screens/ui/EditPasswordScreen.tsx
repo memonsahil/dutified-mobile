@@ -94,6 +94,12 @@ const EditPasswordScreen = () => {
                                 }
                             }}
                         >
+                            <MaterialCommunityIcons
+                                name="content-save"
+                                size={30}
+                                color={themeColors.YELLOW_GREEN}
+                                style={styles.iconButton}
+                            />
                             <Text style={styles.saveButton}>Save</Text>
                         </TouchableOpacity>
                     </KeyboardAwareScrollView>
@@ -163,6 +169,10 @@ const styles = StyleSheet.create({
     },
     saveButtonContainer: {
         paddingTop: '10%',
+        flexDirection: 'row',
+    },
+    iconButton: {
+        marginRight: '3%',
     },
     saveButton: {
         fontFamily: 'IBMPlexSansCondensed-Bold',

@@ -11,6 +11,7 @@ import * as Progress from 'react-native-progress'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 const SettingsScreen = () => {
     const [switchColumn, setSwitchColumn] = useState<
@@ -80,31 +81,66 @@ const SettingsScreen = () => {
                                 onPress={() =>
                                     navigation.navigate('EditProfilePicture')
                                 }
+                                style={styles.buttonWrapper}
                             >
+                                <MaterialCommunityIcons
+                                    name="account-circle"
+                                    size={30}
+                                    color={themeColors.YELLOW_GREEN}
+                                    style={styles.iconButton}
+                                />
                                 <Text style={styles.button}>
                                     Profile Picture
                                 </Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 onPress={() => navigation.navigate('EditBio')}
+                                style={styles.buttonWrapper}
                             >
+                                <MaterialCommunityIcons
+                                    name="card-text"
+                                    size={30}
+                                    color={themeColors.YELLOW_GREEN}
+                                    style={styles.iconButton}
+                                />
                                 <Text style={styles.button}>Bio</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 onPress={() => navigation.navigate('EditRate')}
+                                style={styles.buttonWrapper}
                             >
+                                <MaterialCommunityIcons
+                                    name="account-cash"
+                                    size={30}
+                                    color={themeColors.YELLOW_GREEN}
+                                    style={styles.iconButton}
+                                />
                                 <Text style={styles.button}>Rate/Day</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 onPress={() =>
                                     navigation.navigate('EditInterests')
                                 }
+                                style={styles.buttonWrapper}
                             >
+                                <MaterialCommunityIcons
+                                    name="account-details"
+                                    size={30}
+                                    color={themeColors.YELLOW_GREEN}
+                                    style={styles.iconButton}
+                                />
                                 <Text style={styles.button}>Interests</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 onPress={() => navigation.navigate('EditLinks')}
+                                style={styles.buttonWrapper}
                             >
+                                <MaterialCommunityIcons
+                                    name="link"
+                                    size={30}
+                                    color={themeColors.YELLOW_GREEN}
+                                    style={styles.iconButton}
+                                />
                                 <Text style={styles.button}>Links</Text>
                             </TouchableOpacity>
                         </>
@@ -115,7 +151,14 @@ const SettingsScreen = () => {
                                 onPress={() =>
                                     navigation.navigate('EditPayment')
                                 }
+                                style={styles.buttonWrapper}
                             >
+                                <MaterialCommunityIcons
+                                    name="credit-card-edit"
+                                    size={30}
+                                    color={themeColors.YELLOW_GREEN}
+                                    style={styles.iconButton}
+                                />
                                 <Text style={styles.button}>
                                     Payment Details
                                 </Text>
@@ -124,7 +167,14 @@ const SettingsScreen = () => {
                                 onPress={() =>
                                     navigation.navigate('Transactions')
                                 }
+                                style={styles.buttonWrapper}
                             >
+                                <MaterialCommunityIcons
+                                    name="credit-card-fast"
+                                    size={30}
+                                    color={themeColors.YELLOW_GREEN}
+                                    style={styles.iconButton}
+                                />
                                 <Text style={styles.button}>Transactions</Text>
                             </TouchableOpacity>
                         </>
@@ -135,33 +185,68 @@ const SettingsScreen = () => {
                                 onPress={() =>
                                     navigation.navigate('EditPhoneNumber')
                                 }
+                                style={styles.buttonWrapper}
                             >
+                                <MaterialCommunityIcons
+                                    name="cellphone"
+                                    size={30}
+                                    color={themeColors.YELLOW_GREEN}
+                                    style={styles.iconButton}
+                                />
                                 <Text style={styles.button}>Phone Number</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 onPress={() =>
                                     navigation.navigate('EditEmailAddress')
                                 }
+                                style={styles.buttonWrapper}
                             >
+                                <MaterialCommunityIcons
+                                    name="email"
+                                    size={30}
+                                    color={themeColors.YELLOW_GREEN}
+                                    style={styles.iconButton}
+                                />
                                 <Text style={styles.button}>Email Address</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 onPress={() =>
                                     navigation.navigate('EditPassword')
                                 }
+                                style={styles.buttonWrapper}
                             >
+                                <MaterialCommunityIcons
+                                    name="form-textbox-password"
+                                    size={30}
+                                    color={themeColors.YELLOW_GREEN}
+                                    style={styles.iconButton}
+                                />
                                 <Text style={styles.button}>Password</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 onPress={() => navigation.navigate('Support')}
+                                style={styles.buttonWrapper}
                             >
+                                <MaterialCommunityIcons
+                                    name="help-circle"
+                                    size={30}
+                                    color={themeColors.YELLOW_GREEN}
+                                    style={styles.iconButton}
+                                />
                                 <Text style={styles.button}>Support</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 onPress={() => {
                                     setLoading(true)
                                 }}
+                                style={styles.buttonWrapper}
                             >
+                                <MaterialCommunityIcons
+                                    name="logout"
+                                    size={30}
+                                    color={themeColors.YELLOW_GREEN}
+                                    style={styles.iconButton}
+                                />
                                 <Text style={styles.button}>Sign Out</Text>
                             </TouchableOpacity>
                         </>
@@ -222,12 +307,19 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
     },
+    buttonWrapper: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingTop: '10%',
+    },
+    iconButton: {
+        marginRight: '3%',
+        paddingLeft: '10%',
+    },
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
-        paddingTop: '5%',
-        paddingLeft: '10%',
     },
 })
 

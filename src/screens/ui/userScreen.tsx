@@ -254,6 +254,12 @@ const UserScreen = () => {
                     }
                     style={styles.chatButtonWrapper}
                 >
+                    <MaterialCommunityIcons
+                        name="message-text"
+                        size={22}
+                        color={themeColors.YELLOW_GREEN}
+                        style={styles.buttonIcon}
+                    />
                     <Text style={styles.chatButton}>Chat</Text>
                 </TouchableOpacity>
                 <View style={styles.buttonSection}>
@@ -571,12 +577,16 @@ const styles = StyleSheet.create({
     },
     chatButtonWrapper: {
         alignItems: 'center',
-        paddingTop: '5%',
+        marginTop: '5%',
+        flexDirection: 'row',
     },
     chatButton: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
+    },
+    buttonIcon: {
+        marginRight: '3%',
     },
     buttonSection: {
         flexDirection: 'row',

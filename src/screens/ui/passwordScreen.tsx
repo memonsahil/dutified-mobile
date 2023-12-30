@@ -49,7 +49,16 @@ const PasswordScreen = () => {
                         autoCorrect={false}
                     />
                 </View>
-                <TouchableOpacity onPress={() => {}}>
+                <TouchableOpacity
+                    onPress={() => {}}
+                    style={styles.buttonWrapper}
+                >
+                    <MaterialCommunityIcons
+                        name="content-save"
+                        size={30}
+                        color={themeColors.YELLOW_GREEN}
+                        style={styles.iconButton}
+                    />
                     <Text style={styles.button}>Save</Text>
                 </TouchableOpacity>
             </KeyboardAwareScrollView>
@@ -107,13 +116,19 @@ const styles = StyleSheet.create({
         borderBottomWidth: 3,
         alignSelf: 'center',
     },
+    buttonWrapper: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingTop: '10%',
+    },
+    iconButton: {
+        marginRight: '3%',
+    },
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
         alignSelf: 'center',
-        paddingTop: '10%',
-        paddingBottom: '20%',
     },
 })
 

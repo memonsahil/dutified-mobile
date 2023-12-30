@@ -73,6 +73,12 @@ const EditLinksScreen = () => {
                                     : null
                             }}
                         >
+                            <MaterialCommunityIcons
+                                name="link-plus"
+                                size={30}
+                                color={themeColors.YELLOW_GREEN}
+                                style={styles.iconButton}
+                            />
                             <Text style={styles.button}>Add</Text>
                         </TouchableOpacity>
                         {links.length !== 0 ? (
@@ -121,6 +127,12 @@ const EditLinksScreen = () => {
                                 setLoading(true)
                             }}
                         >
+                            <MaterialCommunityIcons
+                                name="content-save"
+                                size={30}
+                                color={themeColors.YELLOW_GREEN}
+                                style={styles.iconButton}
+                            />
                             <Text style={styles.button}>Save</Text>
                         </TouchableOpacity>
                     </KeyboardAwareScrollView>
@@ -206,6 +218,10 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         paddingTop: '10%',
+        flexDirection: 'row',
+    },
+    iconButton: {
+        marginRight: '3%',
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',

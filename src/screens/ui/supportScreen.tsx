@@ -18,12 +18,31 @@ const SupportScreen = () => {
                         color={themeColors.YELLOW_GREEN}
                     />
                 </TouchableOpacity>
+
                 <Text style={styles.heading}>Support</Text>
             </View>
-            <TouchableOpacity onPress={() => navigation.navigate('Contact')}>
+            <TouchableOpacity
+                style={styles.buttonWrapper}
+                onPress={() => navigation.navigate('Contact')}
+            >
+                <MaterialCommunityIcons
+                    name="email-fast"
+                    size={30}
+                    color={themeColors.YELLOW_GREEN}
+                    style={styles.iconButton}
+                />
                 <Text style={styles.button}>Contact</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('About')}>
+            <TouchableOpacity
+                style={styles.buttonWrapper}
+                onPress={() => navigation.navigate('About')}
+            >
+                <MaterialCommunityIcons
+                    name="information"
+                    size={30}
+                    color={themeColors.YELLOW_GREEN}
+                    style={styles.iconButton}
+                />
                 <Text style={styles.button}>About</Text>
             </TouchableOpacity>
         </View>
@@ -55,12 +74,19 @@ const styles = StyleSheet.create({
         paddingTop: '10%',
         paddingLeft: '10%',
     },
+    buttonWrapper: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingTop: '10%',
+    },
+    iconButton: {
+        marginRight: '3%',
+        paddingLeft: '10%',
+    },
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
-        paddingTop: '5%',
-        paddingLeft: '10%',
     },
 })
 

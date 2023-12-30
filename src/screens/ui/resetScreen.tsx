@@ -52,7 +52,13 @@ const ResetScreen = () => {
                         autoCorrect={false}
                     />
                 </View>
-                <TouchableOpacity>
+                <TouchableOpacity style={styles.buttonWrapper}>
+                    <MaterialCommunityIcons
+                        name="email-send"
+                        size={30}
+                        color={themeColors.YELLOW_GREEN}
+                        style={styles.iconButton}
+                    />
                     <Text
                         onPress={() => navigation.navigate('Verification')}
                         style={styles.button}
@@ -115,13 +121,19 @@ const styles = StyleSheet.create({
         borderBottomWidth: 3,
         alignSelf: 'center',
     },
+    buttonWrapper: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingTop: '10%',
+    },
+    iconButton: {
+        marginRight: '3%',
+    },
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
         alignSelf: 'center',
-        paddingTop: '10%',
-        paddingBottom: '20%',
     },
 })
 
