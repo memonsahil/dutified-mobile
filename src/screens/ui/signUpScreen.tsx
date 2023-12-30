@@ -122,7 +122,7 @@ const SignUpScreen = () => {
                                 email !== '' &&
                                 password != ''
                             ) {
-                                setLoading(true)
+                                navigation.navigate('Onboarding')
 
                                 authUser
                                     .signUp({
