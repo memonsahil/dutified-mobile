@@ -237,7 +237,7 @@ const styles = StyleSheet.create({
     postButton: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'flex-end',
+        alignItems: 'center',
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
