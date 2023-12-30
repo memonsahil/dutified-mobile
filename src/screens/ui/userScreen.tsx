@@ -175,6 +175,7 @@ const UserScreen = () => {
 
     const firstName = 'John'
     const lastName = 'Doe'
+    const jobCreatorId = '1'
 
     return (
         <View style={styles.container}>
@@ -245,6 +246,16 @@ const UserScreen = () => {
                     projectsWorked="3"
                     jobsWorked="4"
                 />
+                <TouchableOpacity
+                    onPress={() =>
+                        navigation.navigate('Chat', {
+                            userId: jobCreatorId,
+                        })
+                    }
+                    style={styles.chatButtonWrapper}
+                >
+                    <Text style={styles.chatButton}>Chat</Text>
+                </TouchableOpacity>
                 <View style={styles.buttonSection}>
                     <TouchableOpacity
                         onPress={() => setSwitchColumn('Details')}
@@ -557,6 +568,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '45%',
         justifyContent: 'space-between',
+    },
+    chatButtonWrapper: {
+        alignItems: 'center',
+        paddingTop: '5%',
+    },
+    chatButton: {
+        fontFamily: 'IBMPlexSansCondensed-Bold',
+        fontSize: fontSizes.BUTTON,
+        color: themeColors.YELLOW_GREEN,
     },
     buttonSection: {
         flexDirection: 'row',
