@@ -90,6 +90,15 @@ const FeedScreen = () => {
                             />
                         </TouchableOpacity>
                         <TouchableOpacity
+                            onPress={() => navigation.navigate('Notifications')}
+                        >
+                            <MaterialCommunityIcons
+                                name="bell-circle"
+                                size={30}
+                                color={themeColors.YELLOW_GREEN}
+                            />
+                        </TouchableOpacity>
+                        <TouchableOpacity
                             onPress={() => navigation.navigate('Search')}
                         >
                             <MaterialCommunityIcons
@@ -155,7 +164,7 @@ const styles = StyleSheet.create({
     iconWrapper: {
         flexDirection: 'row',
         alignItems: 'center',
-        width: '30%',
+        width: '45%',
         justifyContent: 'space-between',
     },
     noDataContainer: {
