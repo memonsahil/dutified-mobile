@@ -62,13 +62,15 @@ const EditLinksScreen = () => {
                         <TouchableOpacity
                             style={styles.buttonContainer}
                             onPress={() => {
-                                setLinks([
-                                    ...links,
-                                    link.includes('http')
-                                        ? link
-                                        : `https://www.${link}`,
-                                ]),
-                                    setLink('')
+                                link !== ''
+                                    ? (setLinks([
+                                          ...links,
+                                          link.includes('http')
+                                              ? link
+                                              : `https://www.${link}`,
+                                      ]),
+                                      setLink(''))
+                                    : null
                             }}
                         >
                             <Text style={styles.button}>Add</Text>
