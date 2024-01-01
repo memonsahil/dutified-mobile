@@ -95,7 +95,17 @@ const CreateScreen = () => {
                                     progress.
                                 </Text>
                             </View>
-                            <TouchableOpacity style={styles.postButton}>
+                            <TouchableOpacity
+                                style={styles.postButton}
+                                onPress={() =>
+                                    navigation.navigate('AddJob', {
+                                        projectId: '',
+                                        projectName: '',
+                                        jobCreatorId: '',
+                                        jobCreator: '',
+                                    })
+                                }
+                            >
                                 <MaterialCommunityIcons
                                     name="briefcase"
                                     size={22}
@@ -142,7 +152,12 @@ const CreateScreen = () => {
                                     project's progress.
                                 </Text>
                             </View>
-                            <TouchableOpacity style={styles.postButton}>
+                            <TouchableOpacity
+                                style={styles.postButton}
+                                onPress={() =>
+                                    navigation.navigate('AddProject')
+                                }
+                            >
                                 <MaterialCommunityIcons
                                     name="briefcase"
                                     size={22}
