@@ -1,6 +1,6 @@
 import ratings from '../../enums/ratings'
 
-type feedBackType = {
+type feedbackType = {
     userId: string
     userName: string
     feedbackId: string
@@ -10,4 +10,4 @@ type feedBackType = {
     feedbackDate: string
 }
 
-export default feedBackType
+export default feedbackType

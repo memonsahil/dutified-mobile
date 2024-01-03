@@ -4,8 +4,8 @@ import jobStatus from '../../enums/jobStatus'
 type jobType = {
     jobId: string
     jobName: string
-    projectId?: string
-    projectName?: string
+    projectId: string
+    projectName: string
     jobCreatorId: string
     jobCreator: string
     jobWorkerId: string
