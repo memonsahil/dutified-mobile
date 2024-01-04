@@ -3,10 +3,11 @@ import UserInterface from '../interfaces/userInterface'
 import userType from '../types/userType'
 
 class User implements UserInterface {
-    getUserData = async (
+    getUser = async (details: {
         userId: string
-    ): Promise<{
+    }): Promise<{
         status: requestStatus
+        errorCode?: string
         data?: userType
     }> => {
         // Implement get user data logic here
