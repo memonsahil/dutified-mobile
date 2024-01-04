@@ -1,10 +1,10 @@
 import categories from '../../enums/categories'
 import requestStatus from '../../enums/requestStatus'
-import authUserType from '../types/authUserType'
 import jobType from '../types/jobType'
 import profileType from '../types/profileType'
 import projectType from '../types/projectType'
 import agreementAction from '../../enums/agreementAction'
+import authUserType from '../types/authUserType'
 
 export default interface AuthUserInterface {
     signUp: (
