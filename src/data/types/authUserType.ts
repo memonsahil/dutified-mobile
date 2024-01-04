@@ -5,6 +5,7 @@ import jobType from './jobType'
 import feedbackType from './feedbackType'
 import transactionType from './transactionType'
 import profileType from './profileType'
+import metaDataType from './metaDataType'
 
 type authUserType = {
     profile: profileType
@@ -16,11 +17,7 @@ type authUserType = {
     feedbacks: feedbackType[]
     transactions: transactionType[]
     chats: chatType[]
-    metaData: {
-        creationDate: string
-        lastLoginDate: string
-        lastTransactionDate: string
-    }
+    metaData: metaDataType
 }
 
 export default authUserType
