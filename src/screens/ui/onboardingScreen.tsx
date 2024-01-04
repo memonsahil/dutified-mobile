@@ -111,7 +111,16 @@ const OnboardingScreen = () => {
                                 containerStyle={styles.avatarContainer}
                             />
                             <View style={styles.buttonContainer}>
-                                <TouchableOpacity onPress={() => pickImage()}>
+                                <TouchableOpacity
+                                    onPress={() => pickImage()}
+                                    style={styles.buttonWrapper}
+                                >
+                                    <MaterialCommunityIcons
+                                        name="file-image-plus"
+                                        size={30}
+                                        color={themeColors.YELLOW_GREEN}
+                                        style={styles.iconButton}
+                                    />
                                     <Text style={styles.saveButton}>
                                         Upload
                                     </Text>
@@ -120,7 +129,14 @@ const OnboardingScreen = () => {
                                     onPress={() => {
                                         setImage('')
                                     }}
+                                    style={styles.buttonWrapper}
                                 >
+                                    <MaterialCommunityIcons
+                                        name="square-edit-outline"
+                                        size={30}
+                                        color={themeColors.YELLOW_GREEN}
+                                        style={styles.iconButton}
+                                    />
                                     <Text style={styles.saveButton}>Reset</Text>
                                 </TouchableOpacity>
                             </View>
@@ -258,7 +274,7 @@ const OnboardingScreen = () => {
                                 autoCorrect={false}
                             />
                             <TouchableOpacity
-                                style={styles.buttonContainer}
+                                style={styles.buttonWrapper}
                                 onPress={() => {
                                     link !== ''
                                         ? (setLinks([
@@ -271,7 +287,13 @@ const OnboardingScreen = () => {
                                         : null
                                 }}
                             >
-                                <Text style={styles.saveButton}>Add</Text>
+                                <MaterialCommunityIcons
+                                    name="link-plus"
+                                    size={30}
+                                    color={themeColors.YELLOW_GREEN}
+                                    style={styles.iconButton}
+                                />
+                                <Text style={styles.button}>Add</Text>
                             </TouchableOpacity>
                             {links.length !== 0 ? (
                                 <>
@@ -316,12 +338,18 @@ const OnboardingScreen = () => {
                                 </>
                             ) : null}
                             <TouchableOpacity
-                                style={styles.launchButtonContainer}
+                                style={styles.buttonWrapper}
                                 onPress={() => {
                                     setLoading(true)
                                 }}
                             >
-                                <Text style={styles.button}>Onboard</Text>
+                                <MaterialCommunityIcons
+                                    name="account-check"
+                                    size={30}
+                                    color={themeColors.YELLOW_GREEN}
+                                    style={styles.iconButton}
+                                />
+                                <Text style={styles.button}>Setup Profile</Text>
                             </TouchableOpacity>
                             <Text style={styles.textSection}>
                                 These details can be edited later in Settings.
@@ -381,13 +409,20 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         alignItems: 'center',
-        justifyContent: 'space-between',
+    },
+    buttonWrapper: {
+        alignItems: 'center',
+        flexDirection: 'row',
+        marginTop: '10%',
+        alignSelf: 'center',
+    },
+    iconButton: {
+        marginRight: '3%',
     },
     saveButton: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
-        marginTop: '10%',
     },
     field: {
         fontFamily: 'IBMPlexSansCondensed-Bold',

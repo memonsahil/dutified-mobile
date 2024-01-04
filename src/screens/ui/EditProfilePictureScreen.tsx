@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import authUserStore from '../../state/stores/authUserStore'
 import * as ImagePicker from 'expo-image-picker'
 import {
     manipulateAsync,
@@ -20,7 +19,9 @@ const EditProfilePictureScreen = () => {
     const [image, setImage] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
-    const { profile } = authUserStore((state) => state)
+    const profile = {
+        profilePicture: '',
+    }
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -73,21 +74,42 @@ const EditProfilePictureScreen = () => {
                         containerStyle={styles.avatarContainer}
                     />
                     <View style={styles.buttonContainer}>
-                        <TouchableOpacity onPress={() => pickImage()}>
+                        <TouchableOpacity
+                            onPress={() => pickImage()}
+                            style={styles.buttonWrapper}
+                        >
+                            <MaterialCommunityIcons
+                                name="file-image-plus"
+                                size={30}
+                                color={themeColors.YELLOW_GREEN}
+                                style={styles.iconButton}
+                            />
                             <Text style={styles.saveButton}>Upload</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                             onPress={() => {
                                 setLoading(true)
                             }}
+                            style={styles.buttonWrapper}
                         >
+                            <MaterialCommunityIcons
+                                name="content-save"
+                                size={30}
+                                color={themeColors.YELLOW_GREEN}
+                                style={styles.iconButton}
+                            />
                             <Text style={styles.saveButton}>Save</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
-                            onPress={() => {
-                                setLoading(true)
-                            }}
+                            onPress={() => {}}
+                            style={styles.buttonWrapper}
                         >
+                            <MaterialCommunityIcons
+                                name="square-edit-outline"
+                                size={30}
+                                color={themeColors.YELLOW_GREEN}
+                                style={styles.iconButton}
+                            />
                             <Text style={styles.saveButton}>Reset</Text>
                         </TouchableOpacity>
                     </View>
@@ -111,7 +133,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: themeColors.BLACK,
-        alignItems: 'center',
     },
     loadingContainer: {
         flex: 1,
@@ -135,12 +156,20 @@ const styles = StyleSheet.create({
     avatarContainer: {
         backgroundColor: themeColors.YELLOW_GREEN,
         marginTop: '10%',
+        alignSelf: 'center',
     },
     buttonContainer: {
         marginTop: '10%',
         height: '20%',
-        alignItems: 'center',
         justifyContent: 'space-between',
+        marginLeft: '28%',
+    },
+    buttonWrapper: {
+        flexDirection: 'row',
+    },
+    iconButton: {
+        marginRight: '3%',
+        paddingLeft: '10%',
     },
     saveButton: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
