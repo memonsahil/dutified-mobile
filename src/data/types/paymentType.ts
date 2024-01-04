@@ -1,8 +1,8 @@
 type paymentType = {
-    cardNumber: number
-    securityCode: number
-    expiryMonth: number
-    expiryYear: number
+    cardNumber: string
+    securityCode: string
+    expiryMonth: string
+    expiryYear: string
 }
 
 export default paymentType
