@@ -1,5 +1,5 @@
 import 'expo-dev-client'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Platform } from 'react-native'
 import { useFonts } from 'expo-font'
 import { StatusBar } from 'expo-status-bar'
