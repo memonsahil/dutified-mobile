@@ -41,6 +41,8 @@ const JobCard = (props: jobCardProps) => {
                                     : '100%',
                         },
                     ]}
+                    numberOfLines={1}
+                    ellipsizeMode="tail"
                 >
                     {props.jobName}
                 </Text>

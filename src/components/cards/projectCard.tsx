@@ -29,6 +29,8 @@ const ProjectCard = (props: projectCardProps) => {
                         styles.projectName,
                         { width: props.showPlus ? '85%' : '100%' },
                     ]}
+                    numberOfLines={1}
+                    ellipsizeMode="tail"
                 >
                     {props.projectName}
                 </Text>
