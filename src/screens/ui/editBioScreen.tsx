@@ -15,7 +15,6 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
-import React from 'react'
 
 const EditBioScreen = () => {
     const [desc, setDesc] = useState<string>('')

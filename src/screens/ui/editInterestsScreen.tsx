@@ -16,7 +16,6 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
-import React from 'react'
 import categories from '../../enums/categories'
 
 const EditInterestsScreen = () => {

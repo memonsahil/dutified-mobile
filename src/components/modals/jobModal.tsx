@@ -9,7 +9,7 @@ import {
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import jobModalProps from '../props/jobModalProps'
 import globalStore from '../../state/stores/globalStore'
 import jobStatus from '../../enums/jobStatus'

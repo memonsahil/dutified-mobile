@@ -1,4 +1,3 @@
-import React from 'react'
 import { View, Text, StyleSheet, Linking, TouchableOpacity } from 'react-native'
 import fontSizes from '../../enums/fontSizes'
 import themeColors from '../../enums/themeColors'
