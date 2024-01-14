@@ -4,11 +4,11 @@ type profileType = {
     userId: string
     firstName: string
     lastName: string
-    profilePicture: string
-    bio: string
-    ratePerDay: string
-    interests: categories[]
-    links: string[]
+    profilePicture?: string
+    bio?: string
+    ratePerDay?: string
+    interests?: categories[]
+    links?: string[]
     countryCode: string
     phoneNumber: string
     emailAddress: string
