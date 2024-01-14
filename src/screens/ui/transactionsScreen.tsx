@@ -18,13 +18,13 @@ const TransactionsScreen = () => {
     const transactions: transactionCardProps[] = [
         {
             paymentId: Crypto.randomUUID(),
-            paymentAmount: '1000000000000000000000000000000000',
+            paymentAmount: '10000',
             payerId: Crypto.randomUUID(),
-            payerName: 'A very very very long name that will cut off',
+            payerName: 'Sahil Memon',
             payeeId: Crypto.randomUUID(),
             payeeName: 'Jane Doe',
             jobId: Crypto.randomUUID(),
-            jobName: 'A very very very long job name that will be cut off',
+            jobName: 'Job Name',
             projectId: Crypto.randomUUID(),
             projectName: 'Project 1',
             paymentDate: '2021-01-01',
