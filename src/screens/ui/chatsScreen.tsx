@@ -23,13 +23,11 @@ const ChatsScreen = () => {
     const chatCards: chatCardProps[] = [
         {
             userId: '1',
-            firstName:
-                'A very very very very long first name that will be truncated',
-            lastName:
-                'A very very very very long last name that will be truncated',
+            firstName: 'Sahil',
+            lastName: 'Memon',
             imageSrc: '',
             lastMessage:
-                'A very very very very long last message that will be truncated',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         },
         {
             userId: '2',

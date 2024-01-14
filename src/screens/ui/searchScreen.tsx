@@ -34,16 +34,15 @@ const SearchScreen = () => {
     const projects: Array<projectCardProps> = [
         {
             projectId: '1',
-            projectName:
-                'A very very very long project name that will be cut off',
-            description: 'This is a description for Hired project 1',
+            projectName: 'Created Project 1',
+            description: 'This is a description for created project 1',
             creationDate: '2021-01-01',
             category: categories.ACCOUNTING,
             showPlus: false,
         },
         {
             projectId: '2',
-            projectName: 'Hired Project 2',
+            projectName: 'Created Project 2',
             description:
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
@@ -52,7 +51,7 @@ const SearchScreen = () => {
         },
         {
             projectId: '3',
-            projectName: 'Hired Project 3',
+            projectName: 'Created Project 3',
             description:
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
@@ -61,7 +60,7 @@ const SearchScreen = () => {
         },
         {
             projectId: '4',
-            projectName: 'Hired Project 4',
+            projectName: 'Created Project 4',
             description:
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
@@ -71,8 +70,8 @@ const SearchScreen = () => {
     ]
     const jobs: Array<jobCardProps> = [
         {
-            jobId: '1',
-            jobName: 'A very very very long job name that will be cut off',
+            jobId: '5',
+            jobName: 'Created Job 1',
             status: jobStatus.AVAILABLE,
             payment: '100000',
             description:
@@ -82,7 +81,7 @@ const SearchScreen = () => {
             showPlus: selection.NONE,
         },
         {
-            jobId: '2',
+            jobId: '6',
             jobName: 'Created Job 2',
             status: jobStatus.IN_PROGRESS,
             payment: '200',
@@ -92,7 +91,7 @@ const SearchScreen = () => {
             showPlus: selection.NONE,
         },
         {
-            jobId: '3',
+            jobId: '7',
             jobName: 'Created Job 3',
             status: jobStatus.COMPLETED,
             payment: '200',
@@ -106,7 +105,7 @@ const SearchScreen = () => {
         {
             userId: '1',
             first: 'Sahil',
-            last: 'A very long last name that will be cut off',
+            last: 'Memon',
             image: '',
             affiliation: {
                 orgName: 'University of Toronto',

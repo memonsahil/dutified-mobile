@@ -24,15 +24,15 @@ const AttachScreen = () => {
     const projectsCreated: Array<projectCardProps> = [
         {
             projectId: '1',
-            projectName: 'A very very long project name that will be cut off',
-            description: 'This is a description for Hired project 1',
+            projectName: 'Created Project 1',
+            description: 'This is a description for created project 1',
             creationDate: '2021-01-01',
             category: categories.ACCOUNTING,
             showPlus: true,
         },
         {
             projectId: '2',
-            projectName: 'Hired Project 2',
+            projectName: 'Created Project 2',
             description:
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
@@ -41,7 +41,7 @@ const AttachScreen = () => {
         },
         {
             projectId: '3',
-            projectName: 'Hired Project 3',
+            projectName: 'Created Project 3',
             description:
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
@@ -50,7 +50,7 @@ const AttachScreen = () => {
         },
         {
             projectId: '4',
-            projectName: 'Hired Project 4',
+            projectName: 'Created Project 4',
             description:
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
@@ -61,7 +61,7 @@ const AttachScreen = () => {
     const jobsCreated: Array<jobCardProps> = [
         {
             jobId: '5',
-            jobName: 'A very very long job name that will be cut off',
+            jobName: 'Created Job 1',
             status: jobStatus.AVAILABLE,
             payment: '100000',
             description:

@@ -22,13 +22,13 @@ const FeedScreen = () => {
             content:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             userId: '1',
-            userName: 'A very very very very long name that will be truncated',
+            userName: 'Sahil Memon',
             userAvatar: '',
             date: '2021-01-01',
             attachments: [
                 {
                     id: '1',
-                    title: 'A very very very very very very very long job name that will be truncated',
+                    title: 'Created Job 1',
                     type: attachment.JOB,
                 },
                 {

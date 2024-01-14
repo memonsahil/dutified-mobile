@@ -46,8 +46,8 @@ const ChatScreen = ({ route }: chatScreenProps) => {
 
     const navigation: NavigationProp<screens> = useNavigation()
 
-    const first = 'Long First Name'
-    const last = 'Long Last Name'
+    const first = 'Sahil'
+    const last = 'Memon'
 
     useEffect(() => {}, [])
 
@@ -284,6 +284,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.WHITE,
+        textAlign: 'center',
     },
     avatarContainer: {
         backgroundColor: themeColors.YELLOW_GREEN,

@@ -19,10 +19,9 @@ const FeedbackScreen = () => {
         {
             feedbackId: '1',
             userId: '1',
-            userName: 'A very very very very long name that will be truncated',
+            userName: 'Sahil Memon',
             userAvatar: '',
-            feedbackTitle:
-                'A very very very very very very very long feedback title that will be truncated',
+            feedbackTitle: 'Feedback Title',
             feedback:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             rating: ratings.FOUR,

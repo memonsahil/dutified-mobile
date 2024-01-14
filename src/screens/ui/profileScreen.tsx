@@ -199,8 +199,8 @@ const ProfileScreen = () => {
                     </View>
                 </View>
                 <UserCard
-                    first={'A Very Very Very Very Long First Name'}
-                    last={'And A Very Very Very Very Long Last Name'}
+                    first={'Sahil'}
+                    last={'Memon'}
                     image={''}
                     projectsCreated="4"
                     jobsCreated="12"
