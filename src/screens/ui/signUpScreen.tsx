@@ -16,6 +16,7 @@ import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import requestStatus from '../../enums/requestStatus'
 import authUser from '../../data/classes/authUser'
+import * as Crypto from 'expo-crypto'
 
 const SignUpScreen = () => {
     const [first, setFirst] = useState<string>('')
@@ -126,12 +127,12 @@ const SignUpScreen = () => {
 
                                 authUser
                                     .signUp({
+                                        userId: Crypto.randomUUID(),
                                         firstName: first,
                                         lastName: last,
                                         countryCode: code,
                                         phoneNumber: phone,
                                         emailAddress: email,
-                                        password: password,
                                     })
                                     .then(() => {
                                         setLoading(false)
