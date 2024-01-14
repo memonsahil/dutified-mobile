@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         width: '100%',
         paddingHorizontal: '10%',
-        paddingTop: '5%',
+        marginTop: '10%',
     },
     link: {
         fontFamily: 'IBMPlexSansCondensed-Medium',

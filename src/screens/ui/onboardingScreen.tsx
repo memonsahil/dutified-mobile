@@ -217,25 +217,13 @@ const OnboardingScreen = () => {
                                                     styles.selectedCategoryContainer
                                                 }
                                             >
-                                                <TouchableOpacity
-                                                    onPress={() => {
-                                                        setSelectedCategories(
-                                                            selectedCategories.filter(
-                                                                (category) =>
-                                                                    category !==
-                                                                    selectedCategory
-                                                            )
-                                                        )
-                                                    }}
+                                                <Text
+                                                    style={
+                                                        styles.selectedCategory
+                                                    }
                                                 >
-                                                    <Text
-                                                        style={
-                                                            styles.selectedCategory
-                                                        }
-                                                    >
-                                                        {selectedCategory}
-                                                    </Text>
-                                                </TouchableOpacity>
+                                                    {selectedCategory}
+                                                </Text>
                                                 <TouchableOpacity
                                                     onPress={() => {
                                                         setSelectedCategories(
@@ -459,7 +447,7 @@ const styles = StyleSheet.create({
         padding: 4,
     },
     selectedCategoryContainer: {
-        marginTop: '7%',
+        marginTop: '10%',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -471,7 +459,6 @@ const styles = StyleSheet.create({
         color: themeColors.BLACK,
         backgroundColor: themeColors.YELLOW_GREEN,
         padding: '1%',
-        marginTop: '5%',
         alignSelf: 'flex-start',
     },
     amountWrapper: {
@@ -517,7 +504,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         overflow: 'hidden',
         width: '100%',
-        paddingTop: '5%',
+        marginTop: '10%',
     },
     link: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
