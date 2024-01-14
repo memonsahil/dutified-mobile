@@ -103,8 +103,6 @@ const AddPostScreen = () => {
                                               >
                                                   <Text
                                                       style={styles.attachment}
-                                                      numberOfLines={1}
-                                                      ellipsizeMode="tail"
                                                   >
                                                       {selectedAttachment.title}
                                                   </Text>
@@ -238,7 +236,7 @@ const styles = StyleSheet.create({
     attachmentContainer: {
         marginTop: '7%',
         flexDirection: 'row',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         justifyContent: 'space-between',
         overflow: 'hidden',
     },
