@@ -66,7 +66,7 @@ const EditLinksScreen = () => {
                                           ...links,
                                           link.includes('http')
                                               ? link
-                                              : `https://www.${link}`,
+                                              : `https://${link}`,
                                       ]),
                                       setLink(''))
                                     : null
