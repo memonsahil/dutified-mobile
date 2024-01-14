@@ -5,7 +5,7 @@
     "scripts": {
         "check-deps": "npx expo install --check",
         "fix-deps": "npx expo install --fix",
-        "doctor": "npx expo-doctor",
+        "doctor": "npx expo-doctor@latest",
         "build-dev-ios": "npx eas-cli@latest build --profile development --platform ios",
         "build-dev-android": "npx eas-cli@latest build --profile development --platform android",
         "run-build-ios": "npx eas-cli@latest build:run --platform ios",
@@ -24,7 +24,7 @@
         "expo-splash-screen": "~0.18.2",
         "expo-status-bar": "~1.4.4",
         "react": "18.2.0",
-        "react-native": "0.71.8",
+        "react-native": "0.71.14",
         "react-native-elements": "^3.4.3",
         "react-native-gesture-handler": "~2.9.0",
         "react-native-gifted-chat": "^2.4.0",
