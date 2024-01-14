@@ -19,32 +19,46 @@ const CommentsModal = (props: commentsModalProps) => {
     const [comment, setComment] = useState<string>('')
     const [comments, setComments] = useState<Array<commentType>>([
         {
+            userId: '1',
+            userName: 'John Doe',
             commentId: '1',
             comment:
                 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum deleniti, quisquam molestiae laboriosam facilis molestias asperiores nulla unde aliquid eligendi ex delectus odit soluta ipsa perspiciatis maxime tenetur enim voluptas!',
         },
         {
+            userId: '2',
+            userName: 'Jane Doe',
             commentId: '2',
             comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
         },
         {
+            userId: '3',
+            userName: 'John Doe',
             commentId: '3',
             comment:
                 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum deleniti, quisquam molestiae laboriosam facilis molestias asperiores nulla unde aliquid eligendi ex delectus odit soluta ipsa perspiciatis maxime tenetur enim voluptas!',
         },
         {
+            userId: '4',
+            userName: 'Jane Doe',
             commentId: '4',
             comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
         },
         {
+            userId: '5',
+            userName: 'John Doe',
             commentId: '5',
             comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
         },
         {
+            userId: '6',
+            userName: 'Jane Doe',
             commentId: '6',
             comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
         },
         {
+            userId: '7',
+            userName: 'John Doe',
             commentId: '7',
             comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
         },
@@ -77,6 +91,8 @@ const CommentsModal = (props: commentsModalProps) => {
                                 onSubmitEditing={() => {
                                     setComments([
                                         {
+                                            userId: '1',
+                                            userName: 'John Doe',
                                             commentId: Crypto.randomUUID(),
                                             comment: comment,
                                         },
