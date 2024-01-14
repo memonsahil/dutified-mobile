@@ -3,20 +3,22 @@ import JobInterface from '../interfaces/jobInterace'
 import jobType from '../types/jobType'
 
 class Job implements JobInterface {
-    getJobResults = async (
+    getJobResults = async (details: {
         searchQuery: string
-    ): Promise<{
+    }): Promise<{
         status: requestStatus
+        errorCode?: string
         data?: jobType[]
     }> => {
         // Implement get job results logic here
         return { status: requestStatus.SUCCESS }
     }
 
-    getJob = async (
+    getJob = async (details: {
         jobId: string
-    ): Promise<{
+    }): Promise<{
         status: requestStatus
+        errorCode?: string
         data?: jobType
     }> => {
         // Implement get job logic here
