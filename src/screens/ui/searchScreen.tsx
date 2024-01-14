@@ -107,10 +107,6 @@ const SearchScreen = () => {
             first: 'Sahil',
             last: 'Memon',
             image: '',
-            affiliation: {
-                orgName: 'University of Toronto',
-                userTitle: 'Student',
-            },
             avgRatings: '4.5',
         },
         {
@@ -132,10 +128,6 @@ const SearchScreen = () => {
             first: 'Sahil',
             last: 'Memon',
             image: '',
-            affiliation: {
-                orgName: 'University of Toronto',
-                userTitle: 'Student',
-            },
             avgRatings: '4.5',
         },
     ]
@@ -314,9 +306,6 @@ const SearchScreen = () => {
                                                     first={user.first}
                                                     last={user.last}
                                                     image={user.image}
-                                                    affiliation={
-                                                        user.affiliation
-                                                    }
                                                     avgRatings={user.avgRatings}
                                                 />
                                             ))}
