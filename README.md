@@ -4,13 +4,18 @@ A mobile app for AI automated freelancing where users can create/join freelancin
 
 ![Dutified Demo](assets/images/dutified-demo.gif)
 
-## Tech
+## Tech Stack
 
 Currently a WIP, the front-end is built upon React Native and Zustand (light-weight state management), job payment transactions are processed using Stripe.
 
 The backend is essentially a collection of Firebase tools + a Google Cloud Platform database that stores user and project data.
 
-Tech stack: TypeScript/JavaScript, React Native, Firebase, GCP, Stripe, OpenAI API
+-   TypeScript
+-   React Native
+-   Firebase
+-   GCP
+-   Stripe
+-   OpenAI API
 
 ### Firebase Note
 
