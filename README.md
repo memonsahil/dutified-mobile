@@ -2,7 +2,7 @@
 
 A mobile app for AI automated freelancing where users can create/join freelancing projects and each user gets access to GPT tools for their jobs, essentially improving freelancers’ earning potential by providing built-in AI tools that are relevant to their jobs.
 
-![Dutified Demo](assets/images/dutified-demo.gif)
+![Dutified Mobile Demo](assets/images/dutified-mobile-demo.gif)
 
 ## Tech Stack
 
@@ -13,8 +13,8 @@ The backend is essentially a collection of Firebase tools + a Google Cloud Platf
 -   TypeScript
 -   React Native
 -   Firebase
--   GCP
--   Stripe
+-   Google Cloud Platform
+-   Stripe API
 -   OpenAI API
 
 ### Firebase Note
