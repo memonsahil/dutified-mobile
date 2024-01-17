@@ -195,7 +195,7 @@ const FeedbackCard = (props: feedbackCardProps) => {
                         }
                     >
                         <Avatar
-                            size="small"
+                            size="medium"
                             rounded
                             source={
                                 image

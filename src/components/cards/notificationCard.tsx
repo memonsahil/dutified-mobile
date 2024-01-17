@@ -36,7 +36,7 @@ const NotificationCard = (props: notificationCardProps) => {
                     }
                 >
                     <Avatar
-                        size="small"
+                        size="medium"
                         rounded
                         source={
                             props.info.userAvatar

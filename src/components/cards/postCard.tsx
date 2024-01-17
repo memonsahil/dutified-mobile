@@ -43,7 +43,7 @@ const PostCard = (props: postCardProps) => {
                         }
                     >
                         <Avatar
-                            size="small"
+                            size="medium"
                             rounded
                             source={
                                 image

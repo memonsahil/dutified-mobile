@@ -30,7 +30,7 @@ const TransactionCard = (props: transactionCardProps) => {
                         }
                     >
                         <Avatar
-                            size="small"
+                            size="medium"
                             rounded
                             source={
                                 payerImage
@@ -72,7 +72,7 @@ const TransactionCard = (props: transactionCardProps) => {
                         }
                     >
                         <Avatar
-                            size="small"
+                            size="medium"
                             rounded
                             source={
                                 payeeImage

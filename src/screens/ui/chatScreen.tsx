@@ -99,7 +99,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                             }
                         >
                             <Avatar
-                                size="small"
+                                size="medium"
                                 rounded
                                 source={
                                     imageSrc
