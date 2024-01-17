@@ -60,6 +60,26 @@ const AgreementModal = (props: agreementModalProps) => {
             category: categories.ANIMATION,
             showPlus: selection.AGREEMENT,
         },
+        {
+            jobId: '8',
+            jobName: 'Created Job 4',
+            status: jobStatus.COMPLETED,
+            payment: '200',
+            description: 'This is a description for Created job 3',
+            creationDate: '2021-01-01',
+            category: categories.ANIMATION,
+            showPlus: selection.AGREEMENT,
+        },
+        {
+            jobId: '9',
+            jobName: 'Created Job 5',
+            status: jobStatus.COMPLETED,
+            payment: '200',
+            description: 'This is a description for Created job 3',
+            creationDate: '2021-01-01',
+            category: categories.ANIMATION,
+            showPlus: selection.AGREEMENT,
+        },
     ]
 
     return (
@@ -208,6 +228,9 @@ const AgreementModal = (props: agreementModalProps) => {
                                                 showsHorizontalScrollIndicator={
                                                     false
                                                 }
+                                                pagingEnabled={true}
+                                                decelerationRate="fast"
+                                                snapToInterval={370}
                                             >
                                                 {jobs.map((job) => (
                                                     <JobCard
@@ -250,6 +273,9 @@ const AgreementModal = (props: agreementModalProps) => {
                                                 showsHorizontalScrollIndicator={
                                                     false
                                                 }
+                                                pagingEnabled={true}
+                                                decelerationRate="fast"
+                                                snapToInterval={370}
                                             >
                                                 {jobs.map((job) => (
                                                     <JobCard

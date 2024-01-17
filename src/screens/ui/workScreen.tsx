@@ -178,6 +178,9 @@ const WorkScreen = () => {
                                             showsHorizontalScrollIndicator={
                                                 false
                                             }
+                                            pagingEnabled={true}
+                                            decelerationRate="fast"
+                                            snapToInterval={370}
                                         >
                                             {projectsHired.map((project) => (
                                                 <ProjectCard
@@ -256,6 +259,9 @@ const WorkScreen = () => {
                                             showsHorizontalScrollIndicator={
                                                 false
                                             }
+                                            pagingEnabled={true}
+                                            decelerationRate="fast"
+                                            snapToInterval={370}
                                         >
                                             {projectsCreated.map((project) => (
                                                 <ProjectCard

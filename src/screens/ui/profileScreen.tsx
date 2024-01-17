@@ -347,6 +347,9 @@ const ProfileScreen = () => {
                                             showsHorizontalScrollIndicator={
                                                 false
                                             }
+                                            pagingEnabled={true}
+                                            decelerationRate="fast"
+                                            snapToInterval={370}
                                         >
                                             {projectsHired.map((project) => (
                                                 <ProjectCard
@@ -425,6 +428,9 @@ const ProfileScreen = () => {
                                             showsHorizontalScrollIndicator={
                                                 false
                                             }
+                                            pagingEnabled={true}
+                                            decelerationRate="fast"
+                                            snapToInterval={370}
                                         >
                                             {projectsCreated.map((project) => (
                                                 <ProjectCard

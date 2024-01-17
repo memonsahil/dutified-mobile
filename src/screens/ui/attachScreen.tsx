@@ -122,6 +122,9 @@ const AttachScreen = () => {
                                     }
                                     horizontal={true}
                                     showsHorizontalScrollIndicator={false}
+                                    pagingEnabled={true}
+                                    decelerationRate="fast"
+                                    snapToInterval={370}
                                 >
                                     {projectsCreated.map((project) => (
                                         <ProjectCard
