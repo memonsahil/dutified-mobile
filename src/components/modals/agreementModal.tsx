@@ -330,7 +330,7 @@ const styles = StyleSheet.create({
     },
     subHeading: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.HEADING_THREE,
+        fontSize: fontSizes.HEADING_TWO,
         color: themeColors.WHITE,
         marginBottom: '5%',
         paddingHorizontal: '5%',
