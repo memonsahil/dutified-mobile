@@ -106,7 +106,7 @@ const PostCard = (props: postCardProps) => {
                 >
                     <MaterialCommunityIcons
                         name="dots-vertical"
-                        size={25}
+                        size={26}
                         color={themeColors.YELLOW_GREEN}
                     />
                 </TouchableOpacity>
@@ -145,7 +145,7 @@ const PostCard = (props: postCardProps) => {
                 >
                     <MaterialCommunityIcons
                         name="message-arrow-right"
-                        size={22}
+                        size={26}
                         color={themeColors.YELLOW_GREEN}
                         style={styles.buttonIcon}
                     />
@@ -157,7 +157,7 @@ const PostCard = (props: postCardProps) => {
                 >
                     <MaterialCommunityIcons
                         name="comment-text"
-                        size={22}
+                        size={26}
                         color={themeColors.YELLOW_GREEN}
                         style={styles.buttonIcon}
                     />

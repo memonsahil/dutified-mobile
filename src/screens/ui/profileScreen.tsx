@@ -183,7 +183,7 @@ const ProfileScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="account-star"
-                                size={30}
+                                size={26}
                                 color={themeColors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>
@@ -192,7 +192,7 @@ const ProfileScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="account-group"
-                                size={30}
+                                size={26}
                                 color={themeColors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>

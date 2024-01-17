@@ -47,7 +47,7 @@ const AddPostScreen = () => {
                                 >
                                     <MaterialCommunityIcons
                                         name="chevron-left-circle"
-                                        size={30}
+                                        size={26}
                                         color={themeColors.YELLOW_GREEN}
                                     />
                                 </TouchableOpacity>
@@ -58,7 +58,7 @@ const AddPostScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="file-plus"
-                                    size={30}
+                                    size={26}
                                     color={themeColors.YELLOW_GREEN}
                                 />
                             </TouchableOpacity>
@@ -151,7 +151,7 @@ const AddPostScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="text-box"
-                                    size={22}
+                                    size={26}
                                     color={themeColors.YELLOW_GREEN}
                                     style={styles.buttonIcon}
                                 />

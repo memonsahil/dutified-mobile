@@ -31,22 +31,22 @@ const UserCard = (props: userCardProps) => {
             <View style={styles.stars}>
                 <FontAwesome
                     name="star"
-                    size={30}
+                    size={26}
                     color={themeColors.YELLOW_GREEN}
                 />
                 <FontAwesome
                     name="star"
-                    size={30}
+                    size={26}
                     color={themeColors.YELLOW_GREEN}
                 />
                 <FontAwesome
                     name="star"
-                    size={30}
+                    size={26}
                     color={themeColors.YELLOW_GREEN}
                 />
                 <FontAwesome
                     name="star"
-                    size={30}
+                    size={26}
                     color={themeColors.YELLOW_GREEN}
                 />
                 <FontAwesome name="star" size={28} color={themeColors.SILVER} />

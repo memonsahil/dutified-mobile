@@ -185,7 +185,7 @@ const UserScreen = () => {
                         <TouchableOpacity onPress={() => navigation.goBack()}>
                             <MaterialCommunityIcons
                                 name="chevron-left-circle"
-                                size={30}
+                                size={26}
                                 color={themeColors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>
@@ -213,7 +213,7 @@ const UserScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="account-plus"
-                                size={30}
+                                size={26}
                                 color={themeColors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>
@@ -222,7 +222,7 @@ const UserScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="account-star"
-                                size={30}
+                                size={26}
                                 color={themeColors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>
@@ -231,7 +231,7 @@ const UserScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="account-group"
-                                size={30}
+                                size={26}
                                 color={themeColors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>
@@ -256,7 +256,7 @@ const UserScreen = () => {
                 >
                     <MaterialCommunityIcons
                         name="message-text"
-                        size={22}
+                        size={26}
                         color={themeColors.YELLOW_GREEN}
                         style={styles.buttonIcon}
                     />

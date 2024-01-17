@@ -104,7 +104,7 @@ const DashboardTabNavigator = () => {
                         return (
                             <MaterialCommunityIcons
                                 name="text-box"
-                                size={30}
+                                size={26}
                                 color={
                                     focused
                                         ? themeColors.YELLOW_GREEN
@@ -116,7 +116,7 @@ const DashboardTabNavigator = () => {
                         return (
                             <MaterialCommunityIcons
                                 name="message-text"
-                                size={30}
+                                size={26}
                                 color={
                                     focused
                                         ? themeColors.YELLOW_GREEN
@@ -128,7 +128,7 @@ const DashboardTabNavigator = () => {
                         return (
                             <MaterialCommunityIcons
                                 name="briefcase"
-                                size={30}
+                                size={26}
                                 color={
                                     focused
                                         ? themeColors.YELLOW_GREEN
@@ -140,7 +140,7 @@ const DashboardTabNavigator = () => {
                         return (
                             <MaterialCommunityIcons
                                 name="account-circle"
-                                size={30}
+                                size={26}
                                 color={
                                     focused
                                         ? themeColors.YELLOW_GREEN
@@ -152,7 +152,7 @@ const DashboardTabNavigator = () => {
                         return (
                             <MaterialCommunityIcons
                                 name="cog"
-                                size={30}
+                                size={26}
                                 color={
                                     focused
                                         ? themeColors.YELLOW_GREEN

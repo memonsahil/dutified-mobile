@@ -117,7 +117,7 @@ const OnboardingScreen = () => {
                                 >
                                     <MaterialCommunityIcons
                                         name="file-image-plus"
-                                        size={30}
+                                        size={26}
                                         color={themeColors.YELLOW_GREEN}
                                         style={styles.iconButton}
                                     />
@@ -133,7 +133,7 @@ const OnboardingScreen = () => {
                                 >
                                     <MaterialCommunityIcons
                                         name="square-edit-outline"
-                                        size={30}
+                                        size={26}
                                         color={themeColors.YELLOW_GREEN}
                                         style={styles.iconButton}
                                     />
@@ -277,7 +277,7 @@ const OnboardingScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="link-plus"
-                                    size={30}
+                                    size={26}
                                     color={themeColors.YELLOW_GREEN}
                                     style={styles.iconButton}
                                 />
@@ -333,7 +333,7 @@ const OnboardingScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="account-check"
-                                    size={30}
+                                    size={26}
                                     color={themeColors.YELLOW_GREEN}
                                     style={styles.iconButton}
                                 />

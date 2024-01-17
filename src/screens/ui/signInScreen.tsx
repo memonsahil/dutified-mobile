@@ -35,7 +35,7 @@ const SignInScreen = () => {
                         <TouchableOpacity onPress={() => navigation.goBack()}>
                             <MaterialCommunityIcons
                                 name="chevron-left-circle"
-                                size={30}
+                                size={26}
                                 color={themeColors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>
@@ -161,7 +161,7 @@ const SignInScreen = () => {
                     >
                         <MaterialCommunityIcons
                             name="login"
-                            size={30}
+                            size={26}
                             color={themeColors.YELLOW_GREEN}
                             style={styles.iconButton}
                         />

@@ -24,7 +24,7 @@ const CreateScreen = () => {
                     <TouchableOpacity onPress={() => navigation.goBack()}>
                         <MaterialCommunityIcons
                             name="chevron-left-circle"
-                            size={30}
+                            size={26}
                             color={themeColors.YELLOW_GREEN}
                         />
                     </TouchableOpacity>
@@ -66,7 +66,7 @@ const CreateScreen = () => {
                             <View style={styles.infoTextWrapper}>
                                 <MaterialCommunityIcons
                                     name="account-cowboy-hat"
-                                    size={30}
+                                    size={26}
                                     color={themeColors.YELLOW_GREEN}
                                 />
                                 <Text style={styles.infoText}>
@@ -76,7 +76,7 @@ const CreateScreen = () => {
                             <View style={styles.infoTextWrapper}>
                                 <MaterialCommunityIcons
                                     name="cash-fast"
-                                    size={30}
+                                    size={26}
                                     color={themeColors.YELLOW_GREEN}
                                 />
                                 <Text style={styles.infoText}>
@@ -87,7 +87,7 @@ const CreateScreen = () => {
                             <View style={styles.infoTextWrapper}>
                                 <MaterialCommunityIcons
                                     name="account-multiple"
-                                    size={30}
+                                    size={26}
                                     color={themeColors.YELLOW_GREEN}
                                 />
                                 <Text style={styles.infoText}>
@@ -108,7 +108,7 @@ const CreateScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="briefcase"
-                                    size={22}
+                                    size={26}
                                     color={themeColors.YELLOW_GREEN}
                                     style={styles.buttonIcon}
                                 />
@@ -122,7 +122,7 @@ const CreateScreen = () => {
                             <View style={styles.infoTextWrapper}>
                                 <MaterialCommunityIcons
                                     name="briefcase-account"
-                                    size={30}
+                                    size={26}
                                     color={themeColors.YELLOW_GREEN}
                                 />
                                 <Text style={styles.infoText}>
@@ -133,7 +133,7 @@ const CreateScreen = () => {
                             <View style={styles.infoTextWrapper}>
                                 <MaterialCommunityIcons
                                     name="account-cash"
-                                    size={30}
+                                    size={26}
                                     color={themeColors.YELLOW_GREEN}
                                 />
                                 <Text style={styles.infoText}>
@@ -144,7 +144,7 @@ const CreateScreen = () => {
                             <View style={styles.infoTextWrapper}>
                                 <MaterialCommunityIcons
                                     name="account-group"
-                                    size={30}
+                                    size={26}
                                     color={themeColors.YELLOW_GREEN}
                                 />
                                 <Text style={styles.infoText}>
@@ -160,7 +160,7 @@ const CreateScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="briefcase"
-                                    size={22}
+                                    size={26}
                                     color={themeColors.YELLOW_GREEN}
                                     style={styles.buttonIcon}
                                 />

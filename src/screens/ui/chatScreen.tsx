@@ -73,7 +73,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                         <TouchableOpacity onPress={() => navigation.goBack()}>
                             <MaterialCommunityIcons
                                 name="chevron-left-circle"
-                                size={30}
+                                size={26}
                                 color={themeColors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>
@@ -213,7 +213,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                     >
                                         <MaterialCommunityIcons
                                             name="send-circle"
-                                            size={30}
+                                            size={26}
                                             color={themeColors.YELLOW_GREEN}
                                         />
                                     </TouchableOpacity>
@@ -224,7 +224,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                     >
                                         <MaterialCommunityIcons
                                             name="handshake"
-                                            size={30}
+                                            size={26}
                                             color={themeColors.YELLOW_GREEN}
                                         />
                                     </TouchableOpacity>

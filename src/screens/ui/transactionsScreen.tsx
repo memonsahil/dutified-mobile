@@ -65,7 +65,7 @@ const TransactionsScreen = () => {
                     <TouchableOpacity onPress={() => navigation.goBack()}>
                         <MaterialCommunityIcons
                             name="chevron-left-circle"
-                            size={30}
+                            size={26}
                             color={themeColors.YELLOW_GREEN}
                         />
                     </TouchableOpacity>

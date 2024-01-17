@@ -90,7 +90,7 @@ const ChatsScreen = () => {
                     >
                         <MaterialCommunityIcons
                             name="account-group"
-                            size={30}
+                            size={26}
                             color={themeColors.YELLOW_GREEN}
                         />
                     </TouchableOpacity>

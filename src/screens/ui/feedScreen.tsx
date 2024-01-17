@@ -85,7 +85,7 @@ const FeedScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="text-box-plus"
-                                size={30}
+                                size={26}
                                 color={themeColors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>
@@ -94,7 +94,7 @@ const FeedScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="bell-circle"
-                                size={30}
+                                size={26}
                                 color={themeColors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>
@@ -103,7 +103,7 @@ const FeedScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="magnify"
-                                size={30}
+                                size={26}
                                 color={themeColors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>

@@ -17,7 +17,7 @@ const MainScreen = () => {
                 >
                     <MaterialCommunityIcons
                         name="account"
-                        size={30}
+                        size={26}
                         color={themeColors.YELLOW_GREEN}
                         style={styles.iconButton}
                     />
@@ -29,7 +29,7 @@ const MainScreen = () => {
                 >
                     <MaterialCommunityIcons
                         name="login"
-                        size={30}
+                        size={26}
                         color={themeColors.YELLOW_GREEN}
                         style={styles.iconButton}
                     />
@@ -41,7 +41,7 @@ const MainScreen = () => {
                 >
                     <MaterialCommunityIcons
                         name="help-circle"
-                        size={30}
+                        size={26}
                         color={themeColors.YELLOW_GREEN}
                         style={styles.iconButton}
                     />
@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     },
     buttonWrapper: {
         flexDirection: 'row',
+        alignItems: 'center',
     },
     iconButton: {
         marginRight: '3%',

@@ -39,7 +39,7 @@ const EditLinksScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="chevron-left-circle"
-                                    size={30}
+                                    size={26}
                                     color={themeColors.YELLOW_GREEN}
                                 />
                             </TouchableOpacity>
@@ -74,7 +74,7 @@ const EditLinksScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="link-plus"
-                                size={30}
+                                size={26}
                                 color={themeColors.YELLOW_GREEN}
                                 style={styles.iconButton}
                             />
@@ -128,7 +128,7 @@ const EditLinksScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="content-save"
-                                size={30}
+                                size={26}
                                 color={themeColors.YELLOW_GREEN}
                                 style={styles.iconButton}
                             />

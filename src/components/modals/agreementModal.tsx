@@ -76,7 +76,7 @@ const AgreementModal = (props: agreementModalProps) => {
                         >
                             <MaterialCommunityIcons
                                 name="close-circle"
-                                size={30}
+                                size={26}
                                 color={themeColors.YELLOW_GREEN}
                             />
                         </TouchableOpacity>
@@ -115,7 +115,7 @@ const AgreementModal = (props: agreementModalProps) => {
                                 >
                                     <MaterialCommunityIcons
                                         name="briefcase-edit"
-                                        size={30}
+                                        size={26}
                                         color={themeColors.YELLOW_GREEN}
                                         style={styles.iconButton}
                                     />
@@ -154,7 +154,7 @@ const AgreementModal = (props: agreementModalProps) => {
                                     >
                                         <MaterialCommunityIcons
                                             name="square-edit-outline"
-                                            size={30}
+                                            size={26}
                                             color={themeColors.YELLOW_GREEN}
                                             style={styles.iconButton}
                                         />
@@ -172,7 +172,7 @@ const AgreementModal = (props: agreementModalProps) => {
                                 >
                                     <MaterialCommunityIcons
                                         name="handshake"
-                                        size={30}
+                                        size={26}
                                         color={themeColors.YELLOW_GREEN}
                                         style={styles.iconButton}
                                     />

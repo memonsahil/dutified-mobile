@@ -68,13 +68,13 @@ const ProjectCard = (props: projectCardProps) => {
                         ) ? (
                             <MaterialCommunityIcons
                                 name="close-circle"
-                                size={30}
+                                size={26}
                                 color={themeColors.SILVER}
                             />
                         ) : (
                             <MaterialCommunityIcons
                                 name="plus-circle"
-                                size={30}
+                                size={26}
                                 color={themeColors.YELLOW_GREEN}
                             />
                         )}
