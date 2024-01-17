@@ -31,7 +31,7 @@ const AgreementModal = (props: agreementModalProps) => {
     const jobs: Array<jobCardProps> = [
         {
             jobId: '5',
-            jobName: 'A very very long job name that will be cut off',
+            jobName: 'Created Job 1',
             status: jobStatus.AVAILABLE,
             payment: '100000',
             description:

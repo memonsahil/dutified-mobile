@@ -18,9 +18,7 @@ import screens from '../../screens/params/screens'
 
 const JobModal = (props: jobModalProps) => {
     const [jobId, setJobId] = useState<string>('123')
-    const [jobName, setJobName] = useState<string>(
-        'A very very very very very very very long job name'
-    )
+    const [jobName, setJobName] = useState<string>('Job Name')
     const [category, setCategory] = useState<string>('Category Name')
     const [payment, setPayment] = useState<string>('200')
     const [status, setStatus] = useState<jobStatus>(jobStatus.AVAILABLE)
@@ -29,13 +27,9 @@ const JobModal = (props: jobModalProps) => {
         'Lorem ipsum dolor sit amet, nisl eget ali quam, sit ame sit ame. lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.'
     )
     const [projectId, setProjectId] = useState<string>('123')
-    const [projectName, setProjectName] = useState<string>(
-        'A very very very very very very  long project name'
-    )
+    const [projectName, setProjectName] = useState<string>('Project Name')
     const [jobCreatorId, setJobCreatorId] = useState<string>('456')
-    const [jobCreator, setJobCreator] = useState<string>(
-        'A very very very very very very very long project creator name'
-    )
+    const [jobCreator, setJobCreator] = useState<string>('Job Creator Name')
     const [loading, setLoading] = useState<boolean>(false)
     const currentUser = 'First Last'
 

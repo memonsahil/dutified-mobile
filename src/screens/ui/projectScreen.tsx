@@ -23,12 +23,10 @@ const ProjectScreen = ({ route }: projectScreenProps) => {
     const { projectId } = route.params
 
     const [_projectId, setProjectId] = useState<string>('123')
-    const [projectName, setProjectName] = useState<string>(
-        'A very very very very very very very long project name'
-    )
+    const [projectName, setProjectName] = useState<string>('Project Name')
     const [projectCreatorId, setProjectCreatorId] = useState<string>('456')
     const [projectCreator, setProjectCreator] = useState<string>(
-        'A very very very very very very very long project creator name'
+        'Project Creator Name'
     )
     const [category, setCategory] = useState<string>('Category Name')
     const [creationDate, setCreationDate] = useState<string>('2021-01-01')
