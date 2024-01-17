@@ -49,7 +49,7 @@ const UserCard = (props: userCardProps) => {
                     size={26}
                     color={themeColors.YELLOW_GREEN}
                 />
-                <FontAwesome name="star" size={28} color={themeColors.SILVER} />
+                <FontAwesome name="star" size={26} color={themeColors.SILVER} />
             </View>
             <View style={styles.infoSection}>
                 <Text style={styles.infoLeft}>
