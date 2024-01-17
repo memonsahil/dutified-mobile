@@ -92,8 +92,14 @@ const JobScreen = ({ route }: jobScreenProps) => {
                                             userId: jobCreatorId,
                                         })
                                     }
-                                    style={styles.buttonSection}
+                                    style={styles.chatButtonWrapper}
                                 >
+                                    <MaterialCommunityIcons
+                                        name="message-text"
+                                        size={26}
+                                        color={themeColors.YELLOW_GREEN}
+                                        style={styles.buttonIcon}
+                                    />
                                     <Text style={styles.chatButton}>Chat</Text>
                                 </TouchableOpacity>
                             ) : null}
@@ -178,14 +184,19 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         paddingTop: '5%',
     },
-    buttonSection: {
+    chatButtonWrapper: {
+        alignItems: 'center',
+        marginTop: '5%',
+        flexDirection: 'row',
         alignSelf: 'center',
-        paddingTop: '10%',
     },
     chatButton: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.YELLOW_GREEN,
+    },
+    buttonIcon: {
+        marginRight: '3%',
     },
 })
 
