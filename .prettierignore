@@ -1,4 +1,4 @@
 /node_modules/
 .expo/
-
+.firebase/
 .DS_Store
