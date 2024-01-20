@@ -134,7 +134,7 @@ const SignInScreen = () => {
                                         } else {
                                             Alert.alert(
                                                 'Error Occurred',
-                                                'An error occurred, please try again or contact our support team.',
+                                                'Please contact our support team.',
                                                 [
                                                     {
                                                         text: 'Dismiss',
@@ -147,7 +147,7 @@ const SignInScreen = () => {
                             } else {
                                 Alert.alert(
                                     'Missing Details',
-                                    'Please enter all of your details before logging in.',
+                                    'Please enter all of your details before signing in.',
                                     [
                                         {
                                             text: 'Dismiss',
@@ -165,7 +165,7 @@ const SignInScreen = () => {
                             color={themeColors.YELLOW_GREEN}
                             style={styles.iconButton}
                         />
-                        <Text style={styles.button}>Login</Text>
+                        <Text style={styles.button}>Sign In</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => navigation.navigate('Reset')}

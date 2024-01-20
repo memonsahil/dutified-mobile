@@ -90,7 +90,7 @@ const SignUpScreen = () => {
                         </View>
                         <Text style={styles.field}>Email</Text>
                         <TextInput
-                            placeholder="email@domain.com"
+                            placeholder="you@domain.com"
                             value={email}
                             onChangeText={setEmail}
                             style={styles.input}
@@ -123,19 +123,23 @@ const SignUpScreen = () => {
                                 email !== '' &&
                                 password != ''
                             ) {
-                                navigation.navigate('Onboarding')
+                                setLoading(true)
 
                                 authUser
                                     .signUp({
-                                        userId: Crypto.randomUUID(),
-                                        firstName: first,
-                                        lastName: last,
-                                        countryCode: code,
-                                        phoneNumber: phone,
-                                        emailAddress: email,
+                                        user: {
+                                            userId: Crypto.randomUUID(),
+                                            firstName: first,
+                                            lastName: last,
+                                            countryCode: code,
+                                            phoneNumber: phone,
+                                            emailAddress: email,
+                                        },
+                                        password: password,
                                     })
                                     .then(() => {
                                         setLoading(false)
+                                        navigation.navigate('Onboarding')
                                     })
                                     .catch((error) => {
                                         setLoading(false)
@@ -176,6 +180,22 @@ const SignUpScreen = () => {
                                             error.status ===
                                                 requestStatus.ERROR &&
                                             error.errorCode ===
+                                                'auth/operation-not-allowed'
+                                        ) {
+                                            Alert.alert(
+                                                'Operation Not Allowed',
+                                                'Please contact our support team.',
+                                                [
+                                                    {
+                                                        text: 'Dismiss',
+                                                        onPress: () => {},
+                                                    },
+                                                ]
+                                            )
+                                        } else if (
+                                            error.status ===
+                                                requestStatus.ERROR &&
+                                            error.errorCode ===
                                                 'auth/weak-password'
                                         ) {
                                             Alert.alert(
@@ -191,7 +211,7 @@ const SignUpScreen = () => {
                                         } else {
                                             Alert.alert(
                                                 'Error Occurred',
-                                                'An error occurred, please try again or contact our support team.',
+                                                'Please contact our support team.',
                                                 [
                                                     {
                                                         text: 'Dismiss',
@@ -222,7 +242,7 @@ const SignUpScreen = () => {
                             color={themeColors.YELLOW_GREEN}
                             style={styles.iconButton}
                         />
-                        <Text style={styles.button}>Create Account</Text>
+                        <Text style={styles.button}>Sign Up</Text>
                     </TouchableOpacity>
                     <View style={styles.textContainer}>
                         <TouchableOpacity
