@@ -8,10 +8,6 @@
             "developmentClient": true,
             "ios": {
                 "simulator": true
-            },
-            "env": {
-                "IOS_FIREBASE_SDK_CONFIG": "IOS_FIREBASE_SDK_CONFIG",
-                "ANDROID_FIREBASE_SDK_CONFIG": "ANDROID_FIREBASE_SDK_CONFIG"
             }
         },
         "preview": {
