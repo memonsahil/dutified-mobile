@@ -7,12 +7,13 @@ import categories from '../../enums/categories'
 import agreementAction from '../../enums/agreementAction'
 import authUserType from '../types/authUserType'
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
+import promiseType from '../types/promiseType'
 
 class AuthUser implements AuthUserInterface {
     signUp = async (details: {
         user: profileType
         password: string
-    }): Promise<{ status: requestStatus; errorCode?: string }> => {
+    }): Promise<promiseType> => {
         try {
             const response = await auth().createUserWithEmailAndPassword(
                 details.user.emailAddress,
@@ -53,7 +54,7 @@ class AuthUser implements AuthUserInterface {
     signIn = async (details: {
         emailAddress: string
         password: string
-    }): Promise<{ status: requestStatus; errorCode?: string }> => {
+    }): Promise<promiseType> => {
         try {
             const response = await auth().signInWithEmailAndPassword(
                 details.emailAddress,
@@ -129,35 +130,31 @@ class AuthUser implements AuthUserInterface {
 
     setProfilePicture = async (details: {
         profilePicture: string
-    }): Promise<{ status: requestStatus; errorCode?: string }> => {
+    }): Promise<promiseType> => {
         // Implement set profile picture logic here
         return { status: requestStatus.SUCCESS }
     }
 
-    setBio = async (details: {
-        bio: string
-    }): Promise<{ status: requestStatus; errorCode?: string }> => {
+    setBio = async (details: { bio: string }): Promise<promiseType> => {
         // Implement set bio logic here
         return { status: requestStatus.SUCCESS }
     }
 
     setRatePerDay = async (details: {
         ratePerDay: string
-    }): Promise<{ status: requestStatus; errorCode?: string }> => {
+    }): Promise<promiseType> => {
         // Implement set rate per day logic here
         return { status: requestStatus.SUCCESS }
     }
 
     setInterests = async (details: {
         interests: categories[]
-    }): Promise<{ status: requestStatus; errorCode?: string }> => {
+    }): Promise<promiseType> => {
         // Implement set interests logic here
         return { status: requestStatus.SUCCESS }
     }
 
-    setLinks = async (details: {
-        links: string[]
-    }): Promise<{ status: requestStatus; errorCode?: string }> => {
+    setLinks = async (details: { links: string[] }): Promise<promiseType> => {
         // Implement set links logic here
         return { status: requestStatus.SUCCESS }
     }
@@ -165,14 +162,14 @@ class AuthUser implements AuthUserInterface {
     setPhone = async (details: {
         countryCode: string
         phoneNumber: string
-    }): Promise<{ status: requestStatus; errorCode?: string }> => {
+    }): Promise<promiseType> => {
         // Implement set phone logic here
         return { status: requestStatus.SUCCESS }
     }
 
     setEmail = async (details: {
         emailAddress: string
-    }): Promise<{ status: requestStatus; errorCode?: string }> => {
+    }): Promise<promiseType> => {
         // Implement set email logic here
         return { status: requestStatus.SUCCESS }
     }
@@ -181,21 +178,19 @@ class AuthUser implements AuthUserInterface {
         emailAddress: string
         currentPassword: string
         newPassword: string
-    }): Promise<{ status: requestStatus; errorCode?: string }> => {
+    }): Promise<promiseType> => {
         // Implement set password logic here
         return { status: requestStatus.SUCCESS }
     }
 
     createProject = async (details: {
         project: projectType
-    }): Promise<{ status: requestStatus; errorCode?: string }> => {
+    }): Promise<promiseType> => {
         // Implement create project logic here
         return { status: requestStatus.SUCCESS }
     }
 
-    createJob = async (details: {
-        job: jobType
-    }): Promise<{ status: requestStatus; errorCode?: string }> => {
+    createJob = async (details: { job: jobType }): Promise<promiseType> => {
         // Implement create job logic here
         return { status: requestStatus.SUCCESS }
     }
@@ -203,7 +198,7 @@ class AuthUser implements AuthUserInterface {
     actionAgreement = async (details: {
         jobId: string
         action: agreementAction
-    }): Promise<{ status: requestStatus; errorCode?: string }> => {
+    }): Promise<promiseType> => {
         // Implement accept job logic here
         return { status: requestStatus.SUCCESS }
     }

@@ -1,15 +1,9 @@
 import requestStatus from '../../enums/requestStatus'
 import UserInterface from '../interfaces/userInterface'
-import userType from '../types/userType'
+import promiseType from '../types/promiseType'
 
 class User implements UserInterface {
-    getUser = async (details: {
-        userId: string
-    }): Promise<{
-        status: requestStatus
-        errorCode?: string
-        data?: userType
-    }> => {
+    getUser = async (details: { userId: string }): Promise<promiseType> => {
         // Implement get user data logic here
         return { status: requestStatus.SUCCESS }
     }
