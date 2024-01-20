@@ -273,6 +273,8 @@ const App = () => {
         return subscriber
     }, [])
 
+    console.log(user)
+
     if (!fontsLoaded) {
         return null
     } else {
