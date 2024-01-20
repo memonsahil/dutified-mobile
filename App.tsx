@@ -1,5 +1,5 @@
 import 'expo-dev-client'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Platform } from 'react-native'
 import { useFonts } from 'expo-font'
 import { StatusBar } from 'expo-status-bar'
@@ -52,6 +52,7 @@ import dashboardNavigatorParamList from './src/screens/params/dashboardNavigator
 import mainNavigatorParamList from './src/screens/params/mainNavigatorParamList'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from './src/enums/themeColors'
+import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
 
 SplashScreen.preventAutoHideAsync()
 
@@ -249,23 +250,36 @@ const App = () => {
         'IBMPlexSansCondensed-Medium': require('./assets/fonts/IBMPlexSansCondensed-Medium.ttf'),
     })
 
+    const [initializing, setInitializing] = useState<boolean>(true)
+    const [user, setUser] = useState<FirebaseAuthTypes.User | null>()
+
     const hideSplashScreen = async () => {
         if (fontsLoaded) {
             await SplashScreen.hideAsync()
         }
     }
 
+    const onAuthStateChanged = (user: FirebaseAuthTypes.User | null) => {
+        setUser(user)
+        if (initializing) setInitializing(false)
+    }
+
     useEffect(() => {
         hideSplashScreen()
     }, [fontsLoaded])
 
+    useEffect(() => {
+        const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
+        return subscriber
+    }, [])
+
     if (!fontsLoaded) {
         return null
     } else {
-        return (
+        return initializing ? null : (
             <NavigationContainer>
                 <StatusBar style="inverted" />
-                {false ? <AuthStackNavigator /> : <MainStackNavigator />}
+                {!user ? <AuthStackNavigator /> : <MainStackNavigator />}
             </NavigationContainer>
         )
     }

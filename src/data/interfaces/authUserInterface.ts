@@ -7,9 +7,10 @@ import agreementAction from '../../enums/agreementAction'
 import authUserType from '../types/authUserType'
 
 export default interface AuthUserInterface {
-    signUp: (
-        details: profileType
-    ) => Promise<{ status: requestStatus; errorCode?: string }>
+    signUp: (details: {
+        user: profileType
+        password: string
+    }) => Promise<{ status: requestStatus; errorCode?: string }>
     signIn: (details: {
         emailAddress: string
         password: string

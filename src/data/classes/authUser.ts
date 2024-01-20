@@ -6,29 +6,114 @@ import profileType from '../types/profileType'
 import categories from '../../enums/categories'
 import agreementAction from '../../enums/agreementAction'
 import authUserType from '../types/authUserType'
+import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
 
 class AuthUser implements AuthUserInterface {
-    signUp = async (
-        details: profileType
-    ): Promise<{ status: requestStatus; errorCode?: string }> => {
-        // Implement sign up logic here
-        return { status: requestStatus.SUCCESS }
+    signUp = async (details: {
+        user: profileType
+        password: string
+    }): Promise<{ status: requestStatus; errorCode?: string }> => {
+        try {
+            const response = await auth().createUserWithEmailAndPassword(
+                details.user.emailAddress,
+                details.password
+            )
+
+            if (response.user) {
+                return { status: requestStatus.SUCCESS }
+            } else {
+                return { status: requestStatus.ERROR }
+            }
+        } catch (error: FirebaseAuthTypes.NativeFirebaseAuthError | any) {
+            let errorCode = ''
+
+            if (error.code) {
+                switch (error.code) {
+                    case 'auth/email-already-in-use':
+                        errorCode = error.code
+                        break
+                    case 'auth/invalid-email':
+                        errorCode = error.code
+                        break
+                    case 'auth/operation-not-allowed':
+                        errorCode = error.code
+                        break
+                    case 'auth/weak-password':
+                        errorCode = error.code
+                        break
+                    default:
+                        errorCode = error.code
+                        break
+                }
+            }
+            return { status: requestStatus.ERROR, errorCode }
+        }
     }
 
     signIn = async (details: {
         emailAddress: string
         password: string
     }): Promise<{ status: requestStatus; errorCode?: string }> => {
-        // Implement sign in logic here
-        return { status: requestStatus.SUCCESS }
+        try {
+            const response = await auth().signInWithEmailAndPassword(
+                details.emailAddress,
+                details.password
+            )
+            if (response.user) {
+                return { status: requestStatus.SUCCESS }
+            } else {
+                return {
+                    status: requestStatus.ERROR,
+                }
+            }
+        } catch (error: FirebaseAuthTypes.NativeFirebaseAuthError | any) {
+            let errorCode = ''
+
+            if (error.code) {
+                switch (error.code) {
+                    case 'auth/invalid-email':
+                        errorCode = error.code
+                        break
+                    case 'auth/user-disabled':
+                        errorCode = error.code
+                        break
+                    case 'auth/user-not-found':
+                        errorCode = error.code
+                        break
+                    case 'auth/wrong-password':
+                        errorCode = error.code
+                        break
+                    default:
+                        errorCode = error.code
+                        break
+                }
+            }
+            return { status: requestStatus.ERROR, errorCode }
+        }
     }
 
     signOut = async (): Promise<{
         status: requestStatus
         errorCode?: string
     }> => {
-        // Implement sign out logic here
-        return { status: requestStatus.SUCCESS }
+        try {
+            await auth().signOut()
+            return { status: requestStatus.SUCCESS }
+        } catch (error: FirebaseAuthTypes.NativeFirebaseAuthError | any) {
+            let errorCode = ''
+
+            if (error.code) {
+                switch (error.code) {
+                    case 'auth/no-current-user':
+                        errorCode = error.code
+                        break
+                    default:
+                        errorCode = error.code
+                        break
+                }
+            }
+            return { status: requestStatus.ERROR, errorCode }
+        }
     }
 
     getAuthUser = async (details: {
