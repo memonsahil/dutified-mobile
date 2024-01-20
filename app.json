@@ -12,11 +12,11 @@
         },
         "assetBundlePatterns": ["**/*"],
         "ios": {
-            "bundleIdentifier": "com.dutified.mobile",
+            "bundleIdentifier": "com.dutified",
             "googleServicesFile": "./firebase/GoogleService-Info.plist"
         },
         "android": {
-            "package": "com.dutified.mobile",
+            "package": "com.dutified",
             "googleServicesFile": "./firebase/google-services.json",
             "adaptiveIcon": {
                 "foregroundImage": "./assets/images/adaptive-icon.png",
@@ -26,8 +26,7 @@
             "permissions": []
         },
         "plugins": [
-            //"@react-native-firebase/app",
-            //"@react-native-firebase/auth",
+            "@react-native-firebase/app",
             [
                 "expo-build-properties",
                 {

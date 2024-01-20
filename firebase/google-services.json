@@ -1,46 +1,29 @@
 {
-    "project_info": {
-        "project_number": "566338100359",
-        "project_id": "dutified-3fa2f",
-        "storage_bucket": "dutified-3fa2f.appspot.com"
-    },
-    "client": [
-        {
-            "client_info": {
-                "mobilesdk_app_id": "1:566338100359:android:db525426e653010a8eec22",
-                "android_client_info": {
-                    "package_name": "com.dutified.mobile"
-                }
-            },
-            "oauth_client": [
-                {
-                    "client_id": "566338100359-miur4b4gjd2ijfdmsd9upk0hjmc52c43.apps.googleusercontent.com",
-                    "client_type": 3
-                }
-            ],
-            "api_key": [
-                {
-                    "current_key": "AIzaSyD65VNIofQfDgX2Pi19Asv7EGRH4a9O_3A"
-                }
-            ],
-            "services": {
-                "appinvite_service": {
-                    "other_platform_oauth_client": [
-                        {
-                            "client_id": "566338100359-miur4b4gjd2ijfdmsd9upk0hjmc52c43.apps.googleusercontent.com",
-                            "client_type": 3
-                        },
-                        {
-                            "client_id": "566338100359-6l5u1p4hejm3ut4r4i6hqf671aahc70r.apps.googleusercontent.com",
-                            "client_type": 2,
-                            "ios_info": {
-                                "bundle_id": "com.dutified.mobile"
-                            }
-                        }
-                    ]
-                }
-            }
+  "project_info": {
+    "project_number": "170721590285",
+    "project_id": "dutified-6f2f8",
+    "storage_bucket": "dutified-6f2f8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:170721590285:android:2d218eccaaf1d75a13a944",
+        "android_client_info": {
+          "package_name": "com.dutified"
         }
-    ],
-    "configuration_version": "1"
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiiN04f7P86jY36Jy9xLsmd_BkqQvpWGM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
 }

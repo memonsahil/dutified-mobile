@@ -2,22 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CLIENT_ID</key>
-	<string>566338100359-6l5u1p4hejm3ut4r4i6hqf671aahc70r.apps.googleusercontent.com</string>
-	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.566338100359-6l5u1p4hejm3ut4r4i6hqf671aahc70r</string>
 	<key>API_KEY</key>
-	<string>AIzaSyD2zDf0OoAJoLYdp-b0OAZESYyis1ddv8I</string>
+	<string>AIzaSyD1H0j4CGBBtca9twKBSqoaV8etIDFlKuo</string>
 	<key>GCM_SENDER_ID</key>
-	<string>566338100359</string>
+	<string>170721590285</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.dutified.mobile</string>
+	<string>com.dutified</string>
 	<key>PROJECT_ID</key>
-	<string>dutified-3fa2f</string>
+	<string>dutified-6f2f8</string>
 	<key>STORAGE_BUCKET</key>
-	<string>dutified-3fa2f.appspot.com</string>
+	<string>dutified-6f2f8.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:566338100359:ios:ea6f890a11391f478eec22</string>
+	<string>1:170721590285:ios:41e07d39097f152a13a944</string>
 </dict>
 </plist>
