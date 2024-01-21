@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import utilStoreType from '../types/utilStoreType'
 
 const initialState = {
+    signedIn: false,
     selectedAttachments: [],
     showAgreementModal: false,
     showJobModal: false,
@@ -10,6 +11,7 @@ const initialState = {
 
 const utilStore = create<utilStoreType>()((set) => ({
     ...initialState,
+    setSignedIn: (signedIn) => set(() => ({ signedIn: signedIn })),
     setSelectedAttachments: (attachments) =>
         set(() => ({ selectedAttachments: attachments })),
     setShowAgreementModal: (show) => set(() => ({ showAgreementModal: show })),
