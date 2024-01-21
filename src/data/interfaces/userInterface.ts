@@ -1,10 +1,5 @@
-import requestStatus from '../../enums/requestStatus'
-import userType from '../types/userType'
+import promiseType from '../types/promiseType'
 
 export default interface UserInterface {
-    getUser: (details: { userId: string }) => Promise<{
-        status: requestStatus
-        errorCode?: string
-        data?: userType
-    }>
+    getUser: (details: { userId: string }) => Promise<promiseType>
 }

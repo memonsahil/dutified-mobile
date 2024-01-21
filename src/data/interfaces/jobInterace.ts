@@ -1,15 +1,6 @@
-import requestStatus from '../../enums/requestStatus'
-import jobType from '../types/jobType'
+import promiseType from '../types/promiseType'
 
 export default interface JobInterface {
-    getJobResults: (details: { searchQuery: string }) => Promise<{
-        status: requestStatus
-        errorCode?: string
-        data?: jobType[]
-    }>
-    getJob: (details: { jobId: string }) => Promise<{
-        status: requestStatus
-        errorCode?: string
-        data?: jobType
-    }>
+    getJobResults: (details: { searchQuery: string }) => Promise<promiseType>
+    getJob: (details: { jobId: string }) => Promise<promiseType>
 }
