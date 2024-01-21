@@ -5,6 +5,7 @@ import {
     ScrollView,
     View,
     TouchableOpacity,
+    Alert,
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import * as Progress from 'react-native-progress'
@@ -12,12 +13,18 @@ import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import authUser from '../../data/classes/authUser'
+import requestStatus from '../../enums/requestStatus'
+import promiseType from '../../data/types/promiseType'
+import utilStore from '../../state/stores/utilStore'
 
 const SettingsScreen = () => {
     const [switchColumn, setSwitchColumn] = useState<
         'Profile' | 'Payments' | 'Account'
     >('Profile')
     const [loading, setLoading] = useState<boolean>(false)
+
+    const { setSignedIn } = utilStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -238,6 +245,51 @@ const SettingsScreen = () => {
                             <TouchableOpacity
                                 onPress={() => {
                                     setLoading(true)
+
+                                    authUser
+                                        .signOut()
+                                        .then((response: promiseType) => {
+                                            setLoading(false)
+
+                                            if (
+                                                response.status ===
+                                                requestStatus.SUCCESS
+                                            ) {
+                                                setSignedIn(false)
+                                                navigation.navigate('Main')
+                                            } else {
+                                                if (
+                                                    response.status ===
+                                                        requestStatus.ERROR &&
+                                                    response.errorCode ===
+                                                        'auth/no-current-user'
+                                                ) {
+                                                    Alert.alert(
+                                                        'Not Signed In',
+                                                        'Please contact our support team.',
+                                                        [
+                                                            {
+                                                                text: 'Dismiss',
+                                                                onPress:
+                                                                    () => {},
+                                                            },
+                                                        ]
+                                                    )
+                                                } else {
+                                                    Alert.alert(
+                                                        'Error Occurred',
+                                                        'Please contact our support team.',
+                                                        [
+                                                            {
+                                                                text: 'Dismiss',
+                                                                onPress:
+                                                                    () => {},
+                                                            },
+                                                        ]
+                                                    )
+                                                }
+                                            }
+                                        })
                                 }}
                                 style={styles.buttonWrapper}
                             >

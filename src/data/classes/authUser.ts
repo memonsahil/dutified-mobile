@@ -5,8 +5,7 @@ import projectType from '../types/projectType'
 import profileType from '../types/profileType'
 import categories from '../../enums/categories'
 import agreementAction from '../../enums/agreementAction'
-import authUserType from '../types/authUserType'
-import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
+import auth from '@react-native-firebase/auth'
 import promiseType from '../types/promiseType'
 
 class AuthUser implements AuthUserInterface {
@@ -46,7 +45,7 @@ class AuthUser implements AuthUserInterface {
                     status: requestStatus.ERROR,
                 }
             }
-        } catch (error: FirebaseAuthTypes.NativeFirebaseAuthError | any) {
+        } catch (error: Object | any) {
             let errorCode = ''
 
             if (error) {
@@ -72,27 +71,12 @@ class AuthUser implements AuthUserInterface {
         }
     }
 
-    signOut = async (): Promise<{
-        status: requestStatus
-        errorCode?: string
-    }> => {
+    signOut = async (): Promise<promiseType> => {
         try {
             await auth().signOut()
             return { status: requestStatus.SUCCESS }
-        } catch (error: FirebaseAuthTypes.NativeFirebaseAuthError | any) {
-            let errorCode = ''
-
-            if (error) {
-                switch (error) {
-                    case 'auth/no-current-user':
-                        errorCode = error
-                        break
-                    default:
-                        errorCode = error
-                        break
-                }
-            }
-            return { status: requestStatus.ERROR, errorCode }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
         }
     }
 
@@ -101,13 +85,7 @@ class AuthUser implements AuthUserInterface {
         return { status: requestStatus.SUCCESS }
     }
 
-    getAuthUser = async (details: {
-        userId: string
-    }): Promise<{
-        status: requestStatus
-        errorCode?: string
-        data?: authUserType
-    }> => {
+    getAuthUser = async (details: { userId: string }): Promise<promiseType> => {
         // Implement get user data logic here
         return { status: requestStatus.SUCCESS }
     }

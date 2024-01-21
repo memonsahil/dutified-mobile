@@ -18,6 +18,7 @@ import requestStatus from '../../enums/requestStatus'
 import authUser from '../../data/classes/authUser'
 import * as Crypto from 'expo-crypto'
 import promiseType from '../../data/types/promiseType'
+import utilStore from '../../state/stores/utilStore'
 
 const SignUpScreen = () => {
     const [first, setFirst] = useState<string>('')
@@ -27,6 +28,8 @@ const SignUpScreen = () => {
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
+
+    const { setSignedIn } = utilStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -146,6 +149,7 @@ const SignUpScreen = () => {
                                             response.status ===
                                             requestStatus.SUCCESS
                                         ) {
+                                            setSignedIn(true)
                                             navigation.navigate('Onboarding')
                                         } else {
                                             if (
