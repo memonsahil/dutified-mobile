@@ -18,7 +18,6 @@ import ContactScreen from './src/screens/ui/contactScreen'
 import AboutScreen from './src/screens/ui/aboutScreen'
 import TosScreen from './src/screens/ui/tosScreen'
 import PpScreen from './src/screens/ui/ppScreen'
-import OnboardingScreen from './src/screens/ui/onboardingScreen'
 import FeedScreen from './src/screens/ui/feedScreen'
 import WorkScreen from './src/screens/ui/workScreen'
 import ProfileScreen from './src/screens/ui/profileScreen'
@@ -184,7 +183,6 @@ const MainStackNavigator = () => {
                 gestureEnabled: false,
             }}
         >
-            <MainStack.Screen name="Onboarding" component={OnboardingScreen} />
             <MainStack.Screen
                 name="Dashboard"
                 component={DashboardTabNavigator}

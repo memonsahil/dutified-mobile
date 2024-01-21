@@ -85,7 +85,7 @@ const SignInScreen = () => {
                                             response.status ===
                                             requestStatus.SUCCESS
                                         ) {
-                                            navigation.navigate('Onboarding')
+                                            navigation.navigate('Dashboard')
                                         } else {
                                             console.log(response.errorCode)
                                             if (

@@ -1,5 +1,4 @@
 type mainNavigatorParamList = {
-    Onboarding: undefined
     Dashboard: undefined
     Create: undefined
     Job: {

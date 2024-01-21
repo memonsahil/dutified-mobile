@@ -21,7 +21,6 @@ type screens = {
     Settings: undefined
 
     // Main screens
-    Onboarding: undefined
     Dashboard: undefined
     Create: undefined
     Job: {
