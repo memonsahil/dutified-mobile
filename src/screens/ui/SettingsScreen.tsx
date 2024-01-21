@@ -258,36 +258,16 @@ const SettingsScreen = () => {
                                                 setSignedIn(false)
                                                 navigation.navigate('Main')
                                             } else {
-                                                if (
-                                                    response.status ===
-                                                        requestStatus.ERROR &&
-                                                    response.errorCode ===
-                                                        'auth/no-current-user'
-                                                ) {
-                                                    Alert.alert(
-                                                        'Not Signed In',
-                                                        'Please contact our support team.',
-                                                        [
-                                                            {
-                                                                text: 'Dismiss',
-                                                                onPress:
-                                                                    () => {},
-                                                            },
-                                                        ]
-                                                    )
-                                                } else {
-                                                    Alert.alert(
-                                                        'Error Occurred',
-                                                        'Please contact our support team.',
-                                                        [
-                                                            {
-                                                                text: 'Dismiss',
-                                                                onPress:
-                                                                    () => {},
-                                                            },
-                                                        ]
-                                                    )
-                                                }
+                                                Alert.alert(
+                                                    'Error Occurred',
+                                                    'Please contact our support team.',
+                                                    [
+                                                        {
+                                                            text: 'Dismiss',
+                                                            onPress: () => {},
+                                                        },
+                                                    ]
+                                                )
                                             }
                                         })
                                 }}

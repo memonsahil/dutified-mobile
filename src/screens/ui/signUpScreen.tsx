@@ -200,22 +200,6 @@ const SignUpScreen = () => {
                                                         },
                                                     ]
                                                 )
-                                            } else if (
-                                                response.status ===
-                                                    requestStatus.ERROR &&
-                                                response.errorCode ===
-                                                    'auth/operation-not-allowed'
-                                            ) {
-                                                Alert.alert(
-                                                    'Operation Not Allowed',
-                                                    'Please contact our support team.',
-                                                    [
-                                                        {
-                                                            text: 'Dismiss',
-                                                            onPress: () => {},
-                                                        },
-                                                    ]
-                                                )
                                             } else {
                                                 Alert.alert(
                                                     'Error Occurred',

@@ -16,6 +16,7 @@ import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import requestStatus from '../../enums/requestStatus'
 import authUser from '../../data/classes/authUser'
+import promiseType from '../../data/types/promiseType'
 
 const SignInScreen = () => {
     const [email, setEmail] = useState<string>('')
@@ -77,71 +78,60 @@ const SignInScreen = () => {
                                         emailAddress: email,
                                         password: password,
                                     })
-                                    .then(() => {
-                                        setLoading(false)
-                                    })
-                                    .catch((error) => {
+                                    .then((response: promiseType) => {
                                         setLoading(false)
 
                                         if (
-                                            error.status ===
-                                                requestStatus.ERROR &&
-                                            error.errorCode ===
-                                                'auth/invalid-email'
+                                            response.status ===
+                                            requestStatus.SUCCESS
                                         ) {
-                                            Alert.alert(
-                                                'Invalid Email',
-                                                'Please enter a valid email address.',
-                                                [
-                                                    {
-                                                        text: 'Dismiss',
-                                                        onPress: () => {},
-                                                    },
-                                                ]
-                                            )
-                                        } else if (
-                                            error.status ===
-                                                requestStatus.ERROR &&
-                                            error.errorCode ===
-                                                'auth/wrong-password'
-                                        ) {
-                                            Alert.alert(
-                                                'Invalid Password',
-                                                'Please enter a valid password.',
-                                                [
-                                                    {
-                                                        text: 'Dismiss',
-                                                        onPress: () => {},
-                                                    },
-                                                ]
-                                            )
-                                        } else if (
-                                            error.status ===
-                                                requestStatus.ERROR &&
-                                            error.errorCode ===
-                                                'auth/user-not-found'
-                                        ) {
-                                            Alert.alert(
-                                                'Invalid Account',
-                                                'An account does not exist with these details.',
-                                                [
-                                                    {
-                                                        text: 'Dismiss',
-                                                        onPress: () => {},
-                                                    },
-                                                ]
-                                            )
+                                            navigation.navigate('Onboarding')
                                         } else {
-                                            Alert.alert(
-                                                'Error Occurred',
-                                                'Please contact our support team.',
-                                                [
-                                                    {
-                                                        text: 'Dismiss',
-                                                        onPress: () => {},
-                                                    },
-                                                ]
-                                            )
+                                            console.log(response.errorCode)
+                                            if (
+                                                response.status ===
+                                                    requestStatus.ERROR &&
+                                                response.errorCode ===
+                                                    'auth/invalid-email'
+                                            ) {
+                                                Alert.alert(
+                                                    'Invalid Email',
+                                                    'Please enter a valid email address.',
+                                                    [
+                                                        {
+                                                            text: 'Dismiss',
+                                                            onPress: () => {},
+                                                        },
+                                                    ]
+                                                )
+                                            } else if (
+                                                response.status ===
+                                                    requestStatus.ERROR &&
+                                                response.errorCode ===
+                                                    'auth/invalid-credential'
+                                            ) {
+                                                Alert.alert(
+                                                    'Invalid Credential',
+                                                    'Please check your details again.',
+                                                    [
+                                                        {
+                                                            text: 'Dismiss',
+                                                            onPress: () => {},
+                                                        },
+                                                    ]
+                                                )
+                                            } else {
+                                                Alert.alert(
+                                                    'Error Occurred',
+                                                    'Please contact our support team.',
+                                                    [
+                                                        {
+                                                            text: 'Dismiss',
+                                                            onPress: () => {},
+                                                        },
+                                                    ]
+                                                )
+                                            }
                                         }
                                     })
                             } else {

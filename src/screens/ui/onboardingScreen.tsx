@@ -328,7 +328,7 @@ const OnboardingScreen = () => {
                             <TouchableOpacity
                                 style={styles.buttonWrapper}
                                 onPress={() => {
-                                    setLoading(true)
+                                    navigation.navigate('Dashboard')
                                 }}
                             >
                                 <MaterialCommunityIcons
