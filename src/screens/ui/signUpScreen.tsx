@@ -139,7 +139,6 @@ const SignUpScreen = () => {
                                                 countryCode: code,
                                                 phoneNumber: phone,
                                                 emailAddress: email,
-                                                onboarded: false,
                                             },
                                             projectsCreated: [],
                                             projectsWorked: [],

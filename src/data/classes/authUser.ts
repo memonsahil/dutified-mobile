@@ -31,7 +31,6 @@ class AuthUser implements AuthUserInterface {
                 return { status: requestStatus.ERROR }
             }
         } catch (error: Object | any) {
-            console.log('error: ', error)
             return { status: requestStatus.ERROR, errorCode: error.code }
         }
     }
@@ -64,13 +63,6 @@ class AuthUser implements AuthUserInterface {
         } catch (error: Object | any) {
             return { status: requestStatus.ERROR, errorCode: error.code }
         }
-    }
-
-    setOnboarded = async (details: {
-        onBoarded: boolean
-    }): Promise<promiseType> => {
-        // Implement set onboarded logic here
-        return { status: requestStatus.SUCCESS }
     }
 
     getAuthUser = async (details: { userId: string }): Promise<promiseType> => {
