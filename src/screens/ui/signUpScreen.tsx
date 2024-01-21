@@ -184,11 +184,11 @@ const SignUpScreen = () => {
                                                 response.status ===
                                                     requestStatus.ERROR &&
                                                 response.errorCode ===
-                                                    'auth/operation-not-allowed'
+                                                    'auth/weak-password'
                                             ) {
                                                 Alert.alert(
-                                                    'Operation Not Allowed',
-                                                    'Please contact our support team.',
+                                                    'Weak Password',
+                                                    'Please enter a strong password.',
                                                     [
                                                         {
                                                             text: 'Dismiss',
@@ -200,11 +200,11 @@ const SignUpScreen = () => {
                                                 response.status ===
                                                     requestStatus.ERROR &&
                                                 response.errorCode ===
-                                                    'auth/weak-password'
+                                                    'auth/operation-not-allowed'
                                             ) {
                                                 Alert.alert(
-                                                    'Weak Password',
-                                                    'Please enter a strong password.',
+                                                    'Operation Not Allowed',
+                                                    'Please contact our support team.',
                                                     [
                                                         {
                                                             text: 'Dismiss',
