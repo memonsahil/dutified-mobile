@@ -1,7 +1,8 @@
 type metaDataType = {
-    creationDate: string
-    lastLoginDate: string
-    lastTransactionDate: string
+    creationDate: Date | null
+    lastLoginDate: Date | null
+    lastLogoutDate: Date | null
+    lastTransactionDate: Date | null
 }
 
 export default metaDataType
