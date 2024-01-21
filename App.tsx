@@ -53,6 +53,7 @@ import mainNavigatorParamList from './src/screens/params/mainNavigatorParamList'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from './src/enums/themeColors'
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
+import utilStore from './src/state/stores/utilStore'
 
 SplashScreen.preventAutoHideAsync()
 
@@ -69,7 +70,6 @@ const AuthStackNavigator = () => {
             <AuthStack.Screen name="Main" component={MainScreen} />
             <AuthStack.Screen name="SignUp" component={SignUpScreen} />
             <AuthStack.Screen name="SignIn" component={SignInScreen} />
-            <AuthStack.Screen name="Onboarding" component={OnboardingScreen} />
             <AuthStack.Screen name="Reset" component={ResetScreen} />
             <AuthStack.Screen
                 name="Verification"
@@ -184,6 +184,7 @@ const MainStackNavigator = () => {
                 gestureEnabled: false,
             }}
         >
+            <MainStack.Screen name="Onboarding" component={OnboardingScreen} />
             <MainStack.Screen
                 name="Dashboard"
                 component={DashboardTabNavigator}
@@ -251,7 +252,8 @@ const App = () => {
     })
 
     const [initializing, setInitializing] = useState<boolean>(true)
-    const [user, setUser] = useState<FirebaseAuthTypes.User | null>()
+
+    const { signedIn, setSignedIn } = utilStore((state) => state)
 
     const hideSplashScreen = async () => {
         if (fontsLoaded) {
@@ -260,7 +262,7 @@ const App = () => {
     }
 
     const onAuthStateChanged = (user: FirebaseAuthTypes.User | null) => {
-        setUser(user)
+        user ? setSignedIn(true) : setSignedIn(false)
         if (initializing) setInitializing(false)
     }
 
@@ -273,15 +275,13 @@ const App = () => {
         return subscriber
     }, [])
 
-    console.log(user)
-
     if (!fontsLoaded) {
         return null
     } else {
         return initializing ? null : (
             <NavigationContainer>
                 <StatusBar style="inverted" />
-                {!user ? <AuthStackNavigator /> : <MainStackNavigator />}
+                {!signedIn ? <AuthStackNavigator /> : <MainStackNavigator />}
             </NavigationContainer>
         )
     }

@@ -9,7 +9,6 @@ type screens = {
     Main: undefined
     SignUp: undefined
     SignIn: undefined
-    Onboarding: undefined
     Reset: undefined
     Verification: undefined
     Password: undefined
@@ -22,6 +21,7 @@ type screens = {
     Settings: undefined
 
     // Main screens
+    Onboarding: undefined
     Dashboard: undefined
     Create: undefined
     Job: {
