@@ -408,7 +408,7 @@ const SignUpScreen = () => {
                                 ))}
                             </>
                         ) : null}
-                        <Text style={styles.text}>
+                        <Text style={styles.quote}>
                             "Pleasure in the job puts perfection in the work." -
                             Aristotle
                         </Text>
@@ -783,6 +783,12 @@ const styles = StyleSheet.create({
         color: themeColors.WHITE,
         textDecorationLine: 'underline',
         width: 275,
+    },
+    quote: {
+        fontFamily: 'IBMPlexSansCondensed-Medium',
+        fontSize: fontSizes.BODY_ONE,
+        color: themeColors.WHITE,
+        paddingTop: '15%',
     },
     textContainer: {
         flexDirection: 'row',
