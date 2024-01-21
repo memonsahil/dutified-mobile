@@ -132,13 +132,28 @@ const SignUpScreen = () => {
                                 authUser
                                     .signUp({
                                         user: {
-                                            userId: Crypto.randomUUID(),
-                                            firstName: first,
-                                            lastName: last,
-                                            countryCode: code,
-                                            phoneNumber: phone,
-                                            emailAddress: email,
-                                            onboarded: false,
+                                            profile: {
+                                                userId: Crypto.randomUUID(),
+                                                firstName: first,
+                                                lastName: last,
+                                                countryCode: code,
+                                                phoneNumber: phone,
+                                                emailAddress: email,
+                                                onboarded: false,
+                                            },
+                                            projectsCreated: [],
+                                            projectsWorked: [],
+                                            jobsCreated: [],
+                                            jobsWorked: [],
+                                            feedbacks: [],
+                                            transactions: [],
+                                            chats: [],
+                                            metaData: {
+                                                creationDate: new Date(),
+                                                lastLoginDate: new Date(),
+                                                lastLogoutDate: null,
+                                                lastTransactionDate: null,
+                                            },
                                         },
                                         password: password,
                                     })

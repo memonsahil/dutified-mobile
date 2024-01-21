@@ -2,29 +2,36 @@ import AuthUserInterface from '../interfaces/authUserInterface'
 import jobType from '../types/jobType'
 import requestStatus from '../../enums/requestStatus'
 import projectType from '../types/projectType'
-import profileType from '../types/profileType'
 import categories from '../../enums/categories'
 import agreementAction from '../../enums/agreementAction'
 import auth from '@react-native-firebase/auth'
 import promiseType from '../types/promiseType'
+import firestore from '@react-native-firebase/firestore'
+import authUserType from '../types/authUserType'
 
 class AuthUser implements AuthUserInterface {
     signUp = async (details: {
-        user: profileType
+        user: authUserType
         password: string
     }): Promise<promiseType> => {
         try {
             const response = await auth().createUserWithEmailAndPassword(
-                details.user.emailAddress,
+                details.user.profile.emailAddress,
                 details.password
             )
 
             if (response.user) {
+                await firestore()
+                    .collection('users')
+                    .doc(details.user.profile.userId)
+                    .set(details.user)
+
                 return { status: requestStatus.SUCCESS }
             } else {
                 return { status: requestStatus.ERROR }
             }
         } catch (error: Object | any) {
+            console.log('error: ', error)
             return { status: requestStatus.ERROR, errorCode: error.code }
         }
     }

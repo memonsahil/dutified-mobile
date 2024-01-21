@@ -1,13 +1,13 @@
 import categories from '../../enums/categories'
 import jobType from '../types/jobType'
-import profileType from '../types/profileType'
 import projectType from '../types/projectType'
 import agreementAction from '../../enums/agreementAction'
 import promiseType from '../types/promiseType'
+import authUserType from '../types/authUserType'
 
 export default interface AuthUserInterface {
     signUp: (details: {
-        user: profileType
+        user: authUserType
         password: string
     }) => Promise<promiseType>
     signIn: (details: {
