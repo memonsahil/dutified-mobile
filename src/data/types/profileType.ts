@@ -1,5 +1,3 @@
-import categories from '../../enums/categories'
-
 type profileType = {
     userId: string
     firstName: string
@@ -7,7 +5,7 @@ type profileType = {
     profilePicture?: string
     bio?: string
     ratePerDay?: string
-    interests?: categories[]
+    interests?: string[]
     links?: string[]
     countryCode: string
     phoneNumber: string
