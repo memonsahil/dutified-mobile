@@ -17,6 +17,7 @@ import screens from '../params/screens'
 import requestStatus from '../../enums/requestStatus'
 import authUser from '../../data/classes/authUser'
 import * as Crypto from 'expo-crypto'
+import promiseType from '../../data/types/promiseType'
 
 const SignUpScreen = () => {
     const [first, setFirst] = useState<string>('')
@@ -134,91 +135,95 @@ const SignUpScreen = () => {
                                             countryCode: code,
                                             phoneNumber: phone,
                                             emailAddress: email,
+                                            onboarded: false,
                                         },
                                         password: password,
                                     })
-                                    .then(() => {
-                                        setLoading(false)
-                                        navigation.navigate('Onboarding')
-                                    })
-                                    .catch((error) => {
+                                    .then((response: promiseType) => {
                                         setLoading(false)
 
                                         if (
-                                            error.status ===
-                                                requestStatus.ERROR &&
-                                            error.errorCode ===
-                                                'auth/email-already-in-use'
+                                            response.status ===
+                                            requestStatus.SUCCESS
                                         ) {
-                                            Alert.alert(
-                                                'Account Exists',
-                                                'An account already exists with this email address.',
-                                                [
-                                                    {
-                                                        text: 'Dismiss',
-                                                        onPress: () => {},
-                                                    },
-                                                ]
-                                            )
-                                        } else if (
-                                            error.status ===
-                                                requestStatus.ERROR &&
-                                            error.errorCode ===
-                                                'auth/invalid-email'
-                                        ) {
-                                            Alert.alert(
-                                                'Invalid Email',
-                                                'Please enter a valid email address.',
-                                                [
-                                                    {
-                                                        text: 'Dismiss',
-                                                        onPress: () => {},
-                                                    },
-                                                ]
-                                            )
-                                        } else if (
-                                            error.status ===
-                                                requestStatus.ERROR &&
-                                            error.errorCode ===
-                                                'auth/operation-not-allowed'
-                                        ) {
-                                            Alert.alert(
-                                                'Operation Not Allowed',
-                                                'Please contact our support team.',
-                                                [
-                                                    {
-                                                        text: 'Dismiss',
-                                                        onPress: () => {},
-                                                    },
-                                                ]
-                                            )
-                                        } else if (
-                                            error.status ===
-                                                requestStatus.ERROR &&
-                                            error.errorCode ===
-                                                'auth/weak-password'
-                                        ) {
-                                            Alert.alert(
-                                                'Weak Password',
-                                                'Please enter a strong password.',
-                                                [
-                                                    {
-                                                        text: 'Dismiss',
-                                                        onPress: () => {},
-                                                    },
-                                                ]
-                                            )
+                                            navigation.navigate('Onboarding')
                                         } else {
-                                            Alert.alert(
-                                                'Error Occurred',
-                                                'Please contact our support team.',
-                                                [
-                                                    {
-                                                        text: 'Dismiss',
-                                                        onPress: () => {},
-                                                    },
-                                                ]
-                                            )
+                                            if (
+                                                response.status ===
+                                                    requestStatus.ERROR &&
+                                                response.errorCode ===
+                                                    'auth/email-already-in-use'
+                                            ) {
+                                                Alert.alert(
+                                                    'Account Exists',
+                                                    'An account already exists with this email address.',
+                                                    [
+                                                        {
+                                                            text: 'Dismiss',
+                                                            onPress: () => {},
+                                                        },
+                                                    ]
+                                                )
+                                            } else if (
+                                                response.status ===
+                                                    requestStatus.ERROR &&
+                                                response.errorCode ===
+                                                    'auth/invalid-email'
+                                            ) {
+                                                Alert.alert(
+                                                    'Invalid Email',
+                                                    'Please enter a valid email address.',
+                                                    [
+                                                        {
+                                                            text: 'Dismiss',
+                                                            onPress: () => {},
+                                                        },
+                                                    ]
+                                                )
+                                            } else if (
+                                                response.status ===
+                                                    requestStatus.ERROR &&
+                                                response.errorCode ===
+                                                    'auth/operation-not-allowed'
+                                            ) {
+                                                Alert.alert(
+                                                    'Operation Not Allowed',
+                                                    'Please contact our support team.',
+                                                    [
+                                                        {
+                                                            text: 'Dismiss',
+                                                            onPress: () => {},
+                                                        },
+                                                    ]
+                                                )
+                                            } else if (
+                                                response.status ===
+                                                    requestStatus.ERROR &&
+                                                response.errorCode ===
+                                                    'auth/weak-password'
+                                            ) {
+                                                Alert.alert(
+                                                    'Weak Password',
+                                                    'Please enter a strong password.',
+                                                    [
+                                                        {
+                                                            text: 'Dismiss',
+                                                            onPress: () => {},
+                                                        },
+                                                    ]
+                                                )
+                                            } else {
+                                                Alert.alert(
+                                                    'Error Occurred',
+                                                    'Please contact our support team.',
+                                                    [
+                                                        {
+                                                            text: 'Dismiss',
+                                                            onPress: () => {},
+                                                        },
+                                                    ]
+                                                )
+                                            }
                                         }
                                     })
                             } else {

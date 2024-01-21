@@ -25,29 +25,8 @@ class AuthUser implements AuthUserInterface {
             } else {
                 return { status: requestStatus.ERROR }
             }
-        } catch (error: FirebaseAuthTypes.NativeFirebaseAuthError | any) {
-            let errorCode = ''
-
-            if (error.code) {
-                switch (error.code) {
-                    case 'auth/email-already-in-use':
-                        errorCode = error.code
-                        break
-                    case 'auth/invalid-email':
-                        errorCode = error.code
-                        break
-                    case 'auth/operation-not-allowed':
-                        errorCode = error.code
-                        break
-                    case 'auth/weak-password':
-                        errorCode = error.code
-                        break
-                    default:
-                        errorCode = error.code
-                        break
-                }
-            }
-            return { status: requestStatus.ERROR, errorCode }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
         }
     }
 
@@ -70,22 +49,22 @@ class AuthUser implements AuthUserInterface {
         } catch (error: FirebaseAuthTypes.NativeFirebaseAuthError | any) {
             let errorCode = ''
 
-            if (error.code) {
-                switch (error.code) {
+            if (error) {
+                switch (error) {
                     case 'auth/invalid-email':
-                        errorCode = error.code
+                        errorCode = error
                         break
                     case 'auth/user-disabled':
-                        errorCode = error.code
+                        errorCode = error
                         break
                     case 'auth/user-not-found':
-                        errorCode = error.code
+                        errorCode = error
                         break
                     case 'auth/wrong-password':
-                        errorCode = error.code
+                        errorCode = error
                         break
                     default:
-                        errorCode = error.code
+                        errorCode = error
                         break
                 }
             }
@@ -103,18 +82,23 @@ class AuthUser implements AuthUserInterface {
         } catch (error: FirebaseAuthTypes.NativeFirebaseAuthError | any) {
             let errorCode = ''
 
-            if (error.code) {
-                switch (error.code) {
+            if (error) {
+                switch (error) {
                     case 'auth/no-current-user':
-                        errorCode = error.code
+                        errorCode = error
                         break
                     default:
-                        errorCode = error.code
+                        errorCode = error
                         break
                 }
             }
             return { status: requestStatus.ERROR, errorCode }
         }
+    }
+
+    setOnboarded = async (): Promise<promiseType> => {
+        // Implement set onboarded logic here
+        return { status: requestStatus.SUCCESS }
     }
 
     getAuthUser = async (details: {
