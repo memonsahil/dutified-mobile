@@ -275,10 +275,10 @@ const App = () => {
         return subscriber
     }, [])
 
-    if (!fontsLoaded) {
+    if (!fontsLoaded || initializing) {
         return null
     } else {
-        return initializing ? null : (
+        return (
             <NavigationContainer>
                 <StatusBar style="inverted" />
                 {!signedIn ? <AuthStackNavigator /> : <MainStackNavigator />}
