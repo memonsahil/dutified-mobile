@@ -12,6 +12,7 @@ type profileType = {
     countryCode: string
     phoneNumber: string
     emailAddress: string
+    onboarded: boolean
 }
 
 export default profileType

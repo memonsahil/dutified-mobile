@@ -46,28 +46,7 @@ class AuthUser implements AuthUserInterface {
                 }
             }
         } catch (error: Object | any) {
-            let errorCode = ''
-
-            if (error) {
-                switch (error) {
-                    case 'auth/invalid-email':
-                        errorCode = error
-                        break
-                    case 'auth/user-disabled':
-                        errorCode = error
-                        break
-                    case 'auth/user-not-found':
-                        errorCode = error
-                        break
-                    case 'auth/wrong-password':
-                        errorCode = error
-                        break
-                    default:
-                        errorCode = error
-                        break
-                }
-            }
-            return { status: requestStatus.ERROR, errorCode }
+            return { status: requestStatus.ERROR, errorCode: error.code }
         }
     }
 
@@ -80,7 +59,9 @@ class AuthUser implements AuthUserInterface {
         }
     }
 
-    setOnboarded = async (): Promise<promiseType> => {
+    setOnboarded = async (details: {
+        onBoarded: boolean
+    }): Promise<promiseType> => {
         // Implement set onboarded logic here
         return { status: requestStatus.SUCCESS }
     }
