@@ -16,7 +16,7 @@ export default interface AuthUserInterface {
     }) => Promise<promiseType>
     getAuthUser: (details: { userId: string }) => Promise<promiseType>
     signOut: () => Promise<promiseType>
-    setOnboarded: () => Promise<promiseType>
+    setOnboarded: (details: { onBoarded: boolean }) => Promise<promiseType>
     setProfilePicture: (details: {
         profilePicture: string
     }) => Promise<promiseType>
