@@ -18,11 +18,11 @@ import JobCard from '../cards/jobCard'
 import jobCardProps from '../props/jobCardProps'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import selection from '../../enums/selection'
-import globalStore from '../../state/stores/globalStore'
+import utilStore from '../../state/stores/utilStore'
 
 const AgreementModal = (props: agreementModalProps) => {
     const [updatedAmount, setUpdatedAmount] = useState<string>('')
-    const { selectedJob, setSelectedJob } = globalStore((state) => state)
+    const { selectedJob, setSelectedJob } = utilStore((state) => state)
 
     useEffect(() => {
         setUpdatedAmount(selectedJob?.payment!)

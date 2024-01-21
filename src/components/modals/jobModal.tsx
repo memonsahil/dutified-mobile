@@ -11,7 +11,7 @@ import fontSizes from '../../enums/fontSizes'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { useState } from 'react'
 import jobModalProps from '../props/jobModalProps'
-import globalStore from '../../state/stores/globalStore'
+import utilStore from '../../state/stores/utilStore'
 import jobStatus from '../../enums/jobStatus'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import screens from '../../screens/params/screens'
@@ -33,7 +33,7 @@ const JobModal = (props: jobModalProps) => {
     const [loading, setLoading] = useState<boolean>(false)
     const currentUser = 'First Last'
 
-    const { setShowAgreementModal, setShowJobModal } = globalStore(
+    const { setShowAgreementModal, setShowJobModal } = utilStore(
         (state) => state
     )
 

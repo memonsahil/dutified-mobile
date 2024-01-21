@@ -3,13 +3,13 @@ import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import projectCardProps from '../props/projectCardProps'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import globalStore from '../../state/stores/globalStore'
+import utilStore from '../../state/stores/utilStore'
 import attachment from '../../enums/attachment'
 import { NavigationProp, useNavigation } from '@react-navigation/native'
 import screens from '../../screens/params/screens'
 
 const ProjectCard = (props: projectCardProps) => {
-    const { setSelectedAttachments, selectedAttachments } = globalStore(
+    const { setSelectedAttachments, selectedAttachments } = utilStore(
         (state) => state
     )
 

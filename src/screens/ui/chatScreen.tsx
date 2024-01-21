@@ -25,7 +25,7 @@ import chatScreenProps from '../props/chatScreenProps'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import AgreementModal from '../../components/modals/agreementModal'
 import JobModal from '../../components/modals/jobModal'
-import globalStore from '../../state/stores/globalStore'
+import utilStore from '../../state/stores/utilStore'
 
 const ChatScreen = ({ route }: chatScreenProps) => {
     const { userId } = route.params
@@ -42,7 +42,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
         setShowAgreementModal,
         showJobModal,
         setShowJobModal,
-    } = globalStore((state) => state)
+    } = utilStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 

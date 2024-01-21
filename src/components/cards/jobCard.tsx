@@ -3,7 +3,7 @@ import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import jobCardProps from '../props/jobCardProps'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import globalStore from '../../state/stores/globalStore'
+import utilStore from '../../state/stores/utilStore'
 import attachment from '../../enums/attachment'
 import { NavigationProp, useNavigation } from '@react-navigation/native'
 import screens from '../../screens/params/screens'
@@ -16,7 +16,7 @@ const JobCard = (props: jobCardProps) => {
         setShowAgreementModal,
         setShowJobModal,
         setSelectedJob,
-    } = globalStore((state) => state)
+    } = utilStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 

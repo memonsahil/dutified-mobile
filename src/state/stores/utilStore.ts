@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import globalStoreType from '../types/globalStoreType'
+import utilStoreType from '../types/utilStoreType'
 
 const initialState = {
     selectedAttachments: [],
@@ -8,7 +8,7 @@ const initialState = {
     selectedJob: null,
 }
 
-const globalStore = create<globalStoreType>()((set) => ({
+const utilStore = create<utilStoreType>()((set) => ({
     ...initialState,
     setSelectedAttachments: (attachments) =>
         set(() => ({ selectedAttachments: attachments })),
@@ -17,4 +17,4 @@ const globalStore = create<globalStoreType>()((set) => ({
     setSelectedJob: (job) => set(() => ({ selectedJob: job })),
 }))
 
-export default globalStore
+export default utilStore

@@ -1,7 +1,7 @@
 import jobCardProps from '../../components/props/jobCardProps'
 import attachmentType from '../../data/types/attachmentType'
 
-type globalStoreType = {
+type utilStoreType = {
     selectedAttachments: attachmentType[]
     showAgreementModal: boolean
     showJobModal: boolean
@@ -12,4 +12,4 @@ type globalStoreType = {
     setSelectedJob: (job: jobCardProps | null) => void
 }
 
-export default globalStoreType
+export default utilStoreType

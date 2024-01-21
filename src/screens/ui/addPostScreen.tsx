@@ -17,13 +17,13 @@ import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import attachment from '../../enums/attachment'
-import globalStore from '../../state/stores/globalStore'
+import utilStore from '../../state/stores/utilStore'
 
 const AddPostScreen = () => {
     const [desc, setDesc] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
-    const { selectedAttachments, setSelectedAttachments } = globalStore(
+    const { selectedAttachments, setSelectedAttachments } = utilStore(
         (state) => state
     )
 
