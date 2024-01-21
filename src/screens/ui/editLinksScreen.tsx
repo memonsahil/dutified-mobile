@@ -56,6 +56,7 @@ const EditLinksScreen = () => {
                                 autoCapitalize="none"
                                 autoComplete="off"
                                 autoCorrect={false}
+                                inputMode="url"
                             />
                         </View>
                         <TouchableOpacity

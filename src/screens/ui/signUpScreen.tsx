@@ -265,6 +265,7 @@ const SignUpScreen = () => {
                             autoCapitalize="none"
                             autoComplete="off"
                             autoCorrect={false}
+                            inputMode="url"
                         />
                         <TouchableOpacity
                             style={styles.buttonWrapper}
