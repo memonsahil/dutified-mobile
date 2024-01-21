@@ -111,8 +111,8 @@ const SignInScreen = () => {
                                                     'auth/invalid-credential'
                                             ) {
                                                 Alert.alert(
-                                                    'Invalid Credential',
-                                                    'Please check your details again.',
+                                                    'Invalid Details',
+                                                    'Please check your credential again.',
                                                     [
                                                         {
                                                             text: 'Dismiss',
@@ -137,7 +137,7 @@ const SignInScreen = () => {
                             } else {
                                 Alert.alert(
                                     'Missing Details',
-                                    'Please enter all of your details before signing in.',
+                                    'Please enter your credential before signing in.',
                                     [
                                         {
                                             text: 'Dismiss',

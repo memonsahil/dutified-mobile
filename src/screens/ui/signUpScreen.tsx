@@ -533,7 +533,7 @@ const SignUpScreen = () => {
                             } else {
                                 Alert.alert(
                                     'Missing Details',
-                                    'Please enter all of your details before signing up.',
+                                    'Please enter all of your account details before signing up.',
                                     [
                                         {
                                             text: 'Dismiss',
