@@ -408,6 +408,10 @@ const SignUpScreen = () => {
                                 ))}
                             </>
                         ) : null}
+                        <Text style={styles.text}>
+                            "Pleasure in the job puts perfection in the work." -
+                            Aristotle
+                        </Text>
                     </View>
                     <TouchableOpacity
                         onPress={() => {
