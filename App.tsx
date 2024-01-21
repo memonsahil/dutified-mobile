@@ -247,6 +247,7 @@ const App = () => {
     const [fontsLoaded] = useFonts({
         'IBMPlexSansCondensed-Bold': require('./assets/fonts/IBMPlexSansCondensed-Bold.ttf'),
         'IBMPlexSansCondensed-Medium': require('./assets/fonts/IBMPlexSansCondensed-Medium.ttf'),
+        'Borel-Regular': require('./assets/fonts/Borel-Regular.ttf'),
     })
 
     const [initializing, setInitializing] = useState<boolean>(true)

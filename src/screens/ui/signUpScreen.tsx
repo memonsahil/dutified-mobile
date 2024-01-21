@@ -255,6 +255,79 @@ const SignUpScreen = () => {
                                 inputMode="decimal"
                             />
                         </View>
+                        <Text style={styles.field}>Links</Text>
+                        <TextInput
+                            placeholder="Link"
+                            value={link}
+                            onChangeText={setLink}
+                            style={styles.input}
+                            placeholderTextColor={themeColors.SILVER}
+                            autoCapitalize="none"
+                            autoComplete="off"
+                            autoCorrect={false}
+                        />
+                        <TouchableOpacity
+                            style={styles.buttonWrapper}
+                            onPress={() => {
+                                link !== ''
+                                    ? (setLinks([
+                                          ...links,
+                                          link.includes('http')
+                                              ? link
+                                              : `https://${link}`,
+                                      ]),
+                                      setLink(''))
+                                    : null
+                            }}
+                        >
+                            <MaterialCommunityIcons
+                                name="link-plus"
+                                size={26}
+                                color={themeColors.YELLOW_GREEN}
+                                style={styles.iconButton}
+                            />
+                            <Text style={styles.button}>Add</Text>
+                        </TouchableOpacity>
+                        {links.length !== 0 ? (
+                            <>
+                                {Object.values(links).map((link) => (
+                                    <View
+                                        key={Crypto.randomUUID()}
+                                        style={styles.linkContainer}
+                                    >
+                                        <TouchableOpacity
+                                            onPress={() =>
+                                                Linking.openURL(link)
+                                            }
+                                        >
+                                            <Text
+                                                style={styles.link}
+                                                numberOfLines={1}
+                                                ellipsizeMode="tail"
+                                            >
+                                                {link}
+                                            </Text>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity
+                                            onPress={() => {
+                                                setLinks(
+                                                    links.filter(
+                                                        (_link) =>
+                                                            _link !== link
+                                                    )
+                                                )
+                                            }}
+                                        >
+                                            <MaterialCommunityIcons
+                                                name="close-circle"
+                                                size={26}
+                                                color={themeColors.YELLOW_GREEN}
+                                            />
+                                        </TouchableOpacity>
+                                    </View>
+                                ))}
+                            </>
+                        ) : null}
                         <Text style={styles.field}>Interests</Text>
                         <TextInput
                             placeholder="Web Development"
@@ -333,79 +406,6 @@ const SignUpScreen = () => {
                                         </View>
                                     )
                                 )}
-                            </>
-                        ) : null}
-                        <Text style={styles.field}>Links</Text>
-                        <TextInput
-                            placeholder="Link"
-                            value={link}
-                            onChangeText={setLink}
-                            style={styles.input}
-                            placeholderTextColor={themeColors.SILVER}
-                            autoCapitalize="none"
-                            autoComplete="off"
-                            autoCorrect={false}
-                        />
-                        <TouchableOpacity
-                            style={styles.buttonWrapper}
-                            onPress={() => {
-                                link !== ''
-                                    ? (setLinks([
-                                          ...links,
-                                          link.includes('http')
-                                              ? link
-                                              : `https://${link}`,
-                                      ]),
-                                      setLink(''))
-                                    : null
-                            }}
-                        >
-                            <MaterialCommunityIcons
-                                name="link-plus"
-                                size={26}
-                                color={themeColors.YELLOW_GREEN}
-                                style={styles.iconButton}
-                            />
-                            <Text style={styles.button}>Add</Text>
-                        </TouchableOpacity>
-                        {links.length !== 0 ? (
-                            <>
-                                {Object.values(links).map((link) => (
-                                    <View
-                                        key={Crypto.randomUUID()}
-                                        style={styles.linkContainer}
-                                    >
-                                        <TouchableOpacity
-                                            onPress={() =>
-                                                Linking.openURL(link)
-                                            }
-                                        >
-                                            <Text
-                                                style={styles.link}
-                                                numberOfLines={1}
-                                                ellipsizeMode="tail"
-                                            >
-                                                {link}
-                                            </Text>
-                                        </TouchableOpacity>
-                                        <TouchableOpacity
-                                            onPress={() => {
-                                                setLinks(
-                                                    links.filter(
-                                                        (_link) =>
-                                                            _link !== link
-                                                    )
-                                                )
-                                            }}
-                                        >
-                                            <MaterialCommunityIcons
-                                                name="close-circle"
-                                                size={26}
-                                                color={themeColors.YELLOW_GREEN}
-                                            />
-                                        </TouchableOpacity>
-                                    </View>
-                                ))}
                             </>
                         ) : null}
                         <Text style={styles.quote}>
@@ -785,10 +785,10 @@ const styles = StyleSheet.create({
         width: 275,
     },
     quote: {
-        fontFamily: 'IBMPlexSansCondensed-Medium',
+        fontFamily: 'Borel-Regular',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.WHITE,
-        paddingTop: '15%',
+        color: themeColors.YELLOW_GREEN,
+        paddingTop: '20%',
     },
     textContainer: {
         flexDirection: 'row',
