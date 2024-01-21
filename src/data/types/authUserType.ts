@@ -9,7 +9,7 @@ import metaDataType from './metaDataType'
 
 type authUserType = {
     profile: profileType
-    paymentDetails: paymentType
+    paymentDetails?: paymentType
     projectsCreated: projectType[]
     jobsCreated: jobType[]
     projectsWorked: projectType[]
