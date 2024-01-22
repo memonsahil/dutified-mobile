@@ -52,7 +52,10 @@ import mainNavigatorParamList from './src/screens/params/mainNavigatorParamList'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from './src/enums/themeColors'
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
-import utilStore from './src/state/stores/utilStore'
+import authStore from './src/state/stores/authStore'
+import authUser from './src/data/classes/authUser'
+import promiseType from './src/data/types/promiseType'
+import requestStatus from './src/enums/requestStatus'
 
 SplashScreen.preventAutoHideAsync()
 
@@ -250,9 +253,10 @@ const App = () => {
         'Borel-Regular': require('./assets/fonts/Borel-Regular.ttf'),
     })
 
+    const [userId, setUserId] = useState<string>('')
     const [initializing, setInitializing] = useState<boolean>(true)
 
-    const { signedIn, setSignedIn } = utilStore((state) => state)
+    const { currentUser, setCurrentUser } = authStore((state) => state)
 
     const hideSplashScreen = async () => {
         if (fontsLoaded) {
@@ -261,13 +265,29 @@ const App = () => {
     }
 
     const onAuthStateChanged = (user: FirebaseAuthTypes.User | null) => {
-        user ? setSignedIn(true) : setSignedIn(false)
+        user ? setUserId(user.uid) : setUserId('')
         if (initializing) setInitializing(false)
     }
 
     useEffect(() => {
         hideSplashScreen()
     }, [fontsLoaded])
+
+    useEffect(() => {
+        userId !== ''
+            ? authUser
+                  .getAuthUser({ userId: userId })
+                  .then((response: promiseType) => {
+                      if (response.status === requestStatus.SUCCESS) {
+                          setCurrentUser(response.data)
+                      } else {
+                          setCurrentUser(null)
+                      }
+                  })
+            : setCurrentUser(null)
+    }, [userId])
+
+    //console.log('currentUser in App: ', currentUser)
 
     useEffect(() => {
         const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
@@ -280,7 +300,11 @@ const App = () => {
         return (
             <NavigationContainer>
                 <StatusBar style="inverted" />
-                {!signedIn ? <AuthStackNavigator /> : <MainStackNavigator />}
+                {userId === '' ? (
+                    <AuthStackNavigator />
+                ) : (
+                    <MainStackNavigator />
+                )}
             </NavigationContainer>
         )
     }

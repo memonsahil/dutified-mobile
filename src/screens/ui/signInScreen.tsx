@@ -17,11 +17,15 @@ import screens from '../params/screens'
 import requestStatus from '../../enums/requestStatus'
 import authUser from '../../data/classes/authUser'
 import promiseType from '../../data/types/promiseType'
+import authStore from '../../state/stores/authStore'
+import auth from '@react-native-firebase/auth'
 
 const SignInScreen = () => {
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
+
+    const { setCurrentUser } = authStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -72,28 +76,55 @@ const SignInScreen = () => {
                         onPress={() => {
                             if (email !== '' && password !== '') {
                                 setLoading(true)
-
                                 authUser
                                     .signIn({
                                         emailAddress: email,
                                         password: password,
                                     })
                                     .then((response: promiseType) => {
-                                        setLoading(false)
-
                                         if (
                                             response.status ===
                                             requestStatus.SUCCESS
                                         ) {
-                                            navigation.navigate('Dashboard')
+                                            authUser
+                                                .getAuthUser({
+                                                    userId: auth().currentUser
+                                                        ?.uid!,
+                                                })
+                                                .then(
+                                                    (response: promiseType) => {
+                                                        if (
+                                                            response.status ===
+                                                            requestStatus.SUCCESS
+                                                        ) {
+                                                            setCurrentUser(
+                                                                response.data
+                                                            )
+                                                            setLoading(false)
+                                                        } else {
+                                                            setLoading(false)
+                                                            Alert.alert(
+                                                                'Error Occurred',
+                                                                'Please contact our support team.',
+                                                                [
+                                                                    {
+                                                                        text: 'Dismiss',
+                                                                        onPress:
+                                                                            () => {},
+                                                                    },
+                                                                ]
+                                                            )
+                                                        }
+                                                    }
+                                                )
                                         } else {
-                                            console.log(response.errorCode)
                                             if (
                                                 response.status ===
                                                     requestStatus.ERROR &&
                                                 response.errorCode ===
                                                     'auth/invalid-email'
                                             ) {
+                                                setLoading(false)
                                                 Alert.alert(
                                                     'Invalid Email',
                                                     'Please enter a valid email address.',
@@ -110,6 +141,7 @@ const SignInScreen = () => {
                                                 response.errorCode ===
                                                     'auth/invalid-credential'
                                             ) {
+                                                setLoading(false)
                                                 Alert.alert(
                                                     'Invalid Details',
                                                     'Please check your credential again.',
@@ -121,6 +153,7 @@ const SignInScreen = () => {
                                                     ]
                                                 )
                                             } else {
+                                                setLoading(false)
                                                 Alert.alert(
                                                     'Error Occurred',
                                                     'Please contact our support team.',

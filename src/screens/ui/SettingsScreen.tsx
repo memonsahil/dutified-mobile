@@ -16,7 +16,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import authUser from '../../data/classes/authUser'
 import requestStatus from '../../enums/requestStatus'
 import promiseType from '../../data/types/promiseType'
-import utilStore from '../../state/stores/utilStore'
+import authStore from '../../state/stores/authStore'
 
 const SettingsScreen = () => {
     const [switchColumn, setSwitchColumn] = useState<
@@ -24,7 +24,7 @@ const SettingsScreen = () => {
     >('Profile')
     const [loading, setLoading] = useState<boolean>(false)
 
-    const { setSignedIn } = utilStore((state) => state)
+    const { setCurrentUser } = authStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -245,19 +245,17 @@ const SettingsScreen = () => {
                             <TouchableOpacity
                                 onPress={() => {
                                     setLoading(true)
-
                                     authUser
                                         .signOut()
                                         .then((response: promiseType) => {
-                                            setLoading(false)
-
                                             if (
                                                 response.status ===
                                                 requestStatus.SUCCESS
                                             ) {
-                                                setSignedIn(false)
-                                                navigation.navigate('Main')
+                                                setCurrentUser(null)
+                                                setLoading(false)
                                             } else {
+                                                setLoading(false)
                                                 Alert.alert(
                                                     'Error Occurred',
                                                     'Please contact our support team.',

@@ -20,7 +20,6 @@ import requestStatus from '../../enums/requestStatus'
 import authUser from '../../data/classes/authUser'
 import * as Crypto from 'expo-crypto'
 import promiseType from '../../data/types/promiseType'
-import utilStore from '../../state/stores/utilStore'
 import { Avatar } from 'react-native-elements'
 import {
     ImageResult,
@@ -29,9 +28,11 @@ import {
 } from 'expo-image-manipulator'
 import categories from '../../enums/categories'
 import * as ImagePicker from 'expo-image-picker'
+import authStore from '../../state/stores/authStore'
 
 const SignUpScreen = () => {
     let formattedImage: ImageResult
+    const userId = Crypto.randomUUID()
 
     const [first, setFirst] = useState<string>('')
     const [last, setLast] = useState<string>('')
@@ -50,7 +51,7 @@ const SignUpScreen = () => {
     const [link, setLink] = useState<string>('')
     const [links, setLinks] = useState<string[]>([])
 
-    const { setSignedIn } = utilStore((state) => state)
+    const { setCurrentUser } = authStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -425,12 +426,11 @@ const SignUpScreen = () => {
                                 password != ''
                             ) {
                                 setLoading(true)
-
                                 authUser
                                     .signUp({
                                         user: {
                                             profile: {
-                                                userId: Crypto.randomUUID(),
+                                                userId: userId,
                                                 firstName: first,
                                                 lastName: last,
                                                 countryCode: code,
@@ -459,14 +459,40 @@ const SignUpScreen = () => {
                                         password: password,
                                     })
                                     .then((response: promiseType) => {
-                                        setLoading(false)
-
                                         if (
                                             response.status ===
                                             requestStatus.SUCCESS
                                         ) {
-                                            setSignedIn(true)
-                                            navigation.navigate('Dashboard')
+                                            setCurrentUser({
+                                                profile: {
+                                                    userId: userId,
+                                                    firstName: first,
+                                                    lastName: last,
+                                                    countryCode: code,
+                                                    phoneNumber: phone,
+                                                    emailAddress: email,
+                                                    profilePicture: image,
+                                                    bio: desc,
+                                                    ratePerDay: paymentAmount,
+                                                    interests:
+                                                        selectedCategories,
+                                                    links: links,
+                                                },
+                                                projectsCreated: [],
+                                                projectsWorked: [],
+                                                jobsCreated: [],
+                                                jobsWorked: [],
+                                                feedbacks: [],
+                                                transactions: [],
+                                                chats: [],
+                                                metaData: {
+                                                    creationDate: new Date(),
+                                                    lastLoginDate: new Date(),
+                                                    lastLogoutDate: null,
+                                                    lastTransactionDate: null,
+                                                },
+                                            })
+                                            setLoading(false)
                                         } else {
                                             if (
                                                 response.status ===
@@ -474,6 +500,7 @@ const SignUpScreen = () => {
                                                 response.errorCode ===
                                                     'auth/email-already-in-use'
                                             ) {
+                                                setLoading(false)
                                                 Alert.alert(
                                                     'Account Exists',
                                                     'An account already exists with this email address.',
@@ -490,6 +517,7 @@ const SignUpScreen = () => {
                                                 response.errorCode ===
                                                     'auth/invalid-email'
                                             ) {
+                                                setLoading(false)
                                                 Alert.alert(
                                                     'Invalid Email',
                                                     'Please enter a valid email address.',
@@ -506,6 +534,8 @@ const SignUpScreen = () => {
                                                 response.errorCode ===
                                                     'auth/weak-password'
                                             ) {
+                                                setLoading(false)
+
                                                 Alert.alert(
                                                     'Weak Password',
                                                     'Please enter a strong password.',
@@ -517,6 +547,7 @@ const SignUpScreen = () => {
                                                     ]
                                                 )
                                             } else {
+                                                setLoading(false)
                                                 Alert.alert(
                                                     'Error Occurred',
                                                     'Please contact our support team.',
