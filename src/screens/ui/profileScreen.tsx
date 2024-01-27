@@ -25,6 +25,7 @@ import attachment from '../../enums/attachment'
 import selection from '../../enums/selection'
 import authStore from '../../state/stores/authStore'
 import feedbackType from '../../data/types/feedbackType'
+import linkType from '../../data/types/linkType'
 
 const ProfileScreen = () => {
     const navigation: NavigationProp<screens> = useNavigation()
@@ -222,6 +223,30 @@ const ProfileScreen = () => {
             feedbackDate: '2021-01-01',
         },
     ]
+    const interests: Array<categories> = [
+        categories.ACCOUNTING,
+        categories.ADVERTISING,
+        categories.ANIMATION,
+        categories.APP_DEVELOPMENT,
+    ]
+    const links: Array<linkType> = [
+        {
+            id: '1',
+            url: 'https://www.linkedin.com/xyz/123456789112233445566',
+        },
+        {
+            id: '2',
+            url: 'https://www.github.com/xyz',
+        },
+        {
+            id: '3',
+            url: 'https://www.x.com/xyz',
+        },
+        {
+            id: '4',
+            url: 'https://www.instagram.com/xyz',
+        },
+    ]
 
     const avgRating = (feedbacks: feedbackType[]) =>
         Math.round(
@@ -329,34 +354,10 @@ const ProfileScreen = () => {
                 </View>
                 {switchColumn === 'Details' ? (
                     <UserDetailsCard
-                        description="lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget quam aliquam tincidunt. Nulla facilisi."
-                        interests={[
-                            categories.ACCOUNTING,
-                            categories.ADVERTISING,
-                            categories.ANIMATION,
-                            categories.ARTIFICAL_INTELLIGENCE,
-                            categories.BUSINESS_PROJECT_MANAGEMENT,
-                            categories.TRADING_SOFTWARE_DEVELOPMENT,
-                        ]}
-                        dailyRate="50"
-                        links={[
-                            {
-                                id: '1',
-                                url: 'https://www.linkedin.com/xyz/123456789112233445566',
-                            },
-                            {
-                                id: '2',
-                                url: 'https://www.github.com/xyz',
-                            },
-                            {
-                                id: '3',
-                                url: 'https://www.x.com/xyz',
-                            },
-                            {
-                                id: '4',
-                                url: 'https://www.instagram.com/xyz',
-                            },
-                        ]}
+                        description={currentUser?.profile.bio!}
+                        interests={currentUser?.interests!}
+                        links={currentUser?.links!}
+                        dailyRate={currentUser?.dailyRate!}
                     />
                 ) : switchColumn === 'Posts' ? (
                     <>
