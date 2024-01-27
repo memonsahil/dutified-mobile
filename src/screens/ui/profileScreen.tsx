@@ -23,12 +23,17 @@ import projectCardProps from '../../components/props/projectCardProps'
 import ProjectCard from '../../components/cards/projectCard'
 import attachment from '../../enums/attachment'
 import selection from '../../enums/selection'
+import authStore from '../../state/stores/authStore'
+import feedbackType from '../../data/types/feedbackType'
 
 const ProfileScreen = () => {
     const navigation: NavigationProp<screens> = useNavigation()
     const [switchColumn, setSwitchColumn] = useState<
         'Details' | 'Posts' | 'Hired' | 'Created'
     >('Details')
+
+    const currentUser = authStore((state) => state.currentUser)
+
     const posts: Array<postCardProps> = [
         {
             postId: '1',
@@ -171,6 +176,60 @@ const ProfileScreen = () => {
             showPlus: selection.NONE,
         },
     ]
+    const feedbacks: Array<feedbackType> = [
+        {
+            feedbackId: '1',
+            userId: '1',
+            userName: 'Sahil Memon',
+            userImage: '',
+            feedbackTitle: 'Feedback Title',
+            feedback:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
+            rating: '5',
+            feedbackDate: '2021-01-01',
+        },
+        {
+            feedbackId: '2',
+            userId: '2',
+            userName: 'Sahil Memon',
+            userImage: '',
+            feedbackTitle: 'Feedback Title',
+            feedback:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
+            rating: '4',
+            feedbackDate: '2021-01-01',
+        },
+        {
+            feedbackId: '3',
+            userId: '3',
+            userName: 'Sahil Memon',
+            userImage: '',
+            feedbackTitle: 'Feedback Title',
+            feedback:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            rating: '4',
+            feedbackDate: '2021-01-01',
+        },
+        {
+            feedbackId: '4',
+            userId: '4',
+            userName: 'Sahil Memon',
+            userImage: '',
+            feedbackTitle: 'Feedback Title',
+            feedback:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            rating: '5',
+            feedbackDate: '2021-01-01',
+        },
+    ]
+
+    const avgRating = (feedbacks: feedbackType[]) =>
+        Math.round(
+            feedbacks.reduce(
+                (total, feedback) => total + parseInt(feedback.rating),
+                0
+            ) / feedbacks.length
+        ).toString()
 
     return (
         <View style={styles.container}>
@@ -199,13 +258,16 @@ const ProfileScreen = () => {
                     </View>
                 </View>
                 <UserCard
-                    first={'Sahil'}
-                    last={'Memon'}
-                    image={''}
-                    projectsCreated="4"
-                    jobsCreated="12"
-                    projectsWorked="6"
-                    jobsWorked="18"
+                    first={currentUser?.profile.firstName!}
+                    last={currentUser?.profile.lastName!}
+                    image={currentUser?.profile.profilePicture!}
+                    avgRating={avgRating(feedbacks)}
+                    projectsCreated={(currentUser?.projectsCreated
+                        .length)!.toString()}
+                    jobsCreated={(currentUser?.jobsCreated.length)!.toString()}
+                    projectsWorked={(currentUser?.projectsWorked
+                        .length)!.toString()}
+                    jobsWorked={(currentUser?.jobsWorked.length)!.toString()}
                 />
                 <View style={styles.buttonSection}>
                     <TouchableOpacity

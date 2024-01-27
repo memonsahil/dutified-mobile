@@ -28,29 +28,149 @@ const UserCard = (props: userCardProps) => {
             <Text style={styles.userName}>
                 {`${props.first} ${props.last}`}
             </Text>
-            <View style={styles.stars}>
-                <FontAwesome
-                    name="star"
-                    size={26}
-                    color={themeColors.YELLOW_GREEN}
-                />
-                <FontAwesome
-                    name="star"
-                    size={26}
-                    color={themeColors.YELLOW_GREEN}
-                />
-                <FontAwesome
-                    name="star"
-                    size={26}
-                    color={themeColors.YELLOW_GREEN}
-                />
-                <FontAwesome
-                    name="star"
-                    size={26}
-                    color={themeColors.YELLOW_GREEN}
-                />
-                <FontAwesome name="star" size={26} color={themeColors.SILVER} />
-            </View>
+            {parseInt(props.avgRating) === 1 ? (
+                <View style={styles.stars}>
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.YELLOW_GREEN}
+                    />
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.SILVER}
+                    />
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.SILVER}
+                    />
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.SILVER}
+                    />
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.SILVER}
+                    />
+                </View>
+            ) : parseInt(props.avgRating) === 2 ? (
+                <View style={styles.stars}>
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.YELLOW_GREEN}
+                    />
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.YELLOW_GREEN}
+                    />
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.SILVER}
+                    />
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.SILVER}
+                    />
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.SILVER}
+                    />
+                </View>
+            ) : parseInt(props.avgRating) === 3 ? (
+                <View style={styles.stars}>
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.YELLOW_GREEN}
+                    />
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.YELLOW_GREEN}
+                    />
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.YELLOW_GREEN}
+                    />
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.SILVER}
+                    />
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.SILVER}
+                    />
+                </View>
+            ) : parseInt(props.avgRating) === 4 ? (
+                <View style={styles.stars}>
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.YELLOW_GREEN}
+                    />
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.YELLOW_GREEN}
+                    />
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.YELLOW_GREEN}
+                    />
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.YELLOW_GREEN}
+                    />
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.SILVER}
+                    />
+                </View>
+            ) : parseInt(props.avgRating) === 5 ? (
+                <View style={styles.stars}>
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.YELLOW_GREEN}
+                    />
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.YELLOW_GREEN}
+                    />
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.YELLOW_GREEN}
+                    />
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.YELLOW_GREEN}
+                    />
+                    <FontAwesome
+                        name="star"
+                        size={26}
+                        color={themeColors.YELLOW_GREEN}
+                    />
+                </View>
+            ) : (
+                <Text style={styles.infoRight}>No Ratings Yet</Text>
+            )}
             <View style={styles.infoSection}>
                 <Text style={styles.infoLeft}>
                     {`Projects Created: ${props.projectsCreated}`}
@@ -89,14 +209,14 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.BLACK,
-        marginBottom: '5%',
         textAlign: 'center',
         paddingHorizontal: '5%',
     },
     stars: {
         flexDirection: 'row',
+        paddingTop: '5%',
         justifyContent: 'space-between',
-        width: '50%',
+        width: '45%',
     },
     infoSection: {
         flexDirection: 'row',
