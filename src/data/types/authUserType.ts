@@ -6,10 +6,15 @@ import feedbackType from './feedbackType'
 import transactionType from './transactionType'
 import profileType from './profileType'
 import metaDataType from './metaDataType'
+import categories from '../../enums/categories'
+import linkType from './linkType'
 
 type authUserType = {
     profile: profileType
     paymentDetails?: paymentType
+    interests: categories[]
+    links: linkType[]
+    dailyRate: string
     projectsCreated: projectType[]
     jobsCreated: jobType[]
     projectsWorked: projectType[]
