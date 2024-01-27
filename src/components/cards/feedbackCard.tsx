@@ -9,26 +9,25 @@ import {
 import { FontAwesome } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
-import feedbackCardProps from '../props/feedbackCardProps'
-import ratings from '../../enums/ratings'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { NavigationProp, useNavigation } from '@react-navigation/native'
 import { Avatar } from 'react-native-elements'
 import screens from '../../screens/params/screens'
 import { useState, useEffect } from 'react'
+import feedbackType from '../../data/types/feedbackType'
 
-const FeedbackCard = (props: feedbackCardProps) => {
+const FeedbackCard = (props: feedbackType) => {
     const [image, setImage] = useState<string>('')
 
     const navigation: NavigationProp<screens> = useNavigation()
 
     useEffect(() => {
-        props.userAvatar !== image ? setImage(props.userAvatar) : null
-    }, [props.userAvatar])
+        props.userImage !== image ? setImage(props.userImage) : null
+    }, [props.userImage])
 
     const renderStars = () => {
         switch (props.rating) {
-            case ratings.FIVE:
+            case '5':
                 return (
                     <>
                         <FontAwesome
@@ -58,7 +57,7 @@ const FeedbackCard = (props: feedbackCardProps) => {
                         />
                     </>
                 )
-            case ratings.FOUR:
+            case '4':
                 return (
                     <>
                         <FontAwesome
@@ -88,7 +87,7 @@ const FeedbackCard = (props: feedbackCardProps) => {
                         />
                     </>
                 )
-            case ratings.THREE:
+            case '3':
                 return (
                     <>
                         <FontAwesome
@@ -118,7 +117,7 @@ const FeedbackCard = (props: feedbackCardProps) => {
                         />
                     </>
                 )
-            case ratings.TWO:
+            case '2':
                 return (
                     <>
                         <FontAwesome
@@ -148,7 +147,7 @@ const FeedbackCard = (props: feedbackCardProps) => {
                         />
                     </>
                 )
-            case ratings.ONE:
+            case '1':
                 return (
                     <>
                         <FontAwesome

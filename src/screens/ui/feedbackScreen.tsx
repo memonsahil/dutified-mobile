@@ -11,53 +11,52 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
-import feedbackCardProps from '../../components/props/feedbackCardProps'
-import ratings from '../../enums/ratings'
+import feedbackType from '../../data/types/feedbackType'
 
 const FeedbackScreen = () => {
-    const feedbacks: feedbackCardProps[] = [
+    const feedbacks: feedbackType[] = [
         {
             feedbackId: '1',
             userId: '1',
             userName: 'Sahil Memon',
-            userAvatar: '',
+            userImage: '',
             feedbackTitle: 'Feedback Title',
             feedback:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            rating: ratings.FOUR,
+            rating: '4',
             feedbackDate: '2021-01-01',
         },
         {
             feedbackId: '2',
             userId: '2',
             userName: 'Sahil Memon',
-            userAvatar: '',
+            userImage: '',
             feedbackTitle: 'Feedback Title',
             feedback:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            rating: ratings.FOUR,
+            rating: '2',
             feedbackDate: '2021-01-01',
         },
         {
             feedbackId: '3',
             userId: '3',
             userName: 'Sahil Memon',
-            userAvatar: '',
+            userImage: '',
             feedbackTitle: 'Feedback Title',
             feedback:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            rating: ratings.FOUR,
+            rating: '3',
             feedbackDate: '2021-01-01',
         },
         {
             feedbackId: '4',
             userId: '4',
             userName: 'Sahil Memon',
-            userAvatar: '',
+            userImage: '',
             feedbackTitle: 'Feedback Title',
             feedback:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            rating: ratings.FOUR,
+            rating: '0',
             feedbackDate: '2021-01-01',
         },
     ]
@@ -85,7 +84,7 @@ const FeedbackScreen = () => {
                                     key={feedback.feedbackId}
                                     userId={feedback.userId}
                                     userName={feedback.userName}
-                                    userAvatar={feedback.userAvatar}
+                                    userImage={feedback.userImage}
                                     feedbackId={feedback.feedbackId}
                                     feedbackTitle={feedback.feedbackTitle}
                                     feedback={feedback.feedback}
