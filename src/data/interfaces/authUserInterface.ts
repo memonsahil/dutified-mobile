@@ -14,7 +14,7 @@ export default interface AuthUserInterface {
         emailAddress: string
         password: string
     }) => Promise<promiseType>
-    getAuthUser: (details: { userId: string }) => Promise<promiseType>
+    getAuthUser: () => Promise<promiseType>
     signOut: () => Promise<promiseType>
     setProfilePicture: (details: {
         profilePicture: string

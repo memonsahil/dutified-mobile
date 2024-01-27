@@ -23,7 +23,7 @@ class AuthUser implements AuthUserInterface {
             if (response.user) {
                 await firestore()
                     .collection('users')
-                    .doc(details.user.profile.userId)
+                    .doc(response.user.uid)
                     .set(details.user)
 
                 return { status: requestStatus.SUCCESS }
@@ -65,9 +65,24 @@ class AuthUser implements AuthUserInterface {
         }
     }
 
-    getAuthUser = async (details: { userId: string }): Promise<promiseType> => {
-        // Implement get user data logic here
-        return { status: requestStatus.SUCCESS }
+    getAuthUser = async (): Promise<promiseType> => {
+        try {
+            const response = await firestore()
+                .collection('users')
+                .doc(auth().currentUser?.uid)
+                .get()
+
+            if (response) {
+                return {
+                    status: requestStatus.SUCCESS,
+                    data: response.data(),
+                }
+            } else {
+                return { status: requestStatus.ERROR }
+            }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
     }
 
     setProfilePicture = async (details: {

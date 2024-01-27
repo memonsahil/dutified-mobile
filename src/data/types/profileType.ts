@@ -1,5 +1,5 @@
 type profileType = {
-    userId: string
+    userId?: string
     firstName: string
     lastName: string
     profilePicture?: string
