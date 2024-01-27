@@ -1,12 +1,11 @@
-import ratings from '../../enums/ratings'
-
 type feedbackType = {
     userId: string
     userName: string
+    userImage: string
     feedbackId: string
     feedbackTitle: string
     feedback: string
-    rating: ratings
+    rating: string
     feedbackDate: string
 }
 
