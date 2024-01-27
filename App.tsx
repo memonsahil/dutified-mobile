@@ -256,7 +256,7 @@ const App = () => {
     const [userId, setUserId] = useState<string>('')
     const [initializing, setInitializing] = useState<boolean>(true)
 
-    const { currentUser, setCurrentUser } = authStore((state) => state)
+    const { setCurrentUser } = authStore((state) => state)
 
     const hideSplashScreen = async () => {
         if (fontsLoaded) {
