@@ -275,19 +275,15 @@ const App = () => {
 
     useEffect(() => {
         userId !== ''
-            ? authUser
-                  .getAuthUser({ userId: userId })
-                  .then((response: promiseType) => {
-                      if (response.status === requestStatus.SUCCESS) {
-                          setCurrentUser(response.data)
-                      } else {
-                          setCurrentUser(null)
-                      }
-                  })
+            ? authUser.getAuthUser().then((response: promiseType) => {
+                  if (response.status === requestStatus.SUCCESS) {
+                      setCurrentUser(response.data)
+                  } else {
+                      setCurrentUser(null)
+                  }
+              })
             : setCurrentUser(null)
     }, [userId])
-
-    //console.log('currentUser in App: ', currentUser)
 
     useEffect(() => {
         const subscriber = auth().onAuthStateChanged(onAuthStateChanged)

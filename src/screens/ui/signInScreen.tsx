@@ -18,7 +18,6 @@ import requestStatus from '../../enums/requestStatus'
 import authUser from '../../data/classes/authUser'
 import promiseType from '../../data/types/promiseType'
 import authStore from '../../state/stores/authStore'
-import auth from '@react-native-firebase/auth'
 
 const SignInScreen = () => {
     const [email, setEmail] = useState<string>('')
@@ -87,10 +86,7 @@ const SignInScreen = () => {
                                             requestStatus.SUCCESS
                                         ) {
                                             authUser
-                                                .getAuthUser({
-                                                    userId: auth().currentUser
-                                                        ?.uid!,
-                                                })
+                                                .getAuthUser()
                                                 .then(
                                                     (response: promiseType) => {
                                                         if (

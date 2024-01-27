@@ -29,11 +29,11 @@ import {
 import categories from '../../enums/categories'
 import * as ImagePicker from 'expo-image-picker'
 import authStore from '../../state/stores/authStore'
+import auth from '@react-native-firebase/auth'
 
 const SignUpScreen = () => {
     let formattedImage: ImageResult
-    const userId = Crypto.randomUUID()
-
+    const today: Date = new Date()
     const [first, setFirst] = useState<string>('')
     const [last, setLast] = useState<string>('')
     const [code, setCode] = useState<string>('')
@@ -430,7 +430,6 @@ const SignUpScreen = () => {
                                     .signUp({
                                         user: {
                                             profile: {
-                                                userId: userId,
                                                 firstName: first,
                                                 lastName: last,
                                                 countryCode: code,
@@ -450,8 +449,8 @@ const SignUpScreen = () => {
                                             transactions: [],
                                             chats: [],
                                             metaData: {
-                                                creationDate: new Date(),
-                                                lastLoginDate: new Date(),
+                                                creationDate: today,
+                                                lastLoginDate: today,
                                                 lastLogoutDate: null,
                                                 lastTransactionDate: null,
                                             },
@@ -465,7 +464,8 @@ const SignUpScreen = () => {
                                         ) {
                                             setCurrentUser({
                                                 profile: {
-                                                    userId: userId,
+                                                    userId: auth().currentUser
+                                                        ?.uid,
                                                     firstName: first,
                                                     lastName: last,
                                                     countryCode: code,
@@ -486,8 +486,8 @@ const SignUpScreen = () => {
                                                 transactions: [],
                                                 chats: [],
                                                 metaData: {
-                                                    creationDate: new Date(),
-                                                    lastLoginDate: new Date(),
+                                                    creationDate: today,
+                                                    lastLoginDate: today,
                                                     lastLogoutDate: null,
                                                     lastTransactionDate: null,
                                                 },
