@@ -1,4 +1,5 @@
 import attachmentType from '../../data/types/attachmentType'
+import commentType from '../../data/types/commentType'
 
 type postCardProps = {
     postId: string
@@ -7,7 +8,7 @@ type postCardProps = {
     userName: string
     userAvatar: string
     date: string
-    comments: string
+    comments?: commentType[]
     attachments?: attachmentType[]
 }
 

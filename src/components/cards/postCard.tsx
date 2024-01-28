@@ -161,12 +161,20 @@ const PostCard = (props: postCardProps) => {
                         color={themeColors.YELLOW_GREEN}
                         style={styles.buttonIcon}
                     />
-                    <Text style={styles.button}>Comment (7)</Text>
+                    <Text style={styles.button}>
+                        Comment (
+                        {props.comments !== undefined &&
+                        props.comments?.length === 1
+                            ? '0'
+                            : props.comments?.length}
+                        )
+                    </Text>
                 </TouchableOpacity>
             </View>
             <CommentsModal
                 visible={modalVisible}
                 onClose={() => setModalVisible(false)}
+                comments={props.comments !== undefined ? props.comments : []}
             />
         </View>
     )

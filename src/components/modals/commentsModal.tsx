@@ -17,52 +17,7 @@ import * as Crypto from 'expo-crypto'
 
 const CommentsModal = (props: commentsModalProps) => {
     const [comment, setComment] = useState<string>('')
-    const [comments, setComments] = useState<Array<commentType>>([
-        {
-            userId: '1',
-            userName: 'John Doe',
-            commentId: '1',
-            comment:
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum deleniti, quisquam molestiae laboriosam facilis molestias asperiores nulla unde aliquid eligendi ex delectus odit soluta ipsa perspiciatis maxime tenetur enim voluptas!',
-        },
-        {
-            userId: '2',
-            userName: 'Jane Doe',
-            commentId: '2',
-            comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-        },
-        {
-            userId: '3',
-            userName: 'John Doe',
-            commentId: '3',
-            comment:
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum deleniti, quisquam molestiae laboriosam facilis molestias asperiores nulla unde aliquid eligendi ex delectus odit soluta ipsa perspiciatis maxime tenetur enim voluptas!',
-        },
-        {
-            userId: '4',
-            userName: 'Jane Doe',
-            commentId: '4',
-            comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-        },
-        {
-            userId: '5',
-            userName: 'John Doe',
-            commentId: '5',
-            comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-        },
-        {
-            userId: '6',
-            userName: 'Jane Doe',
-            commentId: '6',
-            comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-        },
-        {
-            userId: '7',
-            userName: 'John Doe',
-            commentId: '7',
-            comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-        },
-    ])
+    const [comments, setComments] = useState<Array<commentType>>(props.comments)
 
     return (
         <Modal transparent visible={props.visible} animationType="slide">
@@ -102,13 +57,7 @@ const CommentsModal = (props: commentsModalProps) => {
                                 }}
                             />
                         </View>
-                        {comments.length === 0 ? (
-                            <View style={styles.noDataContainer}>
-                                <Text style={styles.noDataText}>
-                                    No comments yet.
-                                </Text>
-                            </View>
-                        ) : (
+                        {comments.length !== 1 ? (
                             <>
                                 {comments.map((comment) => (
                                     <View
@@ -121,6 +70,12 @@ const CommentsModal = (props: commentsModalProps) => {
                                     </View>
                                 ))}
                             </>
+                        ) : (
+                            <View style={styles.noDataContainer}>
+                                <Text style={styles.noDataText}>
+                                    No comments yet.
+                                </Text>
+                            </View>
                         )}
                     </ScrollView>
                 </View>

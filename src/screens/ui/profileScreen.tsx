@@ -57,7 +57,32 @@ const ProfileScreen = () => {
                     type: attachment.PROJECT,
                 },
             ],
-            comments: '1',
+            comments: [
+                {
+                    commentId: '1',
+                    userId: '1',
+                    userName: 'Sahil Memon',
+                    comment: 'This is a comment',
+                },
+                {
+                    commentId: '2',
+                    userId: '1',
+                    userName: 'Sahil Memon',
+                    comment: 'This is a comment',
+                },
+                {
+                    commentId: '3',
+                    userId: '1',
+                    userName: 'Sahil Memon',
+                    comment: 'This is a comment',
+                },
+                {
+                    commentId: '4',
+                    userId: '1',
+                    userName: 'Sahil Memon',
+                    comment: 'This is a comment',
+                },
+            ],
         },
         {
             postId: '2',
@@ -79,7 +104,32 @@ const ProfileScreen = () => {
                     type: attachment.JOB,
                 },
             ],
-            comments: '1',
+            comments: [
+                {
+                    commentId: '1',
+                    userId: '1',
+                    userName: 'Sahil Memon',
+                    comment: 'This is a comment',
+                },
+                {
+                    commentId: '2',
+                    userId: '1',
+                    userName: 'Sahil Memon',
+                    comment: 'This is a comment',
+                },
+                {
+                    commentId: '3',
+                    userId: '1',
+                    userName: 'Sahil Memon',
+                    comment: 'This is a comment',
+                },
+                {
+                    commentId: '4',
+                    userId: '1',
+                    userName: 'Sahil Memon',
+                    comment: 'This is a comment',
+                },
+            ],
         },
         {
             postId: '3',
@@ -90,7 +140,32 @@ const ProfileScreen = () => {
             userAvatar: '',
             date: '2021-01-01',
             attachments: [],
-            comments: '1',
+            comments: [
+                {
+                    commentId: '1',
+                    userId: '1',
+                    userName: 'Sahil Memon',
+                    comment: 'This is a comment',
+                },
+                {
+                    commentId: '2',
+                    userId: '1',
+                    userName: 'Sahil Memon',
+                    comment: 'This is a comment',
+                },
+                {
+                    commentId: '3',
+                    userId: '1',
+                    userName: 'Sahil Memon',
+                    comment: 'This is a comment',
+                },
+                {
+                    commentId: '4',
+                    userId: '1',
+                    userName: 'Sahil Memon',
+                    comment: 'This is a comment',
+                },
+            ],
         },
     ]
     const projectsHired: Array<projectCardProps> = [
