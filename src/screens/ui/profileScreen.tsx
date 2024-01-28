@@ -17,10 +17,8 @@ import { useState } from 'react'
 import PostCard from '../../components/cards/postCard'
 import ProjectCard from '../../components/cards/projectCard'
 import authStore from '../../state/stores/authStore'
-import feedbackType from '../../data/types/feedbackType'
-import linkType from '../../data/types/linkType'
-import * as Crypto from 'expo-crypto'
 import selection from '../../enums/selection'
+import { avgRating, formatLinks } from '../../util/util'
 
 const ProfileScreen = () => {
     const navigation: NavigationProp<screens> = useNavigation()
@@ -29,23 +27,6 @@ const ProfileScreen = () => {
     >('Details')
 
     const currentUser = authStore((state) => state.currentUser)
-
-    const avgRating = (feedbacks: feedbackType[]) =>
-        Math.round(
-            feedbacks.reduce(
-                (total, feedback) => total + parseInt(feedback.rating),
-                0
-            ) / feedbacks.length
-        ).toString()
-
-    const formatLinks = (links: string[]) => {
-        const formattedLinks: linkType[] = []
-        links.forEach((link) => {
-            formattedLinks.push({ id: Crypto.randomUUID(), url: link })
-        })
-
-        return formattedLinks
-    }
 
     return (
         <View style={styles.container}>

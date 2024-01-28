@@ -10,40 +10,12 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
-import userCardSmallProps from '../../components/props/userCardSmallProps'
 import UserCardSmall from '../../components/cards/userCardSmall'
+import authStore from '../../state/stores/authStore'
+import { avgRating } from '../../util/util'
 
 const NetworkScreen = () => {
-    const users: Array<userCardSmallProps> = [
-        {
-            userId: '1',
-            first: 'Sahil',
-            last: 'Memon',
-            image: '',
-            avgRatings: '4.5',
-        },
-        {
-            userId: '2',
-            first: 'Sahil',
-            last: 'Memon',
-            image: '',
-            avgRatings: '4.5',
-        },
-        {
-            userId: '3',
-            first: 'Sahil',
-            last: 'Memon',
-            image: '',
-            avgRatings: '4.5',
-        },
-        {
-            userId: '4',
-            first: 'Sahil',
-            last: 'Memon',
-            image: '',
-            avgRatings: '4.5',
-        },
-    ]
+    const currentUser = authStore((state) => state.currentUser)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -61,16 +33,20 @@ const NetworkScreen = () => {
                     <Text style={styles.heading}>Network</Text>
                 </View>
                 <View style={styles.usersList}>
-                    {users.length !== 0 ? (
+                    {currentUser?.network.length !== 0 ? (
                         <>
-                            {users.map((user) => (
+                            {currentUser?.network.map((user) => (
                                 <UserCardSmall
-                                    key={user.userId}
-                                    userId={user.userId}
-                                    first={user.first}
-                                    last={user.last}
-                                    image={user.image}
-                                    avgRatings={user.avgRatings}
+                                    key={user.profile.userId!}
+                                    userId={user.profile.userId!}
+                                    first={user.profile.firstName!}
+                                    last={user.profile.lastName!}
+                                    image={user.profile.profilePicture!}
+                                    avgRatings={avgRating(
+                                        user?.feedbacks
+                                            ? currentUser?.feedbacks
+                                            : []
+                                    )}
                                 />
                             ))}
                         </>
