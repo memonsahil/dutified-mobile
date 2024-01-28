@@ -12,6 +12,7 @@ type userType = {
     projectsWorked: projectType[]
     jobsWorked: jobType[]
     feedbacks: feedbackType[]
+    network: userType[]
 }
 
 export default userType

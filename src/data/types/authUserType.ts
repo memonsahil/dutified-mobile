@@ -7,6 +7,7 @@ import transactionType from './transactionType'
 import profileType from './profileType'
 import metaDataType from './metaDataType'
 import postType from './postType'
+import userType from './userType'
 
 type authUserType = {
     profile: profileType
@@ -20,6 +21,7 @@ type authUserType = {
     transactions: transactionType[]
     chats: chatType[]
     metaData: metaDataType
+    network: userType[]
 }
 
 export default authUserType

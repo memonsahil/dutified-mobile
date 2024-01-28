@@ -447,6 +447,7 @@ const SignUpScreen = () => {
                                             jobsCreated: [],
                                             jobsWorked: [],
                                             feedbacks: [],
+                                            network: [],
                                             transactions: [],
                                             chats: [],
                                             metaData: {
@@ -485,6 +486,7 @@ const SignUpScreen = () => {
                                                 jobsCreated: [],
                                                 jobsWorked: [],
                                                 feedbacks: [],
+                                                network: [],
                                                 transactions: [],
                                                 chats: [],
                                                 metaData: {
