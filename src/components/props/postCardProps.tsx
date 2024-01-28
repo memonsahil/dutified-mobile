@@ -1,15 +1,5 @@
-import attachmentType from '../../data/types/attachmentType'
-import commentType from '../../data/types/commentType'
+import postType from '../../data/types/postType'
 
-type postCardProps = {
-    postId: string
-    content: string
-    userId: string
-    userName: string
-    userAvatar: string
-    date: string
-    comments?: commentType[]
-    attachments?: attachmentType[]
-}
+type postCardProps = postType
 
 export default postCardProps
