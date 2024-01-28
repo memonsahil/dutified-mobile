@@ -162,12 +162,7 @@ const PostCard = (props: postCardProps) => {
                         style={styles.buttonIcon}
                     />
                     <Text style={styles.button}>
-                        Comment (
-                        {props.comments !== undefined &&
-                        props.comments?.length === 1
-                            ? '0'
-                            : props.comments?.length}
-                        )
+                        {`Comment (${props.comments?.length})`}
                     </Text>
                 </TouchableOpacity>
             </View>

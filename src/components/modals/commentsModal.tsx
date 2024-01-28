@@ -12,12 +12,9 @@ import commentsModalProps from '../props/commentsModalProps'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import commentType from '../../data/types/commentType'
-import * as Crypto from 'expo-crypto'
 
 const CommentsModal = (props: commentsModalProps) => {
     const [comment, setComment] = useState<string>('')
-    const [comments, setComments] = useState<Array<commentType>>(props.comments)
 
     return (
         <Modal transparent visible={props.visible} animationType="slide">
@@ -44,22 +41,14 @@ const CommentsModal = (props: commentsModalProps) => {
                                 inputMode="text"
                                 returnKeyType="done"
                                 onSubmitEditing={() => {
-                                    setComments([
-                                        {
-                                            userId: '1',
-                                            userName: 'John Doe',
-                                            commentId: Crypto.randomUUID(),
-                                            comment: comment,
-                                        },
-                                        ...comments,
-                                    ])
                                     setComment('')
                                 }}
                             />
                         </View>
-                        {comments.length !== 1 ? (
+                        {Array.isArray(props.comments) &&
+                        props.comments.length !== 0 ? (
                             <>
-                                {comments.map((comment) => (
+                                {props.comments.map((comment) => (
                                     <View
                                         key={comment.commentId}
                                         style={styles.commentContainer}

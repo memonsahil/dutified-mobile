@@ -57,32 +57,7 @@ const ProfileScreen = () => {
                     type: attachment.PROJECT,
                 },
             ],
-            comments: [
-                {
-                    commentId: '1',
-                    userId: '1',
-                    userName: 'Sahil Memon',
-                    comment: 'This is a comment',
-                },
-                {
-                    commentId: '2',
-                    userId: '1',
-                    userName: 'Sahil Memon',
-                    comment: 'This is a comment',
-                },
-                {
-                    commentId: '3',
-                    userId: '1',
-                    userName: 'Sahil Memon',
-                    comment: 'This is a comment',
-                },
-                {
-                    commentId: '4',
-                    userId: '1',
-                    userName: 'Sahil Memon',
-                    comment: 'This is a comment',
-                },
-            ],
+            comments: [],
         },
         {
             postId: '2',
@@ -149,18 +124,6 @@ const ProfileScreen = () => {
                 },
                 {
                     commentId: '2',
-                    userId: '1',
-                    userName: 'Sahil Memon',
-                    comment: 'This is a comment',
-                },
-                {
-                    commentId: '3',
-                    userId: '1',
-                    userName: 'Sahil Memon',
-                    comment: 'This is a comment',
-                },
-                {
-                    commentId: '4',
                     userId: '1',
                     userName: 'Sahil Memon',
                     comment: 'This is a comment',
