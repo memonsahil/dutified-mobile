@@ -11,55 +11,10 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
-import feedbackType from '../../data/types/feedbackType'
+import authStore from '../../state/stores/authStore'
 
 const FeedbackScreen = () => {
-    const feedbacks: feedbackType[] = [
-        {
-            feedbackId: '1',
-            userId: '1',
-            userName: 'Sahil Memon',
-            userImage: '',
-            feedbackTitle: 'Feedback Title',
-            feedback:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            rating: '4',
-            feedbackDate: '2021-01-01',
-        },
-        {
-            feedbackId: '2',
-            userId: '2',
-            userName: 'Sahil Memon',
-            userImage: '',
-            feedbackTitle: 'Feedback Title',
-            feedback:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            rating: '2',
-            feedbackDate: '2021-01-01',
-        },
-        {
-            feedbackId: '3',
-            userId: '3',
-            userName: 'Sahil Memon',
-            userImage: '',
-            feedbackTitle: 'Feedback Title',
-            feedback:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            rating: '3',
-            feedbackDate: '2021-01-01',
-        },
-        {
-            feedbackId: '4',
-            userId: '4',
-            userName: 'Sahil Memon',
-            userImage: '',
-            feedbackTitle: 'Feedback Title',
-            feedback:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            rating: '0',
-            feedbackDate: '2021-01-01',
-        },
-    ]
+    const currentUser = authStore((state) => state.currentUser)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -77,9 +32,9 @@ const FeedbackScreen = () => {
                     <Text style={styles.heading}>Feedback</Text>
                 </View>
                 <View style={styles.feedbackList}>
-                    {feedbacks.length !== 0 ? (
+                    {currentUser?.feedbacks.length !== 0 ? (
                         <>
-                            {feedbacks.map((feedback) => (
+                            {currentUser?.feedbacks.map((feedback) => (
                                 <FeedbackCard
                                     key={feedback.feedbackId}
                                     userId={feedback.userId}
