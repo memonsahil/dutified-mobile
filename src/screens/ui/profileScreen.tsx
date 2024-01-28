@@ -26,6 +26,7 @@ import selection from '../../enums/selection'
 import authStore from '../../state/stores/authStore'
 import feedbackType from '../../data/types/feedbackType'
 import linkType from '../../data/types/linkType'
+import * as Crypto from 'expo-crypto'
 
 const ProfileScreen = () => {
     const navigation: NavigationProp<screens> = useNavigation()
@@ -223,30 +224,6 @@ const ProfileScreen = () => {
             feedbackDate: '2021-01-01',
         },
     ]
-    const interests: Array<categories> = [
-        categories.ACCOUNTING,
-        categories.ADVERTISING,
-        categories.ANIMATION,
-        categories.APP_DEVELOPMENT,
-    ]
-    const links: Array<linkType> = [
-        {
-            id: '1',
-            url: 'https://www.linkedin.com/xyz/123456789112233445566',
-        },
-        {
-            id: '2',
-            url: 'https://www.github.com/xyz',
-        },
-        {
-            id: '3',
-            url: 'https://www.x.com/xyz',
-        },
-        {
-            id: '4',
-            url: 'https://www.instagram.com/xyz',
-        },
-    ]
 
     const avgRating = (feedbacks: feedbackType[]) =>
         Math.round(
@@ -259,7 +236,7 @@ const ProfileScreen = () => {
     const formatLinks = (links: string[]) => {
         const formattedLinks: linkType[] = []
         links.forEach((link) => {
-            formattedLinks.push({ id: '', url: link })
+            formattedLinks.push({ id: Crypto.randomUUID(), url: link })
         })
 
         return formattedLinks
@@ -296,12 +273,26 @@ const ProfileScreen = () => {
                     last={currentUser?.profile.lastName!}
                     image={currentUser?.profile.profilePicture!}
                     avgRating={avgRating(feedbacks)}
-                    projectsCreated={(currentUser?.projectsCreated
-                        .length)!.toString()}
-                    jobsCreated={(currentUser?.jobsCreated.length)!.toString()}
-                    projectsWorked={(currentUser?.projectsWorked
-                        .length)!.toString()}
-                    jobsWorked={(currentUser?.jobsWorked.length)!.toString()}
+                    projectsCreated={
+                        currentUser?.projectsCreated.length
+                            ? currentUser?.projectsCreated.length.toString()
+                            : '0'
+                    }
+                    jobsCreated={
+                        currentUser?.jobsCreated.length
+                            ? currentUser?.jobsCreated.length.toString()
+                            : '0'
+                    }
+                    projectsWorked={
+                        currentUser?.projectsWorked.length
+                            ? currentUser?.projectsWorked.length.toString()
+                            : '0'
+                    }
+                    jobsWorked={
+                        currentUser?.jobsWorked.length
+                            ? currentUser?.jobsWorked.length.toString()
+                            : '0'
+                    }
                 />
                 <View style={styles.buttonSection}>
                     <TouchableOpacity
@@ -365,7 +356,11 @@ const ProfileScreen = () => {
                     <UserDetailsCard
                         description={currentUser?.profile.bio!}
                         interests={currentUser?.profile.interests!}
-                        links={formatLinks(currentUser?.profile.links!)}
+                        links={formatLinks(
+                            currentUser?.profile.links
+                                ? currentUser?.profile.links
+                                : []
+                        )}
                         dailyRate={currentUser?.profile.ratePerDay!}
                     />
                 ) : switchColumn === 'Posts' ? (

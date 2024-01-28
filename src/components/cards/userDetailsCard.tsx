@@ -23,7 +23,7 @@ const UserDetailsCard = (props: userDetailsCardProps) => {
                 <Text style={styles.description}>No rate.</Text>
             )}
             <Text style={styles.heading}>Interests</Text>
-            {props.interests.length !== 0 ? (
+            {props.interests ? (
                 props.interests.map((interest) => (
                     <View style={styles.interestWrapper} key={interest}>
                         <Text style={styles.interest}>{interest}</Text>
@@ -34,7 +34,7 @@ const UserDetailsCard = (props: userDetailsCardProps) => {
             )}
 
             <Text style={styles.heading}>Links</Text>
-            {props.links.length !== 0 ? (
+            {props.links ? (
                 props.links.map((link) => (
                     <View style={styles.interestWrapper} key={link.id}>
                         <TouchableOpacity
