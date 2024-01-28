@@ -13,20 +13,14 @@ import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import UserDetailsCard from '../../components/cards/userDetailsCard'
-import categories from '../../enums/categories'
 import { useState } from 'react'
-import jobCardProps from '../../components/props/jobCardProps'
-import jobStatus from '../../enums/jobStatus'
 import PostCard from '../../components/cards/postCard'
-import postCardProps from '../../components/props/postCardProps'
-import projectCardProps from '../../components/props/projectCardProps'
 import ProjectCard from '../../components/cards/projectCard'
-import attachment from '../../enums/attachment'
-import selection from '../../enums/selection'
 import authStore from '../../state/stores/authStore'
 import feedbackType from '../../data/types/feedbackType'
 import linkType from '../../data/types/linkType'
 import * as Crypto from 'expo-crypto'
+import selection from '../../enums/selection'
 
 const ProfileScreen = () => {
     const navigation: NavigationProp<screens> = useNavigation()
@@ -35,233 +29,6 @@ const ProfileScreen = () => {
     >('Details')
 
     const currentUser = authStore((state) => state.currentUser)
-
-    const posts: Array<postCardProps> = [
-        {
-            postId: '1',
-            content:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            userId: '1',
-            userName: 'Sahil Memon',
-            userAvatar: '',
-            date: '2021-01-01',
-            attachments: [
-                {
-                    id: '1',
-                    title: 'Created Job 1',
-                    type: attachment.JOB,
-                },
-                {
-                    id: '2',
-                    title: 'Created Project 1',
-                    type: attachment.PROJECT,
-                },
-            ],
-            comments: [],
-        },
-        {
-            postId: '2',
-            content:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            userId: '1',
-            userName: 'Sahil Memon',
-            userAvatar: '',
-            date: '2021-01-01',
-            attachments: [
-                {
-                    id: '1',
-                    title: 'Created Job 1',
-                    type: attachment.JOB,
-                },
-                {
-                    id: '2',
-                    title: 'Created Job 2',
-                    type: attachment.JOB,
-                },
-            ],
-            comments: [
-                {
-                    commentId: '1',
-                    userId: '1',
-                    userName: 'Sahil Memon',
-                    comment: 'This is a comment',
-                },
-                {
-                    commentId: '2',
-                    userId: '1',
-                    userName: 'Sahil Memon',
-                    comment: 'This is a comment',
-                },
-                {
-                    commentId: '3',
-                    userId: '1',
-                    userName: 'Sahil Memon',
-                    comment: 'This is a comment',
-                },
-                {
-                    commentId: '4',
-                    userId: '1',
-                    userName: 'Sahil Memon',
-                    comment: 'This is a comment',
-                },
-            ],
-        },
-        {
-            postId: '3',
-            content:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            userId: '1',
-            userName: 'Sahil Memon',
-            userAvatar: '',
-            date: '2021-01-01',
-            attachments: [],
-            comments: [
-                {
-                    commentId: '1',
-                    userId: '1',
-                    userName: 'Sahil Memon',
-                    comment: 'This is a comment',
-                },
-                {
-                    commentId: '2',
-                    userId: '1',
-                    userName: 'Sahil Memon',
-                    comment: 'This is a comment',
-                },
-            ],
-        },
-    ]
-    const projectsHired: Array<projectCardProps> = [
-        {
-            projectId: '1',
-            projectName: 'Hired Project 1',
-            description: 'This is a description for Hired project 1',
-            creationDate: '2021-01-01',
-            category: categories.ACCOUNTING,
-            showPlus: false,
-        },
-        {
-            projectId: '2',
-            projectName: 'Hired Project 2',
-            description:
-                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-            showPlus: false,
-        },
-    ]
-    const jobsHired: Array<jobCardProps> = [
-        {
-            jobId: '1',
-            jobName: 'Created Job 1',
-            status: jobStatus.AVAILABLE,
-            payment: '100000',
-            description:
-                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            creationDate: '2021-01-01',
-            category: categories.ACCOUNTING,
-            showPlus: selection.NONE,
-        },
-        {
-            jobId: '2',
-            jobName: 'Created Job 2',
-            status: jobStatus.IN_PROGRESS,
-            payment: '200',
-            description: 'This is a description for Created job 2',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-            showPlus: selection.NONE,
-        },
-        {
-            jobId: '3',
-            jobName: 'Created Job 3',
-            status: jobStatus.COMPLETED,
-            payment: '200',
-            description: 'This is a description for Created job 3',
-            creationDate: '2021-01-01',
-            category: categories.ANIMATION,
-            showPlus: selection.NONE,
-        },
-    ]
-    const projectsCreated: Array<projectCardProps> = [
-        {
-            projectId: '1',
-            projectName: 'Hired Project 1',
-            description: 'This is a description for Hired project 1',
-            creationDate: '2021-01-01',
-            category: categories.ACCOUNTING,
-            showPlus: false,
-        },
-    ]
-    const jobsCreated: Array<jobCardProps> = [
-        {
-            jobId: '1',
-            jobName: 'Created Job 1',
-            status: jobStatus.IN_PROGRESS,
-            payment: '200',
-            description: 'This is a description for Created job 1',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-            showPlus: selection.NONE,
-        },
-        {
-            jobId: '2',
-            jobName: 'Created Job 2',
-            status: jobStatus.IN_PROGRESS,
-            payment: '200',
-            description:
-                'This is a description for Created job 2, This is a description for Created job 2, This is a description for Created job 2',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-            showPlus: selection.NONE,
-        },
-    ]
-    const feedbacks: Array<feedbackType> = [
-        {
-            feedbackId: '1',
-            userId: '1',
-            userName: 'Sahil Memon',
-            userImage: '',
-            feedbackTitle: 'Feedback Title',
-            feedback:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            rating: '5',
-            feedbackDate: '2021-01-01',
-        },
-        {
-            feedbackId: '2',
-            userId: '2',
-            userName: 'Sahil Memon',
-            userImage: '',
-            feedbackTitle: 'Feedback Title',
-            feedback:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            rating: '4',
-            feedbackDate: '2021-01-01',
-        },
-        {
-            feedbackId: '3',
-            userId: '3',
-            userName: 'Sahil Memon',
-            userImage: '',
-            feedbackTitle: 'Feedback Title',
-            feedback:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            rating: '4',
-            feedbackDate: '2021-01-01',
-        },
-        {
-            feedbackId: '4',
-            userId: '4',
-            userName: 'Sahil Memon',
-            userImage: '',
-            feedbackTitle: 'Feedback Title',
-            feedback:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            rating: '5',
-            feedbackDate: '2021-01-01',
-        },
-    ]
 
     const avgRating = (feedbacks: feedbackType[]) =>
         Math.round(
@@ -310,7 +77,9 @@ const ProfileScreen = () => {
                     first={currentUser?.profile.firstName!}
                     last={currentUser?.profile.lastName!}
                     image={currentUser?.profile.profilePicture!}
-                    avgRating={avgRating(feedbacks)}
+                    avgRating={avgRating(
+                        currentUser?.feedbacks ? currentUser?.feedbacks : []
+                    )}
                     projectsCreated={
                         currentUser?.projectsCreated.length
                             ? currentUser?.projectsCreated.length.toString()
@@ -403,7 +172,7 @@ const ProfileScreen = () => {
                     />
                 ) : switchColumn === 'Posts' ? (
                     <>
-                        {posts.length === 0 ? (
+                        {currentUser?.posts.length === 0 ? (
                             <View style={styles.noDataContainer}>
                                 <Text style={styles.noDataText}>
                                     Posts that you create will be shown here.
@@ -411,7 +180,7 @@ const ProfileScreen = () => {
                             </View>
                         ) : (
                             <>
-                                {posts.map((post) => (
+                                {currentUser?.posts.map((post) => (
                                     <PostCard
                                         key={post.postId}
                                         postId={post.postId}
@@ -429,8 +198,8 @@ const ProfileScreen = () => {
                     </>
                 ) : switchColumn === 'Hired' ? (
                     <>
-                        {projectsHired.length === 0 &&
-                        jobsHired.length === 0 ? (
+                        {currentUser?.projectsWorked.length === 0 &&
+                        currentUser?.jobsWorked.length === 0 ? (
                             <View style={styles.noDataContainer}>
                                 <Text style={styles.noDataText}>
                                     Projects and jobs that you are hired for
@@ -439,7 +208,7 @@ const ProfileScreen = () => {
                             </View>
                         ) : (
                             <>
-                                {projectsHired.length !== 0 ? (
+                                {currentUser?.projectsWorked.length !== 0 ? (
                                     <>
                                         <Text style={styles.subHeading}>
                                             Projects
@@ -456,38 +225,42 @@ const ProfileScreen = () => {
                                             decelerationRate="fast"
                                             snapToInterval={370}
                                         >
-                                            {projectsHired.map((project) => (
-                                                <ProjectCard
-                                                    key={project.projectId}
-                                                    projectId={
-                                                        project.projectId
-                                                    }
-                                                    projectName={
-                                                        project.projectName
-                                                    }
-                                                    description={
-                                                        project.description
-                                                    }
-                                                    creationDate={
-                                                        project.creationDate
-                                                    }
-                                                    category={project.category}
-                                                    showPlus={project.showPlus}
-                                                    additionalStyle={{
-                                                        width: 350,
-                                                        marginRight: 20,
-                                                    }}
-                                                />
-                                            ))}
+                                            {currentUser?.projectsWorked.map(
+                                                (project) => (
+                                                    <ProjectCard
+                                                        key={project.projectId}
+                                                        projectId={
+                                                            project.projectId
+                                                        }
+                                                        projectName={
+                                                            project.projectName
+                                                        }
+                                                        description={
+                                                            project.description
+                                                        }
+                                                        creationDate={
+                                                            project.creationDate
+                                                        }
+                                                        category={
+                                                            project.category
+                                                        }
+                                                        showPlus={false}
+                                                        additionalStyle={{
+                                                            width: 350,
+                                                            marginRight: 20,
+                                                        }}
+                                                    />
+                                                )
+                                            )}
                                         </ScrollView>
                                     </>
                                 ) : null}
-                                {jobsHired.length !== 0 ? (
+                                {currentUser?.jobsWorked.length !== 0 ? (
                                     <>
                                         <Text style={styles.subHeading}>
                                             Jobs
                                         </Text>
-                                        {jobsHired.map((job) => (
+                                        {currentUser?.jobsWorked.map((job) => (
                                             <JobCard
                                                 key={job.jobId}
                                                 jobId={job.jobId}
@@ -497,7 +270,7 @@ const ProfileScreen = () => {
                                                 description={job.description}
                                                 creationDate={job.creationDate}
                                                 category={job.category}
-                                                showPlus={job.showPlus}
+                                                showPlus={selection.HIDE}
                                                 additionalStyle={{
                                                     marginBottom: '5%',
                                                 }}
@@ -510,8 +283,8 @@ const ProfileScreen = () => {
                     </>
                 ) : switchColumn === 'Created' ? (
                     <>
-                        {projectsCreated.length === 0 &&
-                        jobsCreated.length === 0 ? (
+                        {currentUser?.projectsCreated.length === 0 &&
+                        currentUser?.jobsCreated.length === 0 ? (
                             <View style={styles.noDataContainer}>
                                 <Text style={styles.noDataText}>
                                     Projects and jobs that you create will be
@@ -520,7 +293,7 @@ const ProfileScreen = () => {
                             </View>
                         ) : (
                             <>
-                                {projectsCreated.length !== 0 ? (
+                                {currentUser?.projectsCreated.length !== 0 ? (
                                     <>
                                         <Text style={styles.subHeading}>
                                             Projects
@@ -537,38 +310,42 @@ const ProfileScreen = () => {
                                             decelerationRate="fast"
                                             snapToInterval={370}
                                         >
-                                            {projectsCreated.map((project) => (
-                                                <ProjectCard
-                                                    key={project.projectId}
-                                                    projectId={
-                                                        project.projectId
-                                                    }
-                                                    projectName={
-                                                        project.projectName
-                                                    }
-                                                    description={
-                                                        project.description
-                                                    }
-                                                    creationDate={
-                                                        project.creationDate
-                                                    }
-                                                    category={project.category}
-                                                    showPlus={project.showPlus}
-                                                    additionalStyle={{
-                                                        width: 350,
-                                                        marginRight: 20,
-                                                    }}
-                                                />
-                                            ))}
+                                            {currentUser?.projectsCreated.map(
+                                                (project) => (
+                                                    <ProjectCard
+                                                        key={project.projectId}
+                                                        projectId={
+                                                            project.projectId
+                                                        }
+                                                        projectName={
+                                                            project.projectName
+                                                        }
+                                                        description={
+                                                            project.description
+                                                        }
+                                                        creationDate={
+                                                            project.creationDate
+                                                        }
+                                                        category={
+                                                            project.category
+                                                        }
+                                                        showPlus={false}
+                                                        additionalStyle={{
+                                                            width: 350,
+                                                            marginRight: 20,
+                                                        }}
+                                                    />
+                                                )
+                                            )}
                                         </ScrollView>
                                     </>
                                 ) : null}
-                                {jobsCreated.length !== 0 ? (
+                                {currentUser?.jobsCreated.length !== 0 ? (
                                     <>
                                         <Text style={styles.subHeading}>
                                             Jobs
                                         </Text>
-                                        {jobsCreated.map((job) => (
+                                        {currentUser?.jobsCreated.map((job) => (
                                             <JobCard
                                                 key={job.jobId}
                                                 jobId={job.jobId}
@@ -578,7 +355,7 @@ const ProfileScreen = () => {
                                                 description={job.description}
                                                 creationDate={job.creationDate}
                                                 category={job.category}
-                                                showPlus={job.showPlus}
+                                                showPlus={selection.HIDE}
                                                 additionalStyle={{
                                                     marginBottom: '5%',
                                                 }}
