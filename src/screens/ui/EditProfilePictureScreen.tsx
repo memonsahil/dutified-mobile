@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import * as ImagePicker from 'expo-image-picker'
 import {
@@ -13,23 +13,26 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
+import authStore from '../../state/stores/authStore'
+import authUser from '../../data/classes/authUser'
+import promiseType from '../../data/types/promiseType'
+import requestStatus from '../../enums/requestStatus'
 
 const EditProfilePictureScreen = () => {
     let formattedImage: ImageResult
     const [image, setImage] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
-    const profile = {
-        profilePicture: '',
-    }
+    const { currentUser, setCurrentUser } = authStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
     useEffect(() => {
-        profile.profilePicture !== image
-            ? setImage(profile.profilePicture)
-            : null
-    }, [profile.profilePicture])
+        currentUser?.profile.profilePicture &&
+        currentUser?.profile.profilePicture !== image
+            ? setImage(currentUser?.profile.profilePicture)
+            : setImage('')
+    }, [currentUser?.profile.profilePicture])
 
     const pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -67,7 +70,7 @@ const EditProfilePictureScreen = () => {
                         size="xlarge"
                         rounded
                         source={
-                            image
+                            image !== ''
                                 ? { uri: image }
                                 : require('../../../assets/images/user-avatar.png')
                         }
@@ -89,6 +92,40 @@ const EditProfilePictureScreen = () => {
                         <TouchableOpacity
                             onPress={() => {
                                 setLoading(true)
+                                authUser
+                                    .setProfilePicture({
+                                        profilePicture: image,
+                                    })
+                                    .then((response: promiseType) => {
+                                        if (
+                                            response.status ===
+                                            requestStatus.SUCCESS
+                                        ) {
+                                            currentUser && currentUser.profile
+                                                ? setCurrentUser({
+                                                      ...currentUser,
+                                                      profile: {
+                                                          ...currentUser.profile,
+                                                          profilePicture: image,
+                                                      },
+                                                  })
+                                                : null
+                                            setLoading(false)
+                                            navigation.goBack()
+                                        } else {
+                                            setLoading(false)
+                                            Alert.alert(
+                                                'Error Occurred',
+                                                'Please contact our support team.',
+                                                [
+                                                    {
+                                                        text: 'Dismiss',
+                                                        onPress: () => {},
+                                                    },
+                                                ]
+                                            )
+                                        }
+                                    })
                             }}
                             style={styles.buttonWrapper}
                         >
@@ -101,7 +138,43 @@ const EditProfilePictureScreen = () => {
                             <Text style={styles.saveButton}>Save</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
-                            onPress={() => {}}
+                            onPress={() => {
+                                setLoading(true)
+                                authUser
+                                    .setProfilePicture({
+                                        profilePicture: '',
+                                    })
+                                    .then((response: promiseType) => {
+                                        if (
+                                            response.status ===
+                                            requestStatus.SUCCESS
+                                        ) {
+                                            currentUser && currentUser.profile
+                                                ? setCurrentUser({
+                                                      ...currentUser,
+                                                      profile: {
+                                                          ...currentUser.profile,
+                                                          profilePicture: '',
+                                                      },
+                                                  })
+                                                : null
+                                            setLoading(false)
+                                            navigation.goBack()
+                                        } else {
+                                            setLoading(false)
+                                            Alert.alert(
+                                                'Error Occurred',
+                                                'Please contact our support team.',
+                                                [
+                                                    {
+                                                        text: 'Dismiss',
+                                                        onPress: () => {},
+                                                    },
+                                                ]
+                                            )
+                                        }
+                                    })
+                            }}
                             style={styles.buttonWrapper}
                         >
                             <MaterialCommunityIcons
