@@ -1,12 +1,6 @@
 import { useEffect, useState } from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import * as ImagePicker from 'expo-image-picker'
-import {
-    manipulateAsync,
-    SaveFormat,
-    ImageResult,
-} from 'expo-image-manipulator'
 import * as Progress from 'react-native-progress'
 import { Avatar } from 'react-native-elements'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
@@ -17,9 +11,9 @@ import authStore from '../../state/stores/authStore'
 import authUser from '../../data/classes/authUser'
 import promiseType from '../../data/types/promiseType'
 import requestStatus from '../../enums/requestStatus'
+import util from '../../util/util'
 
 const EditProfilePictureScreen = () => {
-    let formattedImage: ImageResult
     const [image, setImage] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
@@ -33,24 +27,6 @@ const EditProfilePictureScreen = () => {
             ? setImage(currentUser?.profile.profilePicture)
             : setImage('')
     }, [currentUser?.profile.profilePicture])
-
-    const pickImage = async () => {
-        let result = await ImagePicker.launchImageLibraryAsync({
-            mediaTypes: ImagePicker.MediaTypeOptions.Images,
-            allowsEditing: true,
-            quality: 1,
-        })
-
-        if (!result.canceled) {
-            formattedImage = await manipulateAsync(
-                result.assets[0].uri,
-                [{ resize: { width: 400, height: 400 } }],
-                { compress: 1, format: SaveFormat.PNG, base64: true }
-            )
-
-            setImage('data:image/png;base64,' + formattedImage.base64)
-        }
-    }
 
     return (
         <View style={styles.container}>
@@ -78,7 +54,7 @@ const EditProfilePictureScreen = () => {
                     />
                     <View style={styles.buttonContainer}>
                         <TouchableOpacity
-                            onPress={() => pickImage()}
+                            onPress={() => util.pickImage(setImage)}
                             style={styles.buttonWrapper}
                         >
                             <MaterialCommunityIcons
