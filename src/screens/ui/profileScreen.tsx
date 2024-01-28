@@ -18,7 +18,7 @@ import PostCard from '../../components/cards/postCard'
 import ProjectCard from '../../components/cards/projectCard'
 import authStore from '../../state/stores/authStore'
 import selection from '../../enums/selection'
-import { avgRating, formatLinks } from '../../util/util'
+import util from '../../util/util'
 
 const ProfileScreen = () => {
     const navigation: NavigationProp<screens> = useNavigation()
@@ -58,7 +58,7 @@ const ProfileScreen = () => {
                     first={currentUser?.profile.firstName!}
                     last={currentUser?.profile.lastName!}
                     image={currentUser?.profile.profilePicture!}
-                    avgRating={avgRating(
+                    avgRating={util.avgRating(
                         currentUser?.feedbacks ? currentUser?.feedbacks : []
                     )}
                     projectsCreated={
@@ -144,7 +144,7 @@ const ProfileScreen = () => {
                     <UserDetailsCard
                         description={currentUser?.profile.bio!}
                         interests={currentUser?.profile.interests!}
-                        links={formatLinks(
+                        links={util.formatLinks(
                             currentUser?.profile.links
                                 ? currentUser?.profile.links
                                 : []

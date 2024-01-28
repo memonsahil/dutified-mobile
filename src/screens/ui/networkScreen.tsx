@@ -12,7 +12,7 @@ import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import UserCardSmall from '../../components/cards/userCardSmall'
 import authStore from '../../state/stores/authStore'
-import { avgRating } from '../../util/util'
+import util from '../../util/util'
 
 const NetworkScreen = () => {
     const currentUser = authStore((state) => state.currentUser)
@@ -42,7 +42,7 @@ const NetworkScreen = () => {
                                     first={user.profile.firstName!}
                                     last={user.profile.lastName!}
                                     image={user.profile.profilePicture!}
-                                    avgRatings={avgRating(
+                                    avgRatings={util.avgRating(
                                         user?.feedbacks
                                             ? currentUser?.feedbacks
                                             : []
