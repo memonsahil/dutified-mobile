@@ -35,7 +35,7 @@ const JobCard = (props: jobCardProps) => {
                         styles.jobName,
                         {
                             width:
-                                props.showPlus !== selection.NONE &&
+                                props.showPlus !== selection.HIDE &&
                                 props.showPlus !== selection.SELECTED
                                     ? '85%'
                                     : '100%',

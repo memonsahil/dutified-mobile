@@ -116,7 +116,7 @@ const UserScreen = () => {
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
             creationDate: '2021-01-01',
             category: categories.ACCOUNTING,
-            showPlus: selection.NONE,
+            showPlus: selection.HIDE,
         },
         {
             jobId: '2',
@@ -126,7 +126,7 @@ const UserScreen = () => {
             description: 'This is a description for Created job 2',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
-            showPlus: selection.NONE,
+            showPlus: selection.HIDE,
         },
         {
             jobId: '3',
@@ -136,7 +136,7 @@ const UserScreen = () => {
             description: 'This is a description for Created job 3',
             creationDate: '2021-01-01',
             category: categories.ANIMATION,
-            showPlus: selection.NONE,
+            showPlus: selection.HIDE,
         },
     ]
     const projectsCreated: Array<projectCardProps> = [
@@ -158,7 +158,7 @@ const UserScreen = () => {
             description: 'This is a description for Created job 1',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
-            showPlus: selection.NONE,
+            showPlus: selection.HIDE,
         },
         {
             jobId: '2',
@@ -169,7 +169,7 @@ const UserScreen = () => {
                 'This is a description for Created job 2, This is a description for Created job 2, This is a description for Created job 2',
             creationDate: '2021-01-01',
             category: categories.ADVERTISING,
-            showPlus: selection.NONE,
+            showPlus: selection.HIDE,
         },
     ]
 
