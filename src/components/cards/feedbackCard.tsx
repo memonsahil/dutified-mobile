@@ -14,9 +14,9 @@ import { NavigationProp, useNavigation } from '@react-navigation/native'
 import { Avatar } from 'react-native-elements'
 import screens from '../../screens/params/screens'
 import { useState, useEffect } from 'react'
-import feedbackType from '../../data/types/feedbackType'
+import feedbackCardProps from '../props/feedbackCardProps'
 
-const FeedbackCard = (props: feedbackType) => {
+const FeedbackCard = (props: feedbackCardProps) => {
     const [image, setImage] = useState<string>('')
 
     const navigation: NavigationProp<screens> = useNavigation()
