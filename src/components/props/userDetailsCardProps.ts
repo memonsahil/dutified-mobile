@@ -1,8 +1,7 @@
 import linkType from '../../data/types/linkType'
-import categories from '../../enums/categories'
 
 type userDetailsCardProps = {
-    interests: categories[]
+    interests: string[]
     description: string
     dailyRate: string
     links: linkType[]

@@ -256,6 +256,15 @@ const ProfileScreen = () => {
             ) / feedbacks.length
         ).toString()
 
+    const formatLinks = (links: string[]) => {
+        const formattedLinks: linkType[] = []
+        links.forEach((link) => {
+            formattedLinks.push({ id: '', url: link })
+        })
+
+        return formattedLinks
+    }
+
     return (
         <View style={styles.container}>
             <ScrollView contentContainerStyle={styles.scrollView}>
@@ -355,9 +364,9 @@ const ProfileScreen = () => {
                 {switchColumn === 'Details' ? (
                     <UserDetailsCard
                         description={currentUser?.profile.bio!}
-                        interests={currentUser?.interests!}
-                        links={currentUser?.links!}
-                        dailyRate={currentUser?.dailyRate!}
+                        interests={currentUser?.profile.interests!}
+                        links={formatLinks(currentUser?.profile.links!)}
+                        dailyRate={currentUser?.profile.ratePerDay!}
                     />
                 ) : switchColumn === 'Posts' ? (
                     <>
