@@ -96,47 +96,129 @@ class AuthUser implements AuthUserInterface {
     setProfilePicture = async (details: {
         profilePicture: string
     }): Promise<promiseType> => {
-        // Implement set profile picture logic here
-        return { status: requestStatus.SUCCESS }
+        try {
+            await firestore()
+                .collection('users')
+                .doc(auth().currentUser?.uid)
+                .update({
+                    profile: {
+                        profilePicture: details.profilePicture,
+                    },
+                })
+
+            return { status: requestStatus.SUCCESS }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
     }
 
     setBio = async (details: { bio: string }): Promise<promiseType> => {
-        // Implement set bio logic here
-        return { status: requestStatus.SUCCESS }
+        try {
+            await firestore()
+                .collection('users')
+                .doc(auth().currentUser?.uid)
+                .update({
+                    profile: {
+                        bio: details.bio,
+                    },
+                })
+
+            return { status: requestStatus.SUCCESS }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
     }
 
     setRatePerDay = async (details: {
         ratePerDay: string
     }): Promise<promiseType> => {
-        // Implement set rate per day logic here
-        return { status: requestStatus.SUCCESS }
+        try {
+            await firestore()
+                .collection('users')
+                .doc(auth().currentUser?.uid)
+                .update({
+                    profile: {
+                        ratePerDay: details.ratePerDay,
+                    },
+                })
+
+            return { status: requestStatus.SUCCESS }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
     }
 
     setInterests = async (details: {
         interests: categories[]
     }): Promise<promiseType> => {
-        // Implement set interests logic here
-        return { status: requestStatus.SUCCESS }
+        try {
+            await firestore()
+                .collection('users')
+                .doc(auth().currentUser?.uid)
+                .update({
+                    interests: details.interests,
+                })
+
+            return { status: requestStatus.SUCCESS }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
     }
 
     setLinks = async (details: { links: string[] }): Promise<promiseType> => {
-        // Implement set links logic here
-        return { status: requestStatus.SUCCESS }
+        try {
+            await firestore()
+                .collection('users')
+                .doc(auth().currentUser?.uid)
+                .update({
+                    links: details.links,
+                })
+
+            return { status: requestStatus.SUCCESS }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
     }
 
     setPhone = async (details: {
         countryCode: string
         phoneNumber: string
     }): Promise<promiseType> => {
-        // Implement set phone logic here
-        return { status: requestStatus.SUCCESS }
+        try {
+            await firestore()
+                .collection('users')
+                .doc(auth().currentUser?.uid)
+                .update({
+                    profile: {
+                        countryCode: details.countryCode,
+                        phoneNumber: details.phoneNumber,
+                    },
+                })
+
+            return { status: requestStatus.SUCCESS }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
     }
 
     setEmail = async (details: {
         emailAddress: string
     }): Promise<promiseType> => {
-        // Implement set email logic here
-        return { status: requestStatus.SUCCESS }
+        try {
+            await auth().currentUser?.updateEmail(details.emailAddress)
+            await firestore()
+                .collection('users')
+                .doc(auth().currentUser?.uid)
+                .update({
+                    profile: {
+                        emailAddress: details.emailAddress,
+                    },
+                })
+
+            return { status: requestStatus.SUCCESS }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
     }
 
     setPassword = async (details: {
@@ -144,8 +226,17 @@ class AuthUser implements AuthUserInterface {
         currentPassword: string
         newPassword: string
     }): Promise<promiseType> => {
-        // Implement set password logic here
-        return { status: requestStatus.SUCCESS }
+        try {
+            await auth().signInWithEmailAndPassword(
+                details.emailAddress,
+                details.currentPassword
+            )
+            await auth().currentUser?.updatePassword(details.newPassword)
+
+            return { status: requestStatus.SUCCESS }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
     }
 
     createProject = async (details: {
