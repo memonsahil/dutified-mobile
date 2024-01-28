@@ -86,7 +86,6 @@ const EditProfilePictureScreen = () => {
                                                       },
                                                   })
                                                 : null
-                                            setLoading(false)
                                             navigation.goBack()
                                         } else {
                                             setLoading(false)
@@ -134,7 +133,6 @@ const EditProfilePictureScreen = () => {
                                                       },
                                                   })
                                                 : null
-                                            setLoading(false)
                                             navigation.goBack()
                                         } else {
                                             setLoading(false)
