@@ -2,14 +2,11 @@ import projectType from './projectType'
 import jobType from './jobType'
 import feedbackType from './feedbackType'
 import profileType from './profileType'
-import categories from '../../enums/categories'
-import linkType from './linkType'
+import postType from './postType'
 
 type userType = {
     profile: profileType
-    interests: categories[]
-    links: linkType[]
-    dailyRate: string
+    posts: postType[]
     projectsCreated: projectType[]
     jobsCreated: jobType[]
     projectsWorked: projectType[]

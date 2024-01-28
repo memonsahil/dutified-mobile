@@ -6,10 +6,12 @@ import feedbackType from './feedbackType'
 import transactionType from './transactionType'
 import profileType from './profileType'
 import metaDataType from './metaDataType'
+import postType from './postType'
 
 type authUserType = {
     profile: profileType
     paymentDetails?: paymentType
+    posts: postType[]
     projectsCreated: projectType[]
     jobsCreated: jobType[]
     projectsWorked: projectType[]
