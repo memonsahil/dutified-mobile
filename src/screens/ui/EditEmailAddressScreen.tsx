@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
     StyleSheet,
     Text,
@@ -16,12 +16,25 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
+import authStore from '../../state/stores/authStore'
+import authUser from '../../data/classes/authUser'
+import promiseType from '../../data/types/promiseType'
+import requestStatus from '../../enums/requestStatus'
 
 const EditEmailAddressScreen = () => {
     const [email, setEmail] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
+    const { currentUser, setCurrentUser } = authStore((state) => state)
+
     const navigation: NavigationProp<screens> = useNavigation()
+
+    useEffect(() => {
+        currentUser?.profile.emailAddress &&
+        currentUser?.profile.emailAddress !== email
+            ? setEmail(currentUser?.profile.emailAddress)
+            : setEmail('')
+    }, [currentUser?.profile.emailAddress])
 
     return (
         <View style={styles.container}>
@@ -63,11 +76,47 @@ const EditEmailAddressScreen = () => {
                             style={styles.saveButtonContainer}
                             onPress={() => {
                                 if (email !== '') {
-                                    setLoading(true)
+                                    setLoading(true),
+                                        authUser
+                                            .setEmail({
+                                                emailAddress: email,
+                                            })
+                                            .then((response: promiseType) => {
+                                                if (
+                                                    response.status ===
+                                                    requestStatus.SUCCESS
+                                                ) {
+                                                    currentUser &&
+                                                    currentUser.profile
+                                                        ? setCurrentUser({
+                                                              ...currentUser,
+                                                              profile: {
+                                                                  ...currentUser.profile,
+                                                                  emailAddress:
+                                                                      email,
+                                                              },
+                                                          })
+                                                        : null
+                                                    navigation.goBack()
+                                                } else {
+                                                    setLoading(false)
+                                                    Alert.alert(
+                                                        'Error Occurred',
+                                                        'Please contact our support team.',
+                                                        [
+                                                            {
+                                                                text: 'Dismiss',
+                                                                onPress:
+                                                                    () => {},
+                                                            },
+                                                        ]
+                                                    )
+                                                }
+                                            })
                                 } else {
                                     Alert.alert(
                                         'Missing Details',
-                                        'Please enter your current email address before updating it.',
+                                        'Please enter your email address before updating it.',
                                         [
                                             {
                                                 text: 'Dismiss',
