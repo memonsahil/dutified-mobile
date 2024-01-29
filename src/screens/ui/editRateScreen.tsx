@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
     StyleSheet,
     Text,
@@ -16,12 +16,25 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
+import authUser from '../../data/classes/authUser'
+import promiseType from '../../data/types/promiseType'
+import requestStatus from '../../enums/requestStatus'
+import authStore from '../../state/stores/authStore'
 
 const EditRateScreen = () => {
     const [rate, setRate] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
+    const { currentUser, setCurrentUser } = authStore((state) => state)
+
     const navigation: NavigationProp<screens> = useNavigation()
+
+    useEffect(() => {
+        currentUser?.profile.ratePerDay &&
+        currentUser?.profile.ratePerDay !== rate
+            ? setRate(currentUser?.profile.ratePerDay)
+            : setRate('')
+    }, [currentUser?.profile.ratePerDay])
 
     return (
         <View style={styles.container}>
@@ -60,20 +73,40 @@ const EditRateScreen = () => {
                         <TouchableOpacity
                             style={styles.saveButtonContainer}
                             onPress={() => {
-                                if (rate !== '') {
-                                    setLoading(true)
-                                } else {
-                                    Alert.alert(
-                                        'Missing Details',
-                                        'Please enter your updated Rate/Day.',
-                                        [
-                                            {
-                                                text: 'Dismiss',
-                                                onPress: () => {},
-                                            },
-                                        ]
-                                    )
-                                }
+                                setLoading(true)
+                                authUser
+                                    .setRatePerDay({
+                                        ratePerDay: rate,
+                                    })
+                                    .then((response: promiseType) => {
+                                        if (
+                                            response.status ===
+                                            requestStatus.SUCCESS
+                                        ) {
+                                            currentUser && currentUser.profile
+                                                ? setCurrentUser({
+                                                      ...currentUser,
+                                                      profile: {
+                                                          ...currentUser.profile,
+                                                          ratePerDay: rate,
+                                                      },
+                                                  })
+                                                : null
+                                            navigation.goBack()
+                                        } else {
+                                            setLoading(false)
+                                            Alert.alert(
+                                                'Error Occurred',
+                                                'Please contact our support team.',
+                                                [
+                                                    {
+                                                        text: 'Dismiss',
+                                                        onPress: () => {},
+                                                    },
+                                                ]
+                                            )
+                                        }
+                                    })
                             }}
                         >
                             <MaterialCommunityIcons
