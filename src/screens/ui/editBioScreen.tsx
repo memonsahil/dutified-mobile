@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
     StyleSheet,
     Text,
@@ -7,6 +7,7 @@ import {
     Keyboard,
     TouchableWithoutFeedback,
     TouchableOpacity,
+    Alert,
 } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
@@ -15,12 +16,24 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
+import authUser from '../../data/classes/authUser'
+import promiseType from '../../data/types/promiseType'
+import requestStatus from '../../enums/requestStatus'
+import authStore from '../../state/stores/authStore'
 
 const EditBioScreen = () => {
     const [desc, setDesc] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
+    const { currentUser, setCurrentUser } = authStore((state) => state)
+
     const navigation: NavigationProp<screens> = useNavigation()
+
+    useEffect(() => {
+        currentUser?.profile.bio && currentUser?.profile.bio !== desc
+            ? setDesc(currentUser?.profile.bio)
+            : setDesc('')
+    }, [currentUser?.profile.bio])
 
     return (
         <View style={styles.container}>
@@ -60,6 +73,39 @@ const EditBioScreen = () => {
                             style={styles.saveButtonContainer}
                             onPress={() => {
                                 setLoading(true)
+                                authUser
+                                    .setBio({
+                                        bio: desc,
+                                    })
+                                    .then((response: promiseType) => {
+                                        if (
+                                            response.status ===
+                                            requestStatus.SUCCESS
+                                        ) {
+                                            currentUser && currentUser.profile
+                                                ? setCurrentUser({
+                                                      ...currentUser,
+                                                      profile: {
+                                                          ...currentUser.profile,
+                                                          bio: desc,
+                                                      },
+                                                  })
+                                                : null
+                                            navigation.goBack()
+                                        } else {
+                                            setLoading(false)
+                                            Alert.alert(
+                                                'Error Occurred',
+                                                'Please contact our support team.',
+                                                [
+                                                    {
+                                                        text: 'Dismiss',
+                                                        onPress: () => {},
+                                                    },
+                                                ]
+                                            )
+                                        }
+                                    })
                             }}
                         >
                             <MaterialCommunityIcons
