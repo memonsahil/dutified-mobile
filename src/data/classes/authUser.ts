@@ -7,6 +7,7 @@ import auth from '@react-native-firebase/auth'
 import promiseType from '../types/promiseType'
 import firestore from '@react-native-firebase/firestore'
 import authUserType from '../types/authUserType'
+import paymentType from '../types/paymentType'
 
 class AuthUser implements AuthUserInterface {
     signUp = async (details: {
@@ -221,6 +222,21 @@ class AuthUser implements AuthUserInterface {
                 details.currentPassword
             )
             await auth().currentUser?.updatePassword(details.newPassword)
+
+            return { status: requestStatus.SUCCESS }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
+    }
+
+    setPaymentDetails = async (details: { paymentDetails: paymentType }) => {
+        try {
+            await firestore()
+                .collection('users')
+                .doc(auth().currentUser?.uid)
+                .set({
+                    paymentDetails: details.paymentDetails,
+                })
 
             return { status: requestStatus.SUCCESS }
         } catch (error: Object | any) {
