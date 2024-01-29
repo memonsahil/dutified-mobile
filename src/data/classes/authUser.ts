@@ -2,7 +2,6 @@ import AuthUserInterface from '../interfaces/authUserInterface'
 import jobType from '../types/jobType'
 import requestStatus from '../../enums/requestStatus'
 import projectType from '../types/projectType'
-import categories from '../../enums/categories'
 import agreementAction from '../../enums/agreementAction'
 import auth from '@react-native-firebase/auth'
 import promiseType from '../types/promiseType'
@@ -143,7 +142,7 @@ class AuthUser implements AuthUserInterface {
     }
 
     setInterests = async (details: {
-        interests: categories[]
+        interests: string[]
     }): Promise<promiseType> => {
         try {
             await firestore()

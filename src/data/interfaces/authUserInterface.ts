@@ -1,4 +1,3 @@
-import categories from '../../enums/categories'
 import jobType from '../types/jobType'
 import projectType from '../types/projectType'
 import agreementAction from '../../enums/agreementAction'
@@ -21,7 +20,7 @@ export default interface AuthUserInterface {
     }) => Promise<promiseType>
     setBio: (details: { bio: string }) => Promise<promiseType>
     setRatePerDay: (details: { ratePerDay: string }) => Promise<promiseType>
-    setInterests: (details: { interests: categories[] }) => Promise<promiseType>
+    setInterests: (details: { interests: string[] }) => Promise<promiseType>
     setLinks: (details: { links: string[] }) => Promise<promiseType>
     setPhone: (details: {
         countryCode: string
