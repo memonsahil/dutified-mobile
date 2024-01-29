@@ -1,15 +1,5 @@
-type transactionCardProps = {
-    paymentId: string
-    paymentAmount: string
-    payerId: string
-    payerName: string
-    payeeId: string
-    payeeName: string
-    jobId: string
-    jobName: string
-    projectId?: string
-    projectName?: string
-    paymentDate: string
-}
+import transactionType from '../../data/types/transactionType'
+
+type transactionCardProps = transactionType
 
 export default transactionCardProps
