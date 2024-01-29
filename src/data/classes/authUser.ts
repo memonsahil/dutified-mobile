@@ -101,9 +101,7 @@ class AuthUser implements AuthUserInterface {
                 .collection('users')
                 .doc(auth().currentUser?.uid)
                 .update({
-                    profile: {
-                        profilePicture: details.profilePicture,
-                    },
+                    'profile.profilePicture': details.profilePicture,
                 })
 
             return { status: requestStatus.SUCCESS }
@@ -118,9 +116,7 @@ class AuthUser implements AuthUserInterface {
                 .collection('users')
                 .doc(auth().currentUser?.uid)
                 .update({
-                    profile: {
-                        bio: details.bio,
-                    },
+                    'profile.bio': details.bio,
                 })
 
             return { status: requestStatus.SUCCESS }
@@ -137,9 +133,7 @@ class AuthUser implements AuthUserInterface {
                 .collection('users')
                 .doc(auth().currentUser?.uid)
                 .update({
-                    profile: {
-                        ratePerDay: details.ratePerDay,
-                    },
+                    'profile.ratePerDay': details.ratePerDay,
                 })
 
             return { status: requestStatus.SUCCESS }
@@ -189,10 +183,8 @@ class AuthUser implements AuthUserInterface {
                 .collection('users')
                 .doc(auth().currentUser?.uid)
                 .update({
-                    profile: {
-                        countryCode: details.countryCode,
-                        phoneNumber: details.phoneNumber,
-                    },
+                    'profile.countryCode': details.countryCode,
+                    'profile.phoneNumber': details.phoneNumber,
                 })
 
             return { status: requestStatus.SUCCESS }
@@ -210,9 +202,7 @@ class AuthUser implements AuthUserInterface {
                 .collection('users')
                 .doc(auth().currentUser?.uid)
                 .update({
-                    profile: {
-                        emailAddress: details.emailAddress,
-                    },
+                    'profile.emailAddress': details.emailAddress,
                 })
 
             return { status: requestStatus.SUCCESS }

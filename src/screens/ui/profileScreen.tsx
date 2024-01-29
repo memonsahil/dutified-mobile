@@ -55,8 +55,16 @@ const ProfileScreen = () => {
                     </View>
                 </View>
                 <UserCard
-                    first={currentUser?.profile.firstName!}
-                    last={currentUser?.profile.lastName!}
+                    first={
+                        currentUser?.profile.firstName
+                            ? currentUser?.profile.firstName
+                            : ''
+                    }
+                    last={
+                        currentUser?.profile.lastName
+                            ? currentUser?.profile.lastName
+                            : ''
+                    }
                     image={currentUser?.profile.profilePicture!}
                     avgRating={util.avgRating(
                         currentUser?.feedbacks ? currentUser?.feedbacks : []
