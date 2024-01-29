@@ -12,13 +12,13 @@ import {
 } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import * as Crypto from 'expo-crypto'
 import * as Progress from 'react-native-progress'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import categories from '../../enums/categories'
 import screens from '../params/screens'
+import util from '../../util/util'
 
 const AddProjectScreen = () => {
     const [name, setName] = useState<string>('')
@@ -28,36 +28,15 @@ const AddProjectScreen = () => {
     const [desc, setDesc] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
-    const randomUUID = Crypto.randomUUID()
-
     const navigation: NavigationProp<screens> = useNavigation()
 
     useEffect(() => {
         if (enteredCategory !== '') {
-            setSearchResults(searchCategories(categories, enteredCategory))
+            setSearchResults(util.searchCategories(categories, enteredCategory))
         } else {
             setSearchResults(Object.values(categories))
         }
     }, [enteredCategory])
-
-    const searchCategories = (
-        categories: Record<string, string>,
-        searchArg: string
-    ) => {
-        let results: string[] = []
-
-        for (const category in categories) {
-            if (
-                categories[category]
-                    .toLowerCase()
-                    .includes(searchArg.toLowerCase().replace(/\s/g, ''))
-            ) {
-                results.push(categories[category])
-            }
-        }
-
-        return results
-    }
 
     return (
         <View style={styles.container}>
