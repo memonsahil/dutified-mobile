@@ -398,6 +398,12 @@ const SignUpScreen = () => {
                                                 interests: selectedCategories,
                                                 links: links,
                                             },
+                                            paymentDetails: {
+                                                cardNumber: '',
+                                                securityCode: '',
+                                                expiryMonth: '',
+                                                expiryYear: '',
+                                            },
                                             posts: [],
                                             projectsCreated: [],
                                             projectsWorked: [],
@@ -436,6 +442,12 @@ const SignUpScreen = () => {
                                                     interests:
                                                         selectedCategories,
                                                     links: links,
+                                                },
+                                                paymentDetails: {
+                                                    cardNumber: '',
+                                                    securityCode: '',
+                                                    expiryMonth: '',
+                                                    expiryYear: '',
                                                 },
                                                 posts: [],
                                                 projectsCreated: [],

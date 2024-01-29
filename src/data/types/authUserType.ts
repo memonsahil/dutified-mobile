@@ -11,7 +11,7 @@ import userType from './userType'
 
 type authUserType = {
     profile: profileType
-    paymentDetails?: paymentType
+    paymentDetails: paymentType
     posts: postType[]
     projectsCreated: projectType[]
     jobsCreated: jobType[]
