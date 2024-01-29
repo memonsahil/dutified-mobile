@@ -234,7 +234,7 @@ class AuthUser implements AuthUserInterface {
             await firestore()
                 .collection('users')
                 .doc(auth().currentUser?.uid)
-                .set({
+                .update({
                     paymentDetails: details.paymentDetails,
                 })
 
