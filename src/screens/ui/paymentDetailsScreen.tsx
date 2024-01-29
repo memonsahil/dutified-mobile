@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
     StyleSheet,
     Text,
@@ -16,15 +16,46 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
+import authUser from '../../data/classes/authUser'
+import promiseType from '../../data/types/promiseType'
+import requestStatus from '../../enums/requestStatus'
+import authStore from '../../state/stores/authStore'
 
 const EditPaymentScreen = () => {
+    const currentYear = new Date().getFullYear()
+    const currentMonth = new Date().getMonth() + 1
+
+    console.log('currentYear', currentYear)
+    console.log('currentMonth', currentMonth)
+
     const [cardNumber, setCardNumber] = useState<string>('')
     const [securityCode, setSecurityCode] = useState<string>('')
     const [expiryMonth, setExpiryMonth] = useState<string>('')
     const [expiryYear, setExpiryYear] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
+    const { currentUser, setCurrentUser } = authStore((state) => state)
+
     const navigation: NavigationProp<screens> = useNavigation()
+
+    useEffect(() => {
+        currentUser?.paymentDetails &&
+        JSON.stringify(currentUser?.paymentDetails) !==
+            JSON.stringify({
+                cardNumber: cardNumber,
+                securityCode: securityCode,
+                expiryMonth: expiryMonth,
+                expiryYear: expiryYear,
+            })
+            ? (setCardNumber(currentUser?.paymentDetails.cardNumber),
+              setSecurityCode(currentUser?.paymentDetails.securityCode),
+              setExpiryMonth(currentUser?.paymentDetails.expiryMonth),
+              setExpiryYear(currentUser?.paymentDetails.expiryYear))
+            : (setCardNumber(''),
+              setSecurityCode(''),
+              setExpiryMonth(''),
+              setExpiryYear(''))
+    }, [currentUser?.paymentDetails])
 
     return (
         <View style={styles.container}>
@@ -88,36 +119,63 @@ const EditPaymentScreen = () => {
                             style={styles.saveButtonContainer}
                             onPress={() => {
                                 if (
-                                    cardNumber !== '' &&
-                                    securityCode !== '' &&
-                                    expiryMonth !== '' &&
-                                    expiryYear !== ''
+                                    cardNumber.length === 16 &&
+                                    securityCode.length === 3 &&
+                                    parseInt(expiryMonth) > 0 &&
+                                    parseInt(expiryMonth) < 13 &&
+                                    parseInt(expiryYear) >=
+                                        new Date().getFullYear()
                                 ) {
-                                    if (
-                                        cardNumber.length !== 16 ||
-                                        securityCode.length !== 3 ||
-                                        parseInt(expiryMonth) <= 0 ||
-                                        parseInt(expiryMonth) > 12 ||
-                                        expiryYear <
-                                            new Date().getFullYear().toString()
-                                    ) {
-                                        Alert.alert(
-                                            'Invalid Details',
-                                            'Please update your payment details.',
-                                            [
-                                                {
-                                                    text: 'Dismiss',
-                                                    onPress: () => {},
-                                                },
-                                            ]
-                                        )
-                                    } else {
-                                        setLoading(true)
-                                    }
+                                    setLoading(true)
+                                    authUser
+                                        .setPaymentDetails({
+                                            paymentDetails: {
+                                                cardNumber: cardNumber,
+                                                securityCode: securityCode,
+                                                expiryMonth: expiryMonth,
+                                                expiryYear: expiryYear,
+                                            },
+                                        })
+                                        .then((response: promiseType) => {
+                                            if (
+                                                response.status ===
+                                                requestStatus.SUCCESS
+                                            ) {
+                                                currentUser &&
+                                                currentUser.paymentDetails
+                                                    ? setCurrentUser({
+                                                          ...currentUser,
+                                                          paymentDetails: {
+                                                              cardNumber:
+                                                                  cardNumber,
+                                                              securityCode:
+                                                                  securityCode,
+                                                              expiryMonth:
+                                                                  expiryMonth,
+                                                              expiryYear:
+                                                                  expiryYear,
+                                                          },
+                                                      })
+                                                    : null
+                                                navigation.goBack()
+                                            } else {
+                                                setLoading(false)
+                                                Alert.alert(
+                                                    'Error Occurred',
+                                                    'Please contact our support team.',
+                                                    [
+                                                        {
+                                                            text: 'Dismiss',
+                                                            onPress: () => {},
+                                                        },
+                                                    ]
+                                                )
+                                            }
+                                        })
                                 } else {
                                     Alert.alert(
-                                        'Missing Details',
-                                        'Please enter your payment details before updating it.',
+                                        'Invalid Details',
+                                        'Please update your payment details.',
                                         [
                                             {
                                                 text: 'Dismiss',
@@ -135,6 +193,61 @@ const EditPaymentScreen = () => {
                                 style={styles.iconButton}
                             />
                             <Text style={styles.saveButton}>Save</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.saveButtonContainer}
+                            onPress={() => {
+                                setLoading(true)
+                                authUser
+                                    .setPaymentDetails({
+                                        paymentDetails: {
+                                            cardNumber: '',
+                                            securityCode: '',
+                                            expiryMonth: '',
+                                            expiryYear: '',
+                                        },
+                                    })
+                                    .then((response: promiseType) => {
+                                        if (
+                                            response.status ===
+                                            requestStatus.SUCCESS
+                                        ) {
+                                            currentUser &&
+                                            currentUser.paymentDetails
+                                                ? setCurrentUser({
+                                                      ...currentUser,
+                                                      paymentDetails: {
+                                                          cardNumber: '',
+                                                          securityCode: '',
+                                                          expiryMonth: '',
+                                                          expiryYear: '',
+                                                      },
+                                                  })
+                                                : null
+                                            navigation.goBack()
+                                        } else {
+                                            setLoading(false)
+                                            Alert.alert(
+                                                'Error Occurred',
+                                                'Please contact our support team.',
+                                                [
+                                                    {
+                                                        text: 'Dismiss',
+                                                        onPress: () => {},
+                                                    },
+                                                ]
+                                            )
+                                        }
+                                    })
+                            }}
+                        >
+                            <MaterialCommunityIcons
+                                name="square-edit-outline"
+                                size={26}
+                                color={themeColors.YELLOW_GREEN}
+                                style={styles.iconButton}
+                            />
+                            <Text style={styles.saveButton}>Reset</Text>
                         </TouchableOpacity>
                     </KeyboardAwareScrollView>
                 </TouchableWithoutFeedback>
