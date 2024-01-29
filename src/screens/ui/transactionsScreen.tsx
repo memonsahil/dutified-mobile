@@ -11,51 +11,11 @@ import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import TransactionCard from '../../components/cards/transactionCard'
-import * as Crypto from 'expo-crypto'
-import transactionCardProps from '../../components/props/transactionCardProps'
+import authStore from '../../state/stores/authStore'
 
 const TransactionsScreen = () => {
-    const transactions: transactionCardProps[] = [
-        {
-            paymentId: Crypto.randomUUID(),
-            paymentAmount: '10000',
-            payerId: Crypto.randomUUID(),
-            payerName: 'Sahil Memon',
-            payeeId: Crypto.randomUUID(),
-            payeeName: 'Jane Doe',
-            jobId: Crypto.randomUUID(),
-            jobName: 'Job Name',
-            projectId: Crypto.randomUUID(),
-            projectName: 'Project 1',
-            paymentDate: '2021-01-01',
-        },
-        {
-            paymentId: Crypto.randomUUID(),
-            paymentAmount: '100',
-            payerId: Crypto.randomUUID(),
-            payerName: 'John Doe',
-            payeeId: Crypto.randomUUID(),
-            payeeName: 'Jane Doe',
-            jobId: Crypto.randomUUID(),
-            jobName: 'Job 1',
-            projectId: Crypto.randomUUID(),
-            projectName: 'Project 1',
-            paymentDate: '2021-01-01',
-        },
-        {
-            paymentId: Crypto.randomUUID(),
-            paymentAmount: '100',
-            payerId: Crypto.randomUUID(),
-            payerName: 'John Doe',
-            payeeId: Crypto.randomUUID(),
-            payeeName: 'Jane Doe',
-            jobId: Crypto.randomUUID(),
-            jobName: 'Job 1',
-            projectId: Crypto.randomUUID(),
-            projectName: 'Project 1',
-            paymentDate: '2021-01-01',
-        },
-    ]
+    const currentUser = authStore((state) => state.currentUser)
+
     const navigation: NavigationProp<screens> = useNavigation()
 
     return (
@@ -72,17 +32,19 @@ const TransactionsScreen = () => {
                     <Text style={styles.heading}>Transactions</Text>
                 </View>
                 <View style={styles.usersList}>
-                    {transactions.length !== 0 ? (
+                    {currentUser?.transactions.length !== 0 ? (
                         <>
-                            {transactions.map((transaction) => (
+                            {currentUser?.transactions.map((transaction) => (
                                 <TransactionCard
                                     key={transaction.paymentId}
                                     paymentId={transaction.paymentId}
                                     paymentAmount={transaction.paymentAmount}
                                     payerId={transaction.payerId}
                                     payerName={transaction.payerName}
+                                    payerImage={transaction.payerImage}
                                     payeeId={transaction.payeeId}
                                     payeeName={transaction.payeeName}
+                                    payeeImage={transaction.payeeImage}
                                     jobId={transaction.jobId}
                                     jobName={transaction.jobName}
                                     projectId={transaction.projectId}
