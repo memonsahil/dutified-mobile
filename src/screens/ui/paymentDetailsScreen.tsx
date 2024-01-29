@@ -22,12 +22,6 @@ import requestStatus from '../../enums/requestStatus'
 import authStore from '../../state/stores/authStore'
 
 const EditPaymentScreen = () => {
-    const currentYear = new Date().getFullYear()
-    const currentMonth = new Date().getMonth() + 1
-
-    console.log('currentYear', currentYear)
-    console.log('currentMonth', currentMonth)
-
     const [cardNumber, setCardNumber] = useState<string>('')
     const [securityCode, setSecurityCode] = useState<string>('')
     const [expiryMonth, setExpiryMonth] = useState<string>('')
