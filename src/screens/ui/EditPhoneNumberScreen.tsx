@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
     StyleSheet,
     Text,
@@ -16,11 +16,28 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
+import authUser from '../../data/classes/authUser'
+import promiseType from '../../data/types/promiseType'
+import requestStatus from '../../enums/requestStatus'
+import authStore from '../../state/stores/authStore'
 
 const EditPhoneNumberScreen = () => {
     const [code, setCode] = useState<string>('')
     const [phone, setPhone] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
+
+    const { currentUser, setCurrentUser } = authStore((state) => state)
+
+    useEffect(() => {
+        currentUser?.profile.countryCode &&
+        currentUser?.profile.countryCode !== code
+            ? setCode(currentUser?.profile.countryCode)
+            : setCode('')
+        currentUser?.profile.phoneNumber &&
+        currentUser?.profile.phoneNumber !== phone
+            ? setPhone(currentUser?.profile.phoneNumber)
+            : setPhone('')
+    }, [currentUser?.profile.countryCode, currentUser?.profile.phoneNumber])
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -72,11 +89,50 @@ const EditPhoneNumberScreen = () => {
                             style={styles.saveButtonContainer}
                             onPress={() => {
                                 if (code !== '' && phone !== '') {
-                                    setLoading(true)
+                                    setLoading(true),
+                                        authUser
+                                            .setPhone({
+                                                countryCode: code,
+                                                phoneNumber: phone,
+                                            })
+                                            .then((response: promiseType) => {
+                                                if (
+                                                    response.status ===
+                                                    requestStatus.SUCCESS
+                                                ) {
+                                                    currentUser &&
+                                                    currentUser.profile
+                                                        ? setCurrentUser({
+                                                              ...currentUser,
+                                                              profile: {
+                                                                  ...currentUser.profile,
+                                                                  countryCode:
+                                                                      code,
+                                                                  phoneNumber:
+                                                                      phone,
+                                                              },
+                                                          })
+                                                        : null
+                                                    navigation.goBack()
+                                                } else {
+                                                    setLoading(false)
+                                                    Alert.alert(
+                                                        'Error Occurred',
+                                                        'Please contact our support team.',
+                                                        [
+                                                            {
+                                                                text: 'Dismiss',
+                                                                onPress:
+                                                                    () => {},
+                                                            },
+                                                        ]
+                                                    )
+                                                }
+                                            })
                                 } else {
                                     Alert.alert(
                                         'Missing Details',
-                                        'Please enter country code and phone number before updating it.',
+                                        'Please enter your phone number before updating it.',
                                         [
                                             {
                                                 text: 'Dismiss',
