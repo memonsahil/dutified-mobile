@@ -8,6 +8,7 @@ import {
     TouchableWithoutFeedback,
     TouchableOpacity,
     ScrollView,
+    Alert,
 } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
@@ -17,6 +18,11 @@ import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import categories from '../../enums/categories'
+import authUser from '../../data/classes/authUser'
+import promiseType from '../../data/types/promiseType'
+import requestStatus from '../../enums/requestStatus'
+import util from '../../util/util'
+import authStore from '../../state/stores/authStore'
 
 const EditInterestsScreen = () => {
     const [enteredCategory, setEnteredCategory] = useState<string>('')
@@ -24,34 +30,24 @@ const EditInterestsScreen = () => {
     const [searchResults, setSearchResults] = useState<string[]>([])
     const [loading, setLoading] = useState<boolean>(false)
 
+    const { currentUser, setCurrentUser } = authStore((state) => state)
+
     const navigation: NavigationProp<screens> = useNavigation()
 
     useEffect(() => {
         if (enteredCategory !== '') {
-            setSearchResults(searchCategories(categories, enteredCategory))
+            setSearchResults(util.searchCategories(categories, enteredCategory))
         } else {
             setSearchResults(Object.values(categories))
         }
     }, [enteredCategory])
 
-    const searchCategories = (
-        categories: Record<string, string>,
-        searchArg: string
-    ) => {
-        let results: string[] = []
-
-        for (const category in categories) {
-            if (
-                categories[category]
-                    .toLowerCase()
-                    .includes(searchArg.toLowerCase().replace(/\s/g, ''))
-            ) {
-                results.push(categories[category])
-            }
-        }
-
-        return results
-    }
+    useEffect(() => {
+        currentUser?.profile.interests &&
+        currentUser?.profile.interests !== selectedCategories
+            ? setSelectedCategories(currentUser?.profile.interests)
+            : setSelectedCategories([])
+    }, [currentUser?.profile.ratePerDay])
 
     return (
         <View style={styles.container}>
@@ -165,6 +161,41 @@ const EditInterestsScreen = () => {
                             style={styles.saveButtonContainer}
                             onPress={() => {
                                 setLoading(true)
+                                authUser
+                                    .setInterests({
+                                        interests: selectedCategories,
+                                    })
+                                    .then((response: promiseType) => {
+                                        if (
+                                            response.status ===
+                                            requestStatus.SUCCESS
+                                        ) {
+                                            currentUser &&
+                                            currentUser.profile.interests
+                                                ? setCurrentUser({
+                                                      ...currentUser,
+                                                      profile: {
+                                                          ...currentUser.profile,
+                                                          interests:
+                                                              selectedCategories,
+                                                      },
+                                                  })
+                                                : null
+                                            navigation.goBack()
+                                        } else {
+                                            setLoading(false)
+                                            Alert.alert(
+                                                'Error Occurred',
+                                                'Please contact our support team.',
+                                                [
+                                                    {
+                                                        text: 'Dismiss',
+                                                        onPress: () => {},
+                                                    },
+                                                ]
+                                            )
+                                        }
+                                    })
                             }}
                         >
                             <MaterialCommunityIcons
