@@ -45,5 +45,24 @@ class Util {
             setter('data:image/png;base64,' + formattedImage.base64)
         }
     }
+
+    searchCategories = (
+        categories: Record<string, string>,
+        searchArg: string
+    ) => {
+        let results: string[] = []
+
+        for (const category in categories) {
+            if (
+                categories[category]
+                    .toLowerCase()
+                    .includes(searchArg.toLowerCase().replace(/\s/g, ''))
+            ) {
+                results.push(categories[category])
+            }
+        }
+
+        return results
+    }
 }
 export default new Util()

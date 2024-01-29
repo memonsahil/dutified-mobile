@@ -21,18 +21,12 @@ import authUser from '../../data/classes/authUser'
 import * as Crypto from 'expo-crypto'
 import promiseType from '../../data/types/promiseType'
 import { Avatar } from 'react-native-elements'
-import {
-    ImageResult,
-    manipulateAsync,
-    SaveFormat,
-} from 'expo-image-manipulator'
 import categories from '../../enums/categories'
-import * as ImagePicker from 'expo-image-picker'
 import authStore from '../../state/stores/authStore'
 import auth from '@react-native-firebase/auth'
+import util from '../../util/util'
 
 const SignUpScreen = () => {
-    let formattedImage: ImageResult
     const today: Date = new Date()
     const [first, setFirst] = useState<string>('')
     const [last, setLast] = useState<string>('')
@@ -57,48 +51,11 @@ const SignUpScreen = () => {
 
     useEffect(() => {
         if (enteredCategory !== '') {
-            setSearchResults(searchCategories(categories, enteredCategory))
+            setSearchResults(util.searchCategories(categories, enteredCategory))
         } else {
             setSearchResults(Object.values(categories))
         }
     }, [enteredCategory])
-
-    const pickImage = async () => {
-        let result = await ImagePicker.launchImageLibraryAsync({
-            mediaTypes: ImagePicker.MediaTypeOptions.Images,
-            allowsEditing: true,
-            quality: 1,
-        })
-
-        if (!result.canceled) {
-            formattedImage = await manipulateAsync(
-                result.assets[0].uri,
-                [{ resize: { width: 400, height: 400 } }],
-                { compress: 1, format: SaveFormat.PNG, base64: true }
-            )
-
-            setImage('data:image/png;base64,' + formattedImage.base64)
-        }
-    }
-
-    const searchCategories = (
-        categories: Record<string, string>,
-        searchArg: string
-    ) => {
-        let results: string[] = []
-
-        for (const category in categories) {
-            if (
-                categories[category]
-                    .toLowerCase()
-                    .includes(searchArg.toLowerCase().replace(/\s/g, ''))
-            ) {
-                results.push(categories[category])
-            }
-        }
-
-        return results
-    }
 
     return (
         <View style={styles.container}>
@@ -206,7 +163,7 @@ const SignUpScreen = () => {
                         />
                         <View style={styles.buttonContainer}>
                             <TouchableOpacity
-                                onPress={() => pickImage()}
+                                onPress={() => util.pickImage(setImage)}
                                 style={styles.buttonWrapper}
                             >
                                 <MaterialCommunityIcons
