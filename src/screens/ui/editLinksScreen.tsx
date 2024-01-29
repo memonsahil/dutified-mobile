@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
     StyleSheet,
     Text,
@@ -8,6 +8,7 @@ import {
     TouchableWithoutFeedback,
     TouchableOpacity,
     Linking,
+    Alert,
 } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
@@ -17,13 +18,25 @@ import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import * as Crypto from 'expo-crypto'
+import authUser from '../../data/classes/authUser'
+import requestStatus from '../../enums/requestStatus'
+import authStore from '../../state/stores/authStore'
+import promiseType from '../../data/types/promiseType'
 
 const EditLinksScreen = () => {
     const [link, setLink] = useState<string>('')
     const [links, setLinks] = useState<string[]>([])
     const [loading, setLoading] = useState<boolean>(false)
 
+    const { currentUser, setCurrentUser } = authStore((state) => state)
+
     const navigation: NavigationProp<screens> = useNavigation()
+
+    useEffect(() => {
+        currentUser?.profile.links && currentUser?.profile.links !== links
+            ? setLinks(currentUser?.profile.links)
+            : setLinks([])
+    }, [currentUser?.profile.links])
 
     return (
         <View style={styles.container}>
@@ -125,6 +138,40 @@ const EditLinksScreen = () => {
                             style={styles.buttonContainer}
                             onPress={() => {
                                 setLoading(true)
+                                authUser
+                                    .setLinks({
+                                        links: links,
+                                    })
+                                    .then((response: promiseType) => {
+                                        if (
+                                            response.status ===
+                                            requestStatus.SUCCESS
+                                        ) {
+                                            currentUser &&
+                                            currentUser.profile.links
+                                                ? setCurrentUser({
+                                                      ...currentUser,
+                                                      profile: {
+                                                          ...currentUser.profile,
+                                                          links: links,
+                                                      },
+                                                  })
+                                                : null
+                                            navigation.goBack()
+                                        } else {
+                                            setLoading(false)
+                                            Alert.alert(
+                                                'Error Occurred',
+                                                'Please contact our support team.',
+                                                [
+                                                    {
+                                                        text: 'Dismiss',
+                                                        onPress: () => {},
+                                                    },
+                                                ]
+                                            )
+                                        }
+                                    })
                             }}
                         >
                             <MaterialCommunityIcons
