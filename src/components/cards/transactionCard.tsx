@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import themeColors from '../../enums/themeColors'
@@ -6,12 +5,10 @@ import fontSizes from '../../enums/fontSizes'
 import screens from '../../screens/params/screens'
 import transactionCardProps from '../props/transactionCardProps'
 import { Avatar } from 'react-native-elements'
+import authStore from '../../state/stores/authStore'
 
 const TransactionCard = (props: transactionCardProps) => {
-    const [payerImage, setPayerImage] = useState<string>('')
-    const [payeeImage, setPayeeImage] = useState<string>('')
-
-    const currentUserId = '1'
+    const currentUser = authStore((state) => state.currentUser)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -22,7 +19,7 @@ const TransactionCard = (props: transactionCardProps) => {
                 <View style={styles.nameWrapper}>
                     <TouchableOpacity
                         onPress={() =>
-                            props.payerId === currentUserId
+                            props.payerId === currentUser?.profile.userId
                                 ? navigation.navigate('Profile')
                                 : navigation.navigate('User', {
                                       userId: props.payerId,
@@ -33,8 +30,8 @@ const TransactionCard = (props: transactionCardProps) => {
                             size="medium"
                             rounded
                             source={
-                                payerImage
-                                    ? { uri: payerImage }
+                                props.payerImage
+                                    ? { uri: props.payerImage }
                                     : require('../../../assets/images/user-avatar.png')
                             }
                             containerStyle={styles.avatarContainer}
@@ -42,7 +39,7 @@ const TransactionCard = (props: transactionCardProps) => {
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => {
-                            props.payerId === currentUserId
+                            props.payerId === currentUser?.profile.userId
                                 ? navigation.navigate('Profile')
                                 : navigation.navigate('User', {
                                       userId: props.payerId,
@@ -64,7 +61,7 @@ const TransactionCard = (props: transactionCardProps) => {
                 <View style={styles.nameWrapper}>
                     <TouchableOpacity
                         onPress={() =>
-                            props.payeeId === currentUserId
+                            props.payeeId === currentUser?.profile.userId
                                 ? navigation.navigate('Profile')
                                 : navigation.navigate('User', {
                                       userId: props.payeeId,
@@ -75,8 +72,8 @@ const TransactionCard = (props: transactionCardProps) => {
                             size="medium"
                             rounded
                             source={
-                                payeeImage
-                                    ? { uri: payeeImage }
+                                props.payeeImage
+                                    ? { uri: props.payeeImage }
                                     : require('../../../assets/images/user-avatar.png')
                             }
                             containerStyle={styles.avatarContainer}
@@ -84,7 +81,7 @@ const TransactionCard = (props: transactionCardProps) => {
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => {
-                            props.payeeId === currentUserId
+                            props.payeeId === currentUser?.profile.userId
                                 ? navigation.navigate('Profile')
                                 : navigation.navigate('User', {
                                       userId: props.payeeId,
