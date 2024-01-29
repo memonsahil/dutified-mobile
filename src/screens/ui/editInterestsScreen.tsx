@@ -47,7 +47,7 @@ const EditInterestsScreen = () => {
         currentUser?.profile.interests !== selectedCategories
             ? setSelectedCategories(currentUser?.profile.interests)
             : setSelectedCategories([])
-    }, [currentUser?.profile.ratePerDay])
+    }, [currentUser?.profile.interests])
 
     return (
         <View style={styles.container}>
