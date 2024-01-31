@@ -22,7 +22,9 @@ import promiseType from '../../data/types/promiseType'
 import requestStatus from '../../enums/requestStatus'
 
 const EditEmailAddressScreen = () => {
-    const [email, setEmail] = useState<string>('')
+    const [currentEmail, setCurrentEmail] = useState<string>('')
+    const [password, setPassword] = useState<string>('')
+    const [newEmail, setNewEmail] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
     const { currentUser, setCurrentUser } = authStore((state) => state)
@@ -31,9 +33,9 @@ const EditEmailAddressScreen = () => {
 
     useEffect(() => {
         currentUser?.profile.emailAddress &&
-        currentUser?.profile.emailAddress !== email
-            ? setEmail(currentUser?.profile.emailAddress)
-            : setEmail('')
+        currentUser?.profile.emailAddress !== currentEmail
+            ? setCurrentEmail(currentUser?.profile.emailAddress)
+            : setCurrentEmail('')
     }, [currentUser?.profile.emailAddress])
 
     return (
@@ -58,12 +60,40 @@ const EditEmailAddressScreen = () => {
                         </View>
                         <View style={styles.mainSection}>
                             <Text style={styles.field}>
-                                Update Email Address
+                                Current Email Address
                             </Text>
                             <TextInput
                                 placeholder="email@domain.com"
-                                value={email}
-                                onChangeText={setEmail}
+                                value={currentEmail}
+                                onChangeText={setCurrentEmail}
+                                style={styles.textInput}
+                                placeholderTextColor={themeColors.SILVER}
+                                inputMode="email"
+                                autoCapitalize="none"
+                                autoComplete="off"
+                                autoCorrect={false}
+                            />
+                        </View>
+                        <View style={styles.mainSection}>
+                            <Text style={styles.field}>Password</Text>
+                            <TextInput
+                                placeholder="••••••••"
+                                value={password}
+                                onChangeText={setPassword}
+                                style={styles.textInput}
+                                placeholderTextColor={themeColors.SILVER}
+                                secureTextEntry={true}
+                                autoCapitalize="none"
+                                autoComplete="off"
+                                autoCorrect={false}
+                            />
+                        </View>
+                        <View style={styles.mainSection}>
+                            <Text style={styles.field}>New Email Address</Text>
+                            <TextInput
+                                placeholder="email@domain.com"
+                                value={newEmail}
+                                onChangeText={setNewEmail}
                                 style={styles.textInput}
                                 placeholderTextColor={themeColors.SILVER}
                                 inputMode="email"
@@ -75,11 +105,17 @@ const EditEmailAddressScreen = () => {
                         <TouchableOpacity
                             style={styles.saveButtonContainer}
                             onPress={() => {
-                                if (email !== '') {
+                                if (
+                                    currentEmail !== '' &&
+                                    password !== '' &&
+                                    newEmail !== ''
+                                ) {
                                     setLoading(true),
                                         authUser
                                             .setEmail({
-                                                emailAddress: email,
+                                                oldEmail: currentEmail.trim(),
+                                                password: password.trim(),
+                                                newEmail: newEmail.trim(),
                                             })
                                             .then((response: promiseType) => {
                                                 if (
@@ -93,7 +129,7 @@ const EditEmailAddressScreen = () => {
                                                               profile: {
                                                                   ...currentUser.profile,
                                                                   emailAddress:
-                                                                      email,
+                                                                      newEmail,
                                                               },
                                                           })
                                                         : null
@@ -116,7 +152,7 @@ const EditEmailAddressScreen = () => {
                                 } else {
                                     Alert.alert(
                                         'Missing Details',
-                                        'Please enter your email address before updating it.',
+                                        'Please enter your credential and new email address before updating it.',
                                         [
                                             {
                                                 text: 'Dismiss',
