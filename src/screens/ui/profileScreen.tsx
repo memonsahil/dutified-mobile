@@ -150,14 +150,26 @@ const ProfileScreen = () => {
                 </View>
                 {switchColumn === 'Details' ? (
                     <UserDetailsCard
-                        description={currentUser?.profile.bio!}
-                        interests={currentUser?.profile.interests!}
+                        description={
+                            currentUser?.profile.bio
+                                ? currentUser?.profile.bio
+                                : ''
+                        }
+                        interests={
+                            currentUser?.profile.interests
+                                ? currentUser?.profile.interests
+                                : []
+                        }
                         links={util.formatLinks(
                             currentUser?.profile.links
                                 ? currentUser?.profile.links
                                 : []
                         )}
-                        dailyRate={currentUser?.profile.ratePerDay!}
+                        dailyRate={
+                            currentUser?.profile.ratePerDay
+                                ? currentUser?.profile.ratePerDay
+                                : ''
+                        }
                     />
                 ) : switchColumn === 'Posts' ? (
                     <>

@@ -23,8 +23,8 @@ const UserDetailsCard = (props: userDetailsCardProps) => {
                 <Text style={styles.description}>No rate.</Text>
             )}
             <Text style={styles.heading}>Interests</Text>
-            {props.interests.length !== 0 ? (
-                props.interests.map((interest) => (
+            {props.interests?.length !== 0 ? (
+                props.interests?.map((interest) => (
                     <View style={styles.interestWrapper} key={interest}>
                         <Text style={styles.interest}>{interest}</Text>
                     </View>
@@ -34,8 +34,8 @@ const UserDetailsCard = (props: userDetailsCardProps) => {
             )}
 
             <Text style={styles.heading}>Links</Text>
-            {props.links.length !== 0 ? (
-                props.links.map((link) => (
+            {props.links?.length !== 0 ? (
+                props.links?.map((link) => (
                     <View style={styles.interestWrapper} key={link.id}>
                         <TouchableOpacity
                             onPress={() => Linking.openURL(link.url)}
