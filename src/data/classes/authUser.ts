@@ -206,6 +206,12 @@ class AuthUser implements AuthUserInterface {
 
             await auth().currentUser?.reauthenticateWithCredential(credential)
             await auth().currentUser?.updateEmail(details.newEmail)
+            await firestore()
+                .collection('users')
+                .doc(auth().currentUser?.uid)
+                .update({
+                    'profile.emailAddress': details.newEmail,
+                })
 
             return { status: requestStatus.SUCCESS }
         } catch (error: Object | any) {
