@@ -508,7 +508,6 @@ const SignUpScreen = () => {
                                                     'auth/weak-password'
                                             ) {
                                                 setLoading(false)
-
                                                 Alert.alert(
                                                     'Weak Password',
                                                     'Please enter a strong password.',
