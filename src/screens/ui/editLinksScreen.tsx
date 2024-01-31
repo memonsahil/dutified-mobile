@@ -266,6 +266,7 @@ const styles = StyleSheet.create({
     buttonContainer: {
         paddingTop: '10%',
         flexDirection: 'row',
+        alignItems: 'center',
     },
     iconButton: {
         marginRight: '3%',

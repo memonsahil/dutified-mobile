@@ -213,6 +213,7 @@ const styles = StyleSheet.create({
     },
     buttonWrapper: {
         flexDirection: 'row',
+        alignItems: 'center',
     },
     iconButton: {
         marginRight: '3%',

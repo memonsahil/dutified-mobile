@@ -239,6 +239,7 @@ const styles = StyleSheet.create({
     saveButtonContainer: {
         paddingTop: '10%',
         flexDirection: 'row',
+        alignItems: 'center',
     },
     iconButton: {
         marginRight: '3%',
