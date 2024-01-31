@@ -11,91 +11,19 @@ import JobCard from '../../components/cards/jobCard'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
-import jobCardProps from '../../components/props/jobCardProps'
-import jobStatus from '../../enums/jobStatus'
-import categories from '../../enums/categories'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import projectCardProps from '../../components/props/projectCardProps'
 import ProjectCard from '../../components/cards/projectCard'
 import selection from '../../enums/selection'
+import authStore from '../../state/stores/authStore'
 
 const WorkScreen = () => {
     const [switchColumn, setSwitchColumn] = useState<'Hired' | 'Created'>(
         'Hired'
     )
+
+    const currentUser = authStore((state) => state.currentUser)
+
     const navigation: NavigationProp<screens> = useNavigation()
-    const projectsHired: Array<projectCardProps> = [
-        {
-            projectId: '1',
-            projectName: 'Hired Project 1',
-            description: 'This is a description for Hired project 1',
-            creationDate: '2021-01-01',
-            category: categories.ACCOUNTING,
-            showPlus: false,
-        },
-        {
-            projectId: '2',
-            projectName: 'Hired Project 2',
-            description:
-                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-            showPlus: false,
-        },
-        {
-            projectId: '3',
-            projectName: 'Hired Project 3',
-            description:
-                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-            showPlus: false,
-        },
-        {
-            projectId: '4',
-            projectName: 'Hired Project 4',
-            description:
-                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-            showPlus: false,
-        },
-    ]
-    const jobsHired: Array<jobCardProps> = [
-        {
-            jobId: '1',
-            jobName: 'Created Job 1',
-            status: jobStatus.AVAILABLE,
-            payment: '100000',
-            description:
-                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            creationDate: '2021-01-01',
-            category: categories.ACCOUNTING,
-            showPlus: selection.HIDE,
-        },
-        {
-            jobId: '2',
-            jobName: 'Created Job 2',
-            status: jobStatus.IN_PROGRESS,
-            payment: '200',
-            description: 'This is a description for Created job 2',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-            showPlus: selection.HIDE,
-        },
-        {
-            jobId: '3',
-            jobName: 'Created Job 3',
-            status: jobStatus.COMPLETED,
-            payment: '200',
-            description: 'This is a description for Created job 3',
-            creationDate: '2021-01-01',
-            category: categories.ANIMATION,
-            showPlus: selection.HIDE,
-        },
-    ]
-    const projectsCreated: Array<projectCardProps> = []
-    const jobsCreated: Array<jobCardProps> = []
 
     return (
         <View style={styles.container}>
@@ -155,8 +83,8 @@ const WorkScreen = () => {
                 </View>
                 {switchColumn === 'Hired' ? (
                     <>
-                        {projectsHired.length === 0 &&
-                        jobsHired.length === 0 ? (
+                        {currentUser?.projectsWorked.length === 0 &&
+                        currentUser?.jobsWorked.length === 0 ? (
                             <View style={styles.noDataContainer}>
                                 <Text style={styles.noDataText}>
                                     Projects and jobs that you are hired for
@@ -165,7 +93,7 @@ const WorkScreen = () => {
                             </View>
                         ) : (
                             <>
-                                {projectsHired.length !== 0 ? (
+                                {currentUser?.projectsWorked.length !== 0 ? (
                                     <>
                                         <Text style={styles.subHeading}>
                                             Projects
@@ -182,38 +110,42 @@ const WorkScreen = () => {
                                             decelerationRate="fast"
                                             snapToInterval={370}
                                         >
-                                            {projectsHired.map((project) => (
-                                                <ProjectCard
-                                                    key={project.projectId}
-                                                    projectId={
-                                                        project.projectId
-                                                    }
-                                                    projectName={
-                                                        project.projectName
-                                                    }
-                                                    description={
-                                                        project.description
-                                                    }
-                                                    creationDate={
-                                                        project.creationDate
-                                                    }
-                                                    category={project.category}
-                                                    showPlus={project.showPlus}
-                                                    additionalStyle={{
-                                                        width: 350,
-                                                        marginRight: 20,
-                                                    }}
-                                                />
-                                            ))}
+                                            {currentUser?.projectsWorked.map(
+                                                (project) => (
+                                                    <ProjectCard
+                                                        key={project.projectId}
+                                                        projectId={
+                                                            project.projectId
+                                                        }
+                                                        projectName={
+                                                            project.projectName
+                                                        }
+                                                        description={
+                                                            project.description
+                                                        }
+                                                        creationDate={
+                                                            project.creationDate
+                                                        }
+                                                        category={
+                                                            project.category
+                                                        }
+                                                        showPlus={false}
+                                                        additionalStyle={{
+                                                            width: 350,
+                                                            marginRight: 20,
+                                                        }}
+                                                    />
+                                                )
+                                            )}
                                         </ScrollView>
                                     </>
                                 ) : null}
-                                {jobsHired.length !== 0 ? (
+                                {currentUser?.jobsWorked.length !== 0 ? (
                                     <>
                                         <Text style={styles.subHeading}>
                                             Jobs
                                         </Text>
-                                        {jobsHired.map((job) => (
+                                        {currentUser?.jobsWorked.map((job) => (
                                             <JobCard
                                                 key={job.jobId}
                                                 jobId={job.jobId}
@@ -223,7 +155,7 @@ const WorkScreen = () => {
                                                 description={job.description}
                                                 creationDate={job.creationDate}
                                                 category={job.category}
-                                                showPlus={job.showPlus}
+                                                showPlus={selection.HIDE}
                                                 additionalStyle={{
                                                     marginBottom: '5%',
                                                 }}
@@ -236,8 +168,8 @@ const WorkScreen = () => {
                     </>
                 ) : (
                     <>
-                        {projectsCreated.length === 0 &&
-                        jobsCreated.length === 0 ? (
+                        {currentUser?.projectsCreated.length === 0 &&
+                        currentUser?.jobsCreated.length === 0 ? (
                             <View style={styles.noDataContainer}>
                                 <Text style={styles.noDataText}>
                                     Projects and jobs that you create will be
@@ -246,7 +178,7 @@ const WorkScreen = () => {
                             </View>
                         ) : (
                             <>
-                                {projectsCreated.length !== 0 ? (
+                                {currentUser?.projectsCreated.length !== 0 ? (
                                     <>
                                         <Text style={styles.subHeading}>
                                             Projects
@@ -263,38 +195,42 @@ const WorkScreen = () => {
                                             decelerationRate="fast"
                                             snapToInterval={370}
                                         >
-                                            {projectsCreated.map((project) => (
-                                                <ProjectCard
-                                                    key={project.projectId}
-                                                    projectId={
-                                                        project.projectId
-                                                    }
-                                                    projectName={
-                                                        project.projectName
-                                                    }
-                                                    description={
-                                                        project.description
-                                                    }
-                                                    creationDate={
-                                                        project.creationDate
-                                                    }
-                                                    category={project.category}
-                                                    showPlus={project.showPlus}
-                                                    additionalStyle={{
-                                                        width: 350,
-                                                        marginRight: 20,
-                                                    }}
-                                                />
-                                            ))}
+                                            {currentUser?.projectsCreated.map(
+                                                (project) => (
+                                                    <ProjectCard
+                                                        key={project.projectId}
+                                                        projectId={
+                                                            project.projectId
+                                                        }
+                                                        projectName={
+                                                            project.projectName
+                                                        }
+                                                        description={
+                                                            project.description
+                                                        }
+                                                        creationDate={
+                                                            project.creationDate
+                                                        }
+                                                        category={
+                                                            project.category
+                                                        }
+                                                        showPlus={false}
+                                                        additionalStyle={{
+                                                            width: 350,
+                                                            marginRight: 20,
+                                                        }}
+                                                    />
+                                                )
+                                            )}
                                         </ScrollView>
                                     </>
                                 ) : null}
-                                {jobsCreated.length !== 0 ? (
+                                {currentUser?.jobsCreated.length !== 0 ? (
                                     <>
                                         <Text style={styles.subHeading}>
                                             Jobs
                                         </Text>
-                                        {jobsCreated.map((job) => (
+                                        {currentUser?.jobsCreated.map((job) => (
                                             <JobCard
                                                 key={job.jobId}
                                                 jobId={job.jobId}
@@ -304,7 +240,7 @@ const WorkScreen = () => {
                                                 description={job.description}
                                                 creationDate={job.creationDate}
                                                 category={job.category}
-                                                showPlus={job.showPlus}
+                                                showPlus={selection.HIDE}
                                                 additionalStyle={{
                                                     marginBottom: '5%',
                                                 }}
