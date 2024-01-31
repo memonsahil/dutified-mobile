@@ -150,7 +150,7 @@ class AuthUser implements AuthUserInterface {
                 .collection('users')
                 .doc(auth().currentUser?.uid)
                 .update({
-                    interests: details.interests,
+                    'profile.interests': details.interests,
                 })
 
             return { status: requestStatus.SUCCESS }
@@ -165,7 +165,7 @@ class AuthUser implements AuthUserInterface {
                 .collection('users')
                 .doc(auth().currentUser?.uid)
                 .update({
-                    links: details.links,
+                    'profile.links': details.links,
                 })
 
             return { status: requestStatus.SUCCESS }
