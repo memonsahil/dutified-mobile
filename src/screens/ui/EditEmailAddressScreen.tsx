@@ -152,7 +152,7 @@ const EditEmailAddressScreen = () => {
                                 } else {
                                     Alert.alert(
                                         'Missing Details',
-                                        'Please enter your credential and new email address before updating it.',
+                                        'Please enter both your credential and your new email address before updating it.',
                                         [
                                             {
                                                 text: 'Dismiss',
