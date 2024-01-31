@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
     StyleSheet,
     Text,
@@ -16,11 +16,25 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
+import authStore from '../../state/stores/authStore'
+import authUser from '../../data/classes/authUser'
+import promiseType from '../../data/types/promiseType'
+import requestStatus from '../../enums/requestStatus'
 
 const EditPasswordScreen = () => {
+    const [currentEmail, setCurrentEmail] = useState<string>('')
     const [currentPassword, setCurrentPassword] = useState<string>('')
     const [newPassword, setNewPassword] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
+
+    const currentUser = authStore((state) => state.currentUser)
+
+    useEffect(() => {
+        currentUser?.profile.emailAddress &&
+        currentUser?.profile.emailAddress !== currentEmail
+            ? setCurrentEmail(currentUser?.profile.emailAddress)
+            : setCurrentEmail('')
+    }, [currentUser?.profile.emailAddress])
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -43,6 +57,20 @@ const EditPasswordScreen = () => {
                                 />
                             </TouchableOpacity>
                             <Text style={styles.heading}>Password</Text>
+                        </View>
+                        <View style={styles.mainSection}>
+                            <Text style={styles.field}>Email Address</Text>
+                            <TextInput
+                                placeholder="email@domain.com"
+                                value={currentEmail}
+                                onChangeText={setCurrentEmail}
+                                style={styles.textInput}
+                                placeholderTextColor={themeColors.SILVER}
+                                inputMode="email"
+                                autoCapitalize="none"
+                                autoComplete="off"
+                                autoCorrect={false}
+                            />
                         </View>
                         <View style={styles.mainSection}>
                             <Text style={styles.field}>Current Password</Text>
@@ -76,14 +104,62 @@ const EditPasswordScreen = () => {
                             style={styles.saveButtonContainer}
                             onPress={() => {
                                 if (
+                                    currentEmail !== '' &&
                                     currentPassword !== '' &&
                                     newPassword !== ''
                                 ) {
-                                    setLoading(true)
+                                    setLoading(true),
+                                        authUser
+                                            .setPassword({
+                                                emailAddress:
+                                                    currentEmail.trim(),
+                                                currentPassword:
+                                                    currentPassword.trim(),
+                                                newPassword: newPassword.trim(),
+                                            })
+                                            .then((response: promiseType) => {
+                                                if (
+                                                    response.status ===
+                                                    requestStatus.SUCCESS
+                                                ) {
+                                                    navigation.goBack()
+                                                } else if (
+                                                    response.status ===
+                                                        requestStatus.ERROR &&
+                                                    response.errorCode ===
+                                                        'auth/weak-password'
+                                                ) {
+                                                    setLoading(false)
+                                                    Alert.alert(
+                                                        'Weak Password',
+                                                        'Please enter a strong password.',
+                                                        [
+                                                            {
+                                                                text: 'Dismiss',
+                                                                onPress:
+                                                                    () => {},
+                                                            },
+                                                        ]
+                                                    )
+                                                } else {
+                                                    setLoading(false)
+                                                    Alert.alert(
+                                                        'Error Occurred',
+                                                        'Please contact our support team.',
+                                                        [
+                                                            {
+                                                                text: 'Dismiss',
+                                                                onPress:
+                                                                    () => {},
+                                                            },
+                                                        ]
+                                                    )
+                                                }
+                                            })
                                 } else {
                                     Alert.alert(
                                         'Missing Details',
-                                        'Please enter current and new password before updating it.',
+                                        'Please enter both your credential and your new password before updating it.',
                                         [
                                             {
                                                 text: 'Dismiss',
@@ -170,6 +246,7 @@ const styles = StyleSheet.create({
     saveButtonContainer: {
         paddingTop: '10%',
         flexDirection: 'row',
+        alignItems: 'center',
     },
     iconButton: {
         marginRight: '3%',

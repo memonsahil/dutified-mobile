@@ -225,10 +225,12 @@ class AuthUser implements AuthUserInterface {
         newPassword: string
     }): Promise<promiseType> => {
         try {
-            await auth().signInWithEmailAndPassword(
+            const credential = auth.EmailAuthProvider.credential(
                 details.emailAddress,
                 details.currentPassword
             )
+
+            await auth().currentUser?.reauthenticateWithCredential(credential)
             await auth().currentUser?.updatePassword(details.newPassword)
 
             return { status: requestStatus.SUCCESS }
