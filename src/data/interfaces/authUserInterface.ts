@@ -27,7 +27,11 @@ export default interface AuthUserInterface {
         countryCode: string
         phoneNumber: string
     }) => Promise<promiseType>
-    setEmail: (details: { emailAddress: string }) => Promise<promiseType>
+    setEmail: (details: {
+        oldEmail: string
+        password: string
+        newEmail: string
+    }) => Promise<promiseType>
     setPassword: (details: {
         emailAddress: string
         currentPassword: string

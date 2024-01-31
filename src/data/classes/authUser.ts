@@ -194,16 +194,18 @@ class AuthUser implements AuthUserInterface {
     }
 
     setEmail = async (details: {
-        emailAddress: string
+        oldEmail: string
+        password: string
+        newEmail: string
     }): Promise<promiseType> => {
         try {
-            await auth().currentUser?.updateEmail(details.emailAddress)
-            await firestore()
-                .collection('users')
-                .doc(auth().currentUser?.uid)
-                .update({
-                    'profile.emailAddress': details.emailAddress,
-                })
+            const credential = auth.EmailAuthProvider.credential(
+                details.oldEmail,
+                details.password
+            )
+
+            await auth().currentUser?.reauthenticateWithCredential(credential)
+            await auth().currentUser?.updateEmail(details.newEmail)
 
             return { status: requestStatus.SUCCESS }
         } catch (error: Object | any) {
