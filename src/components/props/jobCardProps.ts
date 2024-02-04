@@ -1,4 +1,3 @@
-import categories from '../../enums/categories'
 import selection from '../../enums/selection'
 
 type jobCardProps = {
@@ -8,7 +7,7 @@ type jobCardProps = {
     payment: string
     description: string
     creationDate: string
-    category: categories
+    category: string
     showPlus: selection
     additionalStyle?: object
 }
