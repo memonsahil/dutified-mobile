@@ -279,8 +279,26 @@ class AuthUser implements AuthUserInterface {
     }
 
     createJob = async (details: { job: jobType }): Promise<promiseType> => {
-        // Implement create job logic here
-        return { status: requestStatus.SUCCESS }
+        try {
+            await firestore()
+                .collection('jobs')
+                .doc(details.job.jobId)
+                .set(details.job)
+            await firestore()
+                .collection('users')
+                .doc(auth().currentUser?.uid)
+                .update({
+                    ['jobsCreated']: firestore.FieldValue.arrayUnion(
+                        details.job
+                    ),
+                })
+            return { status: requestStatus.SUCCESS }
+        } catch (error: Object | any) {
+            return {
+                status: requestStatus.ERROR,
+                errorCode: error.code,
+            }
+        }
     }
 
     actionAgreement = async (details: {
