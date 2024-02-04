@@ -264,6 +264,14 @@ class AuthUser implements AuthUserInterface {
                 .collection('projects')
                 .doc(details.project.projectId)
                 .set(details.project)
+            await firestore()
+                .collection('users')
+                .doc(auth().currentUser?.uid)
+                .update({
+                    ['projectsCreated']: firestore.FieldValue.arrayUnion(
+                        details.project
+                    ),
+                })
             return { status: requestStatus.SUCCESS }
         } catch (error: Object | any) {
             return { status: requestStatus.ERROR, errorCode: error.code }
