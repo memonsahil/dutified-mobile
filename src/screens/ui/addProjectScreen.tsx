@@ -152,12 +152,13 @@ const AddProjectScreen = () => {
                                                     projectCreator:
                                                         currentUser?.profile
                                                             .firstName! +
-                                                        '' +
+                                                        ' ' +
                                                         currentUser?.profile
                                                             .lastName!,
                                                     category: selectedCategory,
                                                     description: desc,
-                                                    creationDate: new Date(),
+                                                    creationDate:
+                                                        new Date().toDateString(),
                                                 },
                                             })
                                             .then((response: promiseType) => {
@@ -184,7 +185,7 @@ const AddProjectScreen = () => {
                                                                           currentUser
                                                                               ?.profile
                                                                               .firstName! +
-                                                                          '' +
+                                                                          ' ' +
                                                                           currentUser
                                                                               ?.profile
                                                                               .lastName!,
@@ -193,7 +194,7 @@ const AddProjectScreen = () => {
                                                                       description:
                                                                           desc,
                                                                       creationDate:
-                                                                          new Date(),
+                                                                          new Date().toDateString(),
                                                                   },
                                                               ],
                                                           })

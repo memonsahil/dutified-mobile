@@ -5,7 +5,7 @@ type projectType = {
     projectCreator: string
     category: string
     description: string
-    creationDate: Date
+    creationDate: string
 }
 
 export default projectType
