@@ -1,13 +1,11 @@
-import categories from '../../enums/categories'
-
 type projectType = {
     projectId: string
     projectName: string
     projectCreatorId: string
     projectCreator: string
-    category: categories
+    category: string
     description: string
-    creationDate: string
+    creationDate: Date
 }
 
 export default projectType

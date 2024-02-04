@@ -239,7 +239,9 @@ class AuthUser implements AuthUserInterface {
         }
     }
 
-    setPaymentDetails = async (details: { paymentDetails: paymentType }) => {
+    setPaymentDetails = async (details: {
+        paymentDetails: paymentType
+    }): Promise<promiseType> => {
         try {
             await firestore()
                 .collection('users')
@@ -257,8 +259,15 @@ class AuthUser implements AuthUserInterface {
     createProject = async (details: {
         project: projectType
     }): Promise<promiseType> => {
-        // Implement create project logic here
-        return { status: requestStatus.SUCCESS }
+        try {
+            await firestore()
+                .collection('projects')
+                .doc(details.project.projectId)
+                .set(details.project)
+            return { status: requestStatus.SUCCESS }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
     }
 
     createJob = async (details: { job: jobType }): Promise<promiseType> => {
