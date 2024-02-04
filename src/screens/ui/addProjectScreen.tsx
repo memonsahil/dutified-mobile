@@ -19,6 +19,11 @@ import fontSizes from '../../enums/fontSizes'
 import categories from '../../enums/categories'
 import screens from '../params/screens'
 import util from '../../util/util'
+import authUser from '../../data/classes/authUser'
+import * as Crypto from 'expo-crypto'
+import authStore from '../../state/stores/authStore'
+import promiseType from '../../data/types/promiseType'
+import requestStatus from '../../enums/requestStatus'
 
 const AddProjectScreen = () => {
     const [name, setName] = useState<string>('')
@@ -27,6 +32,8 @@ const AddProjectScreen = () => {
     const [searchResults, setSearchResults] = useState<string[]>([])
     const [desc, setDesc] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
+
+    const { currentUser, setCurrentUser } = authStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -133,6 +140,80 @@ const AddProjectScreen = () => {
                                         desc !== ''
                                     ) {
                                         setLoading(true)
+                                        authUser
+                                            .createProject({
+                                                project: {
+                                                    projectId:
+                                                        Crypto.randomUUID(),
+                                                    projectName: name,
+                                                    projectCreatorId:
+                                                        currentUser?.profile
+                                                            .userId!,
+                                                    projectCreator:
+                                                        currentUser?.profile
+                                                            .firstName! +
+                                                        '' +
+                                                        currentUser?.profile
+                                                            .lastName!,
+                                                    category: selectedCategory,
+                                                    description: desc,
+                                                    creationDate: new Date(),
+                                                },
+                                            })
+                                            .then((response: promiseType) => {
+                                                if (
+                                                    response.status ===
+                                                    requestStatus.SUCCESS
+                                                ) {
+                                                    currentUser &&
+                                                    currentUser.projectsCreated
+                                                        ? setCurrentUser({
+                                                              ...currentUser,
+                                                              projectsCreated: [
+                                                                  ...currentUser.projectsCreated,
+                                                                  {
+                                                                      projectId:
+                                                                          Crypto.randomUUID(),
+                                                                      projectName:
+                                                                          name,
+                                                                      projectCreatorId:
+                                                                          currentUser
+                                                                              ?.profile
+                                                                              .userId!,
+                                                                      projectCreator:
+                                                                          currentUser
+                                                                              ?.profile
+                                                                              .firstName! +
+                                                                          '' +
+                                                                          currentUser
+                                                                              ?.profile
+                                                                              .lastName!,
+                                                                      category:
+                                                                          selectedCategory,
+                                                                      description:
+                                                                          desc,
+                                                                      creationDate:
+                                                                          new Date(),
+                                                                  },
+                                                              ],
+                                                          })
+                                                        : null
+                                                    navigation.goBack()
+                                                } else {
+                                                    setLoading(false)
+                                                    Alert.alert(
+                                                        'Error Occurred',
+                                                        'Please contact our support team.',
+                                                        [
+                                                            {
+                                                                text: 'Dismiss',
+                                                                onPress:
+                                                                    () => {},
+                                                            },
+                                                        ]
+                                                    )
+                                                }
+                                            })
                                     } else {
                                         Alert.alert(
                                             'Missing Details',
