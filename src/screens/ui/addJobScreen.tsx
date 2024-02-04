@@ -20,6 +20,12 @@ import categories from '../../enums/categories'
 import screens from '../params/screens'
 import addJobScreenProps from '../props/addJobScreenProps'
 import util from '../../util/util'
+import authStore from '../../state/stores/authStore'
+import authUser from '../../data/classes/authUser'
+import * as Crypto from 'expo-crypto'
+import jobStatus from '../../enums/jobStatus'
+import promiseType from '../../data/types/promiseType'
+import requestStatus from '../../enums/requestStatus'
 
 const AddJobScreen = ({ route }: addJobScreenProps) => {
     const { projectId, projectName, jobCreatorId, jobCreator } = route.params
@@ -31,6 +37,8 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
     const [paymentAmount, setPaymentAmount] = useState<string>('')
     const [desc, setDesc] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
+
+    const { currentUser, setCurrentUser } = authStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -150,6 +158,96 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                                         desc !== ''
                                     ) {
                                         setLoading(true)
+                                        authUser
+                                            .createJob({
+                                                job: {
+                                                    jobId: Crypto.randomUUID(),
+                                                    jobName: name,
+                                                    projectId: projectId,
+                                                    projectName: projectName,
+                                                    jobCreatorId:
+                                                        currentUser?.profile
+                                                            .userId!,
+                                                    jobCreator:
+                                                        currentUser?.profile
+                                                            .firstName! +
+                                                        ' ' +
+                                                        currentUser?.profile
+                                                            .lastName!,
+                                                    jobWorkerId: '',
+                                                    jobWorker: '',
+                                                    status: jobStatus.AVAILABLE,
+                                                    category: selectedCategory,
+                                                    payment: paymentAmount,
+                                                    description: desc,
+                                                    creationDate:
+                                                        new Date().toDateString(),
+                                                },
+                                            })
+                                            .then((response: promiseType) => {
+                                                if (
+                                                    response.status ===
+                                                    requestStatus.SUCCESS
+                                                ) {
+                                                    currentUser &&
+                                                    currentUser.jobsCreated
+                                                        ? setCurrentUser({
+                                                              ...currentUser,
+                                                              jobsCreated: [
+                                                                  ...currentUser.jobsCreated,
+                                                                  {
+                                                                      jobId: Crypto.randomUUID(),
+                                                                      jobName:
+                                                                          name,
+                                                                      projectId:
+                                                                          projectId,
+                                                                      projectName:
+                                                                          projectName,
+                                                                      jobCreatorId:
+                                                                          currentUser
+                                                                              ?.profile
+                                                                              .userId!,
+                                                                      jobCreator:
+                                                                          currentUser
+                                                                              ?.profile
+                                                                              .firstName! +
+                                                                          ' ' +
+                                                                          currentUser
+                                                                              ?.profile
+                                                                              .lastName!,
+                                                                      jobWorkerId:
+                                                                          '',
+                                                                      jobWorker:
+                                                                          '',
+                                                                      status: jobStatus.AVAILABLE,
+                                                                      category:
+                                                                          selectedCategory,
+                                                                      payment:
+                                                                          paymentAmount,
+                                                                      description:
+                                                                          desc,
+                                                                      creationDate:
+                                                                          new Date().toDateString(),
+                                                                  },
+                                                              ],
+                                                          })
+                                                        : null
+                                                    navigation.goBack()
+                                                } else {
+                                                    setLoading(false)
+                                                    Alert.alert(
+                                                        'Error Occurred',
+                                                        'Please contact our support team.',
+                                                        [
+                                                            {
+                                                                text: 'Dismiss',
+                                                                onPress:
+                                                                    () => {},
+                                                            },
+                                                        ]
+                                                    )
+                                                }
+                                            })
                                     } else {
                                         Alert.alert(
                                             'Missing Details',
