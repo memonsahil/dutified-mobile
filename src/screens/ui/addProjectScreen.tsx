@@ -199,7 +199,7 @@ const AddProjectScreen = () => {
                                                               ],
                                                           })
                                                         : null
-                                                    navigation.goBack()
+                                                    navigation.navigate('Work')
                                                 } else {
                                                     setLoading(false)
                                                     Alert.alert(
