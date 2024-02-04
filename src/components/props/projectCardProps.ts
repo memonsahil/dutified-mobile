@@ -1,11 +1,9 @@
-import categories from '../../enums/categories'
-
 type projectCardProps = {
     projectId: string
     projectName: string
     description: string
-    creationDate: string
-    category: categories
+    creationDate: Date
+    category: string
     showPlus: boolean
     additionalStyle?: object
 }

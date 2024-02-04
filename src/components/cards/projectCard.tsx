@@ -91,7 +91,9 @@ const ProjectCard = (props: projectCardProps) => {
                     >
                         {props.description}
                     </Text>
-                    <Text style={styles.date}>{props.creationDate}</Text>
+                    <Text style={styles.date}>
+                        {props.creationDate.toString()}
+                    </Text>
                 </View>
             </TouchableOpacity>
         </View>
