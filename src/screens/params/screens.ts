@@ -41,8 +41,6 @@ type screens = {
     AddJob: {
         projectId: string
         projectName: string
-        jobCreatorId: string
-        jobCreator: string
     }
     AddProject: undefined
     AddPost: undefined
