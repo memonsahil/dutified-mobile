@@ -10,12 +10,12 @@ import {
 
 class Util {
     avgRating = (feedbacks: feedbackType[]) => {
-        if (feedbacks.length !== 0) {
+        if (feedbacks?.length !== 0) {
             return Math.round(
-                feedbacks.reduce(
-                    (total, feedback) => total + parseInt(feedback.rating),
+                feedbacks?.reduce(
+                    (total, feedback) => total + parseInt(feedback?.rating),
                     0
-                ) / feedbacks.length
+                ) / feedbacks?.length
             ).toString()
         } else return 'No ratings yet.'
     }
