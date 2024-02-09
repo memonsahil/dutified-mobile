@@ -22,6 +22,7 @@ import userCardSmallProps from '../../components/props/userCardSmallProps'
 import project from '../../data/classes/project'
 import promiseType from '../../data/types/promiseType'
 import requestStatus from '../../enums/requestStatus'
+import job from '../../data/classes/job'
 
 const SearchScreen = () => {
     const [searchText, setSearchText] = useState('')
@@ -48,8 +49,20 @@ const SearchScreen = () => {
                     } else {
                         setProjects([])
                     }
-                })
-            setLoading(false)
+                }),
+                job
+                    .getJobResults({ searchQuery: searchText })
+                    .then((response: promiseType) => {
+                        if (
+                            response.status === requestStatus.SUCCESS &&
+                            response.data
+                        ) {
+                            setJobs(response.data)
+                        } else {
+                            setJobs([])
+                        }
+                    }),
+                setLoading(false)
         }
     }, [searchText])
 
