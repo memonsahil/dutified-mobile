@@ -40,15 +40,13 @@ const SearchScreen = () => {
             project
                 .getProjectResults({ searchQuery: searchText })
                 .then((response: promiseType) => {
-                    console.log('response in searchScreen: ', response)
-
                     if (
                         response.status === requestStatus.SUCCESS &&
                         response.data
                     ) {
                         setProjects(response.data)
                     } else {
-                        console.log('error in searchScreen: ', response)
+                        setProjects([])
                     }
                 })
             setLoading(false)
@@ -82,8 +80,8 @@ const SearchScreen = () => {
                 {searchText === '' ? (
                     <View style={styles.noDataContainer}>
                         <Text style={styles.noDataText}>
-                            Search for projects, jobs and users by their title,
-                            name or category.
+                            Search for projects, jobs, and users by their name
+                            or interests.
                         </Text>
                     </View>
                 ) : (
@@ -206,7 +204,7 @@ const SearchScreen = () => {
                                             ))}
                                         </>
                                     ) : switchCategory === 'Jobs' &&
-                                      projects.length === 0 ? (
+                                      jobs.length === 0 ? (
                                         <View style={styles.noDataContainer}>
                                             <Text style={styles.noDataText}>
                                                 No jobs were found.
@@ -228,7 +226,7 @@ const SearchScreen = () => {
                                             ))}
                                         </>
                                     ) : switchCategory === 'Users' &&
-                                      projects.length === 0 ? (
+                                      users.length === 0 ? (
                                         <View style={styles.noDataContainer}>
                                             <Text style={styles.noDataText}>
                                                 No users were found.
