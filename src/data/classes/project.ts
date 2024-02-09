@@ -1,5 +1,6 @@
 import requestStatus from '../../enums/requestStatus'
 import ProjectInterface from '../interfaces/projectInterface'
+import projectType from '../types/projectType'
 import promiseType from '../types/promiseType'
 import firestore from '@react-native-firebase/firestore'
 
@@ -8,17 +9,28 @@ class Project implements ProjectInterface {
         searchQuery: string
     }): Promise<promiseType> => {
         try {
-            const response = await firestore()
-                .collection('projects')
-                .where(details.searchQuery, '==', 'projectName')
-                .get()
+            const matchingProjects: projectType[] = []
+            const querySnapshot = await firestore().collection('projects').get()
 
-            console.log('response in getProjectResults:', response)
+            querySnapshot.forEach((doc) => {
+                if (
+                    doc
+                        .data()
+                        .projectName?.toLowerCase()
+                        .includes(details.searchQuery.toLowerCase()) ||
+                    doc
+                        .data()
+                        .category?.toLowerCase()
+                        .includes(details.searchQuery.toLowerCase())
+                ) {
+                    matchingProjects.push(doc.data() as projectType)
+                }
+            })
 
-            if (response) {
+            if (matchingProjects.length > 0) {
                 return {
                     status: requestStatus.SUCCESS,
-                    data: response,
+                    data: matchingProjects,
                 }
             } else {
                 return { status: requestStatus.ERROR }
