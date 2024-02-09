@@ -28,7 +28,7 @@ import promiseType from '../../data/types/promiseType'
 import requestStatus from '../../enums/requestStatus'
 
 const AddJobScreen = ({ route }: addJobScreenProps) => {
-    const { projectId, projectName, jobCreatorId, jobCreator } = route.params
+    const { projectId, projectName } = route.params
 
     const [name, setName] = useState<string>('')
     const [enteredCategory, setEnteredCategory] = useState<string>('')

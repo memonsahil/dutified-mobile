@@ -19,121 +19,38 @@ import projectCardProps from '../../components/props/projectCardProps'
 import ProjectCard from '../../components/cards/projectCard'
 import UserCardSmall from '../../components/cards/userCardSmall'
 import userCardSmallProps from '../../components/props/userCardSmallProps'
-import categories from '../../enums/categories'
-import jobStatus from '../../enums/jobStatus'
-import selection from '../../enums/selection'
+import project from '../../data/classes/project'
+import promiseType from '../../data/types/promiseType'
+import requestStatus from '../../enums/requestStatus'
 
 const SearchScreen = () => {
     const [searchText, setSearchText] = useState('')
     const [loading, setLoading] = useState(false)
+    const [projects, setProjects] = useState<Array<projectCardProps>>([])
+    const [jobs, setJobs] = useState<Array<jobCardProps>>([])
+    const [users, setUsers] = useState<Array<userCardSmallProps>>([])
     const [switchCategory, setSwitchCategory] = useState<
         'Projects' | 'Users' | 'Jobs'
     >('Projects')
 
     const navigation: NavigationProp<screens> = useNavigation()
-    const projects: Array<projectCardProps> = [
-        {
-            projectId: '1',
-            projectName: 'Created Project 1',
-            description: 'This is a description for created project 1',
-            creationDate: '2021-01-01',
-            category: categories.ACCOUNTING,
-            showPlus: false,
-        },
-        {
-            projectId: '2',
-            projectName: 'Created Project 2',
-            description:
-                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-            showPlus: false,
-        },
-        {
-            projectId: '3',
-            projectName: 'Created Project 3',
-            description:
-                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-            showPlus: false,
-        },
-        {
-            projectId: '4',
-            projectName: 'Created Project 4',
-            description:
-                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-            showPlus: false,
-        },
-    ]
-    const jobs: Array<jobCardProps> = [
-        {
-            jobId: '5',
-            jobName: 'Created Job 1',
-            status: jobStatus.AVAILABLE,
-            payment: '100000',
-            description:
-                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            creationDate: '2021-01-01',
-            category: categories.ACCOUNTING,
-            showPlus: selection.HIDE,
-        },
-        {
-            jobId: '6',
-            jobName: 'Created Job 2',
-            status: jobStatus.IN_PROGRESS,
-            payment: '200',
-            description: 'This is a description for Created job 2',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-            showPlus: selection.HIDE,
-        },
-        {
-            jobId: '7',
-            jobName: 'Created Job 3',
-            status: jobStatus.COMPLETED,
-            payment: '200',
-            description: 'This is a description for Created job 3',
-            creationDate: '2021-01-01',
-            category: categories.ANIMATION,
-            showPlus: selection.HIDE,
-        },
-    ]
-    const users: Array<userCardSmallProps> = [
-        {
-            userId: '1',
-            first: 'Sahil',
-            last: 'Memon',
-            image: '',
-            avgRatings: '4.5',
-        },
-        {
-            userId: '2',
-            first: 'Sahil',
-            last: 'Memon',
-            image: '',
-            avgRatings: '4.5',
-        },
-        {
-            userId: '3',
-            first: 'Sahil',
-            last: 'Memon',
-            image: '',
-            avgRatings: '4.5',
-        },
-        {
-            userId: '4',
-            first: 'Sahil',
-            last: 'Memon',
-            image: '',
-            avgRatings: '4.5',
-        },
-    ]
 
     useEffect(() => {
         if (searchText !== '') {
+            project
+                .getProjectResults({ searchQuery: searchText })
+                .then((response: promiseType) => {
+                    console.log('response in searchScreen: ', response)
+
+                    if (
+                        response.status === requestStatus.SUCCESS &&
+                        response.data
+                    ) {
+                        setProjects(response.data)
+                    } else {
+                        console.log('error in searchScreen: ', response)
+                    }
+                })
             setLoading(false)
         }
     }, [searchText])
