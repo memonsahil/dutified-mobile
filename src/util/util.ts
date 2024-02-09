@@ -9,13 +9,16 @@ import {
 } from 'expo-image-manipulator'
 
 class Util {
-    avgRating = (feedbacks: feedbackType[]) =>
-        Math.round(
-            feedbacks.reduce(
-                (total, feedback) => total + parseInt(feedback.rating),
-                0
-            ) / feedbacks.length
-        ).toString()
+    avgRating = (feedbacks: feedbackType[]) => {
+        if (feedbacks.length !== 0) {
+            return Math.round(
+                feedbacks.reduce(
+                    (total, feedback) => total + parseInt(feedback.rating),
+                    0
+                ) / feedbacks.length
+            ).toString()
+        } else return 'No ratings yet.'
+    }
 
     formatLinks = (links: string[]) => {
         const formattedLinks: linkType[] = []
