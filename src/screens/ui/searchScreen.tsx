@@ -41,6 +41,7 @@ const SearchScreen = () => {
 
     useEffect(() => {
         if (searchText !== '') {
+            setLoading(true)
             project
                 .getProjectResults({ searchQuery: searchText })
                 .then((response: promiseType) => {
@@ -53,7 +54,6 @@ const SearchScreen = () => {
                         setProjects([])
                     }
                 })
-
             job.getJobResults({ searchQuery: searchText }).then(
                 (response: promiseType) => {
                     if (
@@ -66,7 +66,6 @@ const SearchScreen = () => {
                     }
                 }
             )
-
             user.getUserResults({ searchQuery: searchText }).then(
                 (response: promiseType) => {
                     if (
@@ -88,6 +87,7 @@ const SearchScreen = () => {
                     }
                 }
             )
+            setLoading(false)
         }
     }, [searchText])
 
