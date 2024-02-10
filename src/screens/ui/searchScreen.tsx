@@ -88,8 +88,6 @@ const SearchScreen = () => {
                     }
                 }
             )
-
-            setLoading(false)
         }
     }, [searchText])
 
@@ -120,8 +118,7 @@ const SearchScreen = () => {
                 {searchText === '' ? (
                     <View style={styles.noDataContainer}>
                         <Text style={styles.noDataText}>
-                            Search for projects, jobs, and users by their name
-                            or interests.
+                            Search for projects, jobs, and users.
                         </Text>
                     </View>
                 ) : (
