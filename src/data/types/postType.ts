@@ -8,8 +8,8 @@ type postType = {
     userName: string
     userAvatar: string
     date: string
-    comments?: commentType[]
-    attachments?: attachmentType[]
+    comments: commentType[]
+    attachments: attachmentType[]
 }
 
 export default postType
