@@ -19,6 +19,10 @@ import screens from '../params/screens'
 import attachment from '../../enums/attachment'
 import utilStore from '../../state/stores/utilStore'
 import authStore from '../../state/stores/authStore'
+import authUser from '../../data/classes/authUser'
+import * as Crypto from 'expo-crypto'
+import requestStatus from '../../enums/requestStatus'
+import promiseType from '../../data/types/promiseType'
 
 const AddPostScreen = () => {
     const [desc, setDesc] = useState<string>('')
@@ -28,7 +32,7 @@ const AddPostScreen = () => {
         (state) => state
     )
 
-    const setCurrentUser = authStore((state) => state.setCurrentUser)
+    const { currentUser, setCurrentUser } = authStore((state) => state)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -137,17 +141,112 @@ const AddPostScreen = () => {
                                 onPress={() => {
                                     if (desc !== '') {
                                         setLoading(true)
-                                    } else {
-                                        Alert.alert(
-                                            'Missing Content',
-                                            'Please describe yout post before submitting it.',
-                                            [
-                                                {
-                                                    text: 'Dismiss',
-                                                    onPress: () => {},
+                                        authUser
+                                            .createPost({
+                                                post: {
+                                                    postId: Crypto.randomUUID(),
+                                                    content: desc,
+                                                    userId: currentUser?.profile
+                                                        .userId!,
+                                                    userName:
+                                                        currentUser?.profile
+                                                            .firstName! +
+                                                        ' ' +
+                                                        currentUser?.profile
+                                                            .lastName!,
+                                                    userAvatar:
+                                                        currentUser?.profile
+                                                            .profilePicture!,
+                                                    date: new Date().toDateString(),
+                                                    comments: [],
+                                                    attachments:
+                                                        selectedAttachments,
                                                 },
-                                            ]
-                                        )
+                                            })
+                                            .then((response: promiseType) => {
+                                                if (
+                                                    response.status ===
+                                                    requestStatus.SUCCESS
+                                                ) {
+                                                    currentUser &&
+                                                    currentUser.posts &&
+                                                    currentUser.feedPosts
+                                                        ? setCurrentUser({
+                                                              ...currentUser,
+                                                              posts: [
+                                                                  ...currentUser.posts,
+                                                                  {
+                                                                      postId: Crypto.randomUUID(),
+                                                                      content:
+                                                                          desc,
+                                                                      userId: currentUser
+                                                                          ?.profile
+                                                                          .userId!,
+                                                                      userName:
+                                                                          currentUser
+                                                                              ?.profile
+                                                                              .firstName! +
+                                                                          ' ' +
+                                                                          currentUser
+                                                                              ?.profile
+                                                                              .lastName!,
+                                                                      userAvatar:
+                                                                          currentUser
+                                                                              ?.profile
+                                                                              .profilePicture!,
+                                                                      date: new Date().toDateString(),
+                                                                      comments:
+                                                                          [],
+                                                                      attachments:
+                                                                          selectedAttachments,
+                                                                  },
+                                                              ],
+                                                              feedPosts: [
+                                                                  ...currentUser.feedPosts,
+                                                                  {
+                                                                      postId: Crypto.randomUUID(),
+                                                                      content:
+                                                                          desc,
+                                                                      userId: currentUser
+                                                                          ?.profile
+                                                                          .userId!,
+                                                                      userName:
+                                                                          currentUser
+                                                                              ?.profile
+                                                                              .firstName! +
+                                                                          ' ' +
+                                                                          currentUser
+                                                                              ?.profile
+                                                                              .lastName!,
+                                                                      userAvatar:
+                                                                          currentUser
+                                                                              ?.profile
+                                                                              .profilePicture!,
+                                                                      date: new Date().toDateString(),
+                                                                      comments:
+                                                                          [],
+                                                                      attachments:
+                                                                          selectedAttachments,
+                                                                  },
+                                                              ],
+                                                          })
+                                                        : null
+                                                    navigation.navigate('Feed')
+                                                } else {
+                                                    setLoading(false)
+                                                    Alert.alert(
+                                                        'Error Occurred',
+                                                        'Please contact our support team.',
+                                                        [
+                                                            {
+                                                                text: 'Dismiss',
+                                                                onPress:
+                                                                    () => {},
+                                                            },
+                                                        ]
+                                                    )
+                                                }
+                                            })
                                     }
                                 }}
                                 style={styles.postButton}
