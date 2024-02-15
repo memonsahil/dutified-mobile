@@ -4,6 +4,7 @@ import agreementAction from '../../enums/agreementAction'
 import promiseType from '../types/promiseType'
 import authUserType from '../types/authUserType'
 import paymentType from '../types/paymentType'
+import postType from '../types/postType'
 
 export default interface AuthUserInterface {
     signUp: (details: {
@@ -42,6 +43,7 @@ export default interface AuthUserInterface {
     }) => Promise<promiseType>
     createProject: (details: { project: projectType }) => Promise<promiseType>
     createJob: (details: { job: jobType }) => Promise<promiseType>
+    createPost: (details: { post: postType }) => Promise<promiseType>
     actionAgreement: (details: {
         jobId: string
         action: agreementAction

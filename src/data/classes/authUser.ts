@@ -8,6 +8,7 @@ import promiseType from '../types/promiseType'
 import firestore from '@react-native-firebase/firestore'
 import authUserType from '../types/authUserType'
 import paymentType from '../types/paymentType'
+import postType from '../types/postType'
 
 class AuthUser implements AuthUserInterface {
     signUp = async (details: {
@@ -285,6 +286,7 @@ class AuthUser implements AuthUserInterface {
                         details.project
                     ),
                 })
+
             return { status: requestStatus.SUCCESS }
         } catch (error: Object | any) {
             return { status: requestStatus.ERROR, errorCode: error.code }
@@ -305,12 +307,37 @@ class AuthUser implements AuthUserInterface {
                         details.job
                     ),
                 })
+
             return { status: requestStatus.SUCCESS }
         } catch (error: Object | any) {
             return {
                 status: requestStatus.ERROR,
                 errorCode: error.code,
             }
+        }
+    }
+
+    createPost = async (details: { post: postType }): Promise<promiseType> => {
+        try {
+            await firestore()
+                .collection('users')
+                .doc(auth().currentUser?.uid)
+                .update({
+                    ['posts']: firestore.FieldValue.arrayUnion(details.post),
+                })
+            await firestore()
+                .collection('users')
+                .doc(auth().currentUser?.uid)
+                .update({
+                    ['feedPosts']: firestore.FieldValue.arrayUnion(
+                        details.post
+                    ),
+                })
+
+            return { status: requestStatus.SUCCESS }
+        } catch (error: Object | any) {
+            console.log('Error in create post', error)
+            return { status: requestStatus.ERROR, errorCode: error.code }
         }
     }
 
