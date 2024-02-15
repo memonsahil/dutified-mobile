@@ -18,7 +18,7 @@ class User implements UserInterface {
                     doc.data().profile?.firstName +
                     ' ' +
                     doc.data().profile?.lastName
-                let interests: Array<string> = doc.data().profile?.interests
+                let interests: string[] = doc.data().profile?.interests
 
                 if (
                     (name
