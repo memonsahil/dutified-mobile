@@ -265,8 +265,8 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                                 <Text style={styles.button}>Create</Text>
                             </TouchableOpacity>
                             <Text style={styles.textSection}>
-                                Once this job is created, it can be viewed by
-                                others. These details can not be edited later.
+                                Once this job is created, it will be viewed by
+                                others. You can hide it anytime.
                             </Text>
                         </View>
                     </KeyboardAwareScrollView>

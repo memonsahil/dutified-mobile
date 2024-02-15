@@ -18,6 +18,7 @@ import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import attachment from '../../enums/attachment'
 import utilStore from '../../state/stores/utilStore'
+import authStore from '../../state/stores/authStore'
 
 const AddPostScreen = () => {
     const [desc, setDesc] = useState<string>('')
@@ -26,6 +27,8 @@ const AddPostScreen = () => {
     const { selectedAttachments, setSelectedAttachments } = utilStore(
         (state) => state
     )
+
+    const setCurrentUser = authStore((state) => state.setCurrentUser)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -158,9 +161,8 @@ const AddPostScreen = () => {
                                 <Text style={styles.button}>Post</Text>
                             </TouchableOpacity>
                             <Text style={styles.textSection}>
-                                Once this post is created, it can be viewed by
-                                others in your network. You can not edit or
-                                delete it later.
+                                Once this post is created, it will be viewed by
+                                others. You can hide it anytime.
                             </Text>
                         </View>
                     </KeyboardAwareScrollView>
