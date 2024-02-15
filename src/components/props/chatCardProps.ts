@@ -1,7 +1,6 @@
 type chatCardProps = {
     userId: string
-    firstName: string
-    lastName: string
+    userName: string
     imageSrc: string
     lastMessage: string
 }

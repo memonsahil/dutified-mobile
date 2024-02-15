@@ -41,7 +41,7 @@ const ChatCard = (props: chatCardProps) => {
                         numberOfLines={1}
                         ellipsizeMode="tail"
                     >
-                        {`${props.firstName} ${props.lastName}`}
+                        {`${props.userName}`}
                     </Text>
                     <Text
                         style={styles.messageText}
@@ -52,7 +52,7 @@ const ChatCard = (props: chatCardProps) => {
                 <TouchableOpacity
                     onPress={() => {
                         Alert.alert(
-                            `Report ${props.firstName} ${props.lastName}`,
+                            `Report ${props.userName}`,
                             'Report inappropriate or suspicious activity.',
                             [
                                 {
