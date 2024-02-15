@@ -14,14 +14,21 @@ class User implements UserInterface {
             const querySnapshot = await firestore().collection('users').get()
 
             querySnapshot.forEach((doc) => {
+                let name =
+                    doc.data().profile?.firstName +
+                    ' ' +
+                    doc.data().profile?.lastName
+                let interests: Array<string> = doc.data().profile?.interests
+
                 if (
-                    (
-                        doc.data().profile?.firstName +
-                        ' ' +
-                        doc.data().profile?.lastName
-                    )
+                    (name
                         .toLowerCase()
-                        .includes(details.searchQuery.toLowerCase()) &&
+                        .includes(details.searchQuery.toLowerCase()) ||
+                        interests.some((interest) =>
+                            interest
+                                .toLocaleLowerCase()
+                                .includes(details.searchQuery.toLowerCase())
+                        )) &&
                     doc.data().profile?.userId !== auth().currentUser?.uid
                 ) {
                     matchingUsers.push(doc.data() as userType)

@@ -118,7 +118,8 @@ const SearchScreen = () => {
                 {searchText === '' ? (
                     <View style={styles.noDataContainer}>
                         <Text style={styles.noDataText}>
-                            Search for projects, jobs, and users.
+                            Search for projects, jobs, and users by their name
+                            or interests.
                         </Text>
                     </View>
                 ) : (
