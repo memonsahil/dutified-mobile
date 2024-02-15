@@ -3,6 +3,7 @@ import JobInterface from '../interfaces/jobInterace'
 import jobType from '../types/jobType'
 import promiseType from '../types/promiseType'
 import firestore from '@react-native-firebase/firestore'
+import auth from '@react-native-firebase/auth'
 
 class Job implements JobInterface {
     getJobResults = async (details: {
@@ -14,14 +15,15 @@ class Job implements JobInterface {
 
             querySnapshot.forEach((doc) => {
                 if (
-                    doc
+                    (doc
                         .data()
                         .jobName?.toLowerCase()
                         .includes(details.searchQuery.toLowerCase()) ||
-                    doc
-                        .data()
-                        .category?.toLowerCase()
-                        .includes(details.searchQuery.toLowerCase())
+                        doc
+                            .data()
+                            .category?.toLowerCase()
+                            .includes(details.searchQuery.toLowerCase())) &&
+                    doc.data().jobCreatorId !== auth().currentUser?.uid
                 ) {
                     matchingJobs.push(doc.data() as jobType)
                 }

@@ -3,6 +3,7 @@ import ProjectInterface from '../interfaces/projectInterface'
 import projectType from '../types/projectType'
 import promiseType from '../types/promiseType'
 import firestore from '@react-native-firebase/firestore'
+import auth from '@react-native-firebase/auth'
 
 class Project implements ProjectInterface {
     getProjectResults = async (details: {
@@ -14,14 +15,15 @@ class Project implements ProjectInterface {
 
             querySnapshot.forEach((doc) => {
                 if (
-                    doc
+                    (doc
                         .data()
                         .projectName?.toLowerCase()
                         .includes(details.searchQuery.toLowerCase()) ||
-                    doc
-                        .data()
-                        .category?.toLowerCase()
-                        .includes(details.searchQuery.toLowerCase())
+                        doc
+                            .data()
+                            .category?.toLowerCase()
+                            .includes(details.searchQuery.toLowerCase())) &&
+                    doc.data().projectCreatorId !== auth().currentUser?.uid
                 ) {
                     matchingProjects.push(doc.data() as projectType)
                 }

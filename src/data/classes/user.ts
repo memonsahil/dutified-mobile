@@ -3,6 +3,7 @@ import UserInterface from '../interfaces/userInterface'
 import promiseType from '../types/promiseType'
 import firestore from '@react-native-firebase/firestore'
 import userType from '../types/userType'
+import auth from '@react-native-firebase/auth'
 
 class User implements UserInterface {
     getUserResults = async (details: {
@@ -20,7 +21,8 @@ class User implements UserInterface {
                         doc.data().profile?.lastName
                     )
                         .toLowerCase()
-                        .includes(details.searchQuery.toLowerCase())
+                        .includes(details.searchQuery.toLowerCase()) &&
+                    doc.data().profile?.userId !== auth().currentUser?.uid
                 ) {
                     matchingUsers.push(doc.data() as userType)
                 }
