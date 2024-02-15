@@ -10,87 +10,15 @@ import JobCard from '../../components/cards/jobCard'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
-import jobCardProps from '../../components/props/jobCardProps'
-import jobStatus from '../../enums/jobStatus'
-import categories from '../../enums/categories'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import projectCardProps from '../../components/props/projectCardProps'
 import ProjectCard from '../../components/cards/projectCard'
+import authStore from '../../state/stores/authStore'
 import selection from '../../enums/selection'
 
 const AttachScreen = () => {
     const navigation: NavigationProp<screens> = useNavigation()
 
-    const projectsCreated: Array<projectCardProps> = [
-        {
-            projectId: '1',
-            projectName: 'Created Project 1',
-            description: 'This is a description for created project 1',
-            creationDate: '2021-01-01',
-            category: categories.ACCOUNTING,
-            showPlus: true,
-        },
-        {
-            projectId: '2',
-            projectName: 'Created Project 2',
-            description:
-                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-            showPlus: true,
-        },
-        {
-            projectId: '3',
-            projectName: 'Created Project 3',
-            description:
-                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-            showPlus: true,
-        },
-        {
-            projectId: '4',
-            projectName: 'Created Project 4',
-            description:
-                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-            showPlus: true,
-        },
-    ]
-    const jobsCreated: Array<jobCardProps> = [
-        {
-            jobId: '5',
-            jobName: 'Created Job 1',
-            status: jobStatus.AVAILABLE,
-            payment: '100000',
-            description:
-                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            creationDate: '2021-01-01',
-            category: categories.ACCOUNTING,
-            showPlus: selection.ATTACHMENT,
-        },
-        {
-            jobId: '6',
-            jobName: 'Created Job 2',
-            status: jobStatus.IN_PROGRESS,
-            payment: '200',
-            description: 'This is a description for Created job 2',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-            showPlus: selection.ATTACHMENT,
-        },
-        {
-            jobId: '7',
-            jobName: 'Created Job 3',
-            status: jobStatus.COMPLETED,
-            payment: '200',
-            description: 'This is a description for Created job 3',
-            creationDate: '2021-01-01',
-            category: categories.ANIMATION,
-            showPlus: selection.ATTACHMENT,
-        },
-    ]
+    const currentUser = authStore((state) => state.currentUser)
 
     return (
         <View style={styles.container}>
@@ -105,7 +33,8 @@ const AttachScreen = () => {
                     </TouchableOpacity>
                     <Text style={styles.heading}>Attachment</Text>
                 </View>
-                {projectsCreated.length === 0 && jobsCreated.length === 0 ? (
+                {currentUser?.projectsCreated.length === 0 &&
+                currentUser?.jobsCreated.length === 0 ? (
                     <View style={styles.noDataContainer}>
                         <Text style={styles.noDataText}>
                             You have not created any projects or jobs yet.
@@ -113,7 +42,7 @@ const AttachScreen = () => {
                     </View>
                 ) : (
                     <>
-                        {projectsCreated.length !== 0 ? (
+                        {currentUser?.projectsCreated.length !== 0 ? (
                             <>
                                 <Text style={styles.subHeading}>Projects</Text>
                                 <ScrollView
@@ -126,28 +55,36 @@ const AttachScreen = () => {
                                     decelerationRate="fast"
                                     snapToInterval={370}
                                 >
-                                    {projectsCreated.map((project) => (
-                                        <ProjectCard
-                                            key={project.projectId}
-                                            projectId={project.projectId}
-                                            projectName={project.projectName}
-                                            description={project.description}
-                                            creationDate={project.creationDate}
-                                            category={project.category}
-                                            showPlus={project.showPlus}
-                                            additionalStyle={{
-                                                width: 350,
-                                                marginRight: 20,
-                                            }}
-                                        />
-                                    ))}
+                                    {currentUser?.projectsCreated.map(
+                                        (project) => (
+                                            <ProjectCard
+                                                key={project.projectId}
+                                                projectId={project.projectId}
+                                                projectName={
+                                                    project.projectName
+                                                }
+                                                description={
+                                                    project.description
+                                                }
+                                                creationDate={
+                                                    project.creationDate
+                                                }
+                                                category={project.category}
+                                                showPlus={true}
+                                                additionalStyle={{
+                                                    width: 350,
+                                                    marginRight: 20,
+                                                }}
+                                            />
+                                        )
+                                    )}
                                 </ScrollView>
                             </>
                         ) : null}
-                        {jobsCreated.length !== 0 ? (
+                        {currentUser?.jobsCreated.length !== 0 ? (
                             <>
                                 <Text style={styles.subHeading}>Jobs</Text>
-                                {jobsCreated.map((job) => (
+                                {currentUser?.jobsCreated.map((job) => (
                                     <JobCard
                                         key={job.jobId}
                                         jobId={job.jobId}
@@ -157,7 +94,7 @@ const AttachScreen = () => {
                                         description={job.description}
                                         creationDate={job.creationDate}
                                         category={job.category}
-                                        showPlus={job.showPlus}
+                                        showPlus={selection.ATTACHMENT}
                                         additionalStyle={{
                                             marginBottom: '5%',
                                         }}
