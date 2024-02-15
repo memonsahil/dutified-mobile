@@ -247,6 +247,17 @@ const AddPostScreen = () => {
                                                     )
                                                 }
                                             })
+                                    } else {
+                                        Alert.alert(
+                                            'Missing Description',
+                                            'Describe your post before sharing it with the world.',
+                                            [
+                                                {
+                                                    text: 'Dismiss',
+                                                    onPress: () => {},
+                                                },
+                                            ]
+                                        )
                                     }
                                 }}
                                 style={styles.postButton}
