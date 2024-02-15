@@ -53,6 +53,12 @@ class AuthUser implements AuthUserInterface {
                 details.password
             )
             if (response.user) {
+                await firestore()
+                    .collection('users')
+                    .doc(auth().currentUser?.uid)
+                    .update({
+                        'metaData.lastLoginDate': new Date(),
+                    })
                 return { status: requestStatus.SUCCESS }
             } else {
                 return {
