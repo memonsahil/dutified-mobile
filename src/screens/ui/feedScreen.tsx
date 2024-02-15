@@ -14,9 +14,9 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import authStore from '../../state/stores/authStore'
 
 const FeedScreen = () => {
-    const navigation: NavigationProp<screens> = useNavigation()
-
     const currentUser = authStore((state) => state.currentUser)
+
+    const navigation: NavigationProp<screens> = useNavigation()
 
     return (
         <View style={styles.container}>
