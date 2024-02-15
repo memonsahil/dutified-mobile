@@ -66,7 +66,14 @@ class AuthUser implements AuthUserInterface {
 
     signOut = async (): Promise<promiseType> => {
         try {
+            await firestore()
+                .collection('users')
+                .doc(auth().currentUser?.uid)
+                .update({
+                    'metaData.lastLogoutDate': new Date(),
+                })
             await auth().signOut()
+
             return { status: requestStatus.SUCCESS }
         } catch (error: Object | any) {
             return { status: requestStatus.ERROR, errorCode: error.code }
