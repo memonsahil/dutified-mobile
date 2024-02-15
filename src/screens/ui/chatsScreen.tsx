@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import {
     ScrollView,
     StyleSheet,
@@ -7,78 +6,17 @@ import {
     TouchableOpacity,
 } from 'react-native'
 import ChatCard from '../../components/cards/chatCard'
-import * as Crypto from 'expo-crypto'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
-import chatCardProps from '../../components/props/chatCardProps'
 import { NavigationProp, useNavigation } from '@react-navigation/native'
 import screens from '../params/screens'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import authStore from '../../state/stores/authStore'
 
 const ChatsScreen = () => {
-    const [chatCardDetails, setChatCardDetails] = useState<chatCardProps[]>([])
+    const currentUser = authStore((state) => state.currentUser)
 
     const navigation: NavigationProp<screens> = useNavigation()
-
-    const chatCards: chatCardProps[] = [
-        {
-            userId: '1',
-            firstName: 'Sahil',
-            lastName: 'Memon',
-            imageSrc: '',
-            lastMessage:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        },
-        {
-            userId: '2',
-            firstName: 'Jane',
-            lastName: 'Doe',
-            imageSrc: '',
-            lastMessage: 'Hello World!',
-        },
-        {
-            userId: '3',
-            firstName: 'John',
-            lastName: 'Smith',
-            imageSrc: '',
-            lastMessage: 'Hello World!',
-        },
-        {
-            userId: '4',
-            firstName: 'Jane',
-            lastName: 'Smith',
-            imageSrc: '',
-            lastMessage: 'Hello World!',
-        },
-        {
-            userId: '5',
-            firstName: 'John',
-            lastName: 'Doe',
-            imageSrc: '',
-            lastMessage: 'Hello World!',
-        },
-        {
-            userId: '6',
-            firstName: 'Jane',
-            lastName: 'Doe',
-            imageSrc: '',
-            lastMessage: 'Hello World!',
-        },
-        {
-            userId: '7',
-            firstName: 'John',
-            lastName: 'Smith',
-            imageSrc: '',
-            lastMessage: 'Hello World!',
-        },
-        {
-            userId: '8',
-            firstName: 'Jane',
-            lastName: 'Smith',
-            imageSrc: '',
-            lastMessage: 'Hello World!',
-        },
-    ]
 
     return (
         <View style={styles.container}>
@@ -95,15 +33,29 @@ const ChatsScreen = () => {
                         />
                     </TouchableOpacity>
                 </View>
-                {chatCards.length !== 0 ? (
-                    chatCards.map((chatCard) => (
+                {currentUser?.chats.length !== 0 ? (
+                    currentUser?.chats.map((chat) => (
                         <ChatCard
-                            key={Crypto.randomUUID()}
-                            userId={chatCard.userId}
-                            firstName={chatCard.firstName}
-                            lastName={chatCard.lastName}
-                            imageSrc={chatCard.imageSrc}
-                            lastMessage={chatCard.lastMessage}
+                            key={chat.chatId}
+                            userId={
+                                chat.initialSenderId ===
+                                currentUser.profile?.userId
+                                    ? chat.initialReceiverId
+                                    : chat.initialSenderId
+                            }
+                            userName={
+                                chat.initialSenderId ===
+                                currentUser.profile?.userId
+                                    ? chat.initialReceiverName
+                                    : chat.initialSenderName
+                            }
+                            imageSrc={
+                                chat.initialSenderId ===
+                                currentUser.profile?.userId
+                                    ? chat.initialReceiverAvatar
+                                    : chat.initialSenderAvatar
+                            }
+                            lastMessage={chat.messages[0]?.text}
                         />
                     ))
                 ) : (
