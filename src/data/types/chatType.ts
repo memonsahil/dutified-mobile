@@ -2,8 +2,12 @@ import { IMessage } from 'react-native-gifted-chat'
 
 type chatType = {
     chatId: string
-    senderUserId: string
-    receiverUserId: string
+    initialSenderId: string
+    initialSenderName: string
+    initialSenderAvatar: string
+    initialReceiverId: string
+    initialReceiverName: string
+    initialReceiverAvatar: string
     messages: IMessage[]
 }
 
