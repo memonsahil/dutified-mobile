@@ -6,7 +6,7 @@ import postType from './postType'
 
 type userType = {
     profile: profileType
-    posts: postType[]
+    userPosts: postType[]
     projectsCreated: projectType[]
     jobsCreated: jobType[]
     projectsWorked: projectType[]
