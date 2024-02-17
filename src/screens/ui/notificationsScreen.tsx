@@ -11,31 +11,10 @@ import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import NotificationCard from '../../components/cards/notificationCard'
-import notificationCardProps from '../../components/props/notificationCardProps'
-import notification from '../../enums/notification'
+import authStore from '../../state/stores/authStore'
 
 const NotificationsScreen = () => {
-    const notifications: Array<notificationCardProps> = [
-        {
-            notificationId: '1',
-            type: notification.INVITE_SENT,
-            info: {
-                userId: '1',
-                userName: 'Sahil Memon',
-                userAvatar: '',
-            },
-        },
-        {
-            notificationId: '2',
-            type: notification.INVITE_RECEIVED,
-            info: {
-                userId: '1',
-                userName: 'Sahil Memon',
-                userAvatar: '',
-                actioned: false,
-            },
-        },
-    ]
+    const currentUser = authStore((state) => state.currentUser)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -53,9 +32,9 @@ const NotificationsScreen = () => {
                     <Text style={styles.heading}>Notifications</Text>
                 </View>
                 <View style={styles.notificationList}>
-                    {notifications.length !== 0 ? (
+                    {currentUser?.notifications.length !== 0 ? (
                         <>
-                            {notifications.map((notification) => (
+                            {currentUser?.notifications.map((notification) => (
                                 <NotificationCard
                                     key={notification.notificationId}
                                     notificationId={notification.notificationId}

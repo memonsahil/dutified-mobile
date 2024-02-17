@@ -8,10 +8,12 @@ import profileType from './profileType'
 import metaDataType from './metaDataType'
 import postType from './postType'
 import userType from './userType'
+import notificationType from './notificationType'
 
 type authUserType = {
     profile: profileType
     paymentDetails: paymentType
+    notifications: notificationType[]
     userPosts: postType[]
     projectsCreated: projectType[]
     jobsCreated: jobType[]
