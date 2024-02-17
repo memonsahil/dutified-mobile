@@ -169,12 +169,12 @@ const AddPostScreen = () => {
                                                     requestStatus.SUCCESS
                                                 ) {
                                                     currentUser &&
-                                                    currentUser.posts &&
-                                                    currentUser.feedPosts
+                                                    currentUser.userPosts &&
+                                                    currentUser.userFeed
                                                         ? setCurrentUser({
                                                               ...currentUser,
-                                                              posts: [
-                                                                  ...currentUser.posts,
+                                                              userPosts: [
+                                                                  ...currentUser.userPosts,
                                                                   {
                                                                       postId: Crypto.randomUUID(),
                                                                       content:
@@ -201,8 +201,8 @@ const AddPostScreen = () => {
                                                                           selectedAttachments,
                                                                   },
                                                               ],
-                                                              feedPosts: [
-                                                                  ...currentUser.feedPosts,
+                                                              userFeed: [
+                                                                  ...currentUser.userFeed,
                                                                   {
                                                                       postId: Crypto.randomUUID(),
                                                                       content:
