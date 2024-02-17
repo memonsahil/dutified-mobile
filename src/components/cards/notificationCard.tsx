@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native'
 import { Avatar } from 'react-native-elements'
 import themeColors from '../../enums/themeColors'
@@ -8,31 +7,38 @@ import screens from '../../screens/params/screens'
 import notificationCardProps from '../props/notificationCardProps'
 import notification from '../../enums/notification'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import authStore from '../../state/stores/authStore'
 
 const NotificationCard = (props: notificationCardProps) => {
-    const [loading, setLoading] = useState<boolean>(false)
+    const currentUser = authStore((state) => state.currentUser)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
     return (
         <View style={styles.container}>
+            <Text style={styles.info}>
+                {props.type === notification.INVITE_SENT
+                    ? `Invite Sent`
+                    : props.type === notification.INVITE_RECEIVED
+                    ? `Invite Received`
+                    : null}
+            </Text>
             <Text style={styles.infoText}>
                 {props.type === notification.INVITE_SENT
                     ? `You sent an invite to ${props.info.userName} to join your network.`
                     : props.type === notification.INVITE_RECEIVED
                     ? `${props.info.userName} sent you an invite to joint their network.`
-                    : props.type === notification.INVITE_YOU_ACCEPTED
-                    ? `You accepted ${props.info.userName}'s invite to join their network.`
-                    : props.type === notification.INVITE_THEY_ACCEPTED
-                    ? `${props.info.userName} accepted your invite to join your network.`
                     : null}
             </Text>
             <View style={styles.nameWrapper}>
                 <TouchableOpacity
                     onPress={() =>
-                        navigation.navigate('User', {
-                            userId: props.info.userId ? props.info.userId : '',
-                        })
+                        props.info.userId &&
+                        props.info.userId !== currentUser?.profile.userId
+                            ? navigation.navigate('User', {
+                                  userId: props.info.userId,
+                              })
+                            : navigation.navigate('Profile')
                     }
                 >
                     <Avatar
@@ -48,9 +54,12 @@ const NotificationCard = (props: notificationCardProps) => {
                 </TouchableOpacity>
                 <TouchableOpacity
                     onPress={() => {
-                        navigation.navigate('User', {
-                            userId: props.info.userId ? props.info.userId : '',
-                        })
+                        props.info.userId &&
+                        props.info.userId !== currentUser?.profile.userId
+                            ? navigation.navigate('User', {
+                                  userId: props.info.userId,
+                              })
+                            : navigation.navigate('Profile')
                     }}
                 >
                     <Text
@@ -73,15 +82,11 @@ const NotificationCard = (props: notificationCardProps) => {
                                 {
                                     text: `Accept`,
 
-                                    onPress: () => {
-                                        setLoading(true)
-                                    },
+                                    onPress: () => {},
                                 },
                                 {
                                     text: 'Decline',
-                                    onPress: () => {
-                                        setLoading(true)
-                                    },
+                                    onPress: () => {},
                                 },
                             ]
                         )
@@ -96,6 +101,11 @@ const NotificationCard = (props: notificationCardProps) => {
                     />
                     <Text style={styles.actionButton}>Action</Text>
                 </TouchableOpacity>
+            ) : props.type === notification.INVITE_RECEIVED &&
+              props.info.actioned === true ? (
+                <Text style={styles.infoText}>
+                    You already actioned this invite.
+                </Text>
             ) : null}
         </View>
     )
@@ -113,10 +123,16 @@ const styles = StyleSheet.create({
         marginBottom: '5%',
         paddingHorizontal: '5%',
     },
+    info: {
+        fontFamily: 'IBMPlexSansCondensed-Bold',
+        fontSize: fontSizes.BODY_ONE,
+        color: themeColors.BLACK,
+    },
     infoText: {
         fontFamily: 'IBMPlexSansCondensed-Medium',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.BLACK,
+        marginTop: '5%',
     },
     nameWrapper: {
         flexDirection: 'row',
@@ -127,12 +143,6 @@ const styles = StyleSheet.create({
     avatarContainer: {
         backgroundColor: themeColors.YELLOW_GREEN,
         marginRight: '5%',
-    },
-    info: {
-        fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.BODY_ONE,
-        color: themeColors.BLACK,
-        paddingRight: '5%',
     },
     actionButtonWrapper: {
         marginTop: '5%',
