@@ -11,10 +11,10 @@ import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import PostCard from '../../components/cards/postCard'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import authStore from '../../state/stores/authStore'
+import postType from '../../data/types/postType'
 
 const FeedScreen = () => {
-    const currentUser = authStore((state) => state.currentUser)
+    const posts: postType[] = []
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -53,7 +53,7 @@ const FeedScreen = () => {
                         </TouchableOpacity>
                     </View>
                 </View>
-                {currentUser?.userFeed.length === 0 ? (
+                {posts.length === 0 ? (
                     <View style={styles.noDataContainer}>
                         <Text style={styles.noDataText}>
                             Posts that you create and are shared by your network
@@ -62,7 +62,7 @@ const FeedScreen = () => {
                     </View>
                 ) : (
                     <>
-                        {currentUser?.userFeed.map((post) => (
+                        {posts.map((post) => (
                             <PostCard
                                 key={post.postId}
                                 postId={post.postId}
