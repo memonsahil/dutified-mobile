@@ -13,7 +13,6 @@ type authUserType = {
     profile: profileType
     paymentDetails: paymentType
     userPosts: postType[]
-    userFeed: postType[]
     projectsCreated: projectType[]
     jobsCreated: jobType[]
     projectsWorked: projectType[]
