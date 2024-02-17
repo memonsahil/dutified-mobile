@@ -1,3 +1,5 @@
+import jobType from './jobType'
+
 type projectType = {
     projectId: string
     projectName: string
@@ -6,6 +8,7 @@ type projectType = {
     category: string
     description: string
     creationDate: string
+    jobs: Array<jobType>
 }
 
 export default projectType
