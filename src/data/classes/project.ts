@@ -45,8 +45,23 @@ class Project implements ProjectInterface {
     getProject = async (details: {
         projectId: string
     }): Promise<promiseType> => {
-        // Implement get project logic here
-        return { status: requestStatus.SUCCESS }
+        try {
+            const doc = await firestore()
+                .collection('projects')
+                .doc(details.projectId)
+                .get()
+
+            if (doc.exists) {
+                return {
+                    status: requestStatus.SUCCESS,
+                    data: doc.data() as projectType,
+                }
+            } else {
+                return { status: requestStatus.ERROR }
+            }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
     }
 }
 

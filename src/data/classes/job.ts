@@ -43,8 +43,23 @@ class Job implements JobInterface {
     }
 
     getJob = async (details: { jobId: string }): Promise<promiseType> => {
-        // Implement get job logic here
-        return { status: requestStatus.SUCCESS }
+        try {
+            const doc = await firestore()
+                .collection('jobs')
+                .doc(details.jobId)
+                .get()
+
+            if (doc.exists) {
+                return {
+                    status: requestStatus.SUCCESS,
+                    data: doc.data() as jobType,
+                }
+            } else {
+                return { status: requestStatus.ERROR }
+            }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
     }
 }
 
