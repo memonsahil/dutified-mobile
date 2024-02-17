@@ -14,14 +14,15 @@ import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import screens from '../../screens/params/screens'
-import attachment from '../../enums/attachment'
 import CommentsModal from '../modals/commentsModal'
+import attachment from '../../enums/attachment'
+import authStore from '../../state/stores/authStore'
 
 const PostCard = (props: postCardProps) => {
     const [image, setImage] = useState<string>('')
     const [modalVisible, setModalVisible] = useState(false)
 
-    const currentUserId = '1'
+    const currentUser = authStore((state) => state.currentUser)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -35,7 +36,7 @@ const PostCard = (props: postCardProps) => {
                 <View style={styles.userInfo}>
                     <TouchableOpacity
                         onPress={() =>
-                            props.userId === currentUserId
+                            props.userId === currentUser?.profile.userId
                                 ? navigation.navigate('Profile')
                                 : navigation.navigate('User', {
                                       userId: props.userId,
@@ -55,7 +56,7 @@ const PostCard = (props: postCardProps) => {
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() =>
-                            props.userId === currentUserId
+                            props.userId === currentUser?.profile.userId
                                 ? navigation.navigate('Profile')
                                 : navigation.navigate('User', {
                                       userId: props.userId,
