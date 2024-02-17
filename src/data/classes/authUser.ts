@@ -9,6 +9,7 @@ import firestore from '@react-native-firebase/firestore'
 import authUserType from '../types/authUserType'
 import paymentType from '../types/paymentType'
 import postType from '../types/postType'
+import commentType from '../types/commentType'
 
 class AuthUser implements AuthUserInterface {
     signUp = async (details: {
@@ -337,6 +338,14 @@ class AuthUser implements AuthUserInterface {
             return { status: requestStatus.SUCCESS }
         } catch (error: Object | any) {
             console.log('Error in create post', error)
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
+    }
+
+    createComment = async (details: { comment: commentType }) => {
+        try {
+            return { status: requestStatus.SUCCESS }
+        } catch (error: Object | any) {
             return { status: requestStatus.ERROR, errorCode: error.code }
         }
     }
