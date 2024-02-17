@@ -332,13 +332,15 @@ class AuthUser implements AuthUserInterface {
                         details.post
                     ),
                 })
-            await firestore()
-                .collection('users')
-                .doc(auth().currentUser?.uid)
-                .update({
-                    ['userFeed']: firestore.FieldValue.arrayUnion(details.post),
-                })
 
+            return { status: requestStatus.SUCCESS }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
+    }
+
+    getUserFeed = async (): Promise<promiseType> => {
+        try {
             return { status: requestStatus.SUCCESS }
         } catch (error: Object | any) {
             return { status: requestStatus.ERROR, errorCode: error.code }
@@ -347,6 +349,15 @@ class AuthUser implements AuthUserInterface {
 
     createComment = async (details: { comment: commentType }) => {
         try {
+            await firestore()
+                .collection('posts')
+                .doc(details.comment.postId)
+                .update({
+                    ['comments']: firestore.FieldValue.arrayUnion(
+                        details.comment
+                    ),
+                })
+
             return { status: requestStatus.SUCCESS }
         } catch (error: Object | any) {
             return { status: requestStatus.ERROR, errorCode: error.code }

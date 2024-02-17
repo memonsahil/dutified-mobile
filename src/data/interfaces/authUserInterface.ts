@@ -45,6 +45,7 @@ export default interface AuthUserInterface {
     createProject: (details: { project: projectType }) => Promise<promiseType>
     createJob: (details: { job: jobType }) => Promise<promiseType>
     createPost: (details: { post: postType }) => Promise<promiseType>
+    getUserFeed: () => Promise<promiseType>
     createComment: (details: { comment: commentType }) => Promise<promiseType>
     actionAgreement: (details: {
         jobId: string
