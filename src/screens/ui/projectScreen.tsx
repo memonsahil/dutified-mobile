@@ -5,6 +5,7 @@ import {
     ScrollView,
     View,
     TouchableOpacity,
+    Alert,
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import * as Progress from 'react-native-progress'
@@ -13,66 +14,60 @@ import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import projectScreenProps from '../props/projectScreenProps'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import jobCardProps from '../../components/props/jobCardProps'
-import categories from '../../enums/categories'
-import jobStatus from '../../enums/jobStatus'
 import JobCard from '../../components/cards/jobCard'
+import project from '../../data/classes/project'
+import promiseType from '../../data/types/promiseType'
+import requestStatus from '../../enums/requestStatus'
+import authStore from '../../state/stores/authStore'
+import jobType from '../../data/types/jobType'
 import selection from '../../enums/selection'
 
 const ProjectScreen = ({ route }: projectScreenProps) => {
     const { projectId } = route.params
 
-    const [_projectId, setProjectId] = useState<string>('123')
-    const [projectName, setProjectName] = useState<string>('Project Name')
-    const [projectCreatorId, setProjectCreatorId] = useState<string>('456')
-    const [projectCreator, setProjectCreator] = useState<string>(
-        'Project Creator Name'
-    )
-    const [category, setCategory] = useState<string>('Category Name')
-    const [creationDate, setCreationDate] = useState<string>('2021-01-01')
-    const [projectDesc, setProjectDesc] = useState<string>(
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.'
-    )
-    const [loading, setLoading] = useState<boolean>(false)
-    const currentUser = 'First Last'
+    const [projectName, setProjectName] = useState<string>('')
+    const [projectCreatorId, setProjectCreatorId] = useState<string>('')
+    const [projectCreator, setProjectCreator] = useState<string>('')
+    const [category, setCategory] = useState<string>('')
+    const [creationDate, setCreationDate] = useState<Date>()
+    const [projectDesc, setProjectDesc] = useState<string>('')
+    const [jobs, setJobs] = useState<Array<jobType>>([])
+    const [loading, setLoading] = useState<boolean>(true)
+
+    const currentUser = authStore((state) => state.currentUser)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
-    const jobs: Array<jobCardProps> = [
-        {
-            jobId: '1',
-            jobName: 'Created Job 1',
-            status: jobStatus.AVAILABLE,
-            payment: '100000',
-            description:
-                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            creationDate: '2021-01-01',
-            category: categories.ACCOUNTING,
-            showPlus: selection.HIDE,
-        },
-        {
-            jobId: '2',
-            jobName: 'Created Job 2',
-            status: jobStatus.IN_PROGRESS,
-            payment: '200',
-            description: 'This is a description for Created job 2',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-            showPlus: selection.HIDE,
-        },
-        {
-            jobId: '3',
-            jobName: 'Created Job 3',
-            status: jobStatus.COMPLETED,
-            payment: '200',
-            description: 'This is a description for Created job 3',
-            creationDate: '2021-01-01',
-            category: categories.ANIMATION,
-            showPlus: selection.HIDE,
-        },
-    ]
-
-    useEffect(() => {}, [projectId])
+    useEffect(() => {
+        project
+            .getProject({ projectId: projectId })
+            .then((response: promiseType) => {
+                if (
+                    response.status === requestStatus.SUCCESS &&
+                    response.data
+                ) {
+                    setProjectName(response.data.projectName)
+                    setProjectCreatorId(response.data.projectCreatorId)
+                    setProjectCreator(response.data.projectCreator)
+                    setCategory(response.data.category)
+                    setCreationDate(response.data.creationDate)
+                    setProjectDesc(response.data.description)
+                    setJobs(response.data.jobs)
+                    setLoading(false)
+                } else {
+                    Alert.alert(
+                        'Error Occurred',
+                        'Please contact our support team.',
+                        [
+                            {
+                                text: 'Dismiss',
+                                onPress: () => {},
+                            },
+                        ]
+                    )
+                }
+            })
+    }, [projectId])
 
     return (
         <View style={styles.container}>
@@ -89,12 +84,14 @@ const ProjectScreen = ({ route }: projectScreenProps) => {
                         <Text style={styles.heading}>Project</Text>
                     </View>
                     <Text style={styles.detail}>{projectName}</Text>
-                    <Text style={styles.detail}>{creationDate}</Text>
+                    <Text style={styles.detail}>
+                        {creationDate?.toString()}
+                    </Text>
                     <View style={styles.detailSection}>
                         <Text style={styles.projectDetail}>{category}</Text>
                     </View>
                     <Text style={styles.projectDesc}>{projectDesc}</Text>
-                    {projectCreator === `${currentUser}` ? null : (
+                    {projectCreatorId === currentUser?.profile.userId ? null : (
                         <>
                             <TouchableOpacity
                                 onPress={() =>
@@ -122,7 +119,7 @@ const ProjectScreen = ({ route }: projectScreenProps) => {
                                         description={job.description}
                                         creationDate={job.creationDate}
                                         category={job.category}
-                                        showPlus={job.showPlus}
+                                        showPlus={selection.HIDE}
                                         additionalStyle={{
                                             marginBottom: '5%',
                                         }}

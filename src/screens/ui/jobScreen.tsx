@@ -5,6 +5,7 @@ import {
     ScrollView,
     View,
     TouchableOpacity,
+    Alert,
 } from 'react-native'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
 import * as Progress from 'react-native-progress'
@@ -14,30 +15,58 @@ import screens from '../params/screens'
 import jobScreenProps from '../props/jobScreenProps'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import jobStatus from '../../enums/jobStatus'
+import promiseType from '../../data/types/promiseType'
+import job from '../../data/classes/job'
+import requestStatus from '../../enums/requestStatus'
+import authStore from '../../state/stores/authStore'
 
 const JobScreen = ({ route }: jobScreenProps) => {
     const { jobId } = route.params
 
-    const currentUserId = '1'
+    const [jobName, setJobName] = useState<string>('')
+    const [jobCreatorId, setJobCreatorId] = useState<string>('')
+    const [jobCreator, setJobCreator] = useState<string>('')
+    const [projectId, setProjectId] = useState<string>('')
+    const [projectName, setProjectName] = useState<string>('')
+    const [category, setCategory] = useState<string>('')
+    const [payment, setPayment] = useState<string>('')
+    const [status, setStatus] = useState<jobStatus>()
+    const [creationDate, setCreationDate] = useState<Date>()
+    const [jobDesc, setJobDesc] = useState<string>('')
+    const [loading, setLoading] = useState<boolean>(true)
 
-    const [jobName, setJobName] = useState<string>('Job Name')
-    const [category, setCategory] = useState<string>('Category Name')
-    const [payment, setPayment] = useState<string>('200')
-    const [status, setStatus] = useState<jobStatus>(jobStatus.AVAILABLE)
-    const [creationDate, setCreationDate] = useState<string>('2021-01-01')
-    const [jobDesc, setJobDesc] = useState<string>(
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.'
-    )
-    const [projectId, setProjectId] = useState<string>('123')
-    const [projectName, setProjectName] = useState<string>('Project Name')
-    const [jobCreatorId, setJobCreatorId] = useState<string>('456')
-    const [jobCreator, setJobCreator] = useState<string>('Job Creator Name')
-    const [loading, setLoading] = useState<boolean>(false)
-    const currentUser = 'First Last'
+    const currentUser = authStore((state) => state.currentUser)
 
     const navigation: NavigationProp<screens> = useNavigation()
 
-    useEffect(() => {}, [jobId])
+    useEffect(() => {
+        job.getJob({ jobId: jobId }).then((response: promiseType) => {
+            if (response.status === requestStatus.SUCCESS && response.data) {
+                setJobName(response.data.jobName)
+                setJobCreatorId(response.data.jobCreatorId)
+                setJobCreator(response.data.jobCreator)
+                setProjectId(response.data.projectId)
+                setProjectName(response.data.projectName)
+                setCategory(response.data.category)
+                setPayment(response.data.payment)
+                setStatus(response.data.status)
+                setCreationDate(response.data.creationDate)
+                setJobDesc(response.data.description)
+                setLoading(false)
+            } else {
+                Alert.alert(
+                    'Error Occurred',
+                    'Please contact our support team.',
+                    [
+                        {
+                            text: 'Dismiss',
+                            onPress: () => {},
+                        },
+                    ]
+                )
+            }
+        })
+    }, [jobId])
 
     return (
         <View style={styles.container}>
@@ -54,7 +83,9 @@ const JobScreen = ({ route }: jobScreenProps) => {
                         <Text style={styles.heading}>Job</Text>
                     </View>
                     <Text style={styles.detail}>{jobName}</Text>
-                    <Text style={styles.detail}>{creationDate}</Text>
+                    <Text style={styles.detail}>
+                        {creationDate?.toString()}
+                    </Text>
                     <View style={styles.detailSection}>
                         <Text style={styles.jobDetail}>{category}</Text>
                     </View>
@@ -62,17 +93,19 @@ const JobScreen = ({ route }: jobScreenProps) => {
                         <Text style={styles.jobDetail}>${payment}</Text>
                         <Text style={styles.jobDetail}>{status}</Text>
                     </View>
-                    <TouchableOpacity
-                        onPress={() =>
-                            navigation.navigate('Project', {
-                                projectId: projectId,
-                            })
-                        }
-                    >
-                        <Text style={styles.infoButton}>{projectName}</Text>
-                    </TouchableOpacity>
+                    {projectId !== '' ? (
+                        <TouchableOpacity
+                            onPress={() =>
+                                navigation.navigate('Project', {
+                                    projectId: projectId,
+                                })
+                            }
+                        >
+                            <Text style={styles.infoButton}>{projectName}</Text>
+                        </TouchableOpacity>
+                    ) : null}
                     <Text style={styles.jobDesc}>{jobDesc}</Text>
-                    {jobCreator === `${currentUser}` ? null : (
+                    {jobCreatorId === currentUser?.profile.userId ? null : (
                         <>
                             <TouchableOpacity
                                 onPress={() =>
@@ -85,24 +118,22 @@ const JobScreen = ({ route }: jobScreenProps) => {
                                     {jobCreator}
                                 </Text>
                             </TouchableOpacity>
-                            {jobCreatorId !== currentUserId ? (
-                                <TouchableOpacity
-                                    onPress={() =>
-                                        navigation.navigate('Chat', {
-                                            userId: jobCreatorId,
-                                        })
-                                    }
-                                    style={styles.chatButtonWrapper}
-                                >
-                                    <MaterialCommunityIcons
-                                        name="message-text"
-                                        size={26}
-                                        color={themeColors.YELLOW_GREEN}
-                                        style={styles.buttonIcon}
-                                    />
-                                    <Text style={styles.chatButton}>Chat</Text>
-                                </TouchableOpacity>
-                            ) : null}
+                            <TouchableOpacity
+                                onPress={() =>
+                                    navigation.navigate('Chat', {
+                                        userId: jobCreatorId,
+                                    })
+                                }
+                                style={styles.chatButtonWrapper}
+                            >
+                                <MaterialCommunityIcons
+                                    name="message-text"
+                                    size={26}
+                                    color={themeColors.YELLOW_GREEN}
+                                    style={styles.buttonIcon}
+                                />
+                                <Text style={styles.chatButton}>Chat</Text>
+                            </TouchableOpacity>
                         </>
                     )}
                 </ScrollView>
