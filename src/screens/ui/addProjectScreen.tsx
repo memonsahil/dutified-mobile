@@ -159,6 +159,7 @@ const AddProjectScreen = () => {
                                                     description: desc,
                                                     creationDate:
                                                         new Date().toDateString(),
+                                                    jobs: [],
                                                 },
                                             })
                                             .then((response: promiseType) => {
@@ -195,6 +196,7 @@ const AddProjectScreen = () => {
                                                                           desc,
                                                                       creationDate:
                                                                           new Date().toDateString(),
+                                                                      jobs: [],
                                                                   },
                                                               ],
                                                           })
