@@ -35,54 +35,6 @@ const NotificationsScreen = () => {
                 actioned: false,
             },
         },
-        {
-            notificationId: '3',
-            type: notification.INVITE_RECEIVED,
-            info: {
-                userId: '1',
-                userName: 'Sahil Memon',
-                userAvatar: '',
-                actioned: false,
-            },
-        },
-        {
-            notificationId: '4',
-            type: notification.INVITE_RECEIVED,
-            info: {
-                userId: '1',
-                userName: 'Sahil Memon',
-                userAvatar: '',
-                actioned: true,
-            },
-        },
-        {
-            notificationId: '5',
-            type: notification.INVITE_RECEIVED,
-            info: {
-                userId: '1',
-                userName: 'Sahil Memon',
-                userAvatar: '',
-                actioned: true,
-            },
-        },
-        {
-            notificationId: '6',
-            type: notification.INVITE_YOU_ACCEPTED,
-            info: {
-                userId: '1',
-                userName: 'Sahil Memon',
-                userAvatar: '',
-            },
-        },
-        {
-            notificationId: '7',
-            type: notification.INVITE_THEY_ACCEPTED,
-            info: {
-                userId: '1',
-                userName: 'Sahil Memon',
-                userAvatar: '',
-            },
-        },
     ]
 
     const navigation: NavigationProp<screens> = useNavigation()
