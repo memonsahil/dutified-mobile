@@ -173,7 +173,7 @@ const ProfileScreen = () => {
                     />
                 ) : switchColumn === 'Posts' ? (
                     <>
-                        {currentUser?.posts.length === 0 ? (
+                        {currentUser?.userPosts.length === 0 ? (
                             <View style={styles.noDataContainer}>
                                 <Text style={styles.noDataText}>
                                     Posts that you create will be shown here.
@@ -181,7 +181,7 @@ const ProfileScreen = () => {
                             </View>
                         ) : (
                             <>
-                                {currentUser?.posts.map((post) => (
+                                {currentUser?.userPosts.map((post) => (
                                     <PostCard
                                         key={post.postId}
                                         postId={post.postId}

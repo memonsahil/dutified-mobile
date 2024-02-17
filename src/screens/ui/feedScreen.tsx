@@ -53,7 +53,7 @@ const FeedScreen = () => {
                         </TouchableOpacity>
                     </View>
                 </View>
-                {currentUser?.feedPosts?.length === 0 ? (
+                {currentUser?.userFeed.length === 0 ? (
                     <View style={styles.noDataContainer}>
                         <Text style={styles.noDataText}>
                             Posts that you create and are shared by your network
@@ -62,7 +62,7 @@ const FeedScreen = () => {
                     </View>
                 ) : (
                     <>
-                        {currentUser?.feedPosts?.map((post) => (
+                        {currentUser?.userFeed.map((post) => (
                             <PostCard
                                 key={post.postId}
                                 postId={post.postId}
