@@ -30,6 +30,7 @@ import requestStatus from '../../enums/requestStatus'
 const AddJobScreen = ({ route }: addJobScreenProps) => {
     const { projectId, projectName } = route.params
 
+    const jobId = Crypto.randomUUID()
     const [name, setName] = useState<string>('')
     const [enteredCategory, setEnteredCategory] = useState<string>('')
     const [selectedCategory, setSelectedCategory] = useState<string>('')
@@ -161,7 +162,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                                         authUser
                                             .createJob({
                                                 job: {
-                                                    jobId: Crypto.randomUUID(),
+                                                    jobId: jobId,
                                                     jobName: name,
                                                     projectId: projectId,
                                                     projectName: projectName,
@@ -196,7 +197,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                                                               jobsCreated: [
                                                                   ...currentUser.jobsCreated,
                                                                   {
-                                                                      jobId: Crypto.randomUUID(),
+                                                                      jobId: jobId,
                                                                       jobName:
                                                                           name,
                                                                       projectId:

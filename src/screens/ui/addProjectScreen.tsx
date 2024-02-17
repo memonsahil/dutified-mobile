@@ -26,6 +26,7 @@ import promiseType from '../../data/types/promiseType'
 import requestStatus from '../../enums/requestStatus'
 
 const AddProjectScreen = () => {
+    const projectId = Crypto.randomUUID()
     const [name, setName] = useState<string>('')
     const [enteredCategory, setEnteredCategory] = useState<string>('')
     const [selectedCategory, setSelectedCategory] = useState<string>('')
@@ -143,8 +144,7 @@ const AddProjectScreen = () => {
                                         authUser
                                             .createProject({
                                                 project: {
-                                                    projectId:
-                                                        Crypto.randomUUID(),
+                                                    projectId: projectId,
                                                     projectName: name,
                                                     projectCreatorId:
                                                         currentUser?.profile
@@ -175,7 +175,7 @@ const AddProjectScreen = () => {
                                                                   ...currentUser.projectsCreated,
                                                                   {
                                                                       projectId:
-                                                                          Crypto.randomUUID(),
+                                                                          projectId,
                                                                       projectName:
                                                                           name,
                                                                       projectCreatorId:

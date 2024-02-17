@@ -25,6 +25,7 @@ import requestStatus from '../../enums/requestStatus'
 import promiseType from '../../data/types/promiseType'
 
 const AddPostScreen = () => {
+    const postId = Crypto.randomUUID()
     const [desc, setDesc] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
@@ -144,7 +145,7 @@ const AddPostScreen = () => {
                                         authUser
                                             .createPost({
                                                 post: {
-                                                    postId: Crypto.randomUUID(),
+                                                    postId: postId,
                                                     content: desc,
                                                     userId: currentUser?.profile
                                                         .userId!,
@@ -176,7 +177,7 @@ const AddPostScreen = () => {
                                                               userPosts: [
                                                                   ...currentUser.userPosts,
                                                                   {
-                                                                      postId: Crypto.randomUUID(),
+                                                                      postId: postId,
                                                                       content:
                                                                           desc,
                                                                       userId: currentUser
@@ -204,7 +205,7 @@ const AddPostScreen = () => {
                                                               userFeed: [
                                                                   ...currentUser.userFeed,
                                                                   {
-                                                                      postId: Crypto.randomUUID(),
+                                                                      postId: postId,
                                                                       content:
                                                                           desc,
                                                                       userId: currentUser
