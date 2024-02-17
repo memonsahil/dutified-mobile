@@ -4,6 +4,7 @@ type commentsModalProps = {
     visible: boolean
     onClose: () => void
     comments: commentType[]
+    postId: string
 }
 
 export default commentsModalProps
