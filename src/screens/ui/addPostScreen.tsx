@@ -232,6 +232,7 @@ const AddPostScreen = () => {
                                                               ],
                                                           })
                                                         : null
+                                                    setSelectedAttachments([])
                                                     navigation.navigate('Feed')
                                                 } else {
                                                     setLoading(false)
@@ -273,7 +274,7 @@ const AddPostScreen = () => {
                             </TouchableOpacity>
                             <Text style={styles.textSection}>
                                 Once this post is created, it will be viewed by
-                                others. You can hide it anytime.
+                                others. You can archive it later.
                             </Text>
                         </View>
                     </KeyboardAwareScrollView>
