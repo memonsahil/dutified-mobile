@@ -6,6 +6,51 @@ import firestore from '@react-native-firebase/firestore'
 import auth from '@react-native-firebase/auth'
 
 class Project implements ProjectInterface {
+    createProject = async (details: {
+        project: projectType
+    }): Promise<promiseType> => {
+        try {
+            await firestore()
+                .collection('projects')
+                .doc(details.project.projectId)
+                .set(details.project)
+            await firestore()
+                .collection('users')
+                .doc(auth().currentUser?.uid)
+                .update({
+                    ['projectsCreated']: firestore.FieldValue.arrayUnion(
+                        details.project
+                    ),
+                })
+
+            return { status: requestStatus.SUCCESS }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
+    }
+
+    getProject = async (details: {
+        projectId: string
+    }): Promise<promiseType> => {
+        try {
+            const doc = await firestore()
+                .collection('projects')
+                .doc(details.projectId)
+                .get()
+
+            if (doc.exists) {
+                return {
+                    status: requestStatus.SUCCESS,
+                    data: doc.data() as projectType,
+                }
+            } else {
+                return { status: requestStatus.ERROR }
+            }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
+    }
+
     getProjectResults = async (details: {
         searchQuery: string
     }): Promise<promiseType> => {
@@ -33,28 +78,6 @@ class Project implements ProjectInterface {
                 return {
                     status: requestStatus.SUCCESS,
                     data: matchingProjects,
-                }
-            } else {
-                return { status: requestStatus.ERROR }
-            }
-        } catch (error: Object | any) {
-            return { status: requestStatus.ERROR, errorCode: error.code }
-        }
-    }
-
-    getProject = async (details: {
-        projectId: string
-    }): Promise<promiseType> => {
-        try {
-            const doc = await firestore()
-                .collection('projects')
-                .doc(details.projectId)
-                .get()
-
-            if (doc.exists) {
-                return {
-                    status: requestStatus.SUCCESS,
-                    data: doc.data() as projectType,
                 }
             } else {
                 return { status: requestStatus.ERROR }

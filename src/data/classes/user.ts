@@ -6,6 +6,11 @@ import userType from '../types/userType'
 import auth from '@react-native-firebase/auth'
 
 class User implements UserInterface {
+    getUser = async (details: { userId: string }): Promise<promiseType> => {
+        // Implement get user data logic here
+        return { status: requestStatus.SUCCESS }
+    }
+
     getUserResults = async (details: {
         searchQuery: string
     }): Promise<promiseType> => {
@@ -46,11 +51,6 @@ class User implements UserInterface {
         } catch (error: Object | any) {
             return { status: requestStatus.ERROR, errorCode: error.code }
         }
-    }
-
-    getUser = async (details: { userId: string }): Promise<promiseType> => {
-        // Implement get user data logic here
-        return { status: requestStatus.SUCCESS }
     }
 }
 

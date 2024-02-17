@@ -6,6 +6,50 @@ import firestore from '@react-native-firebase/firestore'
 import auth from '@react-native-firebase/auth'
 
 class Job implements JobInterface {
+    createJob = async (details: { job: jobType }): Promise<promiseType> => {
+        try {
+            await firestore()
+                .collection('jobs')
+                .doc(details.job.jobId)
+                .set(details.job)
+            await firestore()
+                .collection('users')
+                .doc(auth().currentUser?.uid)
+                .update({
+                    ['jobsCreated']: firestore.FieldValue.arrayUnion(
+                        details.job
+                    ),
+                })
+
+            return { status: requestStatus.SUCCESS }
+        } catch (error: Object | any) {
+            return {
+                status: requestStatus.ERROR,
+                errorCode: error.code,
+            }
+        }
+    }
+
+    getJob = async (details: { jobId: string }): Promise<promiseType> => {
+        try {
+            const doc = await firestore()
+                .collection('jobs')
+                .doc(details.jobId)
+                .get()
+
+            if (doc.exists) {
+                return {
+                    status: requestStatus.SUCCESS,
+                    data: doc.data() as jobType,
+                }
+            } else {
+                return { status: requestStatus.ERROR }
+            }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
+    }
+
     getJobResults = async (details: {
         searchQuery: string
     }): Promise<promiseType> => {
@@ -33,26 +77,6 @@ class Job implements JobInterface {
                 return {
                     status: requestStatus.SUCCESS,
                     data: matchingJobs,
-                }
-            } else {
-                return { status: requestStatus.ERROR }
-            }
-        } catch (error: Object | any) {
-            return { status: requestStatus.ERROR, errorCode: error.code }
-        }
-    }
-
-    getJob = async (details: { jobId: string }): Promise<promiseType> => {
-        try {
-            const doc = await firestore()
-                .collection('jobs')
-                .doc(details.jobId)
-                .get()
-
-            if (doc.exists) {
-                return {
-                    status: requestStatus.SUCCESS,
-                    data: doc.data() as jobType,
                 }
             } else {
                 return { status: requestStatus.ERROR }

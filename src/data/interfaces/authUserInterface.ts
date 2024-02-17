@@ -1,11 +1,5 @@
-import jobType from '../types/jobType'
-import projectType from '../types/projectType'
-import agreementAction from '../../enums/agreementAction'
 import promiseType from '../types/promiseType'
 import authUserType from '../types/authUserType'
-import paymentType from '../types/paymentType'
-import postType from '../types/postType'
-import commentType from '../types/commentType'
 
 export default interface AuthUserInterface {
     signUp: (details: {
@@ -38,17 +32,5 @@ export default interface AuthUserInterface {
         emailAddress: string
         currentPassword: string
         newPassword: string
-    }) => Promise<promiseType>
-    setPaymentDetails: (details: {
-        paymentDetails: paymentType
-    }) => Promise<promiseType>
-    createProject: (details: { project: projectType }) => Promise<promiseType>
-    createJob: (details: { job: jobType }) => Promise<promiseType>
-    createPost: (details: { post: postType }) => Promise<promiseType>
-    getUserFeed: () => Promise<promiseType>
-    createComment: (details: { comment: commentType }) => Promise<promiseType>
-    actionAgreement: (details: {
-        jobId: string
-        action: agreementAction
     }) => Promise<promiseType>
 }
