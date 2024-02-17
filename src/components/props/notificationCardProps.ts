@@ -1,14 +1,5 @@
-import notification from '../../enums/notification'
+import notificationType from '../../data/types/notificationType'
 
-type notificationCardProps = {
-    notificationId: string
-    type: notification
-    info: {
-        userId?: string
-        userName?: string
-        userAvatar?: string
-        actioned?: boolean
-    }
-}
+type notificationCardProps = notificationType
 
 export default notificationCardProps
