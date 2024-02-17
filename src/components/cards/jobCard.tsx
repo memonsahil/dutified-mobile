@@ -53,7 +53,7 @@ const JobCard = (props: jobCardProps) => {
                                 (_attachment) =>
                                     _attachment.id === props.jobId &&
                                     _attachment.title === props.jobName &&
-                                    _attachment.type === attachment.PROJECT
+                                    _attachment.type === attachment.JOB
                             )
                                 ? setSelectedAttachments(
                                       selectedAttachments.filter(
@@ -66,7 +66,7 @@ const JobCard = (props: jobCardProps) => {
                                       {
                                           id: props.jobId,
                                           title: props.jobName,
-                                          type: attachment.PROJECT,
+                                          type: attachment.JOB,
                                       },
                                   ])
                         }}
@@ -76,7 +76,7 @@ const JobCard = (props: jobCardProps) => {
                             (_attachment) =>
                                 _attachment.id === props.jobId &&
                                 _attachment.title === props.jobName &&
-                                _attachment.type === attachment.PROJECT
+                                _attachment.type === attachment.JOB
                         ) ? (
                             <MaterialCommunityIcons
                                 name="close-circle"
