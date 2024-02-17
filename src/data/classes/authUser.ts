@@ -321,23 +321,26 @@ class AuthUser implements AuthUserInterface {
     createPost = async (details: { post: postType }): Promise<promiseType> => {
         try {
             await firestore()
+                .collection('posts')
+                .doc(details.post.postId)
+                .set(details.post)
+            await firestore()
                 .collection('users')
                 .doc(auth().currentUser?.uid)
                 .update({
-                    ['posts']: firestore.FieldValue.arrayUnion(details.post),
+                    ['userPosts']: firestore.FieldValue.arrayUnion(
+                        details.post
+                    ),
                 })
             await firestore()
                 .collection('users')
                 .doc(auth().currentUser?.uid)
                 .update({
-                    ['feedPosts']: firestore.FieldValue.arrayUnion(
-                        details.post
-                    ),
+                    ['userFeed']: firestore.FieldValue.arrayUnion(details.post),
                 })
 
             return { status: requestStatus.SUCCESS }
         } catch (error: Object | any) {
-            console.log('Error in create post', error)
             return { status: requestStatus.ERROR, errorCode: error.code }
         }
     }
