@@ -16,10 +16,10 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
-import authUser from '../../data/classes/authUser'
 import promiseType from '../../data/types/promiseType'
 import requestStatus from '../../enums/requestStatus'
 import authStore from '../../state/stores/authStore'
+import payment from '../../data/classes/payment'
 
 const EditPaymentScreen = () => {
     const [cardNumber, setCardNumber] = useState<string>('')
@@ -121,7 +121,7 @@ const EditPaymentScreen = () => {
                                         new Date().getFullYear()
                                 ) {
                                     setLoading(true)
-                                    authUser
+                                    payment
                                         .setPaymentDetails({
                                             paymentDetails: {
                                                 cardNumber: cardNumber,
@@ -192,7 +192,7 @@ const EditPaymentScreen = () => {
                             style={styles.saveButtonContainer}
                             onPress={() => {
                                 setLoading(true)
-                                authUser
+                                payment
                                     .setPaymentDetails({
                                         paymentDetails: {
                                             cardNumber: '',

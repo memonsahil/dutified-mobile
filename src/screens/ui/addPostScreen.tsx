@@ -19,10 +19,10 @@ import screens from '../params/screens'
 import attachment from '../../enums/attachment'
 import utilStore from '../../state/stores/utilStore'
 import authStore from '../../state/stores/authStore'
-import authUser from '../../data/classes/authUser'
 import * as Crypto from 'expo-crypto'
 import requestStatus from '../../enums/requestStatus'
 import promiseType from '../../data/types/promiseType'
+import post from '../../data/classes/post'
 
 const AddPostScreen = () => {
     const postId = Crypto.randomUUID()
@@ -142,113 +142,79 @@ const AddPostScreen = () => {
                                 onPress={() => {
                                     if (desc !== '') {
                                         setLoading(true)
-                                        authUser
-                                            .createPost({
-                                                post: {
-                                                    postId: postId,
-                                                    content: desc,
-                                                    userId: currentUser?.profile
-                                                        .userId!,
-                                                    userName:
-                                                        currentUser?.profile
-                                                            .firstName! +
-                                                        ' ' +
-                                                        currentUser?.profile
-                                                            .lastName!,
-                                                    userAvatar:
-                                                        currentUser?.profile
-                                                            .profilePicture!,
-                                                    date: new Date().toDateString(),
-                                                    comments: [],
-                                                    attachments:
-                                                        selectedAttachments,
-                                                },
-                                            })
-                                            .then((response: promiseType) => {
-                                                if (
-                                                    response.status ===
-                                                    requestStatus.SUCCESS
-                                                ) {
-                                                    currentUser &&
-                                                    currentUser.userPosts &&
-                                                    currentUser.userFeed
-                                                        ? setCurrentUser({
-                                                              ...currentUser,
-                                                              userPosts: [
-                                                                  ...currentUser.userPosts,
-                                                                  {
-                                                                      postId: postId,
-                                                                      content:
-                                                                          desc,
-                                                                      userId: currentUser
+                                        post.createPost({
+                                            post: {
+                                                postId: postId,
+                                                content: desc,
+                                                userId: currentUser?.profile
+                                                    .userId!,
+                                                userName:
+                                                    currentUser?.profile
+                                                        .firstName! +
+                                                    ' ' +
+                                                    currentUser?.profile
+                                                        .lastName!,
+                                                userAvatar:
+                                                    currentUser?.profile
+                                                        .profilePicture!,
+                                                date: new Date().toDateString(),
+                                                comments: [],
+                                                attachments:
+                                                    selectedAttachments,
+                                            },
+                                        }).then((response: promiseType) => {
+                                            if (
+                                                response.status ===
+                                                requestStatus.SUCCESS
+                                            ) {
+                                                currentUser &&
+                                                currentUser.userPosts
+                                                    ? setCurrentUser({
+                                                          ...currentUser,
+                                                          userPosts: [
+                                                              ...currentUser.userPosts,
+                                                              {
+                                                                  postId: postId,
+                                                                  content: desc,
+                                                                  userId: currentUser
+                                                                      ?.profile
+                                                                      .userId!,
+                                                                  userName:
+                                                                      currentUser
                                                                           ?.profile
-                                                                          .userId!,
-                                                                      userName:
-                                                                          currentUser
-                                                                              ?.profile
-                                                                              .firstName! +
-                                                                          ' ' +
-                                                                          currentUser
-                                                                              ?.profile
-                                                                              .lastName!,
-                                                                      userAvatar:
-                                                                          currentUser
-                                                                              ?.profile
-                                                                              .profilePicture!,
-                                                                      date: new Date().toDateString(),
-                                                                      comments:
-                                                                          [],
-                                                                      attachments:
-                                                                          selectedAttachments,
-                                                                  },
-                                                              ],
-                                                              userFeed: [
-                                                                  ...currentUser.userFeed,
-                                                                  {
-                                                                      postId: postId,
-                                                                      content:
-                                                                          desc,
-                                                                      userId: currentUser
+                                                                          .firstName! +
+                                                                      ' ' +
+                                                                      currentUser
                                                                           ?.profile
-                                                                          .userId!,
-                                                                      userName:
-                                                                          currentUser
-                                                                              ?.profile
-                                                                              .firstName! +
-                                                                          ' ' +
-                                                                          currentUser
-                                                                              ?.profile
-                                                                              .lastName!,
-                                                                      userAvatar:
-                                                                          currentUser
-                                                                              ?.profile
-                                                                              .profilePicture!,
-                                                                      date: new Date().toDateString(),
-                                                                      comments:
-                                                                          [],
-                                                                      attachments:
-                                                                          selectedAttachments,
-                                                                  },
-                                                              ],
-                                                          })
-                                                        : null
-                                                    setSelectedAttachments([])
-                                                    navigation.navigate('Feed')
-                                                } else {
-                                                    setLoading(false)
-                                                    Alert.alert(
-                                                        'Error Occurred',
-                                                        'Please contact our support team.',
-                                                        [
-                                                            {
-                                                                text: 'Dismiss',
-                                                                onPress:
-                                                                    () => {},
-                                                            },
-                                                        ]
-                                                    )
-                                                }
-                                            })
+                                                                          .lastName!,
+                                                                  userAvatar:
+                                                                      currentUser
+                                                                          ?.profile
+                                                                          .profilePicture!,
+                                                                  date: new Date().toDateString(),
+                                                                  comments: [],
+                                                                  attachments:
+                                                                      selectedAttachments,
+                                                              },
+                                                          ],
+                                                      })
+                                                    : null
+                                                setSelectedAttachments([])
+                                                navigation.navigate('Feed')
+                                            } else {
+                                                setLoading(false)
+                                                Alert.alert(
+                                                    'Error Occurred',
+                                                    'Please contact our support team.',
+                                                    [
+                                                        {
+                                                            text: 'Dismiss',
+                                                            onPress: () => {},
+                                                        },
+                                                    ]
+                                                )
+                                            }
+                                        })
                                     } else {
                                         Alert.alert(
                                             'Missing Description',

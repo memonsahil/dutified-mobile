@@ -17,161 +17,21 @@ import UserDetailsCard from '../../components/cards/userDetailsCard'
 import categories from '../../enums/categories'
 import { useState } from 'react'
 import jobCardProps from '../../components/props/jobCardProps'
-import jobStatus from '../../enums/jobStatus'
 import PostCard from '../../components/cards/postCard'
 import postCardProps from '../../components/props/postCardProps'
 import projectCardProps from '../../components/props/projectCardProps'
 import ProjectCard from '../../components/cards/projectCard'
-import attachment from '../../enums/attachment'
-import selection from '../../enums/selection'
 
 const UserScreen = () => {
     const navigation: NavigationProp<screens> = useNavigation()
     const [switchColumn, setSwitchColumn] = useState<
         'Details' | 'Posts' | 'Hired' | 'Created'
     >('Details')
-    const posts: Array<postCardProps> = [
-        {
-            postId: '1',
-            content:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            userId: '1',
-            userName: 'Sahil Memon',
-            userAvatar: '',
-            date: '2021-01-01',
-            attachments: [
-                {
-                    id: '1',
-                    title: 'Created Job 1',
-                    type: attachment.JOB,
-                },
-                {
-                    id: '2',
-                    title: 'Created Project 1',
-                    type: attachment.PROJECT,
-                },
-            ],
-            comments: '1',
-        },
-        {
-            postId: '2',
-            content:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            userId: '1',
-            userName: 'Sahil Memon',
-            userAvatar: '',
-            date: '2021-01-01',
-            attachments: [
-                {
-                    id: '1',
-                    title: 'Created Job 1',
-                    type: attachment.JOB,
-                },
-                {
-                    id: '2',
-                    title: 'Created Job 2',
-                    type: attachment.JOB,
-                },
-            ],
-            comments: '1',
-        },
-        {
-            postId: '3',
-            content:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            userId: '1',
-            userName: 'Sahil Memon',
-            userAvatar: '',
-            date: '2021-01-01',
-            attachments: [],
-            comments: '1',
-        },
-    ]
-    const projectsHired: Array<projectCardProps> = [
-        {
-            projectId: '1',
-            projectName: 'Hired Project 1',
-            description: 'This is a description for Hired project 1',
-            creationDate: '2021-01-01',
-            category: categories.ACCOUNTING,
-            showPlus: false,
-        },
-        {
-            projectId: '2',
-            projectName: 'Hired Project 2',
-            description:
-                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-            showPlus: false,
-        },
-    ]
-    const jobsHired: Array<jobCardProps> = [
-        {
-            jobId: '1',
-            jobName: 'Created Job 1',
-            status: jobStatus.AVAILABLE,
-            payment: '100000',
-            description:
-                'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ali quam, sit ame sit ame.',
-            creationDate: '2021-01-01',
-            category: categories.ACCOUNTING,
-            showPlus: selection.HIDE,
-        },
-        {
-            jobId: '2',
-            jobName: 'Created Job 2',
-            status: jobStatus.IN_PROGRESS,
-            payment: '200',
-            description: 'This is a description for Created job 2',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-            showPlus: selection.HIDE,
-        },
-        {
-            jobId: '3',
-            jobName: 'Created Job 3',
-            status: jobStatus.COMPLETED,
-            payment: '200',
-            description: 'This is a description for Created job 3',
-            creationDate: '2021-01-01',
-            category: categories.ANIMATION,
-            showPlus: selection.HIDE,
-        },
-    ]
-    const projectsCreated: Array<projectCardProps> = [
-        {
-            projectId: '1',
-            projectName: 'Hired Project 1',
-            description: 'This is a description for Hired project 1',
-            creationDate: '2021-01-01',
-            category: categories.ACCOUNTING,
-            showPlus: false,
-        },
-    ]
-    const jobsCreated: Array<jobCardProps> = [
-        {
-            jobId: '1',
-            jobName: 'Created Job 1',
-            status: jobStatus.IN_PROGRESS,
-            payment: '200',
-            description: 'This is a description for Created job 1',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-            showPlus: selection.HIDE,
-        },
-        {
-            jobId: '2',
-            jobName: 'Created Job 2',
-            status: jobStatus.IN_PROGRESS,
-            payment: '200',
-            description:
-                'This is a description for Created job 2, This is a description for Created job 2, This is a description for Created job 2',
-            creationDate: '2021-01-01',
-            category: categories.ADVERTISING,
-            showPlus: selection.HIDE,
-        },
-    ]
+    const posts: Array<postCardProps> = []
+    const projectsHired: Array<projectCardProps> = []
+    const jobsHired: Array<jobCardProps> = []
+    const projectsCreated: Array<projectCardProps> = []
+    const jobsCreated: Array<jobCardProps> = []
 
     const firstName = 'John'
     const lastName = 'Doe'
@@ -245,6 +105,7 @@ const UserScreen = () => {
                     jobsCreated="2"
                     projectsWorked="3"
                     jobsWorked="4"
+                    avgRating="4"
                 />
                 <TouchableOpacity
                     onPress={() =>

@@ -19,11 +19,11 @@ import fontSizes from '../../enums/fontSizes'
 import categories from '../../enums/categories'
 import screens from '../params/screens'
 import util from '../../util/util'
-import authUser from '../../data/classes/authUser'
 import * as Crypto from 'expo-crypto'
 import authStore from '../../state/stores/authStore'
 import promiseType from '../../data/types/promiseType'
 import requestStatus from '../../enums/requestStatus'
+import project from '../../data/classes/project'
 
 const AddProjectScreen = () => {
     const projectId = Crypto.randomUUID()
@@ -141,7 +141,7 @@ const AddProjectScreen = () => {
                                         desc !== ''
                                     ) {
                                         setLoading(true)
-                                        authUser
+                                        project
                                             .createProject({
                                                 project: {
                                                     projectId: projectId,

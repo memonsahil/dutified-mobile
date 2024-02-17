@@ -101,8 +101,6 @@ const CreateScreen = () => {
                                     navigation.navigate('AddJob', {
                                         projectId: '',
                                         projectName: '',
-                                        jobCreatorId: '',
-                                        jobCreator: '',
                                     })
                                 }
                             >
