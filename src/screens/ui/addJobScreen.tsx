@@ -266,7 +266,7 @@ const AddJobScreen = ({ route }: addJobScreenProps) => {
                             </TouchableOpacity>
                             <Text style={styles.textSection}>
                                 Once this job is created, it will be viewed by
-                                others. You can hide it anytime.
+                                others. You can archive it later.
                             </Text>
                         </View>
                     </KeyboardAwareScrollView>

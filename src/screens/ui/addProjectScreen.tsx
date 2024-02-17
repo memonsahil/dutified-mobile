@@ -235,7 +235,7 @@ const AddProjectScreen = () => {
                             </TouchableOpacity>
                             <Text style={styles.textSection}>
                                 Once this project is created, it will be viewed
-                                by others. You can hide it anytime.
+                                by others. You can archive it later.
                             </Text>
                         </View>
                     </KeyboardAwareScrollView>
