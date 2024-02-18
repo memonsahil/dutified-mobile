@@ -7,8 +7,19 @@ import auth from '@react-native-firebase/auth'
 
 class User implements UserInterface {
     getUser = async (details: { userId: string }): Promise<promiseType> => {
-        // Implement get user data logic here
-        return { status: requestStatus.SUCCESS }
+        try {
+            const userData = await firestore()
+                .collection('users')
+                .doc(details.userId)
+                .get()
+
+            return {
+                status: requestStatus.SUCCESS,
+                data: userData.data() as userType,
+            }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
     }
 
     getUserResults = async (details: {
