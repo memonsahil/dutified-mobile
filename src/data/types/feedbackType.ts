@@ -6,7 +6,7 @@ type feedbackType = {
     feedbackTitle: string
     feedback: string
     rating: string
-    feedbackDate: string
+    feedbackDate: Date
 }
 
 export default feedbackType
