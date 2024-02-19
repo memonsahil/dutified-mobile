@@ -36,16 +36,14 @@ const UserDetailsCard = (props: userDetailsCardProps) => {
             <Text style={styles.heading}>Links</Text>
             {props.links?.length !== 0 ? (
                 props.links?.map((link) => (
-                    <View style={styles.interestWrapper} key={link.id}>
-                        <TouchableOpacity
-                            onPress={() => Linking.openURL(link.url)}
-                        >
+                    <View style={styles.interestWrapper} key={link}>
+                        <TouchableOpacity onPress={() => Linking.openURL(link)}>
                             <Text
                                 style={styles.link}
                                 numberOfLines={1}
                                 ellipsizeMode="tail"
                             >
-                                {link.url}
+                                {link}
                             </Text>
                         </TouchableOpacity>
                     </View>
