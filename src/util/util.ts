@@ -1,6 +1,4 @@
 import feedbackType from '../data/types/feedbackType'
-import linkType from '../data/types/linkType'
-import * as Crypto from 'expo-crypto'
 import * as ImagePicker from 'expo-image-picker'
 import {
     manipulateAsync,
@@ -18,15 +16,6 @@ class Util {
                 ) / feedbacks?.length
             ).toString()
         } else return 'No ratings yet.'
-    }
-
-    formatLinks = (links: string[]) => {
-        const formattedLinks: linkType[] = []
-        links.forEach((link) => {
-            formattedLinks.push({ id: Crypto.randomUUID(), url: link })
-        })
-
-        return formattedLinks
     }
 
     pickImage = async (setter: (uri: string) => void) => {

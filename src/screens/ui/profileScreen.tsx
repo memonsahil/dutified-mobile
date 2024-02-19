@@ -160,11 +160,11 @@ const ProfileScreen = () => {
                                 ? currentUser?.profile.interests
                                 : []
                         }
-                        links={util.formatLinks(
+                        links={
                             currentUser?.profile.links
                                 ? currentUser?.profile.links
                                 : []
-                        )}
+                        }
                         dailyRate={
                             currentUser?.profile.ratePerDay
                                 ? currentUser?.profile.ratePerDay
