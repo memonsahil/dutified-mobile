@@ -32,7 +32,7 @@ const ProfileScreen = () => {
         <View style={styles.container}>
             <ScrollView contentContainerStyle={styles.scrollView}>
                 <View style={styles.headerSection}>
-                    <Text style={styles.heading}>You</Text>
+                    <Text style={styles.heading}>Profile</Text>
                     <View style={styles.iconWrapper}>
                         <TouchableOpacity
                             onPress={() => navigation.navigate('Feedback')}
