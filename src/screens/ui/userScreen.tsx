@@ -129,7 +129,11 @@ const UserScreen = ({ route }: userScreenProps) => {
                                 />
                             </TouchableOpacity>
                             <TouchableOpacity
-                                onPress={() => navigation.navigate('Feedback')}
+                                onPress={() =>
+                                    navigation.navigate('Feedback', {
+                                        userId: userId,
+                                    })
+                                }
                             >
                                 <MaterialCommunityIcons
                                     name="account-star"
@@ -138,7 +142,11 @@ const UserScreen = ({ route }: userScreenProps) => {
                                 />
                             </TouchableOpacity>
                             <TouchableOpacity
-                                onPress={() => navigation.navigate('Network')}
+                                onPress={() =>
+                                    navigation.navigate('Network', {
+                                        userId: userId,
+                                    })
+                                }
                             >
                                 <MaterialCommunityIcons
                                     name="account-group"

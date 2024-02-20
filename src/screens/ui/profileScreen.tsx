@@ -35,7 +35,13 @@ const ProfileScreen = () => {
                     <Text style={styles.heading}>Profile</Text>
                     <View style={styles.iconWrapper}>
                         <TouchableOpacity
-                            onPress={() => navigation.navigate('Feedback')}
+                            onPress={() =>
+                                navigation.navigate('Feedback', {
+                                    userId: currentUser?.profile.userId
+                                        ? currentUser.profile.userId
+                                        : '',
+                                })
+                            }
                         >
                             <MaterialCommunityIcons
                                 name="account-star"
@@ -44,7 +50,13 @@ const ProfileScreen = () => {
                             />
                         </TouchableOpacity>
                         <TouchableOpacity
-                            onPress={() => navigation.navigate('Network')}
+                            onPress={() =>
+                                navigation.navigate('Network', {
+                                    userId: currentUser?.profile.userId
+                                        ? currentUser.profile.userId
+                                        : '',
+                                })
+                            }
                         >
                             <MaterialCommunityIcons
                                 name="account-group"

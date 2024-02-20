@@ -32,8 +32,12 @@ type screens = {
     User: {
         userId: string
     }
-    Feedback: undefined
-    Network: undefined
+    Feedback: {
+        userId: string
+    }
+    Network: {
+        userId: string
+    }
     Chat: {
         userId: string
     }
