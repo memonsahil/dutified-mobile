@@ -4,6 +4,9 @@
  * below screens type and its relevant NavigatorParamList.
  */
 
+import feedbackType from '../../data/types/feedbackType'
+import userType from '../../data/types/userType'
+
 type screens = {
     // Auth screens
     Main: undefined
@@ -33,10 +36,10 @@ type screens = {
         userId: string
     }
     Feedback: {
-        userId: string
+        feedbacks: feedbackType[]
     }
     Network: {
-        userId: string
+        network: userType[]
     }
     Chat: {
         userId: string
