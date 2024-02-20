@@ -104,6 +104,22 @@ const ProjectScreen = ({ route }: projectScreenProps) => {
                                     {projectCreator}
                                 </Text>
                             </TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() =>
+                                    navigation.navigate('Chat', {
+                                        userId: projectCreatorId,
+                                    })
+                                }
+                                style={styles.chatButtonWrapper}
+                            >
+                                <MaterialCommunityIcons
+                                    name="message-text"
+                                    size={26}
+                                    color={themeColors.YELLOW_GREEN}
+                                    style={styles.buttonIcon}
+                                />
+                                <Text style={styles.chatButton}>Chat</Text>
+                            </TouchableOpacity>
                         </>
                     )}
                     <View style={styles.jobList}>
@@ -206,6 +222,20 @@ const styles = StyleSheet.create({
         width: '80%',
         alignSelf: 'center',
         paddingTop: '5%',
+    },
+    chatButtonWrapper: {
+        alignItems: 'center',
+        marginTop: '5%',
+        flexDirection: 'row',
+        alignSelf: 'center',
+    },
+    chatButton: {
+        fontFamily: 'IBMPlexSansCondensed-Bold',
+        fontSize: fontSizes.BUTTON,
+        color: themeColors.YELLOW_GREEN,
+    },
+    buttonIcon: {
+        marginRight: '3%',
     },
     jobList: {
         width: '100%',
