@@ -6,4 +6,5 @@ export default interface PostInterface {
     getUserFeed: () => Promise<promiseType>
     createPost: (details: { post: postType }) => Promise<promiseType>
     createComment: (details: { comment: commentType }) => Promise<promiseType>
+    getComments: (details: { postId: string }) => Promise<promiseType>
 }

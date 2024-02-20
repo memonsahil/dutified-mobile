@@ -36,7 +36,9 @@ class Post implements PostInterface {
         }
     }
 
-    createComment = async (details: { comment: commentType }) => {
+    createComment = async (details: {
+        comment: commentType
+    }): Promise<promiseType> => {
         try {
             await firestore()
                 .collection('posts')
@@ -48,6 +50,26 @@ class Post implements PostInterface {
                 })
 
             return { status: requestStatus.SUCCESS }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
+    }
+
+    getComments = async (details: { postId: string }): Promise<promiseType> => {
+        try {
+            const doc = await firestore()
+                .collection('posts')
+                .doc(details.postId)
+                .get()
+
+            if (doc.exists) {
+                return {
+                    status: requestStatus.SUCCESS,
+                    data: doc.data()?.comments as commentType[],
+                }
+            } else {
+                return { status: requestStatus.ERROR }
+            }
         } catch (error: Object | any) {
             return { status: requestStatus.ERROR, errorCode: error.code }
         }
