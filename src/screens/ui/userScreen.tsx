@@ -25,7 +25,6 @@ import projectType from '../../data/types/projectType'
 import postType from '../../data/types/postType'
 import jobType from '../../data/types/jobType'
 import selection from '../../enums/selection'
-import linkType from '../../data/types/linkType'
 import * as Progress from 'react-native-progress'
 import util from '../../util/util'
 import feedbackType from '../../data/types/feedbackType'
@@ -39,7 +38,7 @@ const UserScreen = ({ route }: userScreenProps) => {
     const [description, setDescription] = useState<string>('')
     const [ratePerDay, setRatePerDay] = useState<string>('')
     const [interests, setInterests] = useState<string[]>([])
-    const [links, setLinks] = useState<linkType[]>([])
+    const [links, setLinks] = useState<string[]>([])
     const [posts, setPosts] = useState<postType[]>([])
     const [projectsCreated, setProjectsCreated] = useState<projectType[]>([])
     const [projectsWorked, setProjectsWorked] = useState<projectType[]>([])
@@ -249,8 +248,8 @@ const UserScreen = ({ route }: userScreenProps) => {
                             {posts.length === 0 ? (
                                 <View style={styles.noDataContainer}>
                                     <Text style={styles.noDataText}>
-                                        Posts that you create will be shown
-                                        here.
+                                        {firstName} {lastName} has not created
+                                        any posts yet.
                                     </Text>
                                 </View>
                             ) : (
@@ -277,8 +276,8 @@ const UserScreen = ({ route }: userScreenProps) => {
                             jobsWorked.length === 0 ? (
                                 <View style={styles.noDataContainer}>
                                     <Text style={styles.noDataText}>
-                                        Projects and jobs that you are hired for
-                                        will be shown here.
+                                        {firstName} {lastName} has not been
+                                        hired for any projects or jobs yet.
                                     </Text>
                                 </View>
                             ) : (
@@ -368,8 +367,8 @@ const UserScreen = ({ route }: userScreenProps) => {
                             jobsCreated.length === 0 ? (
                                 <View style={styles.noDataContainer}>
                                     <Text style={styles.noDataText}>
-                                        Projects and jobs that you create will
-                                        be shown here.
+                                        {firstName} {lastName} has not created
+                                        any projects or jobs yet.
                                     </Text>
                                 </View>
                             ) : (
