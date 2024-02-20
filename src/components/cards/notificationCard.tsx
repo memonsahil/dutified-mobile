@@ -104,7 +104,7 @@ const NotificationCard = (props: notificationCardProps) => {
             ) : props.type === notification.INVITE_RECEIVED &&
               props.info.actioned === true ? (
                 <Text style={styles.infoText}>
-                    You already actioned this invite.
+                    You have already actioned this invite.
                 </Text>
             ) : null}
         </View>
