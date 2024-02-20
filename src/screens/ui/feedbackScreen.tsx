@@ -11,10 +11,10 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
-import authStore from '../../state/stores/authStore'
+import feedbackScreenProps from '../props/feedbackScreenProps'
 
-const FeedbackScreen = () => {
-    const currentUser = authStore((state) => state.currentUser)
+const FeedbackScreen = ({ route }: feedbackScreenProps) => {
+    const { feedbacks } = route.params
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -32,9 +32,9 @@ const FeedbackScreen = () => {
                     <Text style={styles.heading}>Feedback</Text>
                 </View>
                 <View style={styles.feedbackList}>
-                    {currentUser?.feedbacks.length !== 0 ? (
+                    {feedbacks?.length !== 0 ? (
                         <>
-                            {currentUser?.feedbacks.map((feedback) => (
+                            {feedbacks?.map((feedback) => (
                                 <FeedbackCard
                                     key={feedback.feedbackId}
                                     userId={feedback.userId}
@@ -51,7 +51,7 @@ const FeedbackScreen = () => {
                     ) : (
                         <View style={styles.noDataContainer}>
                             <Text style={styles.noDataText}>
-                                You have not received any feedbacks yet.
+                                No feedbacks yet.
                             </Text>
                         </View>
                     )}

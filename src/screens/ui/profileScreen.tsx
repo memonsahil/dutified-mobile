@@ -37,9 +37,9 @@ const ProfileScreen = () => {
                         <TouchableOpacity
                             onPress={() =>
                                 navigation.navigate('Feedback', {
-                                    userId: currentUser?.profile.userId
-                                        ? currentUser.profile.userId
-                                        : '',
+                                    feedbacks: currentUser?.feedbacks
+                                        ? currentUser.feedbacks
+                                        : [],
                                 })
                             }
                         >
@@ -52,9 +52,9 @@ const ProfileScreen = () => {
                         <TouchableOpacity
                             onPress={() =>
                                 navigation.navigate('Network', {
-                                    userId: currentUser?.profile.userId
-                                        ? currentUser.profile.userId
-                                        : '',
+                                    network: currentUser?.network
+                                        ? currentUser.network
+                                        : [],
                                 })
                             }
                         >

@@ -11,11 +11,11 @@ import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import UserCardSmall from '../../components/cards/userCardSmall'
-import authStore from '../../state/stores/authStore'
 import util from '../../util/util'
+import networkScreenProps from '../props/networkScreenProps'
 
-const NetworkScreen = () => {
-    const currentUser = authStore((state) => state.currentUser)
+const NetworkScreen = ({ route }: networkScreenProps) => {
+    const { network } = route.params
 
     const navigation: NavigationProp<screens> = useNavigation()
 
@@ -33,9 +33,9 @@ const NetworkScreen = () => {
                     <Text style={styles.heading}>Network</Text>
                 </View>
                 <View style={styles.usersList}>
-                    {currentUser?.network.length !== 0 ? (
+                    {network?.length !== 0 ? (
                         <>
-                            {currentUser?.network.map((user) => (
+                            {network?.map((user) => (
                                 <UserCardSmall
                                     key={user.profile.userId!}
                                     userId={user.profile.userId!}
@@ -43,19 +43,14 @@ const NetworkScreen = () => {
                                     last={user.profile.lastName!}
                                     image={user.profile.profilePicture!}
                                     avgRatings={util.avgRating(
-                                        user?.feedbacks
-                                            ? currentUser?.feedbacks
-                                            : []
+                                        user?.feedbacks ? user?.feedbacks : []
                                     )}
                                 />
                             ))}
                         </>
                     ) : (
                         <View style={styles.noDataContainer}>
-                            <Text style={styles.noDataText}>
-                                Users that you add to your network will be shown
-                                here.
-                            </Text>
+                            <Text style={styles.noDataText}>No users yet.</Text>
                         </View>
                     )}
                 </View>

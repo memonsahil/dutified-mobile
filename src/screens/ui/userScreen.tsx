@@ -28,6 +28,7 @@ import selection from '../../enums/selection'
 import * as Progress from 'react-native-progress'
 import util from '../../util/util'
 import feedbackType from '../../data/types/feedbackType'
+import userType from '../../data/types/userType'
 
 const UserScreen = ({ route }: userScreenProps) => {
     const { userId } = route.params
@@ -45,6 +46,7 @@ const UserScreen = ({ route }: userScreenProps) => {
     const [jobsCreated, setJobsCreated] = useState<jobType[]>([])
     const [jobsWorked, setJobsWorked] = useState<jobType[]>([])
     const [feedbacks, setFeedbacks] = useState<feedbackType[]>([])
+    const [network, setNetwork] = useState<userType[]>([])
     const [loading, setLoading] = useState<boolean>(true)
 
     const [switchColumn, setSwitchColumn] = useState<
@@ -67,6 +69,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                 setJobsCreated(response.data.jobsCreated)
                 setJobsWorked(response.data.jobsWorked)
                 setFeedbacks(response.data.feedbacks)
+                setNetwork(response.data.network)
                 setLoading(false)
             } else {
                 Alert.alert(
@@ -131,7 +134,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                             <TouchableOpacity
                                 onPress={() =>
                                     navigation.navigate('Feedback', {
-                                        userId: userId,
+                                        feedbacks: feedbacks,
                                     })
                                 }
                             >
@@ -144,7 +147,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                             <TouchableOpacity
                                 onPress={() =>
                                     navigation.navigate('Network', {
-                                        userId: userId,
+                                        network: network,
                                     })
                                 }
                             >
