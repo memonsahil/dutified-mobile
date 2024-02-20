@@ -4,6 +4,7 @@ import promiseType from '../types/promiseType'
 import firestore from '@react-native-firebase/firestore'
 import userType from '../types/userType'
 import auth from '@react-native-firebase/auth'
+import feedbackType from '../types/feedbackType'
 
 class User implements UserInterface {
     getUser = async (details: { userId: string }): Promise<promiseType> => {
@@ -13,9 +14,57 @@ class User implements UserInterface {
                 .doc(details.userId)
                 .get()
 
-            return {
-                status: requestStatus.SUCCESS,
-                data: userData.data() as userType,
+            if (userData.exists) {
+                return {
+                    status: requestStatus.SUCCESS,
+                    data: userData.data() as userType,
+                }
+            } else {
+                return { status: requestStatus.ERROR }
+            }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
+    }
+
+    getUserFeedbacks = async (details: {
+        userId: string
+    }): Promise<promiseType> => {
+        try {
+            const doc = await firestore()
+                .collection('users')
+                .doc(details.userId)
+                .get()
+
+            if (doc.exists) {
+                return {
+                    status: requestStatus.SUCCESS,
+                    data: doc.data()?.feedbacks as feedbackType[],
+                }
+            } else {
+                return { status: requestStatus.ERROR }
+            }
+        } catch (error: Object | any) {
+            return { status: requestStatus.ERROR, errorCode: error.code }
+        }
+    }
+
+    getUserNetwork = async (details: {
+        userId: string
+    }): Promise<promiseType> => {
+        try {
+            const doc = await firestore()
+                .collection('users')
+                .doc(details.userId)
+                .get()
+
+            if (doc.exists) {
+                return {
+                    status: requestStatus.SUCCESS,
+                    data: doc.data()?.Network as userType[],
+                }
+            } else {
+                return { status: requestStatus.ERROR }
             }
         } catch (error: Object | any) {
             return { status: requestStatus.ERROR, errorCode: error.code }
