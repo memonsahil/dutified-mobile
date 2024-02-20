@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
     Modal,
     View,
@@ -12,9 +12,27 @@ import commentsModalProps from '../props/commentsModalProps'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import post from '../../data/classes/post'
+import promiseType from '../../data/types/promiseType'
+import requestStatus from '../../enums/requestStatus'
+import commentType from '../../data/types/commentType'
 
 const CommentsModal = (props: commentsModalProps) => {
     const [comment, setComment] = useState<string>('')
+    const [comments, setComments] = useState<commentType[]>([])
+
+    useEffect(() => {
+        post.getComments({ postId: props.postId }).then(
+            (response: promiseType) => {
+                if (response.status === requestStatus.SUCCESS) {
+                    setComments(response.data)
+                }
+                {
+                    setComments([])
+                }
+            }
+        )
+    }, [props.postId])
 
     return (
         <Modal transparent visible={props.visible} animationType="slide">
@@ -45,10 +63,9 @@ const CommentsModal = (props: commentsModalProps) => {
                                 }}
                             />
                         </View>
-                        {Array.isArray(props.comments) &&
-                        props.comments.length !== 0 ? (
+                        {comments?.length !== 0 ? (
                             <>
-                                {props.comments.map((comment) => (
+                                {comments?.map((comment) => (
                                     <View
                                         key={comment.commentId}
                                         style={styles.commentContainer}

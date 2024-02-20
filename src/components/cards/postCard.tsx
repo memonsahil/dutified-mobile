@@ -170,7 +170,6 @@ const PostCard = (props: postCardProps) => {
             <CommentsModal
                 visible={modalVisible}
                 onClose={() => setModalVisible(false)}
-                comments={props.comments !== undefined ? props.comments : []}
                 postId={props.postId}
             />
         </View>
