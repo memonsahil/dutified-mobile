@@ -1,14 +1,15 @@
-import jobType from './jobType'
-
 type projectType = {
     projectId: string
     projectName: string
-    projectCreatorId: string
-    projectCreator: string
+    creatorId: string
+    creatorName: string
+    creatorAvatar: string
     category: string
-    description: string
-    creationDate: string
-    jobs: Array<jobType>
+    images: string[]
+    projectDesc: string
+    team: string[]
+    jobs: string[]
+    creationDate: Date
 }
 
 export default projectType

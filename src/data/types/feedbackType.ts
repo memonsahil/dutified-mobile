@@ -1,12 +1,12 @@
 type feedbackType = {
-    userId: string
-    userName: string
-    userImage: string
     feedbackId: string
     feedbackTitle: string
+    userId: string
+    userName: string
+    userAvatar: string
     feedback: string
     rating: string
-    feedbackDate: Date
+    creationDate: Date
 }
 
 export default feedbackType

@@ -1,17 +1,18 @@
 type transactionType = {
     paymentId: string
-    paymentAmount: string
+    amount: string
     payerId: string
     payerName: string
-    payerImage: string
+    payerAvatar: string
     payeeId: string
     payeeName: string
-    payeeImage: string
+    payeeAvatar: string
+    transactionType: string
     jobId: string
     jobName: string
-    projectId?: string
-    projectName?: string
-    paymentDate: string
+    projectId: string
+    projectName: string
+    creationDate: Date
 }
 
 export default transactionType

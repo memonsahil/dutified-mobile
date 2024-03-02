@@ -5,15 +5,18 @@ type jobType = {
     jobName: string
     projectId: string
     projectName: string
-    jobCreatorId: string
-    jobCreator: string
-    jobWorkerId: string
-    jobWorker: string
+    creatorId: string
+    creatorName: string
+    creatorAvatar: string
+    workerId: string
+    workerName: string
+    workerAvatar: string
     status: jobStatus
     category: string
     payment: string
+    images: string[]
     description: string
-    creationDate: string
+    creationDate: Date
 }
 
 export default jobType
