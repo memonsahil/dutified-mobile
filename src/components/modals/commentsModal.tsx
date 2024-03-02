@@ -26,6 +26,8 @@ const CommentsModal = (props: commentsModalProps) => {
     const [comments, setComments] = useState<commentType[]>([])
     const [loading, setLoading] = useState<boolean>(true)
 
+    const commentId = Crypto.randomUUID()
+
     const currentUser = authStore((state) => state.currentUser)
 
     useEffect(() => {
@@ -74,19 +76,13 @@ const CommentsModal = (props: commentsModalProps) => {
                                         setLoading(true)
                                         post.createComment({
                                             comment: {
+                                                commentId: commentId,
                                                 postId: props.postId,
-                                                commentId: Crypto.randomUUID(),
-                                                userId: currentUser?.profile
-                                                    .userId!,
+                                                userId: currentUser?.userId!,
                                                 userName:
-                                                    currentUser?.profile
-                                                        .firstName! +
-                                                    '' +
-                                                    currentUser?.profile
-                                                        .lastName!,
+                                                    currentUser?.userName!,
                                                 userAvatar:
-                                                    currentUser?.profile
-                                                        .profilePicture!,
+                                                    currentUser?.userAvatar!,
                                                 comment: comment,
                                             },
                                         }).then((response: promiseType) => {
@@ -97,20 +93,13 @@ const CommentsModal = (props: commentsModalProps) => {
                                                 setComments([
                                                     ...comments,
                                                     {
+                                                        commentId: commentId,
                                                         postId: props.postId,
-                                                        commentId:
-                                                            Crypto.randomUUID(),
-                                                        userId: currentUser
-                                                            ?.profile.userId!,
+                                                        userId: currentUser?.userId!,
                                                         userName:
-                                                            currentUser?.profile
-                                                                .firstName! +
-                                                            '' +
-                                                            currentUser?.profile
-                                                                .lastName!,
+                                                            currentUser?.userName!,
                                                         userAvatar:
-                                                            currentUser?.profile
-                                                                .profilePicture!,
+                                                            currentUser?.userAvatar!,
                                                         comment: comment,
                                                     },
                                                 ])

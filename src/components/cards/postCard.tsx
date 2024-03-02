@@ -27,8 +27,8 @@ const PostCard = (props: postCardProps) => {
     const navigation: NavigationProp<screens> = useNavigation()
 
     useEffect(() => {
-        props.userAvatar !== image ? setImage(props.userAvatar) : null
-    }, [props.userAvatar])
+        props.creatorAvatar !== image ? setImage(props.creatorAvatar) : null
+    }, [props.creatorAvatar])
 
     return (
         <View style={styles.container}>
@@ -36,10 +36,10 @@ const PostCard = (props: postCardProps) => {
                 <View style={styles.userInfo}>
                     <TouchableOpacity
                         onPress={() =>
-                            props.userId === currentUser?.profile.userId
+                            props.creatorId === currentUser?.userId
                                 ? navigation.navigate('Profile')
                                 : navigation.navigate('User', {
-                                      userId: props.userId,
+                                      userId: props.creatorId,
                                   })
                         }
                     >
@@ -56,10 +56,10 @@ const PostCard = (props: postCardProps) => {
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() =>
-                            props.userId === currentUser?.profile.userId
+                            props.creatorId === currentUser?.userId
                                 ? navigation.navigate('Profile')
                                 : navigation.navigate('User', {
-                                      userId: props.userId,
+                                      userId: props.creatorId,
                                   })
                         }
                     >
@@ -68,14 +68,14 @@ const PostCard = (props: postCardProps) => {
                             numberOfLines={1}
                             ellipsizeMode="tail"
                         >
-                            {props.userName}
+                            {props.creatorName}
                         </Text>
                     </TouchableOpacity>
                 </View>
                 <TouchableOpacity
                     onPress={() => {
                         Alert.alert(
-                            `Report this post from ${props.userName}`,
+                            `Report this post from ${props.creatorName}`,
                             'Report inappropriate or suspicious activity.',
                             [
                                 {
@@ -112,18 +112,18 @@ const PostCard = (props: postCardProps) => {
                     />
                 </TouchableOpacity>
             </View>
-            <Text style={styles.post}>{props.content}</Text>
+            <Text style={styles.post}>{props.postDesc}</Text>
             {props.attachments?.length !== 0
                 ? props.attachments?.map((_attachment) => (
                       <TouchableOpacity
-                          key={_attachment.id}
+                          key={_attachment.attachmentId}
                           onPress={() => {
-                              _attachment.type === attachment.JOB
+                              _attachment.attachmentType === attachment.JOB
                                   ? navigation.navigate('Job', {
-                                        jobId: _attachment.id,
+                                        jobId: _attachment.attachmentId,
                                     })
                                   : navigation.navigate('Project', {
-                                        projectId: _attachment.id,
+                                        projectId: _attachment.attachmentId,
                                     })
                           }}
                       >
@@ -133,13 +133,13 @@ const PostCard = (props: postCardProps) => {
                       </TouchableOpacity>
                   ))
                 : null}
-            <Text style={styles.date}>{props.date}</Text>
+            <Text style={styles.date}>{props.creationDate}</Text>
             <View style={styles.border} />
             <View style={styles.postFooter}>
                 <TouchableOpacity
                     onPress={() => {
                         navigation.navigate('Chat', {
-                            userId: props.userId,
+                            userId: props.creatorId,
                         })
                     }}
                     style={styles.postButton}
