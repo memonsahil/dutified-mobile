@@ -1,3 +1,6 @@
+import feedbackType from '../../data/types/feedbackType'
+import userType from '../../data/types/userType'
+
 type mainNavigatorParamList = {
     Dashboard: undefined
     Create: undefined
@@ -10,8 +13,12 @@ type mainNavigatorParamList = {
     User: {
         userId: string
     }
-    Feedback: undefined
-    Network: undefined
+    Feedback: {
+        feedbacks: feedbackType[]
+    }
+    Network: {
+        network: userType[]
+    }
     Chat: {
         userId: string
     }
