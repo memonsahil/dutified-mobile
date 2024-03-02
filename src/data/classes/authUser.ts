@@ -92,7 +92,7 @@ class AuthUser implements AuthUserInterface {
             if (response) {
                 return {
                     status: requestStatus.SUCCESS,
-                    data: response.data(),
+                    data: response.data() as authUserType,
                 }
             } else {
                 return { status: requestStatus.ERROR }
