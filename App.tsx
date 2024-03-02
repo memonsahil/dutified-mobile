@@ -53,9 +53,9 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from './src/enums/themeColors'
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
 import authStore from './src/state/stores/authStore'
-import authUser from './src/data/classes/authUser'
 import promiseType from './src/data/types/promiseType'
 import requestStatus from './src/enums/requestStatus'
+import user from './src/data/classes/user'
 
 SplashScreen.preventAutoHideAsync()
 
@@ -274,21 +274,25 @@ const App = () => {
     }, [fontsLoaded])
 
     useEffect(() => {
-        userId !== ''
-            ? authUser.getAuthUser().then((response: promiseType) => {
-                  if (response.status === requestStatus.SUCCESS) {
-                      setCurrentUser(response.data)
-                  } else {
-                      setCurrentUser(null)
-                  }
-              })
-            : setCurrentUser(null)
-    }, [userId])
-
-    useEffect(() => {
         const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
         return subscriber
     }, [])
+
+    useEffect(() => {
+        userId !== ''
+            ? user
+                  .getUser({
+                      userId,
+                  })
+                  .then((response: promiseType) => {
+                      if (response.status === requestStatus.SUCCESS) {
+                          setCurrentUser(response.data)
+                      } else {
+                          setCurrentUser(null)
+                      }
+                  })
+            : setCurrentUser(null)
+    }, [userId])
 
     if (!fontsLoaded || initializing) {
         return null
