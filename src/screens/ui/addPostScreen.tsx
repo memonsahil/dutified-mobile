@@ -26,6 +26,7 @@ import post from '../../data/classes/post'
 
 const AddPostScreen = () => {
     const postId = Crypto.randomUUID()
+    const creationDate = new Date().toDateString()
     const [desc, setDesc] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
 
@@ -87,24 +88,26 @@ const AddPostScreen = () => {
                                 ? selectedAttachments?.map(
                                       (selectedAttachment) => (
                                           <View
-                                              key={selectedAttachment.id}
+                                              key={
+                                                  selectedAttachment.attachmentId
+                                              }
                                               style={styles.attachmentContainer}
                                           >
                                               <TouchableOpacity
                                                   onPress={() => {
-                                                      selectedAttachment.type ===
+                                                      selectedAttachment.attachmentType ===
                                                       attachment.JOB
                                                           ? navigation.navigate(
                                                                 'Job',
                                                                 {
-                                                                    jobId: selectedAttachment.id,
+                                                                    jobId: selectedAttachment.attachmentId,
                                                                 }
                                                             )
                                                           : navigation.navigate(
                                                                 'Project',
                                                                 {
                                                                     projectId:
-                                                                        selectedAttachment.id,
+                                                                        selectedAttachment.attachmentId,
                                                                 }
                                                             )
                                                   }}
@@ -120,8 +123,8 @@ const AddPostScreen = () => {
                                                       setSelectedAttachments(
                                                           selectedAttachments.filter(
                                                               (_attachment) =>
-                                                                  _attachment.id !==
-                                                                  selectedAttachment.id
+                                                                  _attachment.attachmentId !==
+                                                                  selectedAttachment.attachmentId
                                                           )
                                                       )
                                                   }}
@@ -145,22 +148,17 @@ const AddPostScreen = () => {
                                         post.createPost({
                                             post: {
                                                 postId: postId,
-                                                content: desc,
-                                                userId: currentUser?.profile
-                                                    .userId!,
-                                                userName:
-                                                    currentUser?.profile
-                                                        .firstName! +
-                                                    ' ' +
-                                                    currentUser?.profile
-                                                        .lastName!,
-                                                userAvatar:
-                                                    currentUser?.profile
-                                                        .profilePicture!,
-                                                date: new Date().toDateString(),
-                                                comments: [],
+                                                creatorId: currentUser?.userId!,
+                                                creatorName:
+                                                    currentUser?.userName!,
+                                                creatorAvatar:
+                                                    currentUser?.userAvatar!,
+                                                images: [],
+                                                postDesc: desc,
                                                 attachments:
                                                     selectedAttachments,
+                                                comments: [],
+                                                creationDate: creationDate,
                                             },
                                         }).then((response: promiseType) => {
                                             if (
@@ -168,33 +166,27 @@ const AddPostScreen = () => {
                                                 requestStatus.SUCCESS
                                             ) {
                                                 currentUser &&
-                                                currentUser.userPosts
+                                                currentUser.postsCreated
                                                     ? setCurrentUser({
                                                           ...currentUser,
-                                                          userPosts: [
-                                                              ...currentUser.userPosts,
+                                                          postsCreated: [
+                                                              ...currentUser.postsCreated,
                                                               {
                                                                   postId: postId,
-                                                                  content: desc,
-                                                                  userId: currentUser
-                                                                      ?.profile
-                                                                      .userId!,
-                                                                  userName:
-                                                                      currentUser
-                                                                          ?.profile
-                                                                          .firstName! +
-                                                                      ' ' +
-                                                                      currentUser
-                                                                          ?.profile
-                                                                          .lastName!,
-                                                                  userAvatar:
-                                                                      currentUser
-                                                                          ?.profile
-                                                                          .profilePicture!,
-                                                                  date: new Date().toDateString(),
-                                                                  comments: [],
+                                                                  creatorId:
+                                                                      currentUser?.userId!,
+                                                                  creatorName:
+                                                                      currentUser?.userName!,
+                                                                  creatorAvatar:
+                                                                      currentUser?.userAvatar!,
+                                                                  images: [],
+                                                                  postDesc:
+                                                                      desc,
                                                                   attachments:
                                                                       selectedAttachments,
+                                                                  comments: [],
+                                                                  creationDate:
+                                                                      creationDate,
                                                               },
                                                           ],
                                                       })
