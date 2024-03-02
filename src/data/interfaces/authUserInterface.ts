@@ -1,22 +1,20 @@
 import promiseType from '../types/promiseType'
-import authUserType from '../types/authUserType'
+import userType from '../types/userType'
 
 export default interface AuthUserInterface {
     signUp: (details: {
-        user: authUserType
+        user: userType
         password: string
     }) => Promise<promiseType>
     signIn: (details: {
         emailAddress: string
         password: string
     }) => Promise<promiseType>
-    getAuthUser: () => Promise<promiseType>
     signOut: () => Promise<promiseType>
     setProfilePicture: (details: {
         profilePicture: string
     }) => Promise<promiseType>
     setBio: (details: { bio: string }) => Promise<promiseType>
-    setRatePerDay: (details: { ratePerDay: string }) => Promise<promiseType>
     setInterests: (details: { interests: string[] }) => Promise<promiseType>
     setLinks: (details: { links: string[] }) => Promise<promiseType>
     setPhone: (details: {
