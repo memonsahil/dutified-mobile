@@ -50,7 +50,10 @@ class AuthUser implements AuthUserInterface {
             )
 
             if (response.user) {
-                return { status: requestStatus.SUCCESS }
+                return {
+                    status: requestStatus.SUCCESS,
+                    data: response.user?.uid,
+                }
             } else {
                 return { status: requestStatus.ERROR }
             }

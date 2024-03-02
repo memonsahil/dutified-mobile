@@ -18,6 +18,7 @@ import requestStatus from '../../enums/requestStatus'
 import authUser from '../../data/classes/authUser'
 import promiseType from '../../data/types/promiseType'
 import authStore from '../../state/stores/authStore'
+import user from '../../data/classes/user'
 
 const SignInScreen = () => {
     const [email, setEmail] = useState<string>('')
@@ -85,34 +86,32 @@ const SignInScreen = () => {
                                             response.status ===
                                             requestStatus.SUCCESS
                                         ) {
-                                            authUser
-                                                .getAuthUser()
-                                                .then(
-                                                    (response: promiseType) => {
-                                                        if (
-                                                            response.status ===
-                                                            requestStatus.SUCCESS
-                                                        ) {
-                                                            setCurrentUser(
-                                                                response.data
-                                                            )
-                                                            setLoading(false)
-                                                        } else {
-                                                            setLoading(false)
-                                                            Alert.alert(
-                                                                'Error Occurred',
-                                                                'Please contact our support team.',
-                                                                [
-                                                                    {
-                                                                        text: 'Dismiss',
-                                                                        onPress:
-                                                                            () => {},
-                                                                    },
-                                                                ]
-                                                            )
-                                                        }
-                                                    }
-                                                )
+                                            user.getUser({
+                                                userId: response.data,
+                                            }).then((response: promiseType) => {
+                                                if (
+                                                    response.status ===
+                                                    requestStatus.SUCCESS
+                                                ) {
+                                                    setCurrentUser(
+                                                        response.data
+                                                    )
+                                                    setLoading(false)
+                                                } else {
+                                                    setLoading(false)
+                                                    Alert.alert(
+                                                        'Error Occurred',
+                                                        'Please contact our support team.',
+                                                        [
+                                                            {
+                                                                text: 'Dismiss',
+                                                                onPress:
+                                                                    () => {},
+                                                            },
+                                                        ]
+                                                    )
+                                                }
+                                            })
                                         } else {
                                             if (
                                                 response.status ===
