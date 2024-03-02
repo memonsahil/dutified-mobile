@@ -282,7 +282,7 @@ const App = () => {
         userId !== ''
             ? user
                   .getUser({
-                      userId,
+                      userId: userId,
                   })
                   .then((response: promiseType) => {
                       if (response.status === requestStatus.SUCCESS) {
