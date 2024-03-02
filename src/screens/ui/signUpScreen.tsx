@@ -35,7 +35,6 @@ const SignUpScreen = () => {
     const [password, setPassword] = useState<string>('')
     const [image, setImage] = useState<string>('')
     const [desc, setDesc] = useState<string>('')
-    const [paymentAmount, setPaymentAmount] = useState<string>('')
     const [enteredCategory, setEnteredCategory] = useState<string>('')
     const [selectedCategories, setSelectedCategories] = useState<string[]>([])
     const [searchResults, setSearchResults] = useState<string[]>([])
@@ -201,19 +200,7 @@ const SignUpScreen = () => {
                                 multiline
                             />
                         </View>
-                        <Text style={styles.field}>Rate/Day</Text>
-                        <View style={styles.amountWrapper}>
-                            <Text style={styles.currency}>USD</Text>
-                            <TextInput
-                                placeholder="80"
-                                value={paymentAmount}
-                                onChangeText={setPaymentAmount}
-                                style={styles.amountInput}
-                                placeholderTextColor={themeColors.SILVER}
-                                inputMode="decimal"
-                            />
-                        </View>
-                        <Text style={styles.field}>Interests</Text>
+                        <Text style={styles.field}>Categories</Text>
                         <TextInput
                             placeholder="Web Development"
                             value={enteredCategory}
@@ -728,7 +715,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.WHITE,
-        paddingTop: '5%',
+        paddingTop: '10%',
     },
     categoriesScrollView: {
         paddingTop: '5%',
