@@ -1,3 +1,6 @@
+import jobType from './jobType'
+import userType from './userType'
+
 type projectType = {
     projectId: string
     projectName: string
@@ -7,9 +10,9 @@ type projectType = {
     category: string
     images: string[]
     projectDesc: string
-    team: string[]
-    jobs: string[]
-    creationDate: Date
+    team: userType[]
+    jobs: jobType[]
+    creationDate: string
 }
 
 export default projectType

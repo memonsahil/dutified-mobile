@@ -16,7 +16,7 @@ type jobType = {
     payment: string
     images: string[]
     description: string
-    creationDate: Date
+    creationDate: string
 }
 
 export default jobType

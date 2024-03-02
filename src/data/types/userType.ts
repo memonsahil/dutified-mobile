@@ -1,3 +1,11 @@
+import chatType from './chatType'
+import feedbackType from './feedbackType'
+import jobType from './jobType'
+import notificationType from './notificationType'
+import postType from './postType'
+import projectType from './projectType'
+import transactionType from './transactionType'
+
 type userType = {
     userId?: string
     userName: string
@@ -12,17 +20,17 @@ type userType = {
     userDesc: string
     categories: string[]
     links: string[]
-    notifications: string[]
-    network: string[]
-    projectsCreated: string[]
-    projectsWorked: string[]
-    jobsCreated: string[]
-    jobsWorked: string[]
-    postsCreated: string[]
-    userFeedPosts: string[]
-    chats: string[]
-    transactions: string[]
-    feedbacks: string[]
+    notifications: notificationType[]
+    network: userType[]
+    projectsCreated: projectType[]
+    projectsWorked: projectType[]
+    jobsCreated: jobType[]
+    jobsWorked: jobType[]
+    postsCreated: postType[]
+    userFeedPosts: postType[]
+    chats: chatType[]
+    transactions: transactionType[]
+    feedbacks: feedbackType[]
     creationDate: string
 }
 

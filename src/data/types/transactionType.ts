@@ -12,7 +12,7 @@ type transactionType = {
     jobName: string
     projectId: string
     projectName: string
-    creationDate: Date
+    creationDate: string
 }
 
 export default transactionType

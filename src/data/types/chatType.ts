@@ -9,7 +9,7 @@ type chatType = {
     userTwoName: string
     userTwoAvatar: string
     messages: IMessage[]
-    creationDate: Date
+    creationDate: string
 }
 
 export default chatType

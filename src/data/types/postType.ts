@@ -1,3 +1,6 @@
+import attachmentType from './attachmentType'
+import commentType from './commentType'
+
 type postType = {
     postId: string
     creatorId: string
@@ -5,12 +8,9 @@ type postType = {
     creatorAvatar: string
     images: string[]
     postDesc: string
-    attachments: {
-        id: string
-        type: string
-        title: string
-    }[]
-    creationDate: Date
+    attachments: attachmentType[]
+    comments: commentType[]
+    creationDate: string
 }
 
 export default postType

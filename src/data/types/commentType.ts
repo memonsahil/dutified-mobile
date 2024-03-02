@@ -1,6 +1,6 @@
 type commentType = {
-    postId: string
     commentId: string
+    postId: string
     userId: string
     userName: string
     userAvatar: string

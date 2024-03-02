@@ -4,13 +4,13 @@ type notificationType = {
     notificationId: string
     userId: string
     notificationType: notification
-    info: {
+    action?: {
         userId: string
         userName: string
         userAvatar: string
         actioned: boolean
     }
-    creationDate: Date
+    creationDate: string
 }
 
 export default notificationType
