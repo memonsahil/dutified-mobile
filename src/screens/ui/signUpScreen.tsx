@@ -26,7 +26,6 @@ import authStore from '../../state/stores/authStore'
 import util from '../../util/util'
 
 const SignUpScreen = () => {
-    const today: Date = new Date()
     const [first, setFirst] = useState<string>('')
     const [last, setLast] = useState<string>('')
     const [code, setCode] = useState<string>('')

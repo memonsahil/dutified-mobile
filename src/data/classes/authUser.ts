@@ -18,16 +18,13 @@ class AuthUser implements AuthUserInterface {
 
             const updatedUser = {
                 ...details.user,
-                profile: {
-                    ...details.user,
-                    userId: response.user?.uid,
-                },
+                userId: response.user.uid,
             }
 
             if (response.user) {
                 await firestore()
                     .collection('users')
-                    .doc(response.user?.uid)
+                    .doc(response.user.uid)
                     .set(updatedUser)
 
                 return { status: requestStatus.SUCCESS }
@@ -52,7 +49,7 @@ class AuthUser implements AuthUserInterface {
             if (response.user) {
                 return {
                     status: requestStatus.SUCCESS,
-                    data: response.user?.uid,
+                    data: response.user.uid,
                 }
             } else {
                 return { status: requestStatus.ERROR }
