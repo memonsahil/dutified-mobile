@@ -1,5 +1,5 @@
 type userType = {
-    userId: string
+    userId?: string
     userName: string
     userAvatar: string
     countryCode: string
@@ -23,7 +23,7 @@ type userType = {
     chats: string[]
     transactions: string[]
     feedbacks: string[]
-    creationDate: Date
+    creationDate: string
 }
 
 export default userType
