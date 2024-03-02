@@ -1,8 +1,8 @@
-import authUserType from '../../data/types/authUserType'
+import userType from '../../data/types/userType'
 
 type authStoreType = {
-    currentUser: authUserType | null
-    setCurrentUser: (currentUser: authUserType | null) => void
+    currentUser: userType | null
+    setCurrentUser: (currentUser: userType | null) => void
 }
 
 export default authStoreType

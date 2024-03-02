@@ -23,7 +23,6 @@ import promiseType from '../../data/types/promiseType'
 import { Avatar } from 'react-native-elements'
 import categories from '../../enums/categories'
 import authStore from '../../state/stores/authStore'
-import auth from '@react-native-firebase/auth'
 import util from '../../util/util'
 
 const SignUpScreen = () => {
@@ -34,8 +33,6 @@ const SignUpScreen = () => {
     const [phone, setPhone] = useState<string>('')
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
-    const [loading, setLoading] = useState<boolean>(false)
-
     const [image, setImage] = useState<string>('')
     const [desc, setDesc] = useState<string>('')
     const [paymentAmount, setPaymentAmount] = useState<string>('')
@@ -44,6 +41,9 @@ const SignUpScreen = () => {
     const [searchResults, setSearchResults] = useState<string[]>([])
     const [link, setLink] = useState<string>('')
     const [links, setLinks] = useState<string[]>([])
+    const [loading, setLoading] = useState<boolean>(false)
+
+    const creationDate = new Date().toDateString()
 
     const { setCurrentUser } = authStore((state) => state)
 
@@ -386,40 +386,32 @@ const SignUpScreen = () => {
                                 authUser
                                     .signUp({
                                         user: {
-                                            profile: {
-                                                firstName: first,
-                                                lastName: last,
-                                                countryCode: code,
-                                                phoneNumber: phone,
-                                                emailAddress: email,
-                                                profilePicture: image,
-                                                bio: desc,
-                                                ratePerDay: paymentAmount,
-                                                interests: selectedCategories,
-                                                links: links,
-                                            },
-                                            paymentDetails: {
-                                                cardNumber: '',
-                                                securityCode: '',
-                                                expiryMonth: '',
-                                                expiryYear: '',
-                                            },
+                                            userName: first + ' ' + last,
+                                            userAvatar: image ? image : '',
+                                            countryCode: code,
+                                            phoneNumber: phone,
+                                            emailAddress: email,
+                                            cardNumber: '',
+                                            securityCode: '',
+                                            expiryMonth: '',
+                                            expiryYear: '',
+                                            userDesc: desc ? desc : '',
+                                            categories: selectedCategories
+                                                ? selectedCategories
+                                                : [],
+                                            links: links ? links : [],
                                             notifications: [],
-                                            userPosts: [],
+                                            network: [],
                                             projectsCreated: [],
                                             projectsWorked: [],
                                             jobsCreated: [],
                                             jobsWorked: [],
-                                            feedbacks: [],
-                                            network: [],
-                                            transactions: [],
+                                            postsCreated: [],
+                                            userFeedPosts: [],
                                             chats: [],
-                                            metaData: {
-                                                creationDate: today,
-                                                lastLoginDate: today,
-                                                lastLogoutDate: null,
-                                                lastTransactionDate: null,
-                                            },
+                                            transactions: [],
+                                            feedbacks: [],
+                                            creationDate: creationDate,
                                         },
                                         password: password,
                                     })
@@ -429,43 +421,32 @@ const SignUpScreen = () => {
                                             requestStatus.SUCCESS
                                         ) {
                                             setCurrentUser({
-                                                profile: {
-                                                    userId: auth().currentUser
-                                                        ?.uid,
-                                                    firstName: first,
-                                                    lastName: last,
-                                                    countryCode: code,
-                                                    phoneNumber: phone,
-                                                    emailAddress: email,
-                                                    profilePicture: image,
-                                                    bio: desc,
-                                                    ratePerDay: paymentAmount,
-                                                    interests:
-                                                        selectedCategories,
-                                                    links: links,
-                                                },
-                                                paymentDetails: {
-                                                    cardNumber: '',
-                                                    securityCode: '',
-                                                    expiryMonth: '',
-                                                    expiryYear: '',
-                                                },
+                                                userName: first + ' ' + last,
+                                                userAvatar: image ? image : '',
+                                                countryCode: code,
+                                                phoneNumber: phone,
+                                                emailAddress: email,
+                                                cardNumber: '',
+                                                securityCode: '',
+                                                expiryMonth: '',
+                                                expiryYear: '',
+                                                userDesc: desc ? desc : '',
+                                                categories: selectedCategories
+                                                    ? selectedCategories
+                                                    : [],
+                                                links: links ? links : [],
                                                 notifications: [],
-                                                userPosts: [],
+                                                network: [],
                                                 projectsCreated: [],
                                                 projectsWorked: [],
                                                 jobsCreated: [],
                                                 jobsWorked: [],
-                                                feedbacks: [],
-                                                network: [],
-                                                transactions: [],
+                                                postsCreated: [],
+                                                userFeedPosts: [],
                                                 chats: [],
-                                                metaData: {
-                                                    creationDate: today,
-                                                    lastLoginDate: today,
-                                                    lastLogoutDate: null,
-                                                    lastTransactionDate: null,
-                                                },
+                                                transactions: [],
+                                                feedbacks: [],
+                                                creationDate: creationDate,
                                             })
                                             setLoading(false)
                                         } else {
