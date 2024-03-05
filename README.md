@@ -6,7 +6,7 @@ A talent sourcing and fund raising marketplace where users can create projects, 
 
 ## Tech Stack
 
-Currently a WIP, the front-end is built upon React Native and Zustand (light-weight state management), job payment transactions are processed using Stripe.
+Currently a work in progress, the front-end is built upon React Native and Zustand (light-weight state management), job payment transactions are processed using Stripe.
 
 The backend is essentially a collection of Firebase tools + a Google Cloud Platform database that stores user and project data.
 
