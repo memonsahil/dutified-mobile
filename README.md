@@ -1,6 +1,6 @@
 # dutified-mobile
 
-A mobile app for AI automated freelancing where users can create/join freelancing projects and each user gets access to GPT tools for their jobs, essentially improving freelancers’ earning potential by providing built-in AI tools that are relevant to their jobs.
+A talent sourcing and fund raising marketplace where users can create projects, hire users, and raise fund for their projects.
 
 ![Dutified Mobile Demo](assets/images/dutified-mobile-demo.gif)
 
