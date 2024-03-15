@@ -1,9 +1,9 @@
-import notification from '../../enums/notification'
+import notifications from '../../enums/notifications'
 
 type notificationType = {
     notificationId: string
     userId: string
-    notificationType: notification
+    notificationType: notifications
     creationDate: string
 }
 
