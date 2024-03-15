@@ -17,7 +17,7 @@ import { useState } from 'react'
 import PostCard from '../../components/cards/postCard'
 import ProjectCard from '../../components/cards/projectCard'
 import authStore from '../../state/stores/authStore'
-import selection from '../../enums/selection'
+import selection from '../../enums/selections'
 import util from '../../util/util'
 
 const ProfileScreen = () => {

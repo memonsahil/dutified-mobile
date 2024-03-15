@@ -20,7 +20,7 @@ import promiseType from '../../data/types/promiseType'
 import requestStatus from '../../enums/requestStatus'
 import authStore from '../../state/stores/authStore'
 import jobType from '../../data/types/jobType'
-import selection from '../../enums/selection'
+import selection from '../../enums/selections'
 
 const ProjectScreen = ({ route }: projectScreenProps) => {
     const { projectId } = route.params

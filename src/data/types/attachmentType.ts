@@ -1,4 +1,4 @@
-import attachment from '../../enums/attachment'
+import attachment from '../../enums/attachments'
 
 type attachmentType = {
     attachmentId: string

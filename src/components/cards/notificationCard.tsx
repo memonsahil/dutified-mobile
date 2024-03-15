@@ -5,7 +5,7 @@ import fontSizes from '../../enums/fontSizes'
 import { NavigationProp, useNavigation } from '@react-navigation/native'
 import screens from '../../screens/params/screens'
 import notificationCardProps from '../props/notificationCardProps'
-import notification from '../../enums/notification'
+import notification from '../../enums/notifications'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import authStore from '../../state/stores/authStore'
 

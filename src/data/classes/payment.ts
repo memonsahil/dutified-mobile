@@ -1,4 +1,4 @@
-import agreementAction from '../../enums/agreementAction'
+import agreementAction from '../../enums/agreementActions'
 import requestStatus from '../../enums/requestStatus'
 import PaymentInterface from '../interfaces/paymentInterface'
 import paymentType from '../types/paymentType'

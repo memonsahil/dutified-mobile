@@ -13,7 +13,7 @@ import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import ProjectCard from '../../components/cards/projectCard'
-import selection from '../../enums/selection'
+import selection from '../../enums/selections'
 import authStore from '../../state/stores/authStore'
 
 const WorkScreen = () => {

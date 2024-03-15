@@ -1,4 +1,4 @@
-import agreementAction from '../../enums/agreementAction'
+import agreementAction from '../../enums/agreementActions'
 import paymentType from '../types/paymentType'
 import promiseType from '../types/promiseType'
 

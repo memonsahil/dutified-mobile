@@ -1,4 +1,4 @@
-import selection from '../../enums/selection'
+import selection from '../../enums/selections'
 
 type jobCardProps = {
     jobId: string

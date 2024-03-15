@@ -4,7 +4,7 @@ import fontSizes from '../../enums/fontSizes'
 import projectCardProps from '../props/projectCardProps'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import utilStore from '../../state/stores/utilStore'
-import attachment from '../../enums/attachment'
+import attachment from '../../enums/attachments'
 import { NavigationProp, useNavigation } from '@react-navigation/native'
 import screens from '../../screens/params/screens'
 

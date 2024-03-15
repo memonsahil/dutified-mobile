@@ -13,7 +13,7 @@ import screens from '../params/screens'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import ProjectCard from '../../components/cards/projectCard'
 import authStore from '../../state/stores/authStore'
-import selection from '../../enums/selection'
+import selection from '../../enums/selections'
 
 const AttachScreen = () => {
     const navigation: NavigationProp<screens> = useNavigation()

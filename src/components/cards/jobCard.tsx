@@ -4,10 +4,10 @@ import fontSizes from '../../enums/fontSizes'
 import jobCardProps from '../props/jobCardProps'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import utilStore from '../../state/stores/utilStore'
-import attachment from '../../enums/attachment'
+import attachment from '../../enums/attachments'
 import { NavigationProp, useNavigation } from '@react-navigation/native'
 import screens from '../../screens/params/screens'
-import selection from '../../enums/selection'
+import selection from '../../enums/selections'
 
 const JobCard = (props: jobCardProps) => {
     const {

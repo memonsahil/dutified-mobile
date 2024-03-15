@@ -15,7 +15,7 @@ import fontSizes from '../../enums/fontSizes'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import screens from '../../screens/params/screens'
 import CommentsModal from '../modals/commentsModal'
-import attachment from '../../enums/attachment'
+import attachment from '../../enums/attachments'
 import authStore from '../../state/stores/authStore'
 
 const PostCard = (props: postCardProps) => {

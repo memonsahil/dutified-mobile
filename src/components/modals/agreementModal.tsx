@@ -17,7 +17,7 @@ import jobStatus from '../../enums/jobStatus'
 import JobCard from '../cards/jobCard'
 import jobCardProps from '../props/jobCardProps'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import selection from '../../enums/selection'
+import selection from '../../enums/selections'
 import utilStore from '../../state/stores/utilStore'
 
 const AgreementModal = (props: agreementModalProps) => {
