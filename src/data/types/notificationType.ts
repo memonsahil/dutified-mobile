@@ -4,12 +4,6 @@ type notificationType = {
     notificationId: string
     userId: string
     notificationType: notification
-    action?: {
-        userId: string
-        userName: string
-        userAvatar: string
-        actioned: boolean
-    }
     creationDate: string
 }
 

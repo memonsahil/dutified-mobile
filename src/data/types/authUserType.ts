@@ -1,37 +1,31 @@
 import chatType from './chatType'
+import contactType from './contactType'
 import feedbackType from './feedbackType'
 import jobType from './jobType'
 import notificationType from './notificationType'
+import paymentType from './paymentType'
 import postType from './postType'
+import profileType from './profileType'
 import projectType from './projectType'
 import transactionType from './transactionType'
 import userType from './userType'
 
 type authUserType = {
     userId?: string
-    userName: string
-    userAvatar: string
-    countryCode: string
-    phoneNumber: string
-    emailAddress: string
-    cardNumber: string
-    securityCode: string
-    expiryMonth: string
-    expiryYear: string
-    userDesc: string
-    categories: string[]
-    links: string[]
-    notifications: notificationType[]
+    profileDetails: profileType
+    contactDetails: contactType
+    paymentDetails: paymentType
     network: userType[]
     projectsCreated: projectType[]
     projectsWorked: projectType[]
     jobsCreated: jobType[]
     jobsWorked: jobType[]
     postsCreated: postType[]
-    userFeedPosts: postType[]
+    feedPosts: postType[]
+    feedbacks: feedbackType[]
     chats: chatType[]
     transactions: transactionType[]
-    feedbacks: feedbackType[]
+    notifications: notificationType[]
     creationDate: string
 }
 

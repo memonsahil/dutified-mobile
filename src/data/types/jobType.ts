@@ -1,4 +1,5 @@
 import jobStatus from '../../enums/jobStatus'
+import transactionType from './transactionType'
 
 type jobType = {
     jobId: string
@@ -13,9 +14,9 @@ type jobType = {
     workerAvatar: string
     status: jobStatus
     category: string
-    payment: string
     images: string[]
     description: string
+    payment: transactionType
     creationDate: string
 }
 

@@ -1,3 +1,5 @@
+import transactions from '../../enums/transactions'
+
 type transactionType = {
     paymentId: string
     amount: string
@@ -7,11 +9,9 @@ type transactionType = {
     payeeId: string
     payeeName: string
     payeeAvatar: string
-    transactionType: string
-    jobId: string
-    jobName: string
-    projectId: string
-    projectName: string
+    transactionType: transactions
+    id: string
+    name: string
     creationDate: string
 }
 

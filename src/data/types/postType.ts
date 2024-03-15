@@ -7,7 +7,7 @@ type postType = {
     creatorName: string
     creatorAvatar: string
     images: string[]
-    postDesc: string
+    description: string
     attachments: attachmentType[]
     comments: commentType[]
     creationDate: string

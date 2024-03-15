@@ -1,15 +1,12 @@
 import feedbackType from './feedbackType'
 import jobType from './jobType'
 import postType from './postType'
+import profileType from './profileType'
 import projectType from './projectType'
 
 type userType = {
-    userId?: string
-    userName: string
-    userAvatar: string
-    userDesc: string
-    categories: string[]
-    links: string[]
+    userId: string
+    profileDetails: profileType
     network: userType[]
     projectsCreated: projectType[]
     projectsWorked: projectType[]
