@@ -7,6 +7,7 @@ import * as SplashScreen from 'expo-splash-screen'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import InfoScreen from './src/screens/ui/infoScreen'
 import MainScreen from './src/screens/ui/mainScreen'
 import SignUpScreen from './src/screens/ui/signUpScreen'
 import SignInScreen from './src/screens/ui/signInScreen'
@@ -69,6 +70,7 @@ const AuthStackNavigator = () => {
                 gestureEnabled: false,
             }}
         >
+            <AuthStack.Screen name="Info" component={InfoScreen} />
             <AuthStack.Screen name="Main" component={MainScreen} />
             <AuthStack.Screen name="SignUp" component={SignUpScreen} />
             <AuthStack.Screen name="SignIn" component={SignInScreen} />
