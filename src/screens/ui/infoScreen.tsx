@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     iconButton: {
-        marginRight: s(15),
+        marginRight: s(10),
     },
     button: {
         fontFamily: 'Karma-Bold',
