@@ -158,13 +158,13 @@ const styles = StyleSheet.create({
         width: '90%',
     },
     avatarContainer: {
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.GREEN,
         marginRight: '5%',
     },
     attachment: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
         marginBottom: '5%',
         textDecorationLine: 'underline',
     },

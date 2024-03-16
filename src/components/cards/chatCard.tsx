@@ -85,7 +85,7 @@ const ChatCard = (props: chatCardProps) => {
                     <MaterialCommunityIcons
                         name="dots-vertical"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                 </TouchableOpacity>
             </TouchableOpacity>
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
         paddingRight: '5%',
     },
     avatarContainer: {
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.GREEN,
         alignSelf: 'center',
     },
     userInfo: {

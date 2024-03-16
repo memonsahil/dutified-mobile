@@ -53,7 +53,7 @@ const EditLinksScreen = () => {
                                 <MaterialCommunityIcons
                                     name="chevron-left-circle"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                 />
                             </TouchableOpacity>
                             <Text style={styles.heading}>Links</Text>
@@ -89,7 +89,7 @@ const EditLinksScreen = () => {
                             <MaterialCommunityIcons
                                 name="link-plus"
                                 size={26}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.GREEN}
                                 style={styles.iconButton}
                             />
                             <Text style={styles.button}>Add</Text>
@@ -127,7 +127,7 @@ const EditLinksScreen = () => {
                                             <MaterialCommunityIcons
                                                 name="close-circle"
                                                 size={26}
-                                                color={themeColors.YELLOW_GREEN}
+                                                color={themeColors.GREEN}
                                             />
                                         </TouchableOpacity>
                                     </View>
@@ -177,7 +177,7 @@ const EditLinksScreen = () => {
                             <MaterialCommunityIcons
                                 name="content-save"
                                 size={26}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.GREEN}
                                 style={styles.iconButton}
                             />
                             <Text style={styles.button}>Save</Text>
@@ -191,7 +191,7 @@ const EditLinksScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                 </View>
             )}
@@ -274,7 +274,7 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
     },
 })
 

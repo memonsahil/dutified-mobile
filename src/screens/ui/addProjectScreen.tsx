@@ -61,7 +61,7 @@ const AddProjectScreen = () => {
                                 <MaterialCommunityIcons
                                     name="chevron-left-circle"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                 />
                             </TouchableOpacity>
                             <Text style={styles.heading}>New Project</Text>
@@ -247,7 +247,7 @@ const AddProjectScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                 </View>
             )}
@@ -316,7 +316,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.GREEN,
         marginRight: 10,
         padding: 4,
     },
@@ -324,7 +324,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.GREEN,
         padding: '1%',
         marginTop: '5%',
         alignSelf: 'flex-start',
@@ -359,7 +359,7 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
         alignSelf: 'center',
     },
     textSection: {

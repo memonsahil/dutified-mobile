@@ -78,7 +78,7 @@ const ProjectScreen = ({ route }: projectScreenProps) => {
                             <MaterialCommunityIcons
                                 name="chevron-left-circle"
                                 size={26}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.GREEN}
                             />
                         </TouchableOpacity>
                         <Text style={styles.heading}>Project</Text>
@@ -115,7 +115,7 @@ const ProjectScreen = ({ route }: projectScreenProps) => {
                                 <MaterialCommunityIcons
                                     name="message-text"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                     style={styles.buttonIcon}
                                 />
                                 <Text style={styles.chatButton}>Chat</Text>
@@ -152,7 +152,7 @@ const ProjectScreen = ({ route }: projectScreenProps) => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                 </View>
             )}
@@ -204,14 +204,14 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.GREEN,
         padding: '1%',
         marginRight: '5%',
     },
     infoButton: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
         marginHorizontal: '10%',
         marginTop: '5%',
     },
@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
     chatButton: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
     },
     buttonIcon: {
         marginRight: '3%',

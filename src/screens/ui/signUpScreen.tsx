@@ -67,7 +67,7 @@ const SignUpScreen = () => {
                             <MaterialCommunityIcons
                                 name="chevron-left-circle"
                                 size={26}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.GREEN}
                             />
                         </TouchableOpacity>
                         <Text style={styles.heading}>Sign Up</Text>
@@ -167,7 +167,7 @@ const SignUpScreen = () => {
                                 <MaterialCommunityIcons
                                     name="file-image-plus"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
                                 <Text style={styles.button}>Upload</Text>
@@ -181,7 +181,7 @@ const SignUpScreen = () => {
                                 <MaterialCommunityIcons
                                     name="square-edit-outline"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
                                 <Text style={styles.button}>Reset</Text>
@@ -269,9 +269,7 @@ const SignUpScreen = () => {
                                                 <MaterialCommunityIcons
                                                     name="close-circle"
                                                     size={26}
-                                                    color={
-                                                        themeColors.YELLOW_GREEN
-                                                    }
+                                                    color={themeColors.GREEN}
                                                 />
                                             </TouchableOpacity>
                                         </View>
@@ -308,7 +306,7 @@ const SignUpScreen = () => {
                             <MaterialCommunityIcons
                                 name="link-plus"
                                 size={26}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.GREEN}
                                 style={styles.iconButton}
                             />
                             <Text style={styles.button}>Add</Text>
@@ -346,7 +344,7 @@ const SignUpScreen = () => {
                                             <MaterialCommunityIcons
                                                 name="close-circle"
                                                 size={26}
-                                                color={themeColors.YELLOW_GREEN}
+                                                color={themeColors.GREEN}
                                             />
                                         </TouchableOpacity>
                                     </View>
@@ -520,7 +518,7 @@ const SignUpScreen = () => {
                         <MaterialCommunityIcons
                             name="account-check"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                             style={styles.iconButton}
                         />
                         <Text style={styles.button}>Sign Up</Text>
@@ -549,7 +547,7 @@ const SignUpScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                 </View>
             )}
@@ -618,7 +616,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     avatarContainer: {
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.GREEN,
         marginTop: '10%',
         alignSelf: 'center',
     },
@@ -670,7 +668,7 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
         alignSelf: 'center',
     },
     amountWrapper: {
@@ -723,7 +721,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.GREEN,
         marginRight: 10,
         padding: 4,
     },
@@ -738,7 +736,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.GREEN,
         padding: '1%',
         alignSelf: 'flex-start',
     },
@@ -760,7 +758,7 @@ const styles = StyleSheet.create({
     quote: {
         fontFamily: 'Borel-Regular',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
         paddingTop: '15%',
     },
     textContainer: {

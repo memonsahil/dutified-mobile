@@ -15,7 +15,7 @@ const SupportScreen = () => {
                     <MaterialCommunityIcons
                         name="chevron-left-circle"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                 </TouchableOpacity>
 
@@ -28,7 +28,7 @@ const SupportScreen = () => {
                 <MaterialCommunityIcons
                     name="email-fast"
                     size={26}
-                    color={themeColors.YELLOW_GREEN}
+                    color={themeColors.GREEN}
                     style={styles.iconButton}
                 />
                 <Text style={styles.button}>Contact</Text>
@@ -40,7 +40,7 @@ const SupportScreen = () => {
                 <MaterialCommunityIcons
                     name="information"
                     size={26}
-                    color={themeColors.YELLOW_GREEN}
+                    color={themeColors.GREEN}
                     style={styles.iconButton}
                 />
                 <Text style={styles.button}>About</Text>
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
     },
 })
 

@@ -19,7 +19,7 @@ const MainScreen = () => {
                     <MaterialCommunityIcons
                         name="account"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                         style={styles.iconButton}
                     />
                     <Text style={styles.button}>Sign Up</Text>
@@ -31,7 +31,7 @@ const MainScreen = () => {
                     <MaterialCommunityIcons
                         name="login"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                         style={styles.iconButton}
                     />
                     <Text style={styles.button}>Sign In</Text>
@@ -43,7 +43,7 @@ const MainScreen = () => {
                     <MaterialCommunityIcons
                         name="help-circle"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                         style={styles.iconButton}
                     />
                     <Text style={styles.button}>Support</Text>
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
     },
     text: {
         fontFamily: 'IBMPlexSansCondensed-Bold',

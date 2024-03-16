@@ -102,7 +102,7 @@ const SearchScreen = () => {
                         <MaterialCommunityIcons
                             name="chevron-left-circle"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                     </TouchableOpacity>
                     <Text style={styles.heading}>Search</Text>
@@ -138,7 +138,7 @@ const SearchScreen = () => {
                                                 color:
                                                     switchCategory ===
                                                     'Projects'
-                                                        ? themeColors.YELLOW_GREEN
+                                                        ? themeColors.GREEN
                                                         : themeColors.SILVER,
                                             }}
                                         >
@@ -155,7 +155,7 @@ const SearchScreen = () => {
                                                 ...styles.button,
                                                 color:
                                                     switchCategory === 'Jobs'
-                                                        ? themeColors.YELLOW_GREEN
+                                                        ? themeColors.GREEN
                                                         : themeColors.SILVER,
                                             }}
                                         >
@@ -172,7 +172,7 @@ const SearchScreen = () => {
                                                 ...styles.button,
                                                 color:
                                                     switchCategory === 'Users'
-                                                        ? themeColors.YELLOW_GREEN
+                                                        ? themeColors.GREEN
                                                         : themeColors.SILVER,
                                             }}
                                         >
@@ -280,7 +280,7 @@ const SearchScreen = () => {
                                     height={25}
                                     borderRadius={20}
                                     indeterminate={true}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                 />
                             </View>
                         )}

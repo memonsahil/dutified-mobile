@@ -29,7 +29,7 @@ const ResetScreen = () => {
                         <MaterialCommunityIcons
                             name="chevron-left-circle"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                     </TouchableOpacity>
                     <Text style={styles.heading}>Reset</Text>
@@ -56,7 +56,7 @@ const ResetScreen = () => {
                     <MaterialCommunityIcons
                         name="email-send"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                         style={styles.iconButton}
                     />
                     <Text
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
         alignSelf: 'center',
     },
 })

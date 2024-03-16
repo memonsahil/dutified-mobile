@@ -22,7 +22,7 @@ const PpScreen = () => {
                         <MaterialCommunityIcons
                             name="chevron-left-circle"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                     </TouchableOpacity>
                     <Text style={styles.heading}>Privacy Policy</Text>

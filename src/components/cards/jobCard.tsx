@@ -87,7 +87,7 @@ const JobCard = (props: jobCardProps) => {
                             <MaterialCommunityIcons
                                 name="plus-circle"
                                 size={26}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.GREEN}
                             />
                         )}
                     </TouchableOpacity>
@@ -110,7 +110,7 @@ const JobCard = (props: jobCardProps) => {
                         <MaterialCommunityIcons
                             name="plus-circle"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                     </TouchableOpacity>
                 ) : null}
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.GREEN,
         padding: '1%',
         marginRight: '5%',
     },

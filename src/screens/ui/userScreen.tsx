@@ -100,7 +100,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                                 <MaterialCommunityIcons
                                     name="chevron-left-circle"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                 />
                             </TouchableOpacity>
                             <Text style={styles.heading}>Profile</Text>
@@ -128,7 +128,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                                 <MaterialCommunityIcons
                                     name="account-plus"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                 />
                             </TouchableOpacity>
                             <TouchableOpacity
@@ -141,7 +141,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                                 <MaterialCommunityIcons
                                     name="account-star"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                 />
                             </TouchableOpacity>
                             <TouchableOpacity
@@ -154,7 +154,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                                 <MaterialCommunityIcons
                                     name="account-group"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                 />
                             </TouchableOpacity>
                         </View>
@@ -180,7 +180,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                         <MaterialCommunityIcons
                             name="message-text"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                             style={styles.buttonIcon}
                         />
                         <Text style={styles.chatButton}>Chat</Text>
@@ -194,7 +194,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                                     ...styles.button,
                                     color:
                                         switchColumn === 'Details'
-                                            ? themeColors.YELLOW_GREEN
+                                            ? themeColors.GREEN
                                             : themeColors.SILVER,
                                 }}
                             >
@@ -209,7 +209,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                                     ...styles.button,
                                     color:
                                         switchColumn === 'Posts'
-                                            ? themeColors.YELLOW_GREEN
+                                            ? themeColors.GREEN
                                             : themeColors.SILVER,
                                 }}
                             >
@@ -224,7 +224,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                                     ...styles.button,
                                     color:
                                         switchColumn === 'Hired'
-                                            ? themeColors.YELLOW_GREEN
+                                            ? themeColors.GREEN
                                             : themeColors.SILVER,
                                 }}
                             >
@@ -239,7 +239,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                                     ...styles.button,
                                     color:
                                         switchColumn === 'Created'
-                                            ? themeColors.YELLOW_GREEN
+                                            ? themeColors.GREEN
                                             : themeColors.SILVER,
                                 }}
                             >
@@ -472,7 +472,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                 </View>
             )}
@@ -529,7 +529,7 @@ const styles = StyleSheet.create({
     chatButton: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
     },
     buttonIcon: {
         marginRight: '3%',

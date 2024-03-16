@@ -57,7 +57,7 @@ const AddPostScreen = () => {
                                     <MaterialCommunityIcons
                                         name="chevron-left-circle"
                                         size={26}
-                                        color={themeColors.YELLOW_GREEN}
+                                        color={themeColors.GREEN}
                                     />
                                 </TouchableOpacity>
                                 <Text style={styles.heading}>New Post</Text>
@@ -68,7 +68,7 @@ const AddPostScreen = () => {
                                 <MaterialCommunityIcons
                                     name="file-plus"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                 />
                             </TouchableOpacity>
                         </View>
@@ -132,9 +132,7 @@ const AddPostScreen = () => {
                                                   <MaterialCommunityIcons
                                                       name="close-circle"
                                                       size={26}
-                                                      color={
-                                                          themeColors.YELLOW_GREEN
-                                                      }
+                                                      color={themeColors.GREEN}
                                                   />
                                               </TouchableOpacity>
                                           </View>
@@ -225,7 +223,7 @@ const AddPostScreen = () => {
                                 <MaterialCommunityIcons
                                     name="text-box"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                     style={styles.buttonIcon}
                                 />
                                 <Text style={styles.button}>Post</Text>
@@ -244,7 +242,7 @@ const AddPostScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                 </View>
             )}
@@ -315,7 +313,7 @@ const styles = StyleSheet.create({
     attachment: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
         textDecorationLine: 'underline',
         width: 275,
         overflow: 'hidden',
@@ -329,7 +327,7 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
     },
     buttonIcon: {
         marginRight: '3%',

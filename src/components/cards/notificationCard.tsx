@@ -96,7 +96,7 @@ const NotificationCard = (props: notificationCardProps) => {
                     <MaterialCommunityIcons
                         name="hand-back-left"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                         style={styles.buttonIcon}
                     />
                     <Text style={styles.actionButton}>Action</Text>
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
         marginTop: '5%',
     },
     avatarContainer: {
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.GREEN,
         marginRight: '5%',
     },
     actionButtonWrapper: {
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     actionButton: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
     },
     buttonIcon: {
         marginRight: '3%',

@@ -33,27 +33,27 @@ const FeedbackCard = (props: feedbackCardProps) => {
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                     </>
                 )
@@ -63,22 +63,22 @@ const FeedbackCard = (props: feedbackCardProps) => {
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                         <FontAwesome
                             name="star"
@@ -93,17 +93,17 @@ const FeedbackCard = (props: feedbackCardProps) => {
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                         <FontAwesome
                             name="star"
@@ -123,12 +123,12 @@ const FeedbackCard = (props: feedbackCardProps) => {
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                         <FontAwesome
                             name="star"
@@ -153,7 +153,7 @@ const FeedbackCard = (props: feedbackCardProps) => {
                         <FontAwesome
                             name="star"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                         <FontAwesome
                             name="star"
@@ -256,7 +256,7 @@ const FeedbackCard = (props: feedbackCardProps) => {
                     <MaterialCommunityIcons
                         name="dots-vertical"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                 </TouchableOpacity>
             </View>
@@ -291,7 +291,7 @@ const styles = StyleSheet.create({
         width: '90%',
     },
     avatarContainer: {
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.GREEN,
     },
     userName: {
         fontFamily: 'IBMPlexSansCondensed-Bold',

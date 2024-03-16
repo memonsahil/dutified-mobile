@@ -108,7 +108,7 @@ const PostCard = (props: postCardProps) => {
                     <MaterialCommunityIcons
                         name="dots-vertical"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                 </TouchableOpacity>
             </View>
@@ -147,7 +147,7 @@ const PostCard = (props: postCardProps) => {
                     <MaterialCommunityIcons
                         name="message-arrow-right"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                         style={styles.buttonIcon}
                     />
                     <Text style={styles.button}>Chat</Text>
@@ -159,7 +159,7 @@ const PostCard = (props: postCardProps) => {
                     <MaterialCommunityIcons
                         name="comment-text"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                         style={styles.buttonIcon}
                     />
                     <Text style={styles.button}>
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
         width: '90%',
     },
     avatarContainer: {
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.GREEN,
     },
     userName: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
     attachment: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
         marginBottom: '5%',
         textDecorationLine: 'underline',
     },
@@ -246,7 +246,7 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
     },
     buttonIcon: {
         marginRight: '3%',

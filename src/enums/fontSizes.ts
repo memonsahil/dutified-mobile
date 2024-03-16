@@ -1,10 +1,9 @@
 enum fontSizes {
-    HEADING_ONE = 34,
-    HEADING_TWO = 28,
-    BODY_ONE = 18,
-    BODY_TWO = 16,
-    BODY_THREE = 14,
-    BUTTON = 22,
+    HEADING_ONE = 44,
+    HEADING_TWO = 34,
+    BODY_ONE = 20,
+    BODY_TWO = 18,
+    BUTTON = 24,
     INPUT = 20,
 }
 

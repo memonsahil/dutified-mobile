@@ -97,7 +97,7 @@ const AgreementModal = (props: agreementModalProps) => {
                             <MaterialCommunityIcons
                                 name="close-circle"
                                 size={26}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.GREEN}
                             />
                         </TouchableOpacity>
                     </View>
@@ -136,7 +136,7 @@ const AgreementModal = (props: agreementModalProps) => {
                                     <MaterialCommunityIcons
                                         name="briefcase-edit"
                                         size={26}
-                                        color={themeColors.YELLOW_GREEN}
+                                        color={themeColors.GREEN}
                                         style={styles.iconButton}
                                     />
                                     <Text style={styles.modalButton}>
@@ -175,7 +175,7 @@ const AgreementModal = (props: agreementModalProps) => {
                                         <MaterialCommunityIcons
                                             name="square-edit-outline"
                                             size={26}
-                                            color={themeColors.YELLOW_GREEN}
+                                            color={themeColors.GREEN}
                                             style={styles.iconButton}
                                         />
                                         <Text style={styles.modalButton}>
@@ -193,7 +193,7 @@ const AgreementModal = (props: agreementModalProps) => {
                                     <MaterialCommunityIcons
                                         name="handshake"
                                         size={26}
-                                        color={themeColors.YELLOW_GREEN}
+                                        color={themeColors.GREEN}
                                         style={styles.iconButton}
                                     />
                                     <Text style={styles.modalButton}>
@@ -379,7 +379,7 @@ const styles = StyleSheet.create({
     modalButton: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
         alignSelf: 'center',
         marginBottom: '5%',
     },

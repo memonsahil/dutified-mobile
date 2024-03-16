@@ -37,7 +37,7 @@ const EditProfilePictureScreen = () => {
                             <MaterialCommunityIcons
                                 name="chevron-left-circle"
                                 size={26}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.GREEN}
                             />
                         </TouchableOpacity>
                         <Text style={styles.heading}>Profile Picture</Text>
@@ -60,7 +60,7 @@ const EditProfilePictureScreen = () => {
                             <MaterialCommunityIcons
                                 name="file-image-plus"
                                 size={26}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.GREEN}
                                 style={styles.iconButton}
                             />
                             <Text style={styles.saveButton}>Upload</Text>
@@ -107,7 +107,7 @@ const EditProfilePictureScreen = () => {
                             <MaterialCommunityIcons
                                 name="content-save"
                                 size={26}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.GREEN}
                                 style={styles.iconButton}
                             />
                             <Text style={styles.saveButton}>Save</Text>
@@ -154,7 +154,7 @@ const EditProfilePictureScreen = () => {
                             <MaterialCommunityIcons
                                 name="square-edit-outline"
                                 size={26}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.GREEN}
                                 style={styles.iconButton}
                             />
                             <Text style={styles.saveButton}>Reset</Text>
@@ -168,7 +168,7 @@ const EditProfilePictureScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                 </View>
             )}
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
         paddingLeft: '5%',
     },
     avatarContainer: {
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.GREEN,
         marginTop: '10%',
         alignSelf: 'center',
     },
@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
     saveButton: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
     },
 })
 

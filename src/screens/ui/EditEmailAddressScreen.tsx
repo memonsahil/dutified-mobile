@@ -53,7 +53,7 @@ const EditEmailAddressScreen = () => {
                                 <MaterialCommunityIcons
                                     name="chevron-left-circle"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                 />
                             </TouchableOpacity>
                             <Text style={styles.heading}>Email Address</Text>
@@ -166,7 +166,7 @@ const EditEmailAddressScreen = () => {
                             <MaterialCommunityIcons
                                 name="content-save"
                                 size={26}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.GREEN}
                                 style={styles.iconButton}
                             />
                             <Text style={styles.saveButton}>Save</Text>
@@ -180,7 +180,7 @@ const EditEmailAddressScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                 </View>
             )}
@@ -247,7 +247,7 @@ const styles = StyleSheet.create({
     saveButton: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
     },
 })
 

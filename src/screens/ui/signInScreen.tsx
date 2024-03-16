@@ -41,7 +41,7 @@ const SignInScreen = () => {
                             <MaterialCommunityIcons
                                 name="chevron-left-circle"
                                 size={26}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.GREEN}
                             />
                         </TouchableOpacity>
                         <Text style={styles.heading}>Sign In</Text>
@@ -180,7 +180,7 @@ const SignInScreen = () => {
                         <MaterialCommunityIcons
                             name="login"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                             style={styles.iconButton}
                         />
                         <Text style={styles.button}>Sign In</Text>
@@ -198,7 +198,7 @@ const SignInScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                 </View>
             )}
@@ -265,7 +265,7 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
         alignSelf: 'center',
     },
     textSection: {

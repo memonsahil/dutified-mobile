@@ -24,7 +24,7 @@ const ContactScreen = () => {
                         <MaterialCommunityIcons
                             name="chevron-left-circle"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                     </TouchableOpacity>
                     <Text style={styles.heading}>Contact</Text>
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         paddingTop: '10%',
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
     },
 })
 

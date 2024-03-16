@@ -75,7 +75,7 @@ const ProjectCard = (props: projectCardProps) => {
                             <MaterialCommunityIcons
                                 name="plus-circle"
                                 size={26}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.GREEN}
                             />
                         )}
                     </TouchableOpacity>
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.GREEN,
         padding: '1%',
         marginRight: '5%',
     },

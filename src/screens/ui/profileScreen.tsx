@@ -46,7 +46,7 @@ const ProfileScreen = () => {
                             <MaterialCommunityIcons
                                 name="account-star"
                                 size={26}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.GREEN}
                             />
                         </TouchableOpacity>
                         <TouchableOpacity
@@ -61,7 +61,7 @@ const ProfileScreen = () => {
                             <MaterialCommunityIcons
                                 name="account-group"
                                 size={26}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.GREEN}
                             />
                         </TouchableOpacity>
                     </View>
@@ -111,7 +111,7 @@ const ProfileScreen = () => {
                                 ...styles.button,
                                 color:
                                     switchColumn === 'Details'
-                                        ? themeColors.YELLOW_GREEN
+                                        ? themeColors.GREEN
                                         : themeColors.SILVER,
                             }}
                         >
@@ -124,7 +124,7 @@ const ProfileScreen = () => {
                                 ...styles.button,
                                 color:
                                     switchColumn === 'Posts'
-                                        ? themeColors.YELLOW_GREEN
+                                        ? themeColors.GREEN
                                         : themeColors.SILVER,
                             }}
                         >
@@ -137,7 +137,7 @@ const ProfileScreen = () => {
                                 ...styles.button,
                                 color:
                                     switchColumn === 'Hired'
-                                        ? themeColors.YELLOW_GREEN
+                                        ? themeColors.GREEN
                                         : themeColors.SILVER,
                             }}
                         >
@@ -152,7 +152,7 @@ const ProfileScreen = () => {
                                 ...styles.button,
                                 color:
                                     switchColumn === 'Created'
-                                        ? themeColors.YELLOW_GREEN
+                                        ? themeColors.GREEN
                                         : themeColors.SILVER,
                             }}
                         >

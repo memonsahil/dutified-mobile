@@ -47,7 +47,7 @@ const UserCardSmall = (props: userCardSmallProps) => {
                         <MaterialCommunityIcons
                             name="star"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                         <Text
                             style={styles.ratingText}
@@ -90,7 +90,7 @@ const UserCardSmall = (props: userCardSmallProps) => {
                     <MaterialCommunityIcons
                         name="dots-vertical"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                 </TouchableOpacity>
             </TouchableOpacity>
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
         marginRight: '5%',
     },
     avatarContainer: {
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.GREEN,
     },
     userInfo: {
         flex: 1,

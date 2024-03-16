@@ -37,7 +37,7 @@ const WorkScreen = () => {
                             <MaterialCommunityIcons
                                 name="briefcase-plus"
                                 size={26}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.GREEN}
                             />
                         </TouchableOpacity>
                         <TouchableOpacity
@@ -46,7 +46,7 @@ const WorkScreen = () => {
                             <MaterialCommunityIcons
                                 name="magnify"
                                 size={26}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.GREEN}
                             />
                         </TouchableOpacity>
                     </View>
@@ -58,7 +58,7 @@ const WorkScreen = () => {
                                 ...styles.button,
                                 color:
                                     switchColumn === 'Hired'
-                                        ? themeColors.YELLOW_GREEN
+                                        ? themeColors.GREEN
                                         : themeColors.SILVER,
                             }}
                         >
@@ -73,7 +73,7 @@ const WorkScreen = () => {
                                 ...styles.button,
                                 color:
                                     switchColumn === 'Created'
-                                        ? themeColors.YELLOW_GREEN
+                                        ? themeColors.GREEN
                                         : themeColors.SILVER,
                             }}
                         >

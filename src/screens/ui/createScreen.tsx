@@ -25,7 +25,7 @@ const CreateScreen = () => {
                         <MaterialCommunityIcons
                             name="chevron-left-circle"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                     </TouchableOpacity>
                     <Text style={styles.heading}>Create</Text>
@@ -37,7 +37,7 @@ const CreateScreen = () => {
                                 ...styles.button,
                                 color:
                                     switchColumn === 'Job'
-                                        ? themeColors.YELLOW_GREEN
+                                        ? themeColors.GREEN
                                         : themeColors.SILVER,
                             }}
                         >
@@ -52,7 +52,7 @@ const CreateScreen = () => {
                                 ...styles.button,
                                 color:
                                     switchColumn === 'Project'
-                                        ? themeColors.YELLOW_GREEN
+                                        ? themeColors.GREEN
                                         : themeColors.SILVER,
                             }}
                         >
@@ -67,7 +67,7 @@ const CreateScreen = () => {
                                 <MaterialCommunityIcons
                                     name="account-cowboy-hat"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                 />
                                 <Text style={styles.infoText}>
                                     Create a job and hire someone to work on it.
@@ -77,7 +77,7 @@ const CreateScreen = () => {
                                 <MaterialCommunityIcons
                                     name="cash-fast"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                 />
                                 <Text style={styles.infoText}>
                                     Make the job payment and let them get to
@@ -88,7 +88,7 @@ const CreateScreen = () => {
                                 <MaterialCommunityIcons
                                     name="account-multiple"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                 />
                                 <Text style={styles.infoText}>
                                     Collaborate with them and track your job's
@@ -107,7 +107,7 @@ const CreateScreen = () => {
                                 <MaterialCommunityIcons
                                     name="briefcase"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                     style={styles.buttonIcon}
                                 />
                                 <Text style={styles.mainButton}>
@@ -121,7 +121,7 @@ const CreateScreen = () => {
                                 <MaterialCommunityIcons
                                     name="briefcase-account"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                 />
                                 <Text style={styles.infoText}>
                                     Create multiple jobs and hire others to
@@ -132,7 +132,7 @@ const CreateScreen = () => {
                                 <MaterialCommunityIcons
                                     name="account-cash"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                 />
                                 <Text style={styles.infoText}>
                                     Make job payments and manage your project's
@@ -143,7 +143,7 @@ const CreateScreen = () => {
                                 <MaterialCommunityIcons
                                     name="account-group"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                 />
                                 <Text style={styles.infoText}>
                                     Collaborate with your team and track your
@@ -159,7 +159,7 @@ const CreateScreen = () => {
                                 <MaterialCommunityIcons
                                     name="briefcase"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                     style={styles.buttonIcon}
                                 />
                                 <Text style={styles.mainButton}>
@@ -237,7 +237,7 @@ const styles = StyleSheet.create({
     mainButton: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
     },
     buttonIcon: {
         marginRight: '3%',

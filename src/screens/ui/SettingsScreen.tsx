@@ -44,7 +44,7 @@ const SettingsScreen = () => {
                                     ...styles.switchbutton,
                                     color:
                                         switchColumn === 'Profile'
-                                            ? themeColors.YELLOW_GREEN
+                                            ? themeColors.GREEN
                                             : themeColors.SILVER,
                                 }}
                             >
@@ -59,7 +59,7 @@ const SettingsScreen = () => {
                                     ...styles.switchbutton,
                                     color:
                                         switchColumn === 'Payments'
-                                            ? themeColors.YELLOW_GREEN
+                                            ? themeColors.GREEN
                                             : themeColors.SILVER,
                                 }}
                             >
@@ -74,7 +74,7 @@ const SettingsScreen = () => {
                                     ...styles.switchbutton,
                                     color:
                                         switchColumn === 'Account'
-                                            ? themeColors.YELLOW_GREEN
+                                            ? themeColors.GREEN
                                             : themeColors.SILVER,
                                 }}
                             >
@@ -93,7 +93,7 @@ const SettingsScreen = () => {
                                 <MaterialCommunityIcons
                                     name="account-circle"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
                                 <Text style={styles.button}>
@@ -107,7 +107,7 @@ const SettingsScreen = () => {
                                 <MaterialCommunityIcons
                                     name="card-text"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
                                 <Text style={styles.button}>Bio</Text>
@@ -119,7 +119,7 @@ const SettingsScreen = () => {
                                 <MaterialCommunityIcons
                                     name="account-cash"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
                                 <Text style={styles.button}>Rate/Day</Text>
@@ -133,7 +133,7 @@ const SettingsScreen = () => {
                                 <MaterialCommunityIcons
                                     name="account-details"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
                                 <Text style={styles.button}>Interests</Text>
@@ -145,7 +145,7 @@ const SettingsScreen = () => {
                                 <MaterialCommunityIcons
                                     name="link"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
                                 <Text style={styles.button}>Links</Text>
@@ -163,7 +163,7 @@ const SettingsScreen = () => {
                                 <MaterialCommunityIcons
                                     name="credit-card-edit"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
                                 <Text style={styles.button}>
@@ -179,7 +179,7 @@ const SettingsScreen = () => {
                                 <MaterialCommunityIcons
                                     name="credit-card-fast"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
                                 <Text style={styles.button}>Transactions</Text>
@@ -197,7 +197,7 @@ const SettingsScreen = () => {
                                 <MaterialCommunityIcons
                                     name="cellphone"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
                                 <Text style={styles.button}>Phone Number</Text>
@@ -211,7 +211,7 @@ const SettingsScreen = () => {
                                 <MaterialCommunityIcons
                                     name="email"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
                                 <Text style={styles.button}>Email Address</Text>
@@ -225,7 +225,7 @@ const SettingsScreen = () => {
                                 <MaterialCommunityIcons
                                     name="form-textbox-password"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
                                 <Text style={styles.button}>Password</Text>
@@ -237,7 +237,7 @@ const SettingsScreen = () => {
                                 <MaterialCommunityIcons
                                     name="help-circle"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
                                 <Text style={styles.button}>Support</Text>
@@ -274,7 +274,7 @@ const SettingsScreen = () => {
                                 <MaterialCommunityIcons
                                     name="logout"
                                     size={26}
-                                    color={themeColors.YELLOW_GREEN}
+                                    color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
                                 <Text style={styles.button}>Sign Out</Text>
@@ -289,7 +289,7 @@ const SettingsScreen = () => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                 </View>
             )}
@@ -335,7 +335,7 @@ const styles = StyleSheet.create({
     switchbutton: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
     },
     buttonWrapper: {
         flexDirection: 'row',
@@ -349,7 +349,7 @@ const styles = StyleSheet.create({
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
     },
 })
 

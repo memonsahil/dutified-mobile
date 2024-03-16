@@ -22,7 +22,7 @@ const AboutScreen = () => {
                         <MaterialCommunityIcons
                             name="chevron-left-circle"
                             size={26}
-                            color={themeColors.YELLOW_GREEN}
+                            color={themeColors.GREEN}
                         />
                     </TouchableOpacity>
                     <Text style={styles.heading}>About</Text>
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BUTTON,
         paddingBottom: '5%',
-        color: themeColors.YELLOW_GREEN,
+        color: themeColors.GREEN,
     },
     version: {
         fontFamily: 'IBMPlexSansCondensed-Bold',

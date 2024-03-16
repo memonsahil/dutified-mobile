@@ -74,7 +74,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                             <MaterialCommunityIcons
                                 name="chevron-left-circle"
                                 size={26}
-                                color={themeColors.YELLOW_GREEN}
+                                color={themeColors.GREEN}
                             />
                         </TouchableOpacity>
                         <TouchableOpacity
@@ -139,12 +139,10 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                     {...props}
                                     wrapperStyle={{
                                         left: {
-                                            backgroundColor:
-                                                themeColors.YELLOW_GREEN,
+                                            backgroundColor: themeColors.GREEN,
                                         },
                                         right: {
-                                            backgroundColor:
-                                                themeColors.YELLOW_GREEN,
+                                            backgroundColor: themeColors.GREEN,
                                         },
                                     }}
                                     textStyle={{
@@ -214,7 +212,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                         <MaterialCommunityIcons
                                             name="send-circle"
                                             size={26}
-                                            color={themeColors.YELLOW_GREEN}
+                                            color={themeColors.GREEN}
                                         />
                                     </TouchableOpacity>
                                     <TouchableOpacity
@@ -225,7 +223,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                                         <MaterialCommunityIcons
                                             name="handshake"
                                             size={26}
-                                            color={themeColors.YELLOW_GREEN}
+                                            color={themeColors.GREEN}
                                         />
                                     </TouchableOpacity>
                                 </View>
@@ -249,7 +247,7 @@ const ChatScreen = ({ route }: chatScreenProps) => {
                         height={25}
                         borderRadius={20}
                         indeterminate={true}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                 </View>
             )}
@@ -287,7 +285,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     avatarContainer: {
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.GREEN,
     },
     chatView: {
         backgroundColor: themeColors.WHITE,

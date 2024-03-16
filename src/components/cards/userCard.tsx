@@ -33,7 +33,7 @@ const UserCard = (props: userCardProps) => {
                     <FontAwesome
                         name="star"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
@@ -61,12 +61,12 @@ const UserCard = (props: userCardProps) => {
                     <FontAwesome
                         name="star"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
@@ -89,17 +89,17 @@ const UserCard = (props: userCardProps) => {
                     <FontAwesome
                         name="star"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
@@ -117,22 +117,22 @@ const UserCard = (props: userCardProps) => {
                     <FontAwesome
                         name="star"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
@@ -145,27 +145,27 @@ const UserCard = (props: userCardProps) => {
                     <FontAwesome
                         name="star"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
                         size={26}
-                        color={themeColors.YELLOW_GREEN}
+                        color={themeColors.GREEN}
                     />
                 </View>
             ) : (
@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
     },
     avatarContainer: {
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.GREEN,
         marginBottom: '5%',
     },
     userName: {
@@ -225,7 +225,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.GREEN,
         padding: '1%',
         marginRight: '5%',
         marginTop: '5%',
@@ -234,7 +234,7 @@ const styles = StyleSheet.create({
         fontFamily: 'IBMPlexSansCondensed-Bold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
-        backgroundColor: themeColors.YELLOW_GREEN,
+        backgroundColor: themeColors.GREEN,
         padding: '1%',
         marginTop: '5%',
     },
