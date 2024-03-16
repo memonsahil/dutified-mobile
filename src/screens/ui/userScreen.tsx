@@ -99,7 +99,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                             >
                                 <MaterialCommunityIcons
                                     name="chevron-left-circle"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                 />
                             </TouchableOpacity>
@@ -127,7 +127,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                             >
                                 <MaterialCommunityIcons
                                     name="account-plus"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                 />
                             </TouchableOpacity>
@@ -140,7 +140,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                             >
                                 <MaterialCommunityIcons
                                     name="account-star"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                 />
                             </TouchableOpacity>
@@ -153,7 +153,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                             >
                                 <MaterialCommunityIcons
                                     name="account-group"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                 />
                             </TouchableOpacity>
@@ -179,7 +179,7 @@ const UserScreen = ({ route }: userScreenProps) => {
                     >
                         <MaterialCommunityIcons
                             name="message-text"
-                            size={26}
+                            size={28}
                             color={themeColors.GREEN}
                             style={styles.buttonIcon}
                         />

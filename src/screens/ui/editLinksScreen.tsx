@@ -52,7 +52,7 @@ const EditLinksScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="chevron-left-circle"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                 />
                             </TouchableOpacity>
@@ -88,7 +88,7 @@ const EditLinksScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="link-plus"
-                                size={26}
+                                size={28}
                                 color={themeColors.GREEN}
                                 style={styles.iconButton}
                             />
@@ -126,7 +126,7 @@ const EditLinksScreen = () => {
                                         >
                                             <MaterialCommunityIcons
                                                 name="close-circle"
-                                                size={26}
+                                                size={28}
                                                 color={themeColors.GREEN}
                                             />
                                         </TouchableOpacity>
@@ -176,7 +176,7 @@ const EditLinksScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="content-save"
-                                size={26}
+                                size={28}
                                 color={themeColors.GREEN}
                                 style={styles.iconButton}
                             />

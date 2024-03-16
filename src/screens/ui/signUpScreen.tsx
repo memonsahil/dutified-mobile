@@ -24,6 +24,7 @@ import { Avatar } from 'react-native-elements'
 import categories from '../../enums/categories'
 import authStore from '../../state/stores/authStore'
 import util from '../../util/util'
+import { vs } from 'react-native-size-matters'
 
 const SignUpScreen = () => {
     const [first, setFirst] = useState<string>('')
@@ -66,7 +67,7 @@ const SignUpScreen = () => {
                         <TouchableOpacity onPress={() => navigation.goBack()}>
                             <MaterialCommunityIcons
                                 name="chevron-left-circle"
-                                size={26}
+                                size={28}
                                 color={themeColors.GREEN}
                             />
                         </TouchableOpacity>
@@ -166,7 +167,7 @@ const SignUpScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="file-image-plus"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
@@ -180,7 +181,7 @@ const SignUpScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="square-edit-outline"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
@@ -268,7 +269,7 @@ const SignUpScreen = () => {
                                             >
                                                 <MaterialCommunityIcons
                                                     name="close-circle"
-                                                    size={26}
+                                                    size={28}
                                                     color={themeColors.GREEN}
                                                 />
                                             </TouchableOpacity>
@@ -305,7 +306,7 @@ const SignUpScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="link-plus"
-                                size={26}
+                                size={28}
                                 color={themeColors.GREEN}
                                 style={styles.iconButton}
                             />
@@ -343,7 +344,7 @@ const SignUpScreen = () => {
                                         >
                                             <MaterialCommunityIcons
                                                 name="close-circle"
-                                                size={26}
+                                                size={28}
                                                 color={themeColors.GREEN}
                                             />
                                         </TouchableOpacity>
@@ -517,7 +518,7 @@ const SignUpScreen = () => {
                     >
                         <MaterialCommunityIcons
                             name="account-check"
-                            size={26}
+                            size={28}
                             color={themeColors.GREEN}
                             style={styles.iconButton}
                         />
@@ -558,7 +559,7 @@ const SignUpScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: themeColors.BLACK,
+        backgroundColor: themeColors.MINT,
     },
     loadingContainer: {
         flex: 1,
@@ -572,14 +573,14 @@ const styles = StyleSheet.create({
     },
     headerSection: {
         flexDirection: 'row',
-        paddingTop: '20%',
+        paddingTop: vs(60),
         paddingLeft: '10%',
         paddingRight: '10%',
         width: '100%',
         alignItems: 'center',
     },
     heading: {
-        fontFamily: 'IBMPlexSansCondensed-Bold',
+        fontFamily: 'Karma-Bold',
         fontSize: fontSizes.HEADING_ONE,
         color: themeColors.WHITE,
         paddingLeft: '5%',
@@ -588,25 +589,25 @@ const styles = StyleSheet.create({
         width: '80%',
     },
     subHeading: {
-        fontFamily: 'IBMPlexSansCondensed-Bold',
+        fontFamily: 'Karma-Bold',
         fontSize: fontSizes.HEADING_TWO,
         paddingTop: '10%',
         color: themeColors.WHITE,
     },
     text: {
-        fontFamily: 'IBMPlexSansCondensed-Medium',
+        fontFamily: 'Karma-Bold',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.WHITE,
         paddingTop: '10%',
     },
     field: {
-        fontFamily: 'IBMPlexSansCondensed-Bold',
+        fontFamily: 'Karma-Bold',
         fontSize: fontSizes.BUTTON,
         paddingTop: '10%',
         color: themeColors.WHITE,
     },
     input: {
-        fontFamily: 'IBMPlexSansCondensed-Medium',
+        fontFamily: 'Karma-SemiBold',
         fontSize: fontSizes.INPUT,
         color: themeColors.WHITE,
         width: '100%',
@@ -628,7 +629,7 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     codePlus: {
-        fontFamily: 'IBMPlexSansCondensed-Medium',
+        fontFamily: 'Karma-SemiBold',
         fontSize: fontSizes.INPUT,
         color: themeColors.WHITE,
         width: '10%',
@@ -636,7 +637,7 @@ const styles = StyleSheet.create({
         textAlignVertical: 'center',
     },
     codeInput: {
-        fontFamily: 'IBMPlexSansCondensed-Medium',
+        fontFamily: 'Karma-SemiBold',
         fontSize: fontSizes.INPUT,
         color: themeColors.WHITE,
         width: '15%',
@@ -647,7 +648,7 @@ const styles = StyleSheet.create({
         textAlignVertical: 'center',
     },
     phoneInput: {
-        fontFamily: 'IBMPlexSansCondensed-Medium',
+        fontFamily: 'Karma-SemiBold',
         fontSize: fontSizes.INPUT,
         color: themeColors.WHITE,
         width: '70%',
@@ -666,30 +667,10 @@ const styles = StyleSheet.create({
         marginRight: '3%',
     },
     button: {
-        fontFamily: 'IBMPlexSansCondensed-Bold',
+        fontFamily: 'Karma-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.GREEN,
         alignSelf: 'center',
-    },
-    amountWrapper: {
-        flexDirection: 'row',
-        paddingTop: '5%',
-    },
-    currency: {
-        fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: fontSizes.INPUT,
-        color: themeColors.WHITE,
-        width: '20%',
-        textAlignVertical: 'center',
-    },
-    amountInput: {
-        fontFamily: 'IBMPlexSansCondensed-Medium',
-        fontSize: fontSizes.INPUT,
-        color: themeColors.WHITE,
-        width: '80%',
-        borderBottomColor: themeColors.WHITE,
-        borderBottomWidth: 3,
-        textAlignVertical: 'center',
     },
     descContainer: {
         backgroundColor: themeColors.WHITE,
@@ -699,7 +680,7 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     descTextInput: {
-        fontFamily: 'IBMPlexSansCondensed-Medium',
+        fontFamily: 'Karma-SemiBold',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.BLACK,
         width: '100%',
@@ -709,7 +690,7 @@ const styles = StyleSheet.create({
         textAlignVertical: 'top',
     },
     categoriesHeading: {
-        fontFamily: 'IBMPlexSansCondensed-Bold',
+        fontFamily: 'Karma-Bold',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.WHITE,
         paddingTop: '10%',
@@ -718,7 +699,7 @@ const styles = StyleSheet.create({
         paddingTop: '5%',
     },
     category: {
-        fontFamily: 'IBMPlexSansCondensed-Bold',
+        fontFamily: 'Karma-Bold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
         backgroundColor: themeColors.GREEN,
@@ -733,7 +714,7 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
     },
     selectedCategory: {
-        fontFamily: 'IBMPlexSansCondensed-Bold',
+        fontFamily: 'Karma-Bold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
         backgroundColor: themeColors.GREEN,
@@ -749,14 +730,14 @@ const styles = StyleSheet.create({
         marginTop: '10%',
     },
     link: {
-        fontFamily: 'IBMPlexSansCondensed-Medium',
+        fontFamily: 'Karma-SemiBold',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.WHITE,
         textDecorationLine: 'underline',
         width: 275,
     },
     quote: {
-        fontFamily: 'Borel-Regular',
+        fontFamily: 'Karma-Bold',
         fontSize: fontSizes.BODY_ONE,
         color: themeColors.GREEN,
         paddingTop: '15%',
@@ -770,8 +751,8 @@ const styles = StyleSheet.create({
     textButton: {
         textAlign: 'center',
         textAlignVertical: 'center',
-        fontFamily: 'IBMPlexSansCondensed-Bold',
-        fontSize: fontSizes.BODY_THREE,
+        fontFamily: 'Karma-Bold',
+        fontSize: fontSizes.BODY_TWO,
         paddingTop: '10%',
         color: themeColors.WHITE,
         textDecorationLine: 'underline',

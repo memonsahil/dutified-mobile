@@ -36,7 +36,7 @@ const WorkScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="briefcase-plus"
-                                size={26}
+                                size={28}
                                 color={themeColors.GREEN}
                             />
                         </TouchableOpacity>
@@ -45,7 +45,7 @@ const WorkScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="magnify"
-                                size={26}
+                                size={28}
                                 color={themeColors.GREEN}
                             />
                         </TouchableOpacity>

@@ -21,7 +21,7 @@ const TosScreen = () => {
                     <TouchableOpacity onPress={() => navigation.goBack()}>
                         <MaterialCommunityIcons
                             name="chevron-left-circle"
-                            size={26}
+                            size={28}
                             color={themeColors.GREEN}
                         />
                     </TouchableOpacity>

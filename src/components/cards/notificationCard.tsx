@@ -95,7 +95,7 @@ const NotificationCard = (props: notificationCardProps) => {
                 >
                     <MaterialCommunityIcons
                         name="hand-back-left"
-                        size={26}
+                        size={28}
                         color={themeColors.GREEN}
                         style={styles.buttonIcon}
                     />

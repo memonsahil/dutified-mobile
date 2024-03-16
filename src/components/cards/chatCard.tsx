@@ -84,7 +84,7 @@ const ChatCard = (props: chatCardProps) => {
                 >
                     <MaterialCommunityIcons
                         name="dots-vertical"
-                        size={26}
+                        size={28}
                         color={themeColors.GREEN}
                     />
                 </TouchableOpacity>

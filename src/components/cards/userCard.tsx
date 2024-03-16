@@ -32,27 +32,27 @@ const UserCard = (props: userCardProps) => {
                 <View style={styles.stars}>
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.SILVER}
                     />
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.SILVER}
                     />
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.SILVER}
                     />
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.SILVER}
                     />
                 </View>
@@ -60,27 +60,27 @@ const UserCard = (props: userCardProps) => {
                 <View style={styles.stars}>
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.SILVER}
                     />
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.SILVER}
                     />
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.SILVER}
                     />
                 </View>
@@ -88,27 +88,27 @@ const UserCard = (props: userCardProps) => {
                 <View style={styles.stars}>
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.SILVER}
                     />
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.SILVER}
                     />
                 </View>
@@ -116,27 +116,27 @@ const UserCard = (props: userCardProps) => {
                 <View style={styles.stars}>
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.SILVER}
                     />
                 </View>
@@ -144,27 +144,27 @@ const UserCard = (props: userCardProps) => {
                 <View style={styles.stars}>
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.GREEN}
                     />
                     <FontAwesome
                         name="star"
-                        size={26}
+                        size={28}
                         color={themeColors.GREEN}
                     />
                 </View>

@@ -36,7 +36,7 @@ const EditProfilePictureScreen = () => {
                         <TouchableOpacity onPress={() => navigation.goBack()}>
                             <MaterialCommunityIcons
                                 name="chevron-left-circle"
-                                size={26}
+                                size={28}
                                 color={themeColors.GREEN}
                             />
                         </TouchableOpacity>
@@ -59,7 +59,7 @@ const EditProfilePictureScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="file-image-plus"
-                                size={26}
+                                size={28}
                                 color={themeColors.GREEN}
                                 style={styles.iconButton}
                             />
@@ -106,7 +106,7 @@ const EditProfilePictureScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="content-save"
-                                size={26}
+                                size={28}
                                 color={themeColors.GREEN}
                                 style={styles.iconButton}
                             />
@@ -153,7 +153,7 @@ const EditProfilePictureScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="square-edit-outline"
-                                size={26}
+                                size={28}
                                 color={themeColors.GREEN}
                                 style={styles.iconButton}
                             />

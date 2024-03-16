@@ -14,7 +14,7 @@ const SupportScreen = () => {
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <MaterialCommunityIcons
                         name="chevron-left-circle"
-                        size={26}
+                        size={28}
                         color={themeColors.GREEN}
                     />
                 </TouchableOpacity>
@@ -27,7 +27,7 @@ const SupportScreen = () => {
             >
                 <MaterialCommunityIcons
                     name="email-fast"
-                    size={26}
+                    size={28}
                     color={themeColors.GREEN}
                     style={styles.iconButton}
                 />
@@ -39,7 +39,7 @@ const SupportScreen = () => {
             >
                 <MaterialCommunityIcons
                     name="information"
-                    size={26}
+                    size={28}
                     color={themeColors.GREEN}
                     style={styles.iconButton}
                 />

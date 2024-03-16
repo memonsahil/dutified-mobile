@@ -98,7 +98,7 @@ const MainScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="account"
-                                size={26}
+                                size={28}
                                 color={themeColors.GREEN}
                                 style={styles.iconButton}
                             />
@@ -110,7 +110,7 @@ const MainScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="login"
-                                size={26}
+                                size={28}
                                 color={themeColors.GREEN}
                                 style={styles.iconButton}
                             />
@@ -122,7 +122,7 @@ const MainScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="help-circle"
-                                size={26}
+                                size={28}
                                 color={themeColors.GREEN}
                                 style={styles.iconButton}
                             />
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
     iconButton: {
-        marginRight: s(10),
+        marginRight: s(15),
     },
     button: {
         fontFamily: 'Karma-Bold',

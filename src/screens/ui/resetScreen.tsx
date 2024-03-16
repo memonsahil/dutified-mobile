@@ -28,7 +28,7 @@ const ResetScreen = () => {
                     <TouchableOpacity onPress={() => navigation.goBack()}>
                         <MaterialCommunityIcons
                             name="chevron-left-circle"
-                            size={26}
+                            size={28}
                             color={themeColors.GREEN}
                         />
                     </TouchableOpacity>
@@ -55,7 +55,7 @@ const ResetScreen = () => {
                 <TouchableOpacity style={styles.buttonWrapper}>
                     <MaterialCommunityIcons
                         name="email-send"
-                        size={26}
+                        size={28}
                         color={themeColors.GREEN}
                         style={styles.iconButton}
                     />

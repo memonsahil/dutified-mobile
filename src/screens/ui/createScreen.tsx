@@ -24,7 +24,7 @@ const CreateScreen = () => {
                     <TouchableOpacity onPress={() => navigation.goBack()}>
                         <MaterialCommunityIcons
                             name="chevron-left-circle"
-                            size={26}
+                            size={28}
                             color={themeColors.GREEN}
                         />
                     </TouchableOpacity>
@@ -66,7 +66,7 @@ const CreateScreen = () => {
                             <View style={styles.infoTextWrapper}>
                                 <MaterialCommunityIcons
                                     name="account-cowboy-hat"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                 />
                                 <Text style={styles.infoText}>
@@ -76,7 +76,7 @@ const CreateScreen = () => {
                             <View style={styles.infoTextWrapper}>
                                 <MaterialCommunityIcons
                                     name="cash-fast"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                 />
                                 <Text style={styles.infoText}>
@@ -87,7 +87,7 @@ const CreateScreen = () => {
                             <View style={styles.infoTextWrapper}>
                                 <MaterialCommunityIcons
                                     name="account-multiple"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                 />
                                 <Text style={styles.infoText}>
@@ -106,7 +106,7 @@ const CreateScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="briefcase"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                     style={styles.buttonIcon}
                                 />
@@ -120,7 +120,7 @@ const CreateScreen = () => {
                             <View style={styles.infoTextWrapper}>
                                 <MaterialCommunityIcons
                                     name="briefcase-account"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                 />
                                 <Text style={styles.infoText}>
@@ -131,7 +131,7 @@ const CreateScreen = () => {
                             <View style={styles.infoTextWrapper}>
                                 <MaterialCommunityIcons
                                     name="account-cash"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                 />
                                 <Text style={styles.infoText}>
@@ -142,7 +142,7 @@ const CreateScreen = () => {
                             <View style={styles.infoTextWrapper}>
                                 <MaterialCommunityIcons
                                     name="account-group"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                 />
                                 <Text style={styles.infoText}>
@@ -158,7 +158,7 @@ const CreateScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="briefcase"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                     style={styles.buttonIcon}
                                 />

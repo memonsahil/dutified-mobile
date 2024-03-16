@@ -53,7 +53,7 @@ const JobModal = (props: jobModalProps) => {
                         >
                             <MaterialCommunityIcons
                                 name="close-circle"
-                                size={26}
+                                size={28}
                                 color={themeColors.GREEN}
                             />
                         </TouchableOpacity>

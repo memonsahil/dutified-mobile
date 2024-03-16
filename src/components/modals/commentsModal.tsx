@@ -53,7 +53,7 @@ const CommentsModal = (props: commentsModalProps) => {
                         <TouchableOpacity onPress={props.onClose}>
                             <MaterialCommunityIcons
                                 name="close-circle"
-                                size={26}
+                                size={28}
                                 color={themeColors.GREEN}
                             />
                         </TouchableOpacity>
@@ -136,7 +136,7 @@ const CommentsModal = (props: commentsModalProps) => {
                             >
                                 <MaterialCommunityIcons
                                     name="comment-plus"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />

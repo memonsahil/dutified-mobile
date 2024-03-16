@@ -63,7 +63,7 @@ const EditInterestsScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="chevron-left-circle"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                 />
                             </TouchableOpacity>
@@ -145,7 +145,7 @@ const EditInterestsScreen = () => {
                                                 >
                                                     <MaterialCommunityIcons
                                                         name="close-circle"
-                                                        size={26}
+                                                        size={28}
                                                         color={
                                                             themeColors.GREEN
                                                         }
@@ -200,7 +200,7 @@ const EditInterestsScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="content-save"
-                                size={26}
+                                size={28}
                                 color={themeColors.GREEN}
                                 style={styles.iconButton}
                             />

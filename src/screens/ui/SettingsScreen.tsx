@@ -92,7 +92,7 @@ const SettingsScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="account-circle"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
@@ -106,7 +106,7 @@ const SettingsScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="card-text"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
@@ -118,7 +118,7 @@ const SettingsScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="account-cash"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
@@ -132,7 +132,7 @@ const SettingsScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="account-details"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
@@ -144,7 +144,7 @@ const SettingsScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="link"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
@@ -162,7 +162,7 @@ const SettingsScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="credit-card-edit"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
@@ -178,7 +178,7 @@ const SettingsScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="credit-card-fast"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
@@ -196,7 +196,7 @@ const SettingsScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="cellphone"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
@@ -210,7 +210,7 @@ const SettingsScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="email"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
@@ -224,7 +224,7 @@ const SettingsScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="form-textbox-password"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
@@ -236,7 +236,7 @@ const SettingsScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="help-circle"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />
@@ -273,7 +273,7 @@ const SettingsScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="logout"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                     style={styles.iconButton}
                                 />

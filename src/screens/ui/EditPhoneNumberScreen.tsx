@@ -55,7 +55,7 @@ const EditPhoneNumberScreen = () => {
                             >
                                 <MaterialCommunityIcons
                                     name="chevron-left-circle"
-                                    size={26}
+                                    size={28}
                                     color={themeColors.GREEN}
                                 />
                             </TouchableOpacity>
@@ -145,7 +145,7 @@ const EditPhoneNumberScreen = () => {
                         >
                             <MaterialCommunityIcons
                                 name="content-save"
-                                size={26}
+                                size={28}
                                 color={themeColors.GREEN}
                                 style={styles.iconButton}
                             />

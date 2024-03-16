@@ -46,7 +46,7 @@ const UserCardSmall = (props: userCardSmallProps) => {
                     <View style={styles.ratingContainer}>
                         <MaterialCommunityIcons
                             name="star"
-                            size={26}
+                            size={28}
                             color={themeColors.GREEN}
                         />
                         <Text
@@ -89,7 +89,7 @@ const UserCardSmall = (props: userCardSmallProps) => {
                 >
                     <MaterialCommunityIcons
                         name="dots-vertical"
-                        size={26}
+                        size={28}
                         color={themeColors.GREEN}
                     />
                 </TouchableOpacity>
