@@ -112,7 +112,7 @@ const DashboardTabNavigator = () => {
                                 size={26}
                                 color={
                                     focused
-                                        ? themeColors.YELLOW_GREEN
+                                        ? themeColors.GREEN
                                         : themeColors.SILVER
                                 }
                             />
@@ -124,7 +124,7 @@ const DashboardTabNavigator = () => {
                                 size={26}
                                 color={
                                     focused
-                                        ? themeColors.YELLOW_GREEN
+                                        ? themeColors.GREEN
                                         : themeColors.SILVER
                                 }
                             />
@@ -136,7 +136,7 @@ const DashboardTabNavigator = () => {
                                 size={26}
                                 color={
                                     focused
-                                        ? themeColors.YELLOW_GREEN
+                                        ? themeColors.GREEN
                                         : themeColors.SILVER
                                 }
                             />
@@ -148,7 +148,7 @@ const DashboardTabNavigator = () => {
                                 size={26}
                                 color={
                                     focused
-                                        ? themeColors.YELLOW_GREEN
+                                        ? themeColors.GREEN
                                         : themeColors.SILVER
                                 }
                             />
@@ -160,7 +160,7 @@ const DashboardTabNavigator = () => {
                                 size={26}
                                 color={
                                     focused
-                                        ? themeColors.YELLOW_GREEN
+                                        ? themeColors.GREEN
                                         : themeColors.SILVER
                                 }
                             />
@@ -250,9 +250,8 @@ const MainStackNavigator = () => {
 
 const App = () => {
     const [fontsLoaded] = useFonts({
-        'IBMPlexSansCondensed-Bold': require('./assets/fonts/IBMPlexSansCondensed-Bold.ttf'),
-        'IBMPlexSansCondensed-Medium': require('./assets/fonts/IBMPlexSansCondensed-Medium.ttf'),
-        'Borel-Regular': require('./assets/fonts/Borel-Regular.ttf'),
+        'Karma-Bold': require('./assets/fonts/Karma-Bold.ttf'),
+        'Karma-SemiBold': require('./assets/fonts/Karma-SemiBold.ttf'),
     })
 
     const [userId, setUserId] = useState<string>('')

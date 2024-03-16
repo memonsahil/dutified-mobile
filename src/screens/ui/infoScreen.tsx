@@ -1,52 +1,146 @@
+import { JSX } from 'react'
 import { NavigationProp, useNavigation } from '@react-navigation/native'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import { Image } from 'react-native-elements'
 import themeColors from '../../enums/themeColors'
 import screens from '../params/screens'
-import { s, vs } from 'react-native-size-matters'
+import { s, vs, ms, mvs } from 'react-native-size-matters'
 import Carousel from 'react-native-snap-carousel'
+import fontSizes from '../../enums/fontSizes'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 const MainScreen = () => {
     const navigation: NavigationProp<screens> = useNavigation()
 
-    const carouselItems: { title: string; image: string; text: string }[] = [
+    const carouselItems: {
+        content: JSX.Element
+    }[] = [
         {
-            title: 'Item 1',
-            image: '',
-            text: 'Text 1',
+            content: (
+                <>
+                    <Text style={styles.title}>Dutified.</Text>
+                    <Image
+                        source={require('../../../assets/images/info-one.png')}
+                        style={{
+                            width: ms(210),
+                            height: mvs(270),
+                        }}
+                    />
+                    <Text style={styles.body}>
+                        Dutified exists to empower you to design, develop, and
+                        discover new ideas.
+                    </Text>
+                </>
+            ),
         },
         {
-            title: 'Item 2',
-            image: '',
-            text: 'Text 2',
+            content: (
+                <>
+                    <Text style={styles.heading}>1. Design</Text>
+                    <Image
+                        source={require('../../../assets/images/info-two.png')}
+                        style={{
+                            width: ms(210),
+                            height: mvs(270),
+                        }}
+                    />
+                    <Text style={styles.body}>
+                        Imagine your idea, plan your project requirements, and
+                        setup your crowdfunding goal.
+                    </Text>
+                </>
+            ),
         },
         {
-            title: 'Item 3',
-            image: '',
-            text: 'Text 3',
+            content: (
+                <>
+                    <Text style={styles.heading}>2. Develop</Text>
+                    <Image
+                        source={require('../../../assets/images/info-three.png')}
+                        style={{
+                            width: ms(180),
+                            height: mvs(290),
+                        }}
+                    />
+                    <Text style={styles.body}>
+                        Breakdown your project into achievable jobs and hire
+                        others to join your team.
+                    </Text>
+                </>
+            ),
         },
         {
-            title: 'Item 4',
-            image: '',
-            text: 'Text 4',
+            content: (
+                <>
+                    <Text style={styles.heading}>3. Discover</Text>
+                    <Image
+                        source={require('../../../assets/images/info-four.png')}
+                        style={{
+                            width: ms(180),
+                            height: mvs(300),
+                        }}
+                    />
+                    <Text style={styles.body}>
+                        Share your progress, crowdfund your project, and get
+                        feedback from early enthusiasts.
+                    </Text>
+                </>
+            ),
+        },
+        {
+            content: (
+                <>
+                    <Text style={styles.title}>Dutified.</Text>
+                    <View style={styles.mainSection}>
+                        <TouchableOpacity
+                            style={styles.buttonWrapper}
+                            onPress={() => navigation.navigate('SignUp')}
+                        >
+                            <MaterialCommunityIcons
+                                name="account"
+                                size={26}
+                                color={themeColors.GREEN}
+                                style={styles.iconButton}
+                            />
+                            <Text style={styles.button}>Sign Up</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.buttonWrapper}
+                            onPress={() => navigation.navigate('SignIn')}
+                        >
+                            <MaterialCommunityIcons
+                                name="login"
+                                size={26}
+                                color={themeColors.GREEN}
+                                style={styles.iconButton}
+                            />
+                            <Text style={styles.button}>Sign In</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.buttonWrapper}
+                            onPress={() => navigation.navigate('Support')}
+                        >
+                            <MaterialCommunityIcons
+                                name="help-circle"
+                                size={26}
+                                color={themeColors.GREEN}
+                                style={styles.iconButton}
+                            />
+                            <Text style={styles.button}>Support</Text>
+                        </TouchableOpacity>
+                        <Text style={styles.text}>1.0.0</Text>
+                    </View>
+                    <Text style={styles.body}>
+                        The best place to design, develop, and discover new
+                        ideas.
+                    </Text>
+                </>
+            ),
         },
     ]
 
-    const _renderItem = ({ item, index }: { item: any; index: number }) => {
-        return (
-            <View
-                style={{
-                    backgroundColor: 'white',
-                    borderRadius: 5,
-                    height: vs(200),
-                    padding: s(20),
-                    marginLeft: s(0),
-                    marginRight: s(0),
-                }}
-            >
-                <Text style={{ fontSize: 30 }}>{item.title}</Text>
-                <Text>{item.text}</Text>
-            </View>
-        )
+    const infoCard = ({ item }: { item: { content: JSX.Element } }) => {
+        return <View style={styles.infoCard}>{item.content}</View>
     }
 
     return (
@@ -54,10 +148,9 @@ const MainScreen = () => {
             <Carousel
                 layout={'default'}
                 data={carouselItems}
-                sliderWidth={300}
-                itemWidth={300}
-                renderItem={_renderItem}
-                onSnapToItem={(index) => {}}
+                sliderWidth={s(350)}
+                itemWidth={s(300)}
+                renderItem={infoCard}
                 snapToAlignment={'center'}
             />
         </View>
@@ -67,9 +160,58 @@ const MainScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: themeColors.BLACK,
+        backgroundColor: themeColors.MINT,
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    infoCard: {
+        backgroundColor: themeColors.WHITE,
+        borderRadius: 20,
+        width: s(300),
+        height: vs(575),
+        marginTop: vs(60),
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        paddingHorizontal: s(20),
+    },
+    title: {
+        fontFamily: 'Karma-Bold',
+        fontSize: fontSizes.HEADING_ONE,
+        color: themeColors.BLACK,
+    },
+    heading: {
+        fontFamily: 'Karma-Bold',
+        fontSize: fontSizes.HEADING_TWO,
+        color: themeColors.BLACK,
+    },
+    body: {
+        fontFamily: 'Karma-Bold',
+        fontSize: fontSizes.BODY_ONE,
+        color: themeColors.GREEN,
+        textAlign: 'center',
+    },
+    mainSection: {
+        height: vs(200),
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    buttonWrapper: {
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+    },
+    iconButton: {
+        marginRight: s(10),
+    },
+    button: {
+        fontFamily: 'Karma-Bold',
+        fontSize: fontSizes.BUTTON,
+        color: themeColors.GREEN,
+    },
+    text: {
+        fontFamily: 'Karma-Bold',
+        fontSize: fontSizes.BODY_TWO,
+        color: themeColors.BLACK,
     },
 })
 
