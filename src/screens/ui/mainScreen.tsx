@@ -4,6 +4,7 @@ import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { s, vs } from 'react-native-size-matters'
 
 const MainScreen = () => {
     const navigation: NavigationProp<screens> = useNavigation()
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     mainSection: {
-        height: '40%',
+        height: vs(200),
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     iconButton: {
-        marginRight: '3%',
+        marginRight: s(10),
     },
     button: {
         fontFamily: 'IBMPlexSansCondensed-Bold',
