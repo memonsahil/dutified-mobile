@@ -45,7 +45,7 @@ const MainScreen = () => {
                         }}
                     />
                     <Text style={styles.body}>
-                        Imagine your idea, plan your project requirements, and
+                        Use AI to imagine your idea, plan your project, and
                         setup your crowdfunding goal.
                     </Text>
                 </>
@@ -63,8 +63,8 @@ const MainScreen = () => {
                         }}
                     />
                     <Text style={styles.body}>
-                        Breakdown your project into achievable jobs and hire
-                        others to join your team.
+                        Use AI to divide your project into achievable jobs and
+                        hire others to join your team.
                     </Text>
                 </>
             ),
