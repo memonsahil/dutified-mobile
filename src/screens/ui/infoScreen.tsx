@@ -198,7 +198,6 @@ const styles = StyleSheet.create({
     },
     buttonWrapper: {
         flexDirection: 'row',
-        alignItems: 'flex-start',
     },
     iconButton: {
         marginRight: s(15),

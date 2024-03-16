@@ -327,7 +327,7 @@ const styles = StyleSheet.create({
         paddingTop: '5%',
         marginBottom: '5%',
         borderBottomColor: themeColors.WHITE,
-        borderBottomWidth: 3,
+        borderBottomWidth: 1,
         alignSelf: 'center',
     },
     buttonSection: {

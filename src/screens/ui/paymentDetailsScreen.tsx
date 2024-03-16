@@ -305,7 +305,7 @@ const styles = StyleSheet.create({
         width: '100%',
         paddingTop: '5%',
         borderBottomColor: themeColors.WHITE,
-        borderBottomWidth: 3,
+        borderBottomWidth: 1,
         alignSelf: 'center',
     },
     saveButtonContainer: {

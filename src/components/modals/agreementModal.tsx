@@ -401,7 +401,7 @@ const styles = StyleSheet.create({
         color: themeColors.WHITE,
         width: '80%',
         borderBottomColor: themeColors.WHITE,
-        borderBottomWidth: 3,
+        borderBottomWidth: 1,
         textAlignVertical: 'center',
     },
     textSection: {

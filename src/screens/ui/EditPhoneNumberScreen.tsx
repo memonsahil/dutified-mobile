@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
         marginRight: '5%',
         paddingTop: '5%',
         borderBottomColor: themeColors.WHITE,
-        borderBottomWidth: 3,
+        borderBottomWidth: 1,
         textAlignVertical: 'center',
     },
     phoneInput: {
@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
         width: '70%',
         paddingTop: '5%',
         borderBottomColor: themeColors.WHITE,
-        borderBottomWidth: 3,
+        borderBottomWidth: 1,
         textAlignVertical: 'center',
     },
     saveButtonContainer: {

@@ -327,7 +327,7 @@ const styles = StyleSheet.create({
         width: '100%',
         paddingTop: '5%',
         borderBottomColor: themeColors.WHITE,
-        borderBottomWidth: 3,
+        borderBottomWidth: 1,
         alignSelf: 'center',
     },
     categoriesHeading: {
@@ -373,7 +373,7 @@ const styles = StyleSheet.create({
         color: themeColors.WHITE,
         width: '80%',
         borderBottomColor: themeColors.WHITE,
-        borderBottomWidth: 3,
+        borderBottomWidth: 1,
         textAlignVertical: 'center',
     },
     descContainer: {
