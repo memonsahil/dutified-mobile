@@ -1,6 +1,5 @@
 type authNavigatorParamList = {
     Info: undefined
-    Main: undefined
     SignUp: undefined
     SignIn: undefined
     Reset: undefined

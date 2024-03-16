@@ -10,7 +10,6 @@ import userType from '../../data/types/userType'
 type screens = {
     // Auth screens
     Info: undefined
-    Main: undefined
     SignUp: undefined
     SignIn: undefined
     Reset: undefined
