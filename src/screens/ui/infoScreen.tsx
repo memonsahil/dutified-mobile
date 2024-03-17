@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontFamily: 'Karma-Bold',
-        fontSize: fontSizes.BODY_TWO,
+        fontSize: fontSizes.BODY_THREE,
         color: themeColors.BLACK,
     },
 })
