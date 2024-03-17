@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
     body: {
         fontFamily: 'Karma-Bold',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.GREEN,
+        color: themeColors.BLACK,
         textAlign: 'center',
     },
     mainSection: {
