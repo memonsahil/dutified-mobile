@@ -5,26 +5,25 @@ import {
     TouchableOpacity,
     View,
     TextInput,
-    Alert,
-    Linking,
     ScrollView,
+    Alert,
 } from 'react-native'
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation, NavigationProp } from '@react-navigation/native'
-import * as Progress from 'react-native-progress'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import themeColors from '../../enums/themeColors'
 import fontSizes from '../../enums/fontSizes'
 import screens from '../params/screens'
-import requestStatus from '../../enums/requestStatus'
-import authUser from '../../data/classes/authUser'
-import * as Crypto from 'expo-crypto'
-import promiseType from '../../data/types/promiseType'
 import { Avatar } from 'react-native-elements'
 import categories from '../../enums/categories'
 import authStore from '../../state/stores/authStore'
 import util from '../../util/util'
-import { vs } from 'react-native-size-matters'
+import { s, vs } from 'react-native-size-matters'
+import Carousel from 'react-native-snap-carousel'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import authUser from '../../data/classes/authUser'
+import promiseType from '../../data/types/promiseType'
+import requestStatus from '../../enums/requestStatus'
+import * as Progress from 'react-native-progress'
 
 const SignUpScreen = () => {
     const [first, setFirst] = useState<string>('')
@@ -48,38 +47,16 @@ const SignUpScreen = () => {
 
     const navigation: NavigationProp<screens> = useNavigation()
 
-    useEffect(() => {
-        if (enteredCategory !== '') {
-            setSearchResults(util.searchCategories(categories, enteredCategory))
-        } else {
-            setSearchResults(Object.values(categories))
-        }
-    }, [enteredCategory])
-
-    return (
-        <View style={styles.container}>
-            {loading === false ? (
-                <KeyboardAwareScrollView
-                    enableOnAndroid={true}
-                    contentContainerStyle={styles.scrollView}
-                >
-                    <View style={styles.headerSection}>
-                        <TouchableOpacity onPress={() => navigation.goBack()}>
-                            <MaterialCommunityIcons
-                                name="chevron-left-circle"
-                                size={28}
-                                color={themeColors.GREEN}
-                            />
-                        </TouchableOpacity>
-                        <Text style={styles.heading}>Sign Up</Text>
-                    </View>
-                    <View style={styles.signUpSection}>
-                        <Text style={styles.subHeading}>Account</Text>
-                        <Text style={styles.text}>
-                            Enter your account details below, these can be
-                            updated later.
+    const carouselItems: {
+        content: JSX.Element
+    }[] = [
+        {
+            content: (
+                <View style={styles.content}>
+                    <View>
+                        <Text style={[styles.field, { paddingTop: vs(20) }]}>
+                            Name
                         </Text>
-                        <Text style={styles.field}>Name</Text>
                         <TextInput
                             placeholder="First"
                             value={first}
@@ -100,6 +77,8 @@ const SignUpScreen = () => {
                             autoComplete="off"
                             autoCorrect={false}
                         />
+                    </View>
+                    <View>
                         <Text style={styles.field}>Phone</Text>
                         <View style={styles.phoneInputWrapper}>
                             <Text style={styles.codePlus}>+</Text>
@@ -120,6 +99,8 @@ const SignUpScreen = () => {
                                 inputMode="tel"
                             />
                         </View>
+                    </View>
+                    <View>
                         <Text style={styles.field}>Email</Text>
                         <TextInput
                             placeholder="you@domain.com"
@@ -132,6 +113,8 @@ const SignUpScreen = () => {
                             autoComplete="off"
                             autoCorrect={false}
                         />
+                    </View>
+                    <View>
                         <Text style={styles.field}>Password</Text>
                         <TextInput
                             placeholder="••••••••"
@@ -144,63 +127,129 @@ const SignUpScreen = () => {
                             autoComplete="off"
                             autoCorrect={false}
                         />
-                        <Text style={styles.subHeading}>Profile</Text>
-                        <Text style={styles.text}>
-                            Enter your profile details below, these can be
-                            updated later.
-                        </Text>
-                        <Text style={styles.field}>Profile Picture</Text>
-                        <Avatar
-                            size="xlarge"
-                            rounded
-                            source={
-                                image
-                                    ? { uri: image }
-                                    : require('../../../assets/images/user-avatar.png')
-                            }
-                            containerStyle={styles.avatarContainer}
+                    </View>
+                    <TouchableOpacity
+                        style={[
+                            styles.buttonWrapper,
+                            { paddingBottom: vs(20) },
+                        ]}
+                        onPress={() => {}}
+                    >
+                        <MaterialCommunityIcons
+                            name="chevron-right-circle"
+                            size={28}
+                            color={themeColors.GREEN}
+                            style={styles.iconButton}
                         />
-                        <View style={styles.buttonContainer}>
-                            <TouchableOpacity
-                                onPress={() => util.pickImage(setImage)}
-                                style={styles.buttonWrapper}
-                            >
-                                <MaterialCommunityIcons
-                                    name="file-image-plus"
-                                    size={28}
-                                    color={themeColors.GREEN}
-                                    style={styles.iconButton}
-                                />
-                                <Text style={styles.button}>Upload</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity
-                                onPress={() => {
-                                    setImage('')
-                                }}
-                                style={styles.buttonWrapper}
-                            >
-                                <MaterialCommunityIcons
-                                    name="square-edit-outline"
-                                    size={28}
-                                    color={themeColors.GREEN}
-                                    style={styles.iconButton}
-                                />
-                                <Text style={styles.button}>Reset</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <Text style={styles.field}>Bio</Text>
-                        <View style={styles.descContainer}>
-                            <TextInput
-                                placeholder="Enter your bio here."
-                                value={desc}
-                                onChangeText={setDesc}
-                                style={styles.descTextInput}
-                                placeholderTextColor={themeColors.SILVER}
-                                inputMode="text"
-                                multiline
+                        <Text style={styles.button}>Next</Text>
+                    </TouchableOpacity>
+                </View>
+            ),
+        },
+        {
+            content: (
+                <View style={styles.content}>
+                    <Text style={[styles.field, { paddingTop: vs(20) }]}>
+                        Profile Picture
+                    </Text>
+                    <Avatar
+                        size="xlarge"
+                        rounded
+                        source={
+                            image
+                                ? { uri: image }
+                                : require('../../../assets/images/user-avatar.png')
+                        }
+                        containerStyle={styles.avatarContainer}
+                    />
+                    <View
+                        style={[
+                            styles.buttonContainer,
+                            { paddingBottom: vs(20) },
+                        ]}
+                    >
+                        <TouchableOpacity
+                            onPress={() => util.pickImage(setImage)}
+                            style={styles.buttonWrapper}
+                        >
+                            <MaterialCommunityIcons
+                                name="file-image-plus"
+                                size={28}
+                                color={themeColors.GREEN}
+                                style={styles.iconButton}
                             />
-                        </View>
-                        <Text style={styles.field}>Categories</Text>
+                            <Text style={styles.button}>Upload</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => {
+                                setImage('')
+                            }}
+                            style={styles.buttonWrapper}
+                        >
+                            <MaterialCommunityIcons
+                                name="square-edit-outline"
+                                size={28}
+                                color={themeColors.GREEN}
+                                style={styles.iconButton}
+                            />
+                            <Text style={styles.button}>Reset</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => {}}
+                            style={styles.buttonWrapper}
+                        >
+                            <MaterialCommunityIcons
+                                name="chevron-right-circle"
+                                size={28}
+                                color={themeColors.GREEN}
+                                style={styles.iconButton}
+                            />
+                            <Text style={styles.button}>Next</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            ),
+        },
+        {
+            content: (
+                <View style={styles.content}>
+                    <Text style={[styles.field, { paddingTop: vs(20) }]}>
+                        Bio
+                    </Text>
+                    <TextInput
+                        placeholder="Enter your bio here."
+                        value={desc}
+                        onChangeText={setDesc}
+                        style={styles.descTextInput}
+                        placeholderTextColor={themeColors.BLACK}
+                        inputMode="text"
+                        multiline
+                    />
+                    <TouchableOpacity
+                        onPress={() => {}}
+                        style={[
+                            styles.buttonWrapper,
+                            { paddingBottom: vs(20) },
+                        ]}
+                    >
+                        <MaterialCommunityIcons
+                            name="chevron-right-circle"
+                            size={28}
+                            color={themeColors.GREEN}
+                            style={styles.iconButton}
+                        />
+                        <Text style={styles.button}>Next</Text>
+                    </TouchableOpacity>
+                </View>
+            ),
+        },
+        {
+            content: (
+                <View style={[styles.content]}>
+                    <View>
+                        <Text style={[styles.field, { paddingTop: vs(20) }]}>
+                            Categories
+                        </Text>
                         <TextInput
                             placeholder="Web Development"
                             value={enteredCategory}
@@ -210,51 +259,51 @@ const SignUpScreen = () => {
                             autoCapitalize="words"
                             inputMode="text"
                         />
-                        <ScrollView
-                            horizontal={true}
-                            showsHorizontalScrollIndicator={false}
-                            contentContainerStyle={styles.categoriesScrollView}
-                        >
-                            {Object.values(searchResults).map((category) => (
-                                <TouchableOpacity
-                                    key={category}
-                                    onPress={() => {
-                                        selectedCategories.includes(
-                                            category
-                                        ) !== true
-                                            ? (setSelectedCategories([
-                                                  ...selectedCategories,
-                                                  category,
-                                              ]),
-                                              setEnteredCategory(''))
-                                            : null
-                                    }}
-                                >
-                                    <Text style={styles.category}>
-                                        {category}
-                                    </Text>
-                                </TouchableOpacity>
-                            ))}
-                        </ScrollView>
-                        {selectedCategories.length !== 0 ? (
-                            <>
-                                <Text style={styles.categoriesHeading}>
-                                    Selected
-                                </Text>
-                                {Object.values(selectedCategories).map(
-                                    (selectedCategory) => (
-                                        <View
-                                            key={selectedCategory}
-                                            style={
-                                                styles.selectedCategoryContainer
-                                            }
+                        <View style={styles.categoriesWrapper}>
+                            <ScrollView
+                                contentContainerStyle={
+                                    styles.categoriesContainer
+                                }
+                                style={styles.categoriesScrollView}
+                            >
+                                {Object.values(searchResults).map(
+                                    (category) => (
+                                        <TouchableOpacity
+                                            key={category}
+                                            onPress={() => {
+                                                selectedCategories.includes(
+                                                    category
+                                                ) !== true
+                                                    ? (setSelectedCategories([
+                                                          category,
+                                                          ...selectedCategories,
+                                                          ...selectedCategories,
+                                                          category,
+                                                          ...selectedCategories,
+                                                          category,
+                                                      ]),
+                                                      setEnteredCategory(''))
+                                                    : null
+                                            }}
                                         >
-                                            <Text
-                                                style={styles.selectedCategory}
-                                            >
-                                                {selectedCategory}
+                                            <Text style={styles.category}>
+                                                {category}
                                             </Text>
+                                        </TouchableOpacity>
+                                    )
+                                )}
+                            </ScrollView>
+                        </View>
+                    </View>
+                    {selectedCategories.length !== 0 ? (
+                        <View>
+                            <Text style={styles.field}>Selected</Text>
+                            <View style={styles.selectedCategoriesWrapper}>
+                                <ScrollView>
+                                    {Object.values(selectedCategories).map(
+                                        (category) => (
                                             <TouchableOpacity
+                                                key={category}
                                                 onPress={() => {
                                                     setSelectedCategories(
                                                         selectedCategories.filter(
@@ -262,25 +311,52 @@ const SignUpScreen = () => {
                                                                 _selectedCategory
                                                             ) =>
                                                                 _selectedCategory !==
-                                                                selectedCategory
+                                                                category
                                                         )
                                                     )
                                                 }}
                                             >
-                                                <MaterialCommunityIcons
-                                                    name="close-circle"
-                                                    size={28}
-                                                    color={themeColors.GREEN}
-                                                />
+                                                <Text
+                                                    style={
+                                                        styles.selectedCategory
+                                                    }
+                                                >
+                                                    {category}
+                                                </Text>
                                             </TouchableOpacity>
-                                        </View>
-                                    )
-                                )}
-                            </>
-                        ) : null}
-                        <Text style={styles.field}>Links</Text>
+                                        )
+                                    )}
+                                </ScrollView>
+                            </View>
+                        </View>
+                    ) : null}
+                    <TouchableOpacity
+                        onPress={() => {}}
+                        style={[
+                            styles.buttonWrapper,
+                            { paddingBottom: vs(20) },
+                        ]}
+                    >
+                        <MaterialCommunityIcons
+                            name="chevron-right-circle"
+                            size={28}
+                            color={themeColors.GREEN}
+                            style={styles.iconButton}
+                        />
+                        <Text style={styles.button}>Next</Text>
+                    </TouchableOpacity>
+                </View>
+            ),
+        },
+        {
+            content: (
+                <View style={styles.content}>
+                    <View>
+                        <Text style={[styles.field, { paddingTop: vs(20) }]}>
+                            Links
+                        </Text>
                         <TextInput
-                            placeholder="Link"
+                            placeholder="linkedIn.com/username"
                             value={link}
                             onChangeText={setLink}
                             style={styles.input}
@@ -291,14 +367,17 @@ const SignUpScreen = () => {
                             inputMode="url"
                         />
                         <TouchableOpacity
-                            style={styles.buttonWrapper}
+                            style={[
+                                styles.buttonWrapper,
+                                { marginTop: vs(40) },
+                            ]}
                             onPress={() => {
                                 link !== ''
                                     ? (setLinks([
-                                          ...links,
                                           link.includes('http')
                                               ? link
                                               : `https://${link}`,
+                                          ...links,
                                       ]),
                                       setLink(''))
                                     : null
@@ -312,27 +391,19 @@ const SignUpScreen = () => {
                             />
                             <Text style={styles.button}>Add</Text>
                         </TouchableOpacity>
-                        {links.length !== 0 ? (
-                            <>
-                                {Object.values(links).map((link) => (
-                                    <View
-                                        key={Crypto.randomUUID()}
-                                        style={styles.linkContainer}
-                                    >
+                    </View>
+                    {links.length !== 0 ? (
+                        <View>
+                            <Text
+                                style={[styles.field, { paddingTop: vs(20) }]}
+                            >
+                                Selected
+                            </Text>
+                            <View style={styles.linksWrapper}>
+                                <ScrollView>
+                                    {Object.values(links).map((link) => (
                                         <TouchableOpacity
-                                            onPress={() =>
-                                                Linking.openURL(link)
-                                            }
-                                        >
-                                            <Text
-                                                style={styles.link}
-                                                numberOfLines={1}
-                                                ellipsizeMode="tail"
-                                            >
-                                                {link}
-                                            </Text>
-                                        </TouchableOpacity>
-                                        <TouchableOpacity
+                                            key={link}
                                             onPress={() => {
                                                 setLinks(
                                                     links.filter(
@@ -342,70 +413,85 @@ const SignUpScreen = () => {
                                                 )
                                             }}
                                         >
-                                            <MaterialCommunityIcons
-                                                name="close-circle"
-                                                size={28}
-                                                color={themeColors.GREEN}
-                                            />
+                                            <Text style={styles.link}>
+                                                {link}
+                                            </Text>
                                         </TouchableOpacity>
-                                    </View>
-                                ))}
-                            </>
-                        ) : null}
-                        <Text style={styles.quote}>
-                            "Pleasure in the job puts perfection in the work." -
-                            Aristotle
-                        </Text>
-                    </View>
+                                    ))}
+                                </ScrollView>
+                            </View>
+                        </View>
+                    ) : null}
                     <TouchableOpacity
-                        onPress={() => {
-                            if (
-                                first !== '' &&
-                                last !== '' &&
-                                code !== '' &&
-                                phone !== '' &&
-                                email !== '' &&
-                                password != ''
-                            ) {
-                                setLoading(true)
-                                authUser
-                                    .signUp({
-                                        user: {
-                                            userName: first + ' ' + last,
-                                            userAvatar: image ? image : '',
-                                            countryCode: code,
-                                            phoneNumber: phone,
-                                            emailAddress: email,
-                                            cardNumber: '',
-                                            securityCode: '',
-                                            expiryMonth: '',
-                                            expiryYear: '',
-                                            userDesc: desc ? desc : '',
-                                            categories: selectedCategories
-                                                ? selectedCategories
-                                                : [],
-                                            links: links ? links : [],
-                                            notifications: [],
-                                            network: [],
-                                            projectsCreated: [],
-                                            projectsWorked: [],
-                                            jobsCreated: [],
-                                            jobsWorked: [],
-                                            postsCreated: [],
-                                            userFeedPosts: [],
-                                            chats: [],
-                                            transactions: [],
-                                            feedbacks: [],
-                                            creationDate: creationDate,
-                                        },
-                                        password: password,
-                                    })
-                                    .then((response: promiseType) => {
-                                        if (
-                                            response.status ===
-                                            requestStatus.SUCCESS
-                                        ) {
-                                            setCurrentUser({
+                        onPress={() => {}}
+                        style={[
+                            styles.buttonWrapper,
+                            { paddingBottom: vs(20) },
+                        ]}
+                    >
+                        <MaterialCommunityIcons
+                            name="chevron-right-circle"
+                            size={28}
+                            color={themeColors.GREEN}
+                            style={styles.iconButton}
+                        />
+                        <Text style={styles.button}>Next</Text>
+                    </TouchableOpacity>
+                </View>
+            ),
+        },
+        {
+            content: (
+                <View style={styles.content}>
+                    <Text style={styles.title}>You're Ready!</Text>
+                    <View style={styles.infoSection}>
+                        <View style={styles.infoTextWrapper}>
+                            <MaterialCommunityIcons
+                                name="account-cowboy-hat"
+                                size={28}
+                                color={themeColors.GREEN}
+                            />
+                            <Text style={styles.infoText}>
+                                Create a job and hire someone to work on it.
+                            </Text>
+                        </View>
+                        <View style={styles.infoTextWrapper}>
+                            <MaterialCommunityIcons
+                                name="cash-fast"
+                                size={28}
+                                color={themeColors.GREEN}
+                            />
+                            <Text style={styles.infoText}>
+                                Make the job payment and let them get to work.
+                            </Text>
+                        </View>
+                        <View style={styles.infoTextWrapper}>
+                            <MaterialCommunityIcons
+                                name="account-multiple"
+                                size={28}
+                                color={themeColors.GREEN}
+                            />
+                            <Text style={styles.infoText}>
+                                Collaborate with them and track your job's
+                                progress.
+                            </Text>
+                        </View>
+                    </View>
+                    <View>
+                        <TouchableOpacity
+                            onPress={() => {
+                                if (
+                                    first !== '' &&
+                                    last !== '' &&
+                                    code !== '' &&
+                                    phone !== '' &&
+                                    email !== '' &&
+                                    password != ''
+                                ) {
+                                    setLoading(true)
+                                    authUser
+                                        .signUp({
+                                            user: {
                                                 userName: first + ' ' + last,
                                                 userAvatar: image ? image : '',
                                                 countryCode: code,
@@ -432,114 +518,198 @@ const SignUpScreen = () => {
                                                 transactions: [],
                                                 feedbacks: [],
                                                 creationDate: creationDate,
-                                            })
-                                            setLoading(false)
-                                        } else {
+                                            },
+                                            password: password,
+                                        })
+                                        .then((response: promiseType) => {
                                             if (
                                                 response.status ===
-                                                    requestStatus.ERROR &&
-                                                response.errorCode ===
-                                                    'auth/email-already-in-use'
+                                                requestStatus.SUCCESS
                                             ) {
+                                                setCurrentUser({
+                                                    userName:
+                                                        first + ' ' + last,
+                                                    userAvatar: image
+                                                        ? image
+                                                        : '',
+                                                    countryCode: code,
+                                                    phoneNumber: phone,
+                                                    emailAddress: email,
+                                                    cardNumber: '',
+                                                    securityCode: '',
+                                                    expiryMonth: '',
+                                                    expiryYear: '',
+                                                    userDesc: desc ? desc : '',
+                                                    categories:
+                                                        selectedCategories
+                                                            ? selectedCategories
+                                                            : [],
+                                                    links: links ? links : [],
+                                                    notifications: [],
+                                                    network: [],
+                                                    projectsCreated: [],
+                                                    projectsWorked: [],
+                                                    jobsCreated: [],
+                                                    jobsWorked: [],
+                                                    postsCreated: [],
+                                                    userFeedPosts: [],
+                                                    chats: [],
+                                                    transactions: [],
+                                                    feedbacks: [],
+                                                    creationDate: creationDate,
+                                                })
                                                 setLoading(false)
-                                                Alert.alert(
-                                                    'Account Exists',
-                                                    'An account already exists with this email address.',
-                                                    [
-                                                        {
-                                                            text: 'Dismiss',
-                                                            onPress: () => {},
-                                                        },
-                                                    ]
-                                                )
-                                            } else if (
-                                                response.status ===
-                                                    requestStatus.ERROR &&
-                                                response.errorCode ===
-                                                    'auth/invalid-email'
-                                            ) {
-                                                setLoading(false)
-                                                Alert.alert(
-                                                    'Invalid Email',
-                                                    'Please enter a valid email address.',
-                                                    [
-                                                        {
-                                                            text: 'Dismiss',
-                                                            onPress: () => {},
-                                                        },
-                                                    ]
-                                                )
-                                            } else if (
-                                                response.status ===
-                                                    requestStatus.ERROR &&
-                                                response.errorCode ===
-                                                    'auth/weak-password'
-                                            ) {
-                                                setLoading(false)
-                                                Alert.alert(
-                                                    'Weak Password',
-                                                    'Please enter a strong password.',
-                                                    [
-                                                        {
-                                                            text: 'Dismiss',
-                                                            onPress: () => {},
-                                                        },
-                                                    ]
-                                                )
                                             } else {
-                                                setLoading(false)
-                                                Alert.alert(
-                                                    'Error Occurred',
-                                                    'Please contact our support team.',
-                                                    [
-                                                        {
-                                                            text: 'Dismiss',
-                                                            onPress: () => {},
-                                                        },
-                                                    ]
-                                                )
+                                                if (
+                                                    response.status ===
+                                                        requestStatus.ERROR &&
+                                                    response.errorCode ===
+                                                        'auth/email-already-in-use'
+                                                ) {
+                                                    setLoading(false)
+                                                    Alert.alert(
+                                                        'Account Exists',
+                                                        'An account already exists with this email address.',
+                                                        [
+                                                            {
+                                                                text: 'Dismiss',
+                                                                onPress:
+                                                                    () => {},
+                                                            },
+                                                        ]
+                                                    )
+                                                } else if (
+                                                    response.status ===
+                                                        requestStatus.ERROR &&
+                                                    response.errorCode ===
+                                                        'auth/invalid-email'
+                                                ) {
+                                                    setLoading(false)
+                                                    Alert.alert(
+                                                        'Invalid Email',
+                                                        'Please enter a valid email address.',
+                                                        [
+                                                            {
+                                                                text: 'Dismiss',
+                                                                onPress:
+                                                                    () => {},
+                                                            },
+                                                        ]
+                                                    )
+                                                } else if (
+                                                    response.status ===
+                                                        requestStatus.ERROR &&
+                                                    response.errorCode ===
+                                                        'auth/weak-password'
+                                                ) {
+                                                    setLoading(false)
+                                                    Alert.alert(
+                                                        'Weak Password',
+                                                        'Please enter a strong password.',
+                                                        [
+                                                            {
+                                                                text: 'Dismiss',
+                                                                onPress:
+                                                                    () => {},
+                                                            },
+                                                        ]
+                                                    )
+                                                } else {
+                                                    setLoading(false)
+                                                    Alert.alert(
+                                                        'Error Occurred',
+                                                        'Please contact our support team.',
+                                                        [
+                                                            {
+                                                                text: 'Dismiss',
+                                                                onPress:
+                                                                    () => {},
+                                                            },
+                                                        ]
+                                                    )
+                                                }
                                             }
-                                        }
-                                    })
-                            } else {
-                                Alert.alert(
-                                    'Missing Details',
-                                    'Please enter all of your account details before signing up.',
-                                    [
-                                        {
-                                            text: 'Dismiss',
-                                            onPress: () => {},
-                                        },
-                                    ]
-                                )
-                            }
-                        }}
-                        style={styles.buttonWrapper}
-                    >
-                        <MaterialCommunityIcons
-                            name="account-check"
-                            size={28}
-                            color={themeColors.GREEN}
-                            style={styles.iconButton}
-                        />
-                        <Text style={styles.button}>Sign Up</Text>
-                    </TouchableOpacity>
-                    <View style={styles.textContainer}>
-                        <TouchableOpacity
-                            onPress={() => navigation.navigate('TOS')}
+                                        })
+                                } else {
+                                    Alert.alert(
+                                        'Missing Details',
+                                        'Please enter all of your account details before signing up.',
+                                        [
+                                            {
+                                                text: 'Dismiss',
+                                                onPress: () => {},
+                                            },
+                                        ]
+                                    )
+                                }
+                            }}
+                            style={styles.buttonWrapper}
                         >
-                            <Text style={styles.textButton}>
-                                Terms of Service
-                            </Text>
+                            <MaterialCommunityIcons
+                                name="account-check"
+                                size={28}
+                                color={themeColors.GREEN}
+                                style={styles.iconButton}
+                            />
+                            <Text style={styles.button}>Sign Up</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity
-                            onPress={() => navigation.navigate('PP')}
-                        >
-                            <Text style={styles.textButton}>
-                                Privacy Policy
-                            </Text>
-                        </TouchableOpacity>
+                        <View style={styles.textContainer}>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate('TOS')}
+                            >
+                                <Text style={styles.textButton}>
+                                    Terms of Service
+                                </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate('PP')}
+                            >
+                                <Text style={styles.textButton}>
+                                    Privacy Policy
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
+                </View>
+            ),
+        },
+    ]
+
+    const infoCard = ({ item }: { item: { content: JSX.Element } }) => {
+        return <View style={styles.infoCard}>{item.content}</View>
+    }
+
+    useEffect(() => {
+        if (enteredCategory !== '') {
+            setSearchResults(util.searchCategories(categories, enteredCategory))
+        } else {
+            setSearchResults(Object.values(categories))
+        }
+    }, [enteredCategory])
+
+    return (
+        <View style={styles.container}>
+            {loading === false ? (
+                <KeyboardAwareScrollView enableOnAndroid={true}>
+                    <View style={styles.headerSection}>
+                        <TouchableOpacity onPress={() => navigation.goBack()}>
+                            <MaterialCommunityIcons
+                                name="chevron-left-circle"
+                                size={28}
+                                color={themeColors.GREEN}
+                                style={styles.backIcon}
+                            />
+                        </TouchableOpacity>
+                        <Text style={styles.heading}>Sign Up</Text>
+                    </View>
+                    <Carousel
+                        layout={'default'}
+                        data={carouselItems}
+                        sliderWidth={s(350)}
+                        itemWidth={s(300)}
+                        renderItem={infoCard}
+                        snapToAlignment={'center'}
+                    />
                 </KeyboardAwareScrollView>
             ) : (
                 <View style={styles.loadingContainer}>
@@ -566,195 +736,181 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    scrollView: {
-        flexGrow: 1,
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-    },
     headerSection: {
         flexDirection: 'row',
         paddingTop: vs(60),
-        paddingLeft: '10%',
-        paddingRight: '10%',
-        width: '100%',
-        alignItems: 'center',
+        paddingLeft: s(20),
+    },
+    backIcon: {
+        paddingTop: vs(10),
     },
     heading: {
         fontFamily: 'Karma-Bold',
         fontSize: fontSizes.HEADING_ONE,
-        color: themeColors.WHITE,
-        paddingLeft: '5%',
+        color: themeColors.BLACK,
+        paddingLeft: s(20),
     },
-    signUpSection: {
-        width: '80%',
+    infoCard: {
+        backgroundColor: themeColors.WHITE,
+        borderRadius: 20,
+        width: s(300),
+        height: vs(510),
+        marginTop: vs(10),
+        paddingHorizontal: s(20),
     },
-    subHeading: {
-        fontFamily: 'Karma-Bold',
-        fontSize: fontSizes.HEADING_TWO,
-        paddingTop: '10%',
-        color: themeColors.WHITE,
-    },
-    text: {
-        fontFamily: 'Karma-Bold',
-        fontSize: fontSizes.BODY_ONE,
-        color: themeColors.WHITE,
-        paddingTop: '10%',
+    content: {
+        flex: 1,
+        justifyContent: 'space-between',
     },
     field: {
         fontFamily: 'Karma-Bold',
-        fontSize: fontSizes.BUTTON,
-        paddingTop: '10%',
-        color: themeColors.WHITE,
+        fontSize: fontSizes.BODY_ONE,
+        color: themeColors.BLACK,
     },
     input: {
-        fontFamily: 'Karma-SemiBold',
-        fontSize: fontSizes.INPUT,
-        color: themeColors.WHITE,
-        width: '100%',
-        paddingTop: '5%',
-        borderBottomColor: themeColors.WHITE,
-        borderBottomWidth: 3,
-        alignSelf: 'center',
-    },
-    avatarContainer: {
-        backgroundColor: themeColors.GREEN,
-        marginTop: '10%',
-        alignSelf: 'center',
-    },
-    buttonContainer: {
-        alignItems: 'center',
+        fontFamily: 'Karma-Bold',
+        fontSize: fontSizes.BODY_ONE,
+        color: themeColors.GREEN,
+        paddingTop: vs(10),
+        borderBottomColor: themeColors.BLACK,
+        borderBottomWidth: 1,
     },
     phoneInputWrapper: {
         flexDirection: 'row',
         width: '100%',
+        paddingTop: vs(10),
+        textAlignVertical: 'center',
     },
     codePlus: {
-        fontFamily: 'Karma-SemiBold',
+        fontFamily: 'Karma-Bold',
         fontSize: fontSizes.INPUT,
-        color: themeColors.WHITE,
-        width: '10%',
-        paddingTop: '5%',
-        textAlignVertical: 'center',
+        color: themeColors.BLACK,
+        width: vs(30),
     },
     codeInput: {
-        fontFamily: 'Karma-SemiBold',
+        fontFamily: 'Karma-Bold',
         fontSize: fontSizes.INPUT,
-        color: themeColors.WHITE,
-        width: '15%',
-        marginRight: '5%',
-        paddingTop: '5%',
-        borderBottomColor: themeColors.WHITE,
-        borderBottomWidth: 3,
-        textAlignVertical: 'center',
+        color: themeColors.GREEN,
+        width: vs(30),
+        marginRight: vs(10),
+        borderBottomColor: themeColors.BLACK,
+        borderBottomWidth: 1,
     },
     phoneInput: {
-        fontFamily: 'Karma-SemiBold',
+        fontFamily: 'Karma-Bold',
         fontSize: fontSizes.INPUT,
-        color: themeColors.WHITE,
-        width: '70%',
-        paddingTop: '5%',
-        borderBottomColor: themeColors.WHITE,
-        borderBottomWidth: 3,
-        textAlignVertical: 'center',
+        color: themeColors.GREEN,
+        width: vs(160),
+        borderBottomColor: themeColors.BLACK,
+        borderBottomWidth: 1,
     },
     buttonWrapper: {
         flexDirection: 'row',
-        alignItems: 'center',
-        paddingTop: '10%',
         alignSelf: 'center',
     },
     iconButton: {
-        marginRight: '3%',
+        marginRight: s(10),
     },
     button: {
         fontFamily: 'Karma-Bold',
         fontSize: fontSizes.BUTTON,
         color: themeColors.GREEN,
+    },
+    avatarContainer: {
+        backgroundColor: themeColors.GREEN,
         alignSelf: 'center',
     },
-    descContainer: {
-        backgroundColor: themeColors.WHITE,
-        height: 250,
-        borderRadius: 20,
-        marginTop: '5%',
-        padding: 10,
+    buttonContainer: {
+        height: vs(170),
+        justifyContent: 'space-between',
     },
     descTextInput: {
-        fontFamily: 'Karma-SemiBold',
-        fontSize: fontSizes.BODY_ONE,
-        color: themeColors.BLACK,
-        width: '100%',
-        height: '100%',
-        overflow: 'visible',
-        padding: 5,
-        textAlignVertical: 'top',
-    },
-    categoriesHeading: {
         fontFamily: 'Karma-Bold',
         fontSize: fontSizes.BODY_ONE,
-        color: themeColors.WHITE,
-        paddingTop: '10%',
+        color: themeColors.BLACK,
+        overflow: 'scroll',
+        height: vs(370),
+        paddingHorizontal: s(10),
+        borderRadius: 20,
+        backgroundColor: themeColors.SILVER,
+        textAlignVertical: 'top',
+    },
+    categoriesWrapper: {
+        height: vs(150),
+        paddingTop: vs(10),
+    },
+    categoriesContainer: {
+        alignItems: 'flex-start',
+        overflow: 'hidden',
+        paddingTop: vs(10),
+        paddingHorizontal: s(20),
     },
     categoriesScrollView: {
-        paddingTop: '5%',
+        borderRadius: 20,
+        backgroundColor: themeColors.SILVER,
     },
     category: {
         fontFamily: 'Karma-Bold',
-        fontSize: fontSizes.BODY_TWO,
-        color: themeColors.BLACK,
+        fontSize: fontSizes.BODY_THREE,
+        color: themeColors.WHITE,
         backgroundColor: themeColors.GREEN,
-        marginRight: 10,
-        padding: 4,
+        marginRight: s(5),
+        paddingHorizontal: s(5),
+        marginBottom: s(10),
     },
-    selectedCategoryContainer: {
-        marginTop: '10%',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        overflow: 'hidden',
+    selectedCategoriesWrapper: {
+        height: vs(150),
     },
     selectedCategory: {
         fontFamily: 'Karma-Bold',
-        fontSize: fontSizes.BODY_TWO,
-        color: themeColors.BLACK,
+        fontSize: fontSizes.BODY_THREE,
+        color: themeColors.WHITE,
         backgroundColor: themeColors.GREEN,
-        padding: '1%',
+        paddingHorizontal: s(5),
+        marginTop: s(10),
         alignSelf: 'flex-start',
     },
-    linkContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        overflow: 'hidden',
-        width: '100%',
-        marginTop: '10%',
+    linksWrapper: {
+        height: vs(200),
     },
     link: {
-        fontFamily: 'Karma-SemiBold',
-        fontSize: fontSizes.BODY_ONE,
-        color: themeColors.WHITE,
-        textDecorationLine: 'underline',
-        width: 275,
-    },
-    quote: {
         fontFamily: 'Karma-Bold',
-        fontSize: fontSizes.BODY_ONE,
+        fontSize: fontSizes.BODY_THREE,
         color: themeColors.GREEN,
-        paddingTop: '15%',
+        textDecorationLine: 'underline',
+        marginTop: s(10),
+    },
+    title: {
+        paddingTop: vs(50),
+        fontFamily: 'Karma-Bold',
+        fontSize: fontSizes.HEADING_TWO,
+        color: themeColors.BLACK,
+        alignSelf: 'center',
+    },
+    infoSection: {
+        alignItems: 'flex-start',
+    },
+    infoTextWrapper: {
+        flexDirection: 'row',
+        paddingBottom: vs(20),
+        alignItems: 'center',
+        paddingRight: s(20),
+    },
+    infoText: {
+        fontFamily: 'Karma-Bold',
+        fontSize: fontSizes.BODY_TWO,
+        color: themeColors.BLACK,
+        paddingLeft: '10%',
     },
     textContainer: {
         flexDirection: 'row',
         justifyContent: 'space-around',
-        paddingBottom: '20%',
-        width: '70%',
+        marginVertical: vs(40),
     },
     textButton: {
-        textAlign: 'center',
-        textAlignVertical: 'center',
         fontFamily: 'Karma-Bold',
-        fontSize: fontSizes.BODY_TWO,
-        paddingTop: '10%',
-        color: themeColors.WHITE,
+        fontSize: fontSizes.BODY_THREE,
+        color: themeColors.BLACK,
         textDecorationLine: 'underline',
     },
 })
