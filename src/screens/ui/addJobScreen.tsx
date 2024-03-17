@@ -389,7 +389,7 @@ const styles = StyleSheet.create({
         color: themeColors.BLACK,
         width: '100%',
         height: '100%',
-        overflow: 'visible',
+        overflow: 'scroll',
         padding: 5,
         textAlignVertical: 'top',
     },

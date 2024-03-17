@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
         color: themeColors.BLACK,
         width: '100%',
         height: '100%',
-        overflow: 'visible',
+        overflow: 'scroll',
     },
     buttonWrapper: {
         flexDirection: 'row',
