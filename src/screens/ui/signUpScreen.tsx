@@ -53,6 +53,227 @@ const SignUpScreen = () => {
         {
             content: (
                 <View style={styles.content}>
+                    <Text style={styles.title}>Get Started!</Text>
+                    <View style={styles.infoSection}>
+                        <View style={styles.infoTextWrapper}>
+                            <Text style={styles.infoText}>
+                                Welcome to Dutified! By signing up, you will
+                                become part of a network that fosters
+                                collaboration and funding for the development of
+                                new ideas.
+                            </Text>
+                        </View>
+                        <View style={styles.infoTextWrapper}>
+                            <Text style={styles.infoText}>
+                                Make the job payment and let them get to work.
+                            </Text>
+                        </View>
+                        <View style={styles.infoTextWrapper}>
+                            <Text style={styles.infoText}>
+                                Collaborate with them and track your job's
+                                progress.
+                            </Text>
+                        </View>
+                    </View>
+                    <View>
+                        <TouchableOpacity
+                            onPress={() => {
+                                if (
+                                    first !== '' &&
+                                    last !== '' &&
+                                    code !== '' &&
+                                    phone !== '' &&
+                                    email !== '' &&
+                                    password != ''
+                                ) {
+                                    setLoading(true)
+                                    authUser
+                                        .signUp({
+                                            user: {
+                                                userName: first + ' ' + last,
+                                                userAvatar: image ? image : '',
+                                                countryCode: code,
+                                                phoneNumber: phone,
+                                                emailAddress: email,
+                                                cardNumber: '',
+                                                securityCode: '',
+                                                expiryMonth: '',
+                                                expiryYear: '',
+                                                userDesc: desc ? desc : '',
+                                                categories: selectedCategories
+                                                    ? selectedCategories
+                                                    : [],
+                                                links: links ? links : [],
+                                                notifications: [],
+                                                network: [],
+                                                projectsCreated: [],
+                                                projectsWorked: [],
+                                                jobsCreated: [],
+                                                jobsWorked: [],
+                                                postsCreated: [],
+                                                userFeedPosts: [],
+                                                chats: [],
+                                                transactions: [],
+                                                feedbacks: [],
+                                                creationDate: creationDate,
+                                            },
+                                            password: password,
+                                        })
+                                        .then((response: promiseType) => {
+                                            if (
+                                                response.status ===
+                                                requestStatus.SUCCESS
+                                            ) {
+                                                setCurrentUser({
+                                                    userName:
+                                                        first + ' ' + last,
+                                                    userAvatar: image
+                                                        ? image
+                                                        : '',
+                                                    countryCode: code,
+                                                    phoneNumber: phone,
+                                                    emailAddress: email,
+                                                    cardNumber: '',
+                                                    securityCode: '',
+                                                    expiryMonth: '',
+                                                    expiryYear: '',
+                                                    userDesc: desc ? desc : '',
+                                                    categories:
+                                                        selectedCategories
+                                                            ? selectedCategories
+                                                            : [],
+                                                    links: links ? links : [],
+                                                    notifications: [],
+                                                    network: [],
+                                                    projectsCreated: [],
+                                                    projectsWorked: [],
+                                                    jobsCreated: [],
+                                                    jobsWorked: [],
+                                                    postsCreated: [],
+                                                    userFeedPosts: [],
+                                                    chats: [],
+                                                    transactions: [],
+                                                    feedbacks: [],
+                                                    creationDate: creationDate,
+                                                })
+                                                setLoading(false)
+                                            } else {
+                                                if (
+                                                    response.status ===
+                                                        requestStatus.ERROR &&
+                                                    response.errorCode ===
+                                                        'auth/email-already-in-use'
+                                                ) {
+                                                    setLoading(false)
+                                                    Alert.alert(
+                                                        'Account Exists',
+                                                        'An account already exists with this email address.',
+                                                        [
+                                                            {
+                                                                text: 'Dismiss',
+                                                                onPress:
+                                                                    () => {},
+                                                            },
+                                                        ]
+                                                    )
+                                                } else if (
+                                                    response.status ===
+                                                        requestStatus.ERROR &&
+                                                    response.errorCode ===
+                                                        'auth/invalid-email'
+                                                ) {
+                                                    setLoading(false)
+                                                    Alert.alert(
+                                                        'Invalid Email',
+                                                        'Please enter a valid email address.',
+                                                        [
+                                                            {
+                                                                text: 'Dismiss',
+                                                                onPress:
+                                                                    () => {},
+                                                            },
+                                                        ]
+                                                    )
+                                                } else if (
+                                                    response.status ===
+                                                        requestStatus.ERROR &&
+                                                    response.errorCode ===
+                                                        'auth/weak-password'
+                                                ) {
+                                                    setLoading(false)
+                                                    Alert.alert(
+                                                        'Weak Password',
+                                                        'Please enter a strong password.',
+                                                        [
+                                                            {
+                                                                text: 'Dismiss',
+                                                                onPress:
+                                                                    () => {},
+                                                            },
+                                                        ]
+                                                    )
+                                                } else {
+                                                    setLoading(false)
+                                                    Alert.alert(
+                                                        'Error Occurred',
+                                                        'Please contact our support team.',
+                                                        [
+                                                            {
+                                                                text: 'Dismiss',
+                                                                onPress:
+                                                                    () => {},
+                                                            },
+                                                        ]
+                                                    )
+                                                }
+                                            }
+                                        })
+                                } else {
+                                    Alert.alert(
+                                        'Missing Details',
+                                        'Please enter all of your account details before signing up.',
+                                        [
+                                            {
+                                                text: 'Dismiss',
+                                                onPress: () => {},
+                                            },
+                                        ]
+                                    )
+                                }
+                            }}
+                            style={styles.buttonWrapper}
+                        >
+                            <MaterialCommunityIcons
+                                name="account-check"
+                                size={28}
+                                color={themeColors.GREEN}
+                                style={styles.iconButton}
+                            />
+                            <Text style={styles.button}>Sign Up</Text>
+                        </TouchableOpacity>
+                        <View style={styles.textContainer}>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate('TOS')}
+                            >
+                                <Text style={styles.textButton}>
+                                    Terms of Service
+                                </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate('PP')}
+                            >
+                                <Text style={styles.textButton}>
+                                    Privacy Policy
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </View>
+            ),
+        },
+        {
+            content: (
+                <View style={styles.content}>
                     <View>
                         <Text style={[styles.field, { paddingTop: vs(20) }]}>
                             Name
@@ -147,6 +368,9 @@ const SignUpScreen = () => {
             ),
         },
         {
+            content: <></>,
+        },
+        {
             content: (
                 <View style={styles.content}>
                     <Text style={[styles.field, { paddingTop: vs(20) }]}>
@@ -211,6 +435,9 @@ const SignUpScreen = () => {
             ),
         },
         {
+            content: <></>,
+        },
+        {
             content: (
                 <View style={styles.content}>
                     <Text style={[styles.field, { paddingTop: vs(20) }]}>
@@ -242,6 +469,9 @@ const SignUpScreen = () => {
                     </TouchableOpacity>
                 </View>
             ),
+        },
+        {
+            content: <></>,
         },
         {
             content: (
@@ -347,6 +577,9 @@ const SignUpScreen = () => {
                     </TouchableOpacity>
                 </View>
             ),
+        },
+        {
+            content: <></>,
         },
         {
             content: (
@@ -900,7 +1133,6 @@ const styles = StyleSheet.create({
         fontFamily: 'Karma-Bold',
         fontSize: fontSizes.BODY_TWO,
         color: themeColors.BLACK,
-        paddingLeft: '10%',
     },
     textContainer: {
         flexDirection: 'row',
