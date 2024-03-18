@@ -173,6 +173,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-around',
         paddingHorizontal: s(20),
+        overflow: 'hidden',
     },
     title: {
         fontFamily: 'Karma-Bold',
